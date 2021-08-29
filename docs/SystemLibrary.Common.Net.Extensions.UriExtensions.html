@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UriExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="UriExtensions
+   ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="/systemlibrary-common-net/favicon.ico">
+    <link rel="stylesheet" href="/systemlibrary-common-net/styles/docfx.vendor.css">
+    <link rel="stylesheet" href="/systemlibrary-common-net/styles/docfx.css">
+    <link rel="stylesheet" href="/systemlibrary-common-net/styles/main.css">
+    <link rel="stylesheet" href="/systemlibrary-common-net/styles/custom.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <script>
+      function display() {
+        var articles = document.querySelectorAll('article.hideonload');
+        if(articles && articles.length) {
+          for(var i = 0; i < articles.length; i++) {
+            if(articles[i].classList.contains('hideonload')) {
+              articles[i].classList.remove('hideonload');
+            }
+          }
+        }
+      }
+      setTimeout(display, 80);
+    </script>
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="..//systemlibrary-common-net/index.html">
+                <img id="logo" class="svg" src="..//systemlibrary-common-net/logo.png" alt="">
+              </a>
+              
+              <span class="navbar-title">System Library</span>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+      
+      <div class="sidenav hide-when-search">
+        <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+        <div class="sidetoggle collapse" id="sidetoggle">
+          <div id="sidetoc"></div>
+        </div>
+      </div>
+
+      <div class="article-row-container">
+        <div class="article row grid-right">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions">
+  
+  
+  <h6><strong>Namespace</strong>: <a class="xref" href="SystemLibrary.Common.Net.Extensions.html">SystemLibrary.Common.Net.Extensions</a>, <span class="h6-assembly-name">SystemLibrary.Common.Net.dll</span></h6>
+  <h1 id="SystemLibrary_Common_Net_Extensions_UriExtensions" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions" class="text-break h1-class-header">UriExtensions
+  </h1>
+  <h1 id="SystemLibrary_Common_Net_Extensions_UriExtensions" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions" class="h1-custom-display className">public static class UriExtensions</h1>
+  
+  <div class="h1-class-summary-container">
+    <div class="markdown level0 summary h1-class-summary"><p>Extension methods for uri's like GetPrimaryDomain(), ...</p>
+</div>
+  </div>
+  <div class="markdown level0 conceptual h1-class-conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">UriExtensions</span></div>
+  </div>
+  
+  <div class="syslib-tab-menu-container">
+  
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Extensions_UriExtensions_arguments">Arguments</h5>
+        </div>
+  
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+  
+  
+        </div>
+  
+  
+    </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/UriExtensions.cs/#L25">View Source</a>
+  </span>
+  <a id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain*"></a>
+  
+  <h4 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String_" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain(System.Uri,System.String)" class="hidden">GetPrimaryDomain(Uri, String)</h4>
+  <h4 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String_" data-uid="SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain(System.Uri,System.String)" class="h4-custom-display functionName">public static string GetPrimaryDomain(this Uri uri, string topLevelDomain = &quot;.com&quot;)</h4>
+  
+  	<div class="syslib-tab-menu-container">
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String__summary">Summary</h5>
+        </div>
+  
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+          <div class="markdown level1 summary member-summary"><p>Returns the domain part of the uri or blank, never null:</p>
+<p><a href="https://www.sub1.sub2.sub3.domain.com">https://www.sub1.sub2.sub3.domain.com</a> =&gt; domain.com</p>
+</div>
+          <div class="markdown level1 conceptual member-summary-conceptual"></div>
+        </div>
+  
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String__examples">Examples</h5>
+        </div>
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+          <div class="codewrapper">
+            <pre><code>var result = new Uri(&quot;https://systemlibrary.com&quot;).GetPrimaryDomain();
+//result is &quot;systemlibrary.com&quot;
+
+var result = new Uri(&quot;https://systemlibrary.github.io/systemlibrary-common-net/&quot;).GetPrimaryDomain();
+//result is &quot;github.io&quot;</code></pre>
+
+          </div>
+          <div class="comment-examples-container-bottom"></div>
+        </div>
+  
+  
+  
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String__arguments">Arguments</h5>
+        </div>
+  
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+  
+  
+          <h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><span class="xref">System.Uri</span></td>
+                  <td><span class="parametername">uri</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><span class="xref">System.String</span></td>
+                  <td><span class="parametername">topLevelDomain</span></td>
+                  <td></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String__returns">Returns</h5>
+        </div>
+  
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+  
+        <table class="table table-bordered table-striped table-condensed table-return">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="xref">System.String</span></td>
+              <td><p>Primary domain name or &quot;&quot;, never null</p>
+</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        </div>
+  
+    </div>
+  
+  
+  
+  
+  
+  <script>
+  		function getItems(selector) {
+  			return document.querySelectorAll(selector);
+  		}
+  
+  		//CLASS FUNCTIONS
+  		function getClassNameIndex(parts) {
+  			for (var i = 0; i < parts.length; i++) {
+  				if (parts[i] === "class") {
+  					return i + 1;
+  				}
+  			}
+  			return 0;
+  		}
+  
+  		function getClassGenericStartIndex(parts, classNameIndex) {
+  			let part = parts[classNameIndex];
+  			if (part.includes("&lt;") && part.includes("&gt;")) {
+  				return part.indexOf("&lt;");
+  			}
+  			if (part.includes("&lt;") && part.includes(",")) {
+  				return part.indexOf("&lt;");
+  			}
+  			return 0;
+  		}
+  
+  		function classHasMultipleGenerics(parts, classNameIndex) {
+  			let part = parts[classNameIndex];
+  			if (part.includes("&lt;")) {
+  				if (part.includes(',')) {
+  					return true;
+  				}
+  			}
+  			return false;
+  		}
+  
+  		function getClassName(parts, classNameIndex) {
+  			var genericStartIndex = getClassGenericStartIndex(parts, classNameIndex);
+  			var hasMultipleGenerics = classHasMultipleGenerics(parts, classNameIndex);
+  
+  			if (genericStartIndex > 0) {
+  				parts[classNameIndex] = parts[classNameIndex].substring(0, genericStartIndex);
+  
+  				if (hasMultipleGenerics) {
+  					return '<span class="classNameHeading">' + parts[classNameIndex] + '</span><span class="class-multigeneric">&lt;&gt;</span>';
+  				} else {
+  					return '<span class="classNameHeading">' + parts[classNameIndex] + '</span><span class="class-generic">&lt;&gt;</span>';
+  				}
+  			}
+  			return '<span class="classNameHeading">' + parts[classNameIndex] + '</span>';
+  		}
+  
+  		function cleanCssName(text) {
+  			if (text) {
+  				text = text.replace('>', '').replace('<', '').replace('.', '').replace(']', '').replace('[', '');
+  				text = text.replace(' ', '').replace('(', '').replace(')', '').replace(',', '');
+  				text = text.replace('=', '').replace('?', '').replace(';', '').replace('!', '');
+  				return text.toLowerCase();
+  			}
+  			return "";
+  		}
+  
+  		function updateClassNames() {
+  			var items = getItems(".h1-custom-display.className");
+  
+  			for (var i = 0; i < items.length; i++) {
+  				var value = items[i].innerHTML;
+  
+  				if (!value || value.length < 4 || !value.includes(' ')) {
+  					console.warn("Class is wrong: " + value);
+  					continue;
+  				}
+  
+  				var parts = value.split(' ');
+  				var classNameIndex = getClassNameIndex(parts);
+  
+  				for (var j = 0; j < parts.length; j++) {
+  					if (j > classNameIndex || parts[j] === "sealed" || parts[j] === "public") {
+  						parts[j] = "";
+  					} else if (j === classNameIndex) {
+  						parts[classNameIndex] = getClassName(parts, classNameIndex);
+  					} else {
+  						parts[j] = "<span class='classNameHeader className--" + cleanCssName(parts[j]) + "'>" + parts[j] + "</span> ";
+  					}
+  				}
+  
+  				var innerHtml = parts.join('');
+  				items[i].innerHTML = innerHtml;
+  			}
+  		}
+  		//CLASS FUNCTIONS END
+  
+  		//FUNCTION FUNCTIONS
+  		function getFunctionNameIndex(parts) {
+  			for (var i = 0; i < parts.length; i++) {
+  				var index = parts[i].indexOf('(');
+  
+  				if (index > 0) {
+  					var greaterthan = parts[i].indexOf("&gt;");
+  					if (greaterthan == -1) {
+  						//Non-generic function
+  						return i;
+  					}
+  
+  					var lessthan = parts[i].indexOf("&lt;");
+  					if (lessthan == - 1) {
+  						return i - 1;
+  					}
+  					return i;
+  				}
+  			}
+  			return 0;
+  		}
+  
+  		function functionIsGeneric(parts, functionNameIndex) {
+  			var part = parts[functionNameIndex];
+  			var isGeneric = part.indexOf("&gt;") >= 0 || part.indexOf("&lt;") >= 0;
+  			return isGeneric;
+  		}
+  
+  		function functionHasMultipleGenerics(parts, functionNameIndex) {
+  			var part = parts[functionNameIndex];
+  			return part.indexOf("&lt;") >= 0 && part.indexOf("&gt;") === -1
+  		}
+  
+  		function functionHasArguments(parts, functionNameIndex) {
+  			var p = parts[functionNameIndex];
+  
+  			var emptyArguments = p.includes("()");
+  
+  			if (emptyArguments) {
+  				return !emptyArguments;
+  			}
+  
+  			if (p.indexOf(',') >= 0) {
+  				var nextPart = parts[functionNameIndex + 1];
+  				emptyArguments = nextPart.includes("()");
+  				if (emptyArguments) {
+  					return !emptyArguments;
+  				} else {
+  					//Multigeneric function here
+  					for (var i = functionNameIndex + 1; i < parts.length; i++) {
+  						if (parts[i].indexOf('(') >= 0) {
+  							emptyArguments = parts[i].includes("()");
+  							break;
+  						}
+  					}
+  					return !emptyArguments;
+  				}
+  			} else {
+  				if (parts[functionNameIndex + 1].indexOf(',') >= 0) {
+  					//Multigeneric function here
+  				}
+  			}
+  			return !emptyArguments;
+  		}
+  
+  		function getFunctionName(parts, functionNameIndex) {
+  			var part = parts[functionNameIndex];
+  
+  			var hasArguments = functionHasArguments(parts, functionNameIndex);
+  
+  			var isGeneric = functionIsGeneric(parts, functionNameIndex);
+  
+  			var isMultiGeneric = functionHasMultipleGenerics(parts, functionNameIndex);
+  
+  			var genericStartIndex = part.indexOf('&lt;');
+  			var funcStartIndex = part.indexOf('(');
+  
+  			if (genericStartIndex >= 0) {
+  				part = part.substring(0, genericStartIndex);
+  			}
+  			if (funcStartIndex >= 0) {
+  				part = part.substring(0, funcStartIndex);
+  			}
+  
+  			var arg = hasArguments ? "<span class='function-args'>( )</span>" : "<span class='function-args--none'>( )</span>";
+  
+  			if (isMultiGeneric) {
+  				return part + "<span class='function-multigeneric'>&lt;&gt;</span>" + arg;
+  			} else if (isGeneric) {
+  				return part + "<span class='function-generic'>&lt;&gt;</span>" + arg;
+  			}
+  			return part + arg;
+  		}
+  
+  		function updateFunctionNames() {
+  			var items = getItems(".h4-custom-display.functionName");
+  
+  			for (var i = 0; i < items.length; i++) {
+  				var value = items[i].innerHTML;
+  				if (!value || value.length < 5 || !value.includes(' ') || !value.includes('(')) {
+  					items[i].classList.add("non-function-element");
+  					items[i].innerHTML = items[i].innerHTML.replace('public', '');
+  					continue;
+  				}
+  
+  				var parts = value.split(' ');
+  
+  				var functionNameIndex = getFunctionNameIndex(parts);
+  
+  				parts[functionNameIndex] = getFunctionName(parts, functionNameIndex);
+  
+  				for (var j = 0; j < parts.length; j++) {
+  					if (j > functionNameIndex || parts[j] === "public") {
+  						parts[j] = "";
+  					}
+  					else if (j < functionNameIndex) {
+  						parts[j] = "<span class='custom-keywords custom-keywords--" + cleanCssName(parts[j]) + "'>" + parts[j] + "</span> ";
+  					}
+  				}
+  				var innerHtml = parts.join(' ');
+  				items[i].innerHTML = innerHtml;
+  			}
+  		}
+  
+  		function addEventsToTabCloseButtons() {
+  			var i;
+  
+  			var closeButtons = document.getElementsByClassName("syslib-tab-menu-data--close");
+  			for (i = 0; i < closeButtons.length; i++) {
+  				closeButtons[i].addEventListener("click", function () {
+  					let par = this.parentNode;
+  					if (par.style.display === "block") {
+  						par.style.display = "none";
+  					}
+  
+  					var clickableTabs = document.getElementsByClassName("syslib-tab-menu-clickable");
+  					for (var j = 0; j < clickableTabs.length; j++) {
+  						if (clickableTabs[j].classList.contains("active")) {
+  							clickableTabs[j].classList.toggle("active");
+  						}
+  					}
+  				})
+  			}
+  		}
+  
+  		function addEventsToTabsAndHideEmptyRows() {
+  			var i;
+  
+  			var clickableTabs = document.getElementsByClassName("syslib-tab-menu-clickable");
+  
+  			for (i = 0; i < clickableTabs.length; i++) {
+  				clickableTabs[i].addEventListener("click", function (e) {
+  					e.preventDefault();
+  
+  					var isActive = this.classList.contains("active");
+  					if (isActive) {
+  						this.classList.toggle("active");
+  						this.nextElementSibling.style.display = "none";
+  						return;
+  					}
+  					else {
+  						var clickables = document.getElementsByClassName("syslib-tab-menu-clickable");
+  						if (clickables) {
+  							for (var j = 0; j < clickables.length; j++) {
+  								if (clickables[j].classList.contains("active")) {
+  									clickables[j].classList.toggle("active");
+  									var sibling = clickables[j].nextElementSibling;
+  									if (sibling.style.display === "block") {
+  										sibling.style.display = "none";
+  									}
+  								}
+  							}
+  						}
+  						this.classList.toggle("active");
+  						var content = this.nextElementSibling;
+  						if (content.style.display === "block") {
+  							content.style.display = "none";
+  						} else {
+  							content.style.display = "block";
+  						}
+  					}
+  				});
+  			}
+  
+  			var items = getItems('.markdown.level1.summary.member-summary');
+  			if (items && items.length) {
+  				for (var i = 0; i < items.length; i++) {
+  					if (items[i].children && items[i].children.length === 0) {
+  						items[i].classList.add("hidden");
+  					}
+  					if (items[i].value) {
+  						if (items[i].value.length <= 1) {
+  							items[i].classList.add("hidden");
+  						}
+  					}
+  
+  					if (items[i].innerHTML) {
+  						if (items[i].innerHTML.length <= 1) {
+  							items[i].classList.add("hidden");
+  						}
+  					}
+  
+  					if (items[i].innerText) {
+  						if (items[i].innerText.length <= 1) {
+  							items[i].classList.add("hidden");
+  						}
+  					}
+  				}
+  			}
+  		}
+  
+      function removeEmptyDataTabs() {
+        var tabs = document.getElementsByClassName("syslib-tab-menu-clickable");
+        if(tabs) {
+          for(var i = 0; i < tabs.length; i++) {
+              if(tabs[i]) {
+                var data = tabs[i].nextElementSibling;
+                if(data && data.childElementCount <= 1) {
+                  tabs[i].remove();
+                  i = i - 1;
+              }
+            }
+          }
+        }
+      }
+  
+  		//FUNCTION FUNCTIONS END
+  		setTimeout(updateFunctionNames, 5);
+  		setTimeout(updateClassNames, 5);
+  		setTimeout(addEventsToTabCloseButtons, 20);
+  		setTimeout(addEventsToTabsAndHideEmptyRows, 30);
+      setTimeout(removeEmptyDataTabs, 33);
+  
+  </script></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/UriExtensions.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span>Latest: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
+            <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.js"></script>
+    <script type="text/javascript" src="..//systemlibrary-common-net/styles/main.js"></script>
+  </div></body>
+</html>

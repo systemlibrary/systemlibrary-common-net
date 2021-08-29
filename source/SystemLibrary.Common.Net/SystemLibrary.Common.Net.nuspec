@@ -1,0 +1,39 @@
+﻿<?xml version = "1.0" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>SystemLibrary.Common.Net</id>
+
+        <version>1.0.0.14</version>
+
+        <authors>System Library</authors>
+        
+        <owners>System Library</owners>
+        
+        <projectUrl>http://systemlibrary.com/package/common-net</projectUrl>
+         
+        <license type="expression">Apache-2.0</license>
+		
+		<icon>nuget-icon.png</icon>
+        
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+        <releaseNotes>
+			Latest info: https://github.com/systemlibrary/systemlibrary-common-net/#user-content-latest-version
+			Documentation: https://systemlibrary.github.io/systemlibrary-common-net/
+		</releaseNotes>
+
+        <description>SystemLibrary.Common.Net package contains various small extension methods for anyone to use and a Config class to ease the pain of generating custom configuration classes in .NET. Check the github pages for further documentation</description>
+
+        <copyright>Copyright © System Library</copyright>
+
+        <tags>C# .NET framework config extensions</tags>
+
+        <dependencies>
+        </dependencies>
+    </metadata>
+
+	<files>
+		<file src="nuget-icon.png" target="" />
+	</files>	
+</package>
+<!-- Command: nuget pack SystemLibrary.Common.Net.csproj -p Configuration=Release -->

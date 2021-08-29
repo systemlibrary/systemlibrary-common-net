@@ -1,0 +1,306 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html",
+          "hash": "Lmo+PJ/yfms38Nf2s8KzKyP4TixRUaez10Z0tMGnKwk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html",
+          "hash": "fMWU8EdZUja8u7oxzQuvyt4H3yNUKDlRQUMcQAs3RnY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html",
+          "hash": "VaSKJrJBnhq8XyYYakevVcMj7i5TPzOaZ9n4zjX1J4Q="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.html",
+          "hash": "KWvlDeui+n+pJh/ucIX233qYZrTZaFTQce8Ho8Hfpz0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html",
+          "hash": "g/wnOQMNHxsKriPJvJk+xhBkPB4JGWVXqIxkqRBgTtI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html",
+          "hash": "SJMaXszcfYduhH7q+kbB8f86fN3OVlBqGD1zwDzSwLs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollectionItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollectionItem.html",
+          "hash": "jkCUa+Uvapx7LwxLryC2lf+NQ+EucG41k/YO6Y/htvM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html",
+          "hash": "jQWGI5DTwzISijYxxX4GchKlR+Zafe4hCiP/rk38RWU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html",
+          "hash": "Z9M9qt1AzT3TE4M7KTWST5TuWijm9LCOXxCkUQmV1xc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html",
+          "hash": "tHOlGLryV0nyubmVMfyNmcVQoSCdphiibqSUaz3eBDs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html",
+          "hash": "MN64ALA1LKxXQgmPPcX1pZ9YBSoKK1mpsvL6Pslhvq8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html",
+          "hash": "lyL8Ry9GKt3ArnWg62v56Zkm45SWnlna/VUsvYNVGoo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html",
+          "hash": "WFWfYCv+qAnkto4E7sjJ5e1bMnbxIdRGg9XdplQjtZQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html",
+          "hash": "SQjcydfEq6z+xgy3+YKKpDAPIWJWoAeVhGJE9u1Yxf4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html",
+          "hash": "NhiVaF4sg7bsveJIjY8ndvpM5a3Wv6bofF1oAqY/MO0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
+          "hash": "8l+syA4qiOHxq8GoZNor7zT8YHdFwOLt5grOCE8zRkA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html",
+          "hash": "94bCRDYuZYSKvsISIiWANGU11IjL1xayFL3DT6URm1c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html",
+          "hash": "7uG3ccUo9g/CG+At+KstQV9hkryweIyfqz4KAX/d4sc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.html",
+          "hash": "wrEfZPwrh95T16rd9K7BzUIvVty9HVjruyyWz8XPWB0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "SystemLibrary.Common.Net/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/toc.html",
+          "hash": "6xMSG1PvtzC1f7T+76gPRQekpE7B3/uabPLyE1/en/Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "SystemLibrary.Common.Net_index.md",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net_index.html",
+          "hash": "CwXTvAfptnpAeFgoRkv4OJJGY2rbbiHgcFZUpDlXkqI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 1
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 19,
+          "skipped_file_count": 18
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
