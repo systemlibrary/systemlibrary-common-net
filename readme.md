@@ -14,6 +14,7 @@
 
 ## Install
 - Install through Nuget Package Manager in Visual Studio
+- https://www.nuget.org/packages/SystemLibrary.Common.Net/
 
 ## Docs
 https://systemlibrary.github.io/systemlibrary-common-net/
