@@ -720,3 +720,12 @@ footer {
 		padding: 1.5em;
 	}
 }
+
+.index-navigation-item--namespace {
+	padding-top: 1em;
+	border-bottom: 1px solid black;
+}
+
+.index-navigation-item--namespace > a {
+	color: #898989 !important;
+}
