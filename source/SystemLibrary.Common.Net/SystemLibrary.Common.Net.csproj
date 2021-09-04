@@ -51,6 +51,7 @@
     <Compile Include="Assemblies\_FindTypesInheriting.cs" />
     <Compile Include="Attributes\Enum\EnumTextAttribute.cs" />
     <Compile Include="Attributes\Enum\EnumValueAttribute.cs" />
+    <Compile Include="Async\Async.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="SystemType\SystemType.cs" />
     <None Include="packages.config" />

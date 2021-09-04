@@ -71,6 +71,53 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes
   nameWithType: Assemblies.GetEmbeddedResourceAsBytes
+- uid: SystemLibrary.Common.Net.Async
+  name: Async
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html
+  commentId: T:SystemLibrary.Common.Net.Async
+  fullName: SystemLibrary.Common.Net.Async
+  nameWithType: Async
+- uid: SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])
+  name: FireAndForget(Action<String>, Action[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action___
+  commentId: M:SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])
+  name.vb: FireAndForget(Action(Of String), Action())
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget(System.Action<System.String>, System.Action[])
+  fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action(Of System.String), System.Action())
+  nameWithType: Async.FireAndForget(Action<String>, Action[])
+  nameWithType.vb: Async.FireAndForget(Action(Of String), Action())
+- uid: SystemLibrary.Common.Net.Async.FireAndForget*
+  name: FireAndForget
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_
+  commentId: Overload:SystemLibrary.Common.Net.Async.FireAndForget
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget
+  nameWithType: Async.FireAndForget
+- uid: SystemLibrary.Common.Net.Async.Run*
+  name: Run
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run_
+  commentId: Overload:SystemLibrary.Common.Net.Async.Run
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Async.Run
+  nameWithType: Async.Run
+- uid: SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])
+  name: Run<T>(Func<T>[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run__1_System_Func___0____
+  commentId: M:SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])
+  name.vb: Run(Of T)(Func(Of T)())
+  fullName: SystemLibrary.Common.Net.Async.Run<T>(System.Func<T>[])
+  fullName.vb: SystemLibrary.Common.Net.Async.Run(Of T)(System.Func(Of T)())
+  nameWithType: Async.Run<T>(Func<T>[])
+  nameWithType.vb: Async.Run(Of T)(Func(Of T)())
+- uid: SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])
+  name: Run<T>(Func<IEnumerable<T>>[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____
+  commentId: M:SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])
+  name.vb: Run(Of T)(Func(Of IEnumerable(Of T))())
+  fullName: SystemLibrary.Common.Net.Async.Run<T>(System.Func<System.Collections.Generic.IEnumerable<T>>[])
+  fullName.vb: SystemLibrary.Common.Net.Async.Run(Of T)(System.Func(Of System.Collections.Generic.IEnumerable(Of T))())
+  nameWithType: Async.Run<T>(Func<IEnumerable<T>>[])
+  nameWithType.vb: Async.Run(Of T)(Func(Of IEnumerable(Of T))())
 - uid: SystemLibrary.Common.Net.Attributes
   name: SystemLibrary.Common.Net.Attributes
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.html

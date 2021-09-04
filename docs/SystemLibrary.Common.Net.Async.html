@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>IEnumerableExtensions
+    <title>Async
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="IEnumerableExtensions
+    <meta name="title" content="Async
    ">
     <meta name="generator" content="docfx 2.58.0.0">
     
@@ -97,29 +97,58 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Async">
   
   
-  <h6><strong>Namespace</strong>: <a class="xref" href="SystemLibrary.Common.Net.Extensions.html">SystemLibrary.Common.Net.Extensions</a>, <span class="h6-assembly-name">SystemLibrary.Common.Net.dll</span></h6>
-  <h1 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions" class="text-break h1-class-header">IEnumerableExtensions
+  <h6><strong>Namespace</strong>: <a class="xref" href="SystemLibrary.Common.Net.html">SystemLibrary.Common.Net</a>, <span class="h6-assembly-name">SystemLibrary.Common.Net.dll</span></h6>
+  <h1 id="SystemLibrary_Common_Net_Async" data-uid="SystemLibrary.Common.Net.Async" class="text-break h1-class-header">Async
   </h1>
-  <h1 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions" class="h1-custom-display className">public static class IEnumerableExtensions</h1>
+  <h1 id="SystemLibrary_Common_Net_Async" data-uid="SystemLibrary.Common.Net.Async" class="h1-custom-display className">public static class Async</h1>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Extension methods for ienumerables, like DistinctBy(), Has(), Is()</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Simple way of running multiple non-blocking functions async, which all returns the same T object</p>
+<p>NOTE: Might be removed at a later point in time or rewritten/restructured completely</p>
 </div>
   </div>
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">IEnumerableExtensions</span></div>
+    <div class="level1"><span class="xref">Async</span></div>
   </div>
   
   <div class="syslib-tab-menu-container">
+        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
+          <h5 id="SystemLibrary_Common_Net_Async_examples">Examples</h5>
+        </div>
+        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
+          <div class="codewrapper"><pre><code>class Car {
+    public string Name { get; set; }
+}
+
+class CarApi {
+    //Simple dummy method that pretends to return a list of cars based on the name
+    List&lt;Car> Get(string name) {
+        //HttpBaseClient exists in nuget package: System.Library.Web.HttpBaseClient
+        return HttpBaseClient.Get&lt;Car>(&quot;https://cars.com/q=?&quot; + name);   
+    }
+}
+
+var cars = Async.Run&lt;Car>(
+    () => new CarApi().Get(&quot;ferrari&quot;),
+    () => new CarApi().Get(&quot;volvo&quot;),
+    () => new CarApi().Get(&quot;tesla&quot;)
+); 
+
+//cars is filled after all 3 api requests has completed, as in returned some result.
+//all results are added to the same list object and then returns...
+//so &apos;cars&apos; is a list that now contains ferrari&apos;s, volvo&apos;s and tesla&apos;s</code></pre>
+</div>
+          <div class="comment-examples-container-bottom"></div>
+        </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_arguments">Arguments</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_arguments">Arguments</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
@@ -132,43 +161,31 @@
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L33">View Source</a>
+    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L136">View Source</a>
   </span>
-  <a id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy*"></a>
+  <a id="SystemLibrary_Common_Net_Async_FireAndForget_" data-uid="SystemLibrary.Common.Net.Async.FireAndForget*"></a>
   
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" class="hidden">DistinctBy&lt;T, TKey&gt;(IEnumerable&lt;T&gt;, Func&lt;T, TKey&gt;)</h4>
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" class="h4-custom-display functionName">public static IEnumerable&lt;T&gt; DistinctBy&lt;T, TKey&gt;(this IEnumerable&lt;T&gt; items, Func&lt;T, TKey&gt; selector)
-
-    where T : class</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action___" data-uid="SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])" class="hidden">FireAndForget(Action&lt;String&gt;, Action[])</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action___" data-uid="SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])" class="h4-custom-display functionName">public static void FireAndForget(Action&lt;string&gt; onError = null, params Action[] actions)</h4>
   
   	<div class="syslib-tab-menu-container">
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1___summary">Summary</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action____summary">Summary</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="markdown level1 summary member-summary"><p>Select items grouped by a property of your choice</p>
+          <div class="markdown level1 summary member-summary"><p>Run all actions seperately, on different threads.</p>
+<p>Once the action has started your program continues, and those actions keeps running till completed or the main thread is being shutdown (exit/restart of program)</p>
 </div>
           <div class="markdown level1 conceptual member-summary-conceptual"></div>
         </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1___examples">Examples</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action____examples">Examples</h5>
         </div>
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
           <div class="codewrapper">
-            <pre><code>class Car 
-{
-    public string Name;
-}
-
-var car1 = new Car { Name = &quot;Vehicle&quot; }
-var car2 = new Car { Name = &quot;Vehicle&quot; }
-
-var list = new List&lt;Car> { car1, car2 }
-
-var list = list.DistinctBy(x => x.Name).ToList();
-//list contains now 1 car</code></pre>
+            <pre><code>Async.FireAndForget(() => System.IO.File.AppenAllText(&quot;C:\temp\text.log&quot;, &quot;hello world&quot;));;</code></pre>
 
           </div>
           <div class="comment-examples-container-bottom"></div>
@@ -177,30 +194,11 @@ var list = list.DistinctBy(x => x.Name).ToList();
   
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1___arguments">Arguments</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action____arguments">Arguments</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
   
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-          <table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="parametername">T</span></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><span class="parametername">TKey</span></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
   
           <h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
           <table class="table table-bordered table-striped table-condensed">
@@ -213,78 +211,57 @@ var list = list.DistinctBy(x => x.Name).ToList();
             </thead>
             <tbody>
                 <tr>
-                  <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-                  <td><span class="parametername">items</span></td>
-                  <td></td>
+                  <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                  <td><span class="parametername">onError</span></td>
+                  <td><p>Pass in function if some action errors, to log or see the error</p>
+</td>
                 </tr>
                 <tr>
-                  <td><span class="xref">System.Func</span>&lt;T, TKey&gt;</td>
-                  <td><span class="parametername">selector</span></td>
-                  <td></td>
+                  <td><span class="xref">System.Action</span>[]</td>
+                  <td><span class="parametername">actions</span></td>
+                  <td><p>Fire and forget actions...</p>
+</td>
                 </tr>
             </tbody>
           </table>
         </div>
   
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1___returns">Returns</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-  
-        <table class="table table-bordered table-striped table-condensed table-return">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-              <td><p>A new list filtered on the property of your choice</p>
-</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        </div>
   
     </div>
   
   
   
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L54">View Source</a>
+    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L55">View Source</a>
   </span>
-  <a id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has*"></a>
+  <a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
   
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)" class="hidden">Has&lt;T&gt;(IEnumerable&lt;T&gt;, T)</h4>
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)" class="h4-custom-display functionName">public static bool Has&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, T value)
-
-    where T : IComparable, IConvertible</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0____" data-uid="SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])" class="hidden">Run&lt;T&gt;(Func&lt;T&gt;[])</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0____" data-uid="SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])" class="h4-custom-display functionName">public static List&lt;T&gt; Run&lt;T&gt;(params Func&lt;T&gt;[] functions)</h4>
   
   	<div class="syslib-tab-menu-container">
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__summary">Summary</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0_____summary">Summary</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="markdown level1 summary member-summary"><p>Check if the enumerable contains 'value'</p>
-<p>Does not throw exception if enumerable is null nor if value is null</p>
-<p>Uses Linq.Contains() internally</p>
+          <div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending each single result to a list</p>
 </div>
           <div class="markdown level1 conceptual member-summary-conceptual"></div>
         </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__examples">Examples</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0_____examples">Examples</h5>
         </div>
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
           <div class="codewrapper">
-            <pre><code> var texts = new string[] { &quot;Hello&quot;, &quot;World&quot; };
- var has = texts.Has(&quot;Abc&quot;);
- //has is False</code></pre>
+            <pre><code>var cars = Async.Run&lt;Car>(
+    () => new CarService().GetTop1(&quot;ferrari&quot;),  //Assume a CarService that has a Top1 method, returns only 1 car max
+    () => new CarService().GetTop1(&quot;volvo&quot;),
+    () => new CarService().GetTop1(&quot;tesla&quot;)
+); 
+//cars now contains 1 ferrari, 1 volvo, 1 tesla - assuming all requests returned an object
+//all methods are ran async, as in &quot;parallel&quot; in a non-blocking thread way</code></pre>
 
           </div>
           <div class="comment-examples-container-bottom"></div>
@@ -293,7 +270,7 @@ var list = list.DistinctBy(x => x.Name).ToList();
   
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__arguments">Arguments</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0_____arguments">Arguments</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
@@ -325,13 +302,8 @@ var list = list.DistinctBy(x => x.Name).ToList();
             </thead>
             <tbody>
                 <tr>
-                  <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-                  <td><span class="parametername">enumerable</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><span class="xref">T</span></td>
-                  <td><span class="parametername">value</span></td>
+                  <td><span class="xref">System.Func</span>&lt;T&gt;[]</td>
+                  <td><span class="parametername">functions</span></td>
                   <td></td>
                 </tr>
             </tbody>
@@ -339,7 +311,7 @@ var list = list.DistinctBy(x => x.Name).ToList();
         </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__returns">Returns</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func___0_____returns">Returns</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
@@ -353,234 +325,7 @@ var list = list.DistinctBy(x => x.Name).ToList();
           </thead>
           <tbody>
             <tr>
-              <td><span class="xref">System.Boolean</span></td>
-              <td><p>Returns true or false</p>
-</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        </div>
-  
-    </div>
-  
-  
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L82">View Source</a>
-  </span>
-  <a id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has*"></a>
-  
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Object)" class="hidden">Has&lt;T&gt;(IEnumerable&lt;T&gt;, Object)</h4>
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Object)" class="h4-custom-display functionName">public static bool Has&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, object value)
-
-    where T : class</h4>
-  
-  	<div class="syslib-tab-menu-container">
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__summary">Summary</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="markdown level1 summary member-summary"><p>Check if the enumerable contains 'value'</p>
-<p>Does not throw exception if enumerable is null nor if value is null</p>
-<p>Uses Linq.Contains() internally</p>
-</div>
-          <div class="markdown level1 conceptual member-summary-conceptual"></div>
-        </div>
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__examples">Examples</h5>
-        </div>
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="codewrapper">
-            <pre><code>var users = new List&lt;User>();
-var user = new User();
-
-users.Add(user);
-
-var result = users.Has(user);
-//result is true, the list contains that specific user object</code></pre>
-
-          </div>
-          <div class="comment-examples-container-bottom"></div>
-        </div>
-  
-  
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__arguments">Arguments</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-  
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-          <table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="parametername">T</span></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-  
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-          <table class="table table-bordered table-striped table-condensed">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-                  <td><span class="parametername">enumerable</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><span class="xref">System.Object</span></td>
-                  <td><span class="parametername">value</span></td>
-                  <td></td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__returns">Returns</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-  
-        <table class="table table-bordered table-striped table-condensed table-return">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="xref">System.Boolean</span></td>
-              <td><p>Returns true or false</p>
-</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        </div>
-  
-    </div>
-  
-  
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L144">View Source</a>
-  </span>
-  <a id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is*"></a>
-  
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is``1(System.Collections.Generic.IEnumerable{``0})" class="hidden">Is&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is``1(System.Collections.Generic.IEnumerable{``0})" class="h4-custom-display functionName">public static bool Is&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable)</h4>
-  
-  	<div class="syslib-tab-menu-container">
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___summary">Summary</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="markdown level1 summary member-summary"><p>Check if the enumerable exists, if so it returns true, else if it is null or it has 0 items in it, this returns false
-Note: the Linq.Any() throws exception if null while this function does not throw exception</p>
-</div>
-          <div class="markdown level1 conceptual member-summary-conceptual"></div>
-        </div>
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___examples">Examples</h5>
-        </div>
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="codewrapper">
-            <pre><code>var list = new List&lt;string>();
-list.Add(&quot;hello world&quot;);
-
-var result = list.Is();
-
-//result is true as the list contains 1 item
-
-List&lt;string> list = null;
-var result = list.Is();
-//result is false as the list is null</code></pre>
-
-          </div>
-          <div class="comment-examples-container-bottom"></div>
-        </div>
-  
-  
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___arguments">Arguments</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-  
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-          <table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="parametername">T</span></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-  
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-          <table class="table table-bordered table-striped table-condensed">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-                  <td><span class="parametername">enumerable</span></td>
-                  <td></td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-  
-        <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___returns">Returns</h5>
-        </div>
-  
-        <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-  
-        <table class="table table-bordered table-striped table-condensed table-return">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="xref">System.Boolean</span></td>
+              <td><span class="xref">System.Collections.Generic.List</span>&lt;T&gt;</td>
               <td></td>
             </tr>
           </tbody>
@@ -593,39 +338,36 @@ var result = list.Is();
   
   
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L111">View Source</a>
+    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L97">View Source</a>
   </span>
-  <a id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot*"></a>
+  <a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
   
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot``1(System.Collections.Generic.IEnumerable{``0})" class="hidden">IsNot&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
-  <h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot``1(System.Collections.Generic.IEnumerable{``0})" class="h4-custom-display functionName">public static bool IsNot&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable)</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____" data-uid="SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])" class="hidden">Run&lt;T&gt;(Func&lt;IEnumerable&lt;T&gt;&gt;[])</h4>
+  <h4 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____" data-uid="SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])" class="h4-custom-display functionName">public static List&lt;T&gt; Run&lt;T&gt;(params Func&lt;IEnumerable&lt;T&gt;&gt;[] functions)</h4>
   
   	<div class="syslib-tab-menu-container">
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___summary">Summary</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0______summary">Summary</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
-          <div class="markdown level1 summary member-summary"><p>Check if the enumerable does not exist, if so it returns true, else if it is not null and it has at least 1 item, this will return false
-Note: the Linq.Any() throws exception if null while this function does not throw exception</p>
+          <div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending the range of results per function to the same list</p>
 </div>
           <div class="markdown level1 conceptual member-summary-conceptual"></div>
         </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___examples">Examples</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0______examples">Examples</h5>
         </div>
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
           <div class="codewrapper">
-            <pre><code>var list = new List&lt;string>();
-
-var result = list.IsNot();
-
-//result is true as the list contains 0 items
-
-List&lt;string> list = null;
-var result = list.IsNot();
-//result is true as the list currently is null</code></pre>
+            <pre><code>var cars = Async.Run&lt;Car>(
+    () => new CarService().Get(&quot;ferrari&quot;),
+    () => new CarService().Get(&quot;volvo&quot;),
+    () => new CarService().Get(&quot;tesla&quot;)
+); 
+//cars now contains multiple ferrari&apos;s, volvo&apos;s and tesla&apos;s
+//all methods are ran async, as in &quot;parallel&quot; in a non-blocking thread way</code></pre>
 
           </div>
           <div class="comment-examples-container-bottom"></div>
@@ -634,7 +376,7 @@ var result = list.IsNot();
   
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___arguments">Arguments</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0______arguments">Arguments</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
@@ -666,8 +408,8 @@ var result = list.IsNot();
             </thead>
             <tbody>
                 <tr>
-                  <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-                  <td><span class="parametername">enumerable</span></td>
+                  <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;&gt;[]</td>
+                  <td><span class="parametername">functions</span></td>
                   <td></td>
                 </tr>
             </tbody>
@@ -675,7 +417,7 @@ var result = list.IsNot();
         </div>
   
         <div class="syslib-tab-menu-clickable syslib-tab-menu-clickable--example">
-          <h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___returns">Returns</h5>
+          <h5 id="SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0______returns">Returns</h5>
         </div>
   
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
@@ -689,7 +431,7 @@ var result = list.IsNot();
           </thead>
           <tbody>
             <tr>
-              <td><span class="xref">System.Boolean</span></td>
+              <td><span class="xref">System.Collections.Generic.List</span>&lt;T&gt;</td>
               <td></td>
             </tr>
           </tbody>
@@ -1036,7 +778,7 @@ var result = list.IsNot();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/IEnumerableExtensions.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L39" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
