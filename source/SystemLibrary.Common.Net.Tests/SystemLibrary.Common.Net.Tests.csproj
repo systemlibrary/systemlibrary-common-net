@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssembliesTests\AssembliesTests.cs" />
+    <Compile Include="AsyncTests\AsyncTests.cs" />
     <Compile Include="ConfigTests\ConfigSectionTests.cs" />
     <Compile Include="ConfigTests\TestConfig\TestConfig.cs" />
     <Compile Include="ConfigTests\TestConfig\TestCollectionItem.cs" />

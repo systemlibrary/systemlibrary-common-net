@@ -62,6 +62,9 @@ namespace SystemLibrary.Common.Net.Tests.Extensions
             Assert.IsTrue(collection.IsNot(), "Collection is not null/empty");
 
             collection.Add(null);
+            Assert.IsTrue(collection.IsNot(), "Collection is null/empty when it has 1 item");
+
+            collection.Add(null);
             Assert.IsFalse(collection.IsNot(), "Collection is null/empty when it has 1 item");
         }
 
