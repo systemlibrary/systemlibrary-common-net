@@ -366,11 +366,10 @@ public static class StringExtensions
 
 namespace SystemLibrary.Common.Net.Global
 {
-
     /// <summary>
     /// Extension methods for strings
     /// 
-    /// They are living in the Global namespace, so they are always available anyhwere in your code
+    /// They are living in the Global namespace, so they are always available anyhwere in your code without including the namespace
     /// </summary>
     public static class StringExtensions
     {
