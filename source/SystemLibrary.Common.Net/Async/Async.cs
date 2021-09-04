@@ -133,7 +133,7 @@ namespace SystemLibrary.Common.Net
         /// Async.FireAndForget(() => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));;
         /// </code>
         /// </example>
-        public static void FireAndForget(Action<string> onError = null, params Action[] actions)
+        public static void FireAndForget(Action<string> onError, params Action[] actions)
         {
             if (actions.IsNot()) return;
 
@@ -153,6 +153,11 @@ namespace SystemLibrary.Common.Net
                 }
                 );
             }
+        }
+
+        public static void FireAndForget(params Action[] actions)
+        {
+            FireAndForget(null, actions);
         }
     }
 }
