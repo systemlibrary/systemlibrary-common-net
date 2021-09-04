@@ -130,7 +130,7 @@ class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name
     List&lt;Car> Get(string name) {
         //HttpBaseClient exists in nuget package: System.Library.Web.HttpBaseClient
-        return HttpBaseClient.Get&lt;Car>(&quot;https://cars.com/q=?&quot; + name);   
+        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://cars.com/q=?&quot; + name);   
     }
 }
 
@@ -255,7 +255,7 @@ var cars = Async.Run&lt;Car>(
         </div>
         <div class="syslib-tab-menu-data" style="display: none;"><div class="syslib-tab-menu-data--close">X</div>
           <div class="codewrapper">
-            <pre><code>var cars = Async.Run&lt;Car>(
+            <pre><code>var cars = Async.Run&lt;List&lt;Car>>(
     () => new CarService().GetTop1(&quot;ferrari&quot;),  //Assume a CarService that has a Top1 method, returns only 1 car max
     () => new CarService().GetTop1(&quot;volvo&quot;),
     () => new CarService().GetTop1(&quot;tesla&quot;)

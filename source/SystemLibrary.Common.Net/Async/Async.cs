@@ -21,7 +21,7 @@ namespace SystemLibrary.Common.Net
     ///     //Simple dummy method that pretends to return a list of cars based on the name
     ///     List&lt;Car&gt; Get(string name) {
     ///         //HttpBaseClient exists in nuget package: System.Library.Web.HttpBaseClient
-    ///         return HttpBaseClient.Get&lt;Car&gt;("https://cars.com/q=?" + name);   
+    ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://cars.com/q=?" + name);   
     ///     }
     /// }
     /// 
@@ -43,7 +43,7 @@ namespace SystemLibrary.Common.Net
         /// </summary>
         /// <example>
         /// <code class="language-csharp hljs">
-        /// var cars = Async.Run&lt;Car&gt;(
+        /// var cars = Async.Run&lt;List&lt;Car&gt;&gt;(
         ///     () => new CarService().GetTop1("ferrari"),  //Assume a CarService that has a Top1 method, returns only 1 car max
         ///     () => new CarService().GetTop1("volvo"),
         ///     () => new CarService().GetTop1("tesla")
