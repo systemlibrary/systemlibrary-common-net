@@ -4,8 +4,7 @@
 - .NET 4.8
 
 ## Latest Version
-- Extended IEnumerableExtensions with Has() overload
-- Added UnitTests for IEnumerableExtensions.Has() method
+- Updated comments and documentation
 
 ## Description
 - Common extension methods for strings, objects, uris, etc...
