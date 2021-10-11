@@ -3,7 +3,7 @@
     <metadata>
         <id>SystemLibrary.Common.Net</id>
 
-        <version>1.0.0.14</version>
+        <version>1.0.0.16</version>
 
         <authors>System Library</authors>
         
@@ -19,10 +19,15 @@
 
         <releaseNotes>
 			Latest info: https://github.com/systemlibrary/systemlibrary-common-net/#user-content-latest-version
-			Documentation: https://systemlibrary.github.io/systemlibrary-common-net/
 		</releaseNotes>
 
-        <description>SystemLibrary.Common.Net package contains various small extension methods for anyone to use and a Config class to ease the pain of generating custom configuration classes in .NET. Check the github pages for further documentation</description>
+        <description>
+			SystemLibrary.Common.Net package contains various small extension methods and classes for any .NET application.
+
+            For instance a Config class to ease the pain of generating custom configuration classes and custom .config files in your .NET application.
+			
+			Check documentation: https://systemlibrary.github.io/systemlibrary-common-net/
+		</description>
 
         <copyright>Copyright © System Library</copyright>
 

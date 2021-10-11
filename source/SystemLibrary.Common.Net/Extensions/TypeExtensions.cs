@@ -43,7 +43,7 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <code class="language-csharp hljs">
         /// var array = new string[] { "" };
         /// 
-        /// var result = array.IsListOrArray();
+        /// var result = array.GetType().IsListOrArray();
         /// //result is true
         /// </code>
         /// </example>

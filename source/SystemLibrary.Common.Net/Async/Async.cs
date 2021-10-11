@@ -121,19 +121,13 @@ namespace SystemLibrary.Common.Net
             return list;
         }
 
+       
         /// <summary>
-        /// Run all actions seperately, on different threads.
+        /// See FireAndForget()
         /// 
-        /// Once the action has started your program continues, and those actions keeps running till completed or the main thread is being shutdown (exit/restart of program)
+        /// - This method is an overload, that also take an "void Action(Exception)" which is called for each action that threw an exception
         /// </summary>
-        /// <param name="onError">Pass in function if some action errors, to log or see the error</param>
-        /// <param name="actions">Fire and forget actions...</param>
-        /// <example>
-        /// <code>
-        /// Async.FireAndForget(() => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));;
-        /// </code>
-        /// </example>
-        public static void FireAndForget(Action<string> onError, params Action[] actions)
+        public static void FireAndForget(Action<Exception> onError, params Action[] actions)
         {
             if (actions.IsNot()) return;
 
@@ -148,13 +142,25 @@ namespace SystemLibrary.Common.Net
                     catch (Exception ex)
                     {
                         if (onError != null)
-                            onError(ex + "");
+                            onError(ex);
                     }
                 }
                 );
             }
         }
 
+        /// <summary>
+        /// Run all actions seperately, on different threads.
+        /// 
+        /// Once the action has started your program continues, and those actions keeps running till completed or the main thread is being shutdown (exit/restart of program)
+        /// </summary>
+        /// <param name="onError">Pass in function if some action errors, to log or see the error</param>
+        /// <param name="actions">Fire and forget actions...</param>
+        /// <example>
+        /// <code>
+        /// Async.FireAndForget(() => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));;
+        /// </code>
+        /// </example>
         public static void FireAndForget(params Action[] actions)
         {
             FireAndForget(null, actions);

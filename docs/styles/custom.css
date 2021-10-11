@@ -8,6 +8,11 @@ h3.classes {
 	height: 0;
 }
 
+h3.enums {
+	visibility: hidden;
+	height: 0;
+}
+
 div.sideaffix {
 	visibility: hidden;
 	height: 0;
@@ -87,18 +92,18 @@ table.table td {
 
 .markdown.level1.summary {
 	color: green;
-	font-size: 13.5px;
+	font-size: 13px;
 	font-style: italic;
-	line-height: 15.5px;
+	line-height: 15px;
 	margin: 0;
 	padding: 0;
 }
 
 .markdown.level2.summary {
 	color: green;
-	font-size: 13.5px;
+	font-size: 13px;
 	font-style: italic;
-	line-height: 15.5px;
+	line-height: 15px;
 }
 
 h3#classes {
@@ -106,12 +111,26 @@ h3#classes {
 	height: 0;
 }
 
+h3#enums {
+	display: none;
+	height: 0;
+}
+
+
 .content > section > p {
 	color: green;
 	font-size: 13.5px;
 	font-style: italic;
 	line-height: 15.5px;
 	border-bottom: 6px;
+}
+.content > section > ul {
+	font-size: 13.5px;
+	font-style: italic;
+	line-header: 15.5px;
+	color: green;
+	padding-left: 2em;
+	list-style: unset;
 }
 
 .td > span.xred text-break {
@@ -142,12 +161,12 @@ td {
 
 td > span.parametername {
 	color: rgb(86, 156, 214);
-	font-size: 14px;
+	font-size: 12px;
 }
 
 td > span.xref {
 	color: #444;
-	font-size: 13px;
+	font-size: 12px;
 }
 
 img#logo {
@@ -166,8 +185,8 @@ nav#autocollapse {
 
 .markdown.level0.summary {
 	color: green;
-	font-size: 13.5px;
-	line-height: 15.5px;
+	font-size: 13px;
+	line-height: 15px;
 	border: 0;
 	padding: 0;
 	margin-top: 1.25em;
@@ -200,6 +219,11 @@ div.sidefilter {
 
 .content ol {
 	list-style: none;
+}
+
+.h1-class-summary ul {
+	padding-top: 4px;
+	list-style: unset;
 }
 
 .article h4 {
@@ -574,6 +598,7 @@ article.content h1 {
 
 .table-responsive.table-render-table-t {
 	border: 0;
+	font-size: 12px;
 }
 
 .comment-examples-container h5 {

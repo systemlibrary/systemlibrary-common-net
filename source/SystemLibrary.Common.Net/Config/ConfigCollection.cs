@@ -19,6 +19,9 @@ namespace SystemLibrary.Common.Net
     ///</example>
     public abstract class ConfigCollection<T> : ConfigurationElementCollection where T : ConfigurationElement
     {
+        /// <summary>
+        /// Used internally
+        /// </summary>
         protected override string ElementName => GetType().Name;
 
         /// <summary>

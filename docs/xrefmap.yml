@@ -86,15 +86,15 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action())
   nameWithType: Async.FireAndForget(Action[])
   nameWithType.vb: Async.FireAndForget(Action())
-- uid: SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])
-  name: FireAndForget(Action<String>, Action[])
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_String__System_Action___
-  commentId: M:SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.String},System.Action[])
-  name.vb: FireAndForget(Action(Of String), Action())
-  fullName: SystemLibrary.Common.Net.Async.FireAndForget(System.Action<System.String>, System.Action[])
-  fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action(Of System.String), System.Action())
-  nameWithType: Async.FireAndForget(Action<String>, Action[])
-  nameWithType.vb: Async.FireAndForget(Action(Of String), Action())
+- uid: SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.Exception},System.Action[])
+  name: FireAndForget(Action<Exception>, Action[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_Exception__System_Action___
+  commentId: M:SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.Exception},System.Action[])
+  name.vb: FireAndForget(Action(Of Exception), Action())
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget(System.Action<System.Exception>, System.Action[])
+  fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action(Of System.Exception), System.Action())
+  nameWithType: Async.FireAndForget(Action<Exception>, Action[])
+  nameWithType.vb: Async.FireAndForget(Action(Of Exception), Action())
 - uid: SystemLibrary.Common.Net.Async.FireAndForget*
   name: FireAndForget
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_
