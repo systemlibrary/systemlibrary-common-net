@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>2.0.0.13</version>
+		<version>2.0.0.14</version>
 
 		<authors>System Library</authors>
 
@@ -19,7 +19,7 @@
 
 		<releaseNotes>
 			Latest version:
-			https://github.com/systemlibrary/systemlibrary-core-common-net#latest-version
+			https://github.com/systemlibrary/systemlibrary-common-net#latest-version
 		</releaseNotes>
 
 		<description>
@@ -32,10 +32,10 @@
 			* Simple "Fire and Forget" through Async.Run()
 			
 			Documentation:
-			https://systemlibrary.github.io/systemlibrary-core-common-net/
+			https://systemlibrary.github.io/systemlibrary-common-net/
 
 			Source code:
-			https://github.com/systemlibrary/systemlibrary-core-common-net
+			https://github.com/systemlibrary/systemlibrary-common-net
 		</description>
 
 		<copyright>Copyright © System Library</copyright>

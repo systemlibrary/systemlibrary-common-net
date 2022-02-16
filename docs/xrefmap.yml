@@ -806,6 +806,18 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.BoolType
   fullName: SystemLibrary.Common.Net.SystemType.BoolType
   nameWithType: SystemType.BoolType
+- uid: SystemLibrary.Common.Net.SystemType.CharType
+  name: CharType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_CharType
+  commentId: F:SystemLibrary.Common.Net.SystemType.CharType
+  fullName: SystemLibrary.Common.Net.SystemType.CharType
+  nameWithType: SystemType.CharType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  name: DateTimeOffsetType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeOffsetType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  nameWithType: SystemType.DateTimeOffsetType
 - uid: SystemLibrary.Common.Net.SystemType.DateTimeType
   name: DateTimeType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeType
@@ -830,6 +842,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
   fullName: SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
   nameWithType: SystemType.EnumValueAttributeType
+- uid: SystemLibrary.Common.Net.SystemType.GuidType
+  name: GuidType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_GuidType
+  commentId: F:SystemLibrary.Common.Net.SystemType.GuidType
+  fullName: SystemLibrary.Common.Net.SystemType.GuidType
+  nameWithType: SystemType.GuidType
 - uid: SystemLibrary.Common.Net.SystemType.IntType
   name: IntType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IntType

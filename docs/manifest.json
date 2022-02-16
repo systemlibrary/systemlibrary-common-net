@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/syslib/systemlibrary-core-common-net/source/SystemLibrary.Common.Net",
+  "source_base_path": "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html",
-          "hash": "LHHcC7RYlbaH3gUqSSFwSKYPg6bIu6ypzbqycAryhk4="
+          "hash": "AYXU267RFIguA4p/AcKMdeOj9R64zjdsK1jM+l4obAU="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html",
-          "hash": "zGJyy0rM9Adj9YAldJKtFkteVRSnAB97ybnOjoMmqVA="
+          "hash": "GWtd9T0HSdxjLkGspSVugo1HF1lPI2Xcv6nHnLMuNrM="
         }
       },
       "is_incremental": true,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html",
-          "hash": "62Ke6NywPOVZod/xD+CJ8OHwJszgCFdibbRObMS1EGQ="
+          "hash": "UxJD6iXA0pbDepYNWa/gUpw/RKnc9B/HskloFGxCBcA="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html",
-          "hash": "u/kiK4rVEMCO9putdv9i1WzPGAazR8pUqGc1t/JH4kU="
+          "hash": "GkaqD0hmBpaut/J4uSxsuUDZd1ZeyefSH3klllQSjUs="
         }
       },
       "is_incremental": true,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html",
-          "hash": "ohrZX81Qlx1iTotbDXIO79277eTBkBorJmlDlc3byfk="
+          "hash": "JDvsGE3mVwUvjIeYQ5qP52VWrOatKR9Hp0DTJ7MrSNk="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html",
-          "hash": "gYR7vzc0/eBYtPK7mTs7dGRsbvUXCyIZ8nf+p4qg3KY="
+          "hash": "Qz0CyUltH9gEWqqJbm773gneitxDAXwNaHiDWXF3VvA="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html",
-          "hash": "eBBku65NNpz7JRUaCjJBNY5yTVMIWhRYCcmHL92yLH8="
+          "hash": "ZX2kOA/m8+n3W0jQJqiwxCuN5OLVaqq28Jr14NQ53lw="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html",
-          "hash": "6CE41Wjfricn8+5mJw29DH/UwZqgDi8+UmewRTEWTwk="
+          "hash": "KdoX1ZmkcibgwIwM6D7djo+oe3J01ahtUnCZNJTqMHc="
         }
       },
       "is_incremental": true,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html",
-          "hash": "eAPHvLcp2k0n8WCVxQuetpZnHp+rQaiXSrHbW13VHMQ="
+          "hash": "LG/q+N8OVGEdF0N8A9xeBiiiZRTIFz7ooInPZ8IjbYw="
         }
       },
       "is_incremental": true,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html",
-          "hash": "ZaNbbew+AlljmK9y8CV2JUhBYJb9nSuXLxYG0hFQUto="
+          "hash": "T1FY0sh8uzsq4Nsa7RVQvQzBjZ4Bm94AOkQOw1zNEj4="
         }
       },
       "is_incremental": true,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html",
-          "hash": "wjQlgDVt73pG8DcklrArBiSr9DlJEU/23uCUYI2TbRk="
+          "hash": "l33cW7OIAfyj7enzlJhSLIexONgp8Kw7y1LrGSaCKF4="
         }
       },
       "is_incremental": true,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html",
-          "hash": "Md9vUPLHjqK1z4cCqPYnRYjzJ1Wf7SvyosPDydDBEJc="
+          "hash": "blLqeAODFrPd20eV8ggpjb52J6DEgZZy5h0g59aOjhI="
         }
       },
       "is_incremental": true,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html",
-          "hash": "Q8BvZbYAz1Q32F7ZxzwO0Es4XVyrfwFjWUVLE4ilQjM="
+          "hash": "jjo2iIsVfc2JOGR9gTr1wfkbRoWIAwXs23+XQAUG700="
         }
       },
       "is_incremental": true,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html",
-          "hash": "+pZVn2BRaPh5a16ytW2tGadEdQ1DfWKFH+DSP5Pb+vQ="
+          "hash": "iymyp8M7jdCL+XJHNQ3g3K1ZEXWV9nmx09e+jOUKuEo="
         }
       },
       "is_incremental": true,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
-          "hash": "W/5Qz4KM1kkiFsfN4lAl2tA/SS0o6Cv7r5m1fgGs/Kc="
+          "hash": "ou4lEx4Rfh8CmsP44EG+A+6OjN4bRVazEBJ6fu6qf4E="
         }
       },
       "is_incremental": true,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html",
-          "hash": "MMdn34ebBzMsONPbHReVdD+ODiRiUg9Ck90H6Y4x7Dc="
+          "hash": "oNENAPCEJgbJWDmuNoBSJjLs+FxPhPj6TjRaB9REoz0="
         }
       },
       "is_incremental": true,
