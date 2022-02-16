@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "SystemLibrary.Common.Net": {
+      "commandName": "Project"
+    }
+  }
+}

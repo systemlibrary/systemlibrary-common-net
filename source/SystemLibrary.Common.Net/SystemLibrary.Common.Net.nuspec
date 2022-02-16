@@ -1,44 +1,57 @@
 ﻿<?xml version = "1.0" ?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-        <id>SystemLibrary.Common.Net</id>
+	<metadata>
+		<id>SystemLibrary.Common.Net</id>
 
-        <version>1.0.0.16</version>
+		<version>2.0.0.12</version>
 
-        <authors>System Library</authors>
-        
-        <owners>System Library</owners>
-        
-        <projectUrl>http://systemlibrary.com/package/common-net</projectUrl>
-         
-        <license type="expression">Apache-2.0</license>
-		
+		<authors>System Library</authors>
+
+		<owners>System Library</owners>
+
+		<projectUrl>https://systemlibrary.com/package/SystemLibrary.Common.Net</projectUrl>
+
+		<license type="expression">Apache-2.0</license>
+
 		<icon>nuget-icon.png</icon>
-        
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
 
-        <releaseNotes>
-			Latest info: https://github.com/systemlibrary/systemlibrary-common-net/#user-content-latest-version
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+		<releaseNotes>
+			Latest version:
+			https://github.com/systemlibrary/systemlibrary-core-common-net#latest-version
 		</releaseNotes>
 
-        <description>
-			SystemLibrary.Common.Net package contains various small extension methods and classes for any .NET application.
-
-            For instance a Config class to ease the pain of generating custom configuration classes and custom .config files in your .NET application.
+		<description>
+			SystemLibrary.Core.Common.Net for any .NET >= 5 application - various reuseable extensions and classes
 			
-			Check documentation: https://systemlibrary.github.io/systemlibrary-common-net/
+			Selling points:
+			* Extensions for strings, enums, arrays...
+			* Config&lt;&gt; class for all your custom configurations, with built-in transformations
+			* Simple "console.log" through Dump.Write()
+			* Simple "Fire and Forget" through Async.Run()
+			
+			Documentation:
+			https://systemlibrary.github.io/systemlibrary-core-common-net/
+
+			Source code:
+			https://github.com/systemlibrary/systemlibrary-core-common-net
 		</description>
 
-        <copyright>Copyright © System Library</copyright>
+		<copyright>Copyright © System Library</copyright>
 
-        <tags>C# .NET framework config extensions</tags>
+		<tags>C# .NET 5.0 Config Extensions</tags>
 
-        <dependencies>
-        </dependencies>
-    </metadata>
+		<dependencies>
+			<dependency id="Microsoft.Extensions.Configuration.Binder" version="6" />
+			<dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="6" />
+			<dependency id="Microsoft.Extensions.Configuration.Json" version="6" />
+			<dependency id="Microsoft.Extensions.Configuration.Xml" version="6" />
+		</dependencies>
+	</metadata>
 
 	<files>
 		<file src="nuget-icon.png" target="" />
-	</files>	
+	</files>
 </package>
 <!-- Command: nuget pack SystemLibrary.Common.Net.csproj -p Configuration=Release -->

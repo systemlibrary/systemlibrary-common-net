@@ -1,101 +1,96 @@
-﻿using System;
-using System.Configuration;
-using System.Net;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// Class for creating a custom configuration node in your app or web.config
+    /// Class for creating configurations files next to your code files
+    /// 
+    /// Configuration can be placed in either of these 3 hardcoded locations in your app:
+    /// ~/, ~/Configs/*, ~/Configurations/*
+    /// 
+    /// Configuration files can be on format: json or xml
+    /// 
+    /// Configurations can be added to your default 'appsettings.json' if you do not want additional files
+    /// 
+    /// Transformations are automatically ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)
+    ///     * Unit tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' variable to its startup
+    ///         * Add mstest.runsettings (google runsettings format)
+    ///         * Add ASPNETCORE_ENVIRONMENT to the runsettings-file
+    ///         * Register runsettings-file in your csproj variable: RunSettingsFilePath
+    ///             * TIP: Look in the source code of SystemLibrary.Common.Net.Tests
+    ///     
+    /// If no 'ASPNETCORE_ENVIRONMENT' is specified, it will use Configuration Mode Name for Configuration Transformations (Debug or Release only [I think])
+    /// 
+    /// WARNING: If for instance 'Debug' is the environment you start app with, but a debug transformation file do not exist, it will transform the 'Release' instead, if 'Release' transformation file exists
+    /// 
+    /// WARNING: Singleton pattern behind the scene - requires app restart if configuration changes
     /// </summary>
     ///<example>
-    /// A TestConfig class example. 
+    /// A TestConfig class example:
     ///
-    /// See documentation on ConfigCollection for an example of the "TestCollection" variable in the example below.
     /// <code class="language-csharp hljs">
     /// public class TestConfig : Config&lt;TestConfig&gt; 
     /// {
-    ///    [ConfigurationProperty(nameof(Name), IsRequired = true)]
-    ///    public string Name =&gt; Get(nameof(Name));
-    ///     
-    ///    [ConfigurationProperty(nameof(List))]
-    ///    public TestCollection List =&gt; this[nameof(List)] as TestCollection;
+    ///    public string Name { get; set; }
+    ///    
+    ///    public int Number { get; set;}
+    /// 
+    ///    public ApiOptions Options { get; set; }
+    ///    
+    ///    public int[] ValidPhoneNumbers { get; set; }
+    /// }
+    /// 
+    /// public class ApiOptions 
+    /// {
+    ///     public string Url { get; set; }
     /// }
     /// </code>
     /// 
-    /// Add to your config file:
+    /// Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/*, ~/Configurations/*
     /// <code class="language-xml hljs">
-    /// &lt;section name="testConfig" type="SystemLibrary.Common.Net.TestConfig, SystemLibrary.Common.Net"&gt;
-    /// 
-    /// &lt;testConfig name="hello"&gt;
-    ///     &lt;List&gt;
-    ///     &lt;test Text="A" Number="1" /&gt;
-    ///     &lt;/List&gt;
-    /// &lt;/testConfig&gt;
+    /// {
+    ///     "Name": "Hello World",
+    ///     "Number": 1234,
+    ///     
+    ///     //"Options" refers to name of the property in 'TestConfig' class, not the type in your C# which would be 'ApiOptions'
+    ///     "Options": {
+    ///         "Url": "https://....",
+    ///     },
+    ///     
+    ///     "ValidPhoneNumbers": [0,1,2,3]
+    /// }
     /// </code>
     /// 
     /// <code>
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
-    /// //name == hello
+    /// //'name' is now 'Hello World'
     /// </code>
     /// </example>
     /// <typeparam name="T">T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</typeparam>
-    public abstract class Config<T> : ConfigurationSection where T : ConfigurationSection
+    public abstract partial class Config<T> where T : class
     {
-        static T _Config;
+        static bool IsInitialized = false;
+
+        static T _Config = default;
 
         /// <summary>
-        /// Reads the configuration section and returns the configuration as a singleton
+        /// Get the current configuration as a Singleton object
         /// </summary>
         public static T Current
         {
             get
             {
-                if (_Config == default)
+                if (!IsInitialized)
                 {
-                    _Config = GetSectionBySectionName();
+                    IsInitialized = true;
+                    if (_Config != null) return _Config;
 
-                    if (_Config == default)
-                        _Config = Activator.CreateInstance<T>();
+                    _Config = ConfigLoader<T>.Load()?.Get<T>();
                 }
+
                 return _Config;
             }
         }
-
-        static T GetSectionBySectionName()
-        {
-            //NOTE: Root node in your custom .config file must match any of these section name formats
-            var name = typeof(T).Name;
-            var nameLowerFirstChar = char.ToLower(name[0]) + name.Substring(1);
-
-            var nameWithoutSection = name.Replace("Section", "");
-            var nameLowerfirstCharWithoutSection = char.ToLower(nameWithoutSection[0]) + nameWithoutSection.Substring(1);
-
-            return (ConfigurationManager.GetSection(name)
-                ?? ConfigurationManager.GetSection(nameLowerFirstChar)
-                ?? ConfigurationManager.GetSection(nameWithoutSection)
-                ?? ConfigurationManager.GetSection(nameLowerfirstCharWithoutSection)
-                ?? ConfigurationManager.GetSection(name.ToLower())) as T;
-        }
-
-        /// <summary>
-        /// Returns the value of the 'key' from the XML section element
-        /// 
-        /// Note: Before the value is returned the string is also HtmlDecoded
-        /// </summary>
-        /// <example>
-        /// Use this Get method to retrieve the value from the XML
-        /// <code class="language-csharp hljs">
-        /// [ConfigurationProperty(nameof(Name), IsRequired = true)]
-        /// public string Name =&gt; Get(nameof(Name));
-        /// </code>
-        /// 
-        /// Or you can also convert the XML value directly
-        /// <code class="language-csharp hljs">
-        /// [ConfigurationProperty(nameof(Age), IsRequired = true)]
-        /// public string Age =&gt; int.parse(Get(nameof(Age)));
-        /// </code>
-        /// </example>
-        protected string Get(string key) =>  WebUtility.HtmlDecode(this[key]?.ToString());
     }
 }

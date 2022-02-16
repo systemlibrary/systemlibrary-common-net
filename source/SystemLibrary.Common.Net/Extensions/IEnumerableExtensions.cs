@@ -6,7 +6,9 @@ using System.Linq;
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for ienumerables, like DistinctBy(), Has(), Is()
+    /// This class contains extension methods for IEnumerables
+    /// 
+    /// For instance: Has, DistinctBy, Is, ...
     /// </summary>
     public static class IEnumerableExtensions
     {

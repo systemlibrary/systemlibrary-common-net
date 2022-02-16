@@ -3,7 +3,9 @@
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for uri's like GetPrimaryDomain(), ...
+    /// This class contains extension methods for Uri
+    /// 
+    /// For instance: GetPrimaryDomain(), etc...
     /// </summary>
     public static class UriExtensions
     {

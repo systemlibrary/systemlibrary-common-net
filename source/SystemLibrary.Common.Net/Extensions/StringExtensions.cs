@@ -7,17 +7,21 @@ using SystemLibrary.Common.Net.Attributes;
 using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
-/// Extension methods for strings
+/// This class contains extension methods for Strings
 /// 
-/// They are living in the Global namespace, so they are always available anyhwere in your code without including the namespace
+/// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've added the Nuget Package
 /// </summary>
+/// <example>
+/// var result = "Hello world".Is() //invokable from anywhere in your applications source code
+/// //result is 'true'
+/// </example>
 public static class StringExtensions
 {
     /// <summary>
-    /// Returns the first of the parameters sent to this method that is not null, blank or only a single space.
-    /// If current, and all 'optional' fallback values does not meet the condition, "" is returned, never null
+    /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
+    /// If 'data' and all fallbacks are null or empty, this returns "", never null
     /// </summary>
-    /// <returns>First non-null, non-empty and non-space string value, or empty string. Returns never null.</returns>
+    /// <returns>First non-null, non-empty and non-space string value, or empty string, never null.</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text1 = null;
@@ -29,21 +33,21 @@ public static class StringExtensions
     /// //result is "hello" as the others are blank/empty
     /// </code>
     /// </example>
-    public static string AsFallback(this string current, params string[] fallbacks)
+    public static string AsFallback(this string data, params string[] fallbacks)
     {
-        if (current.Is()) return current;
+        if (data.Is()) return data;
 
         if (fallbacks == null || fallbacks.Length == 0) return "";
 
         foreach (var fallback in fallbacks)
-            if (!fallback.IsNot())
+            if (fallback.Is())
                 return fallback;
 
         return "";
     }
 
     /// <summary>
-    /// Convert a string value to the Enum of your choice
+    /// Convert a string value to Enum
     /// </summary>
     /// <typeparam name="T">T must be an Enum</typeparam>
     /// <param name="value">Value must match the Key or the 'EnumValueAttribute' of a Key in the Enum, else this returns default of the Enum T</param>
@@ -113,7 +117,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if a text strats with any of the values, case sensitive
+    /// Returns true if text starts with any of the values, case sensitive
     /// </summary>
     /// <returns>True or false</returns>
     /// <example>
@@ -138,7 +142,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text ends with any of the value, case sensitive
+    /// Returns true if text ends with any of the values, case sensitive
     /// </summary>
     /// <returns>True or false</returns>
     /// <example>
@@ -160,7 +164,31 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text is any of the values, case sensitive
+    /// Returns true if text ends with any of the values, case insensitive
+    /// </summary>
+    /// <returns>True or false</returns>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var text = "heLLo WoRLd";
+    /// var result = text.EndsWithAny("", "abdef", "RLD");
+    /// //result is true, because the last part of text ends with RLd - case insensitive
+    /// </code>
+    /// </example>
+    public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)
+    {
+        if (text.IsNot()) return false;
+        if (values.IsNot()) return false;
+
+        text = text.ToLower();
+
+        if (values.Any(value => text.EndsWith(value.ToLower())))
+            return true;
+
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if text equals any of the values, case sensitive
     /// </summary>
     /// <returns>True or false</returns>
     /// <example>
@@ -184,7 +212,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text is null, "" or " ", returns true if so, otherwise false
+    /// Returns true if text is null, "" or " ", else false
     /// 
     /// Note: it does not check if it contains multiple spaces so it is not exactly as string.IsNullOrWhiteSpace()
     /// </summary>
@@ -208,7 +236,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text is not null, not "", and not a " ", returns true if so, otherwise false
+    /// Returns true if text is not null, nor "", nor a " ", else false
     /// </summary>
     /// <returns>True or false</returns>
     /// <example>
@@ -222,11 +250,11 @@ public static class StringExtensions
     /// </example>
     public static bool Is(this string text)
     {
-        return !text.IsNot();
+        return text != null && text != "" && text != " ";
     }
 
     /// <summary>
-    /// Returns a new string where all non-digit and non-letters has been removed
+    /// Returns new string without all non-digit and non-letters
     /// </summary>
     /// <returns>String with digits and letters only or "", never null</returns>
     /// <example>
@@ -245,15 +273,15 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text contains any of the values, case sensitive
+    /// Returns true if text contains any of the values, case sensitive
     /// </summary>
     /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello";
     /// 
-    /// var result = text.ContainsAny("ll");
-    /// //result is true, because ll is part of the text
+    /// var result = text.ContainsAny("123", "!", "lo");
+    /// //result is true, because lo is part of the text
     /// </code>
     /// </example>
     public static bool ContainsAny(this string text, params string[] values)
@@ -268,19 +296,25 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Checks if text contains any of the values, if text ends with one of the value, that values is deleted from the text and then remaning text is returned
+    /// Returns trimmed version of the text input, if text ends with any of the values, case sensitive
     /// 
     /// This is not recursive, so after removal of 1 value, it will return
+    /// 
+    /// NOTE: Works like "".TrimEnd(), but with multiple strings in one go
     /// </summary>
-    /// <returns>Returns the input string as is or without one of the values</returns>
+    /// <returns>Returns the input string as is or without one of the values passed</returns>
     /// <example>
     /// <code class="language-csharp hljs">
-    /// var result = RemoveIfEndsWith("abcd", " ", "!", "c", "d");
+    /// var result = "abcd".TrimEnd(" ", "!", "c", "d");
     /// 
     /// //result is abc
+    /// 
+    /// var result = "abcd".TrimEnd(" ", "d", "bc");
+    /// 
+    /// //result is "abc" because it matches 'd' then returns, so 'bc' is never checked
     /// </code>
     /// </example>
-    public static string RemoveIfEndsWith(this string text, params string[] values)
+    public static string TrimEnd(this string text, params string[] values)
     {
         if (text.IsNot()) return text;
         if (values.IsNot()) return text;
@@ -313,7 +347,8 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Check if text contains any of the characters, case insensitive
+    /// Returns true if text ends with any of the characters, case insensitive
+    /// 
     /// </summary>
     /// <param name="characters">Each character in this string will be checked</param>
     /// <returns>True or false</returns>
@@ -367,17 +402,21 @@ public static class StringExtensions
 namespace SystemLibrary.Common.Net.Global
 {
     /// <summary>
-    /// Extension methods for strings
+    /// This class contains extension methods for Strings
     /// 
-    /// They are living in the Global namespace, so they are always available anyhwere in your code without including the namespace
+    /// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've added the Nuget Package
     /// </summary>
+    /// <example>
+    /// var result = "Hello world".Is() //invokable from anywhere in your applications source code
+    /// //result is 'true'
+    /// </example>
     public static class StringExtensions
     {
         /// <summary>
-        /// Returns the first of the parameters sent to this method that is not null, blank or only a single space.
-        /// If current, and all 'optional' fallback values does not meet the condition, "" is returned, never null
+        /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
+        /// If 'data' and all fallbacks are null or empty, this returns "", never null
         /// </summary>
-        /// <returns>First non-null, non-empty and non-space string value, or empty string. Returns never null.</returns>
+        /// <returns>First non-null, non-empty and non-space string value, or empty string, never null.</returns>
         /// <example>
         /// <code class="language-csharp hljs">
         /// var text1 = null;
@@ -389,21 +428,21 @@ namespace SystemLibrary.Common.Net.Global
         /// //result is "hello" as the others are blank/empty
         /// </code>
         /// </example>
-        public static string AsFallback(this string current, params string[] fallbacks)
+        public static string AsFallback(this string data, params string[] fallbacks)
         {
-            if (current.Is()) return current;
+            if (data.Is()) return data;
 
             if (fallbacks == null || fallbacks.Length == 0) return "";
 
             foreach (var fallback in fallbacks)
-                if (!fallback.IsNot())
+                if (fallback.Is())
                     return fallback;
 
             return "";
         }
 
         /// <summary>
-        /// Convert a string value to the Enum of your choice
+        /// Convert a string value to Enum
         /// </summary>
         /// <typeparam name="T">T must be an Enum</typeparam>
         /// <param name="value">Value must match the Key or the 'EnumValueAttribute' of a Key in the Enum, else this returns default of the Enum T</param>
@@ -473,7 +512,7 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if a text strats with any of the values, case sensitive
+        /// Returns true if text starts with any of the values, case sensitive
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
@@ -498,7 +537,7 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text ends with any of the value, case sensitive
+        /// Returns true if text ends with any of the values, case sensitive
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
@@ -520,7 +559,31 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text is any of the values, case sensitive
+        /// Returns true if text ends with any of the values, case insensitive
+        /// </summary>
+        /// <returns>True or false</returns>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// var text = "heLLo WoRLd";
+        /// var result = text.EndsWithAny("", "abdef", "RLD");
+        /// //result is true, because the last part of text ends with RLd - case insensitive
+        /// </code>
+        /// </example>
+        public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)
+        {
+            if (text.IsNot()) return false;
+            if (values.IsNot()) return false;
+
+            text = text.ToLower();
+
+            if (values.Any(value => text.EndsWith(value.ToLower())))
+                return true;
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if text equals any of the values, case sensitive
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
@@ -544,7 +607,7 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text is null, "" or " ", returns true if so, otherwise false
+        /// Returns true if text is null, "" or " ", else false
         /// 
         /// Note: it does not check if it contains multiple spaces so it is not exactly as string.IsNullOrWhiteSpace()
         /// </summary>
@@ -568,7 +631,7 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text is not null, not "", and not a " ", returns true if so, otherwise false
+        /// Returns true if text is not null, nor "", nor a " ", else false
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
@@ -582,11 +645,11 @@ namespace SystemLibrary.Common.Net.Global
         /// </example>
         public static bool Is(this string text)
         {
-            return !text.IsNot();
+            return text != null && text != "" && text != " ";
         }
 
         /// <summary>
-        /// Returns a new string where all non-digit and non-letters has been removed
+        /// Returns new string without all non-digit and non-letters
         /// </summary>
         /// <returns>String with digits and letters only or "", never null</returns>
         /// <example>
@@ -605,15 +668,15 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text contains any of the values, case sensitive
+        /// Returns true if text contains any of the values, case sensitive
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
         /// <code class="language-csharp hljs">
         /// var text = "hello";
         /// 
-        /// var result = text.ContainsAny("ll");
-        /// //result is true, because ll is part of the text
+        /// var result = text.ContainsAny("123", "!", "lo");
+        /// //result is true, because lo is part of the text
         /// </code>
         /// </example>
         public static bool ContainsAny(this string text, params string[] values)
@@ -628,19 +691,25 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Checks if text contains any of the values, if text ends with one of the value, that values is deleted from the text and then remaning text is returned
+        /// Returns trimmed version of the text input, if text ends with any of the values, case sensitive
         /// 
         /// This is not recursive, so after removal of 1 value, it will return
+        /// 
+        /// NOTE: Works like "".TrimEnd(), but with multiple strings in one go
         /// </summary>
-        /// <returns>Returns the input string as is or without one of the values</returns>
+        /// <returns>Returns the input string as is or without one of the values passed</returns>
         /// <example>
         /// <code class="language-csharp hljs">
-        /// var result = RemoveIfEndsWith("abcd", " ", "!", "c", "d");
+        /// var result = "abcd".TrimEnd(" ", "!", "c", "d");
         /// 
         /// //result is abc
+        /// 
+        /// var result = "abcd".TrimEnd(" ", "d", "bc");
+        /// 
+        /// //result is "abc" because it matches 'd' then returns, so 'bc' is never checked
         /// </code>
         /// </example>
-        public static string RemoveIfEndsWith(this string text, params string[] values)
+        public static string TrimEnd(this string text, params string[] values)
         {
             if (text.IsNot()) return text;
             if (values.IsNot()) return text;
@@ -673,7 +742,8 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Check if text contains any of the characters, case insensitive
+        /// Returns true if text ends with any of the characters, case insensitive
+        /// 
         /// </summary>
         /// <param name="characters">Each character in this string will be checked</param>
         /// <returns>True or false</returns>

@@ -3,7 +3,9 @@
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for System.Type like Inherits(), ...
+    /// This class contains extension methods for Type
+    /// 
+    /// For instance: Inherits()
     /// </summary>
     public static class TypeExtensions
     {

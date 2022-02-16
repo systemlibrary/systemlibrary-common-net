@@ -1,0 +1,7 @@
+﻿<HumanConfigs>
+	<firstName>Users firstname</firstName>
+	<LastName>Users lastname</LastName>
+	<isAlive>true</isAlive>
+	<isAliveCapital>True</isAliveCapital>
+	<phone>1234</phone>
+</HumanConfigs>

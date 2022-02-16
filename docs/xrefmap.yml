@@ -216,143 +216,75 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
   nameWithType: Config<T>.Current
   nameWithType.vb: Config(Of T).Current
-- uid: SystemLibrary.Common.Net.Config`1.Get(System.String)
-  name: Get(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html#SystemLibrary_Common_Net_Config_1_Get_System_String_
-  commentId: M:SystemLibrary.Common.Net.Config`1.Get(System.String)
-  fullName: SystemLibrary.Common.Net.Config<T>.Get(System.String)
-  fullName.vb: SystemLibrary.Common.Net.Config(Of T).Get(System.String)
-  nameWithType: Config<T>.Get(String)
-  nameWithType.vb: Config(Of T).Get(String)
-- uid: SystemLibrary.Common.Net.Config`1.Get*
-  name: Get
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html#SystemLibrary_Common_Net_Config_1_Get_
-  commentId: Overload:SystemLibrary.Common.Net.Config`1.Get
+- uid: SystemLibrary.Common.Net.EnvironmentConfig
+  name: EnvironmentConfig
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html
+  commentId: T:SystemLibrary.Common.Net.EnvironmentConfig
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig
+  nameWithType: EnvironmentConfig
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
+  name: ApplicationName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ApplicationName
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
+  nameWithType: EnvironmentConfig.ApplicationName
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName*
+  name: ApplicationName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ApplicationName_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Config<T>.Get
-  fullName.vb: SystemLibrary.Common.Net.Config(Of T).Get
-  nameWithType: Config<T>.Get
-  nameWithType.vb: Config(Of T).Get
-- uid: SystemLibrary.Common.Net.ConfigCollection`1
-  name: ConfigCollection<T>
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html
-  commentId: T:SystemLibrary.Common.Net.ConfigCollection`1
-  name.vb: ConfigCollection(Of T)
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T)
-  nameWithType: ConfigCollection<T>
-  nameWithType.vb: ConfigCollection(Of T)
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.CollectionType
-  name: CollectionType
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_CollectionType
-  commentId: P:SystemLibrary.Common.Net.ConfigCollection`1.CollectionType
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.CollectionType
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).CollectionType
-  nameWithType: ConfigCollection<T>.CollectionType
-  nameWithType.vb: ConfigCollection(Of T).CollectionType
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.CollectionType*
-  name: CollectionType
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_CollectionType_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollection`1.CollectionType
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
+  nameWithType: EnvironmentConfig.ApplicationName
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
+  name: AspNetCoreEnvironment
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
+  nameWithType: EnvironmentConfig.AspNetCoreEnvironment
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment*
+  name: AspNetCoreEnvironment
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.CollectionType
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).CollectionType
-  nameWithType: ConfigCollection<T>.CollectionType
-  nameWithType.vb: ConfigCollection(Of T).CollectionType
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.CreateNewElement
-  name: CreateNewElement()
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_CreateNewElement
-  commentId: M:SystemLibrary.Common.Net.ConfigCollection`1.CreateNewElement
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.CreateNewElement()
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).CreateNewElement()
-  nameWithType: ConfigCollection<T>.CreateNewElement()
-  nameWithType.vb: ConfigCollection(Of T).CreateNewElement()
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.CreateNewElement*
-  name: CreateNewElement
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_CreateNewElement_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollection`1.CreateNewElement
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.CreateNewElement
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).CreateNewElement
-  nameWithType: ConfigCollection<T>.CreateNewElement
-  nameWithType.vb: ConfigCollection(Of T).CreateNewElement
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.ElementName
-  name: ElementName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_ElementName
-  commentId: P:SystemLibrary.Common.Net.ConfigCollection`1.ElementName
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.ElementName
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).ElementName
-  nameWithType: ConfigCollection<T>.ElementName
-  nameWithType.vb: ConfigCollection(Of T).ElementName
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.ElementName*
-  name: ElementName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_ElementName_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollection`1.ElementName
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.ElementName
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).ElementName
-  nameWithType: ConfigCollection<T>.ElementName
-  nameWithType.vb: ConfigCollection(Of T).ElementName
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.IsElementName(System.String)
-  name: IsElementName(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_IsElementName_System_String_
-  commentId: M:SystemLibrary.Common.Net.ConfigCollection`1.IsElementName(System.String)
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.IsElementName(System.String)
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).IsElementName(System.String)
-  nameWithType: ConfigCollection<T>.IsElementName(String)
-  nameWithType.vb: ConfigCollection(Of T).IsElementName(String)
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.IsElementName*
-  name: IsElementName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_IsElementName_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollection`1.IsElementName
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.IsElementName
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).IsElementName
-  nameWithType: ConfigCollection<T>.IsElementName
-  nameWithType.vb: ConfigCollection(Of T).IsElementName
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.Item(System.Object)
-  name: Item[Object]
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_Item_System_Object_
-  commentId: P:SystemLibrary.Common.Net.ConfigCollection`1.Item(System.Object)
-  name.vb: Item(Object)
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.Item[System.Object]
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).Item(System.Object)
-  nameWithType: ConfigCollection<T>.Item[Object]
-  nameWithType.vb: ConfigCollection(Of T).Item(Object)
-- uid: SystemLibrary.Common.Net.ConfigCollection`1.Item*
-  name: Item
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollection-1.html#SystemLibrary_Common_Net_ConfigCollection_1_Item_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollection`1.Item
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollection<T>.Item
-  fullName.vb: SystemLibrary.Common.Net.ConfigCollection(Of T).Item
-  nameWithType: ConfigCollection<T>.Item
-  nameWithType.vb: ConfigCollection(Of T).Item
-- uid: SystemLibrary.Common.Net.ConfigCollectionItem
-  name: ConfigCollectionItem
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollectionItem.html
-  commentId: T:SystemLibrary.Common.Net.ConfigCollectionItem
-  fullName: SystemLibrary.Common.Net.ConfigCollectionItem
-  nameWithType: ConfigCollectionItem
-- uid: SystemLibrary.Common.Net.ConfigCollectionItem.Get(System.String)
-  name: Get(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollectionItem.html#SystemLibrary_Common_Net_ConfigCollectionItem_Get_System_String_
-  commentId: M:SystemLibrary.Common.Net.ConfigCollectionItem.Get(System.String)
-  fullName: SystemLibrary.Common.Net.ConfigCollectionItem.Get(System.String)
-  nameWithType: ConfigCollectionItem.Get(String)
-- uid: SystemLibrary.Common.Net.ConfigCollectionItem.Get*
-  name: Get
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.ConfigCollectionItem.html#SystemLibrary_Common_Net_ConfigCollectionItem_Get_
-  commentId: Overload:SystemLibrary.Common.Net.ConfigCollectionItem.Get
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.ConfigCollectionItem.Get
-  nameWithType: ConfigCollectionItem.Get
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
+  nameWithType: EnvironmentConfig.AspNetCoreEnvironment
 - uid: SystemLibrary.Common.Net.Extensions
   name: SystemLibrary.Common.Net.Extensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html
   commentId: N:SystemLibrary.Common.Net.Extensions
   fullName: SystemLibrary.Common.Net.Extensions
   nameWithType: SystemLibrary.Common.Net.Extensions
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  name: ArrayExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  nameWithType: ArrayExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add*
+  name: Add
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add
+  nameWithType: ArrayExtensions.Add
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],``0[][])
+  name: Add<T>(T[], T[][])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0_____0_____
+  commentId: M:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],``0[][])
+  name.vb: Add(Of T)(T(), T()())
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add<T>(T[], T[][])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add(Of T)(T(), T()())
+  nameWithType: ArrayExtensions.Add<T>(T[], T[][])
+  nameWithType.vb: ArrayExtensions.Add(Of T)(T(), T()())
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],System.Func{``0,System.Boolean},``0[][])
+  name: Add<T>(T[], Func<T, Boolean>, T[][])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0___System_Func___0_System_Boolean____0_____
+  commentId: M:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],System.Func{``0,System.Boolean},``0[][])
+  name.vb: Add(Of T)(T(), Func(Of T, Boolean), T()())
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add<T>(T[], System.Func<T, System.Boolean>, T[][])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add(Of T)(T(), System.Func(Of T, System.Boolean), T()())
+  nameWithType: ArrayExtensions.Add<T>(T[], Func<T, Boolean>, T[][])
+  nameWithType.vb: ArrayExtensions.Add(Of T)(T(), Func(Of T, Boolean), T()())
 - uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions
   name: DynamicExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html
@@ -717,6 +649,22 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
   nameWithType: StringExtensions.EndsWithAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
+  name: EndsWithAnyCaseInsensitive(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
+  name.vb: EndsWithAnyCaseInsensitive(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String())
+  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive(String, String[])
+  nameWithType.vb: StringExtensions.EndsWithAnyCaseInsensitive(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*
+  name: EndsWithAnyCaseInsensitive
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
+  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
   name: EndsWithAnyCharacter(String, String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_
@@ -785,22 +733,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
   nameWithType: StringExtensions.MaxLength
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith(System.String,System.String[])
-  name: RemoveIfEndsWith(String, String[])
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_RemoveIfEndsWith_System_String_System_String___
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith(System.String,System.String[])
-  name.vb: RemoveIfEndsWith(String, String())
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith(System.String, System.String[])
-  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith(System.String, System.String())
-  nameWithType: StringExtensions.RemoveIfEndsWith(String, String[])
-  nameWithType.vb: StringExtensions.RemoveIfEndsWith(String, String())
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith*
-  name: RemoveIfEndsWith
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_RemoveIfEndsWith_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.RemoveIfEndsWith
-  nameWithType: StringExtensions.RemoveIfEndsWith
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
   name: StartsWithAny(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___
@@ -846,6 +778,22 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits
   nameWithType: StringExtensions.ToLetterAndDigits
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name: TrimEnd(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name.vb: TrimEnd(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String())
+  nameWithType: StringExtensions.TrimEnd(String, String[])
+  nameWithType.vb: StringExtensions.TrimEnd(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*
+  name: TrimEnd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  nameWithType: StringExtensions.TrimEnd
 - uid: SystemLibrary.Common.Net.SystemType
   name: SystemType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html

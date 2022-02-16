@@ -4,7 +4,9 @@ using System.Linq;
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for objects like AsEnum(), AsEnumArray()...
+    /// This class contains extension methods on Object
+    /// 
+    /// For instance: AsEnum(), AsEnumArray(), etc...
     /// </summary>
     public static class ObjectExtensions
     {
@@ -32,12 +34,23 @@ namespace SystemLibrary.Common.Net.Extensions
         }
 
         /// <summary>
-        /// Cast the object array to System.Enum array
+        /// Convert multiple objects of the same 'enum value' to an array of that enum type
         /// </summary>
         /// <example>
         /// <code class="language-csharp hljs">
+        /// public enum Colors
+        /// {
+        ///     Black, White, Red, Blue
+        /// }
+        /// 
         /// var integers = new object[] { 1, 2, 3, 4 };
+        /// 
         /// var colors = integers.AsEnumArray&lt;Colors&gt;();
+        /// //colors is now an array of 'Colors', with one of each of the values:
+        /// //colors[0] == Black
+        /// //colors[1] == White
+        /// //...
+        /// //colors[3] == Blue
         /// </code>
         /// </example>
         public static TEnum[] AsEnumArray<TEnum>(this object[] objects) where TEnum : IComparable, IFormattable, IConvertible

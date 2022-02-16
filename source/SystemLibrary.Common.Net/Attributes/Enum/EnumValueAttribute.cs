@@ -3,24 +3,32 @@
 namespace SystemLibrary.Common.Net.Attributes
 {
     /// <summary>
-    /// Enum value attribute on any enum key
+    /// Add additional string data to any Enum Field
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum Color 
     /// {
     ///     [EnumValue("#000")]
+    ///     EnumText("Hello Black")]
     ///     Black,
-    ///     White
+    ///     
+    ///     [EnumText("Hello White")]
+    ///     White,
+    ///     
+    ///     Pink
     /// }
     /// 
-    /// var color = Color.Black;
-    /// var value = color.ToValue();
-    /// //value == "#000"
+    /// var black = Color.Black;
+    /// var value = black.ToValue();
+    /// //'value' is now "#000"
     /// 
-    /// var color = Color.White;
-    /// var value = color.ToValue();
-    /// //value == "White"
+    /// var value = Color.White.ToValue();
+    /// //'value' is now "White"
+    /// 
+    /// var value = Color.Pink.ToValue();
+    /// //'value' is now 'Pink'
+    /// //If EnumText attribute do not exist, it falls back to .ToString() of the field
     /// </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]

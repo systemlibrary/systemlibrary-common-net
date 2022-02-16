@@ -6,7 +6,9 @@ using Asm = System.Reflection.Assembly;
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// The class Assemblies contains static methods built on System.Reflection.Assembly
+    /// This class is used to find embedded resource or searching for an implementation of a certain interface, in all loaded assemblies.
+    /// 
+    /// Built on System.Reflection.Assembly
     /// </summary>
     public static partial class Assemblies
     {
@@ -46,7 +48,14 @@ namespace SystemLibrary.Common.Net
             "automapper",
             "Autofac",
             "Dapper",
-            "SystemLibrary",
+            "SystemLibrary.Common.Net",
+            "SystemLibrary.Common.Net.Json",
+            "SystemLibrary.Common.Web.HttpBaseClient",
+            "testhost",
+            "netstandard",
+            "Anonymously Hosted",
+            "DynamicContentModelsAssembly",
+
         };
 
         static IEnumerable<Asm> WhiteListedAssemblies { get; }

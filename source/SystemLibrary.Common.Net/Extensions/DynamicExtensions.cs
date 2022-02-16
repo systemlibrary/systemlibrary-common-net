@@ -5,9 +5,9 @@ using System.Reflection;
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for dynamic objects
+    /// This class contains extension methods for Dynamic objects
     /// 
-    /// Current version of C# does not allow extension methods on this type, hence these are static methods
+    /// WARNING: Current version of C# does not allow extension methods on 'dynamic', hence these are static methods
     /// </summary>
     public static class DynamicExtensions
     {

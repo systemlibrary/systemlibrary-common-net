@@ -3,19 +3,26 @@
 namespace SystemLibrary.Common.Net.Attributes
 {
     /// <summary>
-    /// Enum text attribute on any enum key
+    /// Add additional string data to any Enum Field
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum Color 
     /// {
     ///     [EnumText("Black Colored Text")]
-    ///     Black
+    ///     Black,
+    ///     White
     /// }
     /// 
     /// var color = Color.Black;
+    /// 
     /// var value = color.ToText();
-    /// //value == "Black Colored Text"
+    /// 
+    /// var value2 = Color.White.ToText();
+    /// 
+    /// //'value' is now "Black Colored Text"
+    /// //'value2' is now "White", 
+    /// //If EnumText attribute do not exist, it falls back to .ToString() of the field
     /// </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]

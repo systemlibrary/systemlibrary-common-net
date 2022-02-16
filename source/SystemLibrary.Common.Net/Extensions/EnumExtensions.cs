@@ -7,9 +7,9 @@ using SystemLibrary.Common.Net.Attributes;
 namespace SystemLibrary.Common.Net.Extensions
 {
     /// <summary>
-    /// Extension methods for enum as a generic type
+    /// This class contains extension methods for Enum as a Generic Type
     /// 
-    /// Current version of C# does not allow extension methods on this type, hence these are static methods
+    /// WARNING: Current version of C# does not allow extension methods 'generic types', hence these are static methods
     /// </summary>
     public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattable, IConvertible
     {

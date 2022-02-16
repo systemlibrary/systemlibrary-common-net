@@ -13,7 +13,10 @@ namespace SystemLibrary.Common.Net
         public static Type StringType = typeof(string);
         public static Type IntType = typeof(int);
         public static Type DateTimeType = typeof(DateTime);
+        public static Type DateTimeOffsetType = typeof(DateTimeOffset);
         public static Type BoolType = typeof(bool);
+        public static Type GuidType = typeof(Guid);
+        public static Type CharType = typeof(char);
 
         public static Type ListType = typeof(List<>);
         public static Type DictionaryType = typeof(Dictionary<,>);

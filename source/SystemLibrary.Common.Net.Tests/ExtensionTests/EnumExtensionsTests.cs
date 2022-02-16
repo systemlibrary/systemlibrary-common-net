@@ -40,6 +40,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
             
             var colors = integers.AsEnumArray<Colors>();
 
+            Assert.IsTrue(colors.Length == integers.Length);
             Assert.IsTrue(colors[2] == Colors.Blue);
         }
     }

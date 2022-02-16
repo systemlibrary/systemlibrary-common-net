@@ -102,12 +102,12 @@ namespace SystemLibrary.Common.Net.Tests.Extensions
         }
 
         [TestMethod]
-        public void Remove_If_Ends_With()
+        public void TrimEnd()
         {
             var data = "/";
 
-            Assert.IsTrue(!data.RemoveIfEndsWith("/").Contains("/"));
-            Assert.IsTrue(!data.RemoveIfEndsWith("\\").Contains("\\"));
+            Assert.IsTrue(!data.TrimEnd("/").Contains("/"));
+            Assert.IsTrue(!data.TrimEnd("\\").Contains("\\"));
         }
     }
 }
