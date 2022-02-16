@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>2.0.0.12</version>
+		<version>2.0.0.13</version>
 
 		<authors>System Library</authors>
 
@@ -23,7 +23,7 @@
 		</releaseNotes>
 
 		<description>
-			SystemLibrary.Core.Common.Net for any .NET >= 5 application - various reuseable extensions and classes
+			SystemLibrary.Common.Net for any .NET >= 5 application - various reuseable extensions and classes
 			
 			Selling points:
 			* Extensions for strings, enums, arrays...

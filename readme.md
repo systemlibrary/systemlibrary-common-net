@@ -5,7 +5,7 @@
 
 ## Latest Version
 - Moved to replace the .NET Framework Common Library
-- No more updated of the .NET Framework Common Library
+- File version matches the nuget version 2.0.0.13
 
 ## Description
 SystemLibrary.Core.Common.Net for any .NET &gt;= 5 application - various reusable extensions and classes
