@@ -8,7 +8,7 @@
 - File version matches the nuget version 2.0.0.13
 
 ## Description
-SystemLibrary.Core.Common.Net for any .NET &gt;= 5 application - various reusable extensions and classes
+SystemLibrary.Common.Net for any .NET &gt;= 5 application - various reusable extensions and classes
 			
 Selling points:
   * Extensions for strings, enums, arrays...
@@ -18,7 +18,7 @@ Selling points:
 
 ## Docs			
 Documentation with samples:
-https://systemlibrary.github.io/systemlibrary-core-common-net/
+https://systemlibrary.github.io/systemlibrary-common-net/
 
 ## Nuget
 https://www.nuget.org/packages/SystemLibrary.Common.Net/
