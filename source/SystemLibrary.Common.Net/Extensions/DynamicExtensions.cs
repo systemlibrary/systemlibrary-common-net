@@ -12,12 +12,12 @@ namespace SystemLibrary.Common.Net.Extensions
     public static class DynamicExtensions
     {
         /// <summary>
-        /// Merge two objects into a new one, where the "updates" values have precedence if both objects contains same property name
+        /// Merge dynamic objects into a one new dynamic object
         /// 
-        /// The latter "update" object have precedence over other "update" objects
+        /// The latter updating value takes precedence if both objects contains same property name
         /// </summary>
-        /// <param name="source">An anonymous object</param>
-        /// <param name="updates">One or more anonymous objects, but if error occurs, cast the 'updating' objects to an actual object before invoking this method</param>
+        /// <param name="source">An anonymous/dynamic object</param>
+        /// <param name="updates">One or more anonymous/dynamic objects, but if error occurs, cast the 'updating' objects to an actual object before invoking this method</param>
         /// <returns>Returns a new dynamic object with the merge result, can be casted to IDictionary&lt;string, object&gt;</returns>
         /// <example>
         /// <code class="language-csharp hljs">

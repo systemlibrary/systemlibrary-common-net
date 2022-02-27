@@ -145,17 +145,17 @@
   <h3 id="methods">Methods
   </h3>
   
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Find all types inheriting class T in all loaded assemblies</p>
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Find all types inheriting class T in all loaded assemblies</p>
 <p>Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Dapper, Autofac, Automapper, Salesforce, ...</p>
 </div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1">
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L79">View Source</a>
-  </span>
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L79">View Source</a>
+  	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting_" data-uid="SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting*"></a>
   
@@ -163,75 +163,74 @@
   	<h4 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1" data-uid="SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting``1" class="h4-custom-functionName">public static IEnumerable&lt;Type&gt; FindAllTypesInheriting&lt;TClassType&gt;()
 
     where TClassType : class</h4>
-  
   	<div class="custom-menu-data-container">
-  			<div class="custom-menu-data-name" style="display: none;">
-  			  	<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>public class Car : IVehicle {
+  		<div class="custom-menu-data-name" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="codewrapper"><pre><code>public class Car : IVehicle {
 }
 
 var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle>
 //returns &apos;Car&apos; and all other types that inherits/implements IVehicle</code></pre>
 </div>
-  	        	<div class="comment-examples-container-bottom"></div>
-        		</div>
+  			<div class="comment-examples-container-bottom"></div>
+  		</div>
   
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
-  					<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-  					<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-  					<thead>
-  						<tr>
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  			<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  				<thead>
+  					<tr>
   						<th>Name</th>
   						<th>Description</th>
-  						</tr>
-  					</thead>
-  					<tbody>
-  						<tr>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
   						<td><span class="parametername">TClassType</span></td>
   						<td><p>Must be a class</p>
 </td>
-  						</tr>
-  					</tbody>
-  					</table>
+  					</tr>
+  				</tbody>
+  			</table>
   
-  			</div>
+  		</div>
   
-  			<div class="custom-menu-data-returntype" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  				<table class="table table-bordered table-striped table-condensed table-return">
-  					<thead>
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
   					<tr>
   						<th>Type</th>
   						<th>Description</th>
   					</tr>
-  					</thead>
-  					<tbody>
+  				</thead>
+  				<tbody>
   					<tr>
   						<td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Type</span>&gt;</td>
   						<td><p>An IEnumerable of Type</p>
 </td>
   					</tr>
-  					</tbody>
-  				</table>
-  			</div>
+  				</tbody>
+  			</table>
+  		</div>
   	</div>
   </div>
   
   
   
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Find all types inheriting class T with a certain attribute in all loaded assemblies</p>
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Find all types inheriting class T with a certain attribute in all loaded assemblies</p>
 <p>Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Dapper, Autofac, Automapper, Salesforce, ...</p>
 </div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2">
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L105">View Source</a>
-  </span>
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L105">View Source</a>
+  	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute_" data-uid="SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute*"></a>
   
@@ -239,11 +238,10 @@ var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle>
   	<h4 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2" data-uid="SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute``2" class="h4-custom-functionName">public static IEnumerable&lt;Type&gt; FindAllTypesInheritingWithAttribute&lt;TClassType, TAttributeType&gt;()
 
     where TClassType : class where TAttributeType : Attribute</h4>
-  
   	<div class="custom-menu-data-container">
-  			<div class="custom-menu-data-name" style="display: none;">
-  			  	<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>public class NameAttribute : Attribute { 
+  		<div class="custom-menu-data-name" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="codewrapper"><pre><code>public class NameAttribute : Attribute { 
 }
 
 [NameAttribute]
@@ -253,216 +251,214 @@ public class Car : IVehicle {
 var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle,NameAttribute>
 //returns &apos;Car&apos; and all other types that inherits/implements IVehicle which also contains the attribute</code></pre>
 </div>
-  	        	<div class="comment-examples-container-bottom"></div>
-        		</div>
+  			<div class="comment-examples-container-bottom"></div>
+  		</div>
   
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
-  					<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-  					<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-  					<thead>
-  						<tr>
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  			<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  				<thead>
+  					<tr>
   						<th>Name</th>
   						<th>Description</th>
-  						</tr>
-  					</thead>
-  					<tbody>
-  						<tr>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
   						<td><span class="parametername">TClassType</span></td>
   						<td><p>Must be a class</p>
 </td>
-  						</tr>
-  						<tr>
+  					</tr>
+  					<tr>
   						<td><span class="parametername">TAttributeType</span></td>
   						<td><p>Type of class that inherits Attribute</p>
 </td>
-  						</tr>
-  					</tbody>
-  					</table>
+  					</tr>
+  				</tbody>
+  			</table>
   
-  			</div>
+  		</div>
   
-  			<div class="custom-menu-data-returntype" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  				<table class="table table-bordered table-striped table-condensed table-return">
-  					<thead>
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
   					<tr>
   						<th>Type</th>
   						<th>Description</th>
   					</tr>
-  					</thead>
-  					<tbody>
+  				</thead>
+  				<tbody>
   					<tr>
   						<td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Type</span>&gt;</td>
   						<td><p>An IEnumerable of Type</p>
 </td>
   					</tr>
-  					</tbody>
-  				</table>
-  			</div>
+  				</tbody>
+  			</table>
+  		</div>
   	</div>
   </div>
   
   
   
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Read an embedded resource's content as string</p>
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Read an embedded resource's content as string</p>
 </div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly_">
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L123">View Source</a>
-  </span>
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L123">View Source</a>
+  	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource*"></a>
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource(System.String,System.String,System.Reflection.Assembly)" class="h4-custom-functionName">public static string GetEmbeddedResource(string relativeFolderPath, string fileName, Assembly assembly = null)</h4>
-  
   	<div class="custom-menu-data-container">
-  			<div class="custom-menu-data-name" style="display: none;">
-  			  	<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>var text = Assemblies.GetEmbeddedResource(&quot;Folder/SubFolder/SubFolder2&quot;, &quot;json.txt&quot;);
+  		<div class="custom-menu-data-name" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="codewrapper"><pre><code>var text = Assemblies.GetEmbeddedResource(&quot;Folder/SubFolder/SubFolder2&quot;, &quot;json.txt&quot;);
 Assert.IsTrue(text.Contains(&quot;hello world&quot;));
 //assuming &quot;json.txt&quot; contains &apos;hello world&apos; this is now true
 //assuming &quot;json.txt&quot; has build action &apos;Embedded Resource&apos;</code></pre>
 </div>
-  	        	<div class="comment-examples-container-bottom"></div>
-        		</div>
+  			<div class="comment-examples-container-bottom"></div>
+  		</div>
   
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  					<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  					<table class="table table-bordered table-striped table-condensed">
-  					<thead>
-  						<tr>
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
   						<th>Type</th>
   						<th>Name</th>
   						<th>Description</th>
-  						</tr>
-  					</thead>
-  					<tbody>
-  						<tr>
-  							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">relativeFolderPath</span></td>
-  							<td></td>
-  						</tr>
-  						<tr>
-  							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">fileName</span></td>
-  							<td></td>
-  						</tr>
-  						<tr>
-  							<td><span class="xref">System.Reflection.Assembly</span></td>
-  							<td><span class="parametername">assembly</span></td>
-  							<td></td>
-  						</tr>
-  					</tbody>
-  					</table>
-  			</div>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.String</span></td>
+  						<td><span class="parametername">relativeFolderPath</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.String</span></td>
+  						<td><span class="parametername">fileName</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.Reflection.Assembly</span></td>
+  						<td><span class="parametername">assembly</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
   
-  			<div class="custom-menu-data-returntype" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  				<table class="table table-bordered table-striped table-condensed table-return">
-  					<thead>
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
   					<tr>
   						<th>Type</th>
   						<th>Description</th>
   					</tr>
-  					</thead>
-  					<tbody>
+  				</thead>
+  				<tbody>
   					<tr>
   						<td><span class="xref">System.String</span></td>
   						<td></td>
   					</tr>
-  					</tbody>
-  				</table>
-  			</div>
+  				</tbody>
+  			</table>
+  		</div>
   	</div>
   </div>
   
   
   
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Read an embedded resource's content as byte array</p>
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Read an embedded resource's content as byte array</p>
 </div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_System_String_System_String_System_Reflection_Assembly_">
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L137">View Source</a>
-  </span>
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L137">View Source</a>
+  	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes*"></a>
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_System_String_System_String_System_Reflection_Assembly_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes(System.String,System.String,System.Reflection.Assembly)" class="h4-custom-functionName">public static byte[] GetEmbeddedResourceAsBytes(string relativeFolderPath, string fileName, Assembly assembly = null)</h4>
-  
   	<div class="custom-menu-data-container">
-  			<div class="custom-menu-data-name" style="display: none;">
-  			  	<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>var bytes = Assemblies.GetEmbeddedResource(&quot;Folder/SubFolder/SubFolder2&quot;, &quot;image.jpg&quot;);
+  		<div class="custom-menu-data-name" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="codewrapper"><pre><code>var bytes = Assemblies.GetEmbeddedResource(&quot;Folder/SubFolder/SubFolder2&quot;, &quot;image.jpg&quot;);
 //bytes contains now the whole image.jpg as an byte array, assuming image.jpg was marked with the build action &apos;Embedded Resource&apos;</code></pre>
 </div>
-  	        	<div class="comment-examples-container-bottom"></div>
-        		</div>
+  			<div class="comment-examples-container-bottom"></div>
+  		</div>
   
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  					<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  					<table class="table table-bordered table-striped table-condensed">
-  					<thead>
-  						<tr>
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
   						<th>Type</th>
   						<th>Name</th>
   						<th>Description</th>
-  						</tr>
-  					</thead>
-  					<tbody>
-  						<tr>
-  							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">relativeFolderPath</span></td>
-  							<td></td>
-  						</tr>
-  						<tr>
-  							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">fileName</span></td>
-  							<td></td>
-  						</tr>
-  						<tr>
-  							<td><span class="xref">System.Reflection.Assembly</span></td>
-  							<td><span class="parametername">assembly</span></td>
-  							<td></td>
-  						</tr>
-  					</tbody>
-  					</table>
-  			</div>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.String</span></td>
+  						<td><span class="parametername">relativeFolderPath</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.String</span></td>
+  						<td><span class="parametername">fileName</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.Reflection.Assembly</span></td>
+  						<td><span class="parametername">assembly</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
   
-  			<div class="custom-menu-data-returntype" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
   
-  				<table class="table table-bordered table-striped table-condensed table-return">
-  					<thead>
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
   					<tr>
   						<th>Type</th>
   						<th>Description</th>
   					</tr>
-  					</thead>
-  					<tbody>
+  				</thead>
+  				<tbody>
   					<tr>
   						<td><span class="xref">System.Byte</span>[]</td>
   						<td></td>
   					</tr>
-  					</tbody>
-  				</table>
-  			</div>
+  				</tbody>
+  			</table>
+  		</div>
   	</div>
   </div>
   
@@ -471,13 +467,19 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   <script>
   	function getItems(selector) {
-      	return document.querySelectorAll(selector);
+  		return document.querySelectorAll(selector);
   	}
   
   	//CLASS FUNCTIONS
-  	function getClassNameIndex(parts) {
+  	function getClassOrInterfaceNameIndex(parts) {
   		for (var i = 0; i < parts.length; i++) {
   			if (parts[i] === "class") {
+  				return i + 1;
+  			}
+  			if (parts[i] === "interface") {
+  				return i + 1;
+  			}
+  			if (parts[i] === "enum") {
   				return i + 1;
   			}
   		}
@@ -528,7 +530,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   			text = text.replace('=', '').replace('?', '').replace(';', '').replace('!', '');
   
   			var genericIndex = text.indexOf('&lt');
-  			if(genericIndex > 0) {
+  			if (genericIndex > 0) {
   				text = text.substring(0, genericIndex) + "_generic_";
   			} else {
   				text = text.replace('&', '');
@@ -536,7 +538,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   			text = text.toLowerCase();
   
-  			if(text.includes('attributeusage')) {
+  			if (text.includes('attributeusage')) {
   				text = 'attributeusage';
   			}
   			return text;
@@ -546,28 +548,27 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   	function updateClassNames() {
   		var items = getItems(".h1-custom-display.className");
-  
+  		//.text-break.h1-class-header
   		for (var i = 0; i < items.length; i++) {
   			var value = items[i].innerHTML;
-  
   			if (!value || value.length < 4 || !value.includes(' ')) {
   				console.warn("Class is wrong: " + value);
   				continue;
   			}
   
   			var parts = value.split(' ');
-  			var classNameIndex = getClassNameIndex(parts);
+  			var classNameIndex = getClassOrInterfaceNameIndex(parts);
   
   			var startIndex = 0;
   			var tempIndex = classNameIndex;
-  			while(tempIndex > 1) {
+  			while (tempIndex > 1) {
   				startIndex++;
   				tempIndex--;
   			}
   
   			for (var j = 0; j < parts.length; j++) {
   
-  				if(j < startIndex) {
+  				if (j < startIndex) {
   					parts[j] = "";
   				}
   				else if (j > classNameIndex || parts[j] === "sealed" || parts[j] === "public") {
@@ -576,9 +577,8 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   					parts[classNameIndex] = getClassName(parts, classNameIndex);
   				} else {
   					var cleanedClassSuffix = cleanCssName(parts[j]);
-  					if(cleanedClassSuffix !== null && cleanedClassSuffix.length > 1)	{
+  					if (cleanedClassSuffix !== null && cleanedClassSuffix.length > 1) {
   						parts[j] = "<span class='classNameHeader className--" + cleanedClassSuffix + "'>" + parts[j] + "</span> ";
-  						console.log(parts[j]);
   					}
   				}
   			}
@@ -592,6 +592,9 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   	//FUNCTION FUNCTIONS
   	function getFunctionNameIndex(parts) {
   		for (var i = 0; i < parts.length; i++) {
+  			if (parts[i].startsWith('[') || parts[i].endsWith(']') || parts[i] === "" || parts[i] === " ") {
+  				continue;
+  			}
   			var index = parts[i].indexOf('(');
   
   			if (index > 0) {
@@ -614,6 +617,16 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   	function functionIsGeneric(parts, functionNameIndex) {
   		var part = parts[functionNameIndex];
   		var isGeneric = part.indexOf("&gt;") >= 0 || part.indexOf("&lt;") >= 0;
+  
+  		if(isGeneric) {
+  			var genericStart = part.indexOf("&gt;");
+  			var argumentsStart = part.indexOf('(');
+  
+  			if(argumentsStart > 0 && genericStart > 0)
+  			{
+  				return genericStart < argumentsStart;
+  			}
+  		}
   		return isGeneric;
   	}
   
@@ -689,16 +702,22 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   		for (var i = 0; i < items.length; i++) {
   			var value = items[i].innerHTML;
+  
   			if (!value || value.length < 5 || !value.includes(' ') || !value.includes('(')) {
   				items[i].classList.add("non-function-element");
-  				if(value.includes('{') && value.includes('}')) {
+  				if (value.includes('{') && value.includes('}')) {
   					items[i].classList.add("property-name");
   				} else {
-  					if(value.includes('protected ') || value.includes('private ') || value.includes('public ')) {
+  					if (value.includes('protected ') || value.includes('private ') || value.includes('public ')) {
   						items[i].classList.add("field-name");
   					}
   				}
   				items[i].innerHTML = items[i].innerHTML.replace('public ', '').replace('override ', '').replace('protected ', '');
+  				continue;
+  			}
+  
+  			if (value.includes('[DocfxHide]')) {
+  				items[i].classList.add("docfxhide-attribute");
   				continue;
   			}
   
@@ -709,7 +728,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   			parts[functionNameIndex] = getFunctionName(parts, functionNameIndex);
   
   			for (var j = 0; j < parts.length; j++) {
-  				if (j > functionNameIndex || parts[j] === "public") {
+  				if (j > functionNameIndex || parts[j] === "public" || parts[j].startsWith("[") || parts[j].endsWith("]")) {
   					parts[j] = "";
   				}
   				else if (j < functionNameIndex) {
@@ -718,7 +737,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   			}
   
   			parts = parts.filter(x => typeof (x) !== 'undefined' && x !== "" && x !== null && x !== " ");
-  			
+  
   			/*var argumentsPart = parts[parts.length-1];
   			if(argumentsPart) {
   				argumentsPart = "<span class='custom-arguments custom-arguments-onclick'>" + argumentsPart + "</span>";
@@ -778,40 +797,40 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   				var menuData = container.getElementsByClassName(menuDataClass)[0];
   
   				//MenuData do not exist at all, change button layout to red
-  				if(!menuData || !menuData.classList || !menuData.classList.contains(menuDataClass)) {
-  					if(menuDataClass.includes('-class-') >= 1) {
+  				if (!menuData || !menuData.classList || !menuData.classList.contains(menuDataClass)) {
+  					if (menuDataClass.includes('-class-') >= 1) {
   						parts[i].classList.toggle('hidden');
   					} else {
   						var h4 = container.getElementsByClassName('h4-custom-functionName');
-  						if(h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && h4[0].id.includes('_ctor_')) {
+  						if (h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && h4[0].id.includes('_ctor_')) {
   							//CTOR has no example, then just hide the whole CTOR line
   							container.classList.toggle('hidden');
   						}
   						parts[i].classList.toggle('custom-menu-data-no-text');
   					}
   				}
-  				 else {
-  					 //MenuData is empty or contains only the "X" button, change button layout to red
-  					 if(menuData.children === null || typeof(menuData.children) === 'undefined' || menuData.children.length <= 1) {
-  						if(menuDataClass.includes('-class-') >= 1) {
+  				else {
+  					//MenuData is empty or contains only the "X" button, change button layout to red
+  					if (menuData.children === null || typeof (menuData.children) === 'undefined' || menuData.children.length <= 1) {
+  						if (menuDataClass.includes('-class-') >= 1) {
   							parts[i].classList.toggle('hidden');
   						} else {
   
   							var h4 = container.getElementsByClassName('h4-custom-functionName');
-  							if(h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && h4[0].id.includes('_ctor_')) {
+  							if (h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && h4[0].id.includes('_ctor_')) {
   								//CTOR has no example, then just hide the whole CTOR line
   								container.classList.toggle('hidden');
   							} else {
   								parts[i].classList.toggle('custom-menu-data-no-text');
   							}
   						}
-  					 }
-  				 }
+  					}
+  				}
   			}
   		}
   
   		for (i = 0; i < parts.length; i++) {
-  			if(parts[i].classList.contains('custom-menu-data-no-text')) {
+  			if (parts[i].classList.contains('custom-menu-data-no-text')) {
   				continue;
   			}
   			parts[i].addEventListener("click", function (e) {
@@ -836,16 +855,16 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   							//Show footer when modal is not active
   							var footer = document.getElementById("page-footer");
-  							if(footer && footer.classList) {
-  								if(footer.classList.contains('hidden')) {
+  							if (footer && footer.classList) {
+  								if (footer.classList.contains('hidden')) {
   									footer.classList.toggle('hidden');
   								}
   							}
   						} else {
   							//Hide footer when modal is active
   							var footer = document.getElementById("page-footer");
-  							if(footer && footer.classList) {
-  								if(!footer.classList.contains('hidden')) {
+  							if (footer && footer.classList) {
+  								if (!footer.classList.contains('hidden')) {
   									footer.classList.toggle('hidden');
   								}
   							}
@@ -890,60 +909,79 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   		removeEmptyPopup("custom-menu-data-name");
   		removeEmptyPopup("custom-menu-data-arguments");
   		removeEmptyPopup("custom-menu-data-returntype");
-  
   		removeEmptyPopup("custom-menu-data-container");
   	}
   
   	function hideAllEmptyMarkdowns() {
   		var items = getItems('.markdown.level1.summary.member-summary');
   		if (items && items.length) {
-  		    for (var i = 0; i < items.length; i++) {
-  		        if (items[i].children && items[i].children.length === 0) {
-  		            items[i].classList.add("hidden");
-  		        }
-  		        if (items[i].value) {
-  		            if (items[i].value.length <= 1) {
-  		                items[i].classList.add("hidden");
-  		            }
-  		        }
+  			for (var i = 0; i < items.length; i++) {
+  				if (items[i].children && items[i].children.length === 0) {
+  					items[i].classList.add("hidden");
+  				}
+  				if (items[i].value) {
+  					if (items[i].value.length <= 1) {
+  						items[i].classList.add("hidden");
+  					}
+  				}
   
-  		        if (items[i].innerHTML) {
-  		            if (items[i].innerHTML.length <= 1) {
-  		                items[i].classList.add("hidden");
-  		            }
-  		        }
+  				if (items[i].innerHTML) {
+  					if (items[i].innerHTML.length <= 1) {
+  						items[i].classList.add("hidden");
+  					}
+  				}
   
-  		        if (items[i].innerText) {
-  		            if (items[i].innerText.length <= 1) {
-  		                items[i].classList.add("hidden");
-  		            }
-  		        }
-  		    }
+  				if (items[i].innerText) {
+  					if (items[i].innerText.length <= 1) {
+  						items[i].classList.add("hidden");
+  					}
+  				}
+  			}
+  		}
+  	}
+  
+  	function hideSourceLinksForDocfxHideAttribute() {
+  		var items = getItems('.custom-source-code-link-container');
+  		if (items != null && items.length > 0) {
+  			for (var i = 0; i < items.length; i++) {
+  				var next = items[i].nextElementSibling;
+  				if(!next.classList.contains('custom-menu-data')) {
+  					next = next.nextElementSibling;
+  				}
+  
+  				if(next.classList.contains('custom-menu-data')) {
+  					var docfxhideElement = next.getElementsByClassName('docfxhide-attribute');
+  					if(docfxhideElement !== null && docfxhideElement.length !== null && docfxhideElement.length === 1) {
+  						items[i].classList.add('docfxhide-attribute');
+  					}
+  				}
+  			}
   		}
   	}
   
   	//FUNCTION FUNCTIONS END
   	setTimeout(updateFunctionNames, 5);
-  	setTimeout(updateClassNames, 12);
+  	setTimeout(updateClassNames, 10);
   
-  	setTimeout(() => addEventDisplayMenuDataOnClickPart('class-example'), 33);
-  	setTimeout(() => addEventDisplayMenuDataOnClickPart('class-arguments'), 35);
-  	setTimeout(() => addEventDisplayMenuDataOnClickPart('name'), 40);
+  	setTimeout(() => addEventDisplayMenuDataOnClickPart('class-example'), 15);
+  	setTimeout(() => addEventDisplayMenuDataOnClickPart('class-arguments'), 20);
+  	setTimeout(() => addEventDisplayMenuDataOnClickPart('name'), 25);
   	//NOTE: Disabled clicking on args and return type - the sample should give enough info
   	//setTimeout(() => addEventDisplayMenuDataOnClickPart('arguments'), 45);
   	//setTimeout(() => addEventDisplayMenuDataOnClickPart('returntype'), 50);
   
-  	setTimeout(() => hideAllEmptyMarkdowns(), 55);
+  	setTimeout(() => hideAllEmptyMarkdowns(), 30);
   
-  	setTimeout(addEventsToTabCloseButtons, 60);
+  	setTimeout(() => hideSourceLinksForDocfxHideAttribute(), 35);
   
-  	//setTimeout(removeEmptyPopups, 75);
+  	setTimeout(addEventsToTabCloseButtons, 40);
+  
+  	//setTimeout(removeEmptyPopups, 50);
   </script>
   
   </div>
   
-  <p class='classMargin'>}</p>
-</article>
+  <p class='classMargin classMargin--end'>}</p></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
