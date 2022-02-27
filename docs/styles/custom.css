@@ -39,6 +39,7 @@ h3#methods,
 .inheritedMembers,
 h3#extensionmethods,
 div.extensionmethods-content,
+h1#projectdisplayname,
 h3#constructors,
 h3#properties,
 h3#fields {
@@ -682,14 +683,15 @@ div.col-md-10 > article.content.wrap > ol > li:hover {
 
 div.col-md-10 > article.content.wrap > ol > li > a {
   color: var(--purple);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 div.col-md-10
   > article.content.wrap
   > ol
   > li.index-navigation-item--namespace {
-  margin-top: 1em;
+  margin-top: 20px;
 }
 
 div.col-md-10
@@ -699,6 +701,7 @@ div.col-md-10
   * {
   color: var(--black);
   font-size: 18px;
+  font-weight: 500;
 }
 
 
@@ -831,37 +834,37 @@ h4,
 h1,
 .modest-h1 {
   margin-top: 0;
-  font-size: 3.998rem;
+  font-size: 50px;
 }
 
 h2,
 .modest-h2 {
-  font-size: 2.827rem;
+  font-size: 32px;
 }
 
 h3,
 .modest-h3 {
-  font-size: 1.999rem;
+  font-size: 24px;
 }
 
 h4,
 .modest-h4 {
-  font-size: 1.414rem;
+  font-size: 20px;
 }
 
 h5,
 .modest-h5 {
-  font-size: 1.121rem;
+  font-size: 18px;
 }
 
 h6,
 .modest-h6 {
-  font-size: .88rem;
+  font-size: 14px;
 }
 
 small,
 .modest-small {
-  font-size: .707em;
+  font-size: 13px;
 }
 
 section > ul > li,
