@@ -32,7 +32,7 @@ appSettings.json:
 		"systemLibraryCommonNet": {
 			"dump": {
 				"folder": "C:\\logs\\",
-				"fileName": "log.txt"
+				"fileName": "SysLib.log"
 			}
 		}
 	}
