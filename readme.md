@@ -7,12 +7,22 @@
 - Updated docs
 - Updated some comments on some functions
 
-## Description
+## Description TODO: Move to /docs
+Split into dev desc and product desc:
+
+Dev Docs:
+Base library for .NET Appplications
+* Extensions for strings, enums, arrays...
+* Custom config class mapped towards a json, with built-in transformation
+* Simple "console.log" through Dump.Write()
+* Simple "Fire and Forget" through Async.Run()
+
+Product docs:
 SystemLibrary.Common.Net for any .NET &gt;= 5 application - various reusable extensions and classes
 			
 Selling points:
   * Extensions for strings, enums, arrays...
-  * Config&lt;&gt; class for all your custom configurations, with built-in transformations
+  * Custom config class mapped towards a json, with built-in transformation
   * Simple "console.log" through Dump.Write()
   * Simple "Fire and Forget" through Async.Run()
 
