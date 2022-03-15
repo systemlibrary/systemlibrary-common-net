@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>2.0.0.15</version>
+		<version>2.0.0.16</version>
 
 		<authors>System Library</authors>
 
@@ -20,16 +20,19 @@
 		<releaseNotes>
 			Latest version:
 			https://github.com/systemlibrary/systemlibrary-common-net#latest-version
-		</releaseNotes>
 
+			Documentation:
+			https://systemlibrary.github.io/systemlibrary-common-net/
+		</releaseNotes>
+		
 		<description>
-			SystemLibrary.Common.Net for any .NET >= 5 application - various reuseable extensions and classes
-			
+			A library of classes and methods for any .NET >= 5 application
+
 			Selling points:
-			* Extensions for strings, enums, arrays...
-			* Config&lt;&gt; class for all your custom configurations, with built-in transformations
-			* Simple "console.log" through Dump.Write()
-			* Simple "Fire and Forget" through Async.Run()
+			- Common extension on strings, enums, arrays...
+			- Inherit Config&lt;&gt; class, which maps automatically to a json with the same filename, which also runs transformations automatically
+			- Simple "console.log" through Dump.Write()
+			- Simple "Fire and Forget" through Async.Run()
 			
 			Documentation:
 			https://systemlibrary.github.io/systemlibrary-common-net/

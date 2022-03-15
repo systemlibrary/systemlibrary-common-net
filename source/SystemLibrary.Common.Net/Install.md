@@ -22,8 +22,8 @@
 	}
 ```
 
-## Override default configurations
-* Example of all default configurations in this package:
+## Package Configurations
+* Default (and modifiable) configurations in this package:
 
 appSettings.json:
 ```json  
