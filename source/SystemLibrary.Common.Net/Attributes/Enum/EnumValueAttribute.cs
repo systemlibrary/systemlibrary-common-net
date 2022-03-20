@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net.Attributes
     /// enum Color 
     /// {
     ///     [EnumValue("#000")]
-    ///     EnumText("Hello Black")]
+    ///     [EnumText("Hello Black")]
     ///     Black,
     ///     
     ///     [EnumText("Hello White")]

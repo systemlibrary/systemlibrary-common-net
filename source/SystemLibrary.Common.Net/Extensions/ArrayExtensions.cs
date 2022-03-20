@@ -9,7 +9,7 @@ namespace SystemLibrary.Common.Net.Extensions
     public static class ArrayExtensions
     {
         /// <summary>
-        /// Add one array with another array, returning a new array of elements
+        /// Append one array with other arrays, returning a new array of elements
         /// </summary>
         /// <returns>Returns null if everything is null, else a new array of items</returns>
         public static T[] Add<T>(this T[] current, params T[][] additional)

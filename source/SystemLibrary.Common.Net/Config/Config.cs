@@ -5,25 +5,26 @@ namespace SystemLibrary.Common.Net
     /// <summary>
     /// Class for creating configurations files next to your code files
     /// 
-    /// Configuration can be placed in either of these 3 hardcoded locations in your app:
-    /// ~/, ~/Configs/*, ~/Configurations/*
+    /// Configurations must be placed in either:
+    /// ~/*.json, ~/*.xml, ~/Configs/**, ~/Configurations/**
     /// 
-    /// Configuration files can be on format: json or xml
+    /// Supports: xml and json
     /// 
-    /// Configurations can be added to your default 'appsettings.json' if you do not want additional files
+    /// Configurations can also be appended to 'appSettings.json' 
     /// 
-    /// Transformations are automatically ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)
-    ///     * Unit tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' variable to its startup
-    ///         * Add mstest.runsettings (google runsettings format)
-    ///         * Add ASPNETCORE_ENVIRONMENT to the runsettings-file
-    ///         * Register runsettings-file in your csproj variable: RunSettingsFilePath
-    ///             * TIP: Look in the source code of SystemLibrary.Common.Net.Tests
+    /// Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)
+    /// 
+    /// Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup
+    /// - Add mstest.runsettings (google it)
+    /// - Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings
+    /// - Register runsettings file in your csproj variable: 'RunSettingsFilePath'
+    /// - Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'
     ///     
-    /// If no 'ASPNETCORE_ENVIRONMENT' is specified, it will use Configuration Mode Name for Configuration Transformations (Debug or Release only [I think])
+    /// WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])
     /// 
-    /// WARNING: If for instance 'Debug' is the environment you start app with, but a debug transformation file do not exist, it will transform the 'Release' instead, if 'Release' transformation file exists
+    /// WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists
     /// 
-    /// WARNING: Singleton pattern behind the scene - requires app restart if configuration changes
+    /// WARNING: Requires app restart if configuration changes
     /// </summary>
     ///<example>
     /// A TestConfig class example:
@@ -46,7 +47,7 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// 
-    /// Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/*, ~/Configurations/*
+    /// Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/**, ~/Configurations/**
     /// <code class="language-xml hljs">
     /// {
     ///     "Name": "Hello World",
