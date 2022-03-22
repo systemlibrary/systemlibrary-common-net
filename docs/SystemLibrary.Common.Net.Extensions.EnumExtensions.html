@@ -144,6 +144,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Check if enum is equal to any of the ones in the array</p>
 </div>
@@ -226,9 +227,11 @@ if(red.IsAny(Color.Black, Color.Blue)) {
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Gets the EnumText-attribute's value, fallback to enumField.ToString()</p>
 <p>Can return null if the EnumText-attribute exists and has a value of null</p>
@@ -308,9 +311,11 @@ var value = EnumColor.Pink.ToText();
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Gets the EnumValue-attribute's value, fallback to enumField.ToString()</p>
 <p>Can return null if the EnumValue-attribute exists and has a value of null</p>
@@ -389,6 +394,7 @@ var value = EnumColor.Pink.ToValue();
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -645,8 +651,17 @@ var value = EnumColor.Pink.ToValue();
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

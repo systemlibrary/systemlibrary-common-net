@@ -145,6 +145,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Returns the type.Name</p>
 <p>For generics such as List, Dictionary or Array, it returns the &quot;inner type name&quot; of those</p>
@@ -226,9 +227,11 @@ var result = typeof(Car[]).GetTypeName();
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Check if 'thisType' inherits (implements) 'type'</p>
 <p>Returns false if both types are the same or if 'type' is not inherited by 'thisType'</p>
@@ -310,9 +313,11 @@ var result = typeof(Car).Inherits(typeof(Car));
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Checks if type is a dictionary</p>
 </div>
@@ -382,9 +387,11 @@ var result = dictionary.IsDictionary();
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Check if type is a list or array</p>
 </div>
@@ -453,6 +460,7 @@ var result = array.GetType().IsListOrArray();
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -709,8 +717,17 @@ var result = array.GetType().IsListOrArray();
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

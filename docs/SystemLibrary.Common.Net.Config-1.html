@@ -106,33 +106,28 @@
   
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>Class for creating configurations files next to your code files</p>
-<p>Configuration can be placed in either of these 3 hardcoded locations in your app:
-~/, ~/Configs/<em>, ~/Configurations/</em></p>
-<p>Configuration files can be on format: json or xml</p>
-<p>Configurations can be added to your default 'appsettings.json' if you do not want additional files</p>
-<p>Transformations are automatically ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
+<p>Configurations must be placed in either:
+~/<em>.json, ~/</em>.xml, ~/Configs/<strong>, ~/Configurations/</strong></p>
+<p>Supports: xml and json</p>
+<p>Configurations can also be appended to 'appSettings.json'</p>
+<p>Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
+<p>Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup</p>
 <ul>
-<li>Unit tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' variable to its startup
-<ul>
-<li>Add mstest.runsettings (google runsettings format)</li>
-<li>Add ASPNETCORE_ENVIRONMENT to the runsettings-file</li>
-<li>Register runsettings-file in your csproj variable: RunSettingsFilePath
-<ul>
-<li>TIP: Look in the source code of SystemLibrary.Common.Net.Tests</li>
+<li>Add mstest.runsettings (google it)</li>
+<li>Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings</li>
+<li>Register runsettings file in your csproj variable: 'RunSettingsFilePath'</li>
+<li>Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>If no 'ASPNETCORE_ENVIRONMENT' is specified, it will use Configuration Mode Name for Configuration Transformations (Debug or Release only [I think])</p>
-<p>WARNING: If for instance 'Debug' is the environment you start app with, but a debug transformation file do not exist, it will transform the 'Release' instead, if 'Release' transformation file exists</p>
-<p>WARNING: Singleton pattern behind the scene - requires app restart if configuration changes</p>
+<p>WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])</p>
+<p>WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists</p>
+<p>WARNING: Requires app restart if configuration changes</p>
 </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="text-break h1-class-header">Config&lt;T&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="h1-custom-display className">public abstract class Config&lt;T&gt;
+
     where T : class</h1>
   
   <div class="inheritance">
@@ -180,7 +175,7 @@ public class ApiOptions
 {
     public string Url { get; set; }
 }</code></pre>
-<p>Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/<em>, ~/Configurations/</em></p>
+<p>Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/<strong>, ~/Configurations/</strong></p>
 <pre><code>{
     &quot;Name&quot;: &quot;Hello World&quot;,
     &quot;Number&quot;: 1234,
@@ -234,6 +229,7 @@ var name = testConfig.Name;
   <h3 id="properties">Properties
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Get the current configuration as a Singleton object</p>
 </div>
@@ -242,7 +238,7 @@ var name = testConfig.Name;
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L80">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L81">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>
@@ -257,6 +253,7 @@ var name = testConfig.Name;
   		</div>
   
   	</div>
+  </div>
   </div>
   
   
@@ -532,8 +529,17 @@ var name = testConfig.Name;
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

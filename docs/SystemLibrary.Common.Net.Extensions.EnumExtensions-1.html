@@ -113,6 +113,7 @@
   <h1 id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1" class="text-break h1-class-header">EnumExtensions&lt;TEnum&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1" class="h1-custom-display className">public static class EnumExtensions&lt;TEnum&gt;
+
     where TEnum : IComparable, IFormattable, IConvertible</h1>
   
   <div class="inheritance">
@@ -176,6 +177,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Get all keys as the enum value itself</p>
 </div>
@@ -225,9 +227,11 @@
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Get all keys in the Enum</p>
 </div>
@@ -276,6 +280,7 @@
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -532,8 +537,17 @@
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

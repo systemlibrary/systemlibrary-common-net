@@ -167,6 +167,7 @@ var value2 = Color.White.ToText();
   <h3 id="constructors">Constructors
   </h3>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_System_String_">
   	<span class="small pull-right mobile-hide">
@@ -204,11 +205,13 @@ var value2 = Color.White.ToText();
   
   	</div>
   </div>
+  </div>
   
   
   <h3 id="properties">Properties
   </h3>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text">
   	<span class="small pull-right mobile-hide">
@@ -227,6 +230,7 @@ var value2 = Color.White.ToText();
   		</div>
   
   	</div>
+  </div>
   </div>
   
   
@@ -502,8 +506,17 @@ var value2 = Color.White.ToText();
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

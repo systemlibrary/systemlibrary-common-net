@@ -145,6 +145,7 @@
   <h3 id="properties">Properties
   </h3>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_ApplicationName">
   	<span class="small pull-right mobile-hide">
@@ -164,6 +165,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="propertyValue">Property Value</h5>
@@ -182,6 +184,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Gets the Environment variable 'ASPNETCORE_ENVIRONMENT'</p>
 <p>If it does not exist, it reads 'Properties\launchSettings.json' returning the value of first found 'ASPNETCORE_ENVIRONMENT' (forward read only)</p>
@@ -207,6 +210,7 @@
   		</div>
   
   	</div>
+  </div>
   </div>
   
   
@@ -482,8 +486,17 @@
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

@@ -9,7 +9,7 @@ using SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// This class contains extension methods for Strings
 /// 
-/// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've added the Nuget Package
+/// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've referenced the Nuget Package (the dll)
 /// </summary>
 /// <example>
 /// var result = "Hello world".Is() //invokable from anywhere in your applications source code
@@ -44,6 +44,25 @@ public static class StringExtensions
                 return fallback;
 
         return "";
+    }
+
+    /// <summary>
+    /// Returns 'primary domain' from the url as input
+    /// </summary>
+    /// <returns>Returns primary domain, 'localhost' from url: 'https://localhost.com/image.png?q=90' or empty string, never null</returns>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var result = "https://localhost.com/image.png?q=90".GetPrimaryDomain();
+    /// //result is "localhost"
+    /// </code>
+    /// </example>
+    public static string GetPrimaryDomain(this string url)
+    {
+        if (url.IsNot()) return "";
+
+        Uri uri = new Uri(url);
+
+        return uri.GetPrimaryDomain();
     }
 
     /// <summary>
@@ -89,15 +108,15 @@ public static class StringExtensions
             {
                 value = value?.ToLower();
 
-                foreach(var enumKey in members)
+                foreach (var enumKey in members)
                 {
-                    if(enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
+                    if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                     {
-                        if(enumValueAttribute != null && enumValueAttribute.Value?.ToLower() == value)
+                        if (enumValueAttribute != null && enumValueAttribute.Value?.ToLower() == value)
                             if (Enum.TryParse(enumKey.Name, out result))
                                 return result;
                     }
-                    
+
                     if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
                     {
                         if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == value)
@@ -322,16 +341,16 @@ public static class StringExtensions
         int start = 0;
         int valueLength;
         bool found = false;
-        for(int i = 0; i < values.Length; i++)
+        for (int i = 0; i < values.Length; i++)
         {
             valueLength = values[i].Length;
-            start = text.Length - valueLength; 
+            start = text.Length - valueLength;
 
             for (int j = 0; j < valueLength; j++)
             {
                 if (text[start + j] != values[i][j])
                     break;
-                
+
                 if (j == valueLength - 1)
                     found = true;
             }
@@ -401,10 +420,11 @@ public static class StringExtensions
 
 namespace SystemLibrary.Common.Net.Global
 {
+
     /// <summary>
     /// This class contains extension methods for Strings
     /// 
-    /// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've added the Nuget Package
+    /// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've referenced the Nuget Package (the dll)
     /// </summary>
     /// <example>
     /// var result = "Hello world".Is() //invokable from anywhere in your applications source code
@@ -439,6 +459,25 @@ namespace SystemLibrary.Common.Net.Global
                     return fallback;
 
             return "";
+        }
+
+        /// <summary>
+        /// Returns 'primary domain' from the url as input
+        /// </summary>
+        /// <returns>Returns primary domain, 'localhost' from url: 'https://localhost.com/image.png?q=90' or empty string, never null</returns>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// var result = "https://localhost.com/image.png?q=90".GetPrimaryDomain();
+        /// //result is "localhost"
+        /// </code>
+        /// </example>
+        public static string GetPrimaryDomain(this string url)
+        {
+            if (url.IsNot()) return "";
+
+            Uri uri = new Uri(url);
+
+            return uri.GetPrimaryDomain();
         }
 
         /// <summary>
@@ -792,4 +831,5 @@ namespace SystemLibrary.Common.Net.Global
             return text.Substring(0, maxLength);
         }
     }
+
 }

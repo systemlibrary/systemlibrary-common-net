@@ -216,6 +216,25 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
   nameWithType: Config<T>.Current
   nameWithType.vb: Config(Of T).Current
+- uid: SystemLibrary.Common.Net.DocFxHide
+  name: DocFxHide
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html
+  commentId: T:SystemLibrary.Common.Net.DocFxHide
+  fullName: SystemLibrary.Common.Net.DocFxHide
+  nameWithType: DocFxHide
+- uid: SystemLibrary.Common.Net.DocFxHide.#ctor
+  name: DocFxHide()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor
+  commentId: M:SystemLibrary.Common.Net.DocFxHide.#ctor
+  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide()
+  nameWithType: DocFxHide.DocFxHide()
+- uid: SystemLibrary.Common.Net.DocFxHide.#ctor*
+  name: DocFxHide
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DocFxHide.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide
+  nameWithType: DocFxHide.DocFxHide
 - uid: SystemLibrary.Common.Net.EnvironmentConfig
   name: EnvironmentConfig
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html
@@ -595,6 +614,38 @@ references:
   commentId: N:SystemLibrary.Common.Net.Global
   fullName: SystemLibrary.Common.Net.Global
   nameWithType: SystemLibrary.Common.Net.Global
+- uid: SystemLibrary.Common.Net.Global.Dump
+  name: Dump
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html
+  commentId: T:SystemLibrary.Common.Net.Global.Dump
+  fullName: SystemLibrary.Common.Net.Global.Dump
+  nameWithType: Dump
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear
+  name: Clear()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Clear
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear()
+  nameWithType: Dump.Clear()
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear*
+  name: Clear
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Clear
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear
+  nameWithType: Dump.Clear
+- uid: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  name: Write(Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  nameWithType: Dump.Write(Object)
+- uid: SystemLibrary.Common.Net.Global.Dump.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write
+  nameWithType: Dump.Write
 - uid: SystemLibrary.Common.Net.Global.StringExtensions
   name: StringExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html
@@ -678,6 +729,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter
   nameWithType: StringExtensions.EndsWithAnyCharacter
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  name: GetPrimaryDomain(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  nameWithType: StringExtensions.GetPrimaryDomain(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain*
+  name: GetPrimaryDomain
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  nameWithType: StringExtensions.GetPrimaryDomain
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
   name: Is(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_

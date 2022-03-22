@@ -145,6 +145,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Cast the object to a System.Enum</p>
 </div>
@@ -217,9 +218,11 @@ var colorEnum = color.AsEnum();
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Convert multiple objects of the same 'enum value' to an array of that enum type</p>
 </div>
@@ -235,6 +238,7 @@ var colorEnum = color.AsEnum();
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])" class="h4-custom-functionName">public static TEnum[] AsEnumArray&lt;TEnum&gt;(this object[] objects)
+
     where TEnum : IComparable, IFormattable, IConvertible</h4>
   	<div class="custom-menu-data-container">
   		<div class="custom-menu-data-name" style="display: none;">
@@ -312,6 +316,7 @@ var colors = integers.AsEnumArray&lt;Colors>();
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -568,8 +573,17 @@ var colors = integers.AsEnumArray&lt;Colors>();
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

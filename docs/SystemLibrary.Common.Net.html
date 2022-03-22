@@ -116,28 +116,24 @@
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config&lt;T&gt;</a></h4>
       <section><p>Class for creating configurations files next to your code files</p>
-<p>Configuration can be placed in either of these 3 hardcoded locations in your app:
-~/, ~/Configs/<em>, ~/Configurations/</em></p>
-<p>Configuration files can be on format: json or xml</p>
-<p>Configurations can be added to your default 'appsettings.json' if you do not want additional files</p>
-<p>Transformations are automatically ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
+<p>Configurations must be placed in either:
+~/<em>.json, ~/</em>.xml, ~/Configs/<strong>, ~/Configurations/</strong></p>
+<p>Supports: xml and json</p>
+<p>Configurations can also be appended to 'appSettings.json'</p>
+<p>Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
+<p>Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup</p>
 <ul>
-<li>Unit tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' variable to its startup
-<ul>
-<li>Add mstest.runsettings (google runsettings format)</li>
-<li>Add ASPNETCORE_ENVIRONMENT to the runsettings-file</li>
-<li>Register runsettings-file in your csproj variable: RunSettingsFilePath
-<ul>
-<li>TIP: Look in the source code of SystemLibrary.Common.Net.Tests</li>
+<li>Add mstest.runsettings (google it)</li>
+<li>Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings</li>
+<li>Register runsettings file in your csproj variable: 'RunSettingsFilePath'</li>
+<li>Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>If no 'ASPNETCORE_ENVIRONMENT' is specified, it will use Configuration Mode Name for Configuration Transformations (Debug or Release only [I think])</p>
-<p>WARNING: If for instance 'Debug' is the environment you start app with, but a debug transformation file do not exist, it will transform the 'Release' instead, if 'Release' transformation file exists</p>
-<p>WARNING: Singleton pattern behind the scene - requires app restart if configuration changes</p>
+<p>WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])</p>
+<p>WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists</p>
+<p>WARNING: Requires app restart if configuration changes</p>
 </section>
+      <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html">DocFxHide</a></h4>
+      <section></section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></h4>
       <section><p>This class contains various environment specific configurations common to all .NET applications</p>
 <p>For instance, it contains the variable 'AspNetCoreConfiguration', which is used internally by all config transformations</p>

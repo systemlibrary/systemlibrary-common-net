@@ -145,6 +145,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Run all actions seperately in a non-blocking way</p>
 <p>Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
@@ -197,9 +198,11 @@ Actions passed to the method will run till completion or till main thread is shu
   
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Run all actions seperately in a non-blocking way</p>
 <p>Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
@@ -258,9 +261,11 @@ Actions passed to the method will run till completion or till main thread is shu
   
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending each single result to a list, and it halts execution till all functions passed as params has completed</p>
 </div>
@@ -361,9 +366,11 @@ var cars = Async.Run&lt;Car>(
   		</div>
   	</div>
   </div>
+  </div>
   
   
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending the range of results per function to the same list, and it halts execution till all functions passed as params has completed</p>
 </div>
@@ -463,6 +470,7 @@ var cars = Async.Run&lt;Car>(
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -719,8 +727,17 @@ var cars = Async.Run&lt;Car>(
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

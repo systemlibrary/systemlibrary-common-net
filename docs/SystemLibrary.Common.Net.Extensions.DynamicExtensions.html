@@ -145,6 +145,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Merge dynamic objects into a one new dynamic object</p>
 <p>The latter updating value takes precedence if both objects contains same property name</p>
@@ -239,6 +240,7 @@ var d = DynamicExtensions.Merge(a, b, c);
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -495,8 +497,17 @@ var d = DynamicExtensions.Merge(a, b, c);
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

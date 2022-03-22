@@ -145,6 +145,7 @@
   <h3 id="methods">Methods
   </h3>
   
+  <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Returns the domain part of the uri or blank, never null:</p>
 <p><a href="https://www.sub1.sub2.sub3.domain.com">https://www.sub1.sub2.sub3.domain.com</a> =&gt; domain.com</p>
@@ -220,6 +221,7 @@ var result = new Uri(&quot;https://systemlibrary.github.io/systemlibrary-common-
   			</table>
   		</div>
   	</div>
+  </div>
   </div>
   
   
@@ -476,8 +478,17 @@ var result = new Uri(&quot;https://systemlibrary.github.io/systemlibrary-common-
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   

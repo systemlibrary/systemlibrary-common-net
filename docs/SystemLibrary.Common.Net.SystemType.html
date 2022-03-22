@@ -144,6 +144,7 @@
   <h3 id="fields">Fields
   </h3>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_BoolType">
   	<span class="small pull-right mobile-hide">
@@ -162,6 +163,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -180,6 +182,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_CharType">
   	<span class="small pull-right mobile-hide">
@@ -198,6 +201,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -216,6 +220,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_DateTimeOffsetType">
   	<span class="small pull-right mobile-hide">
@@ -234,6 +239,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -252,6 +258,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_DateTimeType">
   	<span class="small pull-right mobile-hide">
@@ -270,6 +277,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -288,6 +296,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_DictionaryType">
   	<span class="small pull-right mobile-hide">
@@ -306,6 +315,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -324,6 +334,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_EnumTextAttributeType">
   	<span class="small pull-right mobile-hide">
@@ -342,6 +353,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -360,6 +372,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_EnumValueAttributeType">
   	<span class="small pull-right mobile-hide">
@@ -378,6 +391,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -396,6 +410,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_GuidType">
   	<span class="small pull-right mobile-hide">
@@ -414,6 +429,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -432,6 +448,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_IntType">
   	<span class="small pull-right mobile-hide">
@@ -450,6 +467,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -468,6 +486,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_ListType">
   	<span class="small pull-right mobile-hide">
@@ -486,6 +505,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -504,6 +524,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_ObjectType">
   	<span class="small pull-right mobile-hide">
@@ -522,6 +543,7 @@
   
   	</div>
   </div>
+  </div>
   
   
   <h5 class="fieldValue">Field Value</h5>
@@ -540,6 +562,7 @@
   	</tbody>
   </table>
   
+  <div class="custom-container">
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_SystemType_StringType">
   	<span class="small pull-right mobile-hide">
@@ -557,6 +580,7 @@
   		</div>
   
   	</div>
+  </div>
   </div>
   
   
@@ -828,8 +852,17 @@
   				continue;
   			}
   
-  			if (value.includes('[DocfxHide]')) {
-  				items[i].classList.add("docfxhide-attribute");
+  			if (value.includes('[DocFxHide]')) {
+  				let parent = items[i].parentNode;
+  				if(parent) {
+  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  						parent.parentNode.classList.add("docfxhide-attribute");
+  					} else {
+  						parent.classList.add("docfxhide-attribute");
+  					}
+  				} else {
+  					items[i].classList.add("docfxhide-attribute");
+  				}
   				continue;
   			}
   
