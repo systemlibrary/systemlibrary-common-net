@@ -11,7 +11,7 @@ namespace SystemLibrary.Common.Net.Tests
         [TestMethod]
         public void Read_Embedded_Resource()
         {
-            var text = Assemblies.GetEmbeddedResource("_Files", "text.json");
+            var text = Assemblies.GetEmbeddedResource("_Files", "data.json");
 
             Assert.IsTrue(text != null && text.Contains("\"empty\":"));
         }
@@ -19,7 +19,7 @@ namespace SystemLibrary.Common.Net.Tests
         [TestMethod]
         public void Read_Embedded_Text_AsBytes()
         {
-            var bytes = Assemblies.GetEmbeddedResourceAsBytes("_Files", "text.json");
+            var bytes = Assemblies.GetEmbeddedResourceAsBytes("_Files", "data.json");
 
             var datetime = DateTime.Now.ToString("mm.ss.fffff");
             var path = @"C:\Temp\" + datetime + ".txt";
@@ -31,8 +31,6 @@ namespace SystemLibrary.Common.Net.Tests
                     memory.WriteTo(fileStream);
                 }
             }
-            System.Threading.Thread.Sleep(5);
-
             Assert.IsTrue(bytes != null && bytes.Length > 1);
 
             Assert.IsTrue(File.Exists(path));

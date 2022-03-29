@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Extensions;
-using SystemLibrary.Common.Net.Tests._Models;
 using SystemLibrary.Common.Net.Tests.Extensions.DataModel;
 
 namespace SystemLibrary.Common.Net.Tests.Extensions

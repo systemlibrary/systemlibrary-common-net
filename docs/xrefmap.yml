@@ -531,6 +531,19 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray(Of TEnum)(System.Object())
   nameWithType: ObjectExtensions.AsEnumArray<TEnum>(Object[])
   nameWithType.vb: ObjectExtensions.AsEnumArray(Of TEnum)(Object())
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson(System.Object,System.Text.Json.JsonSerializerOptions)
+  name: ToJson(Object, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_System_Object_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson(System.Object,System.Text.Json.JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson(System.Object, System.Text.Json.JsonSerializerOptions)
+  nameWithType: ObjectExtensions.ToJson(Object, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson*
+  name: ToJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson
+  nameWithType: ObjectExtensions.ToJson
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions
   name: TypeExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html

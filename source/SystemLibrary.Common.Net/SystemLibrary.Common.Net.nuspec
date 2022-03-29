@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>2.0.0.17</version>
+		<version>2.0.1.1</version>
 
 		<authors>System Library</authors>
 
@@ -30,10 +30,11 @@
 
 			Selling points:
 			- Common extension on strings, enums, arrays...
-			- Inherit Config&lt;&gt; class, which maps automatically to a json with the same filename, which also runs transformations automatically
+			- Create your own json file and inherit Config&lt;&gt; class and your json is auto-read into the C# class
 			- Simple "console.log" through Dump.Write()
+			- Simple extension method on object and string named 'ToJson()'
 			- Simple "Fire and Forget" through Async.Run()
-			
+
 			Documentation:
 			https://systemlibrary.github.io/systemlibrary-common-net/
 

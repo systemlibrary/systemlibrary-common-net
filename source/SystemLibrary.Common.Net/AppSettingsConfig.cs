@@ -12,6 +12,12 @@
     ///         "dump": {
     ///             "folder": "C:\\logs\\",
     ///             "fileName": "output.log"
+    ///         },
+    ///         "json": {
+    ///             "writeIndented": false,
+    ///             "maxDepth": 16,
+    ///             "allowTrailingCommas": true,
+    ///             "propertyNameCaseInsensitive": true
     ///         }
     ///     },
     ///     ...
@@ -22,6 +28,20 @@
     {
         public class Configuration
         {
+            public Configuration()
+            {
+                Dump = new DumpConfiguration();
+                Json = new JsonConfiguration();
+            }
+
+            public class JsonConfiguration
+            {
+                public int MaxDepth { get; set; } = 32;
+                public bool AllowTrailingCommas { get; set; } = true;
+                public bool PropertyNameCaseInsensitive { get; set; } = true;
+                public bool WriteIndented { get; set; } = false;
+            }
+
             public class DumpConfiguration
             {
                 public string Folder { get; set; }
@@ -44,6 +64,7 @@
             }
 
             public DumpConfiguration Dump { get; set; }
+            public JsonConfiguration Json { get; set; }
         }
 
         public Configuration SystemLibraryCommonNet { get; set; }

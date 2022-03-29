@@ -53,7 +53,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="_Files\text.json" />
+    <EmbeddedResource Include="_Files\data.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="_Files\icon.png" />
