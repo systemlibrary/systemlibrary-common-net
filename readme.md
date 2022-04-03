@@ -17,7 +17,7 @@ Base library for .NET Appplications
 - Simple extension method on object and string named 'ToJson()'
 - Simple "Fire and Forget" through Async.Run()
 
-## Docs			
+## Docs
 Documentation with samples:  
 https://systemlibrary.github.io/systemlibrary-common-net/
 

@@ -8,6 +8,7 @@ namespace SystemLibrary.Common.Net
         {
             return new JsonDocumentOptions
             {
+                CommentHandling = options.ReadCommentHandling,
                 AllowTrailingCommas = options.AllowTrailingCommas,
                 MaxDepth = options.MaxDepth
             };

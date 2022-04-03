@@ -26,6 +26,10 @@
     /// </example>
     internal class AppSettingsConfig : Config<AppSettingsConfig>
     {
+        public AppSettingsConfig()
+        {
+            SystemLibraryCommonNet = new Configuration();
+        }
         public class Configuration
         {
             public Configuration()

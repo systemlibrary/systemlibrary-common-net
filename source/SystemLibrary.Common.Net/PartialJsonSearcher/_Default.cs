@@ -12,6 +12,7 @@ namespace SystemLibrary.Common.Net
             : (_DefaultJsonSerializerOptions = new JsonSerializerOptions {
                 MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
                 AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
+                ReadCommentHandling = JsonCommentHandling.Skip,
                 PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
                 WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase

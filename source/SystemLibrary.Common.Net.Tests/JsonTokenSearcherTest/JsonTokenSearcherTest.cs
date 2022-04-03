@@ -10,8 +10,36 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
     public class JsonTokenSearcherTest
     {
         static string GetData() => Assemblies.GetEmbeddedResource("_Files", "data.json");
-        
+
+        string TestComplexJsonData = @"{
+	""args"": {},
+	""data"": """",
+	""files"": {},
+	""form"": {
+		""file"": ""\ufeff{\r\n    \""emptyObject\"": {\r\n        \""empty\"": \r\n    },\r\n    \""somethingAtTheEnd\"": {\r\n        \""end\"": 0\r\n    }\r\n}""
+	},
+	""headers"": {
+		""Content-Length"": ""240"",
+		""Content-Type"": ""multipart/form-data; boundary=e9a8eaa0-7e7c-4fb6-bb4d-d891167eb7a4"",
+		""Host"": ""httpbin.org"",
+		""X-Amzn-Trace-Id"": ""Root=1-62438163-20bba2ec5b462c8633b033be""
+	},
+	""json"": null,
+	""origin"": ""46.212.135.71"",
+	""url"": ""http://httpbin.org/post""
+}";
+
         [TestMethod]
+        public void Convert_ComplexPartialJson_To_SimplePoco()
+        {
+            var d = TestComplexJsonData;
+
+            var form = d.PartialJson<Form>();
+
+            Assert.IsTrue(form != null && form.file?.Length > 0 && form.file.Contains("emptyObject"));
+        }
+
+            [TestMethod]
         public void Read_Employees_TypeName_Plural()
         {
             var data = GetData();
