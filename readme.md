@@ -4,10 +4,8 @@
 - &gt;= .NET 5
 
 ## Latest Version
-- Merged nuget package "SystemLibrary.Common.Net.Json" into this one
-- Strings and Objects now contains the extension method "ToJson()"
-- AppSettings from the nuget package is also moved
-- Updated docs accordingly
+- Exception occured in Dump.Write if not systemLibraryCommonNet.Dump existed in appSettings
+- Added unit tests
 
 ## Description
 Base library for .NET Appplications

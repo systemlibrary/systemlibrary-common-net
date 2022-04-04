@@ -61,9 +61,10 @@ public static class Dump
 
             Write(o, 0);
         }
-        catch
+        catch(Exception ex)
         {
-        }
+            File.AppendAllText(@"C:\Temp\test.txt", "ex " + ex + "\n");
+        } 
     }
 
 
@@ -128,7 +129,7 @@ public static class Dump
                 WriteToFile(typeName + " (level " + level + ")", level);
 
             level = level + 1;
-            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
+            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
             if (props != null && props.Length > 0)
             {
                 foreach (var prop in props)
@@ -285,11 +286,8 @@ public static class Dump
     {
         try
         {
-            var path = AppSettingsConfig.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
+            var path = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
 
-            if (path.IsNot())
-                path = "C:\\Logs\\SysLib.log";
-            
             readWriteLock.AcquireWriterLock(15);
 
             File.AppendAllText(path, message, Encoding.UTF8);

@@ -51,17 +51,16 @@
                 public string Folder { get; set; }
                 public string FileName { get; set; }
 
+                public DumpConfiguration()
+                {
+                    FileName = "SysLib.log";
+                    Folder = "C:\\Logs";
+                }
+
                 public string GetFullLogPath()
                 {
-                    if (FileName.IsNot())
-                    {
-                        if (Folder.IsNot())
-                            return "C:\\Logs\\SysLib.log";
-                        else
-                            return Folder + "\\SysLib.log";
-                    }
-                    else if (Folder.IsNot())
-                        return "C:\\Logs\\" + FileName;
+                    if (Folder.EndsWith("\\"))
+                        return Folder + FileName;
 
                     return Folder + "\\" + FileName;
                 }
