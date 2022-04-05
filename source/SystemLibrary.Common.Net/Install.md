@@ -36,7 +36,9 @@ appSettings.json:
 			"json": {
 				"maxDepth": 32,
 				"propertyNameCaseInsensitive": true,
-				"writeIndented": false
+				"writeIndented": false,
+				"allowTrailingCommas": true,
+				"readCommentHandling": "Allow"
 			}
 		}
 	}
