@@ -4,8 +4,8 @@
 - &gt;= .NET 5
 
 ## Latest Version
-- Exception occured in Dump.Write if not systemLibraryCommonNet.Dump existed in appSettings
-- Added unit tests
+- Exception was thrown if not specifying all settings in "appSettings" for this package
+- Added json option "ReadCommentHandling" 
 
 ## Description
 Base library for .NET Appplications
