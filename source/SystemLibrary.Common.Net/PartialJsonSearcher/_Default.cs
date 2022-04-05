@@ -12,7 +12,6 @@ namespace SystemLibrary.Common.Net
             : (_DefaultJsonSerializerOptions = new JsonSerializerOptions {
                 MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
                 AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
-                ReadCommentHandling = JsonCommentHandling.Skip,
                 PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
                 WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -22,8 +21,8 @@ namespace SystemLibrary.Common.Net
         {
             if (options != null)
             {
-                if (options.MaxDepth < 4)
-                    options.MaxDepth = 4;
+                if (options.MaxDepth < 2)
+                    options.MaxDepth = 2;
 
                 if (options.MaxDepth > 256)
                     options.MaxDepth = 256;

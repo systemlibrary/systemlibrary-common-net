@@ -44,12 +44,12 @@ namespace SystemLibrary.Common.Net.Tests.Extensions
             EnumTest b = EnumTest.B;
             EnumTest c = EnumTest.C;
 
-            //Assert.AreEqual(a.ToValue(), "A", "A");
+            Assert.AreEqual(a.ToValue(), "A", "A");
             Assert.AreEqual(b.ToValue(), "hello123", "hello123");
-            //Assert.AreEqual(c.ToValue(), "100", "100");
+            Assert.AreEqual(c.ToValue(), "100", "100");
         }
 
-        [TestMethodAttribute]
+        [TestMethod]
         public void Enum_To_Text()
         {
             EnumTest a = EnumTest.A;
@@ -87,8 +87,8 @@ namespace SystemLibrary.Common.Net.Tests.Extensions
 
             int c1 = 100;
             string c2 = "100";
-            //Assert.AreEqual("C", c1.ToString().ToEnum<EnumTest>().ToString(), "100 int");
-            //Assert.AreEqual("C", c2.ToEnum<EnumTest>().ToString(), "100 str");
+            Assert.AreEqual("C", c1.ToString().ToEnum<EnumTest>().ToString(), "100 int");
+            Assert.AreEqual("C", c2.ToEnum<EnumTest>().ToString(), "100 str");
         }
 
         [TestMethod]

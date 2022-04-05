@@ -1,4 +1,6 @@
-﻿namespace SystemLibrary.Common.Net
+﻿using System.Text.Json;
+
+namespace SystemLibrary.Common.Net
 {
     /// <summary>
     /// Override default configurations in 'SystemLibrary.Common.Net' by adding 'systemLibraryCommonNet' object to 'appSettings.json'
@@ -30,6 +32,7 @@
         {
             SystemLibraryCommonNet = new Configuration();
         }
+
         public class Configuration
         {
             public Configuration()
@@ -44,6 +47,7 @@
                 public bool AllowTrailingCommas { get; set; } = true;
                 public bool PropertyNameCaseInsensitive { get; set; } = true;
                 public bool WriteIndented { get; set; } = false;
+                public JsonCommentHandling ReadCommentHandling { get; set; } = JsonCommentHandling.Skip;
             }
 
             public class DumpConfiguration

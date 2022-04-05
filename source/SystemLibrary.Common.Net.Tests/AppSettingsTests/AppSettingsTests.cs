@@ -4,53 +4,71 @@ using System.Reflection;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using SystemLibrary.Common.Net.Extensions;
+
 namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 {
     [TestClass]
     public class AppSettingsTests
     {
         [TestMethod]
-        public void Read_Root_AppSettings_Config()
+        public void Read_Dump_Configurations()
         {
-            var config = GetLibraryAppSettingsConfig();
-            var configurationProperty = GetLibraryAppSettingsConfigPropertyInfo();
+            object configuration = GetConfigurationByName("dump");
 
-            var configuration = configurationProperty.GetValue(config);
+            var properties = configuration.GetType().GetProperties();
 
-            var dumpProperty = configuration.GetType().GetProperties()
-                .Where(x => x.Name == "Dump")
-                .FirstOrDefault();
+            ValidateProperties(properties, "Dump contains no properties or is null", "folder");
 
-            var dumpConfiguration = dumpProperty.GetValue(configuration);
-
-            var properties = dumpConfiguration.GetType().GetProperties();
             foreach (var property in properties)
             {
-                if (property.Name == "Folder")
-                    Assert.IsTrue(property.GetValue(dumpConfiguration).ToString().Contains("logs"), "Folder is invalid");
+                var value = property.GetValue(configuration)?.ToString();
+                if (property.Name.ToLower() == "folder")
+                    Assert.IsTrue(value.Contains("Logs"), "Folder is invalid: " + property.GetValue(configuration).ToString());
+
+                if (property.Name.ToLower() == "filename")
+                    Assert.IsTrue(value.Contains(".html"), "FileName does not contain html");
             }
         }
 
         [TestMethod]
-        public void Read_AppSettings_Configuration_And_Use_Those_Settings()
+        public void Read_Json_Configurations()
+        {
+            object configuration = GetConfigurationByName("json");
+
+            var properties = configuration.GetType().GetProperties();
+
+            ValidateProperties(properties, "Json contains no properties or is null", "MaxDepth");
+
+            foreach (var property in properties)
+            {
+                var value = property.GetValue(configuration)?.ToString();
+                if (property.Name == "MaxDepth")
+                    Assert.IsTrue(value == "64", "Max Depth invalid: " + value);
+
+                if (property.Name == "AllowTrailingCommas")
+                    Assert.IsTrue(value == "True", "AllowTrailingCommas not True");
+
+                if (property.Name == "WriteIndented")
+                    Assert.IsTrue(value == "True", "WriteIndented not True");
+
+                if (property.Name == "ReadCommentHandling")
+                    Assert.IsTrue(value == "Allow", "ReadCommentHandling is not Allow: " + value);
+            }
+        }
+
+        static object GetConfigurationByName(string systemLibraryCommonNetName)
         {
             var config = GetLibraryAppSettingsConfig();
             var configurationProperty = GetLibraryAppSettingsConfigPropertyInfo();
 
             var configuration = configurationProperty.GetValue(config);
-            var properties = configuration.GetType().GetProperties();
 
-            foreach (var property in properties)
-            {
-                if (property.Name == "MaxDepth")
-                    Assert.IsTrue(property.GetValue(configuration).ToString() == "64", "Max Depth invalid");
+            var jsonProperty = configuration.GetType().GetProperties()
+                .Where(x => x.Name.ToLower() == systemLibraryCommonNetName.ToLower())
+                .FirstOrDefault();
 
-                if (property.Name == "AllowTrailingCommas")
-                    Assert.IsTrue(property.GetValue(configuration).ToString() == "True", "AllowTrailingCommas not True");
-
-                if (property.Name == "WriteIndented")
-                    Assert.IsTrue(property.GetValue(configuration).ToString() == "True", "WriteIndented not True");
-            }
+            return jsonProperty.GetValue(configuration);
         }
 
         static PropertyInfo GetLibraryAppSettingsConfigPropertyInfo()
@@ -72,6 +90,17 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                 .FirstOrDefault()
                 .GetValue(null);
             return config;
+        }
+
+        static void ValidateProperties(PropertyInfo[] properties, string errorMessage, string propertyName)
+        {
+            if (properties == null || properties.Length == 0)
+                throw new Exception(errorMessage);
+
+            var names = properties.Select(x => x.Name.ToLower()).ToArray();
+
+            if (!names.Has(propertyName.ToLower()))
+                throw new Exception(errorMessage + " Does not contain property: " + propertyName + ". Contains: " + string.Join(" ", names));
         }
     }
 }

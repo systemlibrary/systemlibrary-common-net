@@ -15,6 +15,9 @@ using SystemLibrary.Common.Net;
 /// </summary>
 public static class Dump
 {
+    /// <summary>
+    /// Tries to delete the current log file created by Dump.Write() if such file exists, else does nothing
+    /// </summary>
     public static void Clear()
     {
         try
@@ -61,10 +64,10 @@ public static class Dump
 
             Write(o, 0);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             File.AppendAllText(@"C:\Temp\test.txt", "ex " + ex + "\n");
-        } 
+        }
     }
 
 
@@ -302,12 +305,17 @@ public static class Dump
 
 namespace SystemLibrary.Common.Net.Global
 {
+
     /// <summary>
     /// Global dumping of 'any' object to a local file for easy debugging and logging
     /// - look at it as javascripts 'console.log'
+    /// - calls to Dump.Write should not go to your production environment
     /// </summary>
     public static class Dump
     {
+        /// <summary>
+        /// Tries to delete the current log file created by Dump.Write() if such file exists, else does nothing
+        /// </summary>
         public static void Clear()
         {
             try
@@ -320,13 +328,11 @@ namespace SystemLibrary.Common.Net.Global
             }
         }
 
-
         /// <summary>
         /// Write any object to disc
         /// - Look at it as javascripts 'console.log'
         /// </summary>
         /// <example>
-        /// <code class="language-csharp hljs">
         /// class Car {
         ///     public string Name {get;set;}
         /// }
@@ -337,10 +343,9 @@ namespace SystemLibrary.Common.Net.Global
         /// 
         /// Dump.Write(list);
         /// //Outputs:
-        /// //List&lt;Car&gt; (2)
+        /// //List of Car (1)
         /// //- Name = Vehicle 1
         /// //- Name = Vehicle 2
-        /// </code>
         /// </example>
         public static void Write(object o)
         {
@@ -357,10 +362,12 @@ namespace SystemLibrary.Common.Net.Global
 
                 Write(o, 0);
             }
-            catch
+            catch (Exception ex)
             {
+                File.AppendAllText(@"C:\Temp\test.txt", "ex " + ex + "\n");
             }
         }
+
 
         static void Write(object o, int level)
         {
@@ -423,7 +430,7 @@ namespace SystemLibrary.Common.Net.Global
                     WriteToFile(typeName + " (level " + level + ")", level);
 
                 level = level + 1;
-                var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
+                var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
                 if (props != null && props.Length > 0)
                 {
                     foreach (var prop in props)
@@ -580,10 +587,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             try
             {
-                var path = AppSettingsConfig.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
-
-                if (path.IsNot())
-                    path = "C:\\Logs\\SysLib.log";
+                var path = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
 
                 readWriteLock.AcquireWriterLock(15);
 
