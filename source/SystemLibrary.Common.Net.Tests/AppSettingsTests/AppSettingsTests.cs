@@ -89,6 +89,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                 .Where(x => x.Name == "Current")
                 .FirstOrDefault()
                 .GetValue(null);
+
             return config;
         }
 

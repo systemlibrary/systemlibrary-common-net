@@ -4,7 +4,6 @@
 		<OutputType>Library</OutputType>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Configurations>Docs;Release</Configurations>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
 	</PropertyGroup>
 	<PropertyGroup>
 		<DefaultItemExcludes>$(DefaultItemExcludes);Release.cmd;**\*.nupkg;nuget-icon.png;</DefaultItemExcludes>
@@ -25,7 +24,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<AdditionalFiles Remove="C:\syslib\Packages\microsoft.dotnet.upgradeassistant.extensions.default.analyzers\0.3.256001\build\\WebTypeReplacements.typemap" />
-		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="docfx.console" Version="2.58.9" Condition="Exists('..\..\..\Packages\docfx.console.2.58.0\build\docfx.console.targets') and '$(Configuration)'=='Docs'">

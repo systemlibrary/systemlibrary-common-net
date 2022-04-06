@@ -18,12 +18,13 @@
 		{
 			var s = "";
 			var b = s.IsNot(); //IsNot() is one extension in this package, returns true in this case
+								//Lives in the global namespace, so no need to add namespace for this to work
 		}
 	}
 ```
 
 ## Package Configurations
-* Default (and modifiable) configurations in this package:
+* Default and modifiable configurations for this package:
 
 appSettings.json:
 ```json  

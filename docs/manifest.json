@@ -213,10 +213,10 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html",
-          "hash": "H4XxZb8LQD5D3GHTI+3/wo95uHrRSCTeSuCFsxpTlrI="
+          "hash": "iQsqkAIIF7niRkdUtDNanuVplPoCUaYBCJD8znszvhQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -240,7 +240,7 @@
           "hash": "yuz2rfjRJcJU9RZfm6TSG55CRvA3B4ZFLFfWbvkVFTI="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -311,7 +311,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 22,
-          "skipped_file_count": 22
+          "skipped_file_count": 21
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
