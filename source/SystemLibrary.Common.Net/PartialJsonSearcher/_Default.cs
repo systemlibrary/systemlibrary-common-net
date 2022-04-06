@@ -7,15 +7,25 @@ namespace SystemLibrary.Common.Net
         static AppSettingsConfig Config => AppSettingsConfig.Current;
 
         static JsonSerializerOptions _DefaultJsonSerializerOptions;
-        static JsonSerializerOptions DefaultJsonSerializerOptions => 
-            _DefaultJsonSerializerOptions != null ? _DefaultJsonSerializerOptions 
-            : (_DefaultJsonSerializerOptions = new JsonSerializerOptions {
-                MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
-                AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
-                PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
-                WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            });
+        static JsonSerializerOptions DefaultJsonSerializerOptions
+        {
+            get
+            {
+                if (_DefaultJsonSerializerOptions == null)
+                { 
+                    _DefaultJsonSerializerOptions = new JsonSerializerOptions
+                    {
+                        MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
+                        AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
+                        PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
+                        WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling
+                    };
+                }
+                return _DefaultJsonSerializerOptions;
+            }
+        }
        
         internal static JsonSerializerOptions Default(JsonSerializerOptions options)
         {

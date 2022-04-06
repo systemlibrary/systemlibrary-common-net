@@ -91,12 +91,7 @@ namespace SystemLibrary.Common.Net.Extensions
         {
             if (obj == null) return null;
 
-            var setReadCommentHandling = options == null;
-
             options = PartialJsonSearcher.Default(options);
-
-            if (setReadCommentHandling)
-                options.ReadCommentHandling = AppSettingsConfig.Current.SystemLibraryCommonNet.Json.ReadCommentHandling;
 
             return JsonSerializer.Serialize(obj, options);
         }

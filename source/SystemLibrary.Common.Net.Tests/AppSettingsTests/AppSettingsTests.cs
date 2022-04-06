@@ -59,7 +59,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
         static object GetConfigurationByName(string systemLibraryCommonNetName)
         {
-            var config = GetLibraryAppSettingsConfig();
+            var config = GetAppSettingsConfig();
             var configurationProperty = GetLibraryAppSettingsConfigPropertyInfo();
 
             var configuration = configurationProperty.GetValue(config);
@@ -73,7 +73,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
         static PropertyInfo GetLibraryAppSettingsConfigPropertyInfo()
         {
-            object config = GetLibraryAppSettingsConfig();
+            object config = GetAppSettingsConfig();
 
             return config.GetType()
                .GetProperties()
@@ -81,7 +81,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                .FirstOrDefault();
         }
 
-        static object GetLibraryAppSettingsConfig()
+        static object GetAppSettingsConfig()
         {
             var type = Type.GetType("SystemLibrary.Common.Net.AppSettingsConfig, SystemLibrary.Common.Net");
 

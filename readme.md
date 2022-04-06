@@ -13,8 +13,7 @@ A library of classes and methods for any .NET &gt;= 5 application
 - &gt;= .NET 5
 
 ## Latest Version
-- Exception was thrown if not specifying all settings in "appSettings" for this package
-- Added json option "ReadCommentHandling" 
+- Multithreaded ToJson() threw exception due to "ReadCommentHandling" were set (its immutable)
 
 ## Docs
 Documentation with samples:  
