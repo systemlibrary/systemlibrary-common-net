@@ -53,7 +53,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value == "True", "WriteIndented not True");
 
                 if (property.Name == "ReadCommentHandling")
-                    Assert.IsTrue(value == "Allow", "ReadCommentHandling is not Allow: " + value);
+                    Assert.IsTrue(value == "Skip", "ReadCommentHandling is not Allow: " + value);
             }
         }
 
