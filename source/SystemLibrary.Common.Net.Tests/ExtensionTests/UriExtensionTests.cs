@@ -48,5 +48,35 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
 
             Assert.IsTrue(primaryDomain == "localhost.com");
         }
+
+        [TestMethod]
+        public void Uri_Get_SubDomains_Without_Protocol()
+        {
+            var uri = new Uri("system.library", UriKind.Relative);
+
+            var primaryDomain = uri.GetPrimaryDomain();
+
+            Assert.IsTrue(primaryDomain == "library.com");
+        }
+
+        [TestMethod]
+        public void Uri_Get_Domain_With_Valid_Domainl()
+        {
+            var uri = new Uri("system.demo", UriKind.Relative);
+
+            var primaryDomain = uri.GetPrimaryDomain();
+
+            Assert.IsTrue(primaryDomain == "system.demo");
+        }
+
+        [TestMethod]
+        public void Uri_Get_SubDomains_With_Valid_Domainl()
+        {
+            var uri = new Uri("system.library.no", UriKind.Relative);
+
+            var primaryDomain = uri.GetPrimaryDomain();
+
+            Assert.IsTrue(primaryDomain == "library.no");
+        }
     }
 }

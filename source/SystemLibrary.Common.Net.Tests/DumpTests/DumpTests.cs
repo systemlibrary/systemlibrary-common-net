@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
     [TestClass]
     public class DumpTests
     {
-        const string DumpPath = "C:\\Logs\\systemlibrary-unit-tests-log.html";
+        const string DumpPath = "C:\\Logs\\systemlibrary-unit-tests-log.txt";
 
         [TestMethod]
         public void Dump_Write_And_Clear()

@@ -27,7 +27,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value.Contains("Logs"), "Folder is invalid: " + property.GetValue(configuration).ToString());
 
                 if (property.Name.ToLower() == "filename")
-                    Assert.IsTrue(value.Contains(".html"), "FileName does not contain html");
+                    Assert.IsTrue(value.Contains(".txt"), "FileName does not contain txt");
             }
         }
 

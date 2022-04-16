@@ -29,7 +29,12 @@ namespace SystemLibrary.Common.Net.Extensions
             if (uri == null)
                 return "";
 
-            var host = uri.Host;
+            string host;
+            if (uri.IsAbsoluteUri)
+                host = uri.Host;
+            else
+                host = uri.OriginalString;
+
             if (host.IsNot())
                 return "";
 
@@ -39,11 +44,18 @@ namespace SystemLibrary.Common.Net.Extensions
             var values = host.Split('.');
 
             var length = values.Length;
-            if (length <= 2)
+
+            if (length == 1)
                 return host;
 
-            if (values[length - 1].Length > 3)
-                return host;
+            if (length == 2)
+            {
+                if (values[1].Length <= 4)
+                    return host;
+            }
+
+            if (values[length - 1].Length > 4)
+                return values[length - 1] + topLevelDomain;
 
             return values[length - 2] + "." + values[length - 1];
         }
