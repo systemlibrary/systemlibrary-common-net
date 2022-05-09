@@ -241,19 +241,6 @@ references:
   commentId: T:SystemLibrary.Common.Net.EnvironmentConfig
   fullName: SystemLibrary.Common.Net.EnvironmentConfig
   nameWithType: EnvironmentConfig
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
-  name: ApplicationName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ApplicationName
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
-  nameWithType: EnvironmentConfig.ApplicationName
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName*
-  name: ApplicationName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ApplicationName_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ApplicationName
-  nameWithType: EnvironmentConfig.ApplicationName
 - uid: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
   name: AspNetCoreEnvironment
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment

@@ -52,7 +52,12 @@ namespace SystemLibrary.Common.Net
                     _AspNetCoreConfiguration = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
                     if (_AspNetCoreConfiguration.IsNot())
+                        _AspNetCoreConfiguration = Environment.GetEnvironmentVariable("ASPNET_ENV");
+
+                    if (_AspNetCoreConfiguration.IsNot())
                         _AspNetCoreConfiguration = AspNetCoreConfigurationReadFirstFoundInLaunchSettings();
+
+                    //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
 
                     if (_AspNetCoreConfiguration.IsNot())
                     {
@@ -70,6 +75,7 @@ namespace SystemLibrary.Common.Net
             }
         }
 
-        public static string ApplicationName => Environment.GetEnvironmentVariable("ApplicationName");
+        // Commented out: Got nothing to do in EnvironmentConfig -- appName does not change based on Envs when we have EnvironmentName variable
+        //public static string ApplicationName => Environment.GetEnvironmentVariable("ApplicationName");
     }
 }

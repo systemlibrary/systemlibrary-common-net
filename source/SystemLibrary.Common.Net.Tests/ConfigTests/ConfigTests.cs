@@ -26,6 +26,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             var mode = EnvironmentConfig.AspNetCoreEnvironment;
 
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
+            
             if (mode == "Release")
             {
                 Assert.IsTrue(conf.FirstName?.Contains("Release") == true, "firstname is invalid, it must be get; and set; property");
@@ -36,11 +37,11 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             {
                 //NOTE: We are building "Release" configuration, so the test setting "Debug" do not work, unless we also specify a 'Debug' transformation file  
                 //Assert.IsTrue(conf.lastname?.Contains("Release") == false, "LastName contains Release: " + conf.lastname);
-                Assert.IsTrue(conf.age > 0, "Age is an invalid int, or not within the range");
+                Assert.IsTrue(conf.age > 0 && conf.age < 200, "Age is an invalid int, or not within the range");
             }
             else
             {
-                Assert.IsTrue(false, "Error: Mode should be either release or debug, it is: " + mode);
+                Assert.IsTrue(false, "Error: Mode should be either release or debug, it is: " + mode + ", change it in mstest.runsettings");
             }
 
             Assert.IsTrue(conf.IsEnabled);

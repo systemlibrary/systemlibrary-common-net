@@ -72,8 +72,8 @@ namespace SystemLibrary.Common.Net.Extensions
         /// - allows trailing commas
         /// - camel cased
         /// 
+        /// Returns a json formatted string representation of the object or null if object is null
         /// </summary>
-        /// <returns>Returns a json formatted string representation of the object or null if object is null</returns>
         /// <example>
         /// <code>
         /// class User {

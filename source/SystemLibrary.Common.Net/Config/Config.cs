@@ -3,32 +3,67 @@
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// Class for creating configurations files next to your code files
+    /// Class for creating configurations (xml or json) files next to your code files
     /// 
     /// Configurations must be placed in either:
-    /// ~/*.json, ~/*.xml, ~/Configs/**, ~/Configurations/**
+    /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], ~/Configurations/**.[json|xml]
     /// 
-    /// Supports: xml and json
+    /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root 
     /// 
-    /// Configurations can also be appended to 'appSettings.json' 
+    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' launchSettings.json, web.config or in mstest.runsettings if you are in a unit test project
     /// 
-    /// Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)
+    /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config
     /// 
-    /// Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup
-    /// - Add mstest.runsettings (google it)
-    /// - Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings
-    /// - Register runsettings file in your csproj variable: 'RunSettingsFilePath'
-    /// - Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'
-    ///     
-    /// WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])
+    /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only
     /// 
-    /// WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists
+    /// WARNING: Bug in Microsoft's code, if you call "UseEnvironment()" this wont transform based on that environment (as of today...)
     /// 
     /// WARNING: Requires app restart if configuration changes
     /// </summary>
     ///<example>
+    /// Samle of launchSettings.json:
+    /// <code class="language-csharp hljs">
+    /// { 
+    /// 	...
+    /// 	{
+    /// 		"profiles": {
+    /// 			"IIS": {
+    /// 				"environmentVariables": {
+    /// 					"ASPNETCORE_ENVIRONMENT": "Dev",
+    /// 				}
+    /// 			}
+    /// 		}
+    /// 	}
+    /// 	...
+    /// }
+    /// </code>
+    /// 
+    /// Sample of web.config: 
+    /// <code class="language-csharp hljs">
+    /// &lt;configuration&gt;
+    ///   &lt;location path = "." inheritInChildApplications="false"&gt;
+    /// 	&lt;/system.webServer&gt;
+    /// 	  &lt;aspNetCore processPath = "bin\Demo.exe" arguments="" stdoutLogEnabled="false" hostingModel="inprocess"&gt;
+    ///         &lt;environmentVariables&gt;
+    ///           &lt;environmentVariable name = "ASPNETCORE_ENVIRONMENT" value="Dev" /&gt;
+    ///         &lt;/environmentVariables&gt;
+    ///       &lt;/aspNetCore&gt;
+    ///     &lt;/system.webServer&gt;
+    ///   &lt;/location&gt;
+    /// &lt;/configuration&gt;
+    /// </code>
+    /// 
+    /// Sample of mstest.runsettings:
+    /// - Register runsettings file in your csproj variable: 'RunSettingsFilePath'
+    /// - Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github
+    /// <code class="language-csharp hljs">
+    /// &lt;RunSettings&gt;
+    ///   &lt;RunConfiguration&gt;
+    ///       &lt;EnvironmentVariables&gt;
+    ///           &lt;ASPNETCORE_ENVIRONMENT&gt;Debug&lt;/ASPNETCORE_ENVIRONMENT&gt;
+    /// </code>
+    /// 
     /// A TestConfig class example:
-    ///
     /// <code class="language-csharp hljs">
     /// public class TestConfig : Config&lt;TestConfig&gt; 
     /// {
@@ -85,11 +120,11 @@ namespace SystemLibrary.Common.Net
                 if (!IsInitialized)
                 {
                     IsInitialized = true;
+
                     if (_Config != null) return _Config;
 
                     _Config = ConfigLoader<T>.Load()?.Get<T>();
                 }
-
                 return _Config;
             }
         }

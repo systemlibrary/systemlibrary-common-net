@@ -17,10 +17,10 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <returns>Primary domain name or "", never null</returns>
         /// <example>
         /// <code class="language-csharp hljs">
-        /// var result = new Uri("https://systemlibrary.com").GetPrimaryDomain();
+        /// var result = new Uri("https://systemlibrary.com/image?q=90&format=jpg").GetPrimaryDomain();
         /// //result is "systemlibrary.com"
         /// 
-        /// var result = new Uri("https://systemlibrary.github.io/systemlibrary-common-net/").GetPrimaryDomain();
+        /// var result = new Uri("https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&format=jpg").GetPrimaryDomain();
         /// //result is "github.io"
         /// </code>
         /// </example>

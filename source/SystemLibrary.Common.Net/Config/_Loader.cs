@@ -82,25 +82,32 @@ namespace SystemLibrary.Common.Net
             public static IConfiguration Load()
             {
                 var type = typeof(T);
-                var configurationName = type.Name;
-                var mode = EnvironmentConfig.AspNetCoreEnvironment?.ToLower();
 
-                configurationName = configurationName.ToLower();
+                var configurationName = type.Name.ToLower();
+
+                var mode = EnvironmentConfig.AspNetCoreEnvironment?.ToLower();
 
                 var files = new List<string>();
 
-                foreach (var file in ConfigurationFiles)
+                if (ConfigurationFiles != null && ConfigurationFiles.Length > 0)
                 {
-                    var lowered = file.ToLower();
-                    if (lowered.Contains(configurationName))
+                    foreach (var file in ConfigurationFiles)
                     {
-                        var values = lowered.Split('.');
-
-                        if (values != null && values.Length > 1 && values[^2].Contains(configurationName))
+                        if (file.Is())
                         {
-                            if (!lowered.Contains("." + mode + "."))
+                            var lowered = file.ToLower();
+
+                            if (lowered.Contains(configurationName))
                             {
-                                files.Add(file);
+                                var values = lowered.Split('.');
+
+                                if (values != null && values.Length > 1 && values[^2].Contains(configurationName))
+                                {
+                                    if (!lowered.Contains("." + mode + "."))
+                                    {
+                                        files.Add(file);
+                                    }
+                                }
                             }
                         }
                     }

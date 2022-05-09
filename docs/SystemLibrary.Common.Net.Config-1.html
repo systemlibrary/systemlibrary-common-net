@@ -105,21 +105,14 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Class for creating configurations files next to your code files</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Class for creating configurations (xml or json) files next to your code files</p>
 <p>Configurations must be placed in either:
-~/<em>.json, ~/</em>.xml, ~/Configs/<strong>, ~/Configurations/</strong></p>
-<p>Supports: xml and json</p>
-<p>Configurations can also be appended to 'appSettings.json'</p>
-<p>Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
-<p>Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup</p>
-<ul>
-<li>Add mstest.runsettings (google it)</li>
-<li>Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings</li>
-<li>Register runsettings file in your csproj variable: 'RunSettingsFilePath'</li>
-<li>Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'</li>
-</ul>
-<p>WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])</p>
-<p>WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists</p>
+~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], ~/Configurations/</strong>.[json|xml]</p>
+<p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root</p>
+<p>Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' launchSettings.json, web.config or in mstest.runsettings if you are in a unit test project</p>
+<p>If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config</p>
+<p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only</p>
+<p>WARNING: Bug in Microsoft's code, if you call &quot;UseEnvironment()&quot; this wont transform based on that environment (as of today...)</p>
 <p>WARNING: Requires app restart if configuration changes</p>
 </div>
   </div>
@@ -158,7 +151,42 @@
     <div class="custom-menu-data-container">
       <div class="custom-menu-data-class-example" style="display: none;">
         <div class="syslib-tab-menu-data--close">X</div>
-        <div class="codewrapper"><p>A TestConfig class example:</p>
+        <div class="codewrapper"><p>Samle of launchSettings.json:</p>
+<pre><code>{ 
+	...
+	{
+		&quot;profiles&quot;: {
+			&quot;IIS&quot;: {
+				&quot;environmentVariables&quot;: {
+					&quot;ASPNETCORE_ENVIRONMENT&quot;: &quot;Dev&quot;,
+				}
+			}
+		}
+	}
+	...
+}</code></pre>
+<p>Sample of web.config:</p>
+<pre><code>&lt;configuration>
+  &lt;location path = &quot;.&quot; inheritInChildApplications=&quot;false&quot;>
+	&lt;/system.webServer>
+	  &lt;aspNetCore processPath = &quot;bin\Demo.exe&quot; arguments=&quot;&quot; stdoutLogEnabled=&quot;false&quot; hostingModel=&quot;inprocess&quot;>
+        &lt;environmentVariables>
+          &lt;environmentVariable name = &quot;ASPNETCORE_ENVIRONMENT&quot; value=&quot;Dev&quot; />
+        &lt;/environmentVariables>
+      &lt;/aspNetCore>
+    &lt;/system.webServer>
+  &lt;/location>
+&lt;/configuration></code></pre>
+<p>Sample of mstest.runsettings:</p>
+<ul>
+<li>Register runsettings file in your csproj variable: 'RunSettingsFilePath'</li>
+<li>Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github</li>
+</ul>
+<pre><code>&lt;RunSettings>
+  &lt;RunConfiguration>
+      &lt;EnvironmentVariables>
+          &lt;ASPNETCORE_ENVIRONMENT>Debug&lt;/ASPNETCORE_ENVIRONMENT></code></pre>
+<p>A TestConfig class example:</p>
 <pre><code>public class TestConfig : Config&lt;TestConfig> 
 {
    public string Name { get; set; }
@@ -237,7 +265,7 @@ var name = testConfig.Name;
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L81">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L116">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>

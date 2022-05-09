@@ -41,7 +41,7 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <summary>
         /// Check if the enumerable contains 'value'
         /// 
-        /// Does not throw exception if enumerable is null nor if value is null
+        /// Does not throw exception if enumerable is null nor if argument 'value' is null
         /// 
         /// Uses Linq.Contains() internally
         /// </summary>
@@ -65,7 +65,7 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <summary>
         /// Check if the enumerable contains 'value'
         /// 
-        /// Does not throw exception if enumerable is null nor if value is null
+        /// Does not throw exception if enumerable is null nor if argument 'value' is null
         /// 
         /// Uses Linq.Contains() internally
         /// </summary>

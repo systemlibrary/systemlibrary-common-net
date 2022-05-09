@@ -18,7 +18,6 @@
   <ItemGroup>
     <None Remove="Configs\Integration\integrationsettings.json" />
     <None Remove="mstest.runsettings" />
-    <None Remove="Properties\launchSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configs\carSettings.Debug.json">
@@ -47,9 +46,6 @@
     </Content>
     <Content Include="appSettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Properties\launchSettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

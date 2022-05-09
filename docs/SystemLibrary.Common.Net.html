@@ -115,21 +115,14 @@
 <p>NOTE: Might be removed at a later point in time or rewritten/restructured completely</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config&lt;T&gt;</a></h4>
-      <section><p>Class for creating configurations files next to your code files</p>
+      <section><p>Class for creating configurations (xml or json) files next to your code files</p>
 <p>Configurations must be placed in either:
-~/<em>.json, ~/</em>.xml, ~/Configs/<strong>, ~/Configurations/</strong></p>
-<p>Supports: xml and json</p>
-<p>Configurations can also be appended to 'appSettings.json'</p>
-<p>Transformations are ran based on the .NET variable 'ASPNETCORE_ENVIRONMENT' (google it)</p>
-<p>Unit Tests can run transformations by passing 'ASPNETCORE_ENVIRONMENT' to its startup</p>
-<ul>
-<li>Add mstest.runsettings (google it)</li>
-<li>Add 'ASPNETCORE_ENVIRONMENT' to mstest.runsettings</li>
-<li>Register runsettings file in your csproj variable: 'RunSettingsFilePath'</li>
-<li>Tip: View source code of SystemLibrary.Common.Net, find the project named 'SystemLibrary.Common.Net.Tests'</li>
-</ul>
-<p>WARNING: If no 'ASPNETCORE_ENVIRONMENT' is specified, it uses 'Configuration Mode' for transformations ('Debug' and 'Release' only [I think])</p>
-<p>WARNING: Bug in Microsoft's transformation (I think), if 'Debug' is 'Configuration Mode', but a debug transformation file do not exist, it will transform 'Release' file instead, assuming 'Release' transformation file exists</p>
+~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], ~/Configurations/</strong>.[json|xml]</p>
+<p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root</p>
+<p>Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' launchSettings.json, web.config or in mstest.runsettings if you are in a unit test project</p>
+<p>If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config</p>
+<p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only</p>
+<p>WARNING: Bug in Microsoft's code, if you call &quot;UseEnvironment()&quot; this wont transform based on that environment (as of today...)</p>
 <p>WARNING: Requires app restart if configuration changes</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html">DocFxHide</a></h4>

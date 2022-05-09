@@ -81,7 +81,6 @@ namespace SystemLibrary.Common.Net.Extensions
         /// if(red.IsAny(Color.Black, Color.Blue)) {
         ///     //Never hit, red is Red, never blue/black
         /// }
-        /// 
         /// </code>
         /// </example>
         public static bool IsAny(this Enum enumField, params Enum[] values)

@@ -53,8 +53,11 @@ public static class StringExtensions
     /// <returns>Returns primary domain, 'localhost' from url: 'https://localhost.com/image.png?q=90' or empty string, never null</returns>
     /// <example>
     /// <code class="language-csharp hljs">
-    /// var result = "https://localhost.com/image.png?q=90".GetPrimaryDomain();
-    /// //result is "localhost"
+    /// var result = new Uri("https://systemlibrary.com/image?q=90&format=jpg").GetPrimaryDomain();
+    /// //result is "systemlibrary.com"
+    /// 
+    /// var result = new Uri("https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&format=jpg").GetPrimaryDomain();
+    /// //result is "github.io"
     /// </code>
     /// </example>
     public static string GetPrimaryDomain(this string url)
@@ -70,7 +73,7 @@ public static class StringExtensions
     /// Convert a string value to Enum
     /// </summary>
     /// <typeparam name="T">T must be an Enum</typeparam>
-    /// <param name="value">Value must match the Key or the 'EnumValueAttribute' of a Key in the Enum, else this returns default of the Enum T</param>
+    /// <param name="value">Value must match the Key or the 'EnumValueAttribute' or 'EnumTextAttribute' of a Key in the Enum (EnumValue is checked before EnumText), else this returns default of the Enum T</param>
     /// <returns>Returns first matching Key or default of the Enum</returns>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -84,13 +87,13 @@ public static class StringExtensions
     /// }
     ///
     /// var value = "black".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive conversion
+    /// //value is EnumColor.Black, case insensitive match directly in the Enum Key (or name if you prefer)
     /// 
     /// var value = "white".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive conversion and enum text match
+    /// //value is EnumColor.Black, case insensitive match in 'EnumText' attribute
     /// 
     /// var value = "blackAndWhite".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive conversion and enum value match
+    /// //value is EnumColor.Black, case insensitive match in 'EnumValue' attribute
     /// 
     /// var value = "brown".ToEnum&lt;EnumColor&gt;();
     /// //value is EnumColor.Black, no match, returns first/default
