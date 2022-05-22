@@ -15,6 +15,7 @@ A library of classes and methods for any .NET &gt;= 5 application
 ## Latest Version
 - Uri ToPrimaryDomain() threw exception if passing in "system.library", now it returns "library.com" if such a string is passed
 - Multithreaded ToJson() threw exception due to "ReadCommentHandling" were set (its immutable)
+- Updated nuget logo
 
 ## Docs
 Documentation with samples:  
