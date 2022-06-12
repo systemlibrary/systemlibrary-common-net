@@ -6,64 +6,39 @@ namespace SystemLibrary.Common.Net
     /// Class for creating configurations (xml or json) files next to your code files
     /// 
     /// Configurations must be placed in either:
-    /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], ~/Configurations/**.[json|xml]
+    /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
     /// 
     /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root 
     /// 
-    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' launchSettings.json, web.config or in mstest.runsettings if you are in a unit test project
+    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings if you are in a unit test project
     /// 
     /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config
     /// 
     /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only
     /// 
-    /// WARNING: Bug in Microsoft's code, if you call "UseEnvironment()" this wont transform based on that environment (as of today...)
+    /// WARNING: Bug in Microsoft's code, the call "UseEnvironment()" wont transform based on the argument
     /// 
     /// WARNING: Requires app restart if configuration changes
     /// </summary>
-    ///<example>
-    /// Samle of launchSettings.json:
-    /// <code class="language-csharp hljs">
-    /// { 
-    /// 	...
-    /// 	{
-    /// 		"profiles": {
-    /// 			"IIS": {
-    /// 				"environmentVariables": {
-    /// 					"ASPNETCORE_ENVIRONMENT": "Dev",
-    /// 				}
-    /// 			}
-    /// 		}
-    /// 	}
-    /// 	...
+    /// <example>
+    /// Let's add our own custom configuration file, named 'TestConfig.json', without any transformations yet:
+    /// - Place the file in either ~/, ~/Configs/ or ~/Configurations/
+    /// 
+    /// <code class="language-xml hljs">
+    /// {
+    ///     "Name": "Hello World",
+    ///     "Number": 1234,
+    ///     
+    ///     //"Options" refers to name of the property in 'TestConfig' class, not the type in your C# which would be 'ApiOptions'
+    ///     "Options": {
+    ///         "Url": "https://....",
+    ///     },
+    ///     
+    ///     "ValidPhoneNumbers": [0,1,2,3]
     /// }
     /// </code>
     /// 
-    /// Sample of web.config: 
-    /// <code class="language-csharp hljs">
-    /// &lt;configuration&gt;
-    ///   &lt;location path = "." inheritInChildApplications="false"&gt;
-    /// 	&lt;/system.webServer&gt;
-    /// 	  &lt;aspNetCore processPath = "bin\Demo.exe" arguments="" stdoutLogEnabled="false" hostingModel="inprocess"&gt;
-    ///         &lt;environmentVariables&gt;
-    ///           &lt;environmentVariable name = "ASPNETCORE_ENVIRONMENT" value="Dev" /&gt;
-    ///         &lt;/environmentVariables&gt;
-    ///       &lt;/aspNetCore&gt;
-    ///     &lt;/system.webServer&gt;
-    ///   &lt;/location&gt;
-    /// &lt;/configuration&gt;
-    /// </code>
-    /// 
-    /// Sample of mstest.runsettings:
-    /// - Register runsettings file in your csproj variable: 'RunSettingsFilePath'
-    /// - Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github
-    /// <code class="language-csharp hljs">
-    /// &lt;RunSettings&gt;
-    ///   &lt;RunConfiguration&gt;
-    ///       &lt;EnvironmentVariables&gt;
-    ///           &lt;ASPNETCORE_ENVIRONMENT&gt;Debug&lt;/ASPNETCORE_ENVIRONMENT&gt;
-    /// </code>
-    /// 
-    /// A TestConfig class example:
+    /// Create new class with same name as the json file, and inherit Config&lt;&gt;:
     /// <code class="language-csharp hljs">
     /// public class TestConfig : Config&lt;TestConfig&gt; 
     /// {
@@ -82,25 +57,78 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// 
-    /// Add 'TestConfig.json' (can also be on the xml format) to either ~/, ~/Configs/**, ~/Configurations/**
+    /// Use your configurations in json through the C# class, at runtime:
+    /// <code class="language-csharp hljs">
+    /// var testConfig = TestConfig.Current;
+    /// var name = testConfig.Name;
+    /// //name is now Hello World
+    /// </code>
+    /// 
+    /// Let's add transformation file to our newly created TestConfig.json, for 'dev' environment:
+    /// 
+    /// - create new file 'TestConfig.dev.json' and place it in the same folder as TestConfig.json
+    /// 
+    /// - visual studio should mark TestConfig.dev.json as IsTransformFile=true and DependentUpon 'TestConfig.json'
+    /// - if not you can try dragging 'TestConfig.dev.json' in under 'TestConfig.json' in Solution Explorer
+    /// - only variables we want to transform are required
     /// <code class="language-xml hljs">
     /// {
-    ///     "Name": "Hello World",
-    ///     "Number": 1234,
-    ///     
-    ///     //"Options" refers to name of the property in 'TestConfig' class, not the type in your C# which would be 'ApiOptions'
-    ///     "Options": {
-    ///         "Url": "https://....",
-    ///     },
-    ///     
-    ///     "ValidPhoneNumbers": [0,1,2,3]
+    ///     "Name": "Hello Dev!",
     /// }
     /// </code>
     /// 
-    /// <code>
+    /// 
+    /// Three ways of specifying the environment, in launchSettings, web.config and in mstest.runsettings, which then all configurations which inherits Config&lt;&gt; is ran if they do have transformation files:
+    /// 
+    /// 1 launchSettings.json:
+    /// <code class="language-csharp hljs">
+    /// { 
+    /// 	...
+    /// 	{
+    /// 		"profiles": {
+    /// 			"IIS": {
+    /// 				"environmentVariables": {
+    /// 					"ASPNETCORE_ENVIRONMENT": "Dev",
+    /// 				}
+    /// 			}
+    /// 		}
+    /// 	}
+    /// 	...
+    /// }
+    /// </code>
+    /// 
+    /// 2 web.config: 
+    /// <code class="language-csharp hljs">
+    /// &lt;configuration&gt;
+    ///   &lt;location path = "." inheritInChildApplications="false"&gt;
+    /// 	&lt;/system.webServer&gt;
+    /// 	  &lt;aspNetCore processPath = "bin\Demo.exe" arguments="" stdoutLogEnabled="false" hostingModel="inprocess"&gt;
+    ///         &lt;environmentVariables&gt;
+    ///           &lt;environmentVariable name = "ASPNETCORE_ENVIRONMENT" value="Dev" /&gt;
+    ///         &lt;/environmentVariables&gt;
+    ///       &lt;/aspNetCore&gt;
+    ///     &lt;/system.webServer&gt;
+    ///   &lt;/location&gt;
+    /// &lt;/configuration&gt;
+    /// </code>
+    /// 
+    /// 3 mstest.runsettings:
+    /// - Note: add mstest.runsettings to your csproj-variable: 'RunSettingsFilePath'
+    /// - Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github
+    /// <code class="language-csharp hljs">
+    /// &lt;RunSettings&gt;
+    ///   &lt;RunConfiguration&gt;
+    ///       &lt;EnvironmentVariables&gt;
+    ///           &lt;ASPNETCORE_ENVIRONMENT&gt;Dev&lt;/ASPNETCORE_ENVIRONMENT&gt;
+    /// </code>
+    /// 
+    /// Use our transformations
+    /// 
+    /// Note: transformations are ran the first time '.Current' on a config is invoked
+    /// <code class="language-csharp hljs">
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
-    /// //'name' is now 'Hello World'
+    /// //name is now equal to 'Hello Dev!', our transformed configuration
     /// </code>
     /// </example>
     /// <typeparam name="T">T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</typeparam>

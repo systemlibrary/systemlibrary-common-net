@@ -23,17 +23,6 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
         }
 
         [TestMethod]
-        public void Enum_Cast()
-        {
-            var color = Colors.Red;
-            
-            var colorEnum = color.AsEnum();
-
-            Assert.IsTrue(colorEnum != null);
-            Assert.IsTrue(colorEnum.GetType().Name == nameof(Colors));
-        }
-
-        [TestMethod]
         public void Enum_ToArray()
         {
             var integers = new object[] { 1, 2, 3, 4 };
@@ -42,6 +31,18 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
 
             Assert.IsTrue(colors.Length == integers.Length);
             Assert.IsTrue(colors[2] == Colors.Blue);
+        }
+
+
+        [TestMethod]
+        public void Enum_ToArray_WithStrings()
+        {
+            var texts = new object[] { "Black", "White", "Blue" };
+
+            var colors = texts.AsEnumArray<Colors>();
+
+            Assert.IsTrue(colors.Length == texts.Length);
+            Assert.IsTrue(colors[1] == Colors.White);
         }
     }
 }

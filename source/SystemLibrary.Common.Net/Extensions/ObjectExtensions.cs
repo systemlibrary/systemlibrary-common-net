@@ -12,29 +12,6 @@ namespace SystemLibrary.Common.Net.Extensions
     public static class ObjectExtensions
     {
         /// <summary>
-        /// Cast the object to a System.Enum
-        /// </summary>
-        /// <example>
-        /// <code class="language-csharp">
-        /// enum Color { 
-        ///     Red
-        /// }
-        /// 
-        /// var color = Color.Red;
-        /// 
-        /// var colorEnum = color.AsEnum();
-        /// //now "color" is System.Enum and can be passed to functions that takes Enum type
-        /// </code>
-        /// </example>
-        public static Enum AsEnum(this object obj)
-        {
-            if (obj != null)
-                return (Enum)obj;
-
-            return default;
-        }
-
-        /// <summary>
         /// Convert multiple objects of the same 'enum value' to an array of that enum type
         /// </summary>
         /// <example>
@@ -53,15 +30,33 @@ namespace SystemLibrary.Common.Net.Extensions
         /// //...
         /// //colors[3] == Blue
         /// </code>
+        /// 
+        /// <code class="language-csharp hljs">
+        /// public enum Colors
+        /// {
+        ///     Black, White, Red, Blue
+        /// }
+        /// 
+        /// var texts = new object[] { "Red", "Black", "White" };
+        /// var colors = texts.AsEnumArray&lt;Colors&gt;();
+        /// //colors[1] == Black
+        /// </code>
         /// </example>
-        public static TEnum[] AsEnumArray<TEnum>(this object[] objects) where TEnum : IComparable, IFormattable, IConvertible
+        public static TEnum[] AsEnumArray<TEnum>(this object[] objects) where TEnum : struct, IComparable, IFormattable, IConvertible
         {
             if (objects.IsNot()) return default;
 
             //TODO: consider "ToString()" each object, and "ToEnum<TEnum>()" each string...
-            //but that would be a new method: ToEnumArray()..
+            //but that would be a new method: ToEnumArray()
 
-            return objects.Cast<TEnum>().ToArray();
+            var type = objects[0].GetType();
+
+            if (type == SystemType.IntType)
+                return objects.Cast<TEnum>().ToArray();
+            else if (type == SystemType.StringType)
+                return objects.Select(x => x.ToString().ToEnum<TEnum>()).ToArray();
+
+            throw new Exception("Not supporing conversion of " + type.Name + "-array to the Enum");
         }
 
         /// <summary>

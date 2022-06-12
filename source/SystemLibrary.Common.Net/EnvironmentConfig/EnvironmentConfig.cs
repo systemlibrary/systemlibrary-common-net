@@ -4,9 +4,9 @@ using System.IO;
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// This class contains various environment specific configurations common to all .NET applications
+    /// Class containing various environment specific configurations common to all .NET applications
     /// 
-    /// For instance, it contains the variable 'AspNetCoreConfiguration', which is used internally by all config transformations
+    /// For instance, it contains the value of 'ASPNETCORE_ENVIRONMENT', which is used internally by all config transformations
     /// </summary>
     public class EnvironmentConfig //: Config<EnvironmentConfig>
     {
@@ -41,7 +41,7 @@ namespace SystemLibrary.Common.Net
         /// 
         /// If it does not exist, it reads 'Properties\launchSettings.json' returning the value of first found 'ASPNETCORE_ENVIRONMENT' (forward read only)
         /// 
-        /// If it still does not exist, this returns either 'Debug' or 'Release' based on the build configuration
+        /// If it still does not exist, this returns either 'Debug' or 'Release' based wether it is a Debug or Release build
         /// </summary>
         public static string AspNetCoreEnvironment
         {

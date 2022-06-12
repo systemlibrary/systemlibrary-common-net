@@ -6,7 +6,7 @@ using Asm = System.Reflection.Assembly;
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// This class is used to find embedded resource or searching for an implementation of a certain interface, in all loaded assemblies.
+    /// Class to find types and embedded resources in loaded Assemblies
     /// 
     /// Built on System.Reflection.Assembly
     /// </summary>

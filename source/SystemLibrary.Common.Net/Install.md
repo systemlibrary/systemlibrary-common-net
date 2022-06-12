@@ -32,7 +32,7 @@ appSettings.json:
 		"systemLibraryCommonNet": {
 			"dump": {
 				"folder": "C:\\logs\\",
-				"fileName": "SysLib.log"
+				"fileName": "SysLib.log",
 			},
 			"json": {
 				"maxDepth": 32,

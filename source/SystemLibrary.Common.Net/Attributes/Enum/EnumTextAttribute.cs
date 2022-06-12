@@ -3,7 +3,7 @@
 namespace SystemLibrary.Common.Net.Attributes
 {
     /// <summary>
-    /// Add additional string data to any Enum Field
+    /// Add additional string data to an Enum Key
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">

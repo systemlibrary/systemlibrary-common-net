@@ -489,19 +489,6 @@ references:
   commentId: T:SystemLibrary.Common.Net.Extensions.ObjectExtensions
   fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions
   nameWithType: ObjectExtensions
-- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum(System.Object)
-  name: AsEnum(Object)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnum_System_Object_
-  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum(System.Object)
-  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum(System.Object)
-  nameWithType: ObjectExtensions.AsEnum(Object)
-- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum*
-  name: AsEnum
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnum_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum
-  nameWithType: ObjectExtensions.AsEnum
 - uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray*
   name: AsEnumArray
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray_

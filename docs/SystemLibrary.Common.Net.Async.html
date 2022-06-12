@@ -52,7 +52,7 @@
               
               <a class="navbar-brand" href="..//systemlibrary-common-net/index.html">
                 <img id="logo" class="svg" src="..//systemlibrary-common-net/logo.png" alt="">
-                <span class="navbar-title">System Library Common .Net</span>
+                <span class="navbar-title">[%siteTitle%]</span>
               </a>
               
             </div>
@@ -125,7 +125,7 @@
   <div class="custom-menu-data custom-menu-data-first">
     <h5 id="SystemLibrary_Common_Net_Async_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
-    <div class="custom-menu-data-container">
+    <div class="custom-menu-data-container custom-menu-data-container--example">
     </div>
   </div>
   
@@ -783,6 +783,18 @@ var cars = Async.Run&lt;Car>(
   				.replace('protected', '');
   			items[i].innerHTML = innerHtml;
   		}
+  
+  		//Show 'view source' link for the class constructor next to 'Example'
+  		if(items != null && items.length > 0) {
+  			if(items[0] != null && items[0].id != null && items[0].id.includes('__ctor_') === true) {
+  				var viewSources = getItems('.custom-source-code-link-container');
+  				if(viewSources != null && viewSources.length > 0) {
+  					if(viewSources.length > 1) {
+  						viewSources[0].classList.add('custom-source-code-link-container--class');
+  					}
+  				}
+  			}
+  		}
   	}
   
   	function addEventsToTabCloseButtons() {
@@ -963,6 +975,7 @@ var cars = Async.Run&lt;Car>(
   
   	function hideSourceLinksForDocfxHideAttribute() {
   		var items = getItems('.custom-source-code-link-container');
+  
   		if (items != null && items.length > 0) {
   			for (var i = 0; i < items.length; i++) {
   				var next = items[i].nextElementSibling;
@@ -1000,9 +1013,11 @@ var cars = Async.Run&lt;Car>(
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
-  </div>
+  <p class='classMargin classMargin--end'>}</p>
   
-  <p class='classMargin classMargin--end'>}</p></article>
+  	</div>
+  	
+  </article></div>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -1028,9 +1043,9 @@ var cars = Async.Run&lt;Car>(
         <div class="grad-bottom"></div>
         <div class="footer">
           <div class="container">
-            <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
-            <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Package: <a href="[%footerNugetUrl%]">nuget</a></span><br>
+            <span>Source: <a href="[%footerGithubUrl%]">github</a></span><br>
+            <span>Website: <a href="[%footerWebsiteUrl%]">[%footerSiteTitle%]</a></span>
           </div>
         </div>
       </footer>
@@ -1039,5 +1054,5 @@ var cars = Async.Run&lt;Car>(
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.js"></script>
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/main.js"></script>
-  </div></body>
+  </body>
 </html>

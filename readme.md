@@ -13,9 +13,9 @@ A library of classes and methods for any .NET &gt;= 5 application
 - &gt;= .NET 5
 
 ## Latest Version
-- Uri ToPrimaryDomain() threw exception if passing in "system.library", now it returns "library.com" if such a string is passed
-- Multithreaded ToJson() threw exception due to "ReadCommentHandling" were set (its immutable)
-- Updated nuget logo
+- Removed AsEnum() as it is a simple cast only
+- Extended AsEnumArray() to also convert an array of strings to their respective Enum Keys
+- Rewritten the example and comments of the Config class
 
 ## Docs
 Documentation with samples:  

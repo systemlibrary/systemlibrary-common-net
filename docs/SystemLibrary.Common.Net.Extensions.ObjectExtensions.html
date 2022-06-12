@@ -52,7 +52,7 @@
               
               <a class="navbar-brand" href="..//systemlibrary-common-net/index.html">
                 <img id="logo" class="svg" src="..//systemlibrary-common-net/logo.png" alt="">
-                <span class="navbar-title">System Library Common .Net</span>
+                <span class="navbar-title">[%siteTitle%]</span>
               </a>
               
             </div>
@@ -125,7 +125,7 @@
   <div class="custom-menu-data custom-menu-data-first">
     <h5 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
-    <div class="custom-menu-data-container">
+    <div class="custom-menu-data-container custom-menu-data-container--example">
     </div>
   </div>
   
@@ -148,83 +148,6 @@
   
   <div class="custom-container">
   <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Cast the object to a System.Enum</p>
-</div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
-  
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnum_System_Object_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L29">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnum_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum*"></a>
-  
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnum_System_Object_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnum(System.Object)" class="h4-custom-functionName">public static Enum AsEnum(this object obj)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>enum Color { 
-    Red
-}
-
-var color = Color.Red;
-
-var colorEnum = color.AsEnum();
-//now &quot;color&quot; is System.Enum and can be passed to functions that takes Enum type</code></pre>
-</div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
-  
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Object</span></td>
-  						<td><span class="parametername">obj</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
-  
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Enum</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
-  	</div>
-  </div>
-  </div>
-  
-  
-  
-  <div class="custom-container">
-  <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Convert multiple objects of the same 'enum value' to an array of that enum type</p>
 </div>
   	<div class="markdown level1 conceptual member-summary-conceptual"></div>
@@ -232,15 +155,14 @@ var colorEnum = color.AsEnum();
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L57">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L45">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray*"></a>
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])" class="h4-custom-functionName">public static TEnum[] AsEnumArray&lt;TEnum&gt;(this object[] objects)
-
-    where TEnum : IComparable, IFormattable, IConvertible</h4>
+    where TEnum : struct, IComparable, IFormattable, IConvertible</h4>
   	<div class="custom-menu-data-container">
   		<div class="custom-menu-data-name" style="display: none;">
   			<div class="syslib-tab-menu-data--close">X</div>
@@ -257,6 +179,14 @@ var colors = integers.AsEnumArray&lt;Colors>();
 //colors[1] == White
 //...
 //colors[3] == Blue</code></pre>
+<pre><code>public enum Colors
+{
+    Black, White, Red, Blue
+}
+
+var texts = new object[] { &quot;Red&quot;, &quot;Black&quot;, &quot;White&quot; };
+var colors = texts.AsEnumArray&lt;Colors>();
+//colors[1] == Black</code></pre>
 </div>
   			<div class="comment-examples-container-bottom"></div>
   		</div>
@@ -326,7 +256,7 @@ var colors = integers.AsEnumArray&lt;Colors>();
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_System_Object_System_Text_Json_JsonSerializerOptions_">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L90">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L85">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson*"></a>
@@ -693,6 +623,18 @@ var colors = integers.AsEnumArray&lt;Colors>();
   				.replace('protected', '');
   			items[i].innerHTML = innerHtml;
   		}
+  
+  		//Show 'view source' link for the class constructor next to 'Example'
+  		if(items != null && items.length > 0) {
+  			if(items[0] != null && items[0].id != null && items[0].id.includes('__ctor_') === true) {
+  				var viewSources = getItems('.custom-source-code-link-container');
+  				if(viewSources != null && viewSources.length > 0) {
+  					if(viewSources.length > 1) {
+  						viewSources[0].classList.add('custom-source-code-link-container--class');
+  					}
+  				}
+  			}
+  		}
   	}
   
   	function addEventsToTabCloseButtons() {
@@ -873,6 +815,7 @@ var colors = integers.AsEnumArray&lt;Colors>();
   
   	function hideSourceLinksForDocfxHideAttribute() {
   		var items = getItems('.custom-source-code-link-container');
+  
   		if (items != null && items.length > 0) {
   			for (var i = 0; i < items.length; i++) {
   				var next = items[i].nextElementSibling;
@@ -910,9 +853,11 @@ var colors = integers.AsEnumArray&lt;Colors>();
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
-  </div>
+  <p class='classMargin classMargin--end'>}</p>
   
-  <p class='classMargin classMargin--end'>}</p></article>
+  	</div>
+  	
+  </article></div>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -938,9 +883,9 @@ var colors = integers.AsEnumArray&lt;Colors>();
         <div class="grad-bottom"></div>
         <div class="footer">
           <div class="container">
-            <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
-            <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Package: <a href="[%footerNugetUrl%]">nuget</a></span><br>
+            <span>Source: <a href="[%footerGithubUrl%]">github</a></span><br>
+            <span>Website: <a href="[%footerWebsiteUrl%]">[%footerSiteTitle%]</a></span>
           </div>
         </div>
       </footer>
@@ -949,5 +894,5 @@ var colors = integers.AsEnumArray&lt;Colors>();
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/docfx.js"></script>
     <script type="text/javascript" src="..//systemlibrary-common-net/styles/main.js"></script>
-  </div></body>
+  </body>
 </html>

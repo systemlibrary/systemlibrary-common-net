@@ -52,7 +52,7 @@
               
               <a class="navbar-brand" href="..//systemlibrary-common-net/index.html">
                 <img id="logo" class="svg" src="..//systemlibrary-common-net/logo.png" alt="">
-                <span class="navbar-title">System Library Common .Net</span>
+                <span class="navbar-title">[%siteTitle%]</span>
               </a>
               
             </div>
@@ -108,7 +108,7 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Assemblies.html">Assemblies</a></h4>
-      <section><p>This class is used to find embedded resource or searching for an implementation of a certain interface, in all loaded assemblies.</p>
+      <section><p>Class to find types and embedded resources in loaded Assemblies</p>
 <p>Built on System.Reflection.Assembly</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Async.html">Async</a></h4>
@@ -118,19 +118,19 @@
       <h4><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config&lt;T&gt;</a></h4>
       <section><p>Class for creating configurations (xml or json) files next to your code files</p>
 <p>Configurations must be placed in either:
-~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], ~/Configurations/</strong>.[json|xml]</p>
+~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
 <p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root</p>
-<p>Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' launchSettings.json, web.config or in mstest.runsettings if you are in a unit test project</p>
+<p>Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings if you are in a unit test project</p>
 <p>If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config</p>
 <p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only</p>
-<p>WARNING: Bug in Microsoft's code, if you call &quot;UseEnvironment()&quot; this wont transform based on that environment (as of today...)</p>
+<p>WARNING: Bug in Microsoft's code, the call &quot;UseEnvironment()&quot; wont transform based on the argument</p>
 <p>WARNING: Requires app restart if configuration changes</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html">DocFxHide</a></h4>
       <section></section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></h4>
-      <section><p>This class contains various environment specific configurations common to all .NET applications</p>
-<p>For instance, it contains the variable 'AspNetCoreConfiguration', which is used internally by all config transformations</p>
+      <section><p>Class containing various environment specific configurations common to all .NET applications</p>
+<p>For instance, it contains the value of 'ASPNETCORE_ENVIRONMENT', which is used internally by all config transformations</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.SystemType.html">SystemType</a></h4>
       <section><p>System type contains a list of static type variables so the call to 'typeof' is done once</p>
@@ -158,9 +158,9 @@
         <div class="grad-bottom"></div>
         <div class="footer">
           <div class="container">
-            <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
-            <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Package: <a href="[%footerNugetUrl%]">nuget</a></span><br>
+            <span>Source: <a href="[%footerGithubUrl%]">github</a></span><br>
+            <span>Website: <a href="[%footerWebsiteUrl%]">[%footerSiteTitle%]</a></span>
           </div>
         </div>
       </footer>
