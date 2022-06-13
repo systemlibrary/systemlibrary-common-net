@@ -22,7 +22,7 @@ namespace SystemLibrary.Common.Net.Attributes
     /// 
     /// //'value' is now "Black Colored Text"
     /// //'value2' is now "White", 
-    /// //If EnumText attribute do not exist, it falls back to .ToString() of the field
+    /// //If EnumText attribute do not exist, it falls back to .ToString() on the Key
     /// </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]

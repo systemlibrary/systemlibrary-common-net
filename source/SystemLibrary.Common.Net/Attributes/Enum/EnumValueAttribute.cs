@@ -28,7 +28,8 @@ namespace SystemLibrary.Common.Net.Attributes
     /// 
     /// var value = Color.Pink.ToValue();
     /// //'value' is now 'Pink'
-    /// //If EnumText attribute do not exist, it falls back to .ToString() of the field
+    /// 
+    /// //If EnumValue attribute do not exist, it falls back to .ToString() on the Key
     /// </code>
     /// </example>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
