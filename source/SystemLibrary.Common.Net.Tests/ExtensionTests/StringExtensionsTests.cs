@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Collections.Generic;
+using System.Text.Json;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -137,6 +138,44 @@ namespace SystemLibrary.Common.Net.Tests.Extensions
 
             Assert.IsTrue(!data.TrimEnd("/").Contains("/"));
             Assert.IsTrue(!data.TrimEnd("\\").Contains("\\"));
+        }
+     
+        [TestMethod]
+        public void Test_GetPrimaryDomain()
+        {
+            Assert.IsTrue(((string)null).GetPrimaryDomain() == "");
+            Assert.IsTrue(" ".GetPrimaryDomain() == "");
+            Assert.IsTrue("".GetPrimaryDomain() == "");
+            Assert.IsTrue("a".GetPrimaryDomain() == "a.com");
+            Assert.IsTrue("abc".GetPrimaryDomain() == "abc.com");
+            Assert.IsTrue("abc.com".GetPrimaryDomain() == "abc.com");
+
+            Assert.IsTrue("hello.world".GetPrimaryDomain() == "world.com", "hello.world");
+            Assert.IsTrue("hello.world.n".GetPrimaryDomain() == "world.n", "n");
+
+            Assert.IsTrue("hello.world.no".GetPrimaryDomain() == "world.no", ".no");
+            Assert.IsTrue("hello.world.com".GetPrimaryDomain() == "world.com", ".com");
+            Assert.IsTrue("hello.world.web".GetPrimaryDomain() == "world.web", ".web");
+            Assert.IsTrue("hello.world.config".GetPrimaryDomain() == "config.com", "config");
+
+            Assert.IsTrue("http://hello.world.n".GetPrimaryDomain() == "world.n");
+            Assert.IsTrue("http://hello.world.no".GetPrimaryDomain() == "world.no");
+            Assert.IsTrue("http://hello.world.com".GetPrimaryDomain() == "world.com");
+            Assert.IsTrue("http://hello.world.web".GetPrimaryDomain() == "world.web");
+            Assert.IsTrue("http://hello.world.config".GetPrimaryDomain() == "config.com");
+
+
+            Assert.IsTrue("https://hello.world.n".GetPrimaryDomain() == "world.n");
+            Assert.IsTrue("https://hello.world.no".GetPrimaryDomain() == "world.no");
+            Assert.IsTrue("https://hello.world.com".GetPrimaryDomain() == "world.com");
+            Assert.IsTrue("https://hello.world.web".GetPrimaryDomain() == "world.web");
+            Assert.IsTrue("https://hello.world.config".GetPrimaryDomain() == "config.com");
+
+            Assert.IsTrue("https://www.hello.world.n".GetPrimaryDomain() == "world.n");
+            Assert.IsTrue("https://www.hello.world.no".GetPrimaryDomain() == "world.no");
+            Assert.IsTrue("https://www.hello.world.com".GetPrimaryDomain() == "world.com");
+            Assert.IsTrue("https://www.hello.world.web".GetPrimaryDomain() == "world.web");
+            Assert.IsTrue("https://www.hello.world.config".GetPrimaryDomain() == "config.com");
         }
     }
 }

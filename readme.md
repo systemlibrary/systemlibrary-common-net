@@ -13,9 +13,8 @@ A library of classes and methods for any .NET &gt;= 5 application
 - &gt;= .NET 5
 
 ## Latest Version
-- Removed AsEnum() as it is a simple cast only
-- Extended AsEnumArray() to also convert an array of strings to their respective Enum Keys
-- Rewritten the example and comments of the Config class
+- Exception in GetPrimaryDomain(), and added a few unit tests around it
+- GetPrimaryDomain(), xml comment now ampersand is escaped properly so intellisens shows comment
 
 ## Docs
 Documentation with samples:  

@@ -12,15 +12,15 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <summary>
         /// Returns the domain part of the uri or blank, never null:
         /// 
-        /// https://www.sub1.sub2.sub3.domain.com => domain.com
+        /// https://www.sub1.sub2.domain.com => domain.com
         /// </summary>
         /// <returns>Primary domain name or "", never null</returns>
         /// <example>
         /// <code class="language-csharp hljs">
-        /// var result = new Uri("https://systemlibrary.com/image?q=90&format=jpg").GetPrimaryDomain();
+        /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
         /// //result is "systemlibrary.com"
         /// 
-        /// var result = new Uri("https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&format=jpg").GetPrimaryDomain();
+        /// var result = new Uri('https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&amp;format=jpg').GetPrimaryDomain();
         /// //result is "github.io"
         /// </code>
         /// </example>

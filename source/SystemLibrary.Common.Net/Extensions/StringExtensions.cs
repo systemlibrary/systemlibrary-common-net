@@ -18,6 +18,15 @@ using SystemLibrary.Common.Net.Extensions;
 /// </example>
 public static class StringExtensions
 {
+
+    /// <summary>
+    /// heaheaehaehaeh
+    /// </summary>
+    public static void Test()
+    {
+
+    }
+
     /// <summary>
     /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
     /// If 'data' and all fallbacks are null or empty, this returns "", never null
@@ -47,24 +56,15 @@ public static class StringExtensions
         return "";
     }
 
-    /// <summary>
-    /// Returns 'primary domain' from the url as input
-    /// </summary>
-    /// <returns>Returns primary domain, 'localhost' from url: 'https://localhost.com/image.png?q=90' or empty string, never null</returns>
-    /// <example>
-    /// <code class="language-csharp hljs">
-    /// var result = new Uri("https://systemlibrary.com/image?q=90&format=jpg").GetPrimaryDomain();
-    /// //result is "systemlibrary.com"
-    /// 
-    /// var result = new Uri("https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&format=jpg").GetPrimaryDomain();
-    /// //result is "github.io"
-    /// </code>
-    /// </example>
+    ///<inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     public static string GetPrimaryDomain(this string url)
     {
         if (url.IsNot()) return "";
 
-        Uri uri = new Uri(url);
+        if (url.Contains(" "))
+            return "";
+
+        Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
 
         return uri.GetPrimaryDomain();
     }
@@ -628,7 +628,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             if (url.IsNot()) return "";
 
-            Uri uri = new Uri(url);
+            Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
 
             return uri.GetPrimaryDomain();
         }
