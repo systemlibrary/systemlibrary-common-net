@@ -292,7 +292,7 @@ Actions passed to the method will run till completion or till main thread is shu
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> Get(string name) {
-        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web.HttpBaseClient
+        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://cars.com/q=?&quot; + name);   
     }
 }
@@ -397,7 +397,7 @@ var cars = Async.Run&lt;Car>(
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> Get(string name) {
-        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web.HttpBaseClient
+        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://cars.com/q=?&quot; + name);   
     }
 }

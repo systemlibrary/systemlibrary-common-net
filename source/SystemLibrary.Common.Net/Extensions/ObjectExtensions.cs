@@ -70,7 +70,7 @@ namespace SystemLibrary.Common.Net.Extensions
         /// Returns a json formatted string representation of the object or null if object is null
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code class="language-csharp hljs">
         /// class User {
         ///     public string FirstName { get;set; }
         /// }
@@ -78,7 +78,7 @@ namespace SystemLibrary.Common.Net.Extensions
         /// var user = new User();
         /// user.FirstName = "Hello World";
         /// var json = user.ToJson();
-        /// var contains = json.Contains("firstName") && json.Contains("Hello World"); 
+        /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
         /// //contains is True, note that ToJson() has formatted 'FirstName' to camelCasing
         /// </code>
         /// </example>

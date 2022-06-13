@@ -25,7 +25,7 @@ namespace SystemLibrary.Common.Net
         /// class CarApi {
         ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
         ///     List&lt;Car&gt; Get(string name) {
-        ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web.HttpBaseClient
+        ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://cars.com/q=?" + name);   
         ///     }
         /// }
@@ -81,7 +81,7 @@ namespace SystemLibrary.Common.Net
         /// class CarApi {
         ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
         ///     List&lt;Car&gt; Get(string name) {
-        ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web.HttpBaseClient
+        ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://cars.com/q=?" + name);   
         ///     }
         /// }
