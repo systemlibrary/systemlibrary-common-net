@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Extensions;
 
-namespace SystemLibrary.Common.Net.Tests.Extensions
+namespace SystemLibrary.Common.Net.Tests.ExtensionTests
 {
     [TestClass]
     public class DynamicExtensionsTests

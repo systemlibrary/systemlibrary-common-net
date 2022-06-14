@@ -4,7 +4,7 @@ namespace SystemLibrary.Common.Net
 {
     partial class PartialJsonSearcher
     {
-        static AppSettingsConfig Config => AppSettingsConfig.Current;
+        static AppSettings Config => AppSettings.Current;
 
         static JsonSerializerOptions _DefaultJsonSerializerOptions;
         static JsonSerializerOptions DefaultJsonSerializerOptions

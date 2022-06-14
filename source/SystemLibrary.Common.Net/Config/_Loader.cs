@@ -17,14 +17,13 @@ namespace SystemLibrary.Common.Net
 
             static IConfigurationRoot AppSettings;
 
-            static bool IgnoreAppSettingsRuntimeAndDependencyFiles(string file)
+            static bool IgnoreRuntimeConfigAndDeps(string file)
             {
                 if (file.IsNot()) return false;
                 file = file.ToLower();
                     
                 if(file.Contains(".runtimeconfig.") ||
-                    file.Contains(".deps.json") ||
-                    file.Contains("appsettings."))
+                    file.Contains(".deps.json"))
                     return false;
 
                 return true;
@@ -36,7 +35,7 @@ namespace SystemLibrary.Common.Net
 
                 file = file.ToLower();
 
-                return file.Contains("appsettings.");
+                return file.StartsWith("appsettings.") && (file.EndsWith(".json") || file.EndsWith(".xml"));
             }
 
             static ConfigLoader()
@@ -49,7 +48,7 @@ namespace SystemLibrary.Common.Net
 
                 var configurations = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
                 
-                ConfigurationFiles = rootConfigurationFiles.Add(IgnoreAppSettingsRuntimeAndDependencyFiles, configs, configurations);
+                ConfigurationFiles = rootConfigurationFiles.Add(IgnoreRuntimeConfigAndDeps, configs, configurations);
 
                 var builder = new ConfigurationBuilder();
 

@@ -26,9 +26,9 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// </example>
-    internal class AppSettingsConfig : Config<AppSettingsConfig>
+    internal class AppSettings : Config<AppSettings>
     {
-        public AppSettingsConfig()
+        public AppSettings()
         {
             SystemLibraryCommonNet = new Configuration();
         }

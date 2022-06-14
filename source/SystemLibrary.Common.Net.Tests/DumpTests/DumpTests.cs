@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Tests.Extensions.DataModel;
 
-namespace SystemLibrary.Common.Net.Tests.ExtensionTests
+namespace SystemLibrary.Common.Net.Tests.DumpTests
 {
     [TestClass]
     public class DumpTests
     {
-        const string DumpPath = "C:\\Logs\\systemlibrary-unit-tests-log.txt";
+        const string DumpPath = "C:\\Logs\\systemlibrary-common-net-tests.log";
 
         [TestMethod]
         public void Dump_Write_And_Clear()
@@ -20,6 +20,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
             Assert.IsTrue(File.Exists(DumpPath));
 
             Dump.Clear();
+
             Assert.IsFalse(File.Exists(DumpPath));
         }
 

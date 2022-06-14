@@ -22,7 +22,7 @@ public static class Dump
     {
         try
         {
-            var dump = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump;
+            var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
             File.Delete(dump.GetFullLogPath());
         }
         catch
@@ -233,7 +233,7 @@ public static class Dump
 
     static void InitializeFolders()
     {
-        var dump = AppSettingsConfig.Current?.SystemLibraryCommonNet?.Dump;
+        var dump = AppSettings.Current?.SystemLibraryCommonNet?.Dump;
 
         if (dump != null && !Directory.Exists(dump.Folder))
             Directory.CreateDirectory(dump.Folder);
@@ -289,7 +289,7 @@ public static class Dump
     {
         try
         {
-            var path = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+            var path = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
 
             readWriteLock.AcquireWriterLock(15);
 
@@ -320,7 +320,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             try
             {
-                var dump = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump;
+                var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
                 File.Delete(dump.GetFullLogPath());
             }
             catch
@@ -531,7 +531,7 @@ namespace SystemLibrary.Common.Net.Global
 
         static void InitializeFolders()
         {
-            var dump = AppSettingsConfig.Current?.SystemLibraryCommonNet?.Dump;
+            var dump = AppSettings.Current?.SystemLibraryCommonNet?.Dump;
 
             if (dump != null && !Directory.Exists(dump.Folder))
                 Directory.CreateDirectory(dump.Folder);
@@ -587,7 +587,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             try
             {
-                var path = AppSettingsConfig.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+                var path = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
 
                 readWriteLock.AcquireWriterLock(15);
 
