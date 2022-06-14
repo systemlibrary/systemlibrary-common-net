@@ -15,6 +15,7 @@ A library of classes and methods for any .NET &gt;= 5 application
 ## Latest Version
 - Exception in GetPrimaryDomain(), and added a few unit tests around it
 - GetPrimaryDomain(), xml comment now ampersand is escaped properly so intellisens shows comment
+- Internal package configurations like 'Dump: folder/fileName' required appSettings.json to be on root of your app. Now appSettings.json can also exist inside configs or configurations/ folders, just like other custom configurations that inherits Config class
 
 ## Docs
 Documentation with samples:  
