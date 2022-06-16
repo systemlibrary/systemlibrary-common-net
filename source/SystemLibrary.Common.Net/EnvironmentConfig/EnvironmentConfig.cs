@@ -4,9 +4,7 @@ using System.IO;
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
-    /// Class containing various environment specific configurations common to all .NET applications
-    /// 
-    /// For instance, it contains the value of 'ASPNETCORE_ENVIRONMENT', which is used internally by all config transformations
+    /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
     /// </summary>
     public class EnvironmentConfig : Config<EnvironmentConfig> 
     {
@@ -57,7 +55,7 @@ namespace SystemLibrary.Common.Net
         /// 
         /// If it does not exist, it reads 'Properties\launchSettings.json' returning the value of first found 'ASPNETCORE_ENVIRONMENT' (forward read only)
         /// 
-        /// If it still does not exist, this returns either 'Debug' or 'Release' based wether it is a Debug or Release build
+        /// If it still does not exist, this returns "", never null
         /// </summary>
         internal static string AspNetCoreEnvironment
         {
@@ -135,6 +133,7 @@ namespace SystemLibrary.Common.Net
 
                 //TODO: Consider throwing new Exception("Environment 'Name' is not set in either 'ASPNETCORE_ENVIRONMENT', or in environmentConfig.json file, or environmentConfig.json file is located in wrong folder");
                 //TODO: Consider this way it works, returns empty name, so it never does any transformations
+                //TODO: Consider supporting 'environment' in 'appSettings' for the package: systemLibraryCommonNet { environment { name: '...' } }
                 return AspNetCoreEnvironment;
             }
             set
