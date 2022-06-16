@@ -24,7 +24,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
 
         static void Ex(Exception ex)
         {
-            Dump.Write("ERROR: " + ex);
+            Dump.Write("Error: " + ex);
         }
 
         [TestMethod]

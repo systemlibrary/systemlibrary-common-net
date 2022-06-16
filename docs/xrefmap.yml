@@ -241,19 +241,58 @@ references:
   commentId: T:SystemLibrary.Common.Net.EnvironmentConfig
   fullName: SystemLibrary.Common.Net.EnvironmentConfig
   nameWithType: EnvironmentConfig
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
-  name: AspNetCoreEnvironment
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
-  nameWithType: EnvironmentConfig.AspNetCoreEnvironment
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment*
-  name: AspNetCoreEnvironment
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal*
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment
-  nameWithType: EnvironmentConfig.AspNetCoreEnvironment
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd*
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest*
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.Name
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_Name
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.Name
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.Name
+  nameWithType: EnvironmentConfig.Name
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.Name*
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_Name_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.Name
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.Name
+  nameWithType: EnvironmentConfig.Name
 - uid: SystemLibrary.Common.Net.Extensions
   name: SystemLibrary.Common.Net.Extensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html

@@ -135,7 +135,7 @@ namespace SystemLibrary.Common.Net
         /// - Pass in onError callback which executes if any exception is thrown
         /// </summary>
         /// <example>
-        /// <code>
+        /// <code class="language-csharp hljs">
         /// Async.FireAndForget((ex) => Log.Error(ex), () => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));
         /// </code>
         /// </example>
@@ -174,7 +174,7 @@ namespace SystemLibrary.Common.Net
         /// <param name="onError">Pass in function if some action errors, to log or see the error</param>
         /// <param name="actions">Fire and forget actions...</param>
         /// <example>
-        /// <code>
+        /// <code class="language-csharp hljs">
         /// Async.FireAndForget(() => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));
         /// </code>
         /// </example>

@@ -84,7 +84,7 @@ namespace SystemLibrary.Common.Net
 
                 var configurationName = type.Name.ToLower();
 
-                var mode = EnvironmentConfig.AspNetCoreEnvironment?.ToLower();
+                var mode = EnvironmentConfig.AspNetCoreEnvironment.ToLower();
 
                 var files = new List<string>();
 
@@ -131,7 +131,7 @@ namespace SystemLibrary.Common.Net
                     AddConfigurationFiles(builder, files);
 
                     return builder
-                        //.AddEnvironmentVariables()
+                        .AddEnvironmentVariables()
                         .Build();
                 }
 

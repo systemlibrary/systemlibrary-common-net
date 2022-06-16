@@ -23,7 +23,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
 
             //NOTE: Build mode is defined in /properties/mstest.runsettings
             //NOTE: The project must also contain the 'mode' else 'Release' is being used in transformations
-            var mode = EnvironmentConfig.AspNetCoreEnvironment;
+            var mode = "Release";
 
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
             
@@ -53,7 +53,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             var conf = CarSettings.Current;
 
             //NOTE: Build mode is defined in /properties/mstest.runsettings
-            var mode = EnvironmentConfig.AspNetCoreEnvironment;
+            var mode = "Release";
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
             Assert.IsTrue(conf.Car != null, "A property 'Car' must exist, with type of class 'Car'");
 

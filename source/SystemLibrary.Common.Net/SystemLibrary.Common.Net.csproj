@@ -3,7 +3,7 @@
 		<TargetFramework>net5.0</TargetFramework>
 		<OutputType>Library</OutputType>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<Configurations>Docs;Release</Configurations>
+		<Configurations>Docs;Release;Unknown;Debug</Configurations>
 	</PropertyGroup>
 	<PropertyGroup>
 		<DefaultItemExcludes>$(DefaultItemExcludes);Release.cmd;**\*.nupkg;nuget-icon.png;</DefaultItemExcludes>
@@ -14,6 +14,18 @@
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DefineConstants />
 		<WarningLevel>0</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DefineConstants />
+	  <WarningLevel>0</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
+	  <DefineConstants />
+	  <WarningLevel>0</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|AnyCPU'">
+	  <DefineConstants />
+	  <WarningLevel>0</WarningLevel>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Docs|AnyCPU'">
 		<OutputPath>bin\Docs\</OutputPath>

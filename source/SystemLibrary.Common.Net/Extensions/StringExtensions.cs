@@ -478,7 +478,7 @@ public static class StringExtensions
     /// </param>
     /// <returns>Returns json as T or null if not found</returns>
     /// <example>
-    /// <code>
+    /// <code class="language-csharp hljs">
     /// //Assume json string stored in a C# variable named 'data':
     /// var data = "{
     ///     "users" [
@@ -547,7 +547,7 @@ public static class StringExtensions
     /// </summary>
     /// <returns>Returns T or null if json is null or empty</returns>
     /// <example>
-    /// <code>
+    /// <code class="language-csharp hljs">
     /// class User {
     ///     public string FirstName;
     ///     public int Age { get; set;}

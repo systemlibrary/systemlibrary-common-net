@@ -113,12 +113,19 @@
   
   <h1 id="SystemLibrary_Common_Net_EnvironmentConfig" data-uid="SystemLibrary.Common.Net.EnvironmentConfig" class="text-break h1-class-header">EnvironmentConfig
   </h1>
-  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig" data-uid="SystemLibrary.Common.Net.EnvironmentConfig" class="h1-custom-display className">public class EnvironmentConfig</h1>
+  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig" data-uid="SystemLibrary.Common.Net.EnvironmentConfig" class="h1-custom-display className">public class EnvironmentConfig : Config&lt;EnvironmentConfig&gt;</h1>
   
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">EnvironmentConfig</span></div>
+    <div class="level1"><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config</a>&lt;<a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a>&gt;</div>
+    <div class="level2"><span class="xref">EnvironmentConfig</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SystemLibrary.Common.Net.Config-1.html#SystemLibrary_Common_Net_Config_1_Current">Config&lt;EnvironmentConfig&gt;.Current</a>
+    </div>
   </div>
   
   
@@ -148,22 +155,166 @@
   
   <div class="custom-container">
   <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Gets the Environment variable 'ASPNETCORE_ENVIRONMENT'</p>
-<p>If it does not exist, it reads 'Properties\launchSettings.json' returning the value of first found 'ASPNETCORE_ENVIRONMENT' (forward read only)</p>
-<p>If it still does not exist, this returns either 'Debug' or 'Release' based wether it is a Debug or Release build</p>
+  	<div class="markdown level1 summary member-summary"><p>Returns true if IsTest and IsProd is false</p>
 </div>
   	<div class="markdown level1 conceptual member-summary-conceptual"></div>
   </div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment">
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsLocal">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L46">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L151">View Source</a>
   	</span>
   </div>
-  <a id="SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment*"></a>
+  <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsLocal_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsLocal*"></a>
   
   <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_AspNetCoreEnvironment" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.AspNetCoreEnvironment" class="h4-custom-functionName">public static string AspNetCoreEnvironment { get; }</h4>
+  	<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_IsLocal" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsLocal" class="h4-custom-functionName">public bool IsLocal { get; }</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  		</div>
+  
+  	</div>
+  </div>
+  </div>
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed propertyValue-table">
+  	<thead>
+  		<tr>
+  			<th>Type</th>
+  			<th>Description</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><span class="xref">System.Boolean</span></td>
+  			<td></td>
+  		</tr>
+  	</tbody>
+  </table>
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Returns true if environment name is 'prod' or 'production', case insensitive</p>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsProd">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L167">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsProd_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsProd*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_IsProd" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsProd" class="h4-custom-functionName">public bool IsProd { get; }</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  		</div>
+  
+  	</div>
+  </div>
+  </div>
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed propertyValue-table">
+  	<thead>
+  		<tr>
+  			<th>Type</th>
+  			<th>Description</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><span class="xref">System.Boolean</span></td>
+  			<td></td>
+  		</tr>
+  	</tbody>
+  </table>
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Returns true if environment is 'Test', 'Stage', 'QA', 'AT', case insensitive</p>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsTest">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L185">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsTest_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsTest*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_IsTest" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsTest" class="h4-custom-functionName">public bool IsTest { get; }</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  		</div>
+  
+  	</div>
+  </div>
+  </div>
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed propertyValue-table">
+  	<thead>
+  		<tr>
+  			<th>Type</th>
+  			<th>Description</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><span class="xref">System.Boolean</span></td>
+  			<td></td>
+  		</tr>
+  	</tbody>
+  </table>
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Current environment name, passed into your application either by 'environmentConfig.json' or by passing ASPNETCORE_ENVIRONMENT variable</p>
+<p>In preceding order:</p>
+<pre><code>if: environmentConfig.json exists:
+- if: it has transformation files:
+    - if: a transformation file exists equal to value of &apos;ASPNETCORE_ENVIRONMENT&apos;, then that transformation is ran
+    - else if: a transformation file exists equal to value of &apos;Configuration Mode&apos; in Visual Studio, then that transformation is ran
+
+- if: environmentConfig.json exists and has &apos;name&apos; (transformations are ran before this step, hence name is &apos;transformed&apos;)
+    - return &apos;name&apos; from environmentConfig.json
+
+if: &apos;ASPNETCORE_ENVIRONMENT&apos; exists:
+    - return value of &apos;ASPNETCORE_ENVIRONMENT&apos;
+
+else:
+- returns &quot;&quot;, a blank string, never null</code></pre>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_Name">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L129">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_EnvironmentConfig_Name_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.Name*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_Name" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.Name" class="h4-custom-functionName">public string Name { get; set; }</h4>
   	<div class="custom-menu-data-container">
   
   		<div class="custom-menu-data-arguments" style="display: none;">

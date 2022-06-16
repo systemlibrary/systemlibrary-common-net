@@ -35,6 +35,7 @@ public static class Dump
     /// - Look at it as javascripts 'console.log'
     /// </summary>
     /// <example>
+    /// <code class="language-xml hljs">
     /// class Car {
     ///     public string Name {get;set;}
     /// }
@@ -48,6 +49,7 @@ public static class Dump
     /// //List of Car (1)
     /// //- Name = Vehicle 1
     /// //- Name = Vehicle 2
+    /// </code>
     /// </example>
     public static void Write(object o)
     {
@@ -333,6 +335,7 @@ namespace SystemLibrary.Common.Net.Global
         /// - Look at it as javascripts 'console.log'
         /// </summary>
         /// <example>
+        /// <code class="language-xml hljs">
         /// class Car {
         ///     public string Name {get;set;}
         /// }
@@ -346,6 +349,7 @@ namespace SystemLibrary.Common.Net.Global
         /// //List of Car (1)
         /// //- Name = Vehicle 1
         /// //- Name = Vehicle 2
+        /// </code>
         /// </example>
         public static void Write(object o)
         {

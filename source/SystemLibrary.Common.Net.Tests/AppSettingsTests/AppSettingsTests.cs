@@ -27,7 +27,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value.Contains("Logs"), "Folder is invalid: " + property.GetValue(configuration).ToString());
 
                 if (property.Name.ToLower() == "filename")
-                    Assert.IsTrue(value.Contains(".txt"), "FileName does not contain txt");
+                    Assert.IsTrue(value.Contains(".log"), "FileName does not contain .log");
             }
         }
 
@@ -83,7 +83,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
         static object GetAppSettingsConfig()
         {
-            var type = Type.GetType("SystemLibrary.Common.Net.AppSettingsConfig, SystemLibrary.Common.Net");
+            var type = Type.GetType("SystemLibrary.Common.Net.AppSettings, SystemLibrary.Common.Net");
 
             var config = type.GetProperties(BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public)
                 .Where(x => x.Name == "Current")
