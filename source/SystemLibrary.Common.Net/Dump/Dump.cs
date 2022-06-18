@@ -535,7 +535,7 @@ namespace SystemLibrary.Common.Net.Global
 
         static void InitializeFolders()
         {
-            var dump = AppSettings.Current?.SystemLibraryCommonNet?.Dump;
+            var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
 
             if (dump != null && !Directory.Exists(dump.Folder))
                 Directory.CreateDirectory(dump.Folder);

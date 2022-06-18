@@ -78,7 +78,7 @@ namespace SystemLibrary.Common.Net
                     .ToArray();
             }
 
-            public static IConfiguration Load()
+            internal static IConfiguration Load()
             {
                 var type = typeof(T);
 

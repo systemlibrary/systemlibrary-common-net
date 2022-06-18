@@ -31,6 +31,14 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         }
 
         [TestMethod]
+        public void Read_EnvironmentConfig_Name_From_EnvironmentConfigJson_WhenNoAspNetCoreEnvironmentIsSpecified()
+        {
+            var conf = EnvironmentConfig.Current;
+
+            Assert.IsTrue(conf != null && conf.Name.Is() && conf.Name == "Untransformed", "Name of env is not Untransformed, it is: " + conf.Name);
+        }
+
+        [TestMethod]
         public void Read_Environment()
         {
             var env = EnvironmentConfig.Current.Name.ToLower();

@@ -535,6 +535,11 @@ public static class StringExtensions
         return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
     }
 
+    public static T PartialJson<T>(this string json, string findPropertySearchPath, bool returnValueOnly, JsonSerializerOptions options = null) where T : class
+    {
+        return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
+    }
+
     /// <summary>
     /// Convert string formatted json to object T
     /// 

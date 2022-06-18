@@ -10,9 +10,12 @@ namespace SystemLibrary.Common.Net
     /// 
     /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root 
     /// 
-    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings if you are in a unit test project
+    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings
+    /// - launchSettings.json when using IIS Express
+    /// - web.config if you use IIS locally, or IIS in a server environment
+    /// - mstest.runsettings if you run transformations in unit tests
     /// 
-    /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config
+    /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config, if you run IIS Express at least
     /// 
     /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only
     /// 
