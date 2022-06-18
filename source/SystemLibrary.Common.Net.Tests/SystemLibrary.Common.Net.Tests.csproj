@@ -19,6 +19,12 @@
     </DefineConstants>
     <Configurations>Release;Debug;Dev</Configurations>
   </PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+		<GenerateDependencyFile>true</GenerateDependencyFile>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
 	
   <PropertyGroup>
 	<TargetFramework>net5.0</TargetFramework>
