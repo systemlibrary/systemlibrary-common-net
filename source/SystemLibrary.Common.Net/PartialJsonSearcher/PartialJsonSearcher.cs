@@ -1,10 +1,11 @@
-﻿using System.Text.Json;
+﻿using System.Collections.Generic;
+using System.Text.Json;
 
 namespace SystemLibrary.Common.Net
 {
     internal static partial class PartialJsonSearcher
     {
-        public static T Search<T>(string json, string propertySearchPath = null, JsonSerializerOptions options = null) where T : class
+        public static T Search<T>(string json, string propertySearchPath = null, JsonSerializerOptions options = null, bool returnPropertyValue = false) 
         {
             if (json.IsNot()) return default;
 
@@ -24,7 +25,21 @@ namespace SystemLibrary.Common.Net
 
             if (!jsonElement.HasValue) return default;
 
-            return JsonSerializer.Deserialize<T>(jsonElement.Value.ToString(), options);
+            var value = jsonElement.Value.ToString();
+
+            if (value.IsNot()) return default;
+
+            var type = typeof(T);
+            if (type == SystemType.StringType)
+                return (T)(object)value;
+
+            if (type == SystemType.BoolType)
+                return (T)(object)bool.Parse(value);
+
+            if (type == SystemType.IntType)
+                return (T)(object)int.Parse(value);
+
+            return JsonSerializer.Deserialize<T>(value, options);
         }
     }
 }

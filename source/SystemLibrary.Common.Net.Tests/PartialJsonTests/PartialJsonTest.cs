@@ -7,7 +7,7 @@ using SystemLibrary.Common.Net.Tests.Extensions.DataModel;
 namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
 {
     [TestClass]
-    public class JsonTokenSearcherTest
+    public class PartialJsonTest
     {
         static string GetData() => Assemblies.GetEmbeddedResource("_Files", "data.json");
 
@@ -65,6 +65,17 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
             Assert.IsTrue(employees1[0].Age == 1);
             Assert.IsTrue(employees2[0].FirstName.Contains("1"));
             Assert.IsTrue(employees2[0].Age == 1);
+        }
+
+        [TestMethod]
+        public void Read_FirstName_Returning_First_Value()
+        {
+            var data = GetData();
+
+            var firstName = data.PartialJson<string>("firstName");
+
+            Assert.IsTrue(firstName == "FirstNameEmployee1");
+
         }
 
         [TestMethod]

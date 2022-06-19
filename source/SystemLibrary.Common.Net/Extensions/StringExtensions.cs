@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
@@ -531,11 +532,6 @@ public static class StringExtensions
     /// </code>
     /// </example>
     public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null) where T : class
-    {
-        return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
-    }
-
-    public static T PartialJson<T>(this string json, string findPropertySearchPath, bool returnValueOnly, JsonSerializerOptions options = null) where T : class
     {
         return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
     }

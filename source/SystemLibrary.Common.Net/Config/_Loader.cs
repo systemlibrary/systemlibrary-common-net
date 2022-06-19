@@ -85,6 +85,9 @@ namespace SystemLibrary.Common.Net
                 var configurationName = type.Name.ToLower();
 
                 var mode = EnvironmentConfig.AspNetCoreEnvironment.ToLower();
+                //NOTE: This should use EnivronmentConfig.Current.Name as a one time loaded environment that is used throughout all transformations
+                //hence "EnvironmentConfig" is loaded once, if at least one Config is being called upon during app runtime
+                //but careful about "loop" as EnvironmentConfig calls this itself... so if static Environment variable inside this loader is NOT existing, then...
 
                 var files = new List<string>();
 

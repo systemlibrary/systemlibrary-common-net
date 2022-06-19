@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 
+using SystemLibrary.Common.Net.Attributes;
+
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
@@ -10,6 +12,8 @@ namespace SystemLibrary.Common.Net
     {
         enum Environment
         {
+            [EnumValue("")]
+            None,
             Local,
             Dev,
             Development,
@@ -83,14 +87,15 @@ namespace SystemLibrary.Common.Net
             {
                 if (_AspNetCoreConfiguration == null)
                 {
-                    _AspNetCoreConfiguration = AspNetCoreConfigurationReadFirstFoundInLaunchSettings();
+                    _AspNetCoreConfiguration = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
                     if (_AspNetCoreConfiguration.IsNot())
-                        _AspNetCoreConfiguration = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                        _AspNetCoreConfiguration = AspNetCoreConfigurationReadFirstFoundInLaunchSettings();
 
                     //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
                     if (_AspNetCoreConfiguration.IsNot())
                         _AspNetCoreConfiguration = "";
+
                 }
                 return _AspNetCoreConfiguration;
             }
@@ -119,41 +124,84 @@ namespace SystemLibrary.Common.Net
         /// IIS Express:
         /// <code class="language-csharp hljs">
         /// - if: ASPNETCORE_ENVIRONMENT exists in launchSettings
-        ///     then: value is returned as 'name'
+        ///     return: value as 'name'
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
-        ///     then: value is returned as 'name'
+        ///     return: value as 'name'
         /// - if: ASNETCORE_ENVIRONMENT exists in web.config
-        ///     then: value is returned as 'name'
+        ///     return: value as 'name'
         /// </code>
         ///  
         /// Test Explorer
         /// <code class="language-csharp hljs">
         /// if: Running Tests in 'Test Explorer'
-        /// - Sets environment as 'Configuration Mode' selected in Visual Studio
+        /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
+        ///     then: sets "temp environment" as value
+        /// 
+        /// - else:
+        ///     then: sets "temp environment" as value from 'Configuration Mode' in Visual Studio
+        /// 
         /// - if: environmentConfig.json exists
-        ///     - if transformation file exists for 'Current Configuration Mode' 
+        ///     - if transformation file exists for 'temp environment' 
         ///         then: transformation is ran
         ///     - if: environmentConfig.json contains 'name' property
-        ///         then: value is returned as 'name'
-        ///     - else if: launchSettings.json is found and contains 'ASPNETCORE_ENVIRONMENT'        
-        ///         then: value is returned as 'name'
-        ///     - else if ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
-        ///         then: value is returned as 'name'
+        ///         return: value as 'name'
         /// 
+        /// - if: launchSettings.json exists and contains 'ASPNETCORE_ENVIRONMENT'
+        /// //WARNING: launchSettings must be 'copy always to output dir' and it returns first ASPNETCORE_ENVIRONMENT found
+        ///     return: value as 'name'
+        ///     
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
         ///     then: value is returned as 'name'
+        ///     
+        /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
+        ///     return: value as 'name'
         /// 
-        /// - else 
-        ///     then: returns "" as 'name'
+        /// return: "" as 'name', never null
         /// </code>
         /// 
         /// Console Application
         /// <code class="language-csharp hljs">
+        /// if: environmentConfig.json do not exists:
+        /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
+        ///     then: value is returned as 'name' 
+        ///     
+        /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
+        ///     return: value as 'name'
+        ///     
+        /// else if: 
+        ///     if: environmentConfig has transformation equal to 'configuration' pass in as argument
+        ///         then: transformation is ran
+        ///         
+        ///     if: environmentConfig has property 'name'
+        ///         return: value as 'name'
         /// 
+        /// return: "" as 'name', never null
+        /// </code>
+        /// 
+        /// DOTNET TEST 'csproj' --configuration 'release|debug|etc..' command
+        /// <code class="language-csharp hljs">
+        /// if: environmentConfig.json do not exists:
+        /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
+        ///     then: value is returned as 'name' 
+        ///     
+        /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
+        ///     return: value as 'name'
+        ///     
+        /// else if: 
+        ///     if: environmentConfig has transformation equal to 'configuration' pass in as argument
+        ///         then: transformation is ran
+        ///         
+        ///     if: environmentConfig has property 'name'
+        ///         return: value as 'name'
+        /// 
+        /// return: "" as 'name', never null
         /// </code>
         /// 
         /// IIS
         /// <code class="language-csharp hljs">
+        /// if: ASPNETCORE_ENVIRONMENT exists in web.config
+        ///     return: value as 'name'
+        ///
         /// if: environmentConfig.json exists:
         /// - if: it has transformation files:
         ///     - if: a transformation file exists equal to value of 'ASPNETCORE_ENVIRONMENT', then that transformation is ran
@@ -175,7 +223,7 @@ namespace SystemLibrary.Common.Net
             {
                 if (_Name.Is())
                     return _Name;
-
+             
                 //TODO: Consider throwing new Exception("Environment 'Name' is not set in either 'ASPNETCORE_ENVIRONMENT', or in environmentConfig.json file, or environmentConfig.json file is located in wrong folder");
                 //TODO: Consider this way it works, returns empty name, so it never does any transformations
                 //TODO: Consider supporting 'environment' in 'appSettings' for the package: systemLibraryCommonNet { environment { name: '...' } }
@@ -183,7 +231,7 @@ namespace SystemLibrary.Common.Net
             }
             set
             {
-                Dump.Write("SETTING VALUE BASED ON CORE AND ITS RUNTIME ENVIRONMENT (auto)" + value);
+                //Dump.Write("SETTING VALUE BASED ON CORE AND ITS RUNTIME ENVIRONMENT (auto)" + value);
                 _Name = value;
             }
         }

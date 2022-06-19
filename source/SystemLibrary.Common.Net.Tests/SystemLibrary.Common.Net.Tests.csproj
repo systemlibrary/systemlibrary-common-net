@@ -47,11 +47,6 @@
 		<DependentUpon>carSettings.json</DependentUpon>
 		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
-	<Content Include="Configs\EnvironmentConfig\environmentConfig.Unknown.json">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <DependentUpon>environmentConfig.json</DependentUpon>
-	  <IsTransformFile>true</IsTransformFile>
-	</Content>
 	<Content Include="Configs\EnvironmentConfig\environmentConfig.Debug.json">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  <DependentUpon>environmentConfig.json</DependentUpon>
@@ -74,7 +69,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\mstest.runsettings">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\carSettings.json">
       <TransformOnBuild>true</TransformOnBuild>
@@ -132,6 +127,9 @@
       <IsTransformFile>true</IsTransformFile>
       <DependentUpon>integrationsettings.json</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Properties\launchSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

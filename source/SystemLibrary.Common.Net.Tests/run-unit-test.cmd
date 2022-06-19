@@ -1,2 +1,2 @@
-dotnet test SystemLibrary.Common.Net.Tests.csproj --configuration Unknown
+dotnet test SystemLibrary.Common.Net.Tests.csproj --configuration Release
 pause
