@@ -13,9 +13,13 @@ A library of classes and methods for any .NET &gt;= 5 application
 - &gt;= .NET 5
 
 ## Latest Version
-- EnvironmentConfig expanded with IsLocal, IsProd, IsTest, based on configurations you start your app with
-- EnvironmentConfig.Name is now read based on environmentConfig.json and its 'name' property, of ASPNETCORE_ENVIRONMENT if no such file exists
-- Updated some comments and summaries of some functions
+- EnvironmentConfig.Name is now rewritten and rethought
+- EnvironmentConfig.Name do not read launchSettings anymore, nor "ASPNETCORE_ENV", nor "DOTNET_ENVIRONMENT"
+- EnvironmentConfig.Name reads only "ASPNETCORE_ENVIRONMENT" variable passed to your .NET Core application (unit test, console, webapp...)
+- EnvironmentConfig.Name has a good description on how to use it in the docs, so check the 'docs link' below
+
+## Version history
+- View git history of this file if interested
 
 ## Docs
 Documentation with samples:  
