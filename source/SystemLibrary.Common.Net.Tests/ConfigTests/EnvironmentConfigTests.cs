@@ -5,23 +5,6 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     [TestClass]
     public class EnvironmentConfigTests
     {
-        /// <summary>
-        /// Environment.Name is now equal to, in preceding order:
-        /// 
-        /// if: environmentConfig.json exists:
-        /// - if: it has transformation files:
-        ///     - if: a transformation file exists equal to value of 'ASPNETCORE_ENVIRONMENT', then that transformation is ran
-        ///     - else if: a transformation file exists equal to value of 'Configuration Mode' in Visual Studio, then that transformation is ran
-        ///     
-        /// - if: environmentConfig.json exists and has 'name' (transformations are ran before this step, hence name is 'transformed')
-        ///     - return 'name' from environmentConfig.json
-        /// 
-        /// if: 'ASPNETCORE_ENVIRONMENT' exists:
-        ///     - return value of 'ASPNETCORE_ENVIRONMENT'
-        /// 
-        /// else:
-        /// - returns "", a blank string, never null
-        /// </summary>
         [TestMethod] 
         public void Read_EnvironmentConfig_Current_Instance()
         {
@@ -35,7 +18,20 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         {
             var conf = EnvironmentConfig.Current;
 
-            Assert.IsTrue(conf != null && conf.Name.Is() && conf.Name == "Untransformed", "Name of env is not Untransformed, it is: " + conf.Name);
+            Assert.IsTrue(conf != null);
+            Assert.IsTrue(conf.Name.Is());
+
+            if (conf.Name.Is())
+            {
+                if(conf.Name == "Release" || conf.Name == "Debug")
+                {
+                    //Do nothing...
+                }
+                else
+                {
+                    Assert.IsTrue(conf.Name == "Untransformed", "Unknown configuration mode, should not transform any file - as no such transformation file exists, name: " + conf.Name);
+                }
+            }
         }
 
         [TestMethod]

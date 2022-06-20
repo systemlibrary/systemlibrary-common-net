@@ -21,9 +21,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         {
             var conf = IntegrationSettings.Current;
 
-            //NOTE: Build mode is defined in /properties/mstest.runsettings
-            //NOTE: The project must also contain the 'mode' else 'Release' is being used in transformations
-            var mode = "Release";
+            var mode = EnvironmentConfig.Current.Name;
 
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
             
@@ -39,6 +37,10 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
                 //Assert.IsTrue(conf.lastname?.Contains("Release") == false, "LastName contains Release: " + conf.lastname);
                 Assert.IsTrue(conf.age > 0 && conf.age < 200, "Age is an invalid int, or not within the range");
             }
+            else if(mode == "Unknown" || mode == "Untransformed")
+            {
+                //Unknown configuration mode not created test for yet
+            }
             else
             {
                 Assert.IsTrue(false, "Error: Mode should be either release or debug, it is: " + mode + ", change it in mstest.runsettings");
@@ -52,23 +54,26 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         {
             var conf = CarSettings.Current;
 
-            //NOTE: Build mode is defined in /properties/mstest.runsettings
-            var mode = "Release";
+            var environment = EnvironmentConfig.Current.Name;
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
             Assert.IsTrue(conf.Car != null, "A property 'Car' must exist, with type of class 'Car'");
 
-            if (mode == "Release")
+            if (environment == "Release")
             {
                 Assert.IsTrue(conf.FirstName?.Contains("Release") == true, "firstname is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.lastname?.Contains("Release") == true, "LastName is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.age > 200, "Age is an invalid int, or not within the range");
             }
-            else if(mode == "Debug")
+            else if(environment == "Debug")
             {
                 Assert.IsTrue(conf.FirstName?.Contains("Debug") == true, "firstname is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.lastname?.Contains("Debug") == true, "LastName is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.lastname?.Contains("Release") == false, "LastName is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.age > 10 && conf.age < 100, "Age is an invalid int, or not within the range");
+            }
+            else if (environment == "Unknown" || environment == "Untransformed")
+            {
+                Assert.IsTrue(conf.age == 123, "Age has been transformed its not 123, it is: " + conf.age);
             }
             else
             {

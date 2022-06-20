@@ -161,7 +161,7 @@
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsLocal">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L150">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L178">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsLocal_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsLocal*"></a>
@@ -205,7 +205,7 @@
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsProd">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L166">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L194">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsProd_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsProd*"></a>
@@ -249,7 +249,7 @@
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_IsTest">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L184">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L212">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_EnvironmentConfig_IsTest_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.IsTest*"></a>
@@ -287,27 +287,80 @@
   <div class="custom-container">
   <div class="custom-menu-summary-data">
   	<div class="markdown level1 summary member-summary"><p>Current environment name, passed into your application either by 'environmentConfig.json' or by passing ASPNETCORE_ENVIRONMENT variable</p>
-<p>In preceding order:</p>
-<pre><code>if: environmentConfig.json exists:
-- if: it has transformation files:
-    - if: a transformation file exists equal to value of &apos;ASPNETCORE_ENVIRONMENT&apos;, then that transformation is ran
-    - else if: a transformation file exists equal to value of &apos;Configuration Mode&apos; in Visual Studio, then that transformation is ran
+<p>IIS Express:</p>
+<pre><code>- if: ASPNETCORE_ENVIRONMENT exists in launchSettings
+    return: value as &apos;name&apos;
+- if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
+    return: value as &apos;name&apos;
+- if: ASNETCORE_ENVIRONMENT exists in web.config
+    return: value as &apos;name&apos;</code></pre>
+<p>Test Explorer</p>
+<pre><code>if: Running Tests in &apos;Test Explorer&apos;
+- if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
+    then: sets &quot;temp environment&quot; as value
 
-- if: environmentConfig.json exists and has &apos;name&apos; (transformations are ran before this step, hence name is &apos;transformed&apos;)
-    - return &apos;name&apos; from environmentConfig.json
+- else:
+    then: sets &quot;temp environment&quot; as value from &apos;Configuration Mode&apos; in Visual Studio
 
-if: &apos;ASPNETCORE_ENVIRONMENT&apos; exists:
-    - return value of &apos;ASPNETCORE_ENVIRONMENT&apos;
+- if: environmentConfig.json exists
+    - if transformation file exists for &apos;temp environment&apos; 
+        then: transformation is ran
+    - if: environmentConfig.json contains &apos;name&apos; property
+        return: value as &apos;name&apos;
 
-else:
-- returns &quot;&quot;, a blank string, never null</code></pre>
+- if: launchSettings.json exists and contains &apos;ASPNETCORE_ENVIRONMENT&apos;
+//WARNING: launchSettings must be &apos;copy always to output dir&apos; and it returns first ASPNETCORE_ENVIRONMENT found
+    return: value as &apos;name&apos;
+
+- if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
+    then: value is returned as &apos;name&apos;
+
+- if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
+    return: value as &apos;name&apos;
+
+return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
+<p>Console Application</p>
+<pre><code>if: environmentConfig.json do not exists:
+- if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
+    then: value is returned as &apos;name&apos; 
+
+- if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
+    return: value as &apos;name&apos;
+
+else if: 
+    if: environmentConfig has transformation equal to &apos;configuration&apos; pass in as argument
+        then: transformation is ran
+
+    if: environmentConfig has property &apos;name&apos;
+        return: value as &apos;name&apos;
+
+return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
+<p>DOTNET TEST 'csproj' --configuration 'release|debug|etc..' command</p>
+<pre><code>if: environmentConfig.json do not exists:
+- if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
+    then: value is returned as &apos;name&apos; 
+
+- if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
+    return: value as &apos;name&apos;
+
+else if: 
+    if: environmentConfig has transformation equal to &apos;configuration&apos; pass in as argument
+        then: transformation is ran
+
+    if: environmentConfig has property &apos;name&apos;
+        return: value as &apos;name&apos;
+
+return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
+<p>IIS</p>
+<pre><code>if: ASPNETCORE_ENVIRONMENT exists in web.config
+    return: value as &apos;name&apos;</code></pre>
 </div>
   	<div class="markdown level1 conceptual member-summary-conceptual"></div>
   </div>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_Name">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L127">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L155">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_EnvironmentConfig_Name_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig.Name*"></a>
