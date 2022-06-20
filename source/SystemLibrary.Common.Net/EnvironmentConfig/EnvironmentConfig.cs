@@ -27,13 +27,7 @@ namespace SystemLibrary.Common.Net
         }
 
         static string _AspNetCoreConfiguration;
-        /// <summary>
-        /// Gets the Environment variable 'ASPNETCORE_ENVIRONMENT'
-        /// 
-        /// If it does not exist, it reads 'Properties\launchSettings.json' returning the value of first found 'ASPNETCORE_ENVIRONMENT' (forward read only)
-        /// 
-        /// If it still does not exist, this returns "", never null
-        /// </summary>
+
         internal static string AspNetCoreEnvironment
         {
             get
@@ -72,8 +66,6 @@ namespace SystemLibrary.Common.Net
         /// 
         /// IIS Express:
         /// <code class="language-csharp hljs">
-        /// - if: ASPNETCORE_ENVIRONMENT exists in launchSettings
-        ///     return: value as 'name'
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
         ///     return: value as 'name'
         /// - if: ASNETCORE_ENVIRONMENT exists in web.config
@@ -85,6 +77,8 @@ namespace SystemLibrary.Common.Net
         /// if: Running Tests in 'Test Explorer'
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
         ///     then: sets "temp environment" as value
+        /// - if: "temp environment" is set, but no transformations are found
+        ///     then: sets "temp environment as value from 'Configuration Mode' in Visual Studio
         /// 
         /// - else:
         ///     then: sets "temp environment" as value from 'Configuration Mode' in Visual Studio
@@ -95,10 +89,6 @@ namespace SystemLibrary.Common.Net
         ///     - if: environmentConfig.json contains 'name' property
         ///         return: value as 'name'
         /// 
-        /// - if: launchSettings.json exists and contains 'ASPNETCORE_ENVIRONMENT'
-        /// //WARNING: launchSettings must be 'copy always to output dir' and it returns first ASPNETCORE_ENVIRONMENT found
-        ///     return: value as 'name'
-        ///     
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
         ///     then: value is returned as 'name'
         ///     

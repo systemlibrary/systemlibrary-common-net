@@ -10,6 +10,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         {
             var conf = EnvironmentConfig.Current;
 
+            Dump.Write(conf.Name);
             Assert.IsTrue(conf != null && conf.Name.Is());
         }
 
