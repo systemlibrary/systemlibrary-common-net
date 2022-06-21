@@ -17,6 +17,19 @@ namespace SystemLibrary.Common.Net
 
             static IConfigurationRoot AppSettings;
 
+            static string _EnvironmentNameLowered;
+
+            static string EnvironmentNameLowered
+            {
+                get
+                {
+                    if(_EnvironmentNameLowered== null){
+                        _EnvironmentNameLowered = AspNetCoreEnvironment.Value.ToLower();
+                    }
+                    return _EnvironmentNameLowered;
+                }
+            }
+
             static bool IgnoreRuntimeConfigAndDeps(string file)
             {
                 if (file.IsNot()) return false;
@@ -84,11 +97,6 @@ namespace SystemLibrary.Common.Net
 
                 var configurationName = type.Name.ToLower();
 
-                var mode = EnvironmentConfig.AspNetCoreEnvironment.ToLower();
-                //NOTE: This should use EnivronmentConfig.Current.Name as a one time loaded environment that is used throughout all transformations
-                //hence "EnvironmentConfig" is loaded once, if at least one Config is being called upon during app runtime
-                //but careful about "loop" as EnvironmentConfig calls this itself... so if static Environment variable inside this loader is NOT existing, then...
-
                 var files = new List<string>();
 
                 if (ConfigurationFiles != null && ConfigurationFiles.Length > 0)
@@ -105,7 +113,7 @@ namespace SystemLibrary.Common.Net
 
                                 if (values != null && values.Length > 1 && values[^2].Contains(configurationName))
                                 {
-                                    if (!lowered.Contains("." + mode + "."))
+                                    if (!lowered.Contains("." + EnvironmentNameLowered + "."))
                                     {
                                         files.Add(file);
                                     }
@@ -115,12 +123,12 @@ namespace SystemLibrary.Common.Net
                     }
                 }
 
-                if (mode.Is())
+                if (EnvironmentNameLowered.Is())
                 {
-                    var configurationModeName = configurationName + "." + mode + ".";
+                    var configTransformationName = configurationName + "." + EnvironmentNameLowered + ".";
 
                     foreach (var file in ConfigurationFiles)
-                        if (file.ToLower().Contains(configurationModeName) &&
+                        if (file.ToLower().Contains(configTransformationName) &&
                             !files.Contains(file))
                         {
                             files.Add(file);

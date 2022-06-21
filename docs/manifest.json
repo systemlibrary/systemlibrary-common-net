@@ -12,7 +12,7 @@
           "hash": "84Q54XST36jU0yMUueEQhfWvV/AxEhQY/S5//r15eE0="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -24,7 +24,7 @@
           "hash": "0e+/HhmCWfVvXpoLxB4quYIVY0CeGPWtV30HDEAfbnc="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -36,7 +36,7 @@
           "hash": "fuVOREkiGbu1KL3e/wSWZTfMYFvAy4oZZUKMw9CEX0s="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,7 +48,7 @@
           "hash": "LsExDMLEtBK3ed5diedBycXm9e/dKQuDGYliwPSJDCQ="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -60,7 +60,7 @@
           "hash": "oxstdciX/DvpXVNkhBU4s0ru6Nt7ngpNLWKWZRUmThw="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -84,7 +84,7 @@
           "hash": "jBYISKkFXt+wAHRTiQ1S+v2EPAVbx321q18byBav3NA="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html",
-          "hash": "AcGuLPJ0p3TdIUG1r2zN5P0oVypvAsqjEurbPAee2HU="
+          "hash": "67Du8ow7wAuTx1ULpbWcY1VD/iYvS+WgvgEG+d9kfd0="
         }
       },
       "is_incremental": false,
@@ -108,7 +108,7 @@
           "hash": "Dn6h+k5k4N518yNXSloHff3X3LZriSFIPwJNTbON1dM="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -120,7 +120,7 @@
           "hash": "acoY/VR7ilgayP4SMybTjqoNyOwBh6bSIKgmP0m6EtE="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "NpKeH76a3XRwUjpRX1un+Iz9tz64IiGbb5ug7llO55Q="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -144,7 +144,7 @@
           "hash": "gM1v6ZcEpLVhmx/WFm/Ml3BboeMHZZDujwWH+nJZiiU="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -156,7 +156,7 @@
           "hash": "Z/dK3zGrn7X02YpIzN2SgEAox/JA/GumwvdLFDwTgfo="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -168,7 +168,7 @@
           "hash": "MV1y1lj9Wia07VVeHh1wxSppxOkSpplypgJ5tbnMdLs="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -180,7 +180,7 @@
           "hash": "wColVaIH9gXvH/0DVzJ1qn7qZ6tqGjeeRDLq4U9wXAQ="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -192,7 +192,7 @@
           "hash": "Scqu5n4orxyg1z+rsJ3vj7WmJkOJIAuJN8mVHu1k92w="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -204,7 +204,7 @@
           "hash": "ln6IlagnuMgc2sTuNXx7y7elt60KBa60ePpQmbLuZm0="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -216,7 +216,7 @@
           "hash": "mqLsqgw5up920yZzDq/msA25JznWahm75W4EhI2v8Og="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -228,7 +228,7 @@
           "hash": "4rhK5mZx0MDamvNr4F/ZsDA4DIQzVS0+ABBuo7bcJ2Y="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -240,7 +240,7 @@
           "hash": "icWAJl07Czn51zLVqK15LEObE3R2n6rcrrp1zvbPwfU="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -252,7 +252,7 @@
           "hash": "Mo8YxMQvE/wq4eBVClKsI1fXWBFvEfb9dSLWTZJaiBM="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.html",
-          "hash": "uHlttNgVBvtZ6dbYMuix/ipTE9I8GbJ5ADvv2I7w5ic="
+          "hash": "hSAJXjXX7fGaipFgjK1FxFSwHkUAQL6uL1KrESXstDA="
         }
       },
       "is_incremental": false,
@@ -288,32 +288,30 @@
           "hash": "VdnoKTk0l6fiyTnI80zbcTb5UBIM0ktOQtxob2rtMmI="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     }
   ],
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 0
+          "skipped_file_count": 1
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 22,
-          "skipped_file_count": 0
+          "skipped_file_count": 21
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -326,8 +324,8 @@
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

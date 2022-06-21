@@ -1,10 +1,11 @@
-﻿
-using SystemLibrary.Common.Net.Attributes;
+﻿using SystemLibrary.Common.Net.Attributes;
 
 namespace SystemLibrary.Common.Net
 {
     /// <summary>
     /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
+    /// 
+    /// You can inherit EnvironmentConfig and implement your own 'IsStaging' for instance
     /// </summary>
     public class EnvironmentConfig : Config<EnvironmentConfig> 
     {
@@ -19,34 +20,14 @@ namespace SystemLibrary.Common.Net
             QA,
             AT,
             Stage,
+            Staging,
             Test,
             PreProd,
             PreProduction,
             Prod,
             Production
         }
-
-        static string _AspNetCoreConfiguration;
-
-        internal static string AspNetCoreEnvironment
-        {
-            get
-            {
-                if (_AspNetCoreConfiguration == null)
-                {
-                    _AspNetCoreConfiguration = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-                    //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
-                    if (_AspNetCoreConfiguration.IsNot())
-                        _AspNetCoreConfiguration = "";
-                }
-                return _AspNetCoreConfiguration;
-            }
-        }
-
-        // Commented out: Got nothing to do in EnvironmentConfig -- appName does not change based on Envs when we have EnvironmentName variable
-        //public static string ApplicationName => Environment.GetEnvironmentVariable("ApplicationName");
-        
+      
         Environment? _EnvironmentName;
         Environment EnvironmentName
         {
@@ -62,8 +43,13 @@ namespace SystemLibrary.Common.Net
         string _Name;
 
         /// <summary>
-        /// Current environment name, passed into your application either by 'environmentConfig.json' or by passing ASPNETCORE_ENVIRONMENT variable
+        /// Returns the environment name based on whats specified in 'ASPNETCORE_ENVIRONMENT', and environmentConfig.json or a combination.
         /// 
+        /// The environment name here is used for transformations
+        /// 
+        /// Note: remember when changing environment variables on windows or requires a restart of the shell (iisreset for instance)
+        /// </summary>
+        /// <example>
         /// IIS Express:
         /// <code class="language-csharp hljs">
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
@@ -141,18 +127,20 @@ namespace SystemLibrary.Common.Net
         /// if: ASPNETCORE_ENVIRONMENT exists in web.config
         ///     return: value as 'name'
         /// </code>
-        /// </summary>
+        /// </example>
         public string Name
         {
             get
             {
-                if (_Name.Is())
+                if (_Name != null && _Name != "")
                     return _Name;
-             
+
+                _Name = AspNetCoreEnvironment.Value;
+
                 //TODO: Consider throwing new Exception("Environment 'Name' is not set in either 'ASPNETCORE_ENVIRONMENT', or in environmentConfig.json file, or environmentConfig.json file is located in wrong folder");
                 //TODO: Consider this way it works, returns empty name, so it never does any transformations
                 //TODO: Consider supporting 'environment' in 'appSettings' for the package: systemLibraryCommonNet { environment { name: '...' } }
-                return AspNetCoreEnvironment;
+                return _Name;
             }
             set
             {
@@ -197,7 +185,7 @@ namespace SystemLibrary.Common.Net
         bool? _IsTest;
 
         /// <summary>
-        /// Returns true if environment is 'Test', 'Stage', 'QA', 'AT', case insensitive
+        /// Returns true if environment is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive
         /// </summary>
         public bool IsTest
         {
@@ -207,6 +195,7 @@ namespace SystemLibrary.Common.Net
                     _IsTest =
                         EnvironmentName == Environment.Test ||
                         EnvironmentName == Environment.Stage ||
+                        EnvironmentName == Environment.Staging ||
                         EnvironmentName == Environment.AT ||
                         EnvironmentName == Environment.QA;
 
