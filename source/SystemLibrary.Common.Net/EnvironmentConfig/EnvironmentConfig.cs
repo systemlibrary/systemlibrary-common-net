@@ -48,8 +48,7 @@ namespace SystemLibrary.Common.Net
         /// The environment name here is used for transformations
         /// 
         /// Note: remember when changing environment variables on windows or requires a restart of the shell (iisreset for instance)
-        /// </summary>
-        /// <example>
+        /// 
         /// IIS Express:
         /// <code class="language-csharp hljs">
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
@@ -127,7 +126,7 @@ namespace SystemLibrary.Common.Net
         /// if: ASPNETCORE_ENVIRONMENT exists in web.config
         ///     return: value as 'name'
         /// </code>
-        /// </example>
+        /// </summary>
         public string Name
         {
             get
