@@ -8,18 +8,19 @@ namespace SystemLibrary.Common.Net
     /// Configurations must be placed in either:
     /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
     /// 
-    /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root 
+    /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then
     /// 
-    /// Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings
+    /// Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup
+    /// Either via launchSettings.json, web.config, or in mstest.runsettings
     /// - launchSettings.json when using IIS Express
-    /// - web.config if you use IIS locally, or IIS in a server environment
+    /// - web.config if you use IIS
     /// - mstest.runsettings if you run transformations in unit tests
     /// 
     /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config, if you run IIS Express at least
     /// 
-    /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only
+    /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' in Visual Studio (depends on app type though)
     /// 
-    /// WARNING: Bug in Microsoft's code, the call "UseEnvironment()" wont transform based on the argument
+    /// WARNING: Bug in Microsoft's code, the call "UseEnvironment()" just wont transform whatever I do... with or without ASPNETCORE_ENVIRONMENT passed to the app's startup
     /// 
     /// WARNING: Requires app restart if configuration changes
     /// </summary>

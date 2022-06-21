@@ -119,16 +119,17 @@
       <section><p>Class for creating configurations (xml or json) files next to your code files</p>
 <p>Configurations must be placed in either:
 ~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
-<p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root</p>
-<p>Transformations are ran by setting 'ASPNETCORE_ENVIRONMENT' in launchSettings.json or web.config, or in mstest.runsettings</p>
+<p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then</p>
+<p>Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup
+Either via launchSettings.json, web.config, or in mstest.runsettings</p>
 <ul>
 <li>launchSettings.json when using IIS Express</li>
-<li>web.config if you use IIS locally, or IIS in a server environment</li>
+<li>web.config if you use IIS</li>
 <li>mstest.runsettings if you run transformations in unit tests</li>
 </ul>
 <p>If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config, if you run IIS Express at least</p>
-<p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' your code was built with: 'Release' or 'Debug' only</p>
-<p>WARNING: Bug in Microsoft's code, the call &quot;UseEnvironment()&quot; wont transform based on the argument</p>
+<p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' in Visual Studio (depends on app type though)</p>
+<p>WARNING: Bug in Microsoft's code, the call &quot;UseEnvironment()&quot; just wont transform whatever I do... with or without ASPNETCORE_ENVIRONMENT passed to the app's startup</p>
 <p>WARNING: Requires app restart if configuration changes</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html"></a></h4>
