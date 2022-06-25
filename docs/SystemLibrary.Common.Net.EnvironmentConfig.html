@@ -333,7 +333,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
         return: value as &apos;name&apos;
 
 - if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
-    then: value is returned as &apos;name&apos;
+     return: value as &apos;name&apos;
 
 - if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
     return: value as &apos;name&apos;
@@ -342,7 +342,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
 <p>Console Application</p>
 <pre><code>if: environmentConfig.json do not exists:
 - if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
-    then: value is returned as &apos;name&apos; 
+     return: value as &apos;name&apos;
 
 - if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
     return: value as &apos;name&apos;
@@ -358,7 +358,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
 <p>DOTNET TEST 'csproj' --configuration 'release|debug|etc..' command</p>
 <pre><code>if: environmentConfig.json do not exists:
 - if: mstest.runsettings contains &apos;ASPNETCORE_ENVIRONMENT&apos; variable
-    then: value is returned as &apos;name&apos; 
+     return: value as &apos;name&apos;
 
 - if: ASPNETCORE_ENVIRONMENT exists in &apos;Environment Variables on Windows&apos;
     return: value as &apos;name&apos;

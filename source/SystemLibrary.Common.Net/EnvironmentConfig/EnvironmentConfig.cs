@@ -82,7 +82,7 @@ namespace SystemLibrary.Common.Net
         ///         return: value as 'name'
         /// 
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
-        ///     then: value is returned as 'name'
+        ///      return: value as 'name'
         ///     
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
         ///     return: value as 'name'
@@ -94,7 +94,7 @@ namespace SystemLibrary.Common.Net
         /// <code class="language-xml hljs">
         /// if: environmentConfig.json do not exists:
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
-        ///     then: value is returned as 'name' 
+        ///      return: value as 'name'
         ///     
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
         ///     return: value as 'name'
@@ -113,7 +113,7 @@ namespace SystemLibrary.Common.Net
         /// <code class="language-csharp hljs">
         /// if: environmentConfig.json do not exists:
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
-        ///     then: value is returned as 'name' 
+        ///      return: value as 'name'
         ///     
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
         ///     return: value as 'name'
