@@ -43,30 +43,37 @@ namespace SystemLibrary.Common.Net
         string _Name;
 
         /// <summary>
-        /// Returns the environment name based on whats specified in 'ASPNETCORE_ENVIRONMENT', and environmentConfig.json or a combination.
+        /// Returns environment name based on 'ASPNETCORE_ENVIRONMENT' variable passed to the startup of your application
         /// 
-        /// The environment name here is used for transformations
+        /// Note: This 'name' is used for transformations for configurations you've created that inherits Config&lt;&gt;
         /// 
-        /// Note: remember when changing environment variables on windows or requires a restart of the shell (iisreset for instance)
+        /// Note: Transformations are ran before 'name' here is returned for file 'environmentConfig.json' if it exists
         /// 
+        /// Note: changing environment name requires shell restart (iisreset for instance)
+        /// </summary>
+        /// <example>
         /// IIS Express:
         /// <code class="language-csharp hljs">
         /// - if: ASPNETCORE_ENVIRONMENT exists in 'Environment Variables on Windows'
         ///     return: value as 'name'
         /// - if: ASNETCORE_ENVIRONMENT exists in web.config
         ///     return: value as 'name'
+        ///     
+        /// //Configuration Mode in Visual Studio might have an affect, cannot remember, will test and update docs...
+        ///     
+        /// return: "" as 'name', never null
         /// </code>
         ///  
         /// Test Explorer
-        /// <code class="language-csharp hljs">
+        /// <code class="language-xml hljs">
         /// if: Running Tests in 'Test Explorer'
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
-        ///     then: sets "temp environment" as value
-        /// - if: "temp environment" is set, but no transformations are found
-        ///     then: sets "temp environment as value from 'Configuration Mode' in Visual Studio
-        /// 
+        ///     then: sets 'temp environment' as value
+        /// - if: 'temp environment' is set, but no transformations are found
+        ///     then: sets 'temp environment' as value from 'Configuration Mode' in Visual Studio
+        ///
         /// - else:
-        ///     then: sets "temp environment" as value from 'Configuration Mode' in Visual Studio
+        ///     then: sets 'temp environment' as value from 'Configuration Mode' in Visual Studio
         /// 
         /// - if: environmentConfig.json exists
         ///     - if transformation file exists for 'temp environment' 
@@ -84,7 +91,7 @@ namespace SystemLibrary.Common.Net
         /// </code>
         /// 
         /// Console Application
-        /// <code class="language-csharp hljs">
+        /// <code class="language-xml hljs">
         /// if: environmentConfig.json do not exists:
         /// - if: mstest.runsettings contains 'ASPNETCORE_ENVIRONMENT' variable
         ///     then: value is returned as 'name' 
@@ -122,11 +129,15 @@ namespace SystemLibrary.Common.Net
         /// </code>
         /// 
         /// IIS
-        /// <code class="language-csharp hljs">
+        /// <code class="language-xml hljs">
         /// if: ASPNETCORE_ENVIRONMENT exists in web.config
         ///     return: value as 'name'
+        ///     
+        /// //Configuration Mode in Visual Studio might have an affect, cannot remember, will test and update docs...
+        ///     
+        /// return: "" as 'name', never null
         /// </code>
-        /// </summary>
+        /// </example>
         public string Name
         {
             get
@@ -166,7 +177,7 @@ namespace SystemLibrary.Common.Net
         bool? _IsProd;
 
         /// <summary>
-        /// Returns true if environment name is 'prod' or 'production', case insensitive
+        /// Returns true if environment 'name' is 'prod' or 'production', case insensitive
         /// </summary>
         public bool IsProd
         {
@@ -184,7 +195,7 @@ namespace SystemLibrary.Common.Net
         bool? _IsTest;
 
         /// <summary>
-        /// Returns true if environment is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive
+        /// Returns true if environment 'name' is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive
         /// </summary>
         public bool IsTest
         {

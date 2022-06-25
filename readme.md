@@ -17,8 +17,8 @@ A library of classes and methods for any .NET &gt;= 5 application
 - EnvironmentConfig.Name does not read launchSettings anymore, nor "ASPNETCORE_ENV", nor "DOTNET_ENVIRONMENT"
 - EnvironmentConfig.Name reads only "ASPNETCORE_ENVIRONMENT" variable passed to your .NET Core application (unit test, console, webapp...)
 - EnvironmentConfig.Name has an updated description of its usage, please read it
-- Updated docs
 - Environment 'Staging' is also added as a valid environment name, and 'IsTest' is true if so
+- Updated docs
 
 ## Version history
 - View git history of this file if interested
