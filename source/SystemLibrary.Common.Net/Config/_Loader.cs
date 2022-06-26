@@ -23,7 +23,8 @@ namespace SystemLibrary.Common.Net
             {
                 get
                 {
-                    if(_EnvironmentNameLowered== null){
+                    if (_EnvironmentNameLowered == null)
+                    {
                         _EnvironmentNameLowered = AspNetCoreEnvironment.Value.ToLower();
                     }
                     return _EnvironmentNameLowered;
@@ -34,8 +35,8 @@ namespace SystemLibrary.Common.Net
             {
                 if (file.IsNot()) return false;
                 file = file.ToLower();
-                    
-                if(file.Contains(".runtimeconfig.") ||
+
+                if (file.Contains(".runtimeconfig.") ||
                     file.Contains(".deps.json"))
                     return false;
 
@@ -60,7 +61,7 @@ namespace SystemLibrary.Common.Net
                 var configs = GetConfigurationFilesInFolder(rootDirectory + "configs\\", true);
 
                 var configurations = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
-                
+
                 ConfigurationFiles = rootConfigurationFiles.Add(IgnoreRuntimeConfigAndDeps, configs, configurations);
 
                 var builder = new ConfigurationBuilder();
@@ -79,7 +80,7 @@ namespace SystemLibrary.Common.Net
                 if (!Directory.Exists(directoryPath)) return new string[0];
 
                 string[] files;
-                if(!searchRecursively)
+                if (!searchRecursively)
                     files = Directory.GetFiles(directoryPath, "*.*", SearchOption.TopDirectoryOnly);
                 else
                     files = Directory.GetFiles(directoryPath, "*.*", SearchOption.AllDirectories);
@@ -162,9 +163,11 @@ namespace SystemLibrary.Common.Net
                             {
                                 builder.AddJsonFile(f, true, true);
                             }
-
                             else if (extension == ".xml")
                             {
+                                if (f.Contains("\\SystemLibrary.Common."))
+                                    continue;
+
                                 builder.AddXmlFile(f, true, true);
                             }
                         }
