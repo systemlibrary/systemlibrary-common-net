@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
@@ -19,15 +18,6 @@ using SystemLibrary.Common.Net.Extensions;
 /// </example>
 public static class StringExtensions
 {
-
-    /// <summary>
-    /// heaheaehaehaeh
-    /// </summary>
-    public static void Test()
-    {
-
-    }
-
     /// <summary>
     /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
     /// If 'data' and all fallbacks are null or empty, this returns "", never null
@@ -558,7 +548,7 @@ public static class StringExtensions
     ///     "age": 10
     /// }";
     /// 
-    /// var user = json.ToJson&lt;User&gt;;
+    /// var user = json.ToJson&lt;User&gt;
     /// </code>
     /// </example>
     public static T ToJson<T>(this string json, JsonSerializerOptions options = null) where T : class
@@ -574,7 +564,6 @@ public static class StringExtensions
 
 namespace SystemLibrary.Common.Net.Global
 {
-
     /// <summary>
     /// This class contains extension methods for Strings
     /// 
@@ -615,19 +604,13 @@ namespace SystemLibrary.Common.Net.Global
             return "";
         }
 
-        /// <summary>
-        /// Returns 'primary domain' from the url as input
-        /// </summary>
-        /// <returns>Returns primary domain, 'localhost' from url: 'https://localhost.com/image.png?q=90' or empty string, never null</returns>
-        /// <example>
-        /// <code class="language-csharp hljs">
-        /// var result = "https://localhost.com/image.png?q=90".GetPrimaryDomain();
-        /// //result is "localhost"
-        /// </code>
-        /// </example>
+        ///<inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
         public static string GetPrimaryDomain(this string url)
         {
             if (url.IsNot()) return "";
+
+            if (url.Contains(" "))
+                return "";
 
             Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
 
@@ -638,7 +621,7 @@ namespace SystemLibrary.Common.Net.Global
         /// Convert a string value to Enum
         /// </summary>
         /// <typeparam name="T">T must be an Enum</typeparam>
-        /// <param name="value">Value must match the Key or the 'EnumValueAttribute' of a Key in the Enum, else this returns default of the Enum T</param>
+        /// <param name="value">Value must match the Key or the 'EnumValueAttribute' or 'EnumTextAttribute' of a Key in the Enum (EnumValue is checked before EnumText), else this returns default of the Enum T</param>
         /// <returns>Returns first matching Key or default of the Enum</returns>
         /// <example>
         /// <code class="language-csharp hljs">
@@ -652,13 +635,13 @@ namespace SystemLibrary.Common.Net.Global
         /// }
         ///
         /// var value = "black".ToEnum&lt;EnumColor&gt;();
-        /// //value is EnumColor.Black, case insensitive conversion
+        /// //value is EnumColor.Black, case insensitive match directly in the Enum Key (or name if you prefer)
         /// 
         /// var value = "white".ToEnum&lt;EnumColor&gt;();
-        /// //value is EnumColor.Black, case insensitive conversion and enum text match
+        /// //value is EnumColor.Black, case insensitive match in 'EnumText' attribute
         /// 
         /// var value = "blackAndWhite".ToEnum&lt;EnumColor&gt;();
-        /// //value is EnumColor.Black, case insensitive conversion and enum value match
+        /// //value is EnumColor.Black, case insensitive match in 'EnumValue' attribute
         /// 
         /// var value = "brown".ToEnum&lt;EnumColor&gt;();
         /// //value is EnumColor.Black, no match, returns first/default
@@ -824,7 +807,7 @@ namespace SystemLibrary.Common.Net.Global
         }
 
         /// <summary>
-        /// Returns true if text is not null, nor "", nor a " ", else false
+        /// Returns true if text is not null and not "" and not  " ", else false
         /// </summary>
         /// <returns>True or false</returns>
         /// <example>
@@ -839,6 +822,37 @@ namespace SystemLibrary.Common.Net.Global
         public static bool Is(this string text)
         {
             return text != null && text != "" && text != " ";
+        }
+
+        /// <summary>
+        /// Returns true if text is not null and not "" and not  " " and not any of the 'invalidTexts', else false
+        /// 
+        /// Case sensitive
+        /// </summary>
+        /// <returns>True or false</returns>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// var text = "hello world";
+        /// var result = text.Is("hello");
+        /// //result is true because text is set to something else than 'hello', and not just "" or " "
+        /// 
+        /// var result2 = text.Is("hello world");
+        /// //result is false, because text equals to the invalid text passed in, which was 'hello world'
+        /// </code>
+        /// </example>
+        public static bool Is(this string text, params string[] invalidTexts)
+        {
+            if (text.IsNot())
+                return false;
+
+            if (invalidTexts == null || invalidTexts.Length == 0)
+                return true;
+
+            foreach (var word in invalidTexts)
+                if (text == word)
+                    return false;
+
+            return true;
         }
 
         /// <summary>
@@ -984,6 +998,123 @@ namespace SystemLibrary.Common.Net.Global
 
             return text.Substring(0, maxLength);
         }
-    }
 
+        /// <summary>
+        /// Return a part of the json as T
+        /// 
+        /// Searches through the json formatted text to find the property it takes as input, and outputs T
+        /// 
+        /// Supports a 'search path' seperated by a forward slash to the leaf property you want to convert to T
+        /// 
+        /// Searching for a property by name is case-insensitive
+        /// 
+        /// Throws exception if the json formatted text is invalid or a parent property to the leaf do not exist in the json text
+        /// 
+        /// Returns T or null if the leaf property do not exist
+        /// </summary>
+        /// <typeparam name="T">A class or list/array of a class
+        /// 
+        /// If T is a list or array and no 'findPropertySearchPath' is specified, the Searcher appends an 's' as suffix
+        /// 
+        /// For instance List&lt;User&gt; will search for a property 'users', case insensitive and 's' is appended
+        /// </typeparam>
+        /// <param name="json">Json formatted string</param>
+        /// <param name="findPropertySearchPath">
+        /// Name of the property that will be deserialized as T
+        /// 
+        /// Example: root/property1/property2/leaf where 'leaf' will be deserialized as T
+        /// </param>
+        /// <returns>Returns json as T or null if not found</returns>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// //Assume json string stored in a C# variable named 'data':
+        /// var data = "{
+        ///     "users" [
+        ///         ...
+        ///     ]
+        /// }";
+        /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;();
+        /// //When a property is not given as first argument, it uses the type name in the following manner:
+        /// //1. Takes the type name, in our case 'User'
+        /// //2. If type is a List or Array, it adds a plural 's', so now we have 'Users'
+        /// //3. It lowers first letter to match camel casing as thats the "norm", so now we have 'users'
+        /// 
+        /// //You could also pass in "users" manually if you wanted, result is the same:
+        /// //var users = data.PartialJson&lt;List&lt;User&gt;&gt;("users");
+        /// //Note: There's an automation on the Type if property to search for is not specified
+        /// //Note 2: It would return the first "users" property it would find, no matter how deep in the json it is
+        /// 
+        /// //Assume json string stored in a C# variable named 'data':
+        /// var data = "{
+        ///     "users" [
+        ///         ...
+        ///     ],
+        ///     "deactivated": {
+        ///         "users": [
+        ///             ...
+        ///         ]
+        ///     }
+        /// }";
+        /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;("deactivated/users");
+        /// //Searches for a property "deactivated" anywhere in the json, then inside that a "users" property
+        /// 
+        /// 
+        /// //Assume json string stored in a C# variable named 'data':
+        /// var data = "{
+        ///     "text": "hello world",
+        ///     "employees": [
+        ///         {
+        ///             "hired": [
+        ///                ...
+        ///             ],
+        ///             "fired": [
+        ///                 ...
+        ///             ]
+        ///         }
+        ///     ],
+        /// }";
+        /// 
+        /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;("fired");
+        /// //Searches for a property anywhere in the json named "fired"
+        /// </code>
+        /// </example>
+        public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null) where T : class
+        {
+            return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
+        }
+
+        /// <summary>
+        /// Convert string formatted json to object T
+        /// 
+        /// Default options are: 
+        /// - case insensitive
+        /// - allows trailing commas
+        /// - camel cased
+        /// 
+        /// Throws exception if json has invalid formatted json text
+        /// </summary>
+        /// <returns>Returns T or null if json is null or empty</returns>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// class User {
+        ///     public string FirstName;
+        ///     public int Age { get; set;}
+        /// }
+        /// var json = "{
+        ///     "firstName": 'hello',
+        ///     "age": 10
+        /// }";
+        /// 
+        /// var user = json.ToJson&lt;User&gt;
+        /// </code>
+        /// </example>
+        public static T ToJson<T>(this string json, JsonSerializerOptions options = null) where T : class
+        {
+            if (json.IsNot()) return default;
+
+            options = PartialJsonSearcher.Default(options);
+
+            return JsonSerializer.Deserialize<T>(json, options);
+        }
+    }
 }

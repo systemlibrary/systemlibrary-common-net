@@ -774,6 +774,15 @@ references:
   commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
   nameWithType: StringExtensions.Is(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name: Is(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name.vb: Is(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String())
+  nameWithType: StringExtensions.Is(String, String[])
+  nameWithType.vb: StringExtensions.Is(String, String())
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.Is*
   name: Is
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_
@@ -823,6 +832,22 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
   nameWithType: StringExtensions.MaxLength
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*
+  name: PartialJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  nameWithType: StringExtensions.PartialJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name: PartialJson<T>(String, String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: PartialJson(Of T)(String, String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson<T>(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.PartialJson<T>(String, String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.PartialJson(Of T)(String, String, JsonSerializerOptions)
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
   name: StartsWithAny(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___
@@ -855,6 +880,22 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(Of T)(System.String)
   nameWithType: StringExtensions.ToEnum<T>(String)
   nameWithType.vb: StringExtensions.ToEnum(Of T)(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToJson*
+  name: ToJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToJson
+  nameWithType: StringExtensions.ToJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)
+  name: ToJson<T>(String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: ToJson(Of T)(String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToJson<T>(System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToJson(Of T)(System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.ToJson<T>(String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.ToJson(Of T)(String, JsonSerializerOptions)
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
   name: ToLetterAndDigits(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_
