@@ -93,6 +93,40 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
         }
 
         [TestMethod]
+        public void Max_Length()
+        {
+            var data = (string)null;
+            var res = data.MaxLength(3);
+
+            Assert.IsTrue(res == "", "Res it not null when passing in null");
+
+            data = "";
+            res = data.MaxLength(3);
+            Assert.IsTrue(res == "", "Res it not blank when passing in blank");
+
+            data = "1";
+            res = data.MaxLength(3);
+            Assert.IsTrue(res == "1", "Res is not 1 when passing in '1'");
+
+            data = "123";
+            res = data.MaxLength(3);
+            Assert.IsTrue(res == "123", "Res is not 123 when passing in '123'");
+
+            data = "1234";
+            res = data.MaxLength(3);
+            Assert.IsTrue(res == "123", "Res is not 123 when passing in '1234'");
+
+            data = "1234 hello world, long text @.,.-!'æ¨¨æ¨ææ¨%#&=)#&#!(=!/?=/(?=";
+            res = data.MaxLength(3);
+            Assert.IsTrue(res == "123", "Res is not 123 when passing in a long text with many special chars");
+
+            data = "1234 hello world, long text @.,.-!'æ¨¨æ¨ææ¨%#&=)#&#!(=!/?=/(?=";
+            res = data.MaxLength(-1);
+            Assert.IsTrue(res == "", "Res is not blank when passing in a long text with many special chars, but max length negative");
+        }
+
+
+        [TestMethod]
         public void Is_Any()
         {
             var data = "world";

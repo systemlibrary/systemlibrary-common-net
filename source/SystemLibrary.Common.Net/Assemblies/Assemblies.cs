@@ -116,8 +116,9 @@ namespace SystemLibrary.Common.Net
         /// <code class="language-csharp hljs">
         /// var text = Assemblies.GetEmbeddedResource("Folder/SubFolder/SubFolder2", "json.txt");
         /// Assert.IsTrue(text.Contains("hello world"));
-        /// //assuming "json.txt" contains 'hello world' this is now true
-        /// //assuming "json.txt" has build action 'Embedded Resource'
+        /// //assume a file in Solution Explorer exists at "~/Folder/SubFolder/SubFolder2/json.txt"
+        /// //assume "json.txt" has build action 'Embedded Resource'
+        /// //assume "json.txt" contains 'hello world' this is now true
         /// </code>
         /// </example>
         public static string GetEmbeddedResource(string relativeFolderPath, string fileName, Asm assembly = null)

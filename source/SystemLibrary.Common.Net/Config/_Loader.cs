@@ -156,7 +156,7 @@ namespace SystemLibrary.Common.Net
                 {
                     foreach (var f in files)
                     {
-                        if (f.Is())
+                        if (f.Is() && !f.ContainsAny("package.json", "package-lock.json"))
                         {
                             var extension = Path.GetExtension(f)?.ToLower();
                             if (extension == ".json")

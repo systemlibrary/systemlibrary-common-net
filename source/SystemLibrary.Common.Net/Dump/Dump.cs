@@ -119,6 +119,15 @@ public static class Dump
                 && type.Name != "NullReferenceException"
             )
         {
+            var skipRuntimeType = AppSettings.Current.SystemLibraryCommonNet.Dump.SkipRuntimeType;
+
+            if (skipRuntimeType && type.Name == "RuntimeType")
+            {
+                //string runtimeTypeSkippedText = type.FullName + " (level " + level + ")" + ", isPublic " + type.IsPublic + ", isGeneric " + type.IsGenericType;
+                //WriteToFile(runtimeTypeSkippedText, level);
+                return false;
+            }
+
             var arguments = type?.GetGenericArguments();
             var genericType = (Type)null;
             if (arguments != null && arguments.Length > 0)
@@ -133,6 +142,7 @@ public static class Dump
             else
                 WriteToFile(typeName + " (level " + level + ")", level);
 
+
             level = level + 1;
             var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
             if (props != null && props.Length > 0)
@@ -140,6 +150,8 @@ public static class Dump
                 foreach (var prop in props)
                 {
                     if (prop.PropertyType == typeof(char)) continue;
+
+                    if (skipRuntimeType && prop.Name == "RuntimeType") continue;
 
                     try
                     {
@@ -293,13 +305,14 @@ public static class Dump
         {
             var path = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
 
-            readWriteLock.AcquireWriterLock(15);
+            readWriteLock.AcquireWriterLock(10);
 
             File.AppendAllText(path, message, Encoding.UTF8);
         }
         finally
         {
             readWriteLock.ReleaseWriterLock();
+
         }
     }
 }

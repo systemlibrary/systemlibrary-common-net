@@ -433,7 +433,7 @@ public static class StringExtensions
     /// </example> 
     public static string MaxLength(this string text, int maxLength)
     {
-        if (text.IsNot()) return text;
+        if (text.IsNot()) return "";
 
         if (text.Length <= maxLength) return text;
 

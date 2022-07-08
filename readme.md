@@ -10,14 +10,10 @@ A library of classes and methods for any .NET &gt;= 5 application
 - Fire and Forget through Async.Run()
 
 ## Requirements
-- &gt;= .NET 5
+- &gt;= .NET 6
 
 ## Latest Version
-- EnvironmentConfig.Name is now rewritten and rethought
-- EnvironmentConfig.Name does not read launchSettings anymore, nor "ASPNETCORE_ENV", nor "DOTNET_ENVIRONMENT"
-- EnvironmentConfig.Name reads only "ASPNETCORE_ENVIRONMENT" variable passed to your .NET Core application (unit test, console, webapp...)
-- EnvironmentConfig.Name has an updated description of its usage, please read it
-- Environment 'Staging' is also added as a valid environment name, and 'IsTest' is true if so
+- Upgraded target framework to .NET 6
 - Updated docs
 
 ## Version history

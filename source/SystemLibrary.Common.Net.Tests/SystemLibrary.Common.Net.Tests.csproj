@@ -27,7 +27,7 @@
 	</PropertyGroup>
 	
   <PropertyGroup>
-	<TargetFramework>net5.0</TargetFramework>
+	<TargetFramework>net6.0</TargetFramework>
 	<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>

@@ -54,11 +54,13 @@ namespace SystemLibrary.Common.Net
             {
                 public string Folder { get; set; }
                 public string FileName { get; set; }
+                public bool SkipRuntimeType { get; set; }
 
                 public DumpConfiguration()
                 {
                     FileName = "SysLib.log";
                     Folder = "C:\\Logs";
+                    SkipRuntimeType = true;
                 }
 
                 public string GetFullLogPath()

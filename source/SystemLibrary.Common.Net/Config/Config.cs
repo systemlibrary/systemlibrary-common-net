@@ -10,30 +10,26 @@ namespace SystemLibrary.Common.Net
     /// 
     /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then
     /// 
-    /// Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup
-    /// Either via launchSettings.json, web.config, or in mstest.runsettings
+    /// Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup:
     /// - launchSettings.json when using IIS Express
     /// - web.config if you use IIS
     /// - mstest.runsettings if you run transformations in unit tests
+    /// - commandline with --configuration if running as 'exe'
     /// 
-    /// If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config, if you run IIS Express at least
+    /// NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type
     /// 
-    /// If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' in Visual Studio (depends on app type though)
+    /// NOTE: Transformations are only ran on the first time '.Current' is invoked
     /// 
-    /// WARNING: Bug in Microsoft's code, the call "UseEnvironment()" just wont transform whatever I do... with or without ASPNETCORE_ENVIRONMENT passed to the app's startup
-    /// 
-    /// WARNING: Requires app restart if configuration changes
+    /// WARNING: The generic T cannot be a nested class
     /// </summary>
     /// <example>
-    /// Let's add our own custom configuration file, named 'TestConfig.json', without any transformations yet:
-    /// - Place the file in either ~/, ~/Configs/ or ~/Configurations/
-    /// 
+    /// - Create new file '~/TestConfig.json'
+    /// - Can also be placed under ~/Configs/ or ~/Configurations/
     /// <code class="language-xml hljs">
     /// {
     ///     "Name": "Hello World",
     ///     "Number": 1234,
     ///     
-    ///     //"Options" refers to name of the property in 'TestConfig' class, not the type in your C# which would be 'ApiOptions'
     ///     "Options": {
     ///         "Url": "https://....",
     ///     },
@@ -42,7 +38,7 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// 
-    /// Create new class with same name as the json file, and inherit Config&lt;&gt;:
+    /// - Create C# class with same name as your newly created json file and inherit Config&lt;&gt;: 
     /// <code class="language-csharp hljs">
     /// public class TestConfig : Config&lt;TestConfig&gt; 
     /// {
@@ -61,30 +57,29 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// 
-    /// Use your configurations in json through the C# class, at runtime:
+    /// Usage:
     /// <code class="language-csharp hljs">
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
     /// //name is now Hello World
     /// </code>
     /// 
-    /// Let's add transformation file to our newly created TestConfig.json, for 'dev' environment:
-    /// 
-    /// - create new file 'TestConfig.dev.json' and place it in the same folder as TestConfig.json
-    /// 
-    /// - visual studio should mark TestConfig.dev.json as IsTransformFile=true and DependentUpon 'TestConfig.json'
-    /// - if not you can try dragging 'TestConfig.dev.json' in under 'TestConfig.json' in Solution Explorer
-    /// - only variables we want to transform are required
+    /// Add transformation per 'environmnet' to our newly created TestConfig.json
+    /// - Add transformation for an environment, lets call it 'dev'
+    /// - Create TestConfig.dev.json file, place it in same folder as TestConfig.json
+    ///     - Visual Studio should mark the new file as 'IsTransformFile=true' and 'DependentUpon=TestConfig.json'
+    ///         - If not, try dragging "TestConfig.dev.json" in under "TestConfig.json" via Solution Explorer
+    ///         
+    /// - Define only variables that we want to transform:
     /// <code class="language-xml hljs">
     /// {
     ///     "Name": "Hello Dev!",
     /// }
     /// </code>
     /// 
+    /// Here are three ways of specifying the environment, by either launchSettings.json, web.config or mstest.runsettings.
     /// 
-    /// Three ways of specifying the environment, in launchSettings, web.config and in mstest.runsettings, which then all configurations which inherits Config&lt;&gt; is ran if they do have transformation files:
-    /// 
-    /// 1 launchSettings.json:
+    /// 1 launchSettings.json with IIS:
     /// <code class="language-csharp hljs">
     /// { 
     /// 	...
@@ -101,7 +96,7 @@ namespace SystemLibrary.Common.Net
     /// }
     /// </code>
     /// 
-    /// 2 web.config: 
+    /// 2 web.config with IIS or IISExpress: 
     /// <code class="language-csharp hljs">
     /// &lt;configuration&gt;
     ///   &lt;location path = "." inheritInChildApplications="false"&gt;
@@ -116,7 +111,7 @@ namespace SystemLibrary.Common.Net
     /// &lt;/configuration&gt;
     /// </code>
     /// 
-    /// 3 mstest.runsettings:
+    /// 3 mstest.runsettings if running through Test Explorer (unit tests):
     /// - Note: add mstest.runsettings to your csproj-variable: 'RunSettingsFilePath'
     /// - Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github
     /// <code class="language-csharp hljs">
@@ -126,13 +121,12 @@ namespace SystemLibrary.Common.Net
     ///           &lt;ASPNETCORE_ENVIRONMENT&gt;Dev&lt;/ASPNETCORE_ENVIRONMENT&gt;
     /// </code>
     /// 
-    /// Use our transformations
-    /// 
-    /// Note: transformations are ran the first time '.Current' on a config is invoked
+    /// Usage:
+    /// - Assume IISExpress and web.config setup above:
     /// <code class="language-csharp hljs">
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
-    /// //name is now equal to 'Hello Dev!', our transformed configuration
+    /// //name is now equal to 'Hello Dev!', which is our transformed value
     /// </code>
     /// </example>
     /// <typeparam name="T">T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</typeparam>

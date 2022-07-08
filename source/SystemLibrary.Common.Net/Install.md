@@ -1,5 +1,8 @@
 ﻿# Installation
 
+## Requirements
+* .NET &gt;= 6.0
+
 ## Install nuget package
 
 * Open your project/solution in Visual Studio
@@ -33,6 +36,7 @@ appSettings.json:
 			"dump": {
 				"folder": "C:\\logs\\",
 				"fileName": "SysLib.log",
+				"skipRuntimeType": true,
 			},
 			"json": {
 				"maxDepth": 32,

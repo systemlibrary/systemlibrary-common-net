@@ -20,15 +20,29 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
             ValidateProperties(properties, "Dump contains no properties or is null", "folder");
 
+            var count = 0;
             foreach (var property in properties)
             {
                 var value = property.GetValue(configuration)?.ToString();
                 if (property.Name.ToLower() == "folder")
+                {
+                    count++;
                     Assert.IsTrue(value.Contains("Logs"), "Folder is invalid: " + property.GetValue(configuration).ToString());
+                }
 
                 if (property.Name.ToLower() == "filename")
+                {
+                    count++;
                     Assert.IsTrue(value.Contains(".log"), "FileName does not contain .log");
+                }
+
+                if(property.Name == "SkipRuntimeType")
+                {
+                    count++;
+                    Assert.IsTrue(value == "True", "SkipRuntimeType not matching true");
+                }
             }
+            Assert.IsTrue(count == 3, "Not all properties were found, found only " + count + " instead of 3");
         }
 
         [TestMethod]
@@ -56,6 +70,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value == "Skip", "ReadCommentHandling is not Allow: " + value);
             }
         }
+
 
         static object GetConfigurationByName(string systemLibraryCommonNetName)
         {

@@ -90,11 +90,15 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             var conf = HumanConfigs.Current;
 
             Assert.IsTrue(conf != null, "A file 'humanconfigs.xml' or 'humanconfigs.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
-            Assert.IsTrue(conf.firstname?.Contains("Users") == true, "firstname is invalid, it must be get; and set; property");
-            Assert.IsTrue(conf.LastName?.Contains("Users") == true, "LastName is invalid, it must be get; and set; property");
-            Assert.IsTrue(conf.Phone > 100, "Phone is an invalid int, or not within the range");
-            Assert.IsTrue(conf.IsAlive, "IsAlive is not true in the config file, or is not a get; set; property");
-            Assert.IsTrue(conf.IsAliveCapital, "IsAliveCapital is not true, or is not a get; set; property");
+
+            Assert.IsTrue(conf.firstname == null, "Firstname is not null, is the skipping of SysLib files commented out in the Config Loader or Config Loader changed?");
+            //NOTE: To test the XML, please comment out the if statement 'if (f.Contains("\\SystemLibrary.Common."))' in the Config Loader
+            //Assert.IsTrue(conf.firstname?.Contains("Users") == true, "firstname is invalid, it must be get; and set; property");
+            //Assert.IsTrue(conf.LastName?.Contains("Users") == true, "LastName is invalid, it must be get; and set; property");
+            //Assert.IsTrue(conf.Phone > 100, "Phone is an invalid int, or not within the range");
+            //Assert.IsTrue(conf.IsAlive, "IsAlive is not true in the config file, or is not a get; set; property");
+            //Assert.IsTrue(conf.IsAliveCapital, "IsAliveCapital is not true, or is not a get; set; property");
+
 
             var conf2 = HumanConfigs.Current;
 

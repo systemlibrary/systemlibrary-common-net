@@ -67,5 +67,22 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
 
             Dump.Clear();
         }
+
+        [TestMethod]
+        public void Dump_SkipRuntimeType()
+        {
+            Dump.Clear();
+            var employees = new List<Employee>();
+
+            var type = employees.GetType();
+
+            Dump.Write(type);
+
+            var content = File.ReadAllText(DumpPath);
+
+            Assert.IsTrue(content?.Length <= 500);
+
+            Dump.Clear();
+        }
     }
 }
