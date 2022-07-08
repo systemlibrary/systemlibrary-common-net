@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Assemblies
    ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="/systemlibrary-common-net/favicon.ico">
     <link rel="stylesheet" href="/systemlibrary-common-net/styles/docfx.vendor.css">
@@ -316,7 +316,7 @@ var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle,NameAttribute>
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly_">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L123">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L124">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource*"></a>
@@ -328,8 +328,9 @@ var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle,NameAttribute>
   			<div class="syslib-tab-menu-data--close">X</div>
   			<div class="codewrapper"><pre><code>var text = Assemblies.GetEmbeddedResource(&quot;Folder/SubFolder/SubFolder2&quot;, &quot;json.txt&quot;);
 Assert.IsTrue(text.Contains(&quot;hello world&quot;));
-//assuming &quot;json.txt&quot; contains &apos;hello world&apos; this is now true
-//assuming &quot;json.txt&quot; has build action &apos;Embedded Resource&apos;</code></pre>
+//assume a file in Solution Explorer exists at &quot;~/Folder/SubFolder/SubFolder2/json.txt&quot;
+//assume &quot;json.txt&quot; has build action &apos;Embedded Resource&apos;
+//assume &quot;json.txt&quot; contains &apos;hello world&apos; this is now true</code></pre>
 </div>
   			<div class="comment-examples-container-bottom"></div>
   		</div>
@@ -399,7 +400,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_System_String_System_String_System_Reflection_Assembly_">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L137">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Assemblies/Assemblies.cs/#L138">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_" data-uid="SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes*"></a>

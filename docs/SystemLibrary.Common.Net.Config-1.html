@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Config&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="/systemlibrary-common-net/favicon.ico">
     <link rel="stylesheet" href="/systemlibrary-common-net/styles/docfx.vendor.css">
@@ -110,17 +110,16 @@
 <p>Configurations must be placed in either:
 ~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
 <p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then</p>
-<p>Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup
-Either via launchSettings.json, web.config, or in mstest.runsettings</p>
+<p>Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup:</p>
 <ul>
 <li>launchSettings.json when using IIS Express</li>
 <li>web.config if you use IIS</li>
 <li>mstest.runsettings if you run transformations in unit tests</li>
+<li>commandline with --configuration if running as 'exe'</li>
 </ul>
-<p>If 'ASPNETCORE_ENVIRONMENT' variable is defined in launchSettings and web.config, the one in launchSettings overwrites the value in web.config, if you run IIS Express at least</p>
-<p>If no 'ASPNETCORE_ENVIRONMENT is specified it will transform based on 'Configuration Mode' in Visual Studio (depends on app type though)</p>
-<p>WARNING: Bug in Microsoft's code, the call &quot;UseEnvironment()&quot; just wont transform whatever I do... with or without ASPNETCORE_ENVIRONMENT passed to the app's startup</p>
-<p>WARNING: Requires app restart if configuration changes</p>
+<p>NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type</p>
+<p>NOTE: Transformations are only ran on the first time '.Current' is invoked</p>
+<p>WARNING: The generic T cannot be a nested class</p>
 </div>
   </div>
   
@@ -159,22 +158,23 @@ Either via launchSettings.json, web.config, or in mstest.runsettings</p>
     <div class="custom-menu-data-container custom-menu-data-container--example">
       <div class="custom-menu-data-class-example" style="display: none;">
         <div class="syslib-tab-menu-data--close">X</div>
-        <div class="codewrapper"><p>Let's add our own custom configuration file, named 'TestConfig.json', without any transformations yet:</p>
-<ul>
-<li>Place the file in either ~/, ~/Configs/ or ~/Configurations/</li>
+        <div class="codewrapper"><ul>
+<li>Create new file '~/TestConfig.json'</li>
+<li>Can also be placed under ~/Configs/ or ~/Configurations/</li>
 </ul>
 <pre><code>{
     &quot;Name&quot;: &quot;Hello World&quot;,
     &quot;Number&quot;: 1234,
 
-    //&quot;Options&quot; refers to name of the property in &apos;TestConfig&apos; class, not the type in your C# which would be &apos;ApiOptions&apos;
     &quot;Options&quot;: {
         &quot;Url&quot;: &quot;https://....&quot;,
     },
 
     &quot;ValidPhoneNumbers&quot;: [0,1,2,3]
 }</code></pre>
-<p>Create new class with same name as the json file, and inherit Config&lt;&gt;:</p>
+<ul>
+<li>Create C# class with same name as your newly created json file and inherit Config&lt;&gt;:</li>
+</ul>
 <pre><code>public class TestConfig : Config&lt;TestConfig> 
 {
    public string Name { get; set; }
@@ -190,26 +190,31 @@ public class ApiOptions
 {
     public string Url { get; set; }
 }</code></pre>
-<p>Use your configurations in json through the C# class, at runtime:</p>
+<p>Usage:</p>
 <pre><code>var testConfig = TestConfig.Current;
 var name = testConfig.Name;
 //name is now Hello World</code></pre>
-<p>Let's add transformation file to our newly created TestConfig.json, for 'dev' environment:</p>
+<p>Add transformation per 'environmnet' to our newly created TestConfig.json</p>
 <ul>
-<li><p>create new file 'TestConfig.dev.json' and place it in the same folder as TestConfig.json</p>
+<li><p>Add transformation for an environment, lets call it 'dev'</p>
 </li>
-<li><p>visual studio should mark TestConfig.dev.json as IsTransformFile=true and DependentUpon 'TestConfig.json'</p>
+<li><p>Create TestConfig.dev.json file, place it in same folder as TestConfig.json</p>
+<ul>
+<li>Visual Studio should mark the new file as 'IsTransformFile=true' and 'DependentUpon=TestConfig.json'
+<ul>
+<li>If not, try dragging &quot;TestConfig.dev.json&quot; in under &quot;TestConfig.json&quot; via Solution Explorer</li>
+</ul>
 </li>
-<li><p>if not you can try dragging 'TestConfig.dev.json' in under 'TestConfig.json' in Solution Explorer</p>
+</ul>
 </li>
-<li><p>only variables we want to transform are required</p>
+<li><p>Define only variables that we want to transform:</p>
 </li>
 </ul>
 <pre><code>{
     &quot;Name&quot;: &quot;Hello Dev!&quot;,
 }</code></pre>
-<p>Three ways of specifying the environment, in launchSettings, web.config and in mstest.runsettings, which then all configurations which inherits Config&lt;&gt; is ran if they do have transformation files:</p>
-<p>1 launchSettings.json:</p>
+<p>Here are three ways of specifying the environment, by either launchSettings.json, web.config or mstest.runsettings.</p>
+<p>1 launchSettings.json with IIS:</p>
 <pre><code>{ 
 	...
 	{
@@ -223,7 +228,7 @@ var name = testConfig.Name;
 	}
 	...
 }</code></pre>
-<p>2 web.config:</p>
+<p>2 web.config with IIS or IISExpress:</p>
 <pre><code>&lt;configuration>
   &lt;location path = &quot;.&quot; inheritInChildApplications=&quot;false&quot;>
 	&lt;/system.webServer>
@@ -235,7 +240,7 @@ var name = testConfig.Name;
     &lt;/system.webServer>
   &lt;/location>
 &lt;/configuration></code></pre>
-<p>3 mstest.runsettings:</p>
+<p>3 mstest.runsettings if running through Test Explorer (unit tests):</p>
 <ul>
 <li>Note: add mstest.runsettings to your csproj-variable: 'RunSettingsFilePath'</li>
 <li>Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github</li>
@@ -244,11 +249,13 @@ var name = testConfig.Name;
   &lt;RunConfiguration>
       &lt;EnvironmentVariables>
           &lt;ASPNETCORE_ENVIRONMENT>Dev&lt;/ASPNETCORE_ENVIRONMENT></code></pre>
-<p>Use our transformations</p>
-<p>Note: transformations are ran the first time '.Current' on a config is invoked</p>
+<p>Usage:</p>
+<ul>
+<li>Assume IISExpress and web.config setup above:</li>
+</ul>
 <pre><code>var testConfig = TestConfig.Current;
 var name = testConfig.Name;
-//name is now equal to &apos;Hello Dev!&apos;, our transformed configuration</code></pre>
+//name is now equal to &apos;Hello Dev!&apos;, which is our transformed value</code></pre>
 </div>
         <div class="comment-examples-container-bottom"></div>
       </div>
@@ -297,7 +304,7 @@ var name = testConfig.Name;
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L148">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L142">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>

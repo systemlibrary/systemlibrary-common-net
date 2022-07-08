@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Async
    ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="/systemlibrary-common-net/favicon.ico">
     <link rel="stylesheet" href="/systemlibrary-common-net/styles/docfx.vendor.css">
@@ -293,7 +293,7 @@ class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> Get(string name) {
         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://cars.com/q=?&quot; + name);   
+        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
@@ -398,7 +398,7 @@ class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> Get(string name) {
         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://cars.com/q=?&quot; + name);   
+        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
