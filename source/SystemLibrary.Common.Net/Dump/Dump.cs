@@ -15,6 +15,22 @@ using SystemLibrary.Common.Net;
 /// </summary>
 public static class Dump
 {
+    static string LogFullPath;
+    static string Folder;
+    static bool SkipRuntimeType;
+    static Dump()
+    {
+        LogFullPath = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
+        if (LogFullPath.IsNot())
+            LogFullPath = "C:\\Logs\\syslib-error.log";
+
+        Folder = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Folder;
+        if (Folder.IsNot())
+            Folder = "C:\\Logs\\";
+
+        SkipRuntimeType = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.SkipRuntimeType == true;
+    }
+
     /// <summary>
     /// Tries to delete the current log file created by Dump.Write() if such file exists, else does nothing
     /// </summary>
@@ -22,8 +38,7 @@ public static class Dump
     {
         try
         {
-            var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
-            File.Delete(dump.GetFullLogPath());
+            File.Delete(LogFullPath);
         }
         catch
         {
@@ -119,9 +134,7 @@ public static class Dump
                 && type.Name != "NullReferenceException"
             )
         {
-            var skipRuntimeType = AppSettings.Current.SystemLibraryCommonNet.Dump.SkipRuntimeType;
-
-            if (skipRuntimeType && type.Name == "RuntimeType")
+            if (SkipRuntimeType && type.Name == "RuntimeType")
             {
                 //string runtimeTypeSkippedText = type.FullName + " (level " + level + ")" + ", isPublic " + type.IsPublic + ", isGeneric " + type.IsGenericType;
                 //WriteToFile(runtimeTypeSkippedText, level);
@@ -151,7 +164,7 @@ public static class Dump
                 {
                     if (prop.PropertyType == typeof(char)) continue;
 
-                    if (skipRuntimeType && prop.Name == "RuntimeType") continue;
+                    if (SkipRuntimeType && prop.Name == "RuntimeType") continue;
 
                     try
                     {
@@ -247,10 +260,8 @@ public static class Dump
 
     static void InitializeFolders()
     {
-        var dump = AppSettings.Current?.SystemLibraryCommonNet?.Dump;
-
-        if (dump != null && !Directory.Exists(dump.Folder))
-            Directory.CreateDirectory(dump.Folder);
+        if (!Directory.Exists(Folder))
+            Directory.CreateDirectory(Folder);
     }
 
     static bool IsNullableType(Type type)
@@ -303,16 +314,35 @@ public static class Dump
     {
         try
         {
-            var path = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+            try
+            {
+                readWriteLock.AcquireWriterLock(10);
+            }
+            catch
+            {
+            }
 
-            readWriteLock.AcquireWriterLock(10);
-
-            File.AppendAllText(path, message, Encoding.UTF8);
+            File.AppendAllText(LogFullPath, message, Encoding.UTF8);
+        }
+        catch (Exception ex)
+        {
+            try
+            {
+                File.AppendAllText("C:\\Logs\\errror-writing-to-log-" + DateTime.Now.Millisecond + ".txt", "Error reading to file..." + ex.Message, Encoding.UTF8);
+            }
+            catch
+            {
+            }
         }
         finally
         {
-            readWriteLock.ReleaseWriterLock();
-
+            try
+            {
+                readWriteLock.ReleaseWriterLock();
+            }
+            catch
+            {
+            }
         }
     }
 }
@@ -320,14 +350,24 @@ public static class Dump
 
 namespace SystemLibrary.Common.Net.Global
 {
-
-    /// <summary>
-    /// Global dumping of 'any' object to a local file for easy debugging and logging
-    /// - look at it as javascripts 'console.log'
-    /// - calls to Dump.Write should not go to your production environment
-    /// </summary>
     public static class Dump
     {
+        static string LogFullPath;
+        static string Folder;
+        static bool SkipRuntimeType;
+        static Dump()
+        {
+            LogFullPath = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
+            if (LogFullPath.IsNot())
+                LogFullPath = "C:\\Logs\\syslib-error.log";
+
+            Folder = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Folder;
+            if (Folder.IsNot())
+                Folder = "C:\\Logs\\";
+
+            SkipRuntimeType = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.SkipRuntimeType == true;
+        }
+
         /// <summary>
         /// Tries to delete the current log file created by Dump.Write() if such file exists, else does nothing
         /// </summary>
@@ -335,8 +375,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             try
             {
-                var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
-                File.Delete(dump.GetFullLogPath());
+                File.Delete(LogFullPath);
             }
             catch
             {
@@ -432,6 +471,13 @@ namespace SystemLibrary.Common.Net.Global
                     && type.Name != "NullReferenceException"
                 )
             {
+                if (SkipRuntimeType && type.Name == "RuntimeType")
+                {
+                    //string runtimeTypeSkippedText = type.FullName + " (level " + level + ")" + ", isPublic " + type.IsPublic + ", isGeneric " + type.IsGenericType;
+                    //WriteToFile(runtimeTypeSkippedText, level);
+                    return false;
+                }
+
                 var arguments = type?.GetGenericArguments();
                 var genericType = (Type)null;
                 if (arguments != null && arguments.Length > 0)
@@ -446,6 +492,7 @@ namespace SystemLibrary.Common.Net.Global
                 else
                     WriteToFile(typeName + " (level " + level + ")", level);
 
+
                 level = level + 1;
                 var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
                 if (props != null && props.Length > 0)
@@ -453,6 +500,8 @@ namespace SystemLibrary.Common.Net.Global
                     foreach (var prop in props)
                     {
                         if (prop.PropertyType == typeof(char)) continue;
+
+                        if (SkipRuntimeType && prop.Name == "RuntimeType") continue;
 
                         try
                         {
@@ -548,10 +597,8 @@ namespace SystemLibrary.Common.Net.Global
 
         static void InitializeFolders()
         {
-            var dump = AppSettings.Current.SystemLibraryCommonNet.Dump;
-
-            if (dump != null && !Directory.Exists(dump.Folder))
-                Directory.CreateDirectory(dump.Folder);
+            if (!Directory.Exists(Folder))
+                Directory.CreateDirectory(Folder);
         }
 
         static bool IsNullableType(Type type)
@@ -604,15 +651,35 @@ namespace SystemLibrary.Common.Net.Global
         {
             try
             {
-                var path = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+                try
+                {
+                    readWriteLock.AcquireWriterLock(10);
+                }
+                catch
+                {
+                }
 
-                readWriteLock.AcquireWriterLock(15);
-
-                File.AppendAllText(path, message, Encoding.UTF8);
+                File.AppendAllText(LogFullPath, message, Encoding.UTF8);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    File.AppendAllText("C:\\Logs\\errror-writing-to-log-" + DateTime.Now.Millisecond + ".txt", "Error reading to file..." + ex.Message, Encoding.UTF8);
+                }
+                catch
+                {
+                }
             }
             finally
             {
-                readWriteLock.ReleaseWriterLock();
+                try
+                {
+                    readWriteLock.ReleaseWriterLock();
+                }
+                catch
+                {
+                }
             }
         }
     }

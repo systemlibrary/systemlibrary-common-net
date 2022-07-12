@@ -15,6 +15,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Write_And_Clear()
         {
+            System.Threading.Thread.Sleep(50);
             Dump.Write("Hello world");
 
             Assert.IsTrue(File.Exists(DumpPath));
@@ -27,6 +28,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Simple_String()
         {
+            System.Threading.Thread.Sleep(100);
             Dump.Write("String");
 
             var content = File.ReadAllText(DumpPath);
@@ -40,6 +42,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Simple_Int()
         {
+            System.Threading.Thread.Sleep(150);
             Dump.Write(100);
 
             var content = File.ReadAllText(DumpPath);
@@ -53,6 +56,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Poco()
         {
+            System.Threading.Thread.Sleep(200);
             var employees = new List<Employee>();
             employees.Add(new Employee { Age = 10, Title = "DummyTitle", FirstName = "DummyFirstName" });
 
@@ -71,7 +75,9 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_SkipRuntimeType()
         {
+            System.Threading.Thread.Sleep(250);
             Dump.Clear();
+
             var employees = new List<Employee>();
 
             var type = employees.GetType();

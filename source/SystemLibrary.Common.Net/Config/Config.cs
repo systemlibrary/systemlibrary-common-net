@@ -132,9 +132,12 @@ namespace SystemLibrary.Common.Net
     /// <typeparam name="T">T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</typeparam>
     public abstract partial class Config<T> where T : class
     {
-        static bool IsInitialized = false;
-
         static T _Config = default;
+
+        static Config()
+        {
+            _Config = ConfigLoader<T>.Load().Get<T>();
+        }
 
         /// <summary>
         /// Get the current configuration as a Singleton object
@@ -143,14 +146,6 @@ namespace SystemLibrary.Common.Net
         {
             get
             {
-                if (!IsInitialized)
-                {
-                    IsInitialized = true;
-
-                    if (_Config != null) return _Config;
-
-                    _Config = ConfigLoader<T>.Load()?.Get<T>();
-                }
                 return _Config;
             }
         }
