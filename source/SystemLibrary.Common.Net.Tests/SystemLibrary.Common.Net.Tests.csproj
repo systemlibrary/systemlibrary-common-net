@@ -1,135 +1,144 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DefineConstants>
-    </DefineConstants>
-    <Configurations>Release;Unknown;Debug</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>
-    </DefineConstants>
-    <Configurations>Release;Unknown;Debug</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
-    <DefineConstants>
-    </DefineConstants>
-    <Configurations>Release;Unknown</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
-    <DefineConstants>
-    </DefineConstants>
-    <Configurations>Release;Debug;Dev</Configurations>
-  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>
+		</DefineConstants>
+		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docs|AnyCPU'">
+		<DefineConstants>
+		</DefineConstants>
+		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>
+		</DefineConstants>
+		<Configurations>Release;Unknown;Debug</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
+		<DefineConstants>
+		</DefineConstants>
+		<Configurations>Release;Unknown</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
+		<DefineConstants>
+		</DefineConstants>
+		<Configurations>Release;Debug;Dev</Configurations>
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 		<GenerateDependencyFile>true</GenerateDependencyFile>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
-	
-  <PropertyGroup>
-	<TargetFramework>net6.0</TargetFramework>
-	<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
-    <None Remove="Configs\Integration\integrationsettings.json" />
-    <None Remove="mstest.runsettings" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Configs\carSettings.Debug.json">
-        <IsTransformFile>true</IsTransformFile>
-		<DependentUpon>carSettings.json</DependentUpon>
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-	<Content Include="Configs\carSettings.Release.json">
-		<IsTransformFile>true</IsTransformFile>
-		<DependentUpon>carSettings.json</DependentUpon>
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</Content>
-	<Content Include="Configs\EnvironmentConfig\environmentConfig.Debug.json">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <DependentUpon>environmentConfig.json</DependentUpon>
-	  <IsTransformFile>true</IsTransformFile>
-	</Content>
-	<Content Include="Configs\EnvironmentConfig\environmentConfig.json">
-	  <TransformOnBuild>true</TransformOnBuild>
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</Content>
-	<Content Include="Configs\EnvironmentConfig\environmentConfig.Release.json">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <DependentUpon>environmentConfig.json</DependentUpon>
-	  <IsTransformFile>true</IsTransformFile>
-	</Content>
-	<Content Include="Configs\Integration\integrationsettings.json">
-	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  <TransformOnBuild>true</TransformOnBuild>
-	</Content>
-    <Content Include="Configurations\humanConfigs.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Properties\mstest.runsettings">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Configs\carSettings.json">
-      <TransformOnBuild>true</TransformOnBuild>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Configs\AppSettings\appSettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="_Files\data.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="_Files\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="6.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah" Version="4.0.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
-    <PackageReference Include="System.Text.Json" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="app.config" />
-    <Resource Include="appsettings.Debug.json">
-      <IsTransformFile>true</IsTransformFile>
-      <DependentUpon>appsettings.json</DependentUpon>
-    </Resource>
-    <Resource Include="appsettings.Release.json">
-      <IsTransformFile>true</IsTransformFile>
-      <DependentUpon>appsettings.json</DependentUpon>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Configs\Integration\integrationsettings.Release.json">
-      <IsTransformFile>true</IsTransformFile>
-      <DependentUpon>integrationsettings.json</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Properties\launchSettings.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
+		<None Remove="Configs\Integration\integrationsettings.json" />
+		<None Remove="mstest.runsettings" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Configs\carSettings.Debug.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>carSettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\carSettings.Release.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>carSettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\environmentConfig.Debug.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<DependentUpon>environmentConfig.json</DependentUpon>
+			<IsTransformFile>true</IsTransformFile>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\environmentConfig.json">
+			<TransformOnBuild>true</TransformOnBuild>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\environmentConfig.Release.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<DependentUpon>environmentConfig.json</DependentUpon>
+			<IsTransformFile>true</IsTransformFile>
+		</Content>
+		<Content Include="Configs\Integration\integrationsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<TransformOnBuild>true</TransformOnBuild>
+		</Content>
+		<Content Include="Configurations\humanConfigs.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Properties\mstest.runsettings">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\carSettings.json">
+			<TransformOnBuild>true</TransformOnBuild>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettings\appSettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="_Files\data.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="_Files\icon.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="docfx.console" Version="2.59.3" Condition="'$(Configuration)'=='Docs'">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="6.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+		<PackageReference Include="Microsoft.VisualStudio.SlowCheetah" Version="4.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+		<PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+		<PackageReference Include="System.Text.Json" Version="6.0.5" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="app.config" />
+		<Resource Include="appsettings.Debug.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>appsettings.json</DependentUpon>
+		</Resource>
+		<Resource Include="appsettings.Release.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>appsettings.json</DependentUpon>
+		</Resource>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="Configs\Integration\integrationsettings.Release.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>integrationsettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Properties\launchSettings.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 </Project>
