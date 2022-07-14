@@ -87,13 +87,71 @@
       <div role="main" class="container body-content hide-when-search">
 
       
+      <div id="custom-empty-namespaces" style="visibility: hidden; position: absolute; margin-left: -4000px;">
+        [%empty-namespaces%]</div>
       <div class="sidenav hide-when-search">
         <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
         <div class="sidetoggle collapse" id="sidetoggle">
-          <div id="sidetoc"></div>
+          <div id="sidetoc" class="hideonload"></div>
         </div>
       </div>
-
+      
+      <script>
+        var customEmptyNamespacesContainerCompleted = false;
+      
+        function sideTocShowOnLoad() {
+          var sidetoc = document.getElementById('sidetoc');
+          sidetoc.classList.remove('hideonload');
+        }
+      
+        function hideNamespacesInTocOnLoad() {
+          if (customEmptyNamespacesContainerCompleted == true) {
+            return;
+          }
+          var customEmptyNamespacesContainer = document.getElementById('custom-empty-namespaces');
+          if (customEmptyNamespacesContainer) {
+            var innerHtml = customEmptyNamespacesContainer.innerHTML;
+            if (innerHtml && innerHtml.length > 1) {
+      
+              var toc = document.getElementById('toc');
+      
+              if (toc && toc.querySelector) {
+                customEmptyNamespacesContainerCompleted = true;
+                var namespaces = innerHtml.split(',');
+                if (namespaces && namespaces.length > 0) {
+                  for (var i = 0; i < namespaces.length; i++) {
+                    var namespace = namespaces[i].replace(/(\r\n|\n|\r)/gm, "");
+                    if (namespace && namespace.length > 1) {
+                      namespace = namespace.replace(/ /g, '');
+                      var q = '[title="' + namespace + '"]';
+                      var href = toc.querySelector(q);
+                      if (typeof (href) !== 'undefined' && href && href.classList) {
+                        var parent = href.parentNode;
+                        if (parent && parent.remove) {
+                          parent.remove();
+                        }
+                      }
+                    }
+                  }
+                }
+      
+                sideTocShowOnLoad();
+              }
+            }
+          }
+        }
+      
+      
+        setTimeout(() => sideTocShowOnLoad(), 225);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 225);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 188);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 155);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 132);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 99);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 66);
+        setTimeout(() => hideNamespacesInTocOnLoad(), 33);
+      
+      </script>
       <div class="article-row-container">
         <div class="article row grid-right">
         <div class="article row grid">
@@ -162,6 +220,7 @@
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" class="h4-custom-functionName">public static IEnumerable&lt;T&gt; DistinctBy&lt;T, TKey&gt;(this IEnumerable&lt;T&gt; items, Func&lt;T, TKey&gt; selector)
+
     where T : class</h4>
   	<div class="custom-menu-data-container">
   		<div class="custom-menu-data-name" style="display: none;">
@@ -271,6 +330,7 @@ var list = list.DistinctBy(x => x.Name).ToList();
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)" class="h4-custom-functionName">public static bool Has&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, T value)
+
     where T : IComparable, IConvertible</h4>
   	<div class="custom-menu-data-container">
   		<div class="custom-menu-data-name" style="display: none;">
@@ -367,6 +427,7 @@ var list = list.DistinctBy(x => x.Name).ToList();
   
   <div class="custom-menu-data">
   	<h4 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object_" data-uid="SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Object)" class="h4-custom-functionName">public static bool Has&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, object value)
+
     where T : class</h4>
   	<div class="custom-menu-data-container">
   		<div class="custom-menu-data-name" style="display: none;">
