@@ -350,6 +350,11 @@ public static class Dump
 
 namespace SystemLibrary.Common.Net.Global
 {
+    /// <summary>
+    /// Global dumping of 'any' object to a local file for easy debugging and logging
+    /// - look at it as javascripts 'console.log'
+    /// - calls to Dump.Write should not go to your production environment
+    /// </summary>
     public static class Dump
     {
         static string LogFullPath;

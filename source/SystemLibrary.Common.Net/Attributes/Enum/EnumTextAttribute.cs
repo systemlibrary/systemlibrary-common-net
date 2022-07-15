@@ -28,7 +28,7 @@ namespace SystemLibrary.Common.Net.Attributes;
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
 public class EnumTextAttribute : Attribute
 {
-    public string Text { get; set; }
+    public string Text;
 
     /// <param name="text">Set additional text metadata for the Enum key</param>
     public EnumTextAttribute(string text = null)

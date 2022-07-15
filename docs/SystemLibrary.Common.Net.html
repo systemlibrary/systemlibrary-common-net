@@ -87,8 +87,8 @@
       <div role="main" class="container body-content hide-when-search">
 
       
-      <div id="custom-empty-namespaces" style="visibility: hidden; position: absolute; margin-left: -4000px;">
-        [%empty-namespaces%]</div>
+      <div id="custom-skipDocumentationFor" style="visibility: hidden; position: absolute; margin-left: -4000px;">
+        DocFxHide</div>
       <div class="sidenav hide-when-search">
         <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
         <div class="sidetoggle collapse" id="sidetoggle">
@@ -97,38 +97,54 @@
       </div>
       
       <script>
-        var customEmptyNamespacesContainerCompleted = false;
-      
         function sideTocShowOnLoad() {
           var sidetoc = document.getElementById('sidetoc');
           sidetoc.classList.remove('hideonload');
         }
       
-        function hideNamespacesInTocOnLoad() {
-          if (customEmptyNamespacesContainerCompleted == true) {
-            return;
-          }
-          var customEmptyNamespacesContainer = document.getElementById('custom-empty-namespaces');
-          if (customEmptyNamespacesContainer) {
-            var innerHtml = customEmptyNamespacesContainer.innerHTML;
+        function hideLinksQueryBasedInToc() {
+          var skipDocumentationForContainer = document.getElementById('custom-skipDocumentationFor');
+          if (skipDocumentationForContainer) {
+      
+            var innerHtml = skipDocumentationForContainer.innerHTML;
             if (innerHtml && innerHtml.length > 1) {
       
               var toc = document.getElementById('toc');
-      
               if (toc && toc.querySelector) {
-                customEmptyNamespacesContainerCompleted = true;
-                var namespaces = innerHtml.split(',');
-                if (namespaces && namespaces.length > 0) {
-                  for (var i = 0; i < namespaces.length; i++) {
-                    var namespace = namespaces[i].replace(/(\r\n|\n|\r)/gm, "");
-                    if (namespace && namespace.length > 1) {
-                      namespace = namespace.replace(/ /g, '');
-                      var q = '[title="' + namespace + '"]';
-                      var href = toc.querySelector(q);
-                      if (typeof (href) !== 'undefined' && href && href.classList) {
-                        var parent = href.parentNode;
-                        if (parent && parent.remove) {
-                          parent.remove();
+      
+                var queries = innerHtml.split(',');
+                if (queries && queries.length > 0) {
+      
+                  for (var i = 0; i < queries.length; i++) {
+                    var query = queries[i].replace(/(\r\n|\n|\r)/gm, "");
+                    if (query && query.length > 1) {
+                      query = query.replace(/ /g, '');
+      
+                      if (query.includes('.')) {
+                        var links = toc.getElementsByTagName('a');
+      
+                        if (links) {
+                          var queryLowered = query.toLowerCase();
+                          for (var j = 0; j < links.length; j++) {
+                            var link = links[j];
+      
+                            if (link && link.pathname && link.pathname.toLowerCase().includes(queryLowered)) {
+                              var parent = link.parentNode;
+                              if (parent && parent.remove) {
+                                parent.remove();
+                              }
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        var q = '[title="' + query + '"]';
+                        var href = toc.querySelector(q);
+                        if (typeof (href) !== 'undefined' && href && href.classList) {
+                          var parent = href.parentNode;
+                          if (parent && parent.remove) {
+                            parent.remove();
+                          }
                         }
                       }
                     }
@@ -141,15 +157,7 @@
           }
         }
       
-      
-        setTimeout(() => sideTocShowOnLoad(), 225);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 225);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 188);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 155);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 132);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 99);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 66);
-        setTimeout(() => hideNamespacesInTocOnLoad(), 33);
+        setTimeout(() => sideTocShowOnLoad(), 500);
       
       </script>
       <div class="article-row-container">
@@ -166,15 +174,15 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Assemblies.html">Assemblies</a></h4>
-      <section><p>Class to find types and embedded resources in loaded Assemblies</p>
+      <section id="SystemLibrary.Common.Net.Assemblies--description"><p>Class to find types and embedded resources in loaded Assemblies</p>
 <p>Built on System.Reflection.Assembly</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Async.html">Async</a></h4>
-      <section><p>Contains methods for running functions in a non-blocking way</p>
+      <section id="SystemLibrary.Common.Net.Async--description"><p>Contains methods for running functions in a non-blocking way</p>
 <p>NOTE: Might be removed at a later point in time or rewritten/restructured completely</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config&lt;T&gt;</a></h4>
-      <section><p>Class for creating configurations (xml or json) files next to your code files</p>
+      <section id="SystemLibrary.Common.Net.Config`1--description"><p>Class for creating configurations (xml or json) files next to your code files</p>
 <p>Configurations must be placed in either:
 ~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
 <p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then</p>
@@ -190,13 +198,13 @@
 <p>WARNING: The generic T cannot be a nested class</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html"></a></h4>
-      <section></section>
+      <section id="SystemLibrary.Common.Net.DocFxHide--description"></section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></h4>
-      <section><p>Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file</p>
+      <section id="SystemLibrary.Common.Net.EnvironmentConfig--description"><p>Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file</p>
 <p>You can inherit EnvironmentConfig and implement your own 'IsStaging' for instance</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.SystemType.html">SystemType</a></h4>
-      <section><p>System type contains a list of static type variables so the call to 'typeof' is done once</p>
+      <section id="SystemLibrary.Common.Net.SystemType--description"><p>System type contains a list of static type variables so the call to 'typeof' is done once</p>
 </section>
 </article>
           </div>

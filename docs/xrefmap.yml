@@ -155,14 +155,7 @@ references:
 - uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
   name: Text
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html#SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text
-  commentId: P:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
-  fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
-  nameWithType: EnumTextAttribute.Text
-- uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text*
-  name: Text
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html#SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text_
-  commentId: Overload:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
-  isSpec: "True"
+  commentId: F:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
   fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
   nameWithType: EnumTextAttribute.Text
 - uid: SystemLibrary.Common.Net.Attributes.EnumValueAttribute

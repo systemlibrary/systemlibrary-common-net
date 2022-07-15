@@ -12,8 +12,9 @@ A library of classes and methods for any .NET &gt;= 5 application
 ## Requirements
 - &gt;= .NET 6
 
-## Latest Version
+## Latest Version - 3.1.0.1
 - Upgraded target framework to .NET 6
+- Breaking change: "EnumTextValue.Value" to field instead of property
 - Updated docs
 
 ## Version history
