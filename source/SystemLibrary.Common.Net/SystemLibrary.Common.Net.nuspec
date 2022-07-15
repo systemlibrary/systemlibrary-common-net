@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>3.1.0.1</version>
+		<version>3.1.0.2</version>
 
 		<authors>System Library</authors>
 
@@ -24,7 +24,7 @@
 		
 		<description>
 ## Description
-A library of classes and methods for any .NET &gt;= 5 application
+A library of classes and methods for any .NET &gt;= 6 application
 - Common useful extensions for strings, arrays, ...
 - Custom config class by inheriting Config&lt;&gt; and it auto-reads your json config file into the C# class
 - Dump.Write() equivalent to Console.Log in javascript
@@ -33,7 +33,7 @@ A library of classes and methods for any .NET &gt;= 5 application
 - Fire and Forget through Async.Run()
 
 ## Requirements
-- &gt;= .NET 5
+- &gt;= .NET 6
 
 ## Latest Version
 https://github.com/systemlibrary/systemlibrary-common-net#latest-version
@@ -50,7 +50,7 @@ support@systemlibrary.com
 
 		<copyright>Copyright © System Library</copyright>
 
-		<tags>C# .NET 5.0 Config Extensions</tags>
+		<tags>C# .NET 6.0 Config Extensions</tags>
 
 		<dependencies>
 			<dependency id="Microsoft.Extensions.Configuration.Binder" version="6" />
