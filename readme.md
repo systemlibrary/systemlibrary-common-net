@@ -1,7 +1,7 @@
 # SystemLibrary Common Net
 
 ## Description
-A library of classes and methods for any .NET &gt;= 5 application
+A library of classes and methods for any .NET &gt;= 6 application
 - Common useful extensions for strings, arrays, ...
 - Custom config class by inheriting Config&lt;&gt; and it auto-reads your json config file into the C# class
 - Dump.Write() equivalent to Console.Log in javascript
