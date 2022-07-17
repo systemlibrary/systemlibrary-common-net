@@ -142,12 +142,6 @@ namespace SystemLibrary.Common.Net
         /// <summary>
         /// Get the current configuration as a Singleton object
         /// </summary>
-        public static T Current
-        {
-            get
-            {
-                return _Config;
-            }
-        }
+        public static T Current => _Config;
     }
 }

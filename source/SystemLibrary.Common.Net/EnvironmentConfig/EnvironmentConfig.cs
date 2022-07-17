@@ -5,9 +5,9 @@ namespace SystemLibrary.Common.Net
     /// <summary>
     /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
     /// 
-    /// You can inherit EnvironmentConfig and implement your own 'IsStaging' for instance
+    /// Inherits this EnvironmentConfig&gt;T&lt so  add your own functionality and properties to the EnvironmentConfig
     /// </summary>
-    public class EnvironmentConfig : Config<EnvironmentConfig> 
+    public abstract class EnvironmentConfig<T> : Config<T> where T : class
     {
         enum Environment
         {
@@ -27,7 +27,7 @@ namespace SystemLibrary.Common.Net
             Prod,
             Production
         }
-      
+
         Environment? _EnvironmentName;
         Environment EnvironmentName
         {
@@ -263,7 +263,7 @@ namespace SystemLibrary.Common.Net
         {
             get
             {
-                if(_IsLocal == null)
+                if (_IsLocal == null)
                     _IsLocal = !IsTest && !IsProd;
 
                 return _IsLocal.Value;
@@ -308,5 +308,14 @@ namespace SystemLibrary.Common.Net
                 return _IsTest.Value;
             }
         }
+    }
+
+    /// <summary>
+    /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
+    /// 
+    /// You can inherit EnvironmentConfig by using the generic class and then implement your own 'IsStaging' for instance or add additional properties to the EnvironmentConfig
+    /// </summary>
+    public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
+    {
     }
 }

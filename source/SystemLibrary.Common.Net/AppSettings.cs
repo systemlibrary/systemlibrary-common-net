@@ -13,7 +13,8 @@ namespace SystemLibrary.Common.Net;
 ///     "systemLibraryCommonNet": {
 ///         "dump": {
 ///             "folder": "C:\\logs\\",
-///             "fileName": "output.log"
+///             "fileName": "output.log",
+///             "skipRuntimeType": true,
 ///         },
 ///         "json": {
 ///             "writeIndented": false,

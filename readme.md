@@ -1,21 +1,22 @@
 # SystemLibrary Common Net
 
 ## Description
-A library of classes and methods for any .NET &gt;= 6 application
-- Common useful extensions for strings, arrays, ...
-- Custom config class by inheriting Config&lt;&gt; and it auto-reads your json config file into the C# class
-- Dump.Write() equivalent to Console.Log in javascript
-- Convert to/from Json through method ".ToJson()" on any object
-- Convert parts of a json response to a C# class through .PartialJson() extension method
-- Fire and Forget through Async.Run()
+Library with classes and methods for any .NET &gt;= 6 application
+- Extensions for strings and arrays, such as "Is()" and "IsNot()"
+- Configuration class Config&lt;&gt; which auto reads json into C# class with transformations
+- Dump.Write() which is "equivalent" to Console.Log in javascript
+- Convert to and from json through .ToJson() on any object
+- Convert parts of a json text to a C# class through .PartialJson() string extension method
+- Simple fire and forget in 'Async.Run()'
 
 ## Requirements
 - &gt;= .NET 6
 
-## Latest Version - 3.1.0.1
-- Upgraded target framework to .NET 6
-- Breaking change: "EnumTextValue.Value" to field instead of property
-- Updated docs
+## Latest Version
+- 6.0.0.1
+- Bumped major version to 6, to reflect it's .NET 6 and "above"
+- Added a generic EnvironmentConfig to be used for inheritance if you need your own environment settings
+- Few comments adjustes on some types
 
 ## Version history
 - View git history of this file if interested
