@@ -12,6 +12,23 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
     {
         const string DumpPath = "C:\\Logs\\systemlibrary-common-net-tests.log";
 
+
+        [TestMethod]
+        public void Dump_Clear_Multiple_Times_DoesNotThrow()
+        {
+            Dump.Clear();
+            Dump.Clear();
+            Dump.Clear();
+            Dump.Write("Hello world");
+            Dump.Write("Hello world");
+            Dump.Clear();
+            Dump.Clear();
+            Dump.Clear();
+            Dump.Write("Hello world");
+            Dump.Clear();
+            Dump.Clear();
+        }
+
         [TestMethod]
         public void Dump_Write_And_Clear()
         {
