@@ -117,8 +117,12 @@
       
                   for (var i = 0; i < queries.length; i++) {
                     var query = queries[i].replace(/(\r\n|\n|\r)/gm, "");
+      
                     if (query && query.length > 1) {
                       query = query.replace(/ /g, '');
+      
+                      query = query.replace('__-1_', '<');
+                      query = query.replace('__-2_', '>');
       
                       if (query.includes('.')) {
                         var links = toc.getElementsByTagName('a');
@@ -192,6 +196,7 @@
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="text-break h1-class-header">Config&lt;T&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="h1-custom-display className">public abstract class Config&lt;T&gt;
+
     where T : class</h1>
   
   <div class="inheritance">

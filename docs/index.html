@@ -115,8 +115,12 @@
       
                   for (var i = 0; i < queries.length; i++) {
                     var query = queries[i].replace(/(\r\n|\n|\r)/gm, "");
+      
                     if (query && query.length > 1) {
                       query = query.replace(/ /g, '');
+      
+                      query = query.replace('__-1_', '<');
+                      query = query.replace('__-2_', '>');
       
                       if (query.includes('.')) {
                         var links = toc.getElementsByTagName('a');

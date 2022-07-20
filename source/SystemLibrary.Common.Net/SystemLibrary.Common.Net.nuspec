@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>6.0.0.1</version>
+		<version>6.0.0.2</version>
 
 		<authors>System Library</authors>
 
@@ -53,6 +53,7 @@ support@systemlibrary.com
 		<tags>C# .NET 6.0 Config Extensions</tags>
 
 		<dependencies>
+			<dependency id="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" version="6.0.7" />
 			<dependency id="Microsoft.Extensions.Configuration.Binder" version="6" />
 			<dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="6" />
 			<dependency id="Microsoft.Extensions.Configuration.Json" version="6" />

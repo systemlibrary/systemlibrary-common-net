@@ -6,7 +6,6 @@ using System.Text.Json;
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
 using SystemLibrary.Common.Net.Extensions;
-
 /// <summary>
 /// This class contains extension methods for Strings
 /// 
@@ -560,7 +559,6 @@ public static class StringExtensions
         return JsonSerializer.Deserialize<T>(json, options);
     }
 }
-
 
 namespace SystemLibrary.Common.Net.Global
 {
