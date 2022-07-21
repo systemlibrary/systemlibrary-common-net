@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html",
-          "hash": "G82FjaH5/rAAlt07A22EOddtwz+LgAsJW4iBFaSZusI="
+          "hash": "qH9+9bQzC26RXGpOBafBAKHK05Qph63BqjFdLmQ9qps="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html",
-          "hash": "3Ig/ys43eFauf8CLenwu3QIbSz5EWWggFcEic8iBEKI="
+          "hash": "ouoKU5LGad49dWO9zbhFO6gegxU+1tQHkmVaXF0v+vE="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html",
-          "hash": "tuFtUBP42yH+fAdqXUwqKqjezBW82xxhIW8Erd7kWrg="
+          "hash": "PJVTg6xR9uDQWrQd3dvah7KKAFmLTdbvZvBm+TeeYto="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html",
-          "hash": "62O8YJzfPZxyybuD7n8gIo+5H0CfTTVVaRCqTvMRFfo="
+          "hash": "CVvLN8bOJDRFu0v8oQy0LMfaiN8Yf0QTTk/VtgpZpUI="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html",
-          "hash": "eZZH5XW6dVQWFwTRGiSbdNIJoMfdCZ75SPd3TPIFZkM="
+          "hash": "TXTsAIAMIavHHLnkmEF629TtAhZmGBrZ1/j5M+NeJ18="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
-          "hash": "kj8oNlKaqJ85Yu2AgwHRnHjGfot5+BLlccc1nEAliJY="
+          "hash": "ECeF0Rd/AVE2vuw30A+NODzoHYinIrVtJCr0hVyB6dY="
         }
       },
       "is_incremental": false,
@@ -307,23 +307,25 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 1
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 23,
-          "skipped_file_count": 12
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -336,8 +338,8 @@
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

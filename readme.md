@@ -13,8 +13,11 @@ Library with classes and methods for any .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.0.0.2
-- Added missing nuget dependency to the nuspec, so some functions threw exception, which required manually downloading a package
+- 6.0.0.3
+- Bumped major version to 6, to reflect it's .NET 6 and "above"
+- Added a generic EnvironmentConfig to be used for inheritance if you need your own environment settings
+- Few comments adjustes on some types
+- Version 6.0.0.2 was a mistakce - a wrong nuspec dependency got added to the nuspec file
 
 ## Version history
 - View git history of this file if interested
