@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -210,6 +209,100 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
             Assert.IsTrue("https://www.hello.world.com".GetPrimaryDomain() == "world.com");
             Assert.IsTrue("https://www.hello.world.web".GetPrimaryDomain() == "world.web");
             Assert.IsTrue("https://www.hello.world.config".GetPrimaryDomain() == "config.com");
+        }
+
+        [TestMethod]
+        public void HexDarkenOrLighten_Tests()
+        {
+            var value = "";
+            var expected = "";
+            var result = "";
+            result = value.HexDarkenOrLighten();
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#12";
+            expected = "";
+            try
+            {
+                result = value.HexDarkenOrLighten();
+
+                Assert.IsTrue(false, "Exception was not thrown");
+            }
+            catch
+            {
+                Assert.IsTrue(true);
+            }
+
+            value = "#000000";
+            expected = "#FFFFFF";
+            result = value.HexDarkenOrLighten(auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#FFFFFF";
+            expected = "#4F4F4F";
+            result = value.HexDarkenOrLighten(auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#414141";
+            expected = "#EBEBEB";
+            result = value.HexDarkenOrLighten(auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#414141";
+            expected = "#141414";
+            result = value.HexDarkenOrLighten(auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#414141";
+            expected = "#555555";
+            result = value.HexDarkenOrLighten(factor: -0.31, auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#AAAAAA";
+            expected = "#DFDFDF";
+            result = value.HexDarkenOrLighten(factor: -0.31, auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#DFDFDF";
+            expected = "#252525";
+            result = value.HexDarkenOrLighten(factor: -0.31, auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#66FF00";
+            expected = "#864F00";
+            result = value.HexDarkenOrLighten(factor: -0.31, auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#8f8f33";
+            expected = "#CACA48";
+            result = value.HexDarkenOrLighten(factor: -0.41, auto: false);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#FFFFFF";
+            expected = "#030303";
+            result = value.HexDarkenOrLighten(factor: 0.99, auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#8f8f33";
+            expected = "#0101CD";
+            result = value.HexDarkenOrLighten(factor: 0.99, auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#030303";
+            expected = "#FCFCFC";
+            result = value.HexDarkenOrLighten(factor: 0.99, auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#030303";
+            expected = "#FFFFFF";
+            result = value.HexDarkenOrLighten(factor: 0.01, auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
+            value = "#FFFFFF";
+            expected = "#4F4F4F";
+            result = value.HexDarkenOrLighten(factor: 0.31, auto: true);
+            Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+
         }
     }
 }

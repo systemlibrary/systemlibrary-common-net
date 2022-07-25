@@ -786,6 +786,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
   nameWithType: StringExtensions.GetPrimaryDomain
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  name: HexDarkenOrLighten(String, Double, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String, System.Double, System.Boolean)
+  nameWithType: StringExtensions.HexDarkenOrLighten(String, Double, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*
+  name: HexDarkenOrLighten
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  nameWithType: StringExtensions.HexDarkenOrLighten
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
   name: Is(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_

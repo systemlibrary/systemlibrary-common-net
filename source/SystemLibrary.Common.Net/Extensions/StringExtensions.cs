@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.Json;
 
 using SystemLibrary.Common.Net;
@@ -558,6 +560,97 @@ public static class StringExtensions
 
         return JsonSerializer.Deserialize<T>(json, options);
     }
+
+    /// <summary>
+    /// Darken or lighten a hex value by a factor
+    /// 
+    /// - pass a positive factor to darken
+    /// - pass a negative factor to lighten
+    /// 
+    /// - factor is a number between 0 and 1
+    /// 
+    /// - pass auto: true, to automatically check difference in the new value, and if it is too small, the value is rather darkened instead of lightened, or ligtened instead of darkened
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "#FFF";
+    /// var newValue = value.HexDarkenOrLighten();
+    /// //newValue is 
+    /// 
+    /// </code>
+    /// </example>
+    public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)
+    {
+        if (hex.IsNot()) return hex;
+
+        var hasHex = hex.StartsWith("#");
+        if (hasHex)
+            hex = hex.Substring(1);
+
+        if (hex.Length != 6 && hex.Length != 3)
+            throw new Exception("Hex is out of range, must be either 6 or 3, like: #FFF or #000000");
+
+        int partLength = hex.Length == 6 ? 2 : 1;
+
+        var color = new StringBuilder("");
+
+        IEnumerable<string> SplitHex(string hex, int partLength)
+        {
+            for (var i = 0; i < hex.Length; i += partLength)
+                yield return hex.Substring(i, Math.Min(partLength, hex.Length - i));
+        }
+
+        double colorValue;
+
+        var minDiff = 55;
+        foreach (var part in SplitHex(hex, partLength))
+        {
+            var number = Convert.ToInt32(part, 16);
+
+            if (factor < 0)
+            {
+                colorValue = number - (number * factor);
+
+                if (auto && colorValue - number <= minDiff)
+                {
+                    if (colorValue <= 128)
+                        colorValue = 255 - number;
+                    else
+                        colorValue = colorValue - number;
+                }
+
+                if (colorValue > 255)
+                    colorValue = colorValue - 255;
+            }
+            else
+            {
+                colorValue = number * factor;
+
+                if (auto && number - colorValue <= minDiff)
+                {
+                    if (colorValue <= 128)
+                        colorValue = 255 - colorValue;
+                    else
+                        colorValue = number - colorValue;
+                }
+                if (colorValue > 255)
+                    colorValue = colorValue - 255;
+
+            }
+
+            var temp = Convert.ToInt32(colorValue).ToString("X");
+
+            if (temp.Length == 1)
+                temp = "0" + temp;
+
+            color.Append(temp);
+        }
+
+        if (hasHex)
+            return "#" + color;
+
+        return color.ToString();
+    }
 }
 
 namespace SystemLibrary.Common.Net.Global
@@ -1113,6 +1206,97 @@ namespace SystemLibrary.Common.Net.Global
             options = PartialJsonSearcher.Default(options);
 
             return JsonSerializer.Deserialize<T>(json, options);
+        }
+
+        /// <summary>
+        /// Darken or lighten a hex value by a factor
+        /// 
+        /// - pass a positive factor to darken
+        /// - pass a negative factor to lighten
+        /// 
+        /// - factor is a number between 0 and 1
+        /// 
+        /// - pass auto: true, to automatically check difference in the new value, and if it is too small, the value is rather darkened instead of lightened, or ligtened instead of darkened
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// var value = "#FFF";
+        /// var newValue = value.HexDarkenOrLighten();
+        /// //newValue is 
+        /// 
+        /// </code>
+        /// </example>
+        public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)
+        {
+            if (hex.IsNot()) return hex;
+
+            var hasHex = hex.StartsWith("#");
+            if (hasHex)
+                hex = hex.Substring(1);
+
+            if (hex.Length != 6 && hex.Length != 3)
+                throw new Exception("Hex is out of range, must be either 6 or 3, like: #FFF or #000000");
+
+            int partLength = hex.Length == 6 ? 2 : 1;
+
+            var color = new StringBuilder("");
+
+            IEnumerable<string> SplitHex(string hex, int partLength)
+            {
+                for (var i = 0; i < hex.Length; i += partLength)
+                    yield return hex.Substring(i, Math.Min(partLength, hex.Length - i));
+            }
+
+            double colorValue;
+
+            var minDiff = 55;
+            foreach (var part in SplitHex(hex, partLength))
+            {
+                var number = Convert.ToInt32(part, 16);
+
+                if (factor < 0)
+                {
+                    colorValue = number - (number * factor);
+
+                    if (auto && colorValue - number <= minDiff)
+                    {
+                        if (colorValue <= 128)
+                            colorValue = 255 - number;
+                        else
+                            colorValue = colorValue - number;
+                    }
+
+                    if (colorValue > 255)
+                        colorValue = colorValue - 255;
+                }
+                else
+                {
+                    colorValue = number * factor;
+
+                    if (auto && number - colorValue <= minDiff)
+                    {
+                        if (colorValue <= 128)
+                            colorValue = 255 - colorValue;
+                        else
+                            colorValue = number - colorValue;
+                    }
+                    if (colorValue > 255)
+                        colorValue = colorValue - 255;
+
+                }
+
+                var temp = Convert.ToInt32(colorValue).ToString("X");
+
+                if (temp.Length == 1)
+                    temp = "0" + temp;
+
+                color.Append(temp);
+            }
+            
+            if (hasHex)
+                return "#" + color;
+
+            return color.ToString();
         }
     }
 }
