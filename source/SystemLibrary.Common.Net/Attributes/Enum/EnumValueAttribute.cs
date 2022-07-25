@@ -35,11 +35,10 @@ namespace SystemLibrary.Common.Net.Attributes;
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
 public class EnumValueAttribute : Attribute
 {
-    public string Value;
+    public object Value;
 
-    /// <param name="value">Set additional data metadata for the Enum key</param>
     public EnumValueAttribute(object value)
     {
-        this.Value = value + "";
+        this.Value = value;
     }
 }

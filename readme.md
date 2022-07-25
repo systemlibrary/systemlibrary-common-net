@@ -13,11 +13,8 @@ Library with classes and methods for any .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.0.0.3
-- Bumped major version to 6, to reflect it's .NET 6 and "above"
-- Added a generic EnvironmentConfig to be used for inheritance if you need your own environment settings
-- Few comments adjustes on some types
-- Version 6.0.0.2 was a mistakce - a wrong nuspec dependency got added to the nuspec file
+- 6.0.0.5
+- Added enum extension ToObjectValue() so the EnumValue(123) for instance, now returns the int 123 and not string "123"
 
 ## Version history
 - View git history of this file if interested

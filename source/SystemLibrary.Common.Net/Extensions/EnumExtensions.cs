@@ -128,21 +128,21 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <summary>
         /// Gets the EnumValue-attribute's value, fallback to enumField.ToString()
         /// 
-        /// Can return null if the EnumValue-attribute exists and has a value of null
+        /// Cannot return null
         /// </summary>
         /// <example>
         /// <code class="language-csharp hljs">
         /// enum EnumColor
         /// {
         ///     [EnumText("White")]
-        ///     [EnumValue("BlackAndWhite")]
+        ///     [EnumValue(1234)]
         ///     Black,
         ///     
         ///     Pink
         /// }
         ///
         /// var value = EnumColor.Black.ToValue();
-        /// //BlackAndWhite
+        /// //"1234" as string
         /// 
         /// var value = EnumColor.Pink.ToValue();
         /// //Pink
@@ -153,9 +153,42 @@ namespace SystemLibrary.Common.Net.Extensions
             var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 
             if (valueAttribute != null)
+                return valueAttribute.Value + "";
+
+            return enumField + "";
+        }
+
+        /// <summary>
+        /// Gets the EnumValue-attribute's object value, fall back to the Enum itself
+        /// 
+        /// Can return null if the EnumValue-attribute exists and has a value of null
+        /// </summary>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// enum EnumColor
+        /// {
+        ///     [EnumText("White")]
+        ///     [EnumValue(1234)]
+        ///     Black,
+        ///     
+        ///     Pink
+        /// }
+        ///
+        /// var value = EnumColor.Black.ToObjectValue();
+        /// //1234
+        /// 
+        /// var value = EnumColor.Pink.ToObjectValue();
+        /// //Pink, the Enum
+        /// </code>
+        /// </example>
+        public static object ToObjectValue(this Enum enumField)
+        {
+            var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
+
+            if (valueAttribute != null)
                 return valueAttribute.Value;
 
-            return enumField?.ToString();
+            return enumField;
         }
 
         static T GetAttribute<T>(object value, Type type) where T : Attribute

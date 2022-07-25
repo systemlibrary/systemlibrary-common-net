@@ -50,6 +50,18 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
         }
 
         [TestMethod]
+        public void Enum_To_Object_Value()
+        {
+            EnumTest a = EnumTest.A;
+            EnumTest b = EnumTest.B;
+            EnumTest c = EnumTest.C;
+
+            Assert.AreEqual(a.ToObjectValue(), EnumTest.A, "A");
+            Assert.AreEqual(b.ToObjectValue(), "hello123", "hello123");
+            Assert.AreEqual(c.ToObjectValue(), 100, "100");
+        }
+
+        [TestMethod]
         public void Enum_To_Text()
         {
             EnumTest a = EnumTest.A;

@@ -392,6 +392,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny
   nameWithType: EnumExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
+  name: ToObjectValue(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToObjectValue_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
+  nameWithType: EnumExtensions.ToObjectValue(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue*
+  name: ToObjectValue
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToObjectValue_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue
+  nameWithType: EnumExtensions.ToObjectValue
 - uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText(System.Enum)
   name: ToText(Enum)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToText_System_Enum_

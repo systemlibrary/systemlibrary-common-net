@@ -108,7 +108,7 @@ public static class StringExtensions
                 {
                     if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                     {
-                        if (enumValueAttribute != null && enumValueAttribute.Value?.ToLower() == value)
+                        if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == value)
                             if (Enum.TryParse(enumKey.Name, out result))
                                 return result;
                     }
@@ -755,7 +755,7 @@ namespace SystemLibrary.Common.Net.Global
                     {
                         if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                         {
-                            if (enumValueAttribute != null && enumValueAttribute.Value?.ToLower() == value)
+                            if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "")?.ToLower() == value)
                                 if (Enum.TryParse(enumKey.Name, out result))
                                     return result;
                         }
