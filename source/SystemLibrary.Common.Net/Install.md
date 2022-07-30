@@ -21,7 +21,7 @@
 		{
 			var s = "";
 			var b = s.IsNot(); //IsNot() is one extension in this package, returns true in this case
-								//Lives in the global namespace, so no need to add namespace for this to work
+								 //Lives in the global namespace, so no need to add namespace for this to work
 		}
 	}
 ```

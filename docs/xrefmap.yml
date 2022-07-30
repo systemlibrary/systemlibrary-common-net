@@ -376,6 +376,32 @@ references:
   commentId: T:SystemLibrary.Common.Net.Extensions.EnumExtensions
   fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions
   nameWithType: EnumExtensions
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  name: GetEnumText(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  nameWithType: EnumExtensions.GetEnumText(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText*
+  name: GetEnumText
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText
+  nameWithType: EnumExtensions.GetEnumText
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  name: GetEnumValue(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  nameWithType: EnumExtensions.GetEnumValue(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue*
+  name: GetEnumValue
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue
+  nameWithType: EnumExtensions.GetEnumValue
 - uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny(System.Enum,System.Enum[])
   name: IsAny(Enum, Enum[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_IsAny_System_Enum_System_Enum___
@@ -392,19 +418,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny
   nameWithType: EnumExtensions.IsAny
-- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
-  name: ToObjectValue(Enum)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToObjectValue_System_Enum_
-  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
-  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue(System.Enum)
-  nameWithType: EnumExtensions.ToObjectValue(Enum)
-- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue*
-  name: ToObjectValue
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToObjectValue_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToObjectValue
-  nameWithType: EnumExtensions.ToObjectValue
 - uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText(System.Enum)
   name: ToText(Enum)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToText_System_Enum_
@@ -588,6 +601,67 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson
   nameWithType: ObjectExtensions.ToJson
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  name: StringBuilderExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  nameWithType: StringBuilderExtensions
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)
+  name: EndsWith(StringBuilder, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_System_Text_StringBuilder_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder, System.String, System.Boolean)
+  nameWithType: StringBuilderExtensions.EndsWith(StringBuilder, String, Boolean)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith*
+  name: EndsWith
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith
+  nameWithType: StringBuilderExtensions.EndsWith
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  name: Is(StringBuilder)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_System_Text_StringBuilder_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  nameWithType: StringBuilderExtensions.Is(StringBuilder)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is
+  nameWithType: StringBuilderExtensions.Is
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  name: IsNot(StringBuilder)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_System_Text_StringBuilder_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  nameWithType: StringBuilderExtensions.IsNot(StringBuilder)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot
+  nameWithType: StringBuilderExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])
+  name: TrimEnd(StringBuilder, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_System_Text_StringBuilder_System_String___
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])
+  name.vb: TrimEnd(StringBuilder, String())
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder, System.String())
+  nameWithType: StringBuilderExtensions.TrimEnd(StringBuilder, String[])
+  nameWithType.vb: StringBuilderExtensions.TrimEnd(StringBuilder, String())
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd*
+  name: TrimEnd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd
+  nameWithType: StringBuilderExtensions.TrimEnd
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions
   name: TypeExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html

@@ -56,10 +56,23 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
             EnumTest b = EnumTest.B;
             EnumTest c = EnumTest.C;
 
-            Assert.AreEqual(a.ToObjectValue(), EnumTest.A, "A");
-            Assert.AreEqual(b.ToObjectValue(), "hello123", "hello123");
-            Assert.AreEqual(c.ToObjectValue(), 100, "100");
+            Assert.AreEqual(a.GetEnumValue(), EnumTest.A, "A");
+            Assert.AreEqual(b.GetEnumValue(), "hello123", "hello123");
+            Assert.AreEqual(c.GetEnumValue(), 100, "100");
         }
+
+        [TestMethod]
+        public void Enum_To_Text_Value()
+        {
+            EnumTest a = EnumTest.A;
+            EnumTest b = EnumTest.B;
+            EnumTest c = EnumTest.C;
+
+            Assert.AreEqual(a.GetEnumText(), null, "A is not null");
+            Assert.AreEqual(b.GetEnumText(), "HELLO", "HELLO");
+            Assert.AreEqual(c.GetEnumText(), "Hello World", "Hello World");
+        }
+
 
         [TestMethod]
         public void Enum_To_Text()

@@ -347,6 +347,8 @@ public static class StringExtensions
     /// This is not recursive, so after removal of 1 value, it will return
     /// 
     /// NOTE: Works like "".TrimEnd(), but with multiple strings in one go
+    /// 
+    /// NOTE: It does not implicitly trim spaces, unless you pass spaces as one of the values
     /// </summary>
     /// <returns>Returns the input string as is or without one of the values passed</returns>
     /// <example>

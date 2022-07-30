@@ -126,6 +126,41 @@ namespace SystemLibrary.Common.Net.Extensions
         }
 
         /// <summary>
+        /// Gets the EnumValue-attribute's object value
+        /// 
+        /// Returns null if EnumValue attribute do not exist or its value is actually null
+        /// </summary>
+        /// <example>
+        /// <code class="language-csharp hljs">
+        /// enum EnumColor
+        /// {
+        ///     [EnumText("White")]
+        ///     [EnumValue(1234)]
+        ///     Black,
+        ///     
+        ///     [EnumText((string)null)]
+        ///     Red,
+        ///     Pink
+        /// }
+        ///
+        /// var value = EnumColor.Black.GetEnumText();
+        /// //"White"
+        /// 
+        /// var value = EnumColor.Red.GetEnumText();
+        /// //null
+        /// 
+        /// var value = EnumColor.Pink.GetEnumText();
+        /// //null
+        /// </code>
+        /// </example>
+        public static string GetEnumText(this Enum enumField)
+        {
+            var textAttribute = GetAttribute<EnumTextAttribute>(enumField, SystemType.EnumTextAttributeType);
+
+            return textAttribute?.Text;
+        }
+
+        /// <summary>
         /// Gets the EnumValue-attribute's value, fallback to enumField.ToString()
         /// 
         /// Cannot return null
@@ -159,9 +194,9 @@ namespace SystemLibrary.Common.Net.Extensions
         }
 
         /// <summary>
-        /// Gets the EnumValue-attribute's object value, fall back to the Enum itself
+        /// Gets the EnumValue-attribute's object value
         /// 
-        /// Can return null if the EnumValue-attribute exists and has a value of null
+        /// Returns null if EnumValue attribute do not exist or its value is actually null
         /// </summary>
         /// <example>
         /// <code class="language-csharp hljs">
@@ -174,14 +209,14 @@ namespace SystemLibrary.Common.Net.Extensions
         ///     Pink
         /// }
         ///
-        /// var value = EnumColor.Black.ToObjectValue();
-        /// //1234
+        /// var value = EnumColor.Black.GetEnumValue();
+        /// //1234, an int
         /// 
-        /// var value = EnumColor.Pink.ToObjectValue();
-        /// //Pink, the Enum
+        /// var value = EnumColor.Pink.GetEnumValue();
+        /// //null
         /// </code>
         /// </example>
-        public static object ToObjectValue(this Enum enumField)
+        public static object GetEnumValue(this Enum enumField)
         {
             var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 

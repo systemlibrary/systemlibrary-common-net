@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Config&lt;T&gt;
+    <title>StringBuilderExtensions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Config&lt;T&gt;
+    <meta name="title" content="StringBuilderExtensions
    ">
     <meta name="generator" content="docfx 2.59.3.0">
     
@@ -168,194 +168,43 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Config`1">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions">
   
   
-  <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.html">SystemLibrary.Common.Net</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
+  <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.Extensions.html">SystemLibrary.Common.Net.Extensions</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
   
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Class for creating configurations (xml or json) files next to your code files</p>
-<p>Configurations must be placed in either:
-~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
-<p>Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then</p>
-<p>Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup:</p>
-<ul>
-<li>launchSettings.json when using IIS Express</li>
-<li>web.config if you use IIS</li>
-<li>mstest.runsettings if you run transformations in unit tests</li>
-<li>commandline with --configuration if running as 'exe'</li>
-</ul>
-<p>NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type</p>
-<p>NOTE: Transformations are only ran on the first time '.Current' is invoked</p>
-<p>WARNING: The generic T cannot be a nested class</p>
+    <div class="markdown level0 summary h1-class-summary"><p>String Builder extensions</p>
 </div>
   </div>
   
-  <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="text-break h1-class-header">Config&lt;T&gt;
+  <h1 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions" class="text-break h1-class-header">StringBuilderExtensions
   </h1>
-  <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="h1-custom-display className">public abstract class Config&lt;T&gt;
-
-    where T : class</h1>
+  <h1 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions" class="h1-custom-display className">public static class StringBuilderExtensions</h1>
   
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Config&lt;T&gt;</span></div>
-      <div class="level2"><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig-1.html">EnvironmentConfig&lt;T&gt;</a></div>
+    <div class="level1"><span class="xref">StringBuilderExtensions</span></div>
   </div>
-  <h5 class="typeParameters class-header-tmpl-partial-typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed class-header-tmpl-partial-typeParameters">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   
   
   <div class="custom-menu-data custom-menu-data-first">
-    <h5 id="SystemLibrary_Common_Net_Config_1_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
     <div class="custom-menu-data-container custom-menu-data-container--example">
-      <div class="custom-menu-data-class-example" style="display: none;">
-        <div class="syslib-tab-menu-data--close">X</div>
-        <div class="codewrapper"><ul>
-<li>Create new file '~/TestConfig.json'</li>
-<li>Can also be placed under ~/Configs/ or ~/Configurations/</li>
-</ul>
-<pre><code>{
-    &quot;Name&quot;: &quot;Hello World&quot;,
-    &quot;Number&quot;: 1234,
-
-    &quot;Options&quot;: {
-        &quot;Url&quot;: &quot;https://....&quot;,
-    },
-
-    &quot;ValidPhoneNumbers&quot;: [0,1,2,3]
-}</code></pre>
-<ul>
-<li>Create C# class with same name as your newly created json file and inherit Config&lt;&gt;:</li>
-</ul>
-<pre><code>public class TestConfig : Config&lt;TestConfig> 
-{
-   public string Name { get; set; }
-
-   public int Number { get; set;}
-
-   public ApiOptions Options { get; set; }
-
-   public int[] ValidPhoneNumbers { get; set; }
-}
-
-public class ApiOptions 
-{
-    public string Url { get; set; }
-}</code></pre>
-<p>Usage:</p>
-<pre><code>var testConfig = TestConfig.Current;
-var name = testConfig.Name;
-//name is now Hello World</code></pre>
-<p>Add transformation per 'environmnet' to our newly created TestConfig.json</p>
-<ul>
-<li><p>Add transformation for an environment, lets call it 'dev'</p>
-</li>
-<li><p>Create TestConfig.dev.json file, place it in same folder as TestConfig.json</p>
-<ul>
-<li>Visual Studio should mark the new file as 'IsTransformFile=true' and 'DependentUpon=TestConfig.json'
-<ul>
-<li>If not, try dragging &quot;TestConfig.dev.json&quot; in under &quot;TestConfig.json&quot; via Solution Explorer</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Define only variables that we want to transform:</p>
-</li>
-</ul>
-<pre><code>{
-    &quot;Name&quot;: &quot;Hello Dev!&quot;,
-}</code></pre>
-<p>Here are three ways of specifying the environment, by either launchSettings.json, web.config or mstest.runsettings.</p>
-<p>1 launchSettings.json with IIS:</p>
-<pre><code>{ 
-	...
-	{
-		&quot;profiles&quot;: {
-			&quot;IIS&quot;: {
-				&quot;environmentVariables&quot;: {
-					&quot;ASPNETCORE_ENVIRONMENT&quot;: &quot;Dev&quot;,
-				}
-			}
-		}
-	}
-	...
-}</code></pre>
-<p>2 web.config with IIS or IISExpress:</p>
-<pre><code>&lt;configuration>
-  &lt;location path = &quot;.&quot; inheritInChildApplications=&quot;false&quot;>
-	&lt;/system.webServer>
-	  &lt;aspNetCore processPath = &quot;bin\Demo.exe&quot; arguments=&quot;&quot; stdoutLogEnabled=&quot;false&quot; hostingModel=&quot;inprocess&quot;>
-        &lt;environmentVariables>
-          &lt;environmentVariable name = &quot;ASPNETCORE_ENVIRONMENT&quot; value=&quot;Dev&quot; />
-        &lt;/environmentVariables>
-      &lt;/aspNetCore>
-    &lt;/system.webServer>
-  &lt;/location>
-&lt;/configuration></code></pre>
-<p>3 mstest.runsettings if running through Test Explorer (unit tests):</p>
-<ul>
-<li>Note: add mstest.runsettings to your csproj-variable: 'RunSettingsFilePath'</li>
-<li>Tip: View source code of SystemLibrary.Common.Net.Tests inside the repo SystemLibrary.Common.Net on github</li>
-</ul>
-<pre><code>&lt;RunSettings>
-  &lt;RunConfiguration>
-      &lt;EnvironmentVariables>
-          &lt;ASPNETCORE_ENVIRONMENT>Dev&lt;/ASPNETCORE_ENVIRONMENT></code></pre>
-<p>Usage:</p>
-<ul>
-<li>Assume IISExpress and web.config setup above:</li>
-</ul>
-<pre><code>var testConfig = TestConfig.Current;
-var name = testConfig.Name;
-//name is now equal to &apos;Hello Dev!&apos;, which is our transformed value</code></pre>
-</div>
-        <div class="comment-examples-container-bottom"></div>
-      </div>
     </div>
   </div>
   
   
   <div class="custom-menu-data">
-    <h5 id="SystemLibrary_Common_Net_Config_1_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
   
     <div class="custom-menu-data-container">
       <div class="custom-menu-data-class-arguments" style="display: none;">
         <div class="syslib-tab-menu-data--close">X</div>
-          <h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-          <table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="parametername">T</span></td>
-                <td><p>T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</p>
-</td>
-              </tr>
-            </tbody>
-          </table>
   
       </div>
   
@@ -363,56 +212,284 @@ var name = testConfig.Name;
   </div>
   
   <div class='custom-class-content-inline'>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   <div class="custom-container">
   <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Get the current configuration as a Singleton object</p>
+  	<div class="markdown level1 summary member-summary"><p>Returns true if stringbuilder ends with a certain text, else false</p>
+<ul>
+<li>does not throw exception on null</li>
+<li>pass flag for case sensitivity</li>
+</ul>
 </div>
   	<div class="markdown level1 conceptual member-summary-conceptual"></div>
   </div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_System_Text_StringBuilder_System_String_System_Boolean_">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L145">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringBuilderExtensions.cs/#L32">View Source</a>
   	</span>
   </div>
-  <a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>
+  <a id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith*"></a>
   
   <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Config_1_Current" data-uid="SystemLibrary.Common.Net.Config`1.Current" class="h4-custom-functionName">public static T Current { get; }</h4>
+  	<h4 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_System_Text_StringBuilder_System_String_System_Boolean_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)" class="h4-custom-functionName">public static bool EndsWith(this StringBuilder stringBuilder, string ending, bool caseInsensitive = false)</h4>
   	<div class="custom-menu-data-container">
   
   		<div class="custom-menu-data-arguments" style="display: none;">
   			<div class="syslib-tab-menu-data--close">X</div>
   
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Name</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Text.StringBuilder</span></td>
+  						<td><span class="parametername">stringBuilder</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.String</span></td>
+  						<td><span class="parametername">ending</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.Boolean</span></td>
+  						<td><span class="parametername">caseInsensitive</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
   		</div>
   
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Boolean</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
   	</div>
   </div>
   </div>
   
   
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed propertyValue-table">
-  	<thead>
-  		<tr>
-  			<th>Type</th>
-  			<th>Description</th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  		<tr>
-  			<td><span class="xref">T</span></td>
-  			<td></td>
-  		</tr>
-  	</tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div class="extensionmethods-content">
-  	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_System_Object_System_Text_Json_JsonSerializerOptions_">ObjectExtensions.ToJson(Object, JsonSerializerOptions)</a>
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Returns true if the string builder is not null and has a text length greater than 0</p>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
   </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_System_Text_StringBuilder_">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringBuilderExtensions.cs/#L13">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_System_Text_StringBuilder_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)" class="h4-custom-functionName">public static bool Is(this StringBuilder stringBuilder)</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Name</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Text.StringBuilder</span></td>
+  						<td><span class="parametername">stringBuilder</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Boolean</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Returns true if string builder is null or is empty</p>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_System_Text_StringBuilder_">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringBuilderExtensions.cs/#L21">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_System_Text_StringBuilder_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)" class="h4-custom-functionName">public static bool IsNot(this StringBuilder stringBuilder)</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Name</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Text.StringBuilder</span></td>
+  						<td><span class="parametername">stringBuilder</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Boolean</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  <div class="custom-menu-summary-data">
+  	<div class="markdown level1 summary member-summary"><p>Removes the ending of the text inside the stringbuilder, if it matches the 'ending'</p>
+<p>Returns true if a text was removed, else false</p>
+</div>
+  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  </div>
+  
+  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_System_Text_StringBuilder_System_String___">
+  	<span class="small pull-right mobile-hide">
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringBuilderExtensions.cs/#L70">View Source</a>
+  	</span>
+  </div>
+  <a id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd*"></a>
+  
+  <div class="custom-menu-data">
+  	<h4 id="SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_System_Text_StringBuilder_System_String___" data-uid="SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])" class="h4-custom-functionName">public static bool TrimEnd(this StringBuilder stringBuilder, params string[] values)</h4>
+  	<div class="custom-menu-data-container">
+  
+  		<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  			<table class="table table-bordered table-striped table-condensed">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Name</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Text.StringBuilder</span></td>
+  						<td><span class="parametername">stringBuilder</span></td>
+  						<td></td>
+  					</tr>
+  					<tr>
+  						<td><span class="xref">System.String</span>[]</td>
+  						<td><span class="parametername">values</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  
+  		<div class="custom-menu-data-returntype" style="display: none;">
+  			<div class="syslib-tab-menu-data--close">X</div>
+  
+  			<table class="table table-bordered table-striped table-condensed table-return">
+  				<thead>
+  					<tr>
+  						<th>Type</th>
+  						<th>Description</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<td><span class="xref">System.Boolean</span></td>
+  						<td></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+  </div>
+  
+  
   
   
   <script>
@@ -1059,7 +1136,7 @@ var name = testConfig.Name;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/_Loader.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringBuilderExtensions.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
