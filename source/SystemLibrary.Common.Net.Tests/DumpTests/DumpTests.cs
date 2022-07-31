@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,6 +13,14 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
     {
         const string DumpPath = "C:\\Logs\\systemlibrary-common-net-tests.log";
 
+        [TestMethod] 
+        public void Dump_StringBuilder_Test()
+        {
+            var sb = new StringBuilder("Hello world");
+            Dump.Clear();
+            Dump.Write(sb);
+            Dump.Clear();
+        }
 
         [TestMethod]
         public void Dump_Clear_Multiple_Times_DoesNotThrow()

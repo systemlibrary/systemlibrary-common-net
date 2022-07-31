@@ -90,9 +90,19 @@ public static class Dump
 
     static void Write(object o, int level)
     {
-        if (o is Exception)
+        if (o is Exception ex)
         {
-            WriteToFileWithDateTime((o as Exception)?.ToString());
+            WriteToFileWithDateTime(ex?.ToString());
+            return;
+        }
+        if (o is string s)
+        {
+            WriteToFileWithDateTime(s);
+            return;
+        }
+        if (o is StringBuilder sb)
+        {
+            WriteToFileWithDateTime("StringBuilder: length " + sb.Length + ", capacity " + sb.Capacity + ", value: " + sb.ToString());
             return;
         }
 
@@ -432,9 +442,19 @@ namespace SystemLibrary.Common.Net.Global
 
         static void Write(object o, int level)
         {
-            if (o is Exception)
+            if (o is Exception ex)
             {
-                WriteToFileWithDateTime((o as Exception)?.ToString());
+                WriteToFileWithDateTime(ex?.ToString());
+                return;
+            }
+            if(o is string s)
+            {
+                WriteToFileWithDateTime(s);
+                return;
+            }
+            if(o is StringBuilder sb)
+            {
+                WriteToFileWithDateTime("Length: " + sb.Length + ", Capacity: " + sb.Capacity + ", value: " + sb.ToString());
                 return;
             }
 
