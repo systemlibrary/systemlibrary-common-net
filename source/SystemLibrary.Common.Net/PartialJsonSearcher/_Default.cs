@@ -20,7 +20,8 @@ namespace SystemLibrary.Common.Net
                         PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
                         WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling
+                        ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
+                        NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString
                     };
                 }
                 return _DefaultJsonSerializerOptions;
