@@ -9,8 +9,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         public void Read_EnvironmentConfig_Current_Instance()
         {
             var conf = EnvironmentConfig.Current;
-
-            Dump.Write(conf.Name);
+            
             Assert.IsTrue(conf != null && conf.Name.Is());
         }
 

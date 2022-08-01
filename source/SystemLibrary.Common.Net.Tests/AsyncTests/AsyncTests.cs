@@ -22,9 +22,10 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             System.IO.File.Delete(file);
         }
 
+        static int ExceptionCounter = 0;
         static void Ex(Exception ex)
         {
-            Dump.Write("Error: " + ex);
+            ExceptionCounter++;
         }
 
         [TestMethod]
@@ -46,6 +47,8 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
             System.Threading.Thread.Sleep(4000);
+
+            Assert.IsTrue(ExceptionCounter > 9);
         }
 
         static void Call()
@@ -60,7 +63,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
 
             using (var client = new HttpClient(handler))
             {
-                client.BaseAddress = new Uri("https://systemlibrary.episerver.demo");
+                client.BaseAddress = new Uri("https://www.systemlibrary.com/unknown-url");
                 var response = client.GetStringAsync("")
                     .ConfigureAwait(false)
                     .GetAwaiter()
