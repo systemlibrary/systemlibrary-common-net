@@ -23,6 +23,28 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         }
 
         [TestMethod]
+        public void Dump_Type_Test()
+        {
+            Dump.Clear();
+            Dump.Write(typeof(string));
+            Dump.Write(typeof(StringBuilder));
+            Dump.Write(typeof(List<int>));
+            Dump.Write(typeof(List<>));
+            Dump.Write(typeof(int));
+            Dump.Write(typeof(Dump));
+            Dump.Write(typeof(Config<>));
+            Dump.Write(typeof(Async));
+
+            var content = File.ReadAllText(DumpPath);
+            Assert.IsTrue(content.Is());
+            Assert.IsTrue(content.Contains("System.String"));
+            Assert.IsTrue(content.Contains("Dump"));
+            Assert.IsTrue(content.Contains("SystemLibrary.Common.Net.Async"));
+            Assert.IsTrue(content.Contains("IsClass"));
+            Assert.IsTrue(content.Contains("IsValueType"));
+        }
+
+        [TestMethod]
         public void Dump_Clear_Multiple_Times_DoesNotThrow()
         {
             Dump.Clear();

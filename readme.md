@@ -13,8 +13,9 @@ Library with classes and methods for any .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.0.0.5
-- Added enum extension ToObjectValue() so the EnumValue(123) for instance, now returns the int 123 and not string "123"
+- 6.1.0.2
+- Added StringBuilderExtensions and unit tests
+- Dump.Write - types are outputted with more info 
 
 ## Version history
 - View git history of this file if interested

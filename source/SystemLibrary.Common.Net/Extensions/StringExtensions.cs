@@ -8,6 +8,7 @@ using System.Text.Json;
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
 using SystemLibrary.Common.Net.Extensions;
+
 /// <summary>
 /// This class contains extension methods for Strings
 /// 
@@ -657,6 +658,7 @@ public static class StringExtensions
 
 namespace SystemLibrary.Common.Net.Global
 {
+
     /// <summary>
     /// This class contains extension methods for Strings
     /// 
@@ -757,7 +759,7 @@ namespace SystemLibrary.Common.Net.Global
                     {
                         if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                         {
-                            if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "")?.ToLower() == value)
+                            if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == value)
                                 if (Enum.TryParse(enumKey.Name, out result))
                                     return result;
                         }
@@ -996,6 +998,8 @@ namespace SystemLibrary.Common.Net.Global
         /// This is not recursive, so after removal of 1 value, it will return
         /// 
         /// NOTE: Works like "".TrimEnd(), but with multiple strings in one go
+        /// 
+        /// NOTE: It does not implicitly trim spaces, unless you pass spaces as one of the values
         /// </summary>
         /// <returns>Returns the input string as is or without one of the values passed</returns>
         /// <example>
@@ -1083,7 +1087,7 @@ namespace SystemLibrary.Common.Net.Global
         /// </example> 
         public static string MaxLength(this string text, int maxLength)
         {
-            if (text.IsNot()) return text;
+            if (text.IsNot()) return "";
 
             if (text.Length <= maxLength) return text;
 
@@ -1294,7 +1298,7 @@ namespace SystemLibrary.Common.Net.Global
 
                 color.Append(temp);
             }
-            
+
             if (hasHex)
                 return "#" + color;
 

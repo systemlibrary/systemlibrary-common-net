@@ -106,6 +106,32 @@ public static class Dump
             return;
         }
 
+        if(o is Type t)
+        {
+            string PrintBool(string n, bool b)
+            {
+                if (b)
+                    return ", " + n;
+                return "";
+            }
+            WriteToFileWithDateTime(t.FullName 
+                + PrintBool("IsClass", t.IsClass)
+                + PrintBool("IsInterface", t.IsInterface)
+                + PrintBool("IsEnum", t.IsEnum)
+                + PrintBool("IsValueType", t.IsValueType)
+                + PrintBool("IsAbstract", t.IsAbstract)
+                + PrintBool("IsPrimitive", t.IsPrimitive)
+                + PrintBool("IsArray", t.IsArray)
+                + PrintBool("IsSerializable", t.IsSerializable)
+                + PrintBool("IsAutoClass", t.IsAutoClass)
+                + PrintBool("IsPointer", t.IsPointer)
+                + PrintBool("IsGenericType", t.IsGenericType)
+                + PrintBool("IsGenericParameter", t.IsGenericParameter)
+                + PrintBool("IsGenericMethodParameter", t.IsGenericMethodParameter)
+                );
+            return;
+        }
+
         if (level == 3) return;
 
         var type = o.GetType();
@@ -360,6 +386,7 @@ public static class Dump
 
 namespace SystemLibrary.Common.Net.Global
 {
+
     /// <summary>
     /// Global dumping of 'any' object to a local file for easy debugging and logging
     /// - look at it as javascripts 'console.log'
@@ -447,14 +474,40 @@ namespace SystemLibrary.Common.Net.Global
                 WriteToFileWithDateTime(ex?.ToString());
                 return;
             }
-            if(o is string s)
+            if (o is string s)
             {
                 WriteToFileWithDateTime(s);
                 return;
             }
-            if(o is StringBuilder sb)
+            if (o is StringBuilder sb)
             {
-                WriteToFileWithDateTime("Length: " + sb.Length + ", Capacity: " + sb.Capacity + ", value: " + sb.ToString());
+                WriteToFileWithDateTime("StringBuilder: length " + sb.Length + ", capacity " + sb.Capacity + ", value: " + sb.ToString());
+                return;
+            }
+
+            if (o is Type t)
+            {
+                string PrintBool(string n, bool b)
+                {
+                    if (b)
+                        return ", " + n;
+                    return "";
+                }
+                WriteToFileWithDateTime(t.FullName
+                    + PrintBool("IsClass", t.IsClass)
+                    + PrintBool("IsInterface", t.IsInterface)
+                    + PrintBool("IsEnum", t.IsEnum)
+                    + PrintBool("IsValueType", t.IsValueType)
+                    + PrintBool("IsAbstract", t.IsAbstract)
+                    + PrintBool("IsPrimitive", t.IsPrimitive)
+                    + PrintBool("IsArray", t.IsArray)
+                    + PrintBool("IsSerializable", t.IsSerializable)
+                    + PrintBool("IsAutoClass", t.IsAutoClass)
+                    + PrintBool("IsPointer", t.IsPointer)
+                    + PrintBool("IsGenericType", t.IsGenericType)
+                    + PrintBool("IsGenericParameter", t.IsGenericParameter)
+                    + PrintBool("IsGenericMethodParameter", t.IsGenericMethodParameter)
+                    );
                 return;
             }
 
