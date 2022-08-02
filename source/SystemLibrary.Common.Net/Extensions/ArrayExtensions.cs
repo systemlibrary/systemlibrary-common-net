@@ -12,6 +12,14 @@ namespace SystemLibrary.Common.Net.Extensions
         /// Append one array with other arrays, returning a new array of elements
         /// </summary>
         /// <returns>Returns null if everything is null, else a new array of items</returns>
+        /// <example>
+        /// <code>
+        /// var arr = new int [] { 2 };
+        /// var arr2 = new int [] { 1 };
+        /// var arr3 = arr.Add(arr2);
+        /// //arr3 now contains { 2, 1 }, in that order
+        /// </code>
+        /// </example>
         public static T[] Add<T>(this T[] current, params T[][] additional)
         {
             return Add(current, null, additional);
@@ -23,6 +31,12 @@ namespace SystemLibrary.Common.Net.Extensions
         /// - Pass a predicate method to filter out values
         /// </summary>
         /// <returns>Returns null if everything is null, else a new array of items</returns>
+        /// <code>
+        /// var arr = new int [] { 3,4 };
+        /// var arr2 = new int [] { 1,2,3 };
+        /// var arr3 = arr.Add((i) => i > 1, arr2);
+        /// //arr3 now contains { 2,3,3,4 }, in that order, note the duplicated values
+        /// </code>
         public static T[] Add<T>(this T[] current, Func<T, bool> predicate, params T[][] additional)
         {
             if (additional == null ||
