@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>6.1.0.2</version>
+		<version>6.1.0.3</version>
 
 		<authors>System Library</authors>
 
@@ -24,28 +24,14 @@
 		
 		<description>
 ## Description
-A library of classes and methods for any .NET &gt;= 6 application
-- Common useful extensions for strings, arrays, ...
-- Custom config class by inheriting Config&lt;&gt; and it auto-reads your json config file into the C# class
-- Dump.Write() equivalent to Console.Log in javascript
-- Convert to/from Json through method ".ToJson()" on any object
-- Convert parts of a json response to a C# class through .PartialJson() extension method
-- Fire and Forget through Async.Run()
+A library of classes, methods every .NET &gt;= 6 application
+https://github.com/systemlibrary/systemlibrary-common-net/#Description
 
-## Requirements
-- &gt;= .NET 6
+## Installation
+https://systemlibrary.github.io/systemlibrary-common-net/Install.html
 
-## Latest Version
-https://github.com/systemlibrary/systemlibrary-common-net#latest-version
-
-## Docs
+## Documentation with sample code
 https://systemlibrary.github.io/systemlibrary-common-net/
-
-## Suggestions and feedback
-support@systemlibrary.com
-
-## Lisence
-- It's free forever, copy paste as you'd like
 		</description>
 
 		<copyright>Copyright © System Library</copyright>
