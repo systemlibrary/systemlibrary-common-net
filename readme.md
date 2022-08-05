@@ -2,6 +2,8 @@
 
 ## Description
 Library with classes and methods for every .NET &gt;= 6 application
+
+### Features
 - Extensions for strings, arrays, lists, ... such as "Is()" and "IsNot()"
 - Configuration class Config&lt;&gt; which reads your .json config files into C# classes, including transformations
 - Dump.Write() "equivalent" to console.log in javascript
