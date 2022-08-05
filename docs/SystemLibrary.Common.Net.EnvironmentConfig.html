@@ -130,13 +130,34 @@
                         if (links) {
                           var queryLowered = query.toLowerCase();
                           for (var j = 0; j < links.length; j++) {
-                            var link = links[j];
+                            try {
+                              var link = links[j];
       
-                            if (link && link.pathname && link.pathname.toLowerCase().includes(queryLowered)) {
-                              var parent = link.parentNode;
-                              if (parent && parent.remove) {
-                                parent.remove();
+                              if (link && link.pathname && link.pathname.toLowerCase().includes(queryLowered)) {
+                                var parent = link.parentNode;
+                                if (parent && parent.remove) {
+                                  var namespaceParent = parent.parentNode;
+      
+                                  parent.remove();
+      
+                                  if (namespaceParent && namespaceParent.parentNode) {
+                                    if (namespaceParent.classList.contains('level2')) {
+                                      var namespaceRemainingListItems = namespaceParent.children;
+                                      if (namespaceRemainingListItems && namespaceRemainingListItems.length
+                                        && namespaceRemainingListItems.length > 1) {
+                                      } else {
+                                        var namespaceLink = namespaceParent.parentNode;
+                                        if (namespaceLink && namespaceLink.remove) {
+                                          namespaceLink.remove();
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
+                            }
+                            catch (e) {
+                              console.warn("Error cleaning a link in sidetoc, continuing...");
                             }
                           }
                         }
@@ -176,8 +197,9 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file</p>
-<p>You can inherit EnvironmentConfig by using the generic class and then implement your own 'IsStaging' for instance or add additional properties to the EnvironmentConfig</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Class containing environment variables read from your 'environmentConfig.json', if you have added one</p>
+<p>If you add additional environment configurations to 'environmentConfig.json', then ignore this class, and create your own new class that inherits the generic one: 'EnvironmentConfig&lt;YourClass&gt;'</p>
+<p>See documentation for 'EnvironmentConfig&lt;&gt;', specifically the 'Name' property as that is used for all transformations</p>
 </div>
   </div>
   
@@ -883,7 +905,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L318" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L320" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

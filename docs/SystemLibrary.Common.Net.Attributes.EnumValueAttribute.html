@@ -130,13 +130,34 @@
                         if (links) {
                           var queryLowered = query.toLowerCase();
                           for (var j = 0; j < links.length; j++) {
-                            var link = links[j];
+                            try {
+                              var link = links[j];
       
-                            if (link && link.pathname && link.pathname.toLowerCase().includes(queryLowered)) {
-                              var parent = link.parentNode;
-                              if (parent && parent.remove) {
-                                parent.remove();
+                              if (link && link.pathname && link.pathname.toLowerCase().includes(queryLowered)) {
+                                var parent = link.parentNode;
+                                if (parent && parent.remove) {
+                                  var namespaceParent = parent.parentNode;
+      
+                                  parent.remove();
+      
+                                  if (namespaceParent && namespaceParent.parentNode) {
+                                    if (namespaceParent.classList.contains('level2')) {
+                                      var namespaceRemainingListItems = namespaceParent.children;
+                                      if (namespaceRemainingListItems && namespaceRemainingListItems.length
+                                        && namespaceRemainingListItems.length > 1) {
+                                      } else {
+                                        var namespaceLink = namespaceParent.parentNode;
+                                        if (namespaceLink && namespaceLink.remove) {
+                                          namespaceLink.remove();
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
+                            }
+                            catch (e) {
+                              console.warn("Error cleaning a link in sidetoc, continuing...");
                             }
                           }
                         }
@@ -176,7 +197,7 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Add additional string data to an Enum Key</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Add additional object data to an Enum Key</p>
 </div>
   </div>
   
@@ -221,7 +242,14 @@ var value = Color.White.ToValue();
 var value = Color.Pink.ToValue();
 //&apos;value&apos; is now &apos;Pink&apos;
 
-//If EnumValue attribute do not exist, it falls back to .ToString() on the Key</code></pre>
+//Note: ToValue() falls back to &quot;ToString()&quot; on the enum key
+
+var value = Color.Pink.GetEnumValue();
+//&apos;value&apos; is now null, as Pink does not have a EnumValueAttribute
+
+var value = Color.Black.GetEnumValue();
+//&apos;value&apos; is now an object with value &quot;#000&quot;, so it is castable to string
+//Note: GetEnumValue() returns null if the enum key does not have the attribute declared, or if the actual &quot;value&quot; of the EnumValueAttribute is null</code></pre>
 </div>
         <div class="comment-examples-container-bottom"></div>
       </div>
@@ -249,7 +277,7 @@ var value = Color.Pink.ToValue();
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_System_Object_">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L40">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L47">View Source</a>
   	</span>
   </div>
   <a id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor*"></a>
@@ -292,7 +320,7 @@ var value = Color.Pink.ToValue();
   
   <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute_Value">
   	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L38">View Source</a>
+  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L45">View Source</a>
   	</span>
   </div>
   
@@ -975,7 +1003,7 @@ var value = Color.Pink.ToValue();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L35" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L42" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

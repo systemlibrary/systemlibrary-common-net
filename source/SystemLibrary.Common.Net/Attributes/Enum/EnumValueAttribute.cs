@@ -3,7 +3,7 @@
 namespace SystemLibrary.Common.Net.Attributes;
 
 /// <summary>
-/// Add additional string data to an Enum Key
+/// Add additional object data to an Enum Key
 /// </summary>
 /// <example>
 /// <code class="language-csharp hljs">
@@ -29,7 +29,14 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// var value = Color.Pink.ToValue();
 /// //'value' is now 'Pink'
 /// 
-/// //If EnumValue attribute do not exist, it falls back to .ToString() on the Key
+/// //Note: ToValue() falls back to "ToString()" on the enum key
+/// 
+/// var value = Color.Pink.GetEnumValue();
+/// //'value' is now null, as Pink does not have a EnumValueAttribute
+/// 
+/// var value = Color.Black.GetEnumValue();
+/// //'value' is now an object with value "#000", so it is castable to string
+/// //Note: GetEnumValue() returns null if the enum key does not have the attribute declared, or if the actual "value" of the EnumValueAttribute is null
 /// </code>
 /// </example>
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]

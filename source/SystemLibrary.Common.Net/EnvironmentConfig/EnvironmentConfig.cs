@@ -311,9 +311,11 @@ namespace SystemLibrary.Common.Net
     }
 
     /// <summary>
-    /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
+    /// Class containing environment variables read from your 'environmentConfig.json', if you have added one
     /// 
-    /// You can inherit EnvironmentConfig by using the generic class and then implement your own 'IsStaging' for instance or add additional properties to the EnvironmentConfig
+    /// If you add additional environment configurations to 'environmentConfig.json', then ignore this class, and create your own new class that inherits the generic one: 'EnvironmentConfig&lt;YourClass&gt;'
+    /// 
+    /// See documentation for 'EnvironmentConfig&lt;&gt;', specifically the 'Name' property as that is used for all transformations
     /// </summary>
     public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
     {

@@ -20,8 +20,8 @@
 		public void Test() 
 		{
 			var s = "";
-			var b = s.IsNot(); //IsNot() is one extension in this package, returns true in this case
-								 //Lives in the global namespace, so no need to add namespace for this to work
+			var b = s.IsNot(); //IsNot() is an extension method in this package living in the global namespace
+								 //In this case the method IsNot returns true
 		}
 	}
 ```

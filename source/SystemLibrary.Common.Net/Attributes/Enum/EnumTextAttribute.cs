@@ -22,7 +22,14 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// 
 /// //'value' is now "Black Colored Text"
 /// //'value2' is now "White", 
-/// //If EnumText attribute do not exist, it falls back to .ToString() on the Key
+/// //Note: .ToText() falls back to ToString() of the enum key
+/// 
+/// var value = Color.White.GetEnumText();
+/// //'value' is now null, as White does not contain EnumTextAttribute
+/// 
+/// var value = Color.Black.GetEnumText();
+/// //'value' is now a string with value 'Black Colored Text' as 'Black' has the EnumTextAttribute
+/// 
 /// </code>
 /// </example>
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
