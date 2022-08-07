@@ -12,11 +12,18 @@ using SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// This class contains extension methods for Strings
 /// 
-/// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've referenced the Nuget Package (the dll)
+/// StringExtensions exists in the global namespace
 /// </summary>
 /// <example>
-/// var result = "Hello world".Is() //invokable from anywhere in your applications source code
+/// <code>
+/// var result = "Hello world".Is()
 /// //result is 'true'
+/// </code>
+/// 
+/// <code>
+/// var result = "".IsNot();
+/// //result is 'true'
+/// </code>
 /// </example>
 public static class StringExtensions
 {
@@ -662,11 +669,18 @@ namespace SystemLibrary.Common.Net.Global
     /// <summary>
     /// This class contains extension methods for Strings
     /// 
-    /// WARNING: These extension methods are living in the global namespace, so they are available from anywhere as long as you've referenced the Nuget Package (the dll)
+    /// StringExtensions exists in the global namespace
     /// </summary>
     /// <example>
-    /// var result = "Hello world".Is() //invokable from anywhere in your applications source code
+    /// <code>
+    /// var result = "Hello world".Is()
     /// //result is 'true'
+    /// </code>
+    /// 
+    /// <code>
+    /// var result = "".IsNot();
+    /// //result is 'true'
+    /// </code>
     /// </example>
     public static class StringExtensions
     {

@@ -5,7 +5,7 @@ namespace SystemLibrary.Common.Net
     /// <summary>
     /// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
     /// 
-    /// Inherits this EnvironmentConfig&gt;T&lt so  add your own functionality and properties to the EnvironmentConfig
+    /// Inherits this EnvironmentConfig&lt;T&gt; so  add your own functionality and properties to the EnvironmentConfig
     /// </summary>
     public abstract class EnvironmentConfig<T> : Config<T> where T : class
     {
