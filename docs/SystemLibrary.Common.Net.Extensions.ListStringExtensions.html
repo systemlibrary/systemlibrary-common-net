@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EnumValueAttribute
+    <title>ListStringExtensions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="EnumValueAttribute
+    <meta name="title" content="ListStringExtensions
    ">
     <meta name="generator" content="docfx 2.59.3.0">
     
@@ -189,76 +189,38 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Extensions.ListStringExtensions">
   
   
-  <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.Attributes.html">SystemLibrary.Common.Net.Attributes</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
+  <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.Extensions.html">SystemLibrary.Common.Net.Extensions</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
   
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Add additional object data to an Enum Key</p>
-</div>
+    <div class="markdown level0 summary h1-class-summary"></div>
   </div>
   
-  <h1 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute" class="text-break h1-class-header">EnumValueAttribute
+  <h1 id="SystemLibrary_Common_Net_Extensions_ListStringExtensions" data-uid="SystemLibrary.Common.Net.Extensions.ListStringExtensions" class="text-break h1-class-header">ListStringExtensions
   </h1>
-  <h1 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute" class="h1-custom-display className">[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-public class EnumValueAttribute : Attribute</h1>
+  <h1 id="SystemLibrary_Common_Net_Extensions_ListStringExtensions" data-uid="SystemLibrary.Common.Net.Extensions.ListStringExtensions" class="h1-custom-display className">public static class ListStringExtensions</h1>
   
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">System.Attribute</span></div>
-    <div class="level2"><span class="xref">EnumValueAttribute</span></div>
+    <div class="level1"><span class="xref">ListStringExtensions</span></div>
   </div>
   
   
   <div class="custom-menu-data custom-menu-data-first">
-    <h5 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Extensions_ListStringExtensions_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
     <div class="custom-menu-data-container custom-menu-data-container--example">
-      <div class="custom-menu-data-class-example" style="display: none;">
-        <div class="syslib-tab-menu-data--close">X</div>
-        <div class="codewrapper"><pre><code>enum Color 
-{
-    [EnumValue(&quot;#000&quot;)]
-    [EnumText(&quot;Hello Black&quot;)]
-    Black,
-
-    [EnumText(&quot;Hello White&quot;)]
-    White,
-
-    Pink
-}
-
-var black = Color.Black;
-var value = black.ToValue();
-//&apos;value&apos; is now &quot;#000&quot;
-
-var value = Color.White.ToValue();
-//&apos;value&apos; is now &quot;White&quot;
-
-var value = Color.Pink.ToValue();
-//&apos;value&apos; is now &apos;Pink&apos;
-
-//Note: ToValue() falls back to &quot;ToString()&quot; on the enum key
-
-var value = Color.Pink.GetEnumValue();
-//&apos;value&apos; is now null, as Pink does not have a EnumValueAttribute
-
-var value = Color.Black.GetEnumValue();
-//&apos;value&apos; is now an object with value &quot;#000&quot;, so it is castable to string
-//Note: GetEnumValue() returns null if the enum key does not have the attribute declared, or if the actual &quot;value&quot; of the EnumValueAttribute is null</code></pre>
-</div>
-        <div class="comment-examples-container-bottom"></div>
-      </div>
     </div>
   </div>
   
   
   <div class="custom-menu-data">
-    <h5 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Extensions_ListStringExtensions_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
   
     <div class="custom-menu-data-container">
       <div class="custom-menu-data-class-arguments" style="display: none;">
@@ -270,24 +232,76 @@ var value = Color.Black.GetEnumValue();
   </div>
   
   <div class='custom-class-content-inline'>
-  <h3 id="constructors">Constructors
+  <h3 id="methods">Methods
   </h3>
   
   <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert a list of strings to a list of Enums</p>
+<ul>
+<li>Does not throw exception if string list is null or empty</li>
+<li>Tries to convert both EnumValue or EnumText or the Enum Key itself to the Enum</li>
+<li>Null or Empty strings will be converted to the default Enum Key</li>
+</ul>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_System_Object_">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ListStringExtensions_ToEnumList__1_System_Collections_Generic_List_System_String__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L47">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ListStringExtensions.cs/#L40">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor*"></a>
+  	<a id="SystemLibrary_Common_Net_Extensions_ListStringExtensions_ToEnumList_" data-uid="SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_System_Object_" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor(System.Object)" class="h4-custom-functionName">public EnumValueAttribute(object value)</h4>
+  		<h4 id="SystemLibrary_Common_Net_Extensions_ListStringExtensions_ToEnumList__1_System_Collections_Generic_List_System_String__" data-uid="SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList``1(System.Collections.Generic.List{System.String})" class="h4-custom-functionName">public static List&lt;TEnum&gt; ToEnumList&lt;TEnum&gt;(this List&lt;string&gt; collection)
+    where TEnum : struct, IComparable, IFormattable, IConvertible</h4>
   		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><p>Example:</p>
+<pre><code>enum Cars
+{
+  Car1,
+  [EnumValue(&quot;Second car value&quot;)]
+  Car2,
+  [EnumText(&quot;Third Car Display Text&quot;)]
+  Car3,
+  [EnumText(&quot;Fourth Car Display Text&quot;)]
+  Car4
+}
+
+var list = new List&lt;string> { null, &quot;&quot;, &quot;SECOND CAR VALUE&quot;, &quot;car4&quot;, &quot;fourth car display text&quot;};
+
+var enums = list.ToEnumList&lt;Cars>();
+
+//enums[0] == Car1, null becomes the default value
+//enums[1] == Car1, empty string becomes the default value
+//enums[2] == Car2, case insensitive match
+//enums[3] == Car4, case insensitive match
+//enums[4] == Car4, case insensitive match</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
   			<div class="custom-menu-data-arguments" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  				<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  					<thead>
+  						<tr>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="parametername">TEnum</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
   
   				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
   				<table class="table table-bordered table-striped table-condensed">
@@ -300,63 +314,37 @@ var value = Color.Black.GetEnumValue();
   					</thead>
   					<tbody>
   						<tr>
-  							<td><span class="xref">System.Object</span></td>
-  							<td><span class="parametername">value</span></td>
+  							<td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+  							<td><span class="parametername">collection</span></td>
   							<td></td>
   						</tr>
   					</tbody>
   				</table>
   			</div>
   
-  		</div>
-  	</div>
-  </div>
-  
-  
-  <h3 id="fields">Fields
-  </h3>
-  
-  <div class="custom-container">
-  
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute_Value">
-  		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L45">View Source</a>
-  		</span>
-  	</div>
-  
-  	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute_Value" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute.Value" class="h4-custom-functionName">public object Value</h4>
-  		<div class="custom-menu-data-container">
-  
-  			<div class="custom-menu-data-arguments" style="display: none;">
+  			<div class="custom-menu-data-returntype" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
   
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Collections.Generic.List</span>&lt;TEnum&gt;</td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
   			</div>
-  
   		</div>
   	</div>
   </div>
   
   
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed fieldValue-table">
-  	<thead>
-  		<tr>
-  			<th>Type</th>
-  			<th>Description</th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  		<tr>
-  			<td><span class="xref">System.Object</span></td>
-  			<td></td>
-  		</tr>
-  	</tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div class="extensionmethods-content">
-  	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_ToJson_System_Object_System_Text_Json_JsonSerializerOptions_">ObjectExtensions.ToJson(Object, JsonSerializerOptions)</a>
-  </div>
   
   
   <script>
@@ -997,7 +985,7 @@ var value = Color.Black.GetEnumValue();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L42" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ListStringExtensions.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

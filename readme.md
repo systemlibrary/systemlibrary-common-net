@@ -15,11 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.1.0.8
-- Added StringBuilderExtensions like Is() and IsNot()
-- Dump.Write outputtig "System.Type" with more details
-- Updated docs on EnumExtensions, StringExtensions and EnvironmentConfig
-- Added readme to nuget package
+- 6.1.0.9
+- Added ListStringExtensions for converting a list of text to list of enums
+- Updated docs
 
 #### Version history
 - View git history of this file if interested

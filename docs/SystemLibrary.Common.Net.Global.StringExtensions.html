@@ -87,7 +87,7 @@
       <div role="main" class="container body-content hide-when-search">
 
       
-      <div id="custom-skipDocumentationFor" style="visibility: hidden; position: absolute; margin-left: -4000px;">
+      <div id="custom-skipDocumentationFor" style="overflow: hidden;font-size: 1px;max-width: 1px; visibility: hidden; position: absolute; margin-left: -4000px;">
         DocFxHide</div>
       <div class="sidenav hide-when-search">
         <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
@@ -247,26 +247,26 @@
   </h3>
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
 If 'data' and all fallbacks are null or empty, this returns &quot;&quot;, never null</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L703">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.AsFallback*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L725">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.AsFallback*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String,System.String[])" class="h4-custom-functionName">public static string AsFallback(this string data, params string[] fallbacks)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text1 = null;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String,System.String[])" class="h4-custom-functionName">public static string AsFallback(this string data, params string[] fallbacks)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text1 = null;
 var text2 = &quot;&quot;;
 var text3 = &quot; &quot;;
 var text4 = &quot;hello&quot;;
@@ -274,438 +274,445 @@ var text4 = &quot;hello&quot;;
 var result = text1.AsFallback(text2, text3, text4);
 //result is &quot;hello&quot; as the others are blank/empty</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">data</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">fallbacks</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">data</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">fallbacks</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><p>First non-null, non-empty and non-space string value, or empty string, never null.</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>First non-null, non-empty and non-space string value, or empty string, never null.</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text contains any of the values, case sensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text contains any of the values, case sensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L998">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1020">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])" class="h4-custom-functionName">public static bool ContainsAny(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])" class="h4-custom-functionName">public static bool ContainsAny(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello&quot;;
 
 var result = text.ContainsAny(&quot;123&quot;, &quot;!&quot;, &quot;lo&quot;);
 //result is true, because lo is part of the text</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case sensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case sensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L835">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L857">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])" class="h4-custom-functionName">public static bool EndsWithAny(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])" class="h4-custom-functionName">public static bool EndsWithAny(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;rld&quot;);
 //result is true, because the last part of text ends with rld</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case insensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case insensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L857">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L879">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])" class="h4-custom-functionName">public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;heLLo WoRLd&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])" class="h4-custom-functionName">public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;heLLo WoRLd&quot;;
 var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;RLD&quot;);
 //result is true, because the last part of text ends with RLd - case insensitive</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the characters, case insensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the characters, case insensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1076">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1098">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)" class="h4-custom-functionName">public static bool EndsWithAnyCharacter(this string text, string characters)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)" class="h4-custom-functionName">public static bool EndsWithAnyCharacter(this string text, string characters)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 
 var result = text.EndsWithAnyCharacter(&quot;abcdef&quot;);
 //result is true, because it ends with &apos;d&apos;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">characters</span></td>
-  						<td><p>Each character in this string will be checked</p>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">characters</span></td>
+  							<td><p>Each character in this string will be checked</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns the domain part of the uri or blank, never null:</p>
+<p><a href="https://www.sub1.sub2.domain.com">https://www.sub1.sub2.domain.com</a> =&gt; domain.com</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L717">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L739">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)" class="h4-custom-functionName">public static string GetPrimaryDomain(this string url)</h4>
-  	<div class="custom-menu-data-container">
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)" class="h4-custom-functionName">public static string GetPrimaryDomain(this string url)</h4>
+  		<div class="custom-menu-data-container">
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">url</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">url</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>Primary domain name or &quot;&quot;, never null</p>
+</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Darken or lighten a hex value by a factor</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Darken or lighten a hex value by a factor</p>
 <ul>
 <li><p>pass a positive factor to darken</p>
 </li>
@@ -717,340 +724,340 @@ var result = text.EndsWithAnyCharacter(&quot;abcdef&quot;);
 </li>
 </ul>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1249">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1271">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)" class="h4-custom-functionName">public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var value = &quot;#FFF&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)" class="h4-custom-functionName">public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var value = &quot;#FFF&quot;;
 var newValue = value.HexDarkenOrLighten();
 //newValue is </code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">hex</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.Double</span></td>
-  						<td><span class="parametername">factor</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><span class="parametername">auto</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">hex</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Double</span></td>
+  							<td><span class="parametername">factor</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><span class="parametername">auto</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text is not null and not &quot;&quot; and not  &quot; &quot;, else false</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text is not null and not &quot;&quot; and not  &quot; &quot;, else false</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L931">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L953">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)" class="h4-custom-functionName">public static bool Is(this string text)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>//Old way: string.IsNullOrWhiteSpace(text);
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)" class="h4-custom-functionName">public static bool Is(this string text)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>//Old way: string.IsNullOrWhiteSpace(text);
 
 var text = &quot;hello world&quot;;
 var result = text.Is();
 //result is true because text is set to something, and not just &quot;&quot; or &quot; &quot;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text is not null and not &quot;&quot; and not  &quot; &quot; and not any of the 'invalidTexts', else false</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text is not null and not &quot;&quot; and not  &quot; &quot; and not any of the 'invalidTexts', else false</p>
 <p>Case sensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L952">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L974">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])" class="h4-custom-functionName">public static bool Is(this string text, params string[] invalidTexts)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])" class="h4-custom-functionName">public static bool Is(this string text, params string[] invalidTexts)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 var result = text.Is(&quot;hello&quot;);
 //result is true because text is set to something else than &apos;hello&apos;, and not just &quot;&quot; or &quot; &quot;
 
 var result2 = text.Is(&quot;hello world&quot;);
 //result is false, because text equals to the invalid text passed in, which was &apos;hello world&apos;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">invalidTexts</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">invalidTexts</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text equals any of the values, case sensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text equals any of the values, case sensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L881">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_IsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsAny*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L903">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsAny*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])" class="h4-custom-functionName">public static bool IsAny(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])" class="h4-custom-functionName">public static bool IsAny(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 var result = text.IsAny(&quot;hello&quot;, &quot;world&quot;, &quot;hello WORLD&quot;, &quot;hello world&quot;);
 //result is true, as the last &apos;hello world&apos; matches exactly</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text is null, &quot;&quot; or &quot; &quot;, else false</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text is null, &quot;&quot; or &quot; &quot;, else false</p>
 <p>Note: it does not check if it contains multiple spaces so it is not exactly as string.IsNullOrWhiteSpace()</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L913">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsNot*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L935">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsNot*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String)" class="h4-custom-functionName">public static bool IsNot(this string text)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>//Old way: string.IsNullOrWhiteSpace(text);
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String)" class="h4-custom-functionName">public static bool IsNot(this string text)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>//Old way: string.IsNullOrWhiteSpace(text);
 
 var text = &quot; &quot;;
 var result = text.IsNot();
@@ -1060,161 +1067,160 @@ var text = &quot;  &quot;; //2 spaces
 var result = text.IsNot();
 //result is false because two spaces counts as text in this function</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns the string or a substring of the string, based on max allowed string length</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns the string or a substring of the string, based on max allowed string length</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1102">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.MaxLength*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1124">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.MaxLength*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)" class="h4-custom-functionName">public static string MaxLength(this string text, int maxLength)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)" class="h4-custom-functionName">public static string MaxLength(this string text, int maxLength)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 var result = text.MaxLength(1);
 //result is &quot;h&quot; as it only can be 1 character long</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.Int32</span></td>
-  						<td><span class="parametername">maxLength</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Int32</span></td>
+  							<td><span class="parametername">maxLength</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><p>Returns the string as it is if text is blank/null or shorter than maxLength, else returns a substring with a length of 'maxLength'. If maxLength is negative it returns &quot;&quot;</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>Returns the string as it is if text is blank/null or shorter than maxLength, else returns a substring with a length of 'maxLength'. If maxLength is negative it returns &quot;&quot;</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Return a part of the json as T</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Return a part of the json as T</p>
 <p>Searches through the json formatted text to find the property it takes as input, and outputs T</p>
 <p>Supports a 'search path' seperated by a forward slash to the leaf property you want to convert to T</p>
 <p>Searching for a property by name is case-insensitive</p>
 <p>Throws exception if the json formatted text is invalid or a parent property to the leaf do not exist in the json text</p>
 <p>Returns T or null if the leaf property do not exist</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1192">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1214">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)" class="h4-custom-functionName">public static T PartialJson&lt;T&gt;(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
-
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)" class="h4-custom-functionName">public static T PartialJson&lt;T&gt;(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
     where T : class</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>//Assume json string stored in a C# variable named &apos;data&apos;:
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>//Assume json string stored in a C# variable named &apos;data&apos;:
 var data = &quot;{
     &quot;users&quot; [
         ...
@@ -1264,188 +1270,187 @@ var data = &quot;{
 var users = data.PartialJson&lt;List&lt;User>>(&quot;fired&quot;);
 //Searches for a property anywhere in the json named &quot;fired&quot;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-  			<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-  				<thead>
-  					<tr>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="parametername">T</span></td>
-  						<td><p>A class or list/array of a class</p>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  				<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  					<thead>
+  						<tr>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="parametername">T</span></td>
+  							<td><p>A class or list/array of a class</p>
 <p>If T is a list or array and no 'findPropertySearchPath' is specified, the Searcher appends an 's' as suffix</p>
 <p>For instance List&lt;User&gt; will search for a property 'users', case insensitive and 's' is appended</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">json</span></td>
-  						<td><p>Json formatted string</p>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">json</span></td>
+  							<td><p>Json formatted string</p>
 </td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">findPropertySearchPath</span></td>
-  						<td><p>Name of the property that will be deserialized as T</p>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">findPropertySearchPath</span></td>
+  							<td><p>Name of the property that will be deserialized as T</p>
 <p>Example: root/property1/property2/leaf where 'leaf' will be deserialized as T</p>
 </td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.Text.Json.JsonSerializerOptions</span></td>
-  						<td><span class="parametername">options</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Json.JsonSerializerOptions</span></td>
+  							<td><span class="parametername">options</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">T</span></td>
-  						<td><p>Returns json as T or null if not found</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">T</span></td>
+  							<td><p>Returns json as T or null if not found</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns true if text starts with any of the values, case sensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text starts with any of the values, case sensitive</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L811">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L833">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])" class="h4-custom-functionName">public static bool StartsWithAny(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])" class="h4-custom-functionName">public static bool StartsWithAny(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 
 var result = text.StartsWithAny(&quot;&quot;, &quot;abcdef&quot;, &quot;hel&quot;);
 //result is true, due to the text begins with &apos;hel&apos;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.Boolean</span></td>
-  						<td><p>True or false</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Convert a string value to Enum</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert a string value to Enum</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L759">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToEnum*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L781">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToEnum*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)" class="h4-custom-functionName">public static T ToEnum&lt;T&gt;(this string value)
-
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)" class="h4-custom-functionName">public static T ToEnum&lt;T&gt;(this string value)
     where T : struct, IComparable, IFormattable, IConvertible</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>enum EnumColor
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>enum EnumColor
 {
     [EnumText(&quot;White&quot;)]
     [EnumValue(&quot;BlackAndWhite&quot;)]
@@ -1466,76 +1471,76 @@ var value = &quot;blackAndWhite&quot;.ToEnum&lt;EnumColor>();
 var value = &quot;brown&quot;.ToEnum&lt;EnumColor>();
 //value is EnumColor.Black, no match, returns first/default</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-  			<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-  				<thead>
-  					<tr>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="parametername">T</span></td>
-  						<td><p>T must be an Enum</p>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  				<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  					<thead>
+  						<tr>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="parametername">T</span></td>
+  							<td><p>T must be an Enum</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">value</span></td>
-  						<td><p>Value must match the Key or the 'EnumValueAttribute' or 'EnumTextAttribute' of a Key in the Enum (EnumValue is checked before EnumText), else this returns default of the Enum T</p>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">value</span></td>
+  							<td><p>Value must match the Key or the 'EnumValueAttribute' or 'EnumTextAttribute' of a Key in the Enum (EnumValue is checked before EnumText), else this returns default of the Enum T</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">T</span></td>
-  						<td><p>Returns first matching Key or default of the Enum</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">T</span></td>
+  							<td><p>Returns first matching Key or default of the Enum</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Convert string formatted json to object T</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert string formatted json to object T</p>
 <p>Default options are:</p>
 <ul>
 <li>case insensitive</li>
@@ -1544,24 +1549,23 @@ var value = &quot;brown&quot;.ToEnum&lt;EnumColor>();
 </ul>
 <p>Throws exception if json has invalid formatted json text</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1222">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_ToJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToJson*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1244">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToJson*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)" class="h4-custom-functionName">public static T ToJson&lt;T&gt;(this string json, JsonSerializerOptions options = null)
-
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)" class="h4-custom-functionName">public static T ToJson&lt;T&gt;(this string json, JsonSerializerOptions options = null)
     where T : class</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>class User {
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>class User {
     public string FirstName;
     public int Age { get; set;}
 }
@@ -1572,173 +1576,173 @@ var json = &quot;{
 
 var user = json.ToJson&lt;User></code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
-  			<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
-  				<thead>
-  					<tr>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="parametername">T</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Generic types</h5>
+  				<table class="table table-bordered table-striped table-condensed class-tmpl-partial-typeParameters-table">
+  					<thead>
+  						<tr>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="parametername">T</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">json</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.Text.Json.JsonSerializerOptions</span></td>
-  						<td><span class="parametername">options</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">json</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Json.JsonSerializerOptions</span></td>
+  							<td><span class="parametername">options</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">T</span></td>
-  						<td><p>Returns T or null if json is null or empty</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">T</span></td>
+  							<td><p>Returns T or null if json is null or empty</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns new string without all non-digit and non-letters</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns new string without all non-digit and non-letters</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L979">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1001">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)" class="h4-custom-functionName">public static string ToLetterAndDigits(this string text)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var email = &quot;support@system.library.com&quot;;
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)" class="h4-custom-functionName">public static string ToLetterAndDigits(this string text)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var email = &quot;support@system.library.com&quot;;
 var text = email.ToLetterAndDigits();
 
 //text is &quot;supportsystemlibrarycom&quot;</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><p>String with digits and letters only or &quot;&quot;, never null</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>String with digits and letters only or &quot;&quot;, never null</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
   
   <div class="custom-container">
-  <div class="custom-menu-summary-data">
-  	<div class="markdown level1 summary member-summary"><p>Returns trimmed version of the text input, if text ends with any of the values, case sensitive</p>
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns trimmed version of the text input, if text ends with any of the values, case sensitive</p>
 <p>This is not recursive, so after removal of 1 value, it will return</p>
 <p>NOTE: Works like &quot;&quot;.TrimEnd(), but with multiple strings in one go</p>
 <p>NOTE: It does not implicitly trim spaces, unless you pass spaces as one of the values</p>
 </div>
-  	<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  </div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
-  <div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___">
-  	<span class="small pull-right mobile-hide">
-  		<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1030">View Source</a>
-  	</span>
-  </div>
-  <a id="SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*"></a>
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L1052">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*"></a>
   
-  <div class="custom-menu-data">
-  	<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])" class="h4-custom-functionName">public static string TrimEnd(this string text, params string[] values)</h4>
-  	<div class="custom-menu-data-container">
-  		<div class="custom-menu-data-name" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
-  			<div class="codewrapper"><pre><code>var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;!&quot;, &quot;c&quot;, &quot;d&quot;);
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])" class="h4-custom-functionName">public static string TrimEnd(this string text, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;!&quot;, &quot;c&quot;, &quot;d&quot;);
 
 //result is abc
 
@@ -1746,57 +1750,57 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
 
 //result is &quot;abc&quot; because it matches &apos;d&apos; then returns, so &apos;bc&apos; is never checked</code></pre>
 </div>
-  			<div class="comment-examples-container-bottom"></div>
-  		</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
   
-  		<div class="custom-menu-data-arguments" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
-  			<table class="table table-bordered table-striped table-condensed">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Name</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><span class="parametername">text</span></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><span class="xref">System.String</span>[]</td>
-  						<td><span class="parametername">values</span></td>
-  						<td></td>
-  					</tr>
-  				</tbody>
-  			</table>
-  		</div>
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   
-  		<div class="custom-menu-data-returntype" style="display: none;">
-  			<div class="syslib-tab-menu-data--close">X</div>
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
   
-  			<table class="table table-bordered table-striped table-condensed table-return">
-  				<thead>
-  					<tr>
-  						<th>Type</th>
-  						<th>Description</th>
-  					</tr>
-  				</thead>
-  				<tbody>
-  					<tr>
-  						<td><span class="xref">System.String</span></td>
-  						<td><p>Returns the input string as is or without one of the values passed</p>
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>Returns the input string as is or without one of the values passed</p>
 </td>
-  					</tr>
-  				</tbody>
-  			</table>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
   		</div>
   	</div>
-  </div>
   </div>
   
   
@@ -1930,7 +1934,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   	//FUNCTION FUNCTIONS
   	function getFunctionNameIndex(parts) {
   		for (var i = 0; i < parts.length; i++) {
-  			if (parts[i].startsWith('[') || parts[i].endsWith(']') || parts[i] === "" || parts[i] === " ") {
+  			if (parts[i].startsWith('[') || parts[i] === "" || parts[i] === " ") {
   				continue;
   			}
   			var index = parts[i].indexOf('(');
@@ -1956,12 +1960,11 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   		var part = parts[functionNameIndex];
   		var isGeneric = part.indexOf("&gt;") >= 0 || part.indexOf("&lt;") >= 0;
   
-  		if(isGeneric) {
+  		if (isGeneric) {
   			var genericStart = part.indexOf("&gt;");
   			var argumentsStart = part.indexOf('(');
   
-  			if(argumentsStart > 0 && genericStart > 0)
-  			{
+  			if (argumentsStart > 0 && genericStart > 0) {
   				return genericStart < argumentsStart;
   			}
   		}
@@ -2048,11 +2051,11 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   					items[i].classList.add("custom-property-name");
   					items[i].classList.add("custom-property-name-onclick");
   					var dataContainerTemp = items[i].nextElementSibling;
-  					if(dataContainerTemp && dataContainerTemp.classList.contains('custom-menu-data-container')) {
+  					if (dataContainerTemp && dataContainerTemp.classList.contains('custom-menu-data-container')) {
   						var propertyCustomMenuData = dataContainerTemp.getElementsByClassName('custom-menu-data-name');
-  						if(typeof propertyCustomMenuData !== 'undefined' && propertyCustomMenuData && propertyCustomMenuData.length) {
+  						if (typeof propertyCustomMenuData !== 'undefined' && propertyCustomMenuData && propertyCustomMenuData.length) {
   							var propertyCustomMenuDataFirst = propertyCustomMenuData[0];
-  							if(propertyCustomMenuDataFirst) {
+  							if (propertyCustomMenuDataFirst) {
   								propertyCustomMenuDataFirst.classList.remove('custom-menu-data-name');
   								propertyCustomMenuDataFirst.classList.add('custom-menu-data-property-name');
   								isClickable = true;
@@ -2066,9 +2069,9 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   				}
   				items[i].innerHTML = items[i].innerHTML.replace('public ', '').replace('override ', '').replace('protected ', '');
   
-  				if(isClickable === true) {
+  				if (isClickable === true) {
   					let txt = items[i].innerHTML;
-  					if(txt && txt.length > 5 && txt[0] !== ' ') {
+  					if (txt && txt.length > 5 && txt[0] !== ' ') {
   						txt = txt.replace(" ", "|<span|class='property-name-text'>");
   						txt = txt.replace(" ", "</span> ");
   						txt = txt.replace("|", " ").replace("|", " ");
@@ -2081,8 +2084,8 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   
   			if (value.includes('[DocFxHide]')) {
   				let parent = items[i].parentNode;
-  				if(parent) {
-  					if(parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
+  				if (parent) {
+  					if (parent.parentNode !== null && parent.parentNode.classList.contains("custom-container")) {
   						parent.parentNode.classList.add("docfxhide-attribute");
   					} else {
   						parent.classList.add("docfxhide-attribute");
@@ -2136,11 +2139,11 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   		}
   
   		//Show 'view source' link for the class constructor next to 'Example'
-  		if(items != null && items.length > 0) {
-  			if(items[0] != null && items[0].id != null && items[0].id.includes('__ctor_') === true) {
+  		if (items != null && items.length > 0) {
+  			if (items[0] != null && items[0].id != null && items[0].id.includes('__ctor_') === true) {
   				var viewSources = getItems('.custom-source-code-link-container');
-  				if(viewSources != null && viewSources.length > 0) {
-  					if(viewSources.length > 1) {
+  				if (viewSources != null && viewSources.length > 0) {
+  					if (viewSources.length > 1) {
   						viewSources[0].classList.add('custom-source-code-link-container--class');
   					}
   				}
@@ -2159,7 +2162,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   				let par = this.parentNode;
   				if (par.style.display === "block") {
   					par.style.display = "none";
-  					if(par && par.classList && par.classList.contains('active')) {
+  					if (par && par.classList && par.classList.contains('active')) {
   						par.classList.toggle('active');
   					}
   
@@ -2175,36 +2178,36 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   		}
   
   		setTimeout(() => {
-  				var sidetocs = document.getElementsByClassName('sidetoc');
-  				if(sidetocs) {
-  					let wrapper = sidetocs[0];
-  					if(wrapper) {
-  						wrapper.addEventListener('click', function () {
-  							if(wrapperCloseModalClickEnabled === true) {
-  								wrapperCloseModalClickEnabled = false;
-  								var activeElements = document.getElementsByClassName('active');
-  								if(activeElements) {
-  									for(var i = 0; i < activeElements.length; i++){
-  										let activeEle = activeElements[i];
-  										if(activeEle && activeEle.style && activeEle.style.display === 'block') {
-  											activeEle.style.display = 'none';
-  											activeEle.classList.toggle('active');
+  			var sidetocs = document.getElementsByClassName('sidetoc');
+  			if (sidetocs) {
+  				let wrapper = sidetocs[0];
+  				if (wrapper) {
+  					wrapper.addEventListener('click', function () {
+  						if (wrapperCloseModalClickEnabled === true) {
+  							wrapperCloseModalClickEnabled = false;
+  							var activeElements = document.getElementsByClassName('active');
+  							if (activeElements) {
+  								for (var i = 0; i < activeElements.length; i++) {
+  									let activeEle = activeElements[i];
+  									if (activeEle && activeEle.style && activeEle.style.display === 'block') {
+  										activeEle.style.display = 'none';
+  										activeEle.classList.toggle('active');
   
-  											//Show footer when modal is not active
-  											var footer = document.getElementById("page-footer");
-  											if (footer && footer.classList) {
-  												if (footer.classList.contains('hidden')) {
-  													footer.classList.toggle('hidden');
-  												}
+  										//Show footer when modal is not active
+  										var footer = document.getElementById("page-footer");
+  										if (footer && footer.classList) {
+  											if (footer.classList.contains('hidden')) {
+  												footer.classList.toggle('hidden');
   											}
   										}
   									}
   								}
   							}
-  						});
-  					}
+  						}
+  					});
   				}
-  			},
+  			}
+  		},
   			500
   		);
   	}
@@ -2226,7 +2229,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   			}
   			if (container) {
   				var menuDataCollection = container.getElementsByClassName(menuDataClass);
-  				if(typeof(menuDataCollection) === 'undefined' || !menuDataCollection) {
+  				if (typeof (menuDataCollection) === 'undefined' || !menuDataCollection) {
   					continue;
   				}
   				var menuData = menuDataCollection[0];
@@ -2246,22 +2249,17 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   				}
   				else {
   					//MenuData is empty or contains only the "X" button, change button layout to red
-  					if (typeof menuData.children === 'undefined' || menuData.children === null || menuData.children.length <= 1) 
-  					{
-  						if (menuDataClass.includes('-class-') >= 1)
-  						{
+  					if (typeof menuData.children === 'undefined' || menuData.children === null || menuData.children.length <= 1) {
+  						if (menuDataClass.includes('-class-') >= 1) {
   							parts[i].classList.toggle('hidden');
-  						} 
-  						else 
-  						{
+  						}
+  						else {
   							var h4 = container.getElementsByClassName('h4-custom-functionName');
-  							if (h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && (h4[0].id.includes('_ctor_') || h4[0].classList.contains('non-function-element'))) 
-  							{
+  							if (h4 && h4.length && h4.length > 0 && h4[0] && h4[0].id && (h4[0].id.includes('_ctor_') || h4[0].classList.contains('non-function-element'))) {
   								//CTOR has no example, then just hide the whole CTOR line
   								container.classList.toggle('hidden');
-  							} 
-  							else 
-  							{
+  							}
+  							else {
   								parts[i].classList.toggle('custom-menu-data-no-text');
   							}
   						}
@@ -2284,7 +2282,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   						break;
   					}
   
-  					if(container && container.classList && container.classList.contains('col-md-10')) {
+  					if (container && container.classList && container.classList.contains('col-md-10')) {
   						break;
   					}
   
@@ -2292,7 +2290,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   				}
   
   				if (container) {
-  					
+  
   					var menuData = container.getElementsByClassName(menuDataClass)[0];
   
   					if (menuData && menuData.classList && menuData.classList.contains(menuDataClass)) {
@@ -2334,7 +2332,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   
   							setTimeout(() => {
   								wrapperCloseModalClickEnabled = true;
-  							} , 25);
+  							}, 25);
   						}
   					}
   				}
@@ -2399,13 +2397,13 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   		if (items != null && items.length > 0) {
   			for (var i = 0; i < items.length; i++) {
   				var next = items[i].nextElementSibling;
-  				if(!next.classList.contains('custom-menu-data')) {
+  				if (!next.classList.contains('custom-menu-data')) {
   					next = next.nextElementSibling;
   				}
   
-  				if(next.classList.contains('custom-menu-data')) {
+  				if (next.classList.contains('custom-menu-data')) {
   					var docfxhideElement = next.getElementsByClassName('docfxhide-attribute');
-  					if(docfxhideElement !== null && docfxhideElement.length !== null && docfxhideElement.length === 1) {
+  					if (docfxhideElement !== null && docfxhideElement.length !== null && docfxhideElement.length === 1) {
   						items[i].classList.add('docfxhide-attribute');
   					}
   				}
@@ -2436,8 +2434,8 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   
   <p class='classMargin classMargin--end'>}</p>
   
-  	</div>
-  	
+  </div>
+  
   </article></div>
           </div>
           
@@ -2446,7 +2444,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L685" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensions.cs/#L707" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
