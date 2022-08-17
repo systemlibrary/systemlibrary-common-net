@@ -78,7 +78,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests
             result = sb.TrimEnd("hello", "world", "or", "this is the end");
             sb.TrimEnd(" ");
             expected = true;
-            Assert.IsTrue(result == expected, "Hello world 1 multiple errored");
+            Assert.IsTrue(result == expected, "Hello world 2 multiple errored");
             Assert.IsTrue(sb.ToString() == "hello world this is the end this is the end", "Hello world 2 multiple was not removed");
         }
 

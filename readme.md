@@ -15,9 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.2.0.2
-- 'AddEnvironmentVariables()' is always invoked if the configuration files are .xml (.xml loading threw exception if it isnt invoked), else its never called
-- Custom configuration files no longer adds "environmentVariables", hence 'userName', and other environment variable names, are now allowed to be used in your custom files. If 'UserName' is used inside 'AppSettings.cs' then that will be read from environment, so it will return your login name on your computer, always (Breaking change)
+- 6.3.0.1
+- Added 3 json converters: int to string, string to Enums, and null values to default Enum value (breaking change as Json serialization/deser has different default options)
+- StringBuilder extension fix: TrimEnd and EndsWith() now allows " " (space)
 - Updated docs
 
 #### Version history

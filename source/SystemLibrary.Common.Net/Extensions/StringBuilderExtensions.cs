@@ -33,7 +33,7 @@ namespace SystemLibrary.Common.Net.Extensions
         {
             if (stringBuilder == null || stringBuilder.Length == 0) return false;
 
-            if (ending.IsNot()) return false;
+            if (ending == null || ending == "") return false;
 
             var endingLength = ending.Length;
 

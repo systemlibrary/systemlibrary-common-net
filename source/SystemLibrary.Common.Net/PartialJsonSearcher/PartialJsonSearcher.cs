@@ -8,7 +8,7 @@ namespace SystemLibrary.Common.Net
         {
             if (json.IsNot()) return default;
 
-            options = Default(options);
+            options = GetJsonSerializerOptions.Default(options);
 
             var documentOptions = GetJsonDocumentOptions(options);
 

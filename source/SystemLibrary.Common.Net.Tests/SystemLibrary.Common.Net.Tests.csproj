@@ -37,10 +37,14 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="AppSettingsTests\text.json" />
 		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
 		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">

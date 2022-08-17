@@ -1,0 +1,17 @@
+﻿{
+  "intAsStringProperty": 768655,
+  "stringProperty": "stringProp",
+  "carEnumAsNumber": 2,
+  "carEnumAsText": "Car3",
+  "listOfTextEnums": [
+    "Car1",
+    "Car4"
+  ],
+  "subClass": {
+    "carEnumAsNumber": 2,
+    "carEnumAsText": "Car3",
+    "numberProperty": null,
+    "carEnumPropertyAsNull": null
+  },
+  "IsSuccess": true
+}

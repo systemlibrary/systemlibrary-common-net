@@ -77,7 +77,7 @@ public static class StringExtensions
 
         if (oldValues.IsNot()) return url;
 
-        if(oldValues.Length > 1)
+        if (oldValues.Length > 1)
         {
             StringBuilder sb = new StringBuilder(url);
             foreach (var oldValue in oldValues)
@@ -588,7 +588,7 @@ public static class StringExtensions
     {
         if (json.IsNot()) return default;
 
-        options = PartialJsonSearcher.Default(options);
+        options = GetJsonSerializerOptions.Default(options);
 
         return JsonSerializer.Deserialize<T>(json, options);
     }
@@ -641,7 +641,7 @@ public static class StringExtensions
 
             if (factor < 0)
             {
-                colorValue = number - (number * factor);
+                colorValue = number - number * factor;
 
                 if (auto && colorValue - number <= minDiff)
                 {
@@ -685,7 +685,7 @@ public static class StringExtensions
     }
 }
 
-namespace SystemLibrary.Common.Net.Global
+namespace SystemLibrary.Common.Net.Extensions
 {
 
     /// <summary>
@@ -1245,7 +1245,7 @@ namespace SystemLibrary.Common.Net.Global
         {
             if (json.IsNot()) return default;
 
-            options = PartialJsonSearcher.Default(options);
+            options = GetJsonSerializerOptions.Default(options);
 
             return JsonSerializer.Deserialize<T>(json, options);
         }
@@ -1298,7 +1298,7 @@ namespace SystemLibrary.Common.Net.Global
 
                 if (factor < 0)
                 {
-                    colorValue = number - (number * factor);
+                    colorValue = number - number * factor;
 
                     if (auto && colorValue - number <= minDiff)
                     {

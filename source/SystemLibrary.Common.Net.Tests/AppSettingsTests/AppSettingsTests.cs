@@ -49,7 +49,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value.Contains(".log"), "FileName does not contain .log");
                 }
 
-                if(property.Name == "SkipRuntimeType")
+                if (property.Name == "SkipRuntimeType")
                 {
                     count++;
                     Assert.IsTrue(value == "True", "SkipRuntimeType not matching true");

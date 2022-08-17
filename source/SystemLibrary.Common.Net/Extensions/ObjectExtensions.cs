@@ -86,7 +86,7 @@ namespace SystemLibrary.Common.Net.Extensions
         {
             if (obj == null) return null;
 
-            options = PartialJsonSearcher.Default(options);
+            options = GetJsonSerializerOptions.Default(options);
 
             return JsonSerializer.Serialize(obj, options);
         }

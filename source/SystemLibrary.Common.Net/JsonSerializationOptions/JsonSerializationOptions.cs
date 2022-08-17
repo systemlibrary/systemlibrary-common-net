@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net
 {
-    partial class PartialJsonSearcher
+    static internal class GetJsonSerializerOptions
     {
         static AppSettings Config => AppSettings.Current;
 
@@ -12,36 +13,40 @@ namespace SystemLibrary.Common.Net
             get
             {
                 if (_DefaultJsonSerializerOptions == null)
-                { 
+                {
                     _DefaultJsonSerializerOptions = new JsonSerializerOptions
                     {
+                        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
                         MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
                         AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
                         PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
                         WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        IncludeFields = true,
                         ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
-                        NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString
+                        NumberHandling = JsonNumberHandling.AllowReadingFromString
                     };
+
+                    _DefaultJsonSerializerOptions.Converters.Add(new EnumStringConverterFactory());
+                    _DefaultJsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    _DefaultJsonSerializerOptions.Converters.Add(new IntJsonConverter());
+                    _DefaultJsonSerializerOptions.Converters.Add(new StringJsonConverter());
                 }
                 return _DefaultJsonSerializerOptions;
             }
         }
-       
+
         internal static JsonSerializerOptions Default(JsonSerializerOptions options)
         {
-            if (options != null)
-            {
-                if (options.MaxDepth < 2)
-                    options.MaxDepth = 2;
+            if (options == null) return DefaultJsonSerializerOptions;
 
-                if (options.MaxDepth > 256)
-                    options.MaxDepth = 256;
+            if (options.MaxDepth < 2)
+                options.MaxDepth = 2;
 
-                return options;
-            }
+            if (options.MaxDepth > 256)
+                options.MaxDepth = 256;
 
-            return DefaultJsonSerializerOptions;
+            return options;
         }
     }
 }
