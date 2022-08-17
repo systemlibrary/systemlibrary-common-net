@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.1.0.9
-- Added ListStringExtensions for converting a list of text to list of enums
+- 6.2.0.2
+- 'AddEnvironmentVariables()' is always invoked if the configuration files are .xml (.xml loading threw exception if it isnt invoked), else its never called
+- Custom configuration files no longer adds "environmentVariables", hence 'userName', and other environment variable names, are now allowed to be used in your custom files. If 'UserName' is used inside 'AppSettings.cs' then that will be read from environment, so it will return your login name on your computer, always (Breaking change)
 - Updated docs
 
 #### Version history

@@ -37,11 +37,15 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
 		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="Configs\carSettings.Debug.json">
 			<IsTransformFile>true</IsTransformFile>
 			<DependentUpon>carSettings.json</DependentUpon>

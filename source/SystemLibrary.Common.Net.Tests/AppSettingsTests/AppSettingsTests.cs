@@ -12,6 +12,19 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
     public class AppSettingsTests
     {
         [TestMethod]
+        public void Read_UserName_Variable_Customized()
+        {
+            var conf = Configs.AppSettingsTests.Current;
+
+            Assert.IsTrue(conf != null, "Its null");
+
+            Assert.IsTrue(conf.username?.StartsWith("Hello") == true, "username invalid: " + conf.username);
+            Assert.IsTrue(conf.userName?.StartsWith("Hello") == true, "userName invalid: " + conf.userName);
+            Assert.IsTrue(conf.Username?.StartsWith("Hello") == true, "Username invalid: " + conf.Username);
+            Assert.IsTrue(conf.UserName?.StartsWith("Hello") == true, "UserName invalid: " + conf.UserName);
+        }
+
+        [TestMethod]
         public void Read_Dump_Configurations()
         {
             object configuration = GetConfigurationByName("dump");

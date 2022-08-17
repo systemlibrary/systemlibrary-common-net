@@ -142,9 +142,19 @@ namespace SystemLibrary.Common.Net
 
                     AddConfigurationFiles(builder, files);
 
-                    return builder
-                        .AddEnvironmentVariables()
-                        .Build();
+                    var isXml = files.Where(x => x.EndsWith(".xml")).Count();
+                    if (isXml > 0)
+                    {
+                        return builder
+                            .AddEnvironmentVariables()
+                            .Build();
+                    }
+                    else
+                    {
+                        return builder
+                            //.AddEnvironmentVariables()
+                            .Build();
+                    }
                 }
 
                 return AppSettings;

@@ -210,6 +210,7 @@
 </ul>
 <p>NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type</p>
 <p>NOTE: Transformations are only ran on the first time '.Current' is invoked</p>
+<p>NOTE: Environment variables like 'UserName', is added only to 'appSettings' and not your custom configurations like: ~/Configs/testConfig.json, which mean 'UserName' always exists in 'AppSettings' if you create the string variable and returns the user name on your computer</p>
 <p>WARNING: The generic T cannot be a nested class</p>
 </div>
   </div>
@@ -217,7 +218,6 @@
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="text-break h1-class-header">Config&lt;T&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="h1-custom-display className">public abstract class Config&lt;T&gt;
-
     where T : class</h1>
   
   <div class="inheritance">
@@ -396,7 +396,7 @@ var name = testConfig.Name;
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L145">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L147">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>

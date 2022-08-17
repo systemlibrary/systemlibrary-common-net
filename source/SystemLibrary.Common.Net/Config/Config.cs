@@ -20,6 +20,8 @@ namespace SystemLibrary.Common.Net
     /// 
     /// NOTE: Transformations are only ran on the first time '.Current' is invoked
     /// 
+    /// NOTE: Environment variables like 'UserName', is added only to 'appSettings' and not your custom configurations like: ~/Configs/testConfig.json, which mean 'UserName' always exists in 'AppSettings' if you create the string variable and returns the user name on your computer
+    /// 
     /// WARNING: The generic T cannot be a nested class
     /// </summary>
     /// <example>
