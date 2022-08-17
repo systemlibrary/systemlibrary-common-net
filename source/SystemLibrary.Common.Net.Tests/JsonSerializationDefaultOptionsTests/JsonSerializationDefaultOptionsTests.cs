@@ -27,6 +27,5 @@ public class JsonSerializationDefaultOptionsTests
         Assert.IsTrue(response.CarEnumAsNumber == Product.Car3, "Car3");
         Assert.IsTrue(response.ListOfTextEnums.Count > 0, "List is null");
         Assert.IsTrue(response.ListOfTextEnums[1] == Product.Car4, "List car4");
-
     }
 }
