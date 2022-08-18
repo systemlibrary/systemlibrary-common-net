@@ -209,6 +209,54 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
   nameWithType: Config<T>.Current
   nameWithType.vb: Config(Of T).Current
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter
+  name: DateTimeJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html
+  commentId: T:SystemLibrary.Common.Net.DateTimeJsonConverter
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter
+  nameWithType: DateTimeJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor(System.String)
+  name: DateTimeJsonConverter(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.DateTimeJsonConverter(System.String)
+  nameWithType: DateTimeJsonConverter.DateTimeJsonConverter(String)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor*
+  name: DateTimeJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.DateTimeJsonConverter
+  nameWithType: DateTimeJsonConverter.DateTimeJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(ByRef System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: DateTimeJsonConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Read*
+  name: Read
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Read_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.Read
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Read
+  nameWithType: DateTimeJsonConverter.Read
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Write_System_Text_Json_Utf8JsonWriter_System_DateTime_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter, System.DateTime, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeJsonConverter.Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Write_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Write
+  nameWithType: DateTimeJsonConverter.Write
 - uid: SystemLibrary.Common.Net.DocFxHide
   name: DocFxHide
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html

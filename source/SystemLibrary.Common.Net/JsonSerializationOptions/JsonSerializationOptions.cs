@@ -31,6 +31,8 @@ namespace SystemLibrary.Common.Net
                     _DefaultJsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                     _DefaultJsonSerializerOptions.Converters.Add(new IntJsonConverter());
                     _DefaultJsonSerializerOptions.Converters.Add(new StringJsonConverter());
+                    _DefaultJsonSerializerOptions.Converters.Add(new LongJsonConverter());
+                    _DefaultJsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
                 }
                 return _DefaultJsonSerializerOptions;
             }
