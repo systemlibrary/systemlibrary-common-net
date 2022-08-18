@@ -42,6 +42,12 @@
 		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
+		<None Remove="_Files\json-serialization-data-short-format.json" />
+		<None Remove="_Files\json-serialization-data.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
+	  <EmbeddedResource Include="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />

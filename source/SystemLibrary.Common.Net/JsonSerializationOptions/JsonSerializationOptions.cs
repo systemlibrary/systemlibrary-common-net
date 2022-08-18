@@ -21,7 +21,7 @@ namespace SystemLibrary.Common.Net
                         AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
                         PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
                         WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        PropertyNamingPolicy = null,
                         IncludeFields = true,
                         ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
                         NumberHandling = JsonNumberHandling.AllowReadingFromString
@@ -33,6 +33,7 @@ namespace SystemLibrary.Common.Net
                     _DefaultJsonSerializerOptions.Converters.Add(new StringJsonConverter());
                     _DefaultJsonSerializerOptions.Converters.Add(new LongJsonConverter());
                     _DefaultJsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+                    _DefaultJsonSerializerOptions.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
                 }
                 return _DefaultJsonSerializerOptions;
             }
@@ -45,8 +46,8 @@ namespace SystemLibrary.Common.Net
             if (options.MaxDepth < 2)
                 options.MaxDepth = 2;
 
-            if (options.MaxDepth > 256)
-                options.MaxDepth = 256;
+            if (options.MaxDepth > 512)
+                options.MaxDepth = 512;
 
             return options;
         }

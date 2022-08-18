@@ -35,6 +35,15 @@ namespace SystemLibrary.Common.Net
 			if (value.IsNot())
 				return DateTime.MinValue;
 
+			if (DateTime.TryParse(value, out DateTime res))
+				return res;
+
+			if (DateTime.TryParseExact(value, Format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res))
+				return res;
+
+			if (DateTime.TryParseExact(value, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.RoundtripKind, out res))
+				return res;
+
 			return DateTime.ParseExact(value, Format, null);
 		}
 	}

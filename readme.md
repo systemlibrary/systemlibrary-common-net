@@ -15,7 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.3.0.3
+- 6.3.0.4
+- Added DateTimeOffsetJsonConverter
+- Modified DateTimeJsonConverter to support more formats "out of the box" for the cost of some performance
 - Added LongJsonConverter and a public DateFormatConverter, with "yyyy-MM-dd" already registerd as an additional converter
 - Updated docs
 
