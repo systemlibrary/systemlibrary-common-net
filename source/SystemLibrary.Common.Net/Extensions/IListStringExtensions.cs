@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
-public static class ListStringExtensions
+public static class IListStringExtensions
 {
     /// <summary>
-    /// Convert a list of strings to a list of Enums
+    /// Convert an IList of strings to a list of Enums
     /// 
     /// - Does not throw exception if string list is null or empty
     /// - Tries to convert both EnumValue or EnumText or the Enum Key itself to the Enum
@@ -37,7 +37,7 @@ public static class ListStringExtensions
     /// //enums[4] == Car4, case insensitive match
     /// </code>
     /// </example>
-    public static List<TEnum> ToEnumList<TEnum>(this List<string> collection) where TEnum : struct, IComparable, IFormattable, IConvertible
+    public static List<TEnum> ToEnumList<TEnum>(this IList<string> collection) where TEnum : struct, IComparable, IFormattable, IConvertible
     {
         if (collection.IsNot())
             return new List<TEnum>();

@@ -6,6 +6,8 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// Extensions for streams like reading content as json directly into class through ToJsonAsync()
+/// 
+
 /// </summary>
 public static class StreamExtensions
 {
@@ -19,7 +21,7 @@ public static class StreamExtensions
     /// <example>
     /// <code>
     /// using (var contentStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
-    ///     return await JsonSerializer.DeserializeAsync&lt;T&gt;(contentStream, jsonSerializerOptions).ConfigureAwait(false);
+    ///     return await contentStream.ToJsonAsync&lt;T&gt(jsonSerializerOptions).ConfigureAwait(false);
     /// </code>
     /// </example>
     public static async Task<T> ToJsonAsync<T>(this Stream stream, JsonSerializerOptions options = null) where T : class

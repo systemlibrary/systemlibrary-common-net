@@ -662,28 +662,28 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot(Of T)(System.Collections.Generic.IEnumerable(Of T))
   nameWithType: IEnumerableExtensions.IsNot<T>(IEnumerable<T>)
   nameWithType.vb: IEnumerableExtensions.IsNot(Of T)(IEnumerable(Of T))
-- uid: SystemLibrary.Common.Net.Extensions.ListStringExtensions
-  name: ListStringExtensions
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ListStringExtensions.html
-  commentId: T:SystemLibrary.Common.Net.Extensions.ListStringExtensions
-  fullName: SystemLibrary.Common.Net.Extensions.ListStringExtensions
-  nameWithType: ListStringExtensions
-- uid: SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList*
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  name: IListStringExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  nameWithType: IListStringExtensions
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList*
   name: ToEnumList
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ListStringExtensions.html#SystemLibrary_Common_Net_Extensions_ListStringExtensions_ToEnumList_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html#SystemLibrary_Common_Net_Extensions_IListStringExtensions_ToEnumList_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList
-  nameWithType: ListStringExtensions.ToEnumList
-- uid: SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList``1(System.Collections.Generic.List{System.String})
-  name: ToEnumList<TEnum>(List<String>)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ListStringExtensions.html#SystemLibrary_Common_Net_Extensions_ListStringExtensions_ToEnumList__1_System_Collections_Generic_List_System_String__
-  commentId: M:SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList``1(System.Collections.Generic.List{System.String})
-  name.vb: ToEnumList(Of TEnum)(List(Of String))
-  fullName: SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList<TEnum>(System.Collections.Generic.List<System.String>)
-  fullName.vb: SystemLibrary.Common.Net.Extensions.ListStringExtensions.ToEnumList(Of TEnum)(System.Collections.Generic.List(Of System.String))
-  nameWithType: ListStringExtensions.ToEnumList<TEnum>(List<String>)
-  nameWithType.vb: ListStringExtensions.ToEnumList(Of TEnum)(List(Of String))
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList
+  nameWithType: IListStringExtensions.ToEnumList
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList``1(System.Collections.Generic.IList{System.String})
+  name: ToEnumList<TEnum>(IList<String>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html#SystemLibrary_Common_Net_Extensions_IListStringExtensions_ToEnumList__1_System_Collections_Generic_IList_System_String__
+  commentId: M:SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList``1(System.Collections.Generic.IList{System.String})
+  name.vb: ToEnumList(Of TEnum)(IList(Of String))
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList<TEnum>(System.Collections.Generic.IList<System.String>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList(Of TEnum)(System.Collections.Generic.IList(Of System.String))
+  nameWithType: IListStringExtensions.ToEnumList<TEnum>(IList<String>)
+  nameWithType.vb: IListStringExtensions.ToEnumList(Of TEnum)(IList(Of String))
 - uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions
   name: ObjectExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html
