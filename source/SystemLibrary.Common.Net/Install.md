@@ -35,8 +35,7 @@ appSettings.json:
 		"systemLibraryCommonNet": {
 			"dump": {
 				"folder": "C:\\logs\\",
-				"fileName": "SysLib.log",
-				"skipRuntimeType": true,
+				"fileName": "SysLib.log"
 			},
 			"json": {
 				"maxDepth": 32,

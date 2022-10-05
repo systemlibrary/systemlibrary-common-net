@@ -398,7 +398,6 @@ public static class Dump
             type == SystemType.DoubleTypeNullable;
     }
 
-
     static void WriteToFileWithDateTime(StringBuilder logString)
     {
         logString.Append("\n");

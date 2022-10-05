@@ -991,6 +991,22 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.StringExtensions.PartialJson(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
   nameWithType: StringExtensions.PartialJson<T>(String, String, JsonSerializerOptions)
   nameWithType.vb: StringExtensions.PartialJson(Of T)(String, String, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name: ReplaceAllWith(String, String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ReplaceAllWith_System_String_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name.vb: ReplaceAllWith(String, String, String())
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith(System.String, System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith(System.String, System.String, System.String())
+  nameWithType: StringExtensions.ReplaceAllWith(String, String, String[])
+  nameWithType.vb: StringExtensions.ReplaceAllWith(String, String, String())
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith*
+  name: ReplaceAllWith
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ReplaceAllWith_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ReplaceAllWith
+  nameWithType: StringExtensions.ReplaceAllWith
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.StartsWithAny(System.String,System.String[])
   name: StartsWithAny(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_StartsWithAny_System_String_System_String___
@@ -1195,6 +1211,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.BoolType
   fullName: SystemLibrary.Common.Net.SystemType.BoolType
   nameWithType: SystemType.BoolType
+- uid: SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  name: BoolTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_BoolTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  nameWithType: SystemType.BoolTypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.CharType
   name: CharType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_CharType
@@ -1207,18 +1229,42 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
   fullName: SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
   nameWithType: SystemType.DateTimeOffsetType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  name: DateTimeOffsetTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeOffsetTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  nameWithType: SystemType.DateTimeOffsetTypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.DateTimeType
   name: DateTimeType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeType
   commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeType
   fullName: SystemLibrary.Common.Net.SystemType.DateTimeType
   nameWithType: SystemType.DateTimeType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  name: DateTimeTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  nameWithType: SystemType.DateTimeTypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.DictionaryType
   name: DictionaryType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DictionaryType
   commentId: F:SystemLibrary.Common.Net.SystemType.DictionaryType
   fullName: SystemLibrary.Common.Net.SystemType.DictionaryType
   nameWithType: SystemType.DictionaryType
+- uid: SystemLibrary.Common.Net.SystemType.DoubleType
+  name: DoubleType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DoubleType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DoubleType
+  fullName: SystemLibrary.Common.Net.SystemType.DoubleType
+  nameWithType: SystemType.DoubleType
+- uid: SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  name: DoubleTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DoubleTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  nameWithType: SystemType.DoubleTypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.EnumTextAttributeType
   name: EnumTextAttributeType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_EnumTextAttributeType
@@ -1231,18 +1277,54 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
   fullName: SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
   nameWithType: SystemType.EnumValueAttributeType
+- uid: SystemLibrary.Common.Net.SystemType.ExceptionType
+  name: ExceptionType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ExceptionType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ExceptionType
+  fullName: SystemLibrary.Common.Net.SystemType.ExceptionType
+  nameWithType: SystemType.ExceptionType
 - uid: SystemLibrary.Common.Net.SystemType.GuidType
   name: GuidType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_GuidType
   commentId: F:SystemLibrary.Common.Net.SystemType.GuidType
   fullName: SystemLibrary.Common.Net.SystemType.GuidType
   nameWithType: SystemType.GuidType
+- uid: SystemLibrary.Common.Net.SystemType.Int16Type
+  name: Int16Type
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int16Type
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int16Type
+  fullName: SystemLibrary.Common.Net.SystemType.Int16Type
+  nameWithType: SystemType.Int16Type
+- uid: SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  name: Int16TypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int16TypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  nameWithType: SystemType.Int16TypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.Int64Type
+  name: Int64Type
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int64Type
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int64Type
+  fullName: SystemLibrary.Common.Net.SystemType.Int64Type
+  nameWithType: SystemType.Int64Type
+- uid: SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  name: Int64TypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int64TypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  nameWithType: SystemType.Int64TypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.IntType
   name: IntType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IntType
   commentId: F:SystemLibrary.Common.Net.SystemType.IntType
   fullName: SystemLibrary.Common.Net.SystemType.IntType
   nameWithType: SystemType.IntType
+- uid: SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  name: IntTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IntTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  nameWithType: SystemType.IntTypeNullable
 - uid: SystemLibrary.Common.Net.SystemType.ListType
   name: ListType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ListType
@@ -1261,3 +1343,15 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.StringType
   fullName: SystemLibrary.Common.Net.SystemType.StringType
   nameWithType: SystemType.StringType
+- uid: SystemLibrary.Common.Net.SystemType.TimeSpanType
+  name: TimeSpanType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_TimeSpanType
+  commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanType
+  fullName: SystemLibrary.Common.Net.SystemType.TimeSpanType
+  nameWithType: SystemType.TimeSpanType
+- uid: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  name: TimeSpanTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_TimeSpanTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  nameWithType: SystemType.TimeSpanTypeNullable

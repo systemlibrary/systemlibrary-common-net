@@ -48,14 +48,8 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     count++;
                     Assert.IsTrue(value.Contains(".log"), "FileName does not contain .log");
                 }
-
-                if (property.Name == "SkipRuntimeType")
-                {
-                    count++;
-                    Assert.IsTrue(value == "True", "SkipRuntimeType not matching true");
-                }
             }
-            Assert.IsTrue(count == 3, "Not all properties were found, found only " + count + " instead of 3");
+            Assert.IsTrue(count == 2, "Not all properties were found, found only " + count + " instead of 3");
         }
 
         [TestMethod]

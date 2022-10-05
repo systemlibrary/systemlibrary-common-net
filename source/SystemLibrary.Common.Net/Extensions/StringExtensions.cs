@@ -687,7 +687,6 @@ public static class StringExtensions
 
 namespace SystemLibrary.Common.Net.Extensions
 {
-
     /// <summary>
     /// This class contains extension methods for Strings
     /// 
@@ -748,6 +747,26 @@ namespace SystemLibrary.Common.Net.Extensions
             return uri.GetPrimaryDomain();
         }
 
+        public static string ReplaceAllWith(this string url, string newValue, params string[] oldValues)
+        {
+            if (url.IsNot()) return url;
+
+            if (newValue == null) return url;
+
+            if (oldValues.IsNot()) return url;
+
+            if (oldValues.Length > 1)
+            {
+                StringBuilder sb = new StringBuilder(url);
+                foreach (var oldValue in oldValues)
+                    sb.Replace(oldValue, newValue);
+
+                return sb.ToString();
+            }
+
+            return url.Replace(oldValues[0], newValue);
+        }
+
         /// <summary>
         /// Convert a string value to Enum
         /// </summary>
@@ -758,6 +777,8 @@ namespace SystemLibrary.Common.Net.Extensions
         /// <code class="language-csharp hljs">
         /// enum EnumColor
         /// {
+        ///     None,
+        ///     
         ///     [EnumText("White")]
         ///     [EnumValue("BlackAndWhite")]
         ///     Black,

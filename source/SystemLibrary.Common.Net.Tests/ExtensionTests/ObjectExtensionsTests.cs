@@ -29,8 +29,9 @@ public class ObjectExtensionsTests
 
         var json = user.ToJson(options);
 
-        Assert.IsTrue(!json.Contains("Age"));
-        Assert.IsTrue(json.Contains("firstName"));
+        Assert.IsTrue(!json.Contains("Age\""), "Age, camelCase");
+        Assert.IsTrue(json.Contains("9696"), "9696");
+        Assert.IsTrue(json.Contains("firstName"), "firstName, camelCase");
     }
 
     [TestMethod]

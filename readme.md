@@ -15,8 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.3.0.5
-- ListStringExtensions moved to IListStringExtensions so it now works on both types
+- 6.4.0.1
+- Dump.Write rewritten and refactored
+- SkipRuntimeType from being dumped is now no option anymore, its always 'on'
+- Added multiple SystemType typeof variables
 - Updated docs
 
 #### Version history
