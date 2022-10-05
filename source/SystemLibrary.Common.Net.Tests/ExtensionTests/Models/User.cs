@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
 {
@@ -11,5 +12,21 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         public DateTimeOffset Married { get; set; }
         public int Age { get; set; }
         public long Money { get; set; }
+
+        public User Owner { get; set; }
+
+        public User PreviousOwner { get; set; }
+
+        public string[] Names { get; set; }
+        public List<string> LastNames { get; set; }
+        public int[] Ages { get; set; }
+        public bool IsEnabled { get; set; }
+        public TimeSpan Expiration { get; set; }
+
+        public int? NullableAgeProperty { get; set; }
+        public DateTime? DateTimeNullProperty { get; set; }
+        public DateTimeOffset? DateTimeOffsetNullProperty { get; set; }
+        public TimeSpan? TimeSpanNullProperty { get; set; }
+        public bool? IsEnabledNullProperty { get; set; }
     }
 }

@@ -6,8 +6,6 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// Extensions for streams like reading content as json directly into class through ToJsonAsync()
-/// 
-
 /// </summary>
 public static class StreamExtensions
 {
