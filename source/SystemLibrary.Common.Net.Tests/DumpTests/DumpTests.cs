@@ -16,6 +16,28 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         const string DumpPath = "C:\\Logs\\systemlibrary-common-net-tests.log";
 
         [TestMethod]
+        public void Dump_Write_Exception_Without_StringLng()
+        {
+            Exception e = new Exception("Hello world1");
+
+            Dump.Clear();
+
+            Dump.Write(e);
+            try
+            {
+                throw new Exception("Hello world2");
+            }
+            catch(Exception ex)
+            {
+                Dump.Write(ex);
+            }
+            var content = File.ReadAllText(DumpPath);
+            Assert.IsTrue(content.Contains("Hello world1"), "1");
+            Assert.IsTrue(content.Contains("Hello world2") ,"2");
+            Assert.IsFalse(content.Contains("Length"), "Length");
+        }
+
+        [TestMethod]
         public void Dump_Write_All_Variable_Types()
         {
             var sb = new StringBuilder("Hello world");

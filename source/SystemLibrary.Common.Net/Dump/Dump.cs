@@ -303,32 +303,34 @@ public static class Dump
     {
         if (value == null)
             return "(null)";
+        else if (value is Exception e)
+            return e.ToString();
         else if (value is string str)
             return str + " (Length: " + str.Length + ")";
         else if (value is StringBuilder sb)
             return sb + " (Length: " + sb.Length + ")";
         else if (value is int i)
-            return i + "";
+            return i.ToString();
         else if (value is DateTime dt)
-            return dt + "";
+            return dt.ToString();
         else if (value is DateTimeOffset dto)
-            return dto + "";
+            return dto.ToString();
         else if (value is TimeSpan ts)
-            return ts + "";
+            return ts.ToString();
         else if (value is bool b)
-            return b + "";
+            return b.ToString();
         else if (value is double d)
-            return d + "";
+            return d.ToString();
         else if (value is float f)
-            return f + "";
+            return f.ToString();
         else if (value is char c)
             return c + "";
         else if (value is Enum en)
             return en.ToText() + " (enum value: " + en.ToValue() + ")";
         else if (value is long i64)
-            return i64 + "";
+            return i64.ToString();
         else if (value is short i16)
-            return i16 + "";
+            return i16.ToString();
         else if (value is bool?)
             return (value as bool?).Value + "";
         else if (value is int?)

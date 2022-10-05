@@ -15,10 +15,11 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.0.1
+- 6.4.0.2
 - Dump.Write rewritten and refactored
 - SkipRuntimeType from being dumped is now no option anymore, its always 'on'
 - Added multiple SystemType typeof variables
+- Dump.Write of exception no longer counts string length of the message
 - Updated docs
 
 #### Version history
