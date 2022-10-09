@@ -11,7 +11,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringBuilderExtensionsTests
 {
     [TestMethod]
-    public void Test_Remove_EndsWith()
+    public void Trim_End_Success()
     {
         StringBuilder sb = null;
         bool result = false;
@@ -83,7 +83,7 @@ public class StringBuilderExtensionsTests
     }
 
     [TestMethod]
-    public void Test_EndsWith()
+    public void Check_Ends_With_Success()
     {
         StringBuilder sb = null;
         bool result = false;

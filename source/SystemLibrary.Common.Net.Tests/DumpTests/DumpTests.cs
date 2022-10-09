@@ -32,9 +32,9 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
                 Dump.Write(ex);
             }
             var content = File.ReadAllText(DumpPath);
-            Assert.IsTrue(content.Contains("Hello world1"), "1");
-            Assert.IsTrue(content.Contains("Hello world2") ,"2");
-            Assert.IsFalse(content.Contains("Length"), "Length");
+            Assert.IsTrue(content.Contains("Hello world1"), "!1");
+            Assert.IsTrue(content.Contains("Hello world2") ,"!2");
+            Assert.IsFalse(content.Contains("Length"), "!Length");
         }
 
         [TestMethod]
@@ -57,16 +57,16 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
 
             var content = File.ReadAllText(DumpPath);
 
-            Assert.IsTrue(content.Contains("Hello world"), "Hello world is missing");
-            Assert.IsTrue(content.Contains("multiple lines"), "multiple lines is missing");
-            Assert.IsTrue(content.Contains("True"), "True is missing");
-            Assert.IsTrue(content.Contains("10000"), "10000 is missing");
+            Assert.IsTrue(content.Contains("Hello world"), "!Hello world");
+            Assert.IsTrue(content.Contains("multiple lines"), "!multiple lines");
+            Assert.IsTrue(content.Contains("True"), "!True");
+            Assert.IsTrue(content.Contains("10000"), "!10000");
 
             Dump.Clear();
         }
 
         [TestMethod]
-        public void Dump_Type_Test()
+        public void Dump_TypeOf_Success()
         {
             Dump.Clear();
             Dump.Write(typeof(string));
@@ -125,7 +125,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
             var content = File.ReadAllText(DumpPath);
 
             if (!content.Contains("String"))
-                Assert.IsTrue(false, "String not existing in output log file");
+                Assert.IsTrue(false, "!String");
 
             Dump.Clear();
         }
@@ -139,13 +139,13 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
             var content = File.ReadAllText(DumpPath);
 
             if (!content.Contains("100"))
-                Assert.IsTrue(false, "100 not existing in output log file");
+                Assert.IsTrue(false, "!100");
 
             Dump.Clear();
         }
 
         [TestMethod]
-        public void Dump_Poco()
+        public void Dump_Poco_Success()
         {
             Dump.Clear();
             System.Threading.Thread.Sleep(200);
@@ -192,17 +192,17 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
 
             var content = File.ReadAllText(DumpPath);
 
-            Assert.IsTrue(content.Contains("FieldInt: -8888"), "FieldInt not output");
-            Assert.IsTrue(content.Contains("OwnerPropertyName"), "OwnerPropertyName do not exist");
-            Assert.IsTrue(content.Contains("DummyFirstName"), "DummyFirstName not existing in output log file");
-            Assert.IsTrue(content.Contains("TitleFieldName"), "TitlePropertyName not existing in output log file");
-            Assert.IsTrue(content.Contains("IList<Int32> count: 3"), "FieldListInts not outputted");
-            Assert.IsTrue(!content.Contains("NOT LOGGED"), "NOT LOGGED is logged, too deep");
-            Assert.IsTrue(content.Contains("123123"), "123123, second object is not logged");
-            Assert.IsTrue(content.Contains("EnumTestPropertyName"), "EnumTestPropertyName not existing in output log file");
-            Assert.IsTrue(content.Contains("99999"), "99999 not existing in output log file");
-            Assert.IsTrue(content.Contains("IsEnabledNullProperty: True"), "IsEnabledNullProperty: True not existing in output log file");
-            Assert.IsTrue(content.Contains("Married:"), "Married: not existing");
+            Assert.IsTrue(content.Contains("FieldInt: -8888"), "!FieldInt");
+            Assert.IsTrue(content.Contains("OwnerPropertyName"), "!OwnerPropertyName");
+            Assert.IsTrue(content.Contains("DummyFirstName"), "!DummyFirstName ");
+            Assert.IsTrue(content.Contains("TitleFieldName"), "!TitlePropertyName");
+            Assert.IsTrue(content.Contains("IList<Int32> count: 3"), "!FieldListInts");
+            Assert.IsTrue(!content.Contains("NOT LOGGED"), "!NOT LOGGED");
+            Assert.IsTrue(content.Contains("123123"), "!123123");
+            Assert.IsTrue(content.Contains("EnumTestPropertyName"), "!EnumTestPropertyName");
+            Assert.IsTrue(content.Contains("99999"), "!99999");
+            Assert.IsTrue(content.Contains("IsEnabledNullProperty: True"), "!IsEnabledNullProperty");
+            Assert.IsTrue(content.Contains("Married:"), "!Married");
 
             Dump.Clear();
         }

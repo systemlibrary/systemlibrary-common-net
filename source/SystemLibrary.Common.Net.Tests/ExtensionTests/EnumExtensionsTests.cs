@@ -13,7 +13,7 @@ public class EnumExtensionsTests
     }
 
     [TestMethod]
-    public void Enum_IsAny()
+    public void Enum_Is_Any()
     {
         var red = Colors.Red;
 
@@ -23,7 +23,7 @@ public class EnumExtensionsTests
     }
 
     [TestMethod]
-    public void Enum_ToArray()
+    public void Enum_To_Array()
     {
         var integers = new object[] { 1, 2, 3, 4 };
         
@@ -35,9 +35,20 @@ public class EnumExtensionsTests
 
 
     [TestMethod]
-    public void Enum_ToArray_WithStrings()
+    public void Enum_To_Array_With_Strings_As_Object_Array()
     {
         var texts = new object[] { "Black", "White", "Blue" };
+
+        var colors = texts.AsEnumArray<Colors>();
+
+        Assert.IsTrue(colors.Length == texts.Length);
+        Assert.IsTrue(colors[1] == Colors.White);
+    }
+
+    [TestMethod]
+    public void Enum_To_Array_With_Strings_As_String_Array()
+    {
+        var texts = new string[] { "Black", "White", "Blue" };
 
         var colors = texts.AsEnumArray<Colors>();
 

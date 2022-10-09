@@ -308,7 +308,7 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
-    public void TrimEnd()
+    public void Trim_End()
     {
         var data = "/";
 
@@ -317,7 +317,7 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
-    public void Test_GetPrimaryDomain()
+    public void Test_Get_Primary_Domain()
     {
         Assert.IsTrue(((string)null).GetPrimaryDomain() == "");
         Assert.IsTrue(" ".GetPrimaryDomain() == "");
@@ -355,7 +355,7 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
-    public void HexDarkenOrLighten_Tests()
+    public void Hex_Darken_Or_Lighten_Tests()
     {
         var value = "";
         var expected = "";
@@ -445,6 +445,26 @@ public class StringExtensionsTests
         expected = "#4F4F4F";
         result = value.HexDarkenOrLighten(factor: 0.31, auto: true);
         Assert.IsTrue(result == expected, "Result was " + result + " when expecting " + expected);
+    }
 
+    [TestMethod]
+    public void Get_Bytes_Of_Text()
+    {
+        string text = null;
+        byte[] bytes = null;
+
+        bytes = text.GetBytes();
+
+        Assert.IsTrue(bytes == null);
+
+        text = "";
+        bytes = text.GetBytes();
+        Assert.IsTrue(bytes != null);
+        Assert.IsTrue(bytes.Length == 0);
+
+        text = "Hello world";
+        bytes = text.GetBytes();
+
+        Assert.IsTrue(text.Length == bytes.Length);
     }
 }

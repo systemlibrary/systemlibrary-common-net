@@ -1,28 +1,21 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using SystemLibrary.Common.Net.Extensions;
+
 namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 
 [TestClass]
 public class ByteArrayExtensionTests
 {
     [TestMethod]
-    public void GetBytes_Test_Success()
+    public void Convert_Bytes_To_Base64_String()
     {
-        string text = null;
-        byte[] bytes = null;
+        var data = "hello world";
 
-        bytes = text.GetBytes();
+        var bytes = data.GetBytes();
 
-        Assert.IsTrue(bytes == null);
-
-        text = "";
-        bytes = text.GetBytes();
-        Assert.IsTrue(bytes != null);
-        Assert.IsTrue(bytes.Length == 0);
-
-        text = "Hello world";
-        bytes = text.GetBytes();
-
-        Assert.IsTrue(text.Length == bytes.Length);
+        var result = bytes.ToBase64();
+        Assert.IsTrue(result.Length >= data.Length);
+        Assert.IsTrue(result.EndsWith("="));
     }
 }

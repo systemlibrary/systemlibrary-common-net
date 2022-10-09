@@ -23,7 +23,7 @@ public class AppSettingsCallAsync
 
         void Call(int i)
         {
-            //Add("Logs", i);
+            Add("Logs", i);
             //Read the internal AppSettings in SysLibCommonNet in a async manner - to test/verify it loading properly
             //Add(AppSettings.Current.SystemLibraryCommonNet.Dump.Folder, i);
         }

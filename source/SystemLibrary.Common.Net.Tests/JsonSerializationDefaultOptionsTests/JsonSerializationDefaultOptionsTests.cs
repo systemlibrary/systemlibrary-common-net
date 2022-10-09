@@ -6,7 +6,7 @@ namespace SystemLibrary.Common.Net.Tests;
 public class JsonSerializationDefaultOptionsTests
 {
     [TestMethod]
-    public void JsonTesting()
+    public void Read_Json_With_Default_Options_Success()
     {
         var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
 

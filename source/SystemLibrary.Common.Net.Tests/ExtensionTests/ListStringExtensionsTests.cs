@@ -11,7 +11,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class ListStringExtensionsTests
 {
     [TestMethod]
-    public void ListToEnumList()
+    public void List_To_Enum_List()
     {
         List<string> data = null;
         var result = data.ToEnumList<Cars>();
@@ -28,14 +28,12 @@ public class ListStringExtensionsTests
         Assert.IsTrue(result[1] == Cars.Car3);
         Assert.IsTrue(result[2] == Cars.Car4);
 
-
         data = new List<string> { "CAR4", "car3", "cAR2" };
         result = data.ToEnumList<Cars>();
         Assert.IsTrue(result.Count == 3, "Count is not 3");
         Assert.IsTrue(result[0] == Cars.Car4, "First is not car4");
         Assert.IsTrue(result[1] == Cars.Car3);
         Assert.IsTrue(result[2] == Cars.Car2);
-
 
         data = new List<string> { null, null, null, "Car3", "Hello" };
         result = data.ToEnumList<Cars>();
@@ -56,7 +54,7 @@ public class ListStringExtensionsTests
     }
 
     [TestMethod]
-    public void IListToEnumList()
+    public void IList_To_Enum_List()
     {
         IList<string> data = null;
         var result = data.ToEnumList<Cars>();

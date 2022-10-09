@@ -30,7 +30,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
 }";
 
         [TestMethod]
-        public void Convert_ComplexPartialJson_To_SimplePoco()
+        public void Convert_Complex_Partial_Json_To_Simple_Poco()
         {
             var d = TestComplexJsonData;
 
@@ -54,7 +54,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
         }
 
         [TestMethod]
-        public void Read_Employees_MultipleTimesInARow()
+        public void Read_Employees_Multiple_Times_In_A_Row()
         {
             var data = GetData();
             var employees1 = data.PartialJson<List<Employee>>();
@@ -92,7 +92,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
         }
 
         [TestMethod]
-        public void Read_Users_TypeName_Plurasl_FirstHit()
+        public void Read_Users_TypeName_Plurals_First_Hit()
         {
             var data = GetData();
 
@@ -105,7 +105,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
         }
 
         [TestMethod]
-        public void Read_Users_InnerProperty_CaseSensitive_Path()
+        public void Read_Users_Inner_Property_Case_Sensitive_Path()
         {
             var data = GetData();
 
@@ -118,7 +118,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
         }
 
         [TestMethod]
-        public void Read_Users_InnerProperty_Case_In_Sensitive_Path()
+        public void Read_Users_InnerProperty_Case_Insensitive_Path()
         {
             var data = GetData();
 

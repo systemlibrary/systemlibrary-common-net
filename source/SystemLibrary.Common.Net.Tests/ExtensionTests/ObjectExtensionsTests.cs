@@ -12,7 +12,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class ObjectExtensionsTests
 {
     [TestMethod]
-    public void Convert_User_To_String_CamelCasing()
+    public void Convert_User_To_String_Camel_Casing()
     {
         User user = new User();
         user.Age = 10;
@@ -35,7 +35,7 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
-    public void Convert_User_To_String_NotCamelCasing()
+    public void Convert_User_To_String_Not_Camel_Casing()
     {
         User user = new User();
         user.Age = 10;
@@ -48,7 +48,7 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
-    public void Convert_User_To_String_WithDifferentFormats()
+    public void Convert_User_To_String_With_Different_Formats()
     {
         User user = new User();
         user.Age = 10;
@@ -71,7 +71,7 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
-    public void Convert_String_To_User_WithDifferentFormats()
+    public void Convert_String_To_User_With_Different_Formats()
     {
         var data1 = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data.json");
         var data2 = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data-short-format.json");

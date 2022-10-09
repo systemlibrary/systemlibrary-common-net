@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class TypeExtensionsTests 
 {
     [TestMethod]
-    public void Inherits_Test()
+    public void Type_Inherits()
     {
         var stringType = typeof(string);
         var objectType = typeof(object);

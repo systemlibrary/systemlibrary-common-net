@@ -50,7 +50,7 @@ public class UriExtensionTests
     }
 
     [TestMethod]
-    public void Uri_Get_SubDomains_Without_Protocol()
+    public void Uri_Get_Sub_Domains_Without_Protocol()
     {
         var uri = new Uri("system.library", UriKind.Relative);
 
@@ -70,7 +70,7 @@ public class UriExtensionTests
     }
 
     [TestMethod]
-    public void Uri_Get_SubDomains_With_Valid_Domainl()
+    public void Uri_Get_Sub_Domains_With_Valid_Domainl()
     {
         var uri = new Uri("system.library.no", UriKind.Relative);
 
