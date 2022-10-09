@@ -105,6 +105,7 @@
 		<EmbeddedResource Include="_Files\icon.png" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
 		<PackageReference Include="docfx.console" Version="2.59.3" Condition="'$(Configuration)'=='Docs'">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

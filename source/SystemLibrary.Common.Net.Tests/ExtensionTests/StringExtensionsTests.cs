@@ -11,6 +11,102 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringExtensionsTests
 {
     [TestMethod]
+    public void Obfuscate_String_And_Deobfuscate()
+    {
+        string data = null;
+        string result;
+
+        result = data.Obfuscate();
+        Assert.IsTrue(result == null);
+        result = result.Deobfuscate();
+        Assert.IsTrue(result == data, "null");
+
+        data = "";
+        result = data.Obfuscate();
+        Assert.IsTrue(result == "");
+        result = result.Deobfuscate();
+        Assert.IsTrue(result == data, "blank");
+
+        data = "Hello World!";
+        result = data.Obfuscate();
+        Assert.IsTrue(result.Length == data.Length);
+        Assert.IsTrue(result != data);
+        result = result.Deobfuscate();
+        Assert.IsTrue(result == data, "hello world");
+
+        data = "A lot of various characters ÆØÅæøå ABCDEFGHIJKLMONPQRSTUVXYZ: 1234567890,.-_?\"*|!#¤%&/()=?…±òü±²³";
+        result = data.Obfuscate();
+        Assert.IsTrue(result.Length == data.Length);
+        Assert.IsTrue(result != data);
+        result = result.Deobfuscate();
+        Assert.IsTrue(result == data, "long text");
+
+        data = "High Salt A lot of various with high salt ÆØÅæøå ABCDEFGHIJKLMONPQRSTUVXYZ: 1234567890,.-_?\"*|!#¤%&/()=?…±òü±²³";
+        result = data.Obfuscate(10555);
+        Assert.IsTrue(result.Length == data.Length);
+        Assert.IsTrue(result != data);
+        result = result.Deobfuscate(10555);
+        Assert.IsTrue(result == data, "high salt");
+
+        result = data.Obfuscate(10000);
+        var result2 = data.Obfuscate(1);
+        var result3 = data.Obfuscate(100);
+        var result4 = data.Obfuscate(1000);
+
+        Assert.IsTrue(result != result2 && result.Length == result2.Length, "Result 2");
+        Assert.IsTrue(result != result3 && result.Length == result3.Length, "Result 3");
+        Assert.IsTrue(result != result4 && result.Length == result4.Length, "Result 4");
+
+        try
+        {
+            data = "hello";
+            result = data.Obfuscate(-1);
+            Assert.IsTrue(false, "Did not throw exception");
+        }
+        catch
+        {
+        }
+
+        result = data.Obfuscate(char.MaxValue + 55);
+        result2 = data.Obfuscate(55);
+        Assert.IsTrue(result != result2, "MaxValue + 55 is equal 55");
+
+        result = result.Deobfuscate(char.MaxValue + 55);
+        Assert.IsTrue(data == result, "MaxValue salt");
+    }
+
+
+    [TestMethod]
+    public void Convert_String_ToBase64()
+    {
+        string data = null;
+        string result;
+
+        result = data.ToBase64();
+        Assert.IsTrue(result == null);
+        result = result.FromBase64();
+        Assert.IsTrue(result == data);
+
+        data = "";
+        result = data.ToBase64();
+        Assert.IsTrue(result == "");
+        result = result.FromBase64();
+        Assert.IsTrue(result == data);
+
+        data = "hello world";
+        result = data.ToBase64();
+        Assert.IsTrue(result.Length > 10 && result.EndsWith("="));
+        result = result.FromBase64();
+        Assert.IsTrue(result == data);
+
+        data = "A lot of various characters ÆØÅæøå ABCDEFGHIJKLMONPQRSTUVXYZ: 1234567890,.-_?\"*|!#¤%&/()=?…±òü±²³";
+        result = data.ToBase64();
+        Assert.IsTrue(result != null);
+        result = result.FromBase64();
+        Assert.IsTrue(result == data && result.Length == data.Length);
+    }
+
+    [TestMethod]
     public void Convert_String_To_User()
     {
         var data = "{ \"firstName\": \"Hello\", \"age\": 10 }";
@@ -197,7 +293,7 @@ public class StringExtensionsTests
         Assert.IsTrue(!data.TrimEnd("/").Contains("/"));
         Assert.IsTrue(!data.TrimEnd("\\").Contains("\\"));
     }
- 
+
     [TestMethod]
     public void Test_GetPrimaryDomain()
     {

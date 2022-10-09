@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 
-using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
-using SystemLibrary.Common.Net.Extensions;
+
+namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods for Strings
@@ -731,13 +730,41 @@ public static class StringExtensions
         return encoding.GetBytes(text);
     }
 
-    static string Obfuscate(int salt, string text, bool deobfuscate)
+    /// <summary>
+    /// Obfuscate a string to a different string with a salt
+    /// 
+    /// Returns a new obfuscated string, or null or empty if that was the input
+    /// </summary>
+    public static string Obfuscate(this string text, int salt)
     {
-        if (text == null || text == "") return text;
+        if (text.IsNot()) return text;
 
-        if (deobfuscate)
-            salt = salt * -1;
+        var maxChar = Convert.ToInt32(char.MaxValue);
+        var minChar = Convert.ToInt32(char.MinValue);
 
+        var sb = new StringBuilder(text);
+
+        for (var i = 0; i < sb.Length; i++)
+        {
+            sb[i] = (char)(sb[i] + salt);
+
+            if (sb[i] > maxChar)
+                sb[i] -= (char)(sb[i] - maxChar);
+
+            else if (sb[i] < minChar)
+                sb[i] = (char)(sb[i] + maxChar);
+        }
+
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Deobfuscate a string back to its readable state with a salt
+    /// 
+    /// Returns the text as it was before obfuscating, assuming you used the same salt value
+    /// </summary>
+    public static string Deobfuscate(this string text, int salt)
+    {
         var maxChar = Convert.ToInt32(char.MaxValue);
         var minChar = Convert.ToInt32(char.MinValue);
 
@@ -750,58 +777,12 @@ public static class StringExtensions
             sb[i] = (char)(sb[i] + salt);
 
             if (sb[i] > maxChar)
-            {
-                Dump.Write("NEVR HIT");
                 sb[i] -= (char)(sb[i] - maxChar);
-            }
 
             else if (sb[i] < minChar)
-            {
-                Dump.Write
-                    ("NEVER Hit2");
                 sb[i] = (char)(sb[i] + maxChar);
-            }
         }
+
         return sb.ToString();
-    }
-
-    /// <summary>
-    /// Obfuscate a string to a different string with a salt
-    /// 
-    /// Throws exception if salt is <= 0
-    /// 
-    /// Returns a new obfuscated string, or null or empty if that was the input
-    /// </summary>
-    public static string Obfuscate(this string text, int salt = 1)
-    {
-        if (salt <= 0)
-            throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
-
-        return Obfuscate(salt, text, false);
-    }
-
-    /// <summary>
-    /// Deobfuscate a string back to its readable state with a salt
-    /// 
-    /// Returns the text as it was before obfuscating, assuming you used the same salt value
-    /// </summary>
-    public static string Deobfuscate(this string text, int salt = 1)
-    {
-        return Obfuscate(salt, text, true);
-    }
-
-    /// <summary>
-    /// Returns a hashed version of the string or null if string is null
-    /// </summary>
-    public static string ToMD5Hash(this string text)
-    {
-        if (text == null) return null;
-
-        using (var md5 = MD5.Create())
-        {
-            var data = text.GetBytes();
-
-            return BitConverter.ToString(data);
-        }
     }
 }

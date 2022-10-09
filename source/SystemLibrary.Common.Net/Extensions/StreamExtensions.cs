@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -29,5 +31,43 @@ public static class StreamExtensions
         options = GetJsonSerializerOptions.Default(options);
 
         return await JsonSerializer.DeserializeAsync<T>(stream, options).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    public static async Task<string> ToMD5HashAsync(this Stream stream)
+    {
+        if(stream == null) return null;
+
+        if (!stream.CanRead) return null;
+
+        using (var md5 = MD5.Create())
+        {
+            var data = await md5.ComputeHashAsync(stream);
+
+            return BitConverter.ToString(data);
+        }
+    }
+
+    /// <summary>
+    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    public static string ToMD5Hash(this Stream stream)
+    {
+        if (stream == null) return null;
+
+        if (!stream.CanRead) return null;
+
+        using (var md5 = MD5.Create())
+        {
+            var data = md5.ComputeHash(stream);
+
+            return BitConverter.ToString(data);
+        }
     }
 }
