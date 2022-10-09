@@ -6,7 +6,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     public class EnvironmentConfigTests
     {
         [TestMethod] 
-        public void Read_EnvironmentConfig_Current_Instance()
+        public void Read_Environment_Config_Current_Instance()
         {
             var conf = EnvironmentConfig.Current;
             
@@ -14,7 +14,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         }
 
         [TestMethod]
-        public void Read_EnvironmentConfig_Name_From_EnvironmentConfigJson_WhenNoAspNetCoreEnvironmentIsSpecified()
+        public void Read_Environment_Config_Name_From_Environment_Config_Json_When_No_AspNetCore_Environment_Is_Specified()
         {
             var conf = EnvironmentConfig.Current;
 

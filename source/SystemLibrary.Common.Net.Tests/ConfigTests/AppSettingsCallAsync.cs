@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests;
 public class AppSettingsCallAsync
 {
     [TestMethod]
-    public void CallAsync_Success()
+    public void Run_Multiple_Async_Calls_Success()
     {
         var dict = new ConcurrentDictionary<string, string>();
 
@@ -23,8 +23,8 @@ public class AppSettingsCallAsync
 
         void Call(int i)
         {
-            Add("Logs", i);
-            //NOTE: Replace with line below and mark AppSettings public to test Config-loader in async manner
+            //Add("Logs", i);
+            //Read the internal AppSettings in SysLibCommonNet in a async manner - to test/verify it loading properly
             //Add(AppSettings.Current.SystemLibraryCommonNet.Dump.Folder, i);
         }
 

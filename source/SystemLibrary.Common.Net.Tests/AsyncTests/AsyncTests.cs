@@ -9,7 +9,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
     public class AsyncTests
     {
         [TestMethod]
-        public void FireAndForget_Test()
+        public void Run_One_Fire_And_Forget_Success()
         {
             var file = @"C:\temp\asynctests" + DateTime.Now.ToString("fff") + ".txt";
             Async.FireAndForget(() => System.IO.File.AppendAllText(file, "Hello world"));
@@ -29,7 +29,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
         }
 
         [TestMethod]
-        public void Test()
+        public void Run_Multiple_Fire_And_Forget_Success()
         {
             Async.FireAndForget(Ex,() => Call());
             Async.FireAndForget(Ex, () => Call());

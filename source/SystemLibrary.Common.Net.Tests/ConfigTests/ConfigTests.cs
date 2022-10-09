@@ -9,7 +9,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     public class ConfigTests
     {
         [TestMethod] 
-        public void Read_NonExistingSettings_DoesNotThrow()
+        public void Read_Non_Existing_Settings_Does_Not_Throw()
         {
             var conf = NonExistingSettings.Current;
 
@@ -17,7 +17,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         }
 
         [TestMethod]
-        public void Read_SubDirectorySetting_InConfigsFolder_WithTransformations()
+        public void Read_Sub_Directory_Setting_In_Configs_Folder_With_Transformations()
         {
             var conf = IntegrationSettings.Current;
 
@@ -52,7 +52,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         }
 
         [TestMethod]
-        public void Read_Json_From_ConfigsFolder_With_Transformations_BasedOnBuildMode()
+        public void Read_Json_From_Configs_Folder_With_Transformations_Based_On_Build_Mode()
         {
             var conf = CarSettings.Current;
 
@@ -75,13 +75,13 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             }
             else if (environment == "Unknown" || environment == "Untransformed")
             {
-                Assert.IsTrue(conf.age == 123, "Age has been transformed its not 123, it is: " + conf.age);
+                Assert.IsTrue(conf.age == 123, "Age " + conf.age);
             }
             else
             {
-                Assert.IsTrue(conf.age > 0, "Age is an invalid int, or not within the range");
+                Assert.IsTrue(conf.age > 0, "!Age");
             }
-            Assert.IsTrue(conf.isEnabled, "IsEnabled is not true, must be a property with get; and set;");
+            Assert.IsTrue(conf.isEnabled, "!IsEnabled");
         }
 
         [TestMethod]
@@ -92,13 +92,13 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             Assert.IsTrue(conf != null, "A file 'humanconfigs.xml' or 'humanconfigs.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
 
             Assert.IsTrue(conf.firstname == null, "Firstname is not null, is the skipping of SysLib files commented out in the Config Loader or Config Loader changed?");
+
             //NOTE: To test the XML, please comment out the if statement 'if (f.Contains("\\SystemLibrary.Common."))' in the Config Loader
             //Assert.IsTrue(conf.firstname?.Contains("Users") == true, "firstname is invalid, it must be get; and set; property");
             //Assert.IsTrue(conf.LastName?.Contains("Users") == true, "LastName is invalid, it must be get; and set; property");
             //Assert.IsTrue(conf.Phone > 100, "Phone is an invalid int, or not within the range");
             //Assert.IsTrue(conf.IsAlive, "IsAlive is not true in the config file, or is not a get; set; property");
             //Assert.IsTrue(conf.IsAliveCapital, "IsAliveCapital is not true, or is not a get; set; property");
-
 
             var conf2 = HumanConfigs.Current;
 

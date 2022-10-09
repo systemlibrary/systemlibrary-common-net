@@ -11,6 +11,28 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringExtensionsTests
 {
     [TestMethod]
+    public void String_To_Md5_Hash_String()
+    {
+        string data = null;
+        string result = null;
+
+        result = data.ToMD5Hash();
+        Assert.IsTrue(result == null);
+
+        data = "";
+        result = data.ToMD5Hash();
+        Assert.IsTrue(result == "");
+
+        data = "Hello world";
+        result = data.ToMD5Hash();
+        Assert.IsTrue(result.Length == 32);
+
+        var data2 = "Hello world";
+        var result2 = data2.ToMD5Hash();
+        Assert.IsTrue(result == result2);
+    }
+
+    [TestMethod]
     public void Obfuscate_String_And_Deobfuscate()
     {
         string data = null;

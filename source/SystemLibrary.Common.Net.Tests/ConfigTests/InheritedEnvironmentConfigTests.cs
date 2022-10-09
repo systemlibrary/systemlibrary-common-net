@@ -6,12 +6,15 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     public class InheritedEnvironmentConfigTests
     {
         [TestMethod] 
-        public void InheritedEnvironmentConfigTests_Current_Instance()
+        public void Read_Config_Which_Inherits_Environment_Config_Success()
         {
             var conf = Configs.EnvironmentConfig.Current;
 
-            Assert.IsNotNull(conf);
             Assert.IsTrue(conf.NewPropertyValue == "12345");
+
+            Assert.IsTrue(conf.Name.Length > 1);
+
+            Assert.IsTrue(conf.IsLocal || conf.IsProd || conf.IsTest);
         }
     }
 }

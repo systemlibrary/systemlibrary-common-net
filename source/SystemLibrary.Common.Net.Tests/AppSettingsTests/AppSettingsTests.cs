@@ -16,12 +16,13 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
         {
             var conf = Configs.AppSettingsTests.Current;
 
-            Assert.IsTrue(conf != null, "Its null");
+            Assert.IsTrue(conf != null, "!conf");
 
-            Assert.IsTrue(conf.username?.StartsWith("Hello") == true, "username invalid: " + conf.username);
-            Assert.IsTrue(conf.userName?.StartsWith("Hello") == true, "userName invalid: " + conf.userName);
-            Assert.IsTrue(conf.Username?.StartsWith("Hello") == true, "Username invalid: " + conf.Username);
-            Assert.IsTrue(conf.UserName?.StartsWith("Hello") == true, "UserName invalid: " + conf.UserName);
+            Assert.IsTrue(conf.username?.StartsWith("Hello") == true, "username?.StartsWith1 " + conf.username);
+
+            //Multiple reads to test is does not vary
+            Assert.IsTrue(conf.userName?.StartsWith("Hello") == true, "username?.StartsWith2 " + conf.userName);
+            Assert.IsTrue(conf.Username?.StartsWith("Hello") == true, "username?.StartsWith3 " + conf.Username);
         }
 
         [TestMethod]
@@ -31,7 +32,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
             var properties = configuration.GetType().GetProperties();
 
-            ValidateProperties(properties, "Dump contains no properties or is null", "folder");
+            ValidateProperties(properties, "No properties or null", "folder");
 
             var count = 0;
             foreach (var property in properties)
@@ -49,7 +50,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
                     Assert.IsTrue(value.Contains(".log"), "FileName does not contain .log");
                 }
             }
-            Assert.IsTrue(count == 2, "Not all properties were found, found only " + count + " instead of 3");
+            Assert.IsTrue(count == 2, "Too few properties found: " + count + "/3");
         }
 
         [TestMethod]
@@ -59,22 +60,22 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
             var properties = configuration.GetType().GetProperties();
 
-            ValidateProperties(properties, "Json contains no properties or is null", "MaxDepth");
+            ValidateProperties(properties, "No properties or null", "MaxDepth");
 
             foreach (var property in properties)
             {
                 var value = property.GetValue(configuration)?.ToString();
                 if (property.Name == "MaxDepth")
-                    Assert.IsTrue(value == "64", "Max Depth invalid: " + value);
+                    Assert.IsTrue(value == "64", "MaxDepth: " + value);
 
                 if (property.Name == "AllowTrailingCommas")
-                    Assert.IsTrue(value == "True", "AllowTrailingCommas not True");
+                    Assert.IsTrue(value == "True", "!AllowTrailingCommas");
 
                 if (property.Name == "WriteIndented")
-                    Assert.IsTrue(value == "True", "WriteIndented not True");
+                    Assert.IsTrue(value == "True", "!WriteIndented");
 
                 if (property.Name == "ReadCommentHandling")
-                    Assert.IsTrue(value == "Skip", "ReadCommentHandling is not Allow: " + value);
+                    Assert.IsTrue(value == "Skip", "!ReadCommentHandling");
             }
         }
 
@@ -123,7 +124,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
             var names = properties.Select(x => x.Name.ToLower()).ToArray();
 
             if (!names.Has(propertyName.ToLower()))
-                throw new Exception(errorMessage + " Does not contain property: " + propertyName + ". Contains: " + string.Join(" ", names));
+                throw new Exception(errorMessage + "!No property " + propertyName + ". Contains: " + string.Join(" ", names));
         }
     }
 }

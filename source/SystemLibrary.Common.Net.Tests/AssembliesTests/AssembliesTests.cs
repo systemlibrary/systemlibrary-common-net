@@ -13,7 +13,7 @@ namespace SystemLibrary.Common.Net.Tests
         {
             var text = Assemblies.GetEmbeddedResource("_Files", "data.json");
 
-            Assert.IsTrue(text != null && text.Contains("\"empty\":"));
+            Assert.IsTrue(text.Contains("\"empty\":"));
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace SystemLibrary.Common.Net.Tests
                     memory.WriteTo(fileStream);
                 }
             }
-            Assert.IsTrue(bytes != null && bytes.Length > 1);
+            Assert.IsTrue(bytes.Length > 1);
 
             Assert.IsTrue(File.Exists(path));
 
@@ -56,7 +56,7 @@ namespace SystemLibrary.Common.Net.Tests
             }
             System.Threading.Thread.Sleep(5);
 
-            Assert.IsTrue(bytes != null && bytes.Length > 1);
+            Assert.IsTrue(bytes.Length > 1);
 
             Assert.IsTrue(File.Exists(path));
 

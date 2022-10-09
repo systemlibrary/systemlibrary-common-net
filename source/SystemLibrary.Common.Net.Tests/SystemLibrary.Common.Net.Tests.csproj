@@ -39,6 +39,7 @@
 	<ItemGroup>
 		<None Remove="AppSettingsTests\text.json" />
 		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
+		<None Remove="Configs\AppSettings\appSettings.json" />
 		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
@@ -54,7 +55,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettings\appSettings.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\carSettings.Debug.json">
 			<IsTransformFile>true</IsTransformFile>
@@ -93,9 +97,6 @@
 		<Content Include="Configs\carSettings.json">
 			<TransformOnBuild>true</TransformOnBuild>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="Configs\AppSettings\appSettings.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
