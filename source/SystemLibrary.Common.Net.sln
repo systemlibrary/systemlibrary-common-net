@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemLibrary.Common.Net", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemLibrary.Common.Net.Tests", "SystemLibrary.Common.Net.Tests\SystemLibrary.Common.Net.Tests.csproj", "{CDC8BD6B-6286-4687-8D0F-02A0B7D8A70F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemLibrary.Common.Net.Benchmarks", "SystemLibrary.Common.Net.Benchmarks\SystemLibrary.Common.Net.Benchmarks.csproj", "{483337FC-3787-42C7-8199-3C4A0945C4E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,14 @@ Global
 		{CDC8BD6B-6286-4687-8D0F-02A0B7D8A70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC8BD6B-6286-4687-8D0F-02A0B7D8A70F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CDC8BD6B-6286-4687-8D0F-02A0B7D8A70F}.Unknown|Any CPU.ActiveCfg = Release|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Docs|Any CPU.ActiveCfg = Debug|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Docs|Any CPU.Build.0 = Debug|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Unknown|Any CPU.ActiveCfg = Debug|Any CPU
+		{483337FC-3787-42C7-8199-3C4A0945C4E5}.Unknown|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,2 @@
+// Validating benchmarks:
+Specified InvocationCount (8) must be a multiple of UnrollFactor (16)

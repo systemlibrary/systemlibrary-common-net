@@ -743,26 +743,19 @@ public static class StringExtensions
 
         salt = salt * -1;
 
-        var sb = new StringBuilder(text);
+        var chars = new char[text.Length];
 
-        for (var i = 0; i < sb.Length; i++)
+        for (var i = 0; i < chars.Length; i++)
         {
-            sb[i] = (char)(sb[i] + salt);
+            chars[i] = (char)(chars[i] + salt);
 
-            if (sb[i] > maxChar)
-            {
-                Dump.Write("NEVR HIT");
-                sb[i] -= (char)(sb[i] - maxChar);
-            }
+            if (chars[i] > maxChar)
+                chars[i] -= (char)(chars[i] - maxChar);
 
-            else if (sb[i] < minChar)
-            {
-                Dump.Write
-                    ("NEVER Hit2");
-                sb[i] = (char)(sb[i] + maxChar);
-            }
+            else if (chars[i] < minChar)
+                chars[i] = (char)(chars[i] + maxChar);
         }
-        return sb.ToString();
+        return new string(chars);
     }
 
     /// <summary>
@@ -772,12 +765,22 @@ public static class StringExtensions
     /// 
     /// Returns a new obfuscated string, or null or empty if that was the input
     /// </summary>
-    public static string Obfuscate(this string text, int salt = 1)
+    public static string Obfuscate(this string text)
     {
-        if (salt <= 0)
-            throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
+        return text.Encrypt("A123");
+        //if (salt <= 0)
+        //    throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
 
-        return Obfuscate(salt, text, false);
+        //return Obfuscate(salt, text, false);
+    }
+
+    public static string Obfuscate2(this string text)
+    {
+        return text.Encrypt("A123").ToBase64();
+        //if (salt <= 0)
+        //    throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
+
+        //return Obfuscate(salt, text, false);
     }
 
     /// <summary>
@@ -785,9 +788,10 @@ public static class StringExtensions
     /// 
     /// Returns the text as it was before obfuscating, assuming you used the same salt value
     /// </summary>
-    public static string Deobfuscate(this string text, int salt = 1)
+    public static string Deobfuscate(this string text, int salt = 11)
     {
-        return Obfuscate(salt, text, true);
+        return text.Encrypt("A123");
+        //return Obfuscate(salt, text, true);
     }
 
     /// <summary>
@@ -805,6 +809,17 @@ public static class StringExtensions
         }
     }
 
+    public static string ToSha1Hash(this string text)
+    {
+        if (text == null) return null;
+
+        using (var sha1 = SHA1.Create())
+        {
+            var hash = sha1.ComputeHash(text.GetBytes());
+            return Convert.ToString(hash);
+        }
+    }
+
     public static string Encrypt(this string text, string key = "Abcdef123456")
     {
         if (text == null || text == "") return null;
@@ -815,10 +830,14 @@ public static class StringExtensions
             throw new Exception("Encryption key cannot be null/empty");
 
         var bytes = text.GetBytes();
+        var keyLength = k.Length;
+        var byteLength = bytes.Length;
+        var i = 0;
+        for (; i < byteLength; i++)
+        {
+            bytes[i] = (byte)(bytes[i] ^ k[i % keyLength]);
+        }
 
-        for (int i = 0; i < bytes.Length; i++)
-            bytes[i] = (byte)(bytes[i] ^ k[i % k.Length]);
-
-        return Convert.ToBase64String(bytes);
+        return Encoding.UTF8.GetString(bytes);
     }
 }

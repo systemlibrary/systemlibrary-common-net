@@ -97,7 +97,6 @@ public class StringExtensionsTests
         Assert.IsTrue(data == result, "MaxValue salt");
     }
 
-
     [TestMethod]
     public void Convert_String_ToBase64()
     {
@@ -473,15 +472,10 @@ public class StringExtensionsTests
     {
         var data = "Hello world";
 
-        var result = "";
+        string result = data.Encrypt("Abcdef123456");
+        Assert.IsTrue(result.Length > 10, "!Encrypt " + result);
 
-        result = data.Encrypt();
-
-        Assert.IsTrue(result != null && result.Length > 1, "!Encrypt " + result);
-
-        Dump.Write(result);
         result = result.Encrypt();
-        Dump.Write(result + " " + result.GetType().Name);
         Assert.IsTrue(result == data, "!Decrypt " + result);
     }
 }
