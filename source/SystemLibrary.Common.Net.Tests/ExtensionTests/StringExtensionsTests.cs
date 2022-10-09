@@ -467,4 +467,21 @@ public class StringExtensionsTests
 
         Assert.IsTrue(text.Length == bytes.Length);
     }
+
+    [TestMethod]
+    public void Encrypt()
+    {
+        var data = "Hello world";
+
+        var result = "";
+
+        result = data.Encrypt();
+
+        Assert.IsTrue(result != null && result.Length > 1, "!Encrypt " + result);
+
+        Dump.Write(result);
+        result = result.Encrypt();
+        Dump.Write(result + " " + result.GetType().Name);
+        Assert.IsTrue(result == data, "!Decrypt " + result);
+    }
 }

@@ -804,4 +804,21 @@ public static class StringExtensions
             return BitConverter.ToString(data);
         }
     }
+
+    public static string Encrypt(this string text, string key = "Abcdef123456")
+    {
+        if (text == null || text == "") return null;
+
+        var k = key.GetBytes();
+
+        if (k == null || k.Length == 0)
+            throw new Exception("Encryption key cannot be null/empty");
+
+        var bytes = text.GetBytes();
+
+        for (int i = 0; i < bytes.Length; i++)
+            bytes[i] = (byte)(bytes[i] ^ k[i % k.Length]);
+
+        return Convert.ToBase64String(bytes);
+    }
 }
