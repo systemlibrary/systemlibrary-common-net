@@ -741,14 +741,14 @@ public static class StringExtensions
         var maxChar = Convert.ToInt32(char.MaxValue);
         var minChar = Convert.ToInt32(char.MinValue);
 
-        salt = salt * -1;
+        var l = text.Length;
+        var chars = new char[l];
 
-        var chars = new char[text.Length];
-
-        for (var i = 0; i < chars.Length; i++)
+        for (var i = 0; i < l; i++)
         {
-            chars[i] = (char)(chars[i] + salt);
+            chars[i] = (char)(text[i] - salt);
 
+            //NOTE: Odds that salt + char is actuall out of bounds is rare, or "never", so could remove? Do we support all chars like that - what are the last 5K chars...?
             if (chars[i] > maxChar)
                 chars[i] -= (char)(chars[i] - maxChar);
 
@@ -765,22 +765,12 @@ public static class StringExtensions
     /// 
     /// Returns a new obfuscated string, or null or empty if that was the input
     /// </summary>
-    public static string Obfuscate(this string text)
+    public static string Obfuscate(this string text, int salt = 11)
     {
-        return text.Encrypt("A123");
-        //if (salt <= 0)
-        //    throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
+        if (salt <= 0)
+            throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
 
-        //return Obfuscate(salt, text, false);
-    }
-
-    public static string Obfuscate2(this string text)
-    {
-        return text.Encrypt("A123").ToBase64();
-        //if (salt <= 0)
-        //    throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
-
-        //return Obfuscate(salt, text, false);
+        return Obfuscate(salt, text, false);
     }
 
     /// <summary>
@@ -790,9 +780,11 @@ public static class StringExtensions
     /// </summary>
     public static string Deobfuscate(this string text, int salt = 11)
     {
-        return text.Encrypt("A123");
-        //return Obfuscate(salt, text, true);
+        return Obfuscate(salt, text, true);
     }
+
+    static MD5 md5;
+    static int md5Counter = 50;
 
     /// <summary>
     /// Returns a hashed version of the string or null if string is null
@@ -801,12 +793,18 @@ public static class StringExtensions
     {
         if (text == null) return null;
 
-        using (var md5 = MD5.Create())
-        {
-            var data = text.GetBytes();
+        if (text == "") return "";
 
-            return BitConverter.ToString(data);
+        md5Counter++;
+
+        if (md5Counter > 50 || md5 == null)
+        {
+            md5?.Dispose();
+            md5 = MD5.Create();
+            md5Counter -= 50;
         }
+
+        return BitConverter.ToString(md5.ComputeHash(text.GetBytes()));
     }
 
     public static string ToSha1Hash(this string text)
@@ -818,26 +816,5 @@ public static class StringExtensions
             var hash = sha1.ComputeHash(text.GetBytes());
             return Convert.ToString(hash);
         }
-    }
-
-    public static string Encrypt(this string text, string key = "Abcdef123456")
-    {
-        if (text == null || text == "") return null;
-
-        var k = key.GetBytes();
-
-        if (k == null || k.Length == 0)
-            throw new Exception("Encryption key cannot be null/empty");
-
-        var bytes = text.GetBytes();
-        var keyLength = k.Length;
-        var byteLength = bytes.Length;
-        var i = 0;
-        for (; i < byteLength; i++)
-        {
-            bytes[i] = (byte)(bytes[i] ^ k[i % keyLength]);
-        }
-
-        return Encoding.UTF8.GetString(bytes);
     }
 }

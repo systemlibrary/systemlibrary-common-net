@@ -25,11 +25,11 @@ public class StringExtensionsTests
 
         data = "Hello world";
         result = data.ToMD5Hash();
-        Assert.IsTrue(result.Length == 32);
+        Assert.IsTrue(result.Length == 47, "length");
 
         var data2 = "Hello world";
         var result2 = data2.ToMD5Hash();
-        Assert.IsTrue(result == result2);
+        Assert.IsTrue(result == result2, "Not equal second time");
     }
 
     [TestMethod]
@@ -465,17 +465,5 @@ public class StringExtensionsTests
         bytes = text.GetBytes();
 
         Assert.IsTrue(text.Length == bytes.Length);
-    }
-
-    [TestMethod]
-    public void Encrypt()
-    {
-        var data = "Hello world";
-
-        string result = data.Encrypt("Abcdef123456");
-        Assert.IsTrue(result.Length > 10, "!Encrypt " + result);
-
-        result = result.Encrypt();
-        Assert.IsTrue(result == data, "!Decrypt " + result);
     }
 }

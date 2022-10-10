@@ -1,3 +1,0 @@
-// Validating benchmarks:
-RunMode.MaxIterationCount must be greater than RunMode.MinIterationCount (was 1 and 1)
-RunMode.MaxWarmupIterationCount must be greater than RunMode.MinWarmupIterationCount (was 1 and 1)

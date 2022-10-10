@@ -10,6 +10,9 @@
 [Bb]in/
 [Tt]est[Rr]esult/
 
+# Benchmarks
+**/*.Artifacts/
+
 # Nuget files and folders
 *.nupkg
 
