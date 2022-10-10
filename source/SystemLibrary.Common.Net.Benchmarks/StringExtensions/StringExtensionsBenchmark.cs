@@ -4,7 +4,6 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-//[SimpleJob(RuntimeMoniker.Net60)]
 [SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, launchCount: 2, targetCount: 4, invocationCount: 50)]
 [MemoryDiagnoser]
 [RPlotExporter]
@@ -21,16 +20,15 @@ public class StringExtensionsBenchmark
 
         try
         {
-            dataLong = data + data + data + data + data + data + data;
-            dataLong = dataLong + dataLong + dataLong + dataLong + dataLong + dataLong;
-            dataLong = dataLong + dataLong + dataLong + dataLong + dataLong + dataLong;
-            dataLong = dataLong + dataLong + dataLong + dataLong + dataLong + dataLong;
-            dataLong = dataLong + dataLong + dataLong + dataLong + dataLong + dataLong;
-            dataLong = dataLong + dataLong + dataLong + dataLong + dataLong + dataLong + dataLong + dataLong + dataLong;
+            for (int i = 0; i < 1000; i++)
+                dataLong += data;
+
             res += data.Obfuscate();
             res += data.ToBase64();
             res += data.ToMD5Hash();
             res += data.ToSha1Hash();
+
+            Dump.Write(dataLong);
         }
         catch(Exception ex)
         {
@@ -50,12 +48,12 @@ public class StringExtensionsBenchmark
         return data.ToBase64();
     }
 
+    /// <summary>
+    /// Testing performance of creating a "unique" path for url's to server always updated files
+    /// </summary>
     [Benchmark]
     public string Base64Long()
     {
-        //Can use this method if the filesize is less than 100kb / less than 100.000 chars roughly
-        //Else Md5Hash is starting to get a lot faster
-        //Memory print of Md5Hash is also a lot smaller
         return (dataLong.Length + dataLong).ToBase64();
     }
 
