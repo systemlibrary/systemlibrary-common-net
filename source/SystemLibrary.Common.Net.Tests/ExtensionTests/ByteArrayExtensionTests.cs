@@ -18,4 +18,40 @@ public class ByteArrayExtensionTests
         Assert.IsTrue(result.Length >= data.Length);
         Assert.IsTrue(result.EndsWith("="));
     }
+
+    [TestMethod]
+    public void Convert_Bytes_To_Md5Hash_String()
+    {
+        var bytes = "".GetBytes();
+        var hash = bytes.ToMD5Hash();
+        Assert.IsTrue(hash == "", "Empty");
+
+        bytes = "Hello World".GetBytes();
+        hash = bytes.ToMD5Hash();
+        Assert.IsTrue(hash.Length >= 32, "Length");
+    }
+
+    [TestMethod]
+    public void Convert_Bytes_To_Sha1Hash_String()
+    {
+        var bytes = "".GetBytes();
+        var hash = bytes.ToSha1Hash();
+        Assert.IsTrue(hash == "", "Empty");
+
+        bytes = "Hello World".GetBytes();
+        hash = bytes.ToSha1Hash();
+        Assert.IsTrue(hash.Length >= 59, "Length");
+    }
+
+    [TestMethod]
+    public void Convert_Bytes_To_Obfuscate_String()
+    {
+        var bytes = "".GetBytes();
+        var hash = bytes.ToSha1Hash();
+        Assert.IsTrue(hash == "", "Empty");
+
+        bytes = "Hello World".GetBytes();
+        hash = bytes.ToSha1Hash();
+        Assert.IsTrue(hash.Length >= 59, "Length");
+    }
 }

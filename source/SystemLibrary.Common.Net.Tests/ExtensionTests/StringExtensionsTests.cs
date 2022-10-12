@@ -29,7 +29,30 @@ public class StringExtensionsTests
 
         var data2 = "Hello world";
         var result2 = data2.ToMD5Hash();
-        Assert.IsTrue(result == result2, "Not equal second time");
+        Assert.IsTrue(result == result2, "Md5 Not equal second time");
+    }
+
+    [TestMethod]
+    public void String_To_Sha1_Hash_String()
+    {
+        string data = null;
+        string result = null;
+
+        result = data.ToSha1Hash();
+        Assert.IsTrue(result == null);
+
+        data = "";
+        result = data.ToSha1Hash();
+        Assert.IsTrue(result == "");
+
+        data = "Hello world";
+
+        result = data.ToSha1Hash();
+        Assert.IsTrue(result.Length == 59, "Sha1 length: " + result.Length);
+
+        var data2 = "Hello world";
+        var result2 = data2.ToSha1Hash();
+        Assert.IsTrue(result == result2, "Sha1 Not equal second time");
     }
 
     [TestMethod]

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
+
+using Microsoft.VisualBasic;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
@@ -693,7 +696,7 @@ public static class StringExtensions
     /// <summary>
     /// Returns input as a base64 string
     /// 
-    /// If input is null, it returns null, does not throw exception
+    /// Returns null or empty if input is null or empty
     /// </summary>
     public static string ToBase64(this string text, Encoding encoding = default)
     {
@@ -705,6 +708,8 @@ public static class StringExtensions
 
     /// <summary>
     /// Returns the base64string input as a readable string
+    /// 
+    /// Returns null or empty if input is null or empty
     /// </summary>
     public static string FromBase64(this string base64String, Encoding encoding = default)
     {
@@ -717,9 +722,9 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a byte array of the input, or null if input was null
+    /// Returns a byte array of the input
     /// 
-    /// If input is null, it returns null, does not throw exception
+    /// Returns null or empty if input is null or empty
     /// </summary>
     public static byte[] GetBytes(this string text, Encoding encoding = default)
     {
@@ -731,90 +736,45 @@ public static class StringExtensions
         return encoding.GetBytes(text);
     }
 
-    static string Obfuscate(int salt, string text, bool deobfuscate)
-    {
-        if (text == null || text == "") return text;
-
-        if (deobfuscate)
-            salt = salt * -1;
-
-        var maxChar = Convert.ToInt32(char.MaxValue);
-        var minChar = Convert.ToInt32(char.MinValue);
-
-        var l = text.Length;
-        var chars = new char[l];
-
-        for (var i = 0; i < l; i++)
-        {
-            chars[i] = (char)(text[i] - salt);
-
-            //NOTE: Odds that salt + char is actuall out of bounds is rare, or "never", so could remove? Do we support all chars like that - what are the last 5K chars...?
-            if (chars[i] > maxChar)
-                chars[i] -= (char)(chars[i] - maxChar);
-
-            else if (chars[i] < minChar)
-                chars[i] = (char)(chars[i] + maxChar);
-        }
-        return new string(chars);
-    }
-
     /// <summary>
     /// Obfuscate a string to a different string with a salt
     /// 
     /// Throws exception if salt is <= 0
     /// 
-    /// Returns a new obfuscated string, or null or empty if that was the input
+    /// Returns a new obfuscated string
+    /// 
+    /// eturns null or empty if input is null or empty
     /// </summary>
     public static string Obfuscate(this string text, int salt = 11)
     {
-        if (salt <= 0)
-            throw new Exception("Cannot obfuscate a string with a salt of 0 or less");
-
-        return Obfuscate(salt, text, false);
+        return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, false);
     }
 
     /// <summary>
     /// Deobfuscate a string back to its readable state with a salt
     /// 
     /// Returns the text as it was before obfuscating, assuming you used the same salt value
+    /// 
+    /// Returns null or empty if input is null or empty
     /// </summary>
     public static string Deobfuscate(this string text, int salt = 11)
     {
-        return Obfuscate(salt, text, true);
+        return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, true);
     }
 
-    static MD5 md5;
-    static int md5Counter = 50;
-
     /// <summary>
-    /// Returns a hashed version of the string or null if string is null
+    /// Returns a md5 hashed version of the string or null or empty if string is null or empty
     /// </summary>
     public static string ToMD5Hash(this string text)
     {
-        if (text == null) return null;
-
-        if (text == "") return "";
-
-        md5Counter++;
-
-        if (md5Counter > 50 || md5 == null)
-        {
-            md5?.Dispose();
-            md5 = MD5.Create();
-            md5Counter -= 50;
-        }
-
-        return BitConverter.ToString(md5.ComputeHash(text.GetBytes()));
+        return Md5.Compute(text.GetBytes());
     }
 
+    /// <summary>
+    /// Returns a sha1 hashed version of the string or null or empty if string is null or empty
+    /// </summary>
     public static string ToSha1Hash(this string text)
     {
-        if (text == null) return null;
-
-        using (var sha1 = SHA1.Create())
-        {
-            var hash = sha1.ComputeHash(text.GetBytes());
-            return Convert.ToString(hash);
-        }
+        return Sha1.Compute(text.GetBytes());
     }
 }

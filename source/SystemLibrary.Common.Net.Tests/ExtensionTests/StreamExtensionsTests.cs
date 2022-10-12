@@ -23,7 +23,72 @@ public class StreamExtensionsTests
 
                 var result = memory.ToMD5Hash();
                 Assert.IsTrue(result != null);
-                Assert.IsTrue(result.Length == 47, "Md5Hash Length");
+                Assert.IsTrue(result.Length == 47, "Md5Hash Length: " + result.Length);
+            }
+        }
+    }
+
+    [TestMethod]
+    public void Stream_To_Md5_Hash_Async_String()
+    {
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
+
+        using (MemoryStream memory = new MemoryStream())
+        {
+            using (var writer = new StreamWriter(memory))
+            {
+                writer.Write(data);
+                memory.Seek(0, SeekOrigin.Begin);
+
+                var result = memory.ToMD5HashAsync()
+                    .ConfigureAwait(false)
+                    .GetAwaiter()
+                    .GetResult();
+
+                Assert.IsTrue(result != null);
+                Assert.IsTrue(result.Length == 47, "Md5Hash Length: " + result.Length);
+            }
+        }
+    }
+
+    [TestMethod]
+    public void Stream_To_Sha1_Hash_String()
+    {
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
+
+        using (MemoryStream memory = new MemoryStream())
+        {
+            using (var writer = new StreamWriter(memory))
+            {
+                writer.Write(data);
+                memory.Seek(0, SeekOrigin.Begin);
+
+                var result = memory.ToSha1Hash();
+                Assert.IsTrue(result != null);
+                Assert.IsTrue(result.Length == 59, "Sha1 Length: " + result.Length);
+            }
+        }
+    }
+
+    [TestMethod]
+    public void Stream_To_Sha1_Hash_Async_String()
+    {
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
+
+        using (MemoryStream memory = new MemoryStream())
+        {
+            using (var writer = new StreamWriter(memory))
+            {
+                writer.Write(data);
+                memory.Seek(0, SeekOrigin.Begin);
+
+                var result = memory.ToSha1HashAsync()
+                    .ConfigureAwait(false)
+                    .GetAwaiter()
+                    .GetResult();
+
+                Assert.IsTrue(result != null);
+                Assert.IsTrue(result.Length == 59, "Sha1 Length: " + result.Length);
             }
         }
     }

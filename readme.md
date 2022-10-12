@@ -15,11 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.0.2
-- Dump.Write rewritten and refactored
-- SkipRuntimeType from being dumped is now no option anymore, its always 'on'
-- Added multiple SystemType typeof variables
-- Dump.Write of exception no longer counts string length of the message
+- 6.4.0.3
+- Added Md5 extension methods for stream, byte[] and string 
+- Added Sha1 extension methods for stream, byte[] and string
+- Added Obfuscate and Deobfuscate extension method for string
 - Updated docs
 
 #### Version history

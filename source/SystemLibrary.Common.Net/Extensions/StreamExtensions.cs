@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
+﻿using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -40,16 +38,7 @@ public static class StreamExtensions
     /// </summary>
     public static async Task<string> ToMD5HashAsync(this Stream stream)
     {
-        if(stream == null) return null;
-
-        if (!stream.CanRead) return null;
-
-        using (var md5 = MD5.Create())
-        {
-            var data = await md5.ComputeHashAsync(stream);
-
-            return BitConverter.ToString(data);
-        }
+        return await Md5.ComputeAsync(stream).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -59,15 +48,26 @@ public static class StreamExtensions
     /// </summary>
     public static string ToMD5Hash(this Stream stream)
     {
-        if (stream == null) return null;
+        return Md5.Compute(stream);
+    }
 
-        if (!stream.CanRead) return null;
+    /// <summary>
+    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    public static string ToSha1Hash(this Stream stream)
+    {
+        return Sha1.Compute(stream);
+    }
 
-        using (var md5 = MD5.Create())
-        {
-            var data = md5.ComputeHash(stream);
-
-            return BitConverter.ToString(data);
-        }
+    /// <summary>
+    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    public static async Task<string> ToSha1HashAsync(this Stream stream)
+    {
+        return await Sha1.ComputeAsync(stream).ConfigureAwait(false);
     }
 }

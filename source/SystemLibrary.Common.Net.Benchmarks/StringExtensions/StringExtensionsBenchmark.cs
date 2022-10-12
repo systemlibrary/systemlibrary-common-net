@@ -20,7 +20,7 @@ public class StringExtensionsBenchmark
 
         try
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 5000; i++)
                 dataLong += data;
 
             res += data.Obfuscate();
@@ -73,5 +73,11 @@ public class StringExtensionsBenchmark
     public string Sha1Hash()
     {
         return data.ToSha1Hash();
+    }
+
+    [Benchmark]
+    public string Sha1HashLong()
+    {
+        return dataLong.ToSha1Hash();
     }
 }
