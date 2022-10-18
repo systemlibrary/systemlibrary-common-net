@@ -7,7 +7,7 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Sha1
 {
-    const int ResetCounter = 100;
+    const int ResetCounter = 200;
     static int SHA1Counter = ResetCounter;
     static object counterlock = new object();
     static SHA1 _SHA1;

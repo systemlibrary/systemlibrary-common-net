@@ -4,7 +4,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, launchCount: 2, targetCount: 4, invocationCount: 50)]
+[SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, launchCount: 2, targetCount: 5, invocationCount: 80)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringExtensionsBenchmark
@@ -23,12 +23,12 @@ public class StringExtensionsBenchmark
             for (int i = 0; i < 5000; i++)
                 dataLong += data;
 
+            Dump.Write(dataLong);
+
             res += data.Obfuscate();
             res += data.ToBase64();
             res += data.ToMD5Hash();
             res += data.ToSha1Hash();
-
-            Dump.Write(dataLong);
         }
         catch(Exception ex)
         {

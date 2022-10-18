@@ -15,7 +15,7 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.0.3
+- 6.4.1.1
 - Added Md5 extension methods for stream, byte[] and string 
 - Added Sha1 extension methods for stream, byte[] and string
 - Added Obfuscate and Deobfuscate extension method for string

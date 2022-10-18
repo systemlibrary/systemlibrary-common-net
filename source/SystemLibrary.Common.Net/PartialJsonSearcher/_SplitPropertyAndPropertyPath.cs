@@ -14,10 +14,12 @@ namespace SystemLibrary.Common.Net
                 propertySearchPath = propertySearchPath.TrimEnd("/", "\\");
 
                 var paths = propertySearchPath.Trim().Split(new char[] { '/', '\\' });
+
                 property = paths[^1];
 
                 propertySearchPath = propertySearchPath.Substring(0, propertySearchPath.LastIndexOf(property));
                 propertySearchPath = propertySearchPath.TrimEnd("/", "\\");
+
                 propertyPaths = propertySearchPath.Split(new char[] { '/', '\\' });
             }
             else if (propertySearchPath.Is())
