@@ -15,10 +15,12 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.1
+- 6.4.1.2
 - Added Md5 extension methods for stream, byte[] and string 
 - Added Sha1 extension methods for stream, byte[] and string
 - Added Obfuscate and Deobfuscate extension method for string
+- Setting deps versions from [6, 1000) due to this is "base .NET functionality" and should most likely work in v7, 8 ...
+  - Do note "most likely work", who knows what will break in version 23 or 64... in theory it will work forever
 - Updated docs
 
 #### Version history
