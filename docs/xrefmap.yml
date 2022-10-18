@@ -444,6 +444,60 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add(Of T)(T(), System.Func(Of T, System.Boolean), T()())
   nameWithType: ArrayExtensions.Add<T>(T[], Func<T, Boolean>, T[][])
   nameWithType.vb: ArrayExtensions.Add(Of T)(T(), Func(Of T, Boolean), T()())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  name: ByteArrayExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  nameWithType: ByteArrayExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  name: ToBase64(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToBase64_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  name.vb: ToBase64(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte())
+  nameWithType: ByteArrayExtensions.ToBase64(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToBase64(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64
+  nameWithType: ByteArrayExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  name: ToMD5Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToMD5Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  name.vb: ToMD5Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToMD5Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToMD5Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash
+  nameWithType: ByteArrayExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  name: ToSha1Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha1Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  name.vb: ToSha1Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToSha1Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToSha1Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash
+  nameWithType: ByteArrayExtensions.ToSha1Hash
 - uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions
   name: DynamicExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html
@@ -741,6 +795,58 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToJsonAsync(Of T)(System.IO.Stream, System.Text.Json.JsonSerializerOptions)
   nameWithType: StreamExtensions.ToJsonAsync<T>(Stream, JsonSerializerOptions)
   nameWithType.vb: StreamExtensions.ToJsonAsync(Of T)(Stream, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  name: ToMD5Hash(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  nameWithType: StreamExtensions.ToMD5Hash(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash
+  nameWithType: StreamExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  name: ToMD5HashAsync(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  nameWithType: StreamExtensions.ToMD5HashAsync(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync*
+  name: ToMD5HashAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync
+  nameWithType: StreamExtensions.ToMD5HashAsync
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  name: ToSha1Hash(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha1Hash(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash
+  nameWithType: StreamExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  name: ToSha1HashAsync(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha1HashAsync(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync*
+  name: ToSha1HashAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync
+  nameWithType: StreamExtensions.ToSha1HashAsync
 - uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
   name: StringBuilderExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html
@@ -840,6 +946,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ContainsAny
   nameWithType: StringExtensions.ContainsAny
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate(System.String,System.Int32)
+  name: Deobfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_Deobfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Deobfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate*
+  name: Deobfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_Deobfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.Deobfuscate
+  nameWithType: StringExtensions.Deobfuscate
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.EndsWithAny(System.String,System.String[])
   name: EndsWithAny(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_EndsWithAny_System_String_System_String___
@@ -885,6 +1004,32 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.EndsWithAnyCharacter
   nameWithType: StringExtensions.EndsWithAnyCharacter
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  name: FromBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_FromBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.FromBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64*
+  name: FromBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_FromBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.FromBase64
+  nameWithType: StringExtensions.FromBase64
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  name: GetBytes(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_GetBytes_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.GetBytes(String, Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes*
+  name: GetBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_GetBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.GetBytes
+  nameWithType: StringExtensions.GetBytes
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.GetPrimaryDomain(System.String)
   name: GetPrimaryDomain(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_GetPrimaryDomain_System_String_
@@ -975,6 +1120,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.MaxLength
   nameWithType: StringExtensions.MaxLength
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate(System.String,System.Int32)
+  name: Obfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_Obfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Obfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate*
+  name: Obfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_Obfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.Obfuscate
+  nameWithType: StringExtensions.Obfuscate
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.PartialJson*
   name: PartialJson
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_PartialJson_
@@ -1023,6 +1181,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.StartsWithAny
   nameWithType: StringExtensions.StartsWithAny
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  name: ToBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.ToBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToBase64
+  nameWithType: StringExtensions.ToBase64
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToEnum*
   name: ToEnum
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToEnum_
