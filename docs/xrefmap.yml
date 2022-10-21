@@ -1239,6 +1239,32 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToLetterAndDigits
   nameWithType: StringExtensions.ToLetterAndDigits
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash(System.String)
+  name: ToMD5Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToMD5Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash(System.String)
+  nameWithType: StringExtensions.ToMD5Hash(String)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToMD5Hash
+  nameWithType: StringExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash(System.String)
+  name: ToSha1Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToSha1Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash(System.String)
+  nameWithType: StringExtensions.ToSha1Hash(String)
+- uid: SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringExtensions.ToSha1Hash
+  nameWithType: StringExtensions.ToSha1Hash
 - uid: SystemLibrary.Common.Net.Extensions.StringExtensions.TrimEnd(System.String,System.String[])
   name: TrimEnd(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringExtensions.html#SystemLibrary_Common_Net_Extensions_StringExtensions_TrimEnd_System_String_System_String___
