@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -36,6 +37,12 @@ public static class StreamExtensions
     /// 
     /// Returns null if stream is null or cannot be read
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToMD5HashAsync().Result;
+    /// </code>
+    /// </example>
     public static async Task<string> ToMD5HashAsync(this Stream stream)
     {
         return await Md5.ComputeAsync(stream).ConfigureAwait(false);
@@ -46,6 +53,12 @@ public static class StreamExtensions
     /// 
     /// Returns null if stream is null or cannot be read
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToMD5Hash();
+    /// </code>
+    /// </example>
     public static string ToMD5Hash(this Stream stream)
     {
         return Md5.Compute(stream);
@@ -56,6 +69,12 @@ public static class StreamExtensions
     /// 
     /// Returns null if stream is null or cannot be read
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToSha1Hash();
+    /// </code>
+    /// </example>
     public static string ToSha1Hash(this Stream stream)
     {
         return Sha1.Compute(stream);
@@ -66,6 +85,12 @@ public static class StreamExtensions
     /// 
     /// Returns null if stream is null or cannot be read
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToSha1HashAsync().Result;
+    /// </code>
+    /// </example>
     public static async Task<string> ToSha1HashAsync(this Stream stream)
     {
         return await Sha1.ComputeAsync(stream).ConfigureAwait(false);

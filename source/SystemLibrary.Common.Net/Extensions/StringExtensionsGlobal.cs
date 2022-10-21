@@ -692,8 +692,14 @@ public static class StringExtensions
     /// <summary>
     /// Returns input as a base64 string
     /// 
-    /// If input is null, it returns null, does not throw exception
+    /// Returns null or empty if input is null or empty
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var base64string = value.ToBase64();
+    /// </code>
+    /// </example>
     public static string ToBase64(this string text, Encoding encoding = default)
     {
         if (text == null)
@@ -704,7 +710,17 @@ public static class StringExtensions
 
     /// <summary>
     /// Returns the base64string input as a readable string
+    /// 
+    /// Returns null or empty if input is null or empty
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var base64string = value.ToBase64();
+    /// var valueAgain = base64string.FromBase64();
+    /// //value == valueAgain
+    /// </code>
+    /// </example>
     public static string FromBase64(this string base64String, Encoding encoding = default)
     {
         if (base64String == null) return null;
@@ -716,10 +732,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a byte array of the input, or null if input was null
+    /// Returns a byte array of the input
     /// 
-    /// If input is null, it returns null, does not throw exception
+    /// Returns null or empty if input is null or empty
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var bytes = value.GetBytes();
+    /// </code>
+    /// </example>
     public static byte[] GetBytes(this string text, Encoding encoding = default)
     {
         if (text == null) return null;
@@ -733,56 +755,76 @@ public static class StringExtensions
     /// <summary>
     /// Obfuscate a string to a different string with a salt
     /// 
-    /// Returns a new obfuscated string, or null or empty if that was the input
+    /// Throws exception if salt is <= 0
+    /// 
+    /// Returns a new obfuscated string
+    /// 
+    /// eturns null or empty if input is null or empty
     /// </summary>
-    public static string Obfuscate(this string text, int salt)
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var obfuscatedText = value.Obfuscate();
+    /// </code>
+    /// </example>
+    public static string Obfuscate(this string text, int salt = 11)
     {
-        if (text.IsNot()) return text;
-
-        var maxChar = Convert.ToInt32(char.MaxValue);
-        var minChar = Convert.ToInt32(char.MinValue);
-
-        var sb = new StringBuilder(text);
-
-        for (var i = 0; i < sb.Length; i++)
-        {
-            sb[i] = (char)(sb[i] + salt);
-
-            if (sb[i] > maxChar)
-                sb[i] -= (char)(sb[i] - maxChar);
-
-            else if (sb[i] < minChar)
-                sb[i] = (char)(sb[i] + maxChar);
-        }
-
-        return sb.ToString();
+        return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, false);
     }
 
     /// <summary>
     /// Deobfuscate a string back to its readable state with a salt
     /// 
     /// Returns the text as it was before obfuscating, assuming you used the same salt value
+    /// 
+    /// Returns null or empty if input is null or empty
     /// </summary>
-    public static string Deobfuscate(this string text, int salt)
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var obfuscatedText = value.Obfuscate();
+    /// var deobfuscatedText = obfuscatedText.Deobfuscate();
+    /// //value == deobfuscatedText
+    /// </code>
+    /// </example>
+    public static string Deobfuscate(this string text, int salt = 11)
     {
-        var maxChar = Convert.ToInt32(char.MaxValue);
-        var minChar = Convert.ToInt32(char.MinValue);
+        return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, true);
+    }
 
-        salt = salt * -1;
+    /// <summary>
+    /// Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes), no matter the input, or returns null or empty if that was the input
+    /// 
+    /// Tip: If you hash data larger than 75KB, then ToSha1Hash() is faster (CPU vice)
+    /// 
+    /// Note: Md5 is not secure, there are rainbow tables, it's a 'one way obfuscater'
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var md5text = value.ToMD5Hash();
+    /// </code>
+    /// </example>
+    public static string ToMD5Hash(this string text)
+    {
+        return Md5.Compute(text.GetBytes());
+    }
 
-        var sb = new StringBuilder(text);
-
-        for (var i = 0; i < sb.Length; i++)
-        {
-            sb[i] = (char)(sb[i] + salt);
-
-            if (sb[i] > maxChar)
-                sb[i] -= (char)(sb[i] - maxChar);
-
-            else if (sb[i] < minChar)
-                sb[i] = (char)(sb[i] + maxChar);
-        }
-
-        return sb.ToString();
+    /// <summary>
+    /// Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes), no matter the input, or returns null or empty if that was the input
+    /// 
+    /// Tip: If you hash data smaller than 75KB, then ToMD5Hash() is faster (CPU and memory vice)
+    /// 
+    /// Note: Sha1 is not secure, there are rainbow tables, it's a 'one way obfuscater'
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var sha1 = value.ToSha1Hash();
+    /// </code>
+    /// </example>
+    public static string ToSha1Hash(this string text)
+    {
+        return Sha1.Compute(text.GetBytes());
     }
 }
