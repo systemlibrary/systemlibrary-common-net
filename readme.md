@@ -15,7 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.4
+- 6.4.1.5
+- Added ~50 assembly names to the 'blacklist', so that this library will not search through those DLLs when using the class 'Assemblies.' in this library (perf boost)
 - Added comments after benchmarks for Md5() Obfuscate Base64 and Sha1 methods
 - Improved performance of Obfuscate() so it outperforms "ToBase64()" if input is less than roughly ~400kb
 - Updated docs
