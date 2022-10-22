@@ -262,17 +262,17 @@
 }
 
 var result = typeof(Car).GetTypeName();
-//result is &quot;Car&quot;
+// result is &quot;Car&quot;
 
 var list = new List&lt;Car>
 var result = list.GetType().GetTypeName();
-//result is &quot;Car&quot;
+// result is &quot;Car&quot;
 
 var result = typeof(List&lt;Car>).GetTypeName();
-//result is &quot;Car&quot;
+// result is &quot;Car&quot;
 
 var result = typeof(Car[]).GetTypeName();
-//result is &quot;Car&quot;</code></pre>
+// result is &quot;Car&quot;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -349,10 +349,10 @@ var result = typeof(Car[]).GetTypeName();
 }
 
 var result = typeof(Car).Inherits(typeof(IVehicle));
-//result is true, as it inherits/implements IVehicle
+// result is true, as it inherits/implements IVehicle
 
 var result = typeof(Car).Inherits(typeof(Car));
-//result is false, as Car cannot inherit/implement itself</code></pre>
+// result is false, as Car cannot inherit/implement itself</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>

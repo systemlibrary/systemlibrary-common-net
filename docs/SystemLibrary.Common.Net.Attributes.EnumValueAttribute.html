@@ -234,22 +234,22 @@ public class EnumValueAttribute : Attribute</h1>
 
 var black = Color.Black;
 var value = black.ToValue();
-//&apos;value&apos; is now &quot;#000&quot;
+// &apos;value&apos; is now &quot;#000&quot;
 
 var value = Color.White.ToValue();
-//&apos;value&apos; is now &quot;White&quot;
+// &apos;value&apos; is now &quot;White&quot;
 
 var value = Color.Pink.ToValue();
-//&apos;value&apos; is now &apos;Pink&apos;
+// &apos;value&apos; is now &apos;Pink&apos;
 
-//Note: ToValue() falls back to &quot;ToString()&quot; on the enum key
+// Note: ToValue() falls back to &quot;ToString()&quot; on the enum key
 
 var value = Color.Pink.GetEnumValue();
-//&apos;value&apos; is now null, as Pink does not have a EnumValueAttribute
+// &apos;value&apos; is now null, as Pink does not have a EnumValueAttribute
 
 var value = Color.Black.GetEnumValue();
-//&apos;value&apos; is now an object with value &quot;#000&quot;, so it is castable to string
-//Note: GetEnumValue() returns null if the enum key does not have the attribute declared, or if the actual &quot;value&quot; of the EnumValueAttribute is null</code></pre>
+// &apos;value&apos; is now an object with value &quot;#000&quot;, so it is castable to string
+// Note: GetEnumValue() returns null if the enum key does not have the attribute declared, or if the actual &quot;value&quot; of the EnumValueAttribute is null</code></pre>
 </div>
         <div class="comment-examples-container-bottom"></div>
       </div>

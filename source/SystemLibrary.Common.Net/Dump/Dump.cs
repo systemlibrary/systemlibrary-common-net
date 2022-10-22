@@ -61,10 +61,10 @@ public static class Dump
     /// list.Add(new Car { Name = "Vehicle 2" });
     /// 
     /// Dump.Write(list);
-    /// //Outputs:
-    /// //List of Car (1)
-    /// //- Name = Vehicle 1
-    /// //- Name = Vehicle 2
+    /// // Outputs:
+    /// // List of Car (1)
+    /// //  - Name = Vehicle 1
+    /// //  - Name = Vehicle 2
     /// </code>
     /// </example>
     public static void Write(object o)

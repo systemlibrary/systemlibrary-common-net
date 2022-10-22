@@ -20,15 +20,15 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// 
 /// var value2 = Color.White.ToText();
 /// 
-/// //'value' is now "Black Colored Text"
-/// //'value2' is now "White", 
-/// //Note: .ToText() falls back to ToString() of the enum key
+/// // 'value' is now "Black Colored Text"
+/// // 'value2' is now "White", 
+/// // Note: .ToText() falls back to ToString() of the enum key
 /// 
 /// var value = Color.White.GetEnumText();
-/// //'value' is now null, as White does not contain EnumTextAttribute
+/// // 'value' is now null, as White does not contain EnumTextAttribute
 /// 
 /// var value = Color.Black.GetEnumText();
-/// //'value' is now a string with value 'Black Colored Text' as 'Black' has the EnumTextAttribute
+/// // 'value' is now a string with value 'Black Colored Text' as 'Black' has the EnumTextAttribute
 /// 
 /// </code>
 /// </example>

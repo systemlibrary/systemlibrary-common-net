@@ -233,15 +233,15 @@ var value = color.ToText();
 
 var value2 = Color.White.ToText();
 
-//&apos;value&apos; is now &quot;Black Colored Text&quot;
-//&apos;value2&apos; is now &quot;White&quot;, 
-//Note: .ToText() falls back to ToString() of the enum key
+// &apos;value&apos; is now &quot;Black Colored Text&quot;
+// &apos;value2&apos; is now &quot;White&quot;, 
+// Note: .ToText() falls back to ToString() of the enum key
 
 var value = Color.White.GetEnumText();
-//&apos;value&apos; is now null, as White does not contain EnumTextAttribute
+// &apos;value&apos; is now null, as White does not contain EnumTextAttribute
 
 var value = Color.Black.GetEnumText();
-//&apos;value&apos; is now a string with value &apos;Black Colored Text&apos; as &apos;Black&apos; has the EnumTextAttribute</code></pre>
+// &apos;value&apos; is now a string with value &apos;Black Colored Text&apos; as &apos;Black&apos; has the EnumTextAttribute</code></pre>
 </div>
         <div class="comment-examples-container-bottom"></div>
       </div>

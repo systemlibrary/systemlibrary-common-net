@@ -63,7 +63,7 @@ namespace SystemLibrary.Common.Net
     /// <code class="language-csharp hljs">
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
-    /// //name is now Hello World
+    /// // name is now Hello World
     /// </code>
     /// 
     /// Add transformation per 'environmnet' to our newly created TestConfig.json
@@ -128,7 +128,7 @@ namespace SystemLibrary.Common.Net
     /// <code class="language-csharp hljs">
     /// var testConfig = TestConfig.Current;
     /// var name = testConfig.Name;
-    /// //name is now equal to 'Hello Dev!', which is our transformed value
+    /// // name is now equal to 'Hello Dev!', which is our transformed value
     /// </code>
     /// </example>
     /// <typeparam name="T">T is the class inheriting Config&lt;&gt;, also referenced as 'self'. Note that T cannot be a nested class</typeparam>

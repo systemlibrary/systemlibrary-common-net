@@ -24,11 +24,11 @@ public static class ObjectExtensions
     /// var integers = new object[] { 1, 2, 3, 4 };
     /// 
     /// var colors = integers.AsEnumArray&lt;Colors&gt;();
-    /// //colors is now an array of 'Colors', with one of each of the values:
-    /// //colors[0] == Black
-    /// //colors[1] == White
-    /// //...
-    /// //colors[3] == Blue
+    /// // colors is now an array of 'Colors', with one of each of the values:
+    /// // colors[0] == Black
+    /// // colors[1] == White
+    /// // ...
+    /// // colors[3] == Blue
     /// </code>
     /// 
     /// <code class="language-csharp hljs">
@@ -39,7 +39,7 @@ public static class ObjectExtensions
     /// 
     /// var texts = new object[] { "Red", "Black", "White" };
     /// var colors = texts.AsEnumArray&lt;Colors&gt;();
-    /// //colors[1] == Black
+    /// // colors[1] == Black
     /// </code>
     /// </example>
     public static TEnum[] AsEnumArray<TEnum>(this object[] objects) where TEnum : struct, IComparable, IFormattable, IConvertible
@@ -79,7 +79,7 @@ public static class ObjectExtensions
     /// user.FirstName = "Hello World";
     /// var json = user.ToJson();
     /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
-    /// //contains is True, note that ToJson() has formatted 'FirstName' to camelCasing
+    /// // contains is True, note that ToJson() has formatted 'FirstName' to camelCasing
     /// </code>
     /// </example>
     public static string ToJson(this object obj, JsonSerializerOptions options = null)

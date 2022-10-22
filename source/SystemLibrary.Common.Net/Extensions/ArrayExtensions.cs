@@ -16,7 +16,7 @@ public static class ArrayExtensions
     /// var arr = new int [] { 2 };
     /// var arr2 = new int [] { 1 };
     /// var arr3 = arr.Add(arr2);
-    /// //arr3 now contains { 2, 1 }, in that order
+    /// // arr3 now contains { 2, 1 }, in that order
     /// </code>
     /// </example>
     /// <returns>Returns null if everything is null, else a new array of items</returns>
@@ -35,7 +35,7 @@ public static class ArrayExtensions
     /// var arr = new int [] { 3,4 };
     /// var arr2 = new int [] { 1,2,3 };
     /// var arr3 = arr.Add((i) => i > 1, arr2);
-    /// //arr3 now contains { 2,3,3,4 }, in that order, note the duplicated values
+    /// // arr3 now contains { 2,3,3,4 }, in that order, note the duplicated values
     /// </code>
     /// </example>
     /// <returns>Returns null if everything is null, else a new array of items</returns>

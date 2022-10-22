@@ -18,10 +18,10 @@ public static class UriExtensions
     /// <example>
     /// <code class="language-csharp hljs">
     /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
-    /// //result is "systemlibrary.com"
+    /// // result is "systemlibrary.com"
     /// 
     /// var result = new Uri('https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&amp;format=jpg').GetPrimaryDomain();
-    /// //result is "github.io"
+    /// // result is "github.io"
     /// </code>
     /// </example>
     public static string GetPrimaryDomain(this Uri uri, string topLevelDomain = ".com")

@@ -36,9 +36,9 @@ public static class Async
     ///     () => new CarApi().GetTop1("tesla")
     /// ); 
     /// 
-    /// //Variable 'cars' is filled after all three api requests has completed.
-    /// //Assume we got 1 ferrari, 0 volvo and 1 tesla
-    /// //'cars' now contain a total of 2 objects of type 'Car'
+    /// // Variable 'cars' is filled after all three api requests has completed.
+    /// // Assume we got 1 ferrari, 0 volvo and 1 tesla
+    /// // 'cars' now contain a total of 2 objects of type 'Car'
     /// </code>
     /// </example>
     public static List<T> Run<T>(params Func<T>[] functions)
@@ -92,9 +92,9 @@ public static class Async
     ///     () => new CarApi().GetAll("tesla")
     /// ); 
     /// 
-    /// //Variable 'cars' is filled after all three api requests has completed.
-    /// //Assume we got 2 ferraris, 3 volvos and 4 teslas
-    /// //'cars' now contain a total of 9 objects of type 'Car'
+    /// // Variable 'cars' is filled after all three api requests has completed.
+    /// // Assume we got 2 ferraris, 3 volvos and 4 teslas
+    /// // 'cars' now contain a total of 9 objects of type 'Car'
     /// </code>
     /// </example>
     public static List<T> Run<T>(params Func<IEnumerable<T>>[] functions)

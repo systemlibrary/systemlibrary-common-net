@@ -28,9 +28,9 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
     /// 
     /// var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color&gt;.GetKeys();
     /// 
-    /// //keys[0] is 'Black'
-    /// //keys[1] is 'White
-    /// //Note: it returns the Keys converted to strings only, ignoring EnumText attribute
+    /// // keys[0] is 'Black'
+    /// // keys[1] is 'White
+    /// // Note: it returns the Keys converted to strings only, ignoring EnumText attribute
     /// </code>
     /// </example>
     public static IEnumerable<string> GetKeys()
@@ -60,9 +60,9 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
     /// }
     /// var enums = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color&gt;.GetEnums();
     /// 
-    /// //enums is now:
-    /// //enums[0] is Color.Black
-    /// //enums[1] is Color.White
+    /// // enums is now:
+    /// // enums[0] is Color.Black
+    /// // enums[1] is Color.White
     /// </code>
     /// </example>
     public static IEnumerable<TEnum> GetEnums()
@@ -130,10 +130,10 @@ public static class EnumExtensions
     /// }
     ///
     /// var value = EnumColor.Black.ToText();
-    /// //White
+    /// // White
     /// 
     /// var value = EnumColor.Pink.ToText();
-    /// //Pink
+    /// // Pink
     /// </code>
     /// </example>
     public static string ToText(this Enum enumField)
@@ -165,13 +165,13 @@ public static class EnumExtensions
     /// }
     ///
     /// var value = EnumColor.Black.GetEnumText();
-    /// //"White"
+    /// // "White"
     /// 
     /// var value = EnumColor.Red.GetEnumText();
-    /// //null
+    /// // null
     /// 
     /// var value = EnumColor.Pink.GetEnumText();
-    /// //null
+    /// // null
     /// </code>
     /// </example>
     public static string GetEnumText(this Enum enumField)
@@ -198,10 +198,10 @@ public static class EnumExtensions
     /// }
     ///
     /// var value = EnumColor.Black.ToValue();
-    /// //"1234" as string
+    /// // "1234" as string
     /// 
     /// var value = EnumColor.Pink.ToValue();
-    /// //Pink, does not have the EnumValue attribute so it falls back to Pink as a string
+    /// // Pink, does not have the EnumValue attribute so it falls back to Pink as a string
     /// </code>
     /// </example>
     public static string ToValue(this Enum enumField)
@@ -231,10 +231,10 @@ public static class EnumExtensions
     /// }
     ///
     /// var value = EnumColor.Black.GetEnumValue();
-    /// //1234, an int
+    /// // 1234, an int
     /// 
     /// var value = EnumColor.Pink.GetEnumValue();
-    /// //null as Pink does not have the EnumValue attribute
+    /// // null as Pink does not have the EnumValue attribute
     /// </code>
     /// </example>
     public static object GetEnumValue(this Enum enumField)

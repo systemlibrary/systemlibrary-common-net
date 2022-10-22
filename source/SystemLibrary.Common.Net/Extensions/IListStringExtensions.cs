@@ -30,11 +30,11 @@ public static class IListStringExtensions
     /// 
     /// var enums = list.ToEnumList&lt;Cars&gt;();
     /// 
-    /// //enums[0] == Car1, null becomes the default value
-    /// //enums[1] == Car1, empty string becomes the default value
-    /// //enums[2] == Car2, case insensitive match
-    /// //enums[3] == Car4, case insensitive match
-    /// //enums[4] == Car4, case insensitive match
+    /// // enums[0] == Car1, null becomes the default value
+    /// // enums[1] == Car1, empty string becomes the default value
+    /// // enums[2] == Car2, case insensitive match
+    /// // enums[3] == Car4, case insensitive match
+    /// // enums[4] == Car4, case insensitive match
     /// </code>
     /// </example>
     public static List<TEnum> ToEnumList<TEnum>(this IList<string> collection) where TEnum : struct, IComparable, IFormattable, IConvertible

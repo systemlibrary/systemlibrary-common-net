@@ -29,7 +29,7 @@ public static class IEnumerableExtensions
     /// var list = new List&lt;Car&gt; { car1, car2 }
     /// 
     /// var list = list.DistinctBy(x => x.Name).ToList();
-    /// //list contains now 1 car
+    /// // list contains now 1 car
     /// </code>
     /// </example>
     public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> items, Func<T, TKey> selector)
@@ -78,7 +78,7 @@ public static class IEnumerableExtensions
     /// users.Add(user);
     /// 
     /// var result = users.Has(user);
-    /// //result is true, the list contains that specific user object
+    /// // result is true, the list contains that specific user object
     /// </code>
     /// </example>
     public static bool Has<T>(this IEnumerable<T> enumerable, object value) where T : class
@@ -103,11 +103,11 @@ public static class IEnumerableExtensions
     /// 
     /// var result = list.IsNot();
     /// 
-    /// //result is true as the list contains 0 items
+    /// // result is true as the list contains 0 items
     /// 
     /// List&lt;string&gt; list = null;
     /// var result = list.IsNot();
-    /// //result is true as the list currently is null
+    /// // result is true as the list currently is null
     /// </code>
     /// </example>
     public static bool IsNot<T>(this IEnumerable<T> enumerable)
@@ -136,11 +136,11 @@ public static class IEnumerableExtensions
     /// 
     /// var result = list.Is();
     /// 
-    /// //result is true as the list contains 1 item
+    /// // result is true as the list contains 1 item
     /// 
     /// List&lt;string&gt; list = null;
     /// var result = list.Is();
-    /// //result is false as the list is null
+    /// // result is false as the list is null
     /// </code>
     /// </example>
     public static bool Is<T>(this IEnumerable<T> enumerable)

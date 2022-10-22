@@ -71,7 +71,7 @@ namespace SystemLibrary.Common.Net
         /// }
         /// 
         /// var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle&gt;
-        /// //returns 'Car' and all other types that inherits/implements IVehicle
+        /// // returns 'Car' and all other types that inherits/implements IVehicle
         /// </code>
         /// </example>
         /// <typeparam name="TClassType">Must be a class</typeparam>
@@ -96,7 +96,7 @@ namespace SystemLibrary.Common.Net
         /// }
         /// 
         /// var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle,NameAttribute&gt;
-        /// //returns 'Car' and all other types that inherits/implements IVehicle which also contains the attribute
+        /// // returns 'Car' and all other types that inherits/implements IVehicle which also contains the attribute
         /// </code>
         /// </example>
         /// <typeparam name="TClassType">Must be a class</typeparam>
@@ -116,9 +116,9 @@ namespace SystemLibrary.Common.Net
         /// <code class="language-csharp hljs">
         /// var text = Assemblies.GetEmbeddedResource("Folder/SubFolder/SubFolder2", "json.txt");
         /// Assert.IsTrue(text.Contains("hello world"));
-        /// //assume a file in Solution Explorer exists at "~/Folder/SubFolder/SubFolder2/json.txt"
-        /// //assume "json.txt" has build action 'Embedded Resource'
-        /// //assume "json.txt" contains 'hello world' this is now true
+        /// // assume a file in Solution Explorer exists at "~/Folder/SubFolder/SubFolder2/json.txt"
+        /// // assume "json.txt" has build action 'Embedded Resource'
+        /// // assume "json.txt" contains 'hello world' this is now true
         /// </code>
         /// </example>
         public static string GetEmbeddedResource(string relativeFolderPath, string fileName, Asm assembly = null)
@@ -132,7 +132,7 @@ namespace SystemLibrary.Common.Net
         /// <example>
         /// <code class="language-csharp hljs">
         /// var bytes = Assemblies.GetEmbeddedResource("Folder/SubFolder/SubFolder2", "image.jpg");
-        /// //bytes contains now the whole image.jpg as an byte array, assuming image.jpg was marked with the build action 'Embedded Resource'
+        /// // bytes contains now the whole image.jpg as an byte array, assuming image.jpg was marked with the build action 'Embedded Resource'
         /// </code>
         /// </example>
         public static byte[] GetEmbeddedResourceAsBytes(string relativeFolderPath, string fileName, Asm assembly = null)

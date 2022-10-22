@@ -38,11 +38,11 @@ public static class DynamicExtensions
     ///
     /// var d = DynamicExtensions.Merge(a, b, c);
     /// 
-    /// //d contains 3 properties: firstName, age, Age
-    /// //d's property values are now: hello, 1, 10
-    /// //var dictionary = d as IDictionary&lt;string, object&gt;
-    /// //d can be cast to dictionary
-    /// //dictionary["Age"] will return 10
+    /// // d contains 3 properties: firstName, age, Age
+    /// // d's property values are now: hello, 1, 10
+    /// // var dictionary = d as IDictionary&lt;string, object&gt;
+    /// // d can be cast to dictionary
+    /// // dictionary["Age"] will return 10
     /// </code>
     /// </example>
     public static dynamic Merge(dynamic source, params object[] updates)

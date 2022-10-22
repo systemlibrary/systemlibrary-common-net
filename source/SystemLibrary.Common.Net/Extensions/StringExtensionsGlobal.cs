@@ -18,12 +18,12 @@ namespace SystemLibrary.Common.Net.Global;
 /// <example>
 /// <code>
 /// var result = "Hello world".Is()
-/// //result is 'true'
+/// // result is 'true'
 /// </code>
 /// 
 /// <code>
 /// var result = "".IsNot();
-/// //result is 'true'
+/// // result is 'true'
 /// </code>
 /// </example>
 public static class StringExtensions
@@ -41,7 +41,7 @@ public static class StringExtensions
     /// var text4 = "hello";
     /// 
     /// var result = text1.AsFallback(text2, text3, text4);
-    /// //result is "hello" as the others are blank/empty
+    /// // result is "hello" as the others are blank/empty
     /// </code>
     /// </example>
     public static string AsFallback(this string text, params string[] fallbacks)
@@ -57,7 +57,9 @@ public static class StringExtensions
         return "";
     }
 
-    ///<inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
+    /// <summary>
+    /// </summary>
+    /// <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     public static string GetPrimaryDomain(this string url)
     {
         if (url.IsNot()) return "";
@@ -115,16 +117,16 @@ public static class StringExtensions
     /// }
     ///
     /// var value = "black".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive match directly in the Enum Key (or name if you prefer)
+    /// // value is EnumColor.Black, case insensitive match directly in the Enum Key (or name if you prefer)
     /// 
     /// var value = "white".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive match in 'EnumText' attribute
+    /// // value is EnumColor.Black, case insensitive match in 'EnumText' attribute
     /// 
     /// var value = "blackAndWhite".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, case insensitive match in 'EnumValue' attribute
+    /// // value is EnumColor.Black, case insensitive match in 'EnumValue' attribute
     /// 
     /// var value = "brown".ToEnum&lt;EnumColor&gt;();
-    /// //value is EnumColor.Black, no match, returns first/default
+    /// // value is EnumColor.Black, no match, returns first/default
     /// </code>
     /// </example>
     public static T ToEnum<T>(this string text) where T : struct, IComparable, IFormattable, IConvertible
@@ -176,7 +178,7 @@ public static class StringExtensions
     /// var text = "hello world";
     /// 
     /// var result = text.StartsWithAny("", "abcdef", "hel");
-    /// //result is true, due to the text begins with 'hel'
+    /// // result is true, due to the text begins with 'hel'
     /// </code>
     /// </example>
     public static bool StartsWithAny(this string text, params string[] values)
@@ -200,7 +202,7 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
     /// var result = text.EndsWithAny("", "abdef", "rld");
-    /// //result is true, because the last part of text ends with rld
+    /// // result is true, because the last part of text ends with rld
     /// </code>
     /// </example>
     public static bool EndsWithAny(this string text, params string[] values)
@@ -222,7 +224,7 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var text = "heLLo WoRLd";
     /// var result = text.EndsWithAny("", "abdef", "RLD");
-    /// //result is true, because the last part of text ends with RLd - case insensitive
+    /// // result is true, because the last part of text ends with RLd - case insensitive
     /// </code>
     /// </example>
     public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)
@@ -246,7 +248,7 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
     /// var result = text.IsAny("hello", "world", "hello WORLD", "hello world");
-    /// //result is true, as the last 'hello world' matches exactly
+    /// // result is true, as the last 'hello world' matches exactly
     /// </code>
     /// </example>
     public static bool IsAny(this string text, params string[] values)
@@ -274,11 +276,11 @@ public static class StringExtensions
     /// 
     /// var text = " ";
     /// var result = text.IsNot();
-    /// //result is true because a single space counts as "no text" in this function
+    /// // result is true because a single space counts as "no text" in this function
     /// 
     /// var text = "  "; //2 spaces
     /// var result = text.IsNot();
-    /// //result is false because two spaces counts as text in this function
+    /// // result is false because two spaces counts as text in this function
     /// </code>
     /// </example>
     public static bool IsNot(this string text)
@@ -292,11 +294,11 @@ public static class StringExtensions
     /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
-    /// //Old way: string.IsNullOrWhiteSpace(text);
+    /// // Old way: string.IsNullOrWhiteSpace(text);
     /// 
     /// var text = "hello world";
     /// var result = text.Is();
-    /// //result is true because text is set to something, and not just "" or " "
+    /// // result is true because text is set to something, and not just "" or " "
     /// </code>
     /// </example>
     public static bool Is(this string text)
@@ -314,10 +316,10 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
     /// var result = text.Is("hello");
-    /// //result is true because text is set to something else than 'hello', and not just "" or " "
+    /// // result is true because text is set to something else than 'hello', and not just "" or " "
     /// 
     /// var result2 = text.Is("hello world");
-    /// //result is false, because text equals to the invalid text passed in, which was 'hello world'
+    /// // result is false, because text equals to the invalid text passed in, which was 'hello world'
     /// </code>
     /// </example>
     public static bool Is(this string text, params string[] invalidTexts)
@@ -344,7 +346,7 @@ public static class StringExtensions
     /// var email = "support@system.library.com";
     /// var text = email.ToLetterAndDigits();
     /// 
-    /// //text is "supportsystemlibrarycom"
+    /// // text is "supportsystemlibrarycom"
     /// </code>
     /// </example>
     public static string ToLetterAndDigits(this string text)
@@ -363,7 +365,7 @@ public static class StringExtensions
     /// var text = "hello";
     /// 
     /// var result = text.ContainsAny("123", "!", "lo");
-    /// //result is true, because lo is part of the text
+    /// // result is true, because lo is part of the text
     /// </code>
     /// </example>
     public static bool ContainsAny(this string text, params string[] values)
@@ -391,11 +393,11 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var result = "abcd".TrimEnd(" ", "!", "c", "d");
     /// 
-    /// //result is abc
+    /// // result is abc
     /// 
     /// var result = "abcd".TrimEnd(" ", "d", "bc");
     /// 
-    /// //result is "abc" because it matches 'd' then returns, so 'bc' is never checked
+    /// // result is "abc" because it matches 'd' then returns, so 'bc' is never checked
     /// </code>
     /// </example>
     public static string TrimEnd(this string text, params string[] values)
@@ -441,7 +443,7 @@ public static class StringExtensions
     /// var text = "hello world";
     /// 
     /// var result = text.EndsWithAnyCharacter("abcdef");
-    /// //result is true, because it ends with 'd'
+    /// // result is true, because it ends with 'd'
     /// </code>
     /// </example>
     public static bool EndsWithAnyCharacter(this string text, string characters)
@@ -467,7 +469,7 @@ public static class StringExtensions
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
     /// var result = text.MaxLength(1);
-    /// //result is "h" as it only can be 1 character long
+    /// // result is "h" as it only can be 1 character long
     /// </code>
     /// </example> 
     public static string MaxLength(this string text, int maxLength)
@@ -509,22 +511,24 @@ public static class StringExtensions
     /// <returns>Returns json as T or null if not found</returns>
     /// <example>
     /// <code class="language-csharp hljs">
-    /// //Assume json string stored in a C# variable named 'data':
+    /// // Assume json string stored in a C# variable named 'data':
     /// var data = "{
     ///     "users" [
     ///         ...
     ///     ]
     /// }";
     /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;();
-    /// //When a property is not given as first argument, it uses the type name in the following manner:
-    /// //1. Takes the type name, in our case 'User'
-    /// //2. If type is a List or Array, it adds a plural 's', so now we have 'Users'
-    /// //3. It lowers first letter to match camel casing as thats the "norm", so now we have 'users'
+    /// // When a 'property name' is not given as first argument, it uses the type name in the following manner:
+    /// // 1. Takes the type name, or generic type name, in our case 'User'
+    /// // 2. If type is a List or Array, it adds a plural 's', so now we have 'Users'
+    /// // 3. It lowers first letter to match camel casing as thats the "norm", so now we have 'users'
     /// 
-    /// //You could also pass in "users" manually if you wanted, result is the same:
-    /// //var users = data.PartialJson&lt;List&lt;User&gt;&gt;("users");
-    /// //Note: There's an automation on the Type if property to search for is not specified
-    /// //Note 2: It would return the first "users" property it would find, no matter how deep in the json it is
+    /// // You could also pass in "users" manually if you wanted, result is the same:
+    /// // var users = data.PartialJson&lt;List&lt;User&gt;&gt;("users");
+    /// 
+    /// // Conclusion: 
+    /// // Automatic finding the property name if not specified as first argument
+    /// // It returns first "users" match in the json, no matter how deep it is
     /// 
     /// //Assume json string stored in a C# variable named 'data':
     /// var data = "{
@@ -538,10 +542,10 @@ public static class StringExtensions
     ///     }
     /// }";
     /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;("deactivated/users");
-    /// //Searches for a property "deactivated" anywhere in the json, then inside that a "users" property
+    /// // Searches for a property "deactivated" anywhere in the json, then anywhere inside that, a "users" property
     /// 
     /// 
-    /// //Assume json string stored in a C# variable named 'data':
+    /// // Assume json string stored in a C# variable named 'data':
     /// var data = "{
     ///     "text": "hello world",
     ///     "employees": [
@@ -557,7 +561,7 @@ public static class StringExtensions
     /// }";
     /// 
     /// var users = data.PartialJson&lt;List&lt;User&gt;&gt;("fired");
-    /// //Searches for a property anywhere in the json named "fired"
+    /// // Searches for a property anywhere in the json named "fired"
     /// </code>
     /// </example>
     public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null) where T : class
@@ -613,8 +617,7 @@ public static class StringExtensions
     /// <code>
     /// var value = "#FFF";
     /// var newValue = value.HexDarkenOrLighten();
-    /// //newValue is 
-    /// 
+    /// // newValue is #4F4F4F
     /// </code>
     /// </example>
     public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)
@@ -719,7 +722,7 @@ public static class StringExtensions
     /// var value = "Hello world";
     /// var base64string = value.ToBase64();
     /// var valueAgain = base64string.FromBase64();
-    /// //value == valueAgain
+    /// // value == valueAgain
     /// </code>
     /// </example>
     public static string FromBase64(this string base64String, Encoding encoding = default)
@@ -756,7 +759,7 @@ public static class StringExtensions
     /// <summary>
     /// Obfuscate a string to a different string with a salt
     /// 
-    /// Throws exception if salt is <= 0
+    /// Throws exception if salt is &lt;= 0
     /// 
     /// Returns a new obfuscated string
     /// 
@@ -785,7 +788,7 @@ public static class StringExtensions
     /// var value = "Hello world";
     /// var obfuscatedText = value.Obfuscate();
     /// var deobfuscatedText = obfuscatedText.Deobfuscate();
-    /// //value == deobfuscatedText
+    /// // value == deobfuscatedText
     /// </code>
     /// </example>
     public static string Deobfuscate(this string text, int salt = 11)

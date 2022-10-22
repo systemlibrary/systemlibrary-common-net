@@ -24,10 +24,10 @@ public static class TypeExtensions
     /// }
     /// 
     /// var result = typeof(Car).Inherits(typeof(IVehicle));
-    /// //result is true, as it inherits/implements IVehicle
+    /// // result is true, as it inherits/implements IVehicle
     /// 
     /// var result = typeof(Car).Inherits(typeof(Car));
-    /// //result is false, as Car cannot inherit/implement itself
+    /// // result is false, as Car cannot inherit/implement itself
     /// </code>
     /// </example>
     public static bool Inherits(this Type thisType, Type type)
@@ -89,17 +89,17 @@ public static class TypeExtensions
     /// }
     /// 
     /// var result = typeof(Car).GetTypeName();
-    /// //result is "Car"
+    /// // result is "Car"
     /// 
     /// var list = new List&lt;Car&gt;
     /// var result = list.GetType().GetTypeName();
-    /// //result is "Car"
+    /// // result is "Car"
     /// 
     /// var result = typeof(List&lt;Car&gt;).GetTypeName();
-    /// //result is "Car"
+    /// // result is "Car"
     /// 
     /// var result = typeof(Car[]).GetTypeName();
-    /// //result is "Car"
+    /// // result is "Car"
     /// </code>
     /// </example>
     public static string GetTypeName(this Type type)
