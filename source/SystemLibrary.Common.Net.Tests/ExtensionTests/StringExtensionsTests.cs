@@ -11,6 +11,66 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringExtensionsTests
 {
     [TestMethod]
+    public void String_Is()
+    {
+        string data = null;
+        var result = false;
+
+        result = data.Is();
+        Assert.IsTrue(result == false, "Is null");
+
+        data = "";
+        result = data.Is();
+        Assert.IsTrue(result == false, "Is empty");
+
+        data = " ";
+        result = data.Is();
+        Assert.IsTrue(result == false, "Is space");
+
+        data = "  ";
+        result = data.Is();
+        Assert.IsTrue(result, "Is 2 spaces");
+
+        data = "A";
+        result = data.Is();
+        Assert.IsTrue(result, "A");
+
+        data = ".";
+        result = data.Is();
+        Assert.IsTrue(result, "A");
+    }
+
+    [TestMethod]
+    public void String_Is_Not()
+    {
+        string data = null;
+        var result = false;
+
+        result = data.IsNot();
+        Assert.IsTrue(result, "Result not null");
+
+        data = "";
+        result = data.IsNot();
+        Assert.IsTrue(result, "Result not empty");
+
+        data = " ";
+        result = data.IsNot();
+        Assert.IsTrue(result, "Result not space");
+
+        data = "  ";
+        result = data.IsNot();
+        Assert.IsTrue(result == false, "Result not 2 spaces");
+
+        data = "Hello world";
+        result = data.IsNot("Hello", "Hello woRld", "Hello world");
+        Assert.IsTrue(result, "Result not 'Hello world'");
+
+        data = "abcdHello world12345";
+        result = data.IsNot("Hello", "Hello woRld", "Hello world");
+        Assert.IsTrue(result == false, "Result not 'Hello world'");
+    }
+
+    [TestMethod]
     public void String_To_Md5_Hash_String()
     {
         string data = null;

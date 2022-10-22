@@ -56,9 +56,23 @@ public static class StringExtensions
         return "";
     }
 
+
+    // <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     /// <summary>
+    /// Returns the domain part of the uri or blank, never null:
+    /// 
+    /// https://www.sub1.sub2.domain.com => domain.com
     /// </summary>
-    /// <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
+    /// <returns>Primary domain name or "", never null</returns>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
+    /// // result is "systemlibrary.com"
+    /// 
+    /// var result = new Uri('https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&amp;format=jpg').GetPrimaryDomain();
+    /// // result is "github.io"
+    /// </code>
+    /// </example>
     public static string GetPrimaryDomain(this string url)
     {
         if (url.IsNot()) return "";
@@ -282,9 +296,16 @@ public static class StringExtensions
     /// // result is false because two spaces counts as text in this function
     /// </code>
     /// </example>
-    public static bool IsNot(this string text)
+    public static bool IsNot(this string text, params string[] additionalNotValues)
     {
-        return text == null || text == "" || text == " ";
+        if (text == null || text == "" || text == " ") return true;
+
+        if (additionalNotValues == null) return false;
+
+        if (additionalNotValues.Any(value => text == value))
+            return true;
+
+        return false;
     }
 
     /// <summary>
@@ -707,9 +728,6 @@ public static class StringExtensions
     /// </example>
     public static string ToBase64(this string text, Encoding encoding = default)
     {
-        if (text == null)
-            text = null;
-
         return GetBytes(text, encoding).ToBase64();
     }
 
