@@ -13,6 +13,8 @@ public static class ByteArrayExtensions
     /// <code>
     /// var bytes = "hello world".GetBytes();
     /// var base64string = bytes.ToBase64();
+    /// 
+    /// //Tip: If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
     /// </code>
     /// </example>
     public static string ToBase64(this byte[] bytes)
@@ -26,6 +28,8 @@ public static class ByteArrayExtensions
     /// Returns a hash string of the bytes
     /// 
     /// If input is null or empty it returns null or empty string
+    /// 
+    /// Tip: If data is less than ~200 bytes then .ToMD5Hash() is faster
     /// </summary>
     /// <example>
     /// <code>
@@ -46,6 +50,8 @@ public static class ByteArrayExtensions
     /// Returns a hash string of the bytes
     /// 
     /// If input is null or empty it returns null or empty string
+    /// 
+    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// </summary>
     /// <example>
     /// <code>

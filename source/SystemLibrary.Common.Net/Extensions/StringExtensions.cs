@@ -125,7 +125,7 @@ public static class StringExtensions
     /// // value is EnumColor.Black, case insensitive match in 'EnumValue' attribute
     /// 
     /// var value = "brown".ToEnum&lt;EnumColor&gt;();
-    /// // value is EnumColor.Black, no match, returns first/default
+    /// // value is EnumColor.None, no match, returns first enum Key
     /// </code>
     /// </example>
     public static T ToEnum<T>(this string text) where T : struct, IComparable, IFormattable, IConvertible
@@ -696,6 +696,8 @@ public static class StringExtensions
     /// Returns input as a base64 string
     /// 
     /// Returns null or empty if input is null or empty
+    /// 
+    /// //Tip: If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
     /// </summary>
     /// <example>
     /// <code>
@@ -763,6 +765,8 @@ public static class StringExtensions
     /// Returns a new obfuscated string
     /// 
     /// Returns null or empty if input is null or empty
+    /// 
+    /// // Tip: Method .ToBase64() is faster if data is more than 400KB
     /// </summary>
     /// <example>
     /// <code>
@@ -798,9 +802,9 @@ public static class StringExtensions
     /// <summary>
     /// Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes), no matter the input, or returns null or empty if that was the input
     /// 
-    /// Tip: If you hash data larger than 75KB, then ToSha1Hash() is faster (CPU vice)
+    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// 
-    /// Note: Md5 is not secure, there are rainbow tables, it's a 'one way obfuscater'
+    /// Note: Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
     /// </summary>
     /// <example>
     /// <code>
@@ -816,9 +820,9 @@ public static class StringExtensions
     /// <summary>
     /// Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes), no matter the input, or returns null or empty if that was the input
     /// 
-    /// Tip: If you hash data smaller than 75KB, then ToMD5Hash() is faster (CPU and memory vice)
+    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
     /// 
-    /// Note: Sha1 is not secure, there are rainbow tables, it's a 'one way obfuscater'
+    /// Note: Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
     /// </summary>
     /// <example>
     /// <code>

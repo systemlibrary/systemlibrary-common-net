@@ -240,7 +240,7 @@
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToJsonAsync__1_System_IO_Stream_System_Text_Json_JsonSerializerOptions_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L26">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L25">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToJsonAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToJsonAsync*"></a>
@@ -320,13 +320,14 @@
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
 <p>Returns null if stream is null or cannot be read</p>
+<p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L62">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L65">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash*"></a>
@@ -392,13 +393,14 @@ var hash = fileStream.ToMD5Hash();</code></pre>
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
 <p>Returns null if stream is null or cannot be read</p>
+<p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L46">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L47">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync*"></a>
@@ -464,13 +466,14 @@ var hash = fileStream.ToMD5HashAsync().Result;</code></pre>
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
 <p>Returns null if stream is null or cannot be read</p>
+<p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L78">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L83">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash*"></a>
@@ -536,13 +539,14 @@ var hash = fileStream.ToSha1Hash();</code></pre>
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
 <p>Returns null if stream is null or cannot be read</p>
+<p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L94">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L101">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync*"></a>
@@ -1243,7 +1247,7 @@ var hash = fileStream.ToSha1HashAsync().Result;</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

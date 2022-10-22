@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -36,6 +35,8 @@ public static class StreamExtensions
     /// Reads the stream to its end, hashing the content and returning the hash as a string
     /// 
     /// Returns null if stream is null or cannot be read
+    /// 
+    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// </summary>
     /// <example>
     /// <code>
@@ -52,6 +53,8 @@ public static class StreamExtensions
     /// Reads the stream to its end, hashing the content and returning the hash as a string
     /// 
     /// Returns null if stream is null or cannot be read
+    /// 
+    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// </summary>
     /// <example>
     /// <code>
@@ -68,6 +71,8 @@ public static class StreamExtensions
     /// Reads the stream to its end, hashing the content and returning the hash as a string
     /// 
     /// Returns null if stream is null or cannot be read
+    /// 
+    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
     /// </summary>
     /// <example>
     /// <code>
@@ -84,6 +89,8 @@ public static class StreamExtensions
     /// Reads the stream to its end, hashing the content and returning the hash as a string
     /// 
     /// Returns null if stream is null or cannot be read
+    /// 
+    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
     /// </summary>
     /// <example>
     /// <code>

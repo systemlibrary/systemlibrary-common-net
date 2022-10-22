@@ -4,31 +4,51 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, launchCount: 2, targetCount: 5, invocationCount: 80)]
+[SimpleJob(RuntimeMoniker.Net60, warmupCount: 5, launchCount: 5, targetCount: 6, invocationCount: 200)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringExtensionsBenchmark
 {
-    string data;
-    string dataLong;
+    string bytes11;
+    string bytes275;          //275 bytes
+    string kiloBytes110;      //110KB   
+    string kiloBytes550;      //550KB
 
     [GlobalSetup]
     public void Setup()
     {
         var res = "";
-        data = "Hello world";
+
+        bytes11 = "Hello world";
 
         try
         {
-            for (int i = 0; i < 5000; i++)
-                dataLong += data;
+            for (int i = 0; i < 25; i++)
+                bytes275 += bytes11;
 
-            Dump.Write(dataLong);
+            for (int i = 0; i < 400; i++)
+                kiloBytes110 += bytes275;
 
-            res += data.Obfuscate();
-            res += data.ToBase64();
-            res += data.ToMD5Hash();
-            res += data.ToSha1Hash();
+            for (int i = 0; i < 5; i++)
+                kiloBytes550 += kiloBytes110;
+
+            res += bytes11.Obfuscate();
+            res += bytes11.ToBase64();
+            res += bytes11.ToMD5Hash();
+            res += bytes11.ToSha1Hash();
+
+            res += bytes275.Obfuscate();
+            res += bytes275.ToBase64();
+            res += bytes275.ToMD5Hash();
+            res += bytes275.ToSha1Hash();
+
+            res += kiloBytes110.Obfuscate();
+            res += kiloBytes110.ToBase64();
+            res += kiloBytes110.ToMD5Hash();
+            res += kiloBytes110.ToSha1Hash();
+
+            if (res.Length == 0)
+                Dump.Write("Never occurs - just so the setup is being ran and not ignored");
         }
         catch(Exception ex)
         {
@@ -37,47 +57,98 @@ public class StringExtensionsBenchmark
     }
 
     [Benchmark]
-    public string Obfuscate()
+    public string Base64_Bytes11()
     {
-        return data.Obfuscate();
+        return bytes11.ToBase64();
     }
 
     [Benchmark]
-    public string Base64()
+    public string Base64_Bytes275()
     {
-        return data.ToBase64();
-    }
-
-    /// <summary>
-    /// Testing performance of creating a "unique" path for url's to server always updated files
-    /// </summary>
-    [Benchmark]
-    public string Base64Long()
-    {
-        return (dataLong.Length + dataLong).ToBase64();
+        return bytes275.ToBase64();
     }
 
     [Benchmark]
-    public string Md5HashLong()
+    public string Base64_KiloBytes110()
     {
-        return dataLong.ToMD5Hash();
+        return kiloBytes110.ToBase64();
     }
 
     [Benchmark]
-    public string Md5Hash()
+    public string Base64_KiloBytes550()
     {
-        return data.ToMD5Hash();
+        return kiloBytes550.ToBase64();
     }
 
     [Benchmark]
-    public string Sha1Hash()
+    public string Obfuscate_Bytes11()
     {
-        return data.ToSha1Hash();
+        return bytes11.Obfuscate();
     }
 
     [Benchmark]
-    public string Sha1HashLong()
+    public string ObfuscateBytes275()
     {
-        return dataLong.ToSha1Hash();
+        return bytes275.Obfuscate();
+    }
+
+    [Benchmark]
+    public string Obfuscate_KiloBytes110()
+    {
+        return kiloBytes110.Obfuscate();
+    }
+
+    [Benchmark]
+    public string Obfuscate_KiloBytes550()
+    {
+        return kiloBytes550.Obfuscate();
+    }
+
+    [Benchmark]
+    public string Md5Hash_Bytes11()
+    {
+        return bytes11.ToMD5Hash();
+    }
+
+    [Benchmark]
+    public string Md5Hash_Bytes275()
+    {
+        return bytes275.ToMD5Hash();
+    }
+
+    [Benchmark]
+    public string Md5Hash_KiloBytes110()
+    {
+        return kiloBytes110.ToMD5Hash();
+    }
+
+    [Benchmark]
+    public string Md5Hash_KiloBytes550()
+    {
+        return kiloBytes550.ToMD5Hash();
+    }
+
+    [Benchmark]
+    public string Sha1Hash_Bytes11()
+    {
+        return bytes11.ToSha1Hash();
+    }
+
+    [Benchmark]
+    public string Sha1Hash_Bytes275()
+    {
+        return bytes275.ToSha1Hash();
+    }
+
+    [Benchmark]
+    public string Sha1Hash_KiloBytes110()
+    {
+        return kiloBytes110.ToSha1Hash();
+    }
+
+    [Benchmark]
+    public string Sha1Hash_KiloBytes550()
+    {
+        return kiloBytes550.ToSha1Hash();
     }
 }

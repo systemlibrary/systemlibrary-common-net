@@ -419,7 +419,7 @@ var result = text.ContainsAny(&quot;123&quot;, &quot;!&quot;, &quot;lo&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_System_String_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L794">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L798">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate*"></a>
@@ -734,7 +734,7 @@ var result = text.EndsWithAnyCharacter(&quot;abcdef&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L728">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L730">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.FromBase64*"></a>
@@ -813,7 +813,7 @@ var valueAgain = base64string.FromBase64();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L749">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L751">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetBytes*"></a>
@@ -1430,14 +1430,15 @@ var result = text.MaxLength(1);
   		<div class="markdown level1 summary member-summary"><p>Obfuscate a string to a different string with a salt</p>
 <p>Throws exception if salt is &lt;= 0</p>
 <p>Returns a new obfuscated string</p>
-<p>eturns null or empty if input is null or empty</p>
+<p>Returns null or empty if input is null or empty</p>
+<p>// Tip: Method .ToBase64() is faster if data is more than 400KB</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_System_String_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L774">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L778">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate*"></a>
@@ -1820,13 +1821,14 @@ var result = text.StartsWithAny(&quot;&quot;, &quot;abcdef&quot;, &quot;hel&quot
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns input as a base64 string</p>
 <p>Returns null or empty if input is null or empty</p>
+<p>//Tip: If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L707">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L709">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToBase64*"></a>
@@ -1934,7 +1936,7 @@ var value = &quot;blackAndWhite&quot;.ToEnum&lt;EnumColor>();
 // value is EnumColor.Black, case insensitive match in &apos;EnumValue&apos; attribute
 
 var value = &quot;brown&quot;.ToEnum&lt;EnumColor>();
-// value is EnumColor.Black, no match, returns first/default</code></pre>
+// value is EnumColor.None, no match, returns first enum Key</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -2188,15 +2190,15 @@ var text = email.ToLetterAndDigits();
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes), no matter the input, or returns null or empty if that was the input</p>
-<p>Tip: If you hash data larger than 75KB, then ToSha1Hash() is faster (CPU vice)</p>
-<p>Note: Md5 is not secure, there are rainbow tables, it's a 'one way obfuscater'</p>
+<p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
+<p>Note: Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L812">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L816">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash*"></a>
@@ -2261,15 +2263,15 @@ var md5text = value.ToMD5Hash();</code></pre>
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes), no matter the input, or returns null or empty if that was the input</p>
-<p>Tip: If you hash data smaller than 75KB, then ToMD5Hash() is faster (CPU and memory vice)</p>
-<p>Note: Sha1 is not secure, there are rainbow tables, it's a 'one way obfuscater'</p>
+<p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
+<p>Note: Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L830">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L834">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash*"></a>
