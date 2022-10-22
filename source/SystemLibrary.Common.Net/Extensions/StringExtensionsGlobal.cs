@@ -6,8 +6,9 @@ using System.Text;
 using System.Text.Json;
 
 using SystemLibrary.Common.Net.Attributes;
+using SystemLibrary.Common.Net.Extensions;
 
-namespace SystemLibrary.Common.Net.Extensions;
+namespace SystemLibrary.Common.Net.Global;
 
 /// <summary>
 /// This class contains extension methods for Strings

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-
-using Microsoft.VisualBasic;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
@@ -763,12 +759,12 @@ public static class StringExtensions
     /// 
     /// Returns a new obfuscated string
     /// 
-    /// eturns null or empty if input is null or empty
+    /// Returns null or empty if input is null or empty
     /// </summary>
     /// <example>
     /// <code>
     /// var value = "Hello world";
-    /// var obfuscatedText = value.Obfuscate();
+    /// var obfuscated = value.Obfuscate();
     /// </code>
     /// </example>
     public static string Obfuscate(this string text, int salt = 11)

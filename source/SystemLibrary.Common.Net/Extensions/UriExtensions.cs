@@ -1,63 +1,62 @@
 ﻿using System;
 
-namespace SystemLibrary.Common.Net.Extensions
+namespace SystemLibrary.Common.Net.Extensions;
+
+/// <summary>
+/// This class contains extension methods for Uri
+/// 
+/// For instance: GetPrimaryDomain(), etc...
+/// </summary>
+public static class UriExtensions
 {
     /// <summary>
-    /// This class contains extension methods for Uri
+    /// Returns the domain part of the uri or blank, never null:
     /// 
-    /// For instance: GetPrimaryDomain(), etc...
+    /// https://www.sub1.sub2.domain.com => domain.com
     /// </summary>
-    public static class UriExtensions
+    /// <returns>Primary domain name or "", never null</returns>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
+    /// //result is "systemlibrary.com"
+    /// 
+    /// var result = new Uri('https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&amp;format=jpg').GetPrimaryDomain();
+    /// //result is "github.io"
+    /// </code>
+    /// </example>
+    public static string GetPrimaryDomain(this Uri uri, string topLevelDomain = ".com")
     {
-        /// <summary>
-        /// Returns the domain part of the uri or blank, never null:
-        /// 
-        /// https://www.sub1.sub2.domain.com => domain.com
-        /// </summary>
-        /// <returns>Primary domain name or "", never null</returns>
-        /// <example>
-        /// <code class="language-csharp hljs">
-        /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
-        /// //result is "systemlibrary.com"
-        /// 
-        /// var result = new Uri('https://systemlibrary.github.io/systemlibrary-common-net/image?q=90&amp;format=jpg').GetPrimaryDomain();
-        /// //result is "github.io"
-        /// </code>
-        /// </example>
-        public static string GetPrimaryDomain(this Uri uri, string topLevelDomain = ".com")
+        if (uri == null)
+            return "";
+
+        string host;
+        if (uri.IsAbsoluteUri)
+            host = uri.Host;
+        else
+            host = uri.OriginalString;
+
+        if (host.IsNot())
+            return "";
+
+        if (!host.Contains("."))
+            return host + topLevelDomain;
+
+        var values = host.Split('.');
+
+        var length = values.Length;
+
+        if (length == 1)
+            return host;
+
+        if (length == 2)
         {
-            if (uri == null)
-                return "";
-
-            string host;
-            if (uri.IsAbsoluteUri)
-                host = uri.Host;
-            else
-                host = uri.OriginalString;
-
-            if (host.IsNot())
-                return "";
-
-            if (!host.Contains("."))
-                return host + topLevelDomain;
-
-            var values = host.Split('.');
-
-            var length = values.Length;
-
-            if (length == 1)
+            if (values[1].Length <= 4)
                 return host;
-
-            if (length == 2)
-            {
-                if (values[1].Length <= 4)
-                    return host;
-            }
-
-            if (values[length - 1].Length > 4)
-                return values[length - 1] + topLevelDomain;
-
-            return values[length - 2] + "." + values[length - 1];
         }
+
+        if (values[length - 1].Length > 4)
+            return values[length - 1] + topLevelDomain;
+
+        return values[length - 2] + "." + values[length - 1];
     }
 }
