@@ -12,7 +12,7 @@ public static class StringBuilderExtensions
     /// </summary>
     public static bool Is(this StringBuilder stringBuilder)
     {
-        return stringBuilder != null && stringBuilder.Length > 0;
+        return stringBuilder != null && stringBuilder.Length != 0;
     }
 
     /// <summary>

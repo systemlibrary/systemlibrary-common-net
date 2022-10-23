@@ -12,13 +12,13 @@ internal static class Obfuscate
         if (text == null) return null;
         if (text == "") return "";
 
+        var maxChar = System.Convert.ToInt32(char.MaxValue);
+        var minChar = System.Convert.ToInt32(char.MinValue);
+
         var span = text.AsSpan();
 
         if (deobfuscate)
             salt = salt * -1; 
-
-        var maxChar = System.Convert.ToInt32(char.MaxValue);
-        var minChar = System.Convert.ToInt32(char.MinValue);
 
         var l = text.Length;
         var chars = new char[l];
@@ -27,7 +27,7 @@ internal static class Obfuscate
         {
             chars[i] = (char)(span[i] - salt);
 
-            //NOTE: Odds that salt + char is actually out of bounds is rare, or "never", so could remove? Do we support all chars like that - what are the last 5K chars...?
+            //NOTE: Odds that salt + char is actually out of bounds is rare, or "never", so could remove? Do we support all chars like that - what are the last 5K chars... and a huge salt? ...
             if (chars[i] > maxChar)
                 chars[i] -= (char)(chars[i] - maxChar);
 

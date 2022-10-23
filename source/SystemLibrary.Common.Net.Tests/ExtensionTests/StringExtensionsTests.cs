@@ -390,6 +390,34 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
+    public void Ends_With_Any_Case_Insensitive()
+    {
+        var data = "hello WorLd123!aA";
+        var result = data.EndsWithAnyCaseInsensitive("helloworld", "something", "another one", "whatever", "world123!aa");
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void Starts_With_Any()
+    {
+        var data = "Hello world 123456";
+        var result = false;
+
+        result = data.StartsWithAny("world", "1234", "abc", "ello", "Hello");
+        Assert.IsTrue(result, "Does not start with any");
+
+        result = data.StartsWithAny(null);
+        Assert.IsTrue(result == false, "Values is null");
+
+        result = data.StartsWithAny("");
+        Assert.IsTrue(result == false, "Values is empty");
+
+        result = data.StartsWithAny("H");
+        Assert.IsTrue(result, "H");
+
+    }
+
+    [TestMethod]
     public void Trim_End()
     {
         var data = "/";

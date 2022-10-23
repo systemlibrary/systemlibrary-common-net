@@ -56,7 +56,6 @@ public static class StringExtensions
         return "";
     }
 
-
     // <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     /// <summary>
     /// Returns the domain part of the uri or blank, never null:
@@ -75,10 +74,9 @@ public static class StringExtensions
     /// </example>
     public static string GetPrimaryDomain(this string url)
     {
-        if (url.IsNot()) return "";
+        if (url == null || url.Length == 0) return "";
 
-        if (url.Contains(" "))
-            return "";
+        if (url.Contains(" ")) return "";
 
         Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
 
@@ -90,11 +88,19 @@ public static class StringExtensions
     /// 
     /// Returns null or blank if such a text is passed in, does not throw exception
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var text = "Hello world 12345";
+    /// 
+    /// var result = text.ReplaceAllWith("A", "Hello", "World", "123", "45");
+    /// // result == A A AA, all mathing texts are replaces with the first param 'A'
+    /// </code>
+    /// </example>
     public static string ReplaceAllWith(this string text, string newValue, params string[] oldValues)
     {
-        if (text.IsNot()) return text;
+        if (text.IsEmpty()) return text;
 
-        if (newValue == null) return text;
+        if (newValue.IsEmpty()) return text;
 
         if (oldValues.IsNot()) return text;
 
@@ -200,8 +206,10 @@ public static class StringExtensions
 
         if (values.IsNot()) return false;
 
+        var textSpan = text.AsSpan();
+
         for (int i = 0; i < values.Length; i++)
-            if (text.StartsWith(values[i]))
+            if (values[i].Length != 0 && textSpan.StartsWith(values[i]))
                 return true;
 
         return false;
@@ -223,8 +231,11 @@ public static class StringExtensions
         if (text.IsNot()) return false;
         if (values.IsNot()) return false;
 
-        if (values.Any(value => text.EndsWith(value)))
-            return true;
+        var textSpan = text.AsSpan();
+
+        for (int i = 0; i < values.Length; i++)
+            if (values[i].Length != 0 && textSpan.EndsWith(values[i]))
+                return true;
 
         return false;
     }
@@ -245,10 +256,11 @@ public static class StringExtensions
         if (text.IsNot()) return false;
         if (values.IsNot()) return false;
 
-        text = text.ToLower();
+        var textSpan = text.ToLower().AsSpan();
 
-        if (values.Any(value => text.EndsWith(value.ToLower())))
-            return true;
+        for (int i = 0; i < values.Length; i++)
+            if (values[i].Length != 0 && textSpan.EndsWith(values[i].ToLower()))
+                return true;
 
         return false;
     }
@@ -298,7 +310,9 @@ public static class StringExtensions
     /// </example>
     public static bool IsNot(this string text, params string[] additionalNotValues)
     {
-        if (text == null || text == "" || text == " ") return true;
+        if (text == null || text.Length == 0) return true;
+
+        if (text.Length == 1 && text == " ") return true;
 
         if (additionalNotValues == null) return false;
 
@@ -306,6 +320,29 @@ public static class StringExtensions
             return true;
 
         return false;
+    }
+
+    /// <summary>
+    /// Returns true if text is null or has a length of 0 (empty string), else false
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var text = "Hello world";
+    /// var isEmpty = text.IsEmpty(); 
+    /// // isEmpty is false
+    /// 
+    /// var text = ""; //or null
+    /// var isEmpty = text.IsEmpty();
+    /// // isEmpty is true
+    /// 
+    /// var text = " "; //a space
+    /// var isEmpty = text.IsEmpty();
+    /// // isEmpty is false
+    /// </code>
+    /// </example>
+    public static bool IsEmpty(this string text)
+    {
+        return text == null || text.Length == 0;
     }
 
     /// <summary>
@@ -323,7 +360,9 @@ public static class StringExtensions
     /// </example>
     public static bool Is(this string text)
     {
-        return text != null && text != "" && text != " ";
+        if (text == null || text.Length == 0) return false;
+
+        return !(text.Length == 1 && text == " ");
     }
 
     /// <summary>
@@ -391,12 +430,10 @@ public static class StringExtensions
     public static bool ContainsAny(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
+
         if (values.IsNot()) return false;
 
-        if (values.Any(value => text.Contains(value)))
-            return true;
-
-        return false;
+        return values.Any(x => text.Contains(x));
     }
 
     /// <summary>
@@ -428,6 +465,9 @@ public static class StringExtensions
         int start = 0;
         int valueLength;
         bool found = false;
+
+        var textSpan = text.AsSpan();
+
         for (int i = 0; i < values.Length; i++)
         {
             valueLength = values[i].Length;
@@ -435,7 +475,7 @@ public static class StringExtensions
 
             for (int j = 0; j < valueLength; j++)
             {
-                if (text[start + j] != values[i][j])
+                if (textSpan[start + j] != values[i][j])
                     break;
 
                 if (j == valueLength - 1)
@@ -447,9 +487,9 @@ public static class StringExtensions
         }
 
         if (found)
-            return text.Substring(0, start);
+            return textSpan.Slice(0, start).ToString();
 
-        return text;
+        return textSpan.ToString();
     }
 
     /// <summary>
@@ -472,9 +512,12 @@ public static class StringExtensions
 
         if (characters.IsNot()) return true;
 
-        foreach (var character in characters)
+        var textSpan = text.AsSpan();
+        var span = characters.AsSpan();
+
+        foreach (var character in span)
         {
-            if (text.EndsWith(character.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            if (textSpan.EndsWith(character.ToString(), StringComparison.InvariantCultureIgnoreCase))
                 return true;
         }
 
@@ -494,13 +537,13 @@ public static class StringExtensions
     /// </example> 
     public static string MaxLength(this string text, int maxLength)
     {
-        if (text.IsNot()) return "";
+        if (text == null) return "";
 
         if (text.Length <= maxLength) return text;
 
         if (maxLength <= 0) return "";
 
-        return text.Substring(0, maxLength);
+        return new string(text.AsSpan(0, maxLength));
     }
 
     /// <summary>
@@ -778,7 +821,7 @@ public static class StringExtensions
     /// <summary>
     /// Obfuscate a string to a different string with a salt
     /// 
-    /// Throws exception if salt is &lt;= 0
+    /// Throws exception if salt is &lt;= 0, salt should be in range from 1 to 65000
     /// 
     /// Returns a new obfuscated string
     /// 

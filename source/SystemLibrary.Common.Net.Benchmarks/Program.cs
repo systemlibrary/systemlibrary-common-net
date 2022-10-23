@@ -2,4 +2,5 @@
 
 using SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-BenchmarkRunner.Run<StringExtensionsBenchmark>();
+BenchmarkRunner.Run<DummyBenchmarks>();
+//BenchmarkRunner.Run<StringExtensionsBenchmark>();
