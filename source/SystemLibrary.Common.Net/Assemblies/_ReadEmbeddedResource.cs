@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace SystemLibrary.Common.Net
 {
@@ -55,24 +56,26 @@ namespace SystemLibrary.Common.Net
                     (assemblyNamespace.Is() && !assemblyNamespace.StartsWith(folderPathInProject.Split('.')[0]));
             }
 
-            var resourcePath = "";
+            StringBuilder resourcePath = new StringBuilder();
             var defaultAsmNamespace = asm?.FullName.Split(',')[0];
 
             if (UseAsmNameAsRootResourcePath(defaultAsmNamespace))
-                resourcePath = defaultAsmNamespace + "." +
-                (folderPathInProject.IsNot() ? "" : folderPathInProject + ".");
+                resourcePath.Append(defaultAsmNamespace + "." +
+                (folderPathInProject.IsNot() ? "" : folderPathInProject + "."));
 
             else if (folderPathInProject?.EndsWith(".") == true)
-                resourcePath += folderPathInProject;
+                resourcePath.Append(folderPathInProject);
 
             else
-                resourcePath += folderPathInProject + ".";
+                resourcePath.Append(folderPathInProject + ".");
 
             if (folderPathInProject.Is())
-                resourcePath = resourcePath?.Replace("/", ".").Replace("\\", ".");
+                resourcePath?
+                    .Replace("/", ".")
+                    .Replace("\\", ".");
 
-            resourcePath += fileName;
-            return resourcePath;
+            resourcePath.Append(fileName);
+            return resourcePath.ToString();
         }
     }
 }

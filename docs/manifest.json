@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html",
-          "hash": "qc6jIkC4B+BECSQ/grLbUCs+5LtMVe9rIVEb0Zjb2HU="
+          "hash": "45KOoR6edyuQ9JTv170y/eWlC5wgqJ1nzCcRYwcnKjs="
         }
       },
       "is_incremental": true,
@@ -233,6 +233,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html",
+          "hash": "sMCwcg/+LA7F3lXpDtuuVyoBb1WvP48EgOvxKAYdpSs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.yml",
       "output": {
         ".html": {
@@ -285,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html",
-          "hash": "VhUMP1tV8i/gRf1i1PtKjCtjpmuqITw4uVtdckMasQI="
+          "hash": "aTzPD3812L9lJW0LxweF7rGWvFsgP2uWd3ougHnIDIo="
         }
       },
       "is_incremental": true,
@@ -309,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
-          "hash": "QIu9G18F5AM1BS5J0MK1XnA7zrkRvVa/F2/Y8w1b8GQ="
+          "hash": "iAJqFbeb+e2qm6ZIHTQ5ju8U7XXo/JAXoqMnlojpelU="
         }
       },
       "is_incremental": true,
@@ -357,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "dEFjJGD0x6ONI4gp6Tx/rflk+ZdsX0wc1i3CdDoOPtw="
+          "hash": "He62xnp0KcIWKfjCVdY0CyD9Uv39VYGT5RmNkcwU7+M="
         }
       },
       "is_incremental": false,
@@ -394,8 +406,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 29,
-          "skipped_file_count": 29
+          "total_file_count": 30,
+          "skipped_file_count": 30
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

@@ -13,7 +13,7 @@
                     _Value = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
                     //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
-                    if (_Value.IsNot())
+                    if (_Value.IsEmpty())
                         _Value = "";
                 }
 

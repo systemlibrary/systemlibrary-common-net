@@ -773,6 +773,44 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.ToJson
   nameWithType: ObjectExtensions.ToJson
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  name: ReadOnlySpanExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  nameWithType: ReadOnlySpanExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is
+  nameWithType: ReadOnlySpanExtensions.Is
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is``1(System.ReadOnlySpan{``0})
+  name: Is<T>(ReadOnlySpan<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is__1_System_ReadOnlySpan___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is``1(System.ReadOnlySpan{``0})
+  name.vb: Is(Of T)(ReadOnlySpan(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is<T>(System.ReadOnlySpan<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is(Of T)(System.ReadOnlySpan(Of T))
+  nameWithType: ReadOnlySpanExtensions.Is<T>(ReadOnlySpan<T>)
+  nameWithType.vb: ReadOnlySpanExtensions.Is(Of T)(ReadOnlySpan(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot
+  nameWithType: ReadOnlySpanExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot``1(System.ReadOnlySpan{``0})
+  name: IsNot<T>(ReadOnlySpan<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot__1_System_ReadOnlySpan___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot``1(System.ReadOnlySpan{``0})
+  name.vb: IsNot(Of T)(ReadOnlySpan(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot<T>(System.ReadOnlySpan<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot(Of T)(System.ReadOnlySpan(Of T))
+  nameWithType: ReadOnlySpanExtensions.IsNot<T>(ReadOnlySpan<T>)
+  nameWithType.vb: ReadOnlySpanExtensions.IsNot(Of T)(ReadOnlySpan(Of T))
 - uid: SystemLibrary.Common.Net.Extensions.StreamExtensions
   name: StreamExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html
@@ -1209,6 +1247,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny
   nameWithType: StringExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
+  name: IsEmpty(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsEmpty_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
+  nameWithType: StringExtensions.IsEmpty(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty*
+  name: IsEmpty
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsEmpty_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty
+  nameWithType: StringExtensions.IsEmpty
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String,System.String[])
   name: IsNot(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_System_String___
