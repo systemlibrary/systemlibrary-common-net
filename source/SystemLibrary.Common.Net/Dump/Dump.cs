@@ -158,15 +158,19 @@ public static class Dump
         else
             logString.Append(" unknown count" + "\n");
 
-        logString.Append(GetTabs(level));
+        var tabs = GetTabs(level+1);
+
+        logString.Append(tabs);
+
         foreach (var item in e)
         {
             Build(logString, item, level, 3);
+
             var t = item.GetType();
-            if (IsNativeType(t))
+            if (IsNativeType(t) && t != SystemType.StringType)
                 logString.Append(" ");
             else
-                logString.Append("\n");
+                logString.Append("\n" + tabs);
         }
     }
 
@@ -306,9 +310,15 @@ public static class Dump
         else if (value is Exception e)
             return e.ToString();
         else if (value is string str)
-            return str + " (Length: " + str.Length + ")";
+            if(str.Length > 50)
+                return str + " (Length: " + str.Length + ")";
+            else
+                return str;
         else if (value is StringBuilder sb)
-            return sb + " (Length: " + sb.Length + ")";
+            if(sb.Length > 50)
+                return sb + " (Length: " + sb.Length + ")";
+            else
+                return sb.ToString();
         else if (value is int i)
             return i.ToString();
         else if (value is DateTime dt)

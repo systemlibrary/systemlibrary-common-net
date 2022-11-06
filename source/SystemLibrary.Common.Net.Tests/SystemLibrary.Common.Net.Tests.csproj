@@ -38,6 +38,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="AppSettingsTests\text.json" />
+		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.config" />
 		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
 		<None Remove="Configs\AppSettings\appSettings.json" />
 		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
@@ -54,6 +55,9 @@
 	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

@@ -48,7 +48,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             Async.FireAndForget(Ex, () => Call());
             System.Threading.Thread.Sleep(4000);
 
-            Assert.IsTrue(ExceptionCounter > 9);
+            Assert.IsTrue(ExceptionCounter > 9, "Exception counter was: " + ExceptionCounter);
         }
 
         static void Call()

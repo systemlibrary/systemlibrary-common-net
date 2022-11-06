@@ -12,6 +12,20 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
     public class AppSettingsTests
     {
         [TestMethod]
+        public void Read_Deeply_Nested_Configurations()
+        {
+            var parent = Configs.AppSettingsTests.Current.Parent;
+            Assert.IsTrue(parent != null, "Parent is null");
+            Assert.IsTrue(parent.Color == "orange", "Color: " + parent.Color);
+            Assert.IsTrue(parent.Nested != null, "nested is null");
+            Assert.IsTrue(parent.Nested.NestedAgain != null, "nestedagain is null");
+            Assert.IsTrue(parent.Nested.NestedAgain.Leaf != null, "leaf is null");
+            Assert.IsTrue(parent.Nested.NestedAgain.Leaf.Color == "red", "leaf color");
+            Assert.IsTrue(parent.Nested.NestedAgain.Color == "green", "NestedAgain color");
+            Assert.IsTrue(parent.Nested.Color == "blue", "Nested color");
+        }
+
+        [TestMethod]
         public void Read_UserName_Variable_Customized()
         {
             var conf = Configs.AppSettingsTests.Current;

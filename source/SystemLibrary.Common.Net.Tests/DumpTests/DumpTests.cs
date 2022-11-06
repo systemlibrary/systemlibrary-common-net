@@ -18,6 +18,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Write_Exception_Without_StringLng()
         {
+            System.Threading.Thread.Sleep(800);
             Exception e = new Exception("Hello world1");
 
             Dump.Clear();
@@ -40,6 +41,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Write_All_Variable_Types()
         {
+            System.Threading.Thread.Sleep(600);
             var sb = new StringBuilder("Hello world");
             Dump.Clear();
             Dump.Write(false);
@@ -68,6 +70,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_TypeOf_Success()
         {
+            System.Threading.Thread.Sleep(500);
             Dump.Clear();
             Dump.Write(typeof(string));
             Dump.Write(typeof(StringBuilder));
@@ -106,7 +109,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Write_And_Clear()
         {
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(700);
             Dump.Write("Hello world");
 
             Assert.IsTrue(File.Exists(DumpPath));
@@ -119,7 +122,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Simple_String()
         {
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(300);
             Dump.Write("String");
 
             var content = File.ReadAllText(DumpPath);
@@ -133,7 +136,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Simple_Int()
         {
-            System.Threading.Thread.Sleep(150);
+            System.Threading.Thread.Sleep(200);
             Dump.Write(100);
 
             var content = File.ReadAllText(DumpPath);
@@ -147,8 +150,8 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_Poco_Success()
         {
+            System.Threading.Thread.Sleep(100);
             Dump.Clear();
-            System.Threading.Thread.Sleep(200);
             var employees = new List<Employee>();
             employees.Add(new Employee { Age = 10, TitleFieldName = "DummyTitle", FirstName = "DummyFirstName" });
 
@@ -210,7 +213,7 @@ namespace SystemLibrary.Common.Net.Tests.DumpTests
         [TestMethod]
         public void Dump_SkipRuntimeType()
         {
-            System.Threading.Thread.Sleep(250);
+            System.Threading.Thread.Sleep(400);
             Dump.Clear();
 
             var employees = new List<Employee>();

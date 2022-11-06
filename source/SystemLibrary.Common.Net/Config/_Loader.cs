@@ -13,6 +13,9 @@ namespace SystemLibrary.Common.Net
     {
         internal static class ConfigLoader<TConf> where TConf : class
         {
+            /// <summary>
+            /// TODO: optimization: set it as ToLowered
+            /// </summary>
             static string[] ConfigurationFiles;
 
             static IConfigurationRoot AppSettings;
@@ -49,7 +52,7 @@ namespace SystemLibrary.Common.Net
 
                 file = file.ToLower();
 
-                return file.StartsWith("appsettings.") && (file.EndsWith(".json") || file.EndsWith(".xml"));
+                return (file.Contains("\\appsettings.") || file.Contains("/appsettings.")) && file.EndsWithAnyCaseInsensitive(".json", ".xml", ".config");
             }
 
             static ConfigLoader()
@@ -66,7 +69,7 @@ namespace SystemLibrary.Common.Net
 
                 var builder = new ConfigurationBuilder();
 
-                var appSettingFiles = rootConfigurationFiles.Where(FilterAppSettingsFiles);
+                var appSettingFiles = ConfigurationFiles.Where(FilterAppSettingsFiles);
 
                 AddConfigurationFiles(builder, appSettingFiles);
 
@@ -108,7 +111,7 @@ namespace SystemLibrary.Common.Net
                         {
                             var lowered = file.ToLower();
 
-                            if (lowered.Contains(configurationName))
+                            if (lowered.Contains(configurationName + "."))
                             {
                                 var values = lowered.Split('.');
 
@@ -142,7 +145,9 @@ namespace SystemLibrary.Common.Net
 
                     AddConfigurationFiles(builder, files);
 
+                    //TODO: Why should XML add env paths and not json? or any at all? string username will then always be overridden with 'computer user name' for instance
                     var isXml = files.Where(x => x.EndsWith(".xml")).Count();
+
                     if (isXml > 0)
                     {
                         return builder
@@ -166,8 +171,9 @@ namespace SystemLibrary.Common.Net
                 {
                     foreach (var f in files)
                     {
-                        if (f.Is() && !f.ContainsAny("package.json", "package-lock.json"))
+                        if (f.Is() && !f.ContainsAny("packages.json", "packages.xml", "package.json", "package-lock.json"))
                         {
+                            Dump.Write(f);
                             var extension = Path.GetExtension(f)?.ToLower();
                             if (extension == ".json")
                             {
@@ -175,10 +181,22 @@ namespace SystemLibrary.Common.Net
                             }
                             else if (extension == ".xml")
                             {
-                                if (f.Contains("\\SystemLibrary.Common."))
-                                    continue;
+                                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
 
                                 builder.AddXmlFile(f, true, true);
+                            }
+                            else if (extension == ".config")
+                            {
+                                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
+
+                                var data = File.ReadAllText(f);
+                                if (data.Length > 0)
+                                {
+                                    if (data.StartsWith("<") || data.EndsWith(">"))
+                                        builder.AddXmlFile(f, true, true);
+                                    else
+                                        builder.AddJsonFile(f, true, true);
+                                }
                             }
                         }
                     }
