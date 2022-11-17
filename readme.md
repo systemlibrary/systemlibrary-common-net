@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.9
-- Dump.Write accidentally included in 6.4.1.8 has been removed
+- 6.4.1.10
+- Dump.Write accidentally included in 6.4.1.8/9 has been removed
 
 #### Version history
 - View git history of this file if interested
