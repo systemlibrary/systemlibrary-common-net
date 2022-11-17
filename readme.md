@@ -15,10 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.8
-- Dump.Write outputs list and array of strings, on separate lines
-- .config files can be read as configurations, and supports json and xml, though a bit inefficient as it reads the whole file twice
-- Updated docs
+- 6.4.1.9
+- Dump.Write accidentally included in 6.4.1.8 has been removed
 
 #### Version history
 - View git history of this file if interested

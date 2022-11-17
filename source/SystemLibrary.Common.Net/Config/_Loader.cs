@@ -173,7 +173,6 @@ namespace SystemLibrary.Common.Net
                     {
                         if (f.Is() && !f.ContainsAny("packages.json", "packages.xml", "package.json", "package-lock.json"))
                         {
-                            Dump.Write(f);
                             var extension = Path.GetExtension(f)?.ToLower();
                             if (extension == ".json")
                             {
