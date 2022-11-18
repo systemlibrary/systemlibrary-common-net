@@ -37,6 +37,7 @@ namespace SystemLibrary.Common.Net
             static bool IgnoreRuntimeConfigAndDeps(string file)
             {
                 if (file.IsNot()) return false;
+
                 file = file.ToLower();
 
                 if (file.Contains(".runtimeconfig.") ||

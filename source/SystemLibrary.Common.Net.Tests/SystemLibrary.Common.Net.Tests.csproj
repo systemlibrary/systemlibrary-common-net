@@ -41,7 +41,7 @@
 		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.config" />
 		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
 		<None Remove="Configs\AppSettings\appSettings.json" />
-		<None Remove="Configs\EnvironmentConfig\environmentConfig.json" />
+		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
 		<None Remove="_Files\json-serialization-data-short-format.json" />
@@ -74,18 +74,18 @@
 			<DependentUpon>carSettings.json</DependentUpon>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="Configs\EnvironmentConfig\environmentConfig.Debug.json">
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.Debug.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<DependentUpon>environmentConfig.json</DependentUpon>
+			<DependentUpon>ENVirOnmentConFIG.jSON</DependentUpon>
 			<IsTransformFile>true</IsTransformFile>
 		</Content>
-		<Content Include="Configs\EnvironmentConfig\environmentConfig.json">
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON">
 			<TransformOnBuild>true</TransformOnBuild>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="Configs\EnvironmentConfig\environmentConfig.Release.json">
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.Release.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<DependentUpon>environmentConfig.json</DependentUpon>
+			<DependentUpon>ENVirOnmentConFIG.jSON</DependentUpon>
 			<IsTransformFile>true</IsTransformFile>
 		</Content>
 		<Content Include="Configs\Integration\integrationsettings.json">

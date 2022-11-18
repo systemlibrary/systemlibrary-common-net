@@ -15,7 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.11
+- 6.4.1.12
+- Throwing exception with message if one creates an empty (no props) environmentConfig.json
 - Nuget icon update
 - Dump.Write accidentally included in 6.4.1.8/9 has been removed
 
