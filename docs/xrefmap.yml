@@ -1285,6 +1285,31 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsNot
   nameWithType: StringExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json*
+  name: Json
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Json
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json
+  nameWithType: StringExtensions.Json
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions)
+  name: Json<T>(String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: Json(Of T)(String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.Json<T>(String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name: Json<T>(String, JsonConverter[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_Serialization_JsonConverter___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name.vb: Json(Of T)(String, JsonConverter())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.Serialization.JsonConverter[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.Serialization.JsonConverter())
+  nameWithType: StringExtensions.Json<T>(String, JsonConverter[])
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonConverter())
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
   name: MaxLength(String, Int32)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_
@@ -1388,22 +1413,6 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(Of T)(System.String)
   nameWithType: StringExtensions.ToEnum<T>(String)
   nameWithType.vb: StringExtensions.ToEnum(Of T)(String)
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToJson*
-  name: ToJson
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToJson_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToJson
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToJson
-  nameWithType: StringExtensions.ToJson
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)
-  name: ToJson<T>(String, JsonSerializerOptions)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToJson__1_System_String_System_Text_Json_JsonSerializerOptions_
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToJson``1(System.String,System.Text.Json.JsonSerializerOptions)
-  name.vb: ToJson(Of T)(String, JsonSerializerOptions)
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToJson<T>(System.String, System.Text.Json.JsonSerializerOptions)
-  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToJson(Of T)(System.String, System.Text.Json.JsonSerializerOptions)
-  nameWithType: StringExtensions.ToJson<T>(String, JsonSerializerOptions)
-  nameWithType.vb: StringExtensions.ToJson(Of T)(String, JsonSerializerOptions)
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
   name: ToLetterAndDigits(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_
