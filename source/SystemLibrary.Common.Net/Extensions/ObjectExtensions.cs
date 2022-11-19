@@ -117,11 +117,7 @@ public static class ObjectExtensions
     {
         if (obj == null) return null;
         
-        var options = GetJsonSerializerOptions.Default(null);
-
-        if(jsonConverters != null)
-            foreach (var converter in jsonConverters)
-                options.Converters.Add(converter);
+        var options = GetJsonSerializerOptions.Default(null, jsonConverters);
 
         return JsonSerializer.Serialize(obj, options);
     }

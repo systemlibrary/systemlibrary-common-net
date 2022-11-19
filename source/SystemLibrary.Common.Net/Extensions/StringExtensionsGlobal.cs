@@ -1,5 +1,4 @@
 ﻿namespace SystemLibrary.Common.Net.Global;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -696,10 +695,7 @@ public static class StringExtensions
     {
         if (json.IsNot()) return null;
 
-        var options = GetJsonSerializerOptions.Default(null);
-
-        foreach (var converter in jsonConverters)
-            options.Converters.Add(converter);
+        var options = GetJsonSerializerOptions.Default(null, jsonConverters);
 
         return JsonSerializer.Deserialize<T>(json, options);
     }

@@ -15,9 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.1
+- 6.5.1.2
 - ToJson extension renamed to Json()
 - Json() extension overload method to pass converters
+  - Fixed a bug
 
 #### Version history
 - View git history of this file if interested
