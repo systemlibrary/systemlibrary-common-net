@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -27,7 +28,7 @@ public class ObjectExtensionsTests
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
 
-        var json = user.ToJson(options);
+        var json = user.Json(options);
 
         Assert.IsTrue(!json.Contains("Age\""), "Age, camelCase");
         Assert.IsTrue(json.Contains("9696"), "9696");
@@ -41,7 +42,20 @@ public class ObjectExtensionsTests
         user.Age = 10;
         user.FirstName = "Hello";
 
-        var json = user.ToJson();
+        var json = user.Json();
+
+        Assert.IsTrue(!json.Contains("age"));
+        Assert.IsTrue(json.Contains("FirstName"));
+    }
+
+    [TestMethod]
+    public void Convert_User_To_String_With_Custom_Converter()
+    {
+        User user = new User();
+        user.Age = 10;
+        user.FirstName = "Hello";
+
+        var json = user.Json((JsonConverter[])null);
 
         Assert.IsTrue(!json.Contains("age"));
         Assert.IsTrue(json.Contains("FirstName"));
@@ -61,7 +75,7 @@ public class ObjectExtensionsTests
             (DateTime.Now.Month < 10 ? "0" + DateTime.Now.Month : DateTime.Now.Month) + "-" +
             (DateTime.Now.Day < 10 ? "0" + DateTime.Now.Day : DateTime.Now.Day);
 
-        var json = user.ToJson();
+        var json = user.Json();
 
         Assert.IsTrue(!json.Contains("age"));
         Assert.IsTrue(json.Contains("FirstName"));
@@ -76,8 +90,8 @@ public class ObjectExtensionsTests
         var data1 = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data.json");
         var data2 = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data-short-format.json");
 
-        var user1 = data1.ToJson<User>();
-        var user2 = data2.ToJson<User>();
+        var user1 = data1.Json<User>();
+        var user2 = data2.Json<User>();
 
         Assert.IsTrue(user1 != null);
         Assert.IsTrue(user2 != null);

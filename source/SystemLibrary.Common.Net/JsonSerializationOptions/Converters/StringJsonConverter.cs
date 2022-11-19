@@ -16,7 +16,7 @@ namespace SystemLibrary.Common.Net
                 reader.TokenType == JsonTokenType.String)
                 return reader.GetString();
 
-            throw new JsonException();
+            throw new JsonException("StringJsonConverter cannot simply convert type: " + reader.TokenType);
         }
 
         public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)

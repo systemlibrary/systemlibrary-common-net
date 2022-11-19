@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
@@ -56,7 +58,7 @@ public static class ObjectExtensions
         else if (type == SystemType.StringType)
             return objects.Select(x => x.ToString().ToEnum<TEnum>()).ToArray();
 
-        throw new Exception("Not supporing conversion of " + type.Name + "-array to the Enum");
+        throw new Exception("Not supporting conversion of " + type.Name + "-array to the Enum");
     }
 
     /// <summary>
@@ -77,16 +79,49 @@ public static class ObjectExtensions
     /// 
     /// var user = new User();
     /// user.FirstName = "Hello World";
-    /// var json = user.ToJson();
+    /// var json = user.Json();
     /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
-    /// // contains is True, note that ToJson() has formatted 'FirstName' to camelCasing
+    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
     /// </code>
     /// </example>
-    public static string ToJson(this object obj, JsonSerializerOptions options = null)
+    public static string Json(this object obj, JsonSerializerOptions options = null)
     {
         if (obj == null) return null;
 
         options = GetJsonSerializerOptions.Default(options);
+
+        return JsonSerializer.Serialize(obj, options);
+    }
+
+    /// <summary>
+    /// Convert object to json with your custom json converters
+    /// 
+    /// Returns a json formatted string representation of the object or null if object is null
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class User {
+    ///     public string FirstName { get;set; }
+    /// }
+    /// 
+    /// class CustomConverter : JsonConverter...
+    /// 
+    /// var user = new User();
+    /// user.FirstName = "Hello World";
+    /// var json = user.Json(new CustomConverter());
+    /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
+    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
+    /// </code>
+    /// </example>
+    public static string Json(this object obj, params JsonConverter[] jsonConverters)
+    {
+        if (obj == null) return null;
+        
+        var options = GetJsonSerializerOptions.Default(null);
+
+        if(jsonConverters != null)
+            foreach (var converter in jsonConverters)
+                options.Converters.Add(converter);
 
         return JsonSerializer.Serialize(obj, options);
     }

@@ -10,7 +10,7 @@ public class JsonSerializationDefaultOptionsTests
     {
         var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
 
-        var response = data.ToJson<Data>();
+        var response = data.Json<Data>();
 
         Assert.IsNotNull(response);
 

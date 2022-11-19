@@ -44,11 +44,22 @@ namespace SystemLibrary.Common.Net
             if (options == null) return DefaultJsonSerializerOptions;
 
             if (options.MaxDepth < 2)
-                options.MaxDepth = 2;
+                options.MaxDepth = DefaultJsonSerializerOptions.MaxDepth;
 
-            if (options.MaxDepth > 512)
-                options.MaxDepth = 512;
+            if (options.MaxDepth > 1024)
+                options.MaxDepth = 1024;
 
+            if (options.PropertyNamingPolicy == null)
+                options.PropertyNamingPolicy = DefaultJsonSerializerOptions.PropertyNamingPolicy;
+
+            if(options.Converters.Count == 0)
+            {
+                foreach (var converter in DefaultJsonSerializerOptions.Converters)
+                {
+                    options.Converters.Add(converter);
+                }
+            }
+            
             return options;
         }
     }

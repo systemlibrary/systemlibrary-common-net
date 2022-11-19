@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
@@ -654,14 +655,49 @@ public static class StringExtensions
     ///     "age": 10
     /// }";
     /// 
-    /// var user = json.ToJson&lt;User&gt;
+    /// var user = json.ToJson&lt;User&gt;();
     /// </code>
     /// </example>
-    public static T ToJson<T>(this string json, JsonSerializerOptions options = null) where T : class
+    public static T Json<T>(this string json, JsonSerializerOptions options = null) where T : class
     {
         if (json.IsNot()) return default;
 
         options = GetJsonSerializerOptions.Default(options);
+
+        return JsonSerializer.Deserialize<T>(json, options);
+    }
+
+    /// <summary>
+    /// Convert string formatted json to object T with your additional JsonConverters
+    /// 
+    /// Throws exception if json has invalid formatted json text
+    /// </summary>
+    /// <returns>Returns T or null if json is null or empty</returns>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class User {
+    ///     public string FirstName;
+    ///     public int Age { get; set;}
+    /// }
+    /// 
+    /// class CustomConverter : JsonConverter...
+    /// 
+    /// var json = "{
+    ///     "firstName": 'hello',
+    ///     "age": 10
+    /// }";
+    /// 
+    /// var user = json.Json&lt;User&gt;(new CustomConverter());
+    /// </code>
+    /// </example>
+    public static T Json<T>(this string json, params JsonConverter[] jsonConverters) where T : class
+    {
+        if (json.IsNot()) return null;
+
+        var options = GetJsonSerializerOptions.Default(null);
+
+        foreach (var converter in jsonConverters)
+            options.Converters.Add(converter);
 
         return JsonSerializer.Deserialize<T>(json, options);
     }

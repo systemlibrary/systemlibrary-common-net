@@ -15,10 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.4.1.12
-- Throwing exception with message if one creates an empty (no props) environmentConfig.json
-- Nuget icon update
-- Dump.Write accidentally included in 6.4.1.8/9 has been removed
+- 6.5.1.1
+- ToJson extension renamed to Json()
+- Json() extension overload method to pass converters
 
 #### Version history
 - View git history of this file if interested

@@ -215,7 +215,7 @@ public class StringExtensionsTests
     {
         var data = "{ \"firstName\": \"Hello\", \"age\": 10 }";
 
-        var user = data.ToJson<User>();
+        var user = data.Json<User>();
 
         Assert.IsTrue(user.Age == 10 && user.FirstName == "Hello");
     }
@@ -230,7 +230,7 @@ public class StringExtensionsTests
             AllowTrailingCommas = true,
             PropertyNameCaseInsensitive = false
         };
-        var user = data.ToJson<User>(options);
+        var user = data.Json<User>(options);
 
         Assert.IsTrue(user != null);
         Assert.IsTrue(user.Age == 0);
