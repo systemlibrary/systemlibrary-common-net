@@ -655,7 +655,7 @@ public static class StringExtensions
     ///     "age": 10
     /// }";
     /// 
-    /// var user = json.ToJson&lt;User&gt;();
+    /// var user = json.Json&lt;User&gt;();
     /// </code>
     /// </example>
     public static T Json<T>(this string json, JsonSerializerOptions options = null) where T : class
