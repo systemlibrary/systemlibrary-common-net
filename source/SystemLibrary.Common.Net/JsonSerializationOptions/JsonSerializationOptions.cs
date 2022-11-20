@@ -9,6 +9,19 @@ namespace SystemLibrary.Common.Net
 
         static JsonSerializerOptions _DefaultJsonSerializerOptions;
 
+        static void AddConverters(JsonSerializerOptions options)
+        {
+            if (options.Converters?.Count > 0) return;
+
+            options.Converters.Add(new EnumStringConverterFactory());
+            options.Converters.Add(new JsonStringEnumConverter());
+            options.Converters.Add(new IntJsonConverter());
+            options.Converters.Add(new StringJsonConverter());
+            options.Converters.Add(new LongJsonConverter());
+            options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+            options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
+        }
+
         static JsonSerializerOptions NewJsonSerializerOptions()
         {
             var options = new JsonSerializerOptions
@@ -24,13 +37,7 @@ namespace SystemLibrary.Common.Net
                 NumberHandling = JsonNumberHandling.AllowReadingFromString
             };
 
-            options.Converters.Add(new EnumStringConverterFactory());
-            options.Converters.Add(new JsonStringEnumConverter());
-            options.Converters.Add(new IntJsonConverter());
-            options.Converters.Add(new StringJsonConverter());
-            options.Converters.Add(new LongJsonConverter());
-            options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
-            options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
+            AddConverters(options);
 
             return options;
         }
@@ -51,34 +58,22 @@ namespace SystemLibrary.Common.Net
         {
             if (options == null && converters == null) return DefaultJsonSerializerOptions;
 
-            if (options == null) options = NewJsonSerializerOptions();
-            else
+            if (options == null)
             {
-                if (options.MaxDepth < 2)
-                    options.MaxDepth = DefaultJsonSerializerOptions.MaxDepth;
+                options = NewJsonSerializerOptions();
 
-                if (options.MaxDepth > 1024)
-                    options.MaxDepth = 1024;
-
-                if (options.PropertyNamingPolicy == null)
-                    options.PropertyNamingPolicy = DefaultJsonSerializerOptions.PropertyNamingPolicy;
-            }
-
-            if(options.Converters.Count == 0)
-            {
-                options.Converters.Add(new EnumStringConverterFactory());
-                options.Converters.Add(new JsonStringEnumConverter());
-                options.Converters.Add(new IntJsonConverter());
-                options.Converters.Add(new StringJsonConverter());
-                options.Converters.Add(new LongJsonConverter());
-                options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
-                options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
-
-                if(converters != null)
+                if (converters != null)
                 {
                     foreach (var converter in converters)
                         options.Converters.Add(converter);
                 }
+            }
+            else
+            {
+                AddConverters(options);
+
+                if (options.MaxDepth < 2)
+                    options.MaxDepth = DefaultJsonSerializerOptions.MaxDepth;
             }
             
             return options;

@@ -190,12 +190,13 @@ public static class Dump
         if (genericType != null)
             typeName = typeName + "<" + genericType?.Name + ">";
 
-        logString.Append(typeName + (IsClassType(type) ? " (class)" : "") + ", level " + level + "\n");
+        logString.Append(typeName + (IsClassType(type) ? " (class)" : "") + ", level " + level);
 
         var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
 
         if (properties != null && properties.Length > 0)
         {
+            logString.Append("\n");
             foreach (var property in properties)
             {
                 if (property?.PropertyType == null) continue;
@@ -210,9 +211,8 @@ public static class Dump
                 }
                 catch
                 {
-                    logString.Append(property.Name + ": could not retrieve value, continuing...");
+                    logString.Append(property.Name + ": could not retrieve value, continuing...\n");
                 }
-                logString.Append("\n");
             }
         }
 
@@ -220,6 +220,9 @@ public static class Dump
 
         if (fields != null && fields.Length > 0)
         {
+            if(properties == null || properties.Length == 0)
+                logString.Append("\n");
+
             foreach (var field in fields)
             {
                 if (field?.FieldType == null) continue;

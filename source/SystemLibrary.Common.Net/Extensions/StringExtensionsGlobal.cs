@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -691,11 +692,11 @@ public static class StringExtensions
     /// var user = json.Json&lt;User&gt;(new CustomConverter());
     /// </code>
     /// </example>
-    public static T Json<T>(this string json, params JsonConverter[] jsonConverters) where T : class
+    public static T Json<T>(this string json, params JsonConverter[] converters) where T : class
     {
         if (json.IsNot()) return null;
 
-        var options = GetJsonSerializerOptions.Default(null, jsonConverters);
+        var options = GetJsonSerializerOptions.Default(null, converters);
 
         return JsonSerializer.Deserialize<T>(json, options);
     }
