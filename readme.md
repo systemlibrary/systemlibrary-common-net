@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.4
+- 6.5.1.5
 - StringExtensionsGlobal is commented out in the nupkg, to avoid "ambiguous calls" 
+- DumpGlobal is commented out too
 
 #### Version history
 - View git history of this file if interested

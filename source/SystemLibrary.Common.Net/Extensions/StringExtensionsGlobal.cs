@@ -1,5 +1,4 @@
-﻿//namespace SystemLibrary.Common.Net.Global;
-//using System;
+﻿//using System;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Reflection;
@@ -11,6 +10,8 @@
 //using SystemLibrary.Common.Net;
 //using SystemLibrary.Common.Net.Attributes;
 //using SystemLibrary.Common.Net.Extensions;
+
+//namespace SystemLibrary.Common.Net.Global;
 
 ///// <summary>
 ///// This class contains extension methods for Strings
