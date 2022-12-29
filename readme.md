@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.3
-- Json() extension with converters now actually uses the converters passed
+- 6.5.1.4
+- StringExtensionsGlobal is commented out in the nupkg, to avoid "ambiguous calls" 
 
 #### Version history
 - View git history of this file if interested

@@ -153,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html",
-          "hash": "zWOFJaEOPoqB8pXGEAJXLFY9MxjzcQwtvch7u042hDM="
+          "hash": "dUvHvT4j4HQaB2vZHXD3HIZAaJbAOBc6fbKs8JzB6rU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -300,7 +300,7 @@
           "hash": "Eo1K+UJTyScWACyCaM73WiSEa1qGpFf4ejR1WclJRhU="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -324,7 +324,7 @@
           "hash": "MRDu+IJ9jhjOg/ennkDwp2/64KwNzSZSN5q5ydt8B/g="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -336,7 +336,7 @@
           "hash": "ZxFmM/9C+QVMHtAKmHBVEJ49TkA6vym6vF4kWqKOQ54="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
