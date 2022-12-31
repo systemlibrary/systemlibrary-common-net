@@ -62,11 +62,15 @@ namespace SystemLibrary.Common.Net
 
                 var rootConfigurationFiles = GetConfigurationFilesInFolder(rootDirectory, false);
 
+                var config = GetConfigurationFilesInFolder(rootDirectory + "config\\", true);
+
                 var configs = GetConfigurationFilesInFolder(rootDirectory + "configs\\", true);
+
+                var configuration = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
 
                 var configurations = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
 
-                ConfigurationFiles = rootConfigurationFiles.Add(IgnoreRuntimeConfigAndDeps, configs, configurations);
+                ConfigurationFiles = rootConfigurationFiles.Add(IgnoreRuntimeConfigAndDeps, config, configs, configuration, configurations);
 
                 var builder = new ConfigurationBuilder();
 
