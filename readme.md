@@ -15,10 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.6
-- StringExtensionsGlobal is commented out in the nupkg, to avoid "ambiguous calls" 
-- DumpGlobal is commented out too
-- Config and Configuration are supported as root folder for configuration files (json files in any program), before it was only plural (Configs/Configurations)
+- 6.5.1.7
+- Dump.Write bug in previous few patch versions, outputting in one line all properties, they are now written on a new line
 
 #### Version history
 - View git history of this file if interested

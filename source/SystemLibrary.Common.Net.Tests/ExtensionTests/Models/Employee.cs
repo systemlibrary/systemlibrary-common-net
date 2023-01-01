@@ -11,9 +11,15 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         public int SalaryPropertyName { get; set; }
         public EnumTest EnumTestPropertyName { get; set; }
         public Owner OwnerPropertyName { get; set; }
+        public IOwner IOwner { get; set; }
     }
 
-    public class Owner
+    public interface IOwner
+    {
+        string Name { get; set; }
+    }
+
+    public class Owner : IOwner
     {
         public string Name { get; set; }
         public int Id { get; set; }

@@ -144,6 +144,8 @@ public static class Dump
         if (arguments != null && arguments.Length > 0)
             genericType = arguments[0];
 
+        var collectionIncrementTabs = 0;
+
         if (e is IDictionary d)
             logString.Append(" dictionary count: " + d.Count + "\n");
 
@@ -158,7 +160,10 @@ public static class Dump
         else
             logString.Append(" unknown count" + "\n");
 
-        var tabs = GetTabs(level+1);
+        if (e is IDictionary || e is IList || e is Array || e is ICollection)
+            collectionIncrementTabs = 2;
+
+        var tabs = GetTabs(level + collectionIncrementTabs);
 
         logString.Append(tabs);
 
@@ -182,15 +187,21 @@ public static class Dump
             return;
 
         var arguments = type.GetGenericArguments();
+
         var genericType = (Type)null;
+
         if (arguments != null && arguments.Length > 0)
             genericType = arguments[0];
 
         var typeName = type.Name;
+
         if (genericType != null)
             typeName = typeName + "<" + genericType?.Name + ">";
 
-        logString.Append(typeName + (IsClassType(type) ? " (class)" : "") + ", level " + level);
+        if (type.IsInterface)
+            logString.Append(typeName + " (interface)");
+        else
+            logString.Append(typeName + (IsClassType(type) ? " (class)" : ""));
 
         var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
 
@@ -199,6 +210,7 @@ public static class Dump
             logString.Append("\n");
             foreach (var property in properties)
             {
+                logString.Append("\t");
                 if (property?.PropertyType == null) continue;
                 if (property.PropertyType == SystemType.CharType) continue;
                 if (property.PropertyType.Name == "RuntimeType") continue;
@@ -213,6 +225,7 @@ public static class Dump
                 {
                     logString.Append(property.Name + ": could not retrieve value, continuing...\n");
                 }
+                logString.Append("\n");
             }
         }
 
@@ -220,13 +233,14 @@ public static class Dump
 
         if (fields != null && fields.Length > 0)
         {
-            if(properties == null || properties.Length == 0)
+            if (properties == null || properties.Length == 0)
                 logString.Append("\n");
 
             foreach (var field in fields)
             {
                 if (field?.FieldType == null) continue;
 
+                logString.Append("\t");
                 try
                 {
                     var fieldValue = field.GetValue(value);
@@ -237,6 +251,7 @@ public static class Dump
                 {
                     logString.Append(field.Name + ": could not retrieve value, continuing...");
                 }
+
                 logString.Append("\n");
             }
         }
@@ -260,8 +275,9 @@ public static class Dump
     {
         if (level >= maxDepth)
             return;
-        
+
         var v = GetVariableValue(value);
+
         if (v != null)
         {
             logString.Append(v);
@@ -280,7 +296,7 @@ public static class Dump
                 return;
             }
 
-            if (IsClassType(type))
+            if (!type.IsInterface && IsClassType(type))
             {
                 if (type.BaseType != typeof(ValueType))
                 {
@@ -301,7 +317,6 @@ public static class Dump
                 WriteClass(logString, value, type, level);
                 return;
             }
-
             Append(logString, type, value, level);
         }
     }
@@ -310,48 +325,67 @@ public static class Dump
     {
         if (value == null)
             return "(null)";
+
         else if (value is Exception e)
             return e.ToString();
+
         else if (value is string str)
-            if(str.Length > 50)
+            if (str.Length > 50)
                 return str + " (Length: " + str.Length + ")";
             else
                 return str;
+
         else if (value is StringBuilder sb)
-            if(sb.Length > 50)
+            if (sb.Length > 50)
                 return sb + " (Length: " + sb.Length + ")";
             else
                 return sb.ToString();
+
         else if (value is int i)
             return i.ToString();
+
         else if (value is DateTime dt)
             return dt.ToString();
+
         else if (value is DateTimeOffset dto)
             return dto.ToString();
+
         else if (value is TimeSpan ts)
             return ts.ToString();
+
         else if (value is bool b)
             return b.ToString();
+
         else if (value is double d)
             return d.ToString();
+
         else if (value is float f)
             return f.ToString();
+
         else if (value is char c)
             return c + "";
+
         else if (value is Enum en)
             return en.ToText() + " (enum value: " + en.ToValue() + ")";
+
         else if (value is long i64)
             return i64.ToString();
+
         else if (value is short i16)
             return i16.ToString();
+
         else if (value is bool?)
             return (value as bool?).Value + "";
+
         else if (value is int?)
             return (value as int?).Value + "";
+
         else if (value is double?)
             return (value as double?).Value + "";
+
         else if (value is short?)
             return (value as short?).Value + "";
+
         else if (value is long?)
             return (value as long?).Value + "";
 
@@ -367,8 +401,10 @@ public static class Dump
     {
         if (level == 0) return "";
         var tabs = "";
-        for (int i = 0; i < level; i++)
+
+        for (int i = 1; i < level; i++)
             tabs += "\t";
+
         return tabs;
     }
 
