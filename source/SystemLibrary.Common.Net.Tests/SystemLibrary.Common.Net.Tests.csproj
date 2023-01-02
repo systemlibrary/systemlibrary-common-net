@@ -44,10 +44,12 @@
 		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
+		<None Remove="_Files\json-serialization-data-real-as-int.json" />
 		<None Remove="_Files\json-serialization-data-short-format.json" />
 		<None Remove="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
+	  <EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data.json" />
 	</ItemGroup>
@@ -138,17 +140,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-		<Resource Include="app.config" />
-		<Resource Include="appsettings.Debug.json">
-			<IsTransformFile>true</IsTransformFile>
-			<DependentUpon>appsettings.json</DependentUpon>
-		</Resource>
-		<Resource Include="appsettings.Release.json">
-			<IsTransformFile>true</IsTransformFile>
-			<DependentUpon>appsettings.json</DependentUpon>
-		</Resource>
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="Configs\Integration\integrationsettings.Release.json">

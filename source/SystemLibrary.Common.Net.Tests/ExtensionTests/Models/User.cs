@@ -28,5 +28,14 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         public DateTimeOffset? DateTimeOffsetNullProperty { get; set; }
         public TimeSpan? TimeSpanNullProperty { get; set; }
         public bool? IsEnabledNullProperty { get; set; }
+
+        public int x { get; set; }
+        public int y;
+        public int score { get; }
+        public int number { get; set; }
+        public int longnumber { get; set; }
+        public double longnumberdecimals { get; set; }
+
+        public int And { get; set; }
     }
 }

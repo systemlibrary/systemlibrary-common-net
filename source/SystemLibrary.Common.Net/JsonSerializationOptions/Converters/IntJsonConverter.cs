@@ -12,7 +12,12 @@ namespace SystemLibrary.Common.Net
                 return 0;
 
             if (reader.TokenType == JsonTokenType.Number)
-                return reader.GetInt32();
+            {
+                if (reader.TryGetDouble(out double doubleValue))
+                    return (int)doubleValue;
+
+                throw new Exception("Cannot convert value to int32");
+            }
 
             if (reader.TokenType == JsonTokenType.True)
                 return 1;

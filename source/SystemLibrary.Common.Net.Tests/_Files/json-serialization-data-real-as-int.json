@@ -1,0 +1,33 @@
+﻿{
+  "totalhits": 3,
+  "hits": [
+    {
+      "longnumber": 991234567890,
+      "longnumberdecimals": 991234567890.003,
+      "number": 11,
+      "x": 12345.00,
+      "y": 1234567.7891,
+      "score": 124.78901,
+      "and": 11
+    },
+    {
+      "longnumber": 991234567891,
+      "longnumberdecimals": 991234567890.002,
+      "number": 12,
+      "x": 12345.01,
+      "y": 1234568.7892,
+      "score": 124.78902,
+      "and": 11
+    },
+    {
+      "longnumber": 991234567892,
+      "longnumberdecimals": 991234567890.001,
+      "number": 13,
+      "x": 12345.03,
+      "y": 1234569.7893,
+      "score": 124.78903,
+      "and": 11
+    }
+  ],
+  "reponsetime": 14.0
+}

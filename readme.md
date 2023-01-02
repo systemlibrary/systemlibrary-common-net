@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.7
-- Dump.Write bug in previous few patch versions, outputting in one line all properties, they are now written on a new line
+- 6.5.1.8
+- Json and PartialJson converts now double/real numbers to int32 without throwing, just simply ignoring decimals
 
 #### Version history
 - View git history of this file if interested

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -39,7 +40,7 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
             Assert.IsTrue(form != null && form.file?.Length > 0 && form.file.Contains("emptyObject"));
         }
 
-            [TestMethod]
+        [TestMethod]
         public void Read_Employees_TypeName_Plural()
         {
             var data = GetData();
@@ -128,6 +129,36 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
             Assert.IsTrue(users.Count == 2);
             Assert.IsTrue(users[0].FirstName.Contains("FirstNameListUsers1"));
             Assert.IsTrue(users[0].Age == 1);
+        }
+
+        [TestMethod]
+        public void Read_Complex_Poco_With_Int_Where_Real_Is_Returned_ConvertsToInt32()
+        {
+            var data = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data-real-as-int.json");
+
+            var users = data.PartialJson<List<User>>("hits");
+
+            Assert.IsTrue(users != null);
+
+            Assert.IsTrue(users.Count == 3, "" + users.Count);
+
+            Assert.IsTrue(users[2].y == 1234569, "Invalid y");
+            Assert.IsTrue(users[2].x == 12345, "Invalid x");
+            Assert.IsTrue(users[2].longnumber == Int32.MinValue, "Invalid longnumber");
+        }
+
+        [TestMethod]
+        public void Read_Complex_Poco_With_Score_As_GetOnlyProperty()
+        {
+            var data = Assemblies.GetEmbeddedResource("_Files", "json-serialization-data-real-as-int.json");
+
+            var users = data.PartialJson<List<User>>("hits");
+
+            Assert.IsTrue(users != null);
+
+            Assert.IsTrue(users.Count == 3, "" + users.Count);
+
+            Assert.IsTrue(users[2].score == 0, "Score was read, it does not have a private set?");
         }
     }
 }
