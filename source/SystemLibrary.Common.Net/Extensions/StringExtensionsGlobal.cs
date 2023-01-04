@@ -11,8 +11,6 @@
 //using SystemLibrary.Common.Net.Attributes;
 //using SystemLibrary.Common.Net.Extensions;
 
-//namespace SystemLibrary.Common.Net.Global;
-
 ///// <summary>
 ///// This class contains extension methods for Strings
 ///// 
@@ -43,11 +41,11 @@
 //    /// var text3 = " ";
 //    /// var text4 = "hello";
 //    /// 
-//    /// var result = text1.AsFallback(text2, text3, text4);
+//    /// var result = text1.OrFirstOf(text2, text3, text4);
 //    /// // result is "hello" as the others are blank/empty
 //    /// </code>
 //    /// </example>
-//    public static string AsFallback(this string text, params string[] fallbacks)
+//    public static string OrFirstOf(this string text, params string[] fallbacks)
 //    {
 //        if (text.Is()) return text;
 
