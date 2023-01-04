@@ -929,4 +929,42 @@
 //    {
 //        return Sha1.Compute(text.GetBytes());
 //    }
+
+//    /// <summary>
+//    /// Returns uri ("url") encoded version of a string or null if input was null
+//    /// 
+//    /// Example: For instance: A 'space' becomes %20, and a '+' sign becomes %2B
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var plain = "Hello world + ?";
+//    /// var coded = plain.UriEncode();
+//    /// //coded == "Hello%20world%20%2B%2B%3F"
+//    /// </code>
+//    /// </example>
+//    public static string UriEncode(this string text)
+//    {
+//        if (text == null) return null;
+
+//        return Uri.EscapeDataString(text);
+//    }
+
+//    /// <summary>
+//    /// Returns uri ("url") encoded version of a string or null if input was null
+//    /// 
+//    /// Example: For instance: A 'space' becomes %20, and a '+' sign becomes %2B
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var coded = "Hello%20world%20%2B%2B%3F";
+//    /// var plain = coded.UriDecode();
+//    /// //plain == "Hello world + ?"
+//    /// </code>
+//    /// </example>
+//    public static string UriDecode(this string text)
+//    {
+//        if (text == null) return null;
+
+//        return Uri.UnescapeDataString(text);
+//    }
 //}

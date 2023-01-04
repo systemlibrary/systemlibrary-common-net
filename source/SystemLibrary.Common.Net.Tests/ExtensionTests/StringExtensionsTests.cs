@@ -577,4 +577,32 @@ public class StringExtensionsTests
 
         Assert.IsTrue(text.Length == bytes.Length);
     }
+
+    [TestMethod]
+    public void Get_Uri_Encoded_Text()
+    {
+        var plain = "Hello world + ?";
+
+        var coded = plain.UriEncode();
+
+        Assert.IsTrue(coded == "Hello%20world%20%2B%20%3F");
+
+        plain = null;
+        coded = plain.UriEncode();
+        Assert.IsTrue(coded == null);
+    }
+
+    [TestMethod]
+    public void Get_Uri_Decoded_Text()
+    {
+        var coded = "Hello%20world%20%2B%20%3F";
+
+        var plain = coded.UriDecode();
+
+        Assert.IsTrue(plain == "Hello world + ?", plain);
+
+        plain = null;
+        coded = plain.UriDecode();
+        Assert.IsTrue(coded == null);
+    }
 }
