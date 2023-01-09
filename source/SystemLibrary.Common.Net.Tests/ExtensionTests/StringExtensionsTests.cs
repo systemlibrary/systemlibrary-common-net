@@ -605,4 +605,68 @@ public class StringExtensionsTests
         coded = plain.UriDecode();
         Assert.IsTrue(coded == null);
     }
+
+    [TestMethod]
+    public void ToPascalCase()
+    {
+        string text = null;
+        string result = text.ToPascalCase();
+        Assert.IsTrue(result == null);
+
+        text = "";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "");
+
+        text = "1h";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "1h");
+
+        text = "a";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "A");
+
+        text = "HEllo world 1234this is nICE";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "Hello World 1234this Is Nice", result);
+
+        text = "HELLO WORLD@EMAIL.COM. This is it. this is just a sample? or is it?";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "Hello World@email.com. This Is It. This Is Just A Sample? Or Is It?", result);
+
+        text = "Hello-world-this WAS-NICE";
+        result = text.ToPascalCase();
+        Assert.IsTrue(result == "Hello-World-This Was-Nice");
+    }
+
+    [TestMethod]
+    public void To_Camel_Case()
+    {
+        string text = null;
+        string result = text.toCamelCase();
+        Assert.IsTrue(result == null);
+
+        text = "";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "");
+
+        text = "1h";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "1h");
+
+        text = "A";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "a");
+
+        text = "HEllo world 1234this is nICE";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "hello World 1234this Is Nice", result);
+
+        text = "HELLO WORLD@EMAIL.COM. This is it. this is just a sample? or is it?";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "hello World@email.com. This Is It. This Is Just A Sample? Or Is It?", result);
+
+        text = "Hello-world-this WAS-NICE";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "hello-World-This Was-Nice");
+    }
 }

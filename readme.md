@@ -15,8 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.5.1.8
-- Json and PartialJson converts now double/real numbers to int32 without throwing, just simply ignoring decimals
+- 6.6.1.1
+- StringExtensions: Added UriEncode and UriDecode
+- StringExtensions: Added toCamelCase and ToPascalCase()
+- AsFallback renamed to OrFirstOf (breaking change)
 
 #### Version history
 - View git history of this file if interested

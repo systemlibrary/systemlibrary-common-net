@@ -939,7 +939,7 @@
 //    /// <code>
 //    /// var plain = "Hello world + ?";
 //    /// var coded = plain.UriEncode();
-//    /// //coded == "Hello%20world%20%2B%2B%3F"
+//    /// //coded == "Hello%20world%20%2B%20%3F"
 //    /// </code>
 //    /// </example>
 //    public static string UriEncode(this string text)
@@ -956,7 +956,7 @@
 //    /// </summary>
 //    /// <example>
 //    /// <code>
-//    /// var coded = "Hello%20world%20%2B%2B%3F";
+//    /// var coded = "Hello%20world%20%2B%20%3F";
 //    /// var plain = coded.UriDecode();
 //    /// //plain == "Hello world + ?"
 //    /// </code>
@@ -967,4 +967,98 @@
 
 //        return Uri.UnescapeDataString(text);
 //    }
+
+//    /// <summary>
+//    /// Returns string as pascal cased
+//    /// 
+//    /// Each word's first letter is upper case
+//    /// - words after a space or a dash
+//    /// 
+//    /// All other letters are lower cased
+//    /// 
+//    /// Note: Returns null or empty if that is the input
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var text = "abC deF";
+//    /// var result = text.ToPascalCase();
+//    /// //result == "Abc Def"
+//    /// </code>
+//    /// </example>
+//    public static string ToPascalCase(this string text)
+//    {
+//        if (text.IsNot()) return text;
+
+//        var sb = new StringBuilder();
+
+//        sb.Append(char.ToUpper(text[0]));
+
+//        for (int i = 1; i < text.Length; i++)
+//        {
+//            if (text[i] == ' ')
+//            {
+//                i++;
+//                sb.Append(" " + char.ToUpper(text[i]));
+//            }
+//            else if (text[i] == '-')
+//            {
+//                i++;
+//                sb.Append("-" + char.ToUpper(text[i]));
+//            }
+//            else
+//            {
+//                sb.Append(char.ToLower(text[i]));
+//            }
+//        }
+
+//        return sb.ToString();
+//    }
+
+//    /// <summary>
+//    /// Returns string as camel cased
+//    /// 
+//    /// Each word's first letter is upper case
+//    /// - words after a space or a dash
+//    /// - except the very first letter, it is lower cased
+//    /// 
+//    /// All other letters are lower cased
+//    /// 
+//    /// Note: Returns null or empty if that is the input
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var text = "abC deF";
+//    /// var result = text.ToPascalCase();
+//    /// //result == "abc Def"
+//    /// </code>
+//    /// </example>
+//    public static string toCamelCase(this string text)
+//    {
+//        if (text.IsNot()) return text;
+
+//        var sb = new StringBuilder();
+
+//        sb.Append(char.ToLower(text[0]));
+
+//        for (int i = 1; i < text.Length; i++)
+//        {
+//            if (text[i] == ' ')
+//            {
+//                i++;
+//                sb.Append(" " + char.ToUpper(text[i]));
+//            }
+//            else if (text[i] == '-')
+//            {
+//                i++;
+//                sb.Append("-" + char.ToUpper(text[i]));
+//            }
+//            else
+//            {
+//                sb.Append(char.ToLower(text[i]));
+//            }
+//        }
+
+//        return sb.ToString();
+//    }
+
 //}

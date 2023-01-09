@@ -4,10 +4,10 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net60, targetCount: 3, warmupCount: 5, invocationCount: 500000, launchCount: 5)]
+[SimpleJob(RuntimeMoniker.Net60, warmupCount: 5, invocationCount: 500000, launchCount: 5)]
 [MemoryDiagnoser]
 [RPlotExporter]
-public class DummyBenchmarks
+public class StringCondition
 {
     [GlobalSetup]
     public void Setup()
@@ -15,7 +15,7 @@ public class DummyBenchmarks
     }
 
     [Benchmark]
-    public object Normal()
+    public object String_Condition_Are_Equals()
     {
         var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567";
         var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567";
@@ -24,12 +24,88 @@ public class DummyBenchmarks
     }
 
     [Benchmark]
-    public object NormalSpan()
+    public object String_Condition_AsSpan_Are_Equals()
     {
-        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567";
+        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567".AsSpan();
         var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567".AsSpan();
 
         return data == data2;
     }
+
+    [Benchmark]
+    public object String_Condition_Are_Equals_Short()
+    {
+        var data = "WHATEVER NOW";
+        var data2 = "WHATEVER NOW";
+
+        return data == data2;
+    }
+
+
+    [Benchmark]
+    public object String_Condition_AsSpan_Are_Equals_Short()
+    {
+        var data = "WHATEVER NOW".AsSpan();
+        var data2 = "WHATEVER NOW".AsSpan();
+
+        return data == data2;
+    }
+
+    [Benchmark]
+    public object String_Condition_Are_Not_Equal_Short()
+    {
+        var data = "WHATEVER NOW12344";
+        var data2 = "WHATEVER NOW12345";
+
+        return data == data2;
+
+    }
+
+    [Benchmark]
+    public object String_Condition_AsSpan_Are_Not_Equal_Short()
+    {
+        var data = "WHATEVER NOW12344".AsSpan();
+        var data2 = "WHATEVER NOW12345".AsSpan();
+
+        return data == data2;
+    }
+
+    [Benchmark]
+    public object String_Condition_Are_Not_Equal_Long()
+    {
+        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234557";
+        var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567";
+
+        return data == data2;
+    }
+
+
+    [Benchmark]
+    public object String_Condition_AsSpan_Are_Not_Equal_Long()
+    {
+        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234557".AsSpan();
+        var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567".AsSpan();
+
+        return data == data2;
+    }
+
+    [Benchmark]
+    public object String_Condition_Are_Not_Equal_In_Length_Long()
+    {
+        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=123457";
+        var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=12345";
+
+        return data == data2;
+    }
+
+    [Benchmark]
+    public object String_Condition_AsSpan_Are_Not_Equal_In_Length_Long()
+    {
+        var data = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=123457".AsSpan();
+        var data2 = "WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=1234567WHATEVER NOW vg.no&hello=world&world=&hello=world&world=&hello=world&world=12345".AsSpan();
+
+        return data == data2;
+    }
+
 }
 
