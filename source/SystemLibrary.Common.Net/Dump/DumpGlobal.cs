@@ -1,4 +1,6 @@
-﻿//using System;
+﻿//namespace SystemLibrary.Common.Net.Global;
+
+//using System;
 //using System.Collections;
 //using System.Collections.Generic;
 //using System.IO;
@@ -6,9 +8,8 @@
 //using System.Text;
 //using System.Threading;
 
+//using SystemLibrary.Common.Net;
 //using SystemLibrary.Common.Net.Extensions;
-
-//namespace SystemLibrary.Common.Net.Global;
 
 ///// <summary>
 ///// Global dumping of 'any' object to a local file for easy debugging and logging
@@ -64,8 +65,8 @@
 //    /// Dump.Write(list);
 //    /// // Outputs:
 //    /// // List of Car (1)
-//    /// // - Name = Vehicle 1
-//    /// // - Name = Vehicle 2
+//    /// //  - Name = Vehicle 1
+//    /// //  - Name = Vehicle 2
 //    /// </code>
 //    /// </example>
 //    public static void Write(object o)
@@ -145,6 +146,8 @@
 //        if (arguments != null && arguments.Length > 0)
 //            genericType = arguments[0];
 
+//        var collectionIncrementTabs = 0;
+
 //        if (e is IDictionary d)
 //            logString.Append(" dictionary count: " + d.Count + "\n");
 
@@ -159,15 +162,22 @@
 //        else
 //            logString.Append(" unknown count" + "\n");
 
-//        logString.Append(GetTabs(level));
+//        if (e is IDictionary || e is IList || e is Array || e is ICollection)
+//            collectionIncrementTabs = 2;
+
+//        var tabs = GetTabs(level + collectionIncrementTabs);
+
+//        logString.Append(tabs);
+
 //        foreach (var item in e)
 //        {
 //            Build(logString, item, level, 3);
+
 //            var t = item.GetType();
-//            if (IsNativeType(t))
+//            if (IsNativeType(t) && t != SystemType.StringType)
 //                logString.Append(" ");
 //            else
-//                logString.Append("\n");
+//                logString.Append("\n" + tabs);
 //        }
 //    }
 
@@ -179,22 +189,30 @@
 //            return;
 
 //        var arguments = type.GetGenericArguments();
+
 //        var genericType = (Type)null;
+
 //        if (arguments != null && arguments.Length > 0)
 //            genericType = arguments[0];
 
 //        var typeName = type.Name;
+
 //        if (genericType != null)
 //            typeName = typeName + "<" + genericType?.Name + ">";
 
-//        logString.Append(typeName + (IsClassType(type) ? " (class)" : "") + ", level " + level + "\n");
+//        if (type.IsInterface)
+//            logString.Append(typeName + " (interface)");
+//        else
+//            logString.Append(typeName + (IsClassType(type) ? " (class)" : ""));
 
 //        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.GetProperty);
 
 //        if (properties != null && properties.Length > 0)
 //        {
+//            logString.Append("\n");
 //            foreach (var property in properties)
 //            {
+//                logString.Append("\t");
 //                if (property?.PropertyType == null) continue;
 //                if (property.PropertyType == SystemType.CharType) continue;
 //                if (property.PropertyType.Name == "RuntimeType") continue;
@@ -207,7 +225,7 @@
 //                }
 //                catch
 //                {
-//                    logString.Append(property.Name + ": could not retrieve value, continuing...");
+//                    logString.Append(property.Name + ": could not retrieve value, continuing...\n");
 //                }
 //                logString.Append("\n");
 //            }
@@ -217,10 +235,14 @@
 
 //        if (fields != null && fields.Length > 0)
 //        {
+//            if (properties == null || properties.Length == 0)
+//                logString.Append("\n");
+
 //            foreach (var field in fields)
 //            {
 //                if (field?.FieldType == null) continue;
 
+//                logString.Append("\t");
 //                try
 //                {
 //                    var fieldValue = field.GetValue(value);
@@ -231,6 +253,7 @@
 //                {
 //                    logString.Append(field.Name + ": could not retrieve value, continuing...");
 //                }
+
 //                logString.Append("\n");
 //            }
 //        }
@@ -256,6 +279,7 @@
 //            return;
 
 //        var v = GetVariableValue(value);
+
 //        if (v != null)
 //        {
 //            logString.Append(v);
@@ -274,7 +298,7 @@
 //                return;
 //            }
 
-//            if (IsClassType(type))
+//            if (!type.IsInterface && IsClassType(type))
 //            {
 //                if (type.BaseType != typeof(ValueType))
 //                {
@@ -295,7 +319,6 @@
 //                WriteClass(logString, value, type, level);
 //                return;
 //            }
-
 //            Append(logString, type, value, level);
 //        }
 //    }
@@ -304,40 +327,67 @@
 //    {
 //        if (value == null)
 //            return "(null)";
+
+//        else if (value is Exception e)
+//            return e.ToString();
+
 //        else if (value is string str)
-//            return str + " (Length: " + str.Length + ")";
+//            if (str.Length > 50)
+//                return str + " (Length: " + str.Length + ")";
+//            else
+//                return str;
+
 //        else if (value is StringBuilder sb)
-//            return sb + " (Length: " + sb.Length + ")";
+//            if (sb.Length > 50)
+//                return sb + " (Length: " + sb.Length + ")";
+//            else
+//                return sb.ToString();
+
 //        else if (value is int i)
-//            return i + "";
+//            return i.ToString();
+
 //        else if (value is DateTime dt)
-//            return dt + "";
+//            return dt.ToString();
+
 //        else if (value is DateTimeOffset dto)
-//            return dto + "";
+//            return dto.ToString();
+
 //        else if (value is TimeSpan ts)
-//            return ts + "";
+//            return ts.ToString();
+
 //        else if (value is bool b)
-//            return b + "";
+//            return b.ToString();
+
 //        else if (value is double d)
-//            return d + "";
+//            return d.ToString();
+
 //        else if (value is float f)
-//            return f + "";
+//            return f.ToString();
+
 //        else if (value is char c)
 //            return c + "";
+
 //        else if (value is Enum en)
 //            return en.ToText() + " (enum value: " + en.ToValue() + ")";
+
 //        else if (value is long i64)
-//            return i64 + "";
+//            return i64.ToString();
+
 //        else if (value is short i16)
-//            return i16 + "";
+//            return i16.ToString();
+
 //        else if (value is bool?)
 //            return (value as bool?).Value + "";
+
 //        else if (value is int?)
 //            return (value as int?).Value + "";
+
 //        else if (value is double?)
 //            return (value as double?).Value + "";
+
 //        else if (value is short?)
 //            return (value as short?).Value + "";
+
 //        else if (value is long?)
 //            return (value as long?).Value + "";
 
@@ -353,8 +403,10 @@
 //    {
 //        if (level == 0) return "";
 //        var tabs = "";
-//        for (int i = 0; i < level; i++)
+
+//        for (int i = 1; i < level; i++)
 //            tabs += "\t";
+
 //        return tabs;
 //    }
 

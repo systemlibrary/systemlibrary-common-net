@@ -1,4 +1,6 @@
-﻿//using System;
+﻿//namespace SystemLibrary.Common.Net.Global;
+
+//using System;
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Reflection;

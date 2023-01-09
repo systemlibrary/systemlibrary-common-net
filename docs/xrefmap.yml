@@ -1076,22 +1076,6 @@ references:
   commentId: T:SystemLibrary.Common.Net.Global.StringExtensions
   fullName: SystemLibrary.Common.Net.Global.StringExtensions
   nameWithType: StringExtensions
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String,System.String[])
-  name: AsFallback(String, String[])
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_System_String_System_String___
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String,System.String[])
-  name.vb: AsFallback(String, String())
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String, System.String[])
-  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.AsFallback(System.String, System.String())
-  nameWithType: StringExtensions.AsFallback(String, String[])
-  nameWithType.vb: StringExtensions.AsFallback(String, String())
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.AsFallback*
-  name: AsFallback
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_AsFallback_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.AsFallback
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.AsFallback
-  nameWithType: StringExtensions.AsFallback
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])
   name: ContainsAny(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___
@@ -1336,6 +1320,22 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate
   nameWithType: StringExtensions.Obfuscate
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name: OrFirstOf(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name.vb: OrFirstOf(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String())
+  nameWithType: StringExtensions.OrFirstOf(String, String[])
+  nameWithType.vb: StringExtensions.OrFirstOf(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf*
+  name: OrFirstOf
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  nameWithType: StringExtensions.OrFirstOf
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*
   name: PartialJson
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_
@@ -1397,6 +1397,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64
   nameWithType: StringExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  name: toCamelCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  nameWithType: StringExtensions.toCamelCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase*
+  name: toCamelCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  nameWithType: StringExtensions.toCamelCase
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum*
   name: ToEnum
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_
@@ -1439,6 +1452,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash
   nameWithType: StringExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  name: ToPascalCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  nameWithType: StringExtensions.ToPascalCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase*
+  name: ToPascalCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  nameWithType: StringExtensions.ToPascalCase
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
   name: ToSha1Hash(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_
@@ -1468,6 +1494,32 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
   nameWithType: StringExtensions.TrimEnd
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  name: UriDecode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  nameWithType: StringExtensions.UriDecode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode*
+  name: UriDecode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  nameWithType: StringExtensions.UriDecode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  name: UriEncode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  nameWithType: StringExtensions.UriEncode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode*
+  name: UriEncode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  nameWithType: StringExtensions.UriEncode
 - uid: SystemLibrary.Common.Net.SystemType
   name: SystemType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html
