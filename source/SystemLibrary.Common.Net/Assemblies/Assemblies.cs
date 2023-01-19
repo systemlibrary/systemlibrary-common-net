@@ -35,6 +35,9 @@ namespace SystemLibrary.Common.Net
             "Serilog",
             "nlog",
             "ElasticSearch",
+            "Elasticsearch",
+            "Remotion",
+            "YamlDotNet",
             "Antlr",
             "ClearScript",
             "nunit",
@@ -77,6 +80,10 @@ namespace SystemLibrary.Common.Net
             "NUnit3TestAdapter.",
             "Npgsql.",
             "Humanizer.Core",
+            "NSubstitute",
+            "NJsonSchema",
+            "bootstrap",
+            "SendGrid",
             "Portable.BouncyCastle.",
             "RabbitMQ.",
             "SQLitePCLRaw.",
@@ -93,6 +100,8 @@ namespace SystemLibrary.Common.Net
             "CommandLineParser.",
             "SendGrid.",
             "WebActivatorEx.",
+            "MessagePack",
+            "MailKit",
             "protobuf-net.",
             "Unity.",
             "MySql.Data.",
@@ -107,7 +116,7 @@ namespace SystemLibrary.Common.Net
         /// <summary>
         /// Find all types inheriting class T in all loaded assemblies
         /// 
-        /// Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Dapper, Autofac, Automapper, Salesforce, ...
+        /// Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce, ...
         /// </summary>
         /// <example>
         /// <code class="language-csharp hljs">

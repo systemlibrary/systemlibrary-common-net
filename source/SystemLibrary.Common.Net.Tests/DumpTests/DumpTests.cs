@@ -15,6 +15,69 @@ public class DumpTests
 {
     const string DumpPath = "C:\\Logs\\systemlibrary-common-net-tests.log";
 
+
+    [TestMethod]
+    public void Dump_List_Poco_WithArrays_Success()
+    {
+        var owners = new List<Owner>
+        {
+            new Owner
+            {
+                Ints = new int[] { 123, 345 },
+                Doubles = new double[] { 6666, 7777 },
+                Strings = new string[] { "Hello", "World" },
+                Name = "AAA"
+            },
+            new Owner
+            {
+                Ints = new int[] { 987, 678 },
+                Doubles = new double[] { 8888, 1000 },
+                Strings = new string[] { "Abcd", "Efgh" },
+                Name = "BBB"
+            },
+
+        };
+
+        System.Threading.Thread.Sleep(550);
+
+        Dump.Clear();
+
+        Dump.Write(owners);
+
+        var content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"), "!World");
+        Assert.IsTrue(content.Contains("345"), "!345");
+        Assert.IsTrue(content.Contains("7777"), "!7777");
+        Assert.IsTrue(content.Contains("AAA"), "!AAA");
+
+        Assert.IsTrue(content.Contains("678"), "!678");
+        Assert.IsTrue(content.Contains("1000"), "!1000");
+        Assert.IsTrue(content.Contains("Efgh"), "!Efgh");
+        Assert.IsTrue(content.Contains("BBB"), "!BBB");
+
+    }
+
+
+    [TestMethod]
+    public void Dump_Arrays_Success()
+    {
+        var strings = new string[] { "Hello", "World" };
+        var ints = new int[] { 123, 345 };
+        var doubles = new double[] { 6666, 7777 };
+
+        System.Threading.Thread.Sleep(350);
+
+        Dump.Clear();
+        Dump.Write(strings);
+        Dump.Write(ints);
+        Dump.Write(doubles);
+
+        var content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"), "!World");
+        Assert.IsTrue(content.Contains("345"), "!345");
+        Assert.IsTrue(content.Contains("7777"), "!7777");
+    }
+
     [TestMethod]
     public void Dump_Write_Exception_Without_StringLng()
     {

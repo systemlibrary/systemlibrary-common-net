@@ -15,11 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.2
-- Updated nuget icon
-- StringExtensions: Added UriEncode and UriDecode
-- StringExtensions: Added toCamelCase and ToPascalCase()
-- AsFallback renamed to OrFirstOf (breaking change)
+- 6.6.1.3
+- Assemblies blacklisting some few more dll's/nuget packages ("optimization")
 
 #### Version history
 - View git history of this file if interested

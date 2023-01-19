@@ -28,5 +28,8 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
 
         public Employee ParentEmployee { get; set; }
         public Employee ParentEmployee2 { get; set; }
+        public string[] Strings { get; set; }
+        public int[] Ints { get; set; }
+        public double[] Doubles { get; set; }
     }
 }
