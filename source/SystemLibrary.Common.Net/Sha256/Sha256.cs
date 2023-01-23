@@ -5,43 +5,43 @@ using System.Threading.Tasks;
 
 namespace SystemLibrary.Common.Net;
 
-internal static class Md5
+internal static class Sha256
 {
     const int ResetCounter = 200;
+    static int SHA256Counter = ResetCounter;
     static object counterlock = new object();
-    static int MD5Counter = ResetCounter;
-    static MD5 _MD5;
-    static MD5 MD5
+    static SHA256 _SHA256;
+    static SHA256 SHA256
     {
         get
         {
-            System.Threading.Interlocked.Increment(ref MD5Counter);
+            System.Threading.Interlocked.Increment(ref SHA256Counter);
 
-            if (MD5Counter > ResetCounter)
+            if (SHA256Counter > ResetCounter)
             {
                 lock (counterlock)
                 {
-                    if (MD5Counter > ResetCounter)
+                    if (SHA256Counter > ResetCounter)
                     {
-                        _MD5?.Dispose();
-                        _MD5 = null;
-                        _MD5 = MD5.Create();
-                        MD5Counter -= ResetCounter;
+                        _SHA256?.Dispose();
+                        _SHA256 = null;
+                        _SHA256 = SHA256.Create();
+                        SHA256Counter -= ResetCounter;
                     }
                 }
             }
 
-            return _MD5;
+            return _SHA256;
         }
     }
-
+    
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;
 
         if (bytes.Length == 0) return "";
 
-        return BitConverter.ToString(MD5.ComputeHash(bytes));
+        return BitConverter.ToString(SHA256.ComputeHash(bytes));
     }
 
     internal static string Compute(Stream stream)
@@ -50,7 +50,7 @@ internal static class Md5
 
         if (!stream.CanRead) return null;
 
-        return BitConverter.ToString(MD5.ComputeHash(stream));
+        return BitConverter.ToString(SHA256.ComputeHash(stream));
     }
 
     internal static async Task<string> ComputeAsync(Stream stream)
@@ -59,6 +59,6 @@ internal static class Md5
 
         if (!stream.CanRead) return null;
 
-        return BitConverter.ToString(await MD5.ComputeHashAsync(stream).ConfigureAwait(false));
+        return BitConverter.ToString(await SHA256.ComputeHashAsync(stream).ConfigureAwait(false));
     }
 }

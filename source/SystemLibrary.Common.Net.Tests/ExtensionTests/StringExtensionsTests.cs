@@ -116,6 +116,29 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
+    public void String_To_Sha256_Hash_String()
+    {
+        string data = null;
+        string result = null;
+
+        result = data.ToSha256Hash();
+        Assert.IsTrue(result == null);
+
+        data = "";
+        result = data.ToSha256Hash();
+        Assert.IsTrue(result == "");
+
+        data = "Hello world";
+
+        result = data.ToSha256Hash();
+        Assert.IsTrue(result.Length == 95, "Sha256 length: " + result.Length);
+
+        var data2 = "Hello world";
+        var result2 = data2.ToSha256Hash();
+        Assert.IsTrue(result == result2, "Sha256 Not equal second time");
+    }
+
+    [TestMethod]
     public void Obfuscate_String_And_Deobfuscate()
     {
         string data = null;

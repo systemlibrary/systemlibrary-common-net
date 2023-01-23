@@ -498,6 +498,38 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash
   nameWithType: ByteArrayExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  name: ToSha256Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha256Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  name.vb: ToSha256Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToSha256Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToSha256Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash
+  nameWithType: ByteArrayExtensions.ToSha256Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[],System.Text.Encoding)
+  name: ToText(Byte[], Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToText_System_Byte___System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[],System.Text.Encoding)
+  name.vb: ToText(Byte(), Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[], System.Text.Encoding)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte(), System.Text.Encoding)
+  nameWithType: ByteArrayExtensions.ToText(Byte[], Encoding)
+  nameWithType.vb: ByteArrayExtensions.ToText(Byte(), Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText*
+  name: ToText
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToText_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText
+  nameWithType: ByteArrayExtensions.ToText
 - uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions
   name: DynamicExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html
@@ -1478,6 +1510,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash
   nameWithType: StringExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  name: ToSha256Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  nameWithType: StringExtensions.ToSha256Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  nameWithType: StringExtensions.ToSha256Hash
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
   name: TrimEnd(String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___

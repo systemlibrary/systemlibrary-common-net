@@ -24,6 +24,7 @@ internal static class Sha1
                     if (SHA1Counter > ResetCounter)
                     {
                         _SHA1?.Dispose();
+                        _SHA1 = null;
                         _SHA1 = SHA1.Create();
                         SHA1Counter -= ResetCounter;
                     }

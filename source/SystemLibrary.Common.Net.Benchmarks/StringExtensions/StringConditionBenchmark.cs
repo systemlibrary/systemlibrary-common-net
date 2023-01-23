@@ -4,10 +4,10 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net60, warmupCount: 5, invocationCount: 500000, launchCount: 5)]
+[SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, invocationCount: 100000, launchCount: 3)]
 [MemoryDiagnoser]
 [RPlotExporter]
-public class StringCondition
+public class StringConditionBenchmarks
 {
     [GlobalSetup]
     public void Setup()

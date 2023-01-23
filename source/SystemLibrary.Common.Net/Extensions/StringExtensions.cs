@@ -846,8 +846,8 @@ public static class StringExtensions
     {
         if (text == null) return null;
 
-        if (encoding == default)
-            encoding = Encoding.UTF8;
+        if(encoding == null)
+            return Encoding.UTF8.GetBytes(text);
 
         return encoding.GetBytes(text);
     }
@@ -895,7 +895,9 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes), no matter the input, or returns null or empty if that was the input
+    /// Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes).
+    /// 
+    /// Returns null or empty if that was the input
     /// 
     /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// 
@@ -913,7 +915,9 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes), no matter the input, or returns null or empty if that was the input
+    /// Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes). 
+    /// 
+    /// Returns null or empty if that was the input
     /// 
     /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
     /// 
@@ -928,6 +932,20 @@ public static class StringExtensions
     public static string ToSha1Hash(this string text)
     {
         return Sha1.Compute(text.GetBytes());
+    }
+
+    /// <summary>
+    /// Returns a Sha256 hash version of the text input
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var value = "Hello world";
+    /// var sha1 = value.ToSha1Hash();
+    /// </code>
+    /// </example>
+    public static string ToSha256Hash(this string text)
+    {
+        return Sha256.Compute(text.GetBytes());
     }
 
     /// <summary>

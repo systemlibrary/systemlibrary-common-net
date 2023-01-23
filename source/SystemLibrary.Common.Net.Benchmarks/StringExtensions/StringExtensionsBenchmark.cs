@@ -4,10 +4,10 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net60, warmupCount: 5, launchCount: 5, invocationCount: 200)]
+[SimpleJob(RuntimeMoniker.Net60, warmupCount: 3, launchCount: 3, iterationCount: 4, invocationCount: 50)]
 [MemoryDiagnoser]
 [RPlotExporter]
-public class StringExtensionsBenchmark
+public class StringExtensionsBenchmarks
 {
     string bytes11;
     string bytes275;          //275 bytes
@@ -150,5 +150,18 @@ public class StringExtensionsBenchmark
     public string Sha1Hash_KiloBytes550()
     {
         return kiloBytes550.ToSha1Hash();
+    }
+
+    [Benchmark]
+    public string Sha256Hash_KiloBytes110()
+    {
+        return kiloBytes110.ToSha256Hash();
+    }
+
+
+    [Benchmark]
+    public string Sha256Hash_KiloBytes550()
+    {
+        return kiloBytes550.ToSha256Hash();
     }
 }

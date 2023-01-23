@@ -2234,7 +2234,7 @@ var base64string = value.ToBase64();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1037">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1055">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase*"></a>
@@ -2483,7 +2483,8 @@ var text = email.ToLetterAndDigits();
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes), no matter the input, or returns null or empty if that was the input</p>
+  		<div class="markdown level1 summary member-summary"><p>Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes).</p>
+<p>Returns null or empty if that was the input</p>
 <p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
 <p>Note: Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'</p>
 </div>
@@ -2492,7 +2493,7 @@ var text = email.ToLetterAndDigits();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L912">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L914">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash*"></a>
@@ -2569,7 +2570,7 @@ var md5text = value.ToMD5Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L990">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1008">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase*"></a>
@@ -2634,7 +2635,8 @@ var result = text.ToPascalCase();
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes), no matter the input, or returns null or empty if that was the input</p>
+  		<div class="markdown level1 summary member-summary"><p>Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes).</p>
+<p>Returns null or empty if that was the input</p>
 <p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
 <p>Note: Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'</p>
 </div>
@@ -2643,13 +2645,84 @@ var result = text.ToPascalCase();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L930">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L934">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash*"></a>
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)" class="h4-custom-functionName">public static string ToSha1Hash(this string text)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var value = &quot;Hello world&quot;;
+var sha1 = value.ToSha1Hash();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns a Sha256 hash version of the text input</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L948">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)" class="h4-custom-functionName">public static string ToSha256Hash(this string text)</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
@@ -2800,7 +2873,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L966">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L984">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.UriDecode*"></a>
@@ -2873,7 +2946,7 @@ var plain = coded.UriDecode();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L947">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L965">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.UriEncode*"></a>

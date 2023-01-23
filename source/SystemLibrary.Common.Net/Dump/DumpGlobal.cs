@@ -188,6 +188,13 @@
 //            type.Name == "RuntimeType")
 //            return;
 
+//        if (type.Name == "RuntimeAssembly" ||
+//            type.Name == "Constructor")
+//        {
+//            logString.Append(type.Name + (IsClassType(type) ? " (class, skipped)" : ""));
+//            return;
+//        }
+
 //        var arguments = type.GetGenericArguments();
 
 //        var genericType = (Type)null;
