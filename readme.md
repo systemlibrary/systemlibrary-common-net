@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.3
-- Assemblies blacklisting some few more dll's/nuget packages ("optimization")
+- 6.6.1.4
+- Added ToText() byte[] extension, from bytes back to a string
+- Added Sha256() byte[] and string extension
 
 #### Version history
 - View git history of this file if interested
