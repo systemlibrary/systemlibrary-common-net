@@ -15,9 +15,11 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.4
-- Added ToText() byte[] extension, from bytes back to a string
-- Added Sha256() byte[] and string extension
+- 6.6.1.5
+- Enum.ToValue() extension can now return null if the EnumValue attribute has a value of null or if Enum passed is (Enum)null
+- Enum.ToText() extension can now return null if the EnumText attribute has a value of null or if Enum passed is (Enum)null
+- Enum.ToEnumText() extension can now return null if the EnumText attribute do not exist or its value is null, or Enum passed is (Enum)null
+- Enum.ToEnumValue() extension can now return null if the EnumValue attribute do not exist or its value is null, or Enum passed is (Enum)null
 
 #### Version history
 - View git history of this file if interested

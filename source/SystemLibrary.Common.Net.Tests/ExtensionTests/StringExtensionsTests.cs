@@ -279,7 +279,7 @@ public class StringExtensionsTests
         EnumTest b = EnumTest.B;
         EnumTest c = EnumTest.C;
 
-        Assert.AreEqual(a.GetEnumValue(), EnumTest.A, "A");
+        Assert.AreEqual(a.GetEnumValue(),null, "A");
         Assert.AreEqual(b.GetEnumValue(), "hello123", "hello123");
         Assert.AreEqual(c.GetEnumValue(), 100, "100");
     }

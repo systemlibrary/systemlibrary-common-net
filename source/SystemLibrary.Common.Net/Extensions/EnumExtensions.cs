@@ -114,9 +114,9 @@ public static class EnumExtensions
     }
 
     /// <summary>
-    /// Gets the EnumText-attribute's value, fallback to enumField.ToString()
+    /// Gets the EnumText attribute's value, fallback to enumField.ToString()
     /// 
-    /// Can return null if the EnumText-attribute exists and has a value of null
+    /// Returns null if enum passed is null or EnumText attribute has a value of null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -138,6 +138,8 @@ public static class EnumExtensions
     /// </example>
     public static string ToText(this Enum enumField)
     {
+        if (enumField == null) return null;
+
         var textAttribute = GetAttribute<EnumTextAttribute>(enumField, SystemType.EnumTextAttributeType);
 
         if (textAttribute != null)
@@ -147,9 +149,9 @@ public static class EnumExtensions
     }
 
     /// <summary>
-    /// Gets the EnumValue-attribute's object value
+    /// Gets the EnumText attribute's object value
     /// 
-    /// Returns null if EnumValue attribute do not exist or its value is actually null
+    /// Returns null if enum passed is null or EnumText attribute has a value of null or EnumText attribute do not exist
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -176,15 +178,17 @@ public static class EnumExtensions
     /// </example>
     public static string GetEnumText(this Enum enumField)
     {
+        if (enumField == null) return null;
+
         var textAttribute = GetAttribute<EnumTextAttribute>(enumField, SystemType.EnumTextAttributeType);
 
         return textAttribute?.Text;
     }
 
     /// <summary>
-    /// Gets the EnumValue-attribute's value, fallback to enumField.ToString()
+    /// Gets the EnumValue attribute's value, fallback to enumField.ToString()
     /// 
-    /// Cannot return null
+    /// Returns null if enum passed is null or EnumValue attribute has a value of null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -193,6 +197,9 @@ public static class EnumExtensions
     ///     [EnumText("White")]
     ///     [EnumValue(1234)]
     ///     Black,
+    ///     
+    ///     [EnumValue(null)]
+    ///     Blue,
     ///     
     ///     Pink
     /// }
@@ -202,22 +209,27 @@ public static class EnumExtensions
     /// 
     /// var value = EnumColor.Pink.ToValue();
     /// // Pink, does not have the EnumValue attribute so it falls back to Pink as a string
+    /// 
+    /// var value = EnumColor.Blue.ToValue();
+    /// // value is null, as Blue have EnumValue null
     /// </code>
     /// </example>
     public static string ToValue(this Enum enumField)
     {
+        if (enumField == null) return null;
+
         var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 
         if (valueAttribute != null)
-            return valueAttribute.Value + "";
+            return valueAttribute.Value?.ToString();
 
-        return enumField + "";
+        return enumField.ToString();
     }
 
     /// <summary>
     /// Gets the EnumValue-attribute's object value
     /// 
-    /// Returns null if EnumValue attribute do not exist or its value is actually null
+    /// Returns null if enum passed is null or EnumValue attribute has a value of null or EnumValue attribute do not exist
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -227,6 +239,9 @@ public static class EnumExtensions
     ///     [EnumValue(1234)]
     ///     Black,
     ///     
+    ///     [EnumValue(null)]
+    ///     Blue,
+    ///     
     ///     Pink
     /// }
     ///
@@ -235,16 +250,18 @@ public static class EnumExtensions
     /// 
     /// var value = EnumColor.Pink.GetEnumValue();
     /// // null as Pink does not have the EnumValue attribute
+    /// 
+    /// var value = EnumColor.Blue.GetEnumValue();
+    /// // null as Blue have null as the EnumValue
     /// </code>
     /// </example>
     public static object GetEnumValue(this Enum enumField)
     {
+        if (enumField == null) return null; 
+
         var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 
-        if (valueAttribute != null)
-            return valueAttribute.Value;
-
-        return enumField;
+        return valueAttribute?.Value;
     }
 
     static T GetAttribute<T>(object value, Type type) where T : Attribute
