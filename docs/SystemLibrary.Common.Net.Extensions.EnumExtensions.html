@@ -238,15 +238,15 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Gets the EnumValue-attribute's object value</p>
-<p>Returns null if EnumValue attribute do not exist or its value is actually null</p>
+  		<div class="markdown level1 summary member-summary"><p>Gets the EnumText attribute's object value</p>
+<p>Returns null if enum passed is null or EnumText attribute has a value of null or EnumText attribute do not exist</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_System_Enum_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L177">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L179">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText*"></a>
@@ -328,14 +328,14 @@ var value = EnumColor.Pink.GetEnumText();
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Gets the EnumValue-attribute's object value</p>
-<p>Returns null if EnumValue attribute do not exist or its value is actually null</p>
+<p>Returns null if enum passed is null or EnumValue attribute has a value of null or EnumValue attribute do not exist</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_System_Enum_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L240">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L258">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue*"></a>
@@ -351,6 +351,9 @@ var value = EnumColor.Pink.GetEnumText();
     [EnumValue(1234)]
     Black,
 
+    [EnumValue(null)]
+    Blue,
+
     Pink
 }
 
@@ -358,7 +361,10 @@ var value = EnumColor.Black.GetEnumValue();
 // 1234, an int
 
 var value = EnumColor.Pink.GetEnumValue();
-// null as Pink does not have the EnumValue attribute</code></pre>
+// null as Pink does not have the EnumValue attribute
+
+var value = EnumColor.Blue.GetEnumValue();
+// null as Blue have null as the EnumValue</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -498,8 +504,8 @@ if(red.IsAny(Color.Black, Color.Blue)) {
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Gets the EnumText-attribute's value, fallback to enumField.ToString()</p>
-<p>Can return null if the EnumText-attribute exists and has a value of null</p>
+  		<div class="markdown level1 summary member-summary"><p>Gets the EnumText attribute's value, fallback to enumField.ToString()</p>
+<p>Returns null if enum passed is null or EnumText attribute has a value of null</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
@@ -582,15 +588,15 @@ var value = EnumColor.Pink.ToText();
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Gets the EnumValue-attribute's value, fallback to enumField.ToString()</p>
-<p>Cannot return null</p>
+  		<div class="markdown level1 summary member-summary"><p>Gets the EnumValue attribute's value, fallback to enumField.ToString()</p>
+<p>Returns null if enum passed is null or EnumValue attribute has a value of null</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_EnumExtensions_ToValue_System_Enum_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L207">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L217">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_EnumExtensions_ToValue_" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue*"></a>
@@ -606,6 +612,9 @@ var value = EnumColor.Pink.ToText();
     [EnumValue(1234)]
     Black,
 
+    [EnumValue(null)]
+    Blue,
+
     Pink
 }
 
@@ -613,7 +622,10 @@ var value = EnumColor.Black.ToValue();
 // &quot;1234&quot; as string
 
 var value = EnumColor.Pink.ToValue();
-// Pink, does not have the EnumValue attribute so it falls back to Pink as a string</code></pre>
+// Pink, does not have the EnumValue attribute so it falls back to Pink as a string
+
+var value = EnumColor.Blue.ToValue();
+// value is null, as Blue have EnumValue null</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
