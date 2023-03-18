@@ -15,7 +15,7 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.8
+- 6.6.1.9
 - Trying floating versions in both csproj and nuspec
 - Enum.ToValue() extension can now return null if the EnumValue attribute has a value of null or if Enum passed is (Enum)null
 - Enum.ToText() extension can now return null if the EnumText attribute has a value of null or if Enum passed is (Enum)null

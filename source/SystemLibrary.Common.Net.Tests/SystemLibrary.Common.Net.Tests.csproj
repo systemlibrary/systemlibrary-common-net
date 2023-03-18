@@ -3,21 +3,29 @@
 		<DefineConstants>
 		</DefineConstants>
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
+		<DebugType>none</DebugType>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docs|AnyCPU'">
 		<DefineConstants>
 		</DefineConstants>
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
+		<DebugType>none</DebugType>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DefineConstants>
 		</DefineConstants>
 		<Configurations>Release;Unknown;Debug</Configurations>
+		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
+		<DebugType>none</DebugType>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
 		<DefineConstants>
 		</DefineConstants>
 		<Configurations>Release;Unknown</Configurations>
+		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
+		<DebugType>none</DebugType>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
 		<DefineConstants>
