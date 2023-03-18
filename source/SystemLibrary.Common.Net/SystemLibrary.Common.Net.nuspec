@@ -3,7 +3,7 @@
 	<metadata>
 		<id>SystemLibrary.Common.Net</id>
 
-		<version>6.6.1.7</version>
+		<version>6.6.1.8</version>
 
 		<authors>System Library</authors>
 
@@ -40,10 +40,10 @@ https://systemlibrary.github.io/systemlibrary-common-net/
 		<readme>docs\readme.md</readme>
 		
 		<dependencies>
-			<dependency id="Microsoft.Extensions.Configuration.Binder" version="6" />
-			<dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="6" />
-			<dependency id="Microsoft.Extensions.Configuration.Json" version="6" />
-			<dependency id="Microsoft.Extensions.Configuration.Xml" version="6" />
+			<dependency id="Microsoft.Extensions.Configuration.Binder" version="6.*" />
+			<dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="6.*" />
+			<dependency id="Microsoft.Extensions.Configuration.Json" version="6.*" />
+			<dependency id="Microsoft.Extensions.Configuration.Xml" version="6.*" />
 		</dependencies>
 	</metadata>
 

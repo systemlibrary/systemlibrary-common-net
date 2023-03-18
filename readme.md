@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.7
-- 6.6.1.5 to 6.6.1.7 are equal, just tested nuget versioning to try getting "highest patch", even though all articles say it does not work - and they are true; it doesnt
+- 6.6.1.8
+- Trying floating versions in both csproj and nuspec
 - Enum.ToValue() extension can now return null if the EnumValue attribute has a value of null or if Enum passed is (Enum)null
 - Enum.ToText() extension can now return null if the EnumText attribute has a value of null or if Enum passed is (Enum)null
 - Enum.ToEnumText() extension can now return null if the EnumText attribute do not exist or its value is null, or Enum passed is (Enum)null
