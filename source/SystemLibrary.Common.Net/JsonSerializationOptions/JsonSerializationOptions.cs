@@ -22,35 +22,26 @@ namespace SystemLibrary.Common.Net
             options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
         }
 
-        static JsonSerializerOptions NewJsonSerializerOptions()
-        {
-            var options = new JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
-                MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
-                AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
-                PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
-                WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
-                PropertyNamingPolicy = null,
-                IncludeFields = true,
-                ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString
-            };
-
-            AddConverters(options);
-
-            return options;
-        }
-
         static JsonSerializerOptions DefaultJsonSerializerOptions
         {
             get
             {
-                if (_DefaultJsonSerializerOptions == null)
+                var options = new JsonSerializerOptions
                 {
-                    _DefaultJsonSerializerOptions = NewJsonSerializerOptions();
-                }
-                return _DefaultJsonSerializerOptions;
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                    MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
+                    AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
+                    PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
+                    WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
+                    PropertyNamingPolicy = null,
+                    IncludeFields = true,
+                    ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
+                    NumberHandling = JsonNumberHandling.AllowReadingFromString
+                };
+
+                AddConverters(options);
+
+                return options;
             }
         }
 
@@ -60,7 +51,7 @@ namespace SystemLibrary.Common.Net
 
             if (options == null)
             {
-                options = NewJsonSerializerOptions();
+                options = DefaultJsonSerializerOptions;
 
                 if (converters != null)
                 {

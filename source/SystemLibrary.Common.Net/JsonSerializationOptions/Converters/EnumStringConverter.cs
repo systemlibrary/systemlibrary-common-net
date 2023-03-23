@@ -12,7 +12,7 @@ namespace SystemLibrary.Common.Net
         {
             Type = typeof(TEnum);
         }
-
+        
         public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType == JsonTokenType.Number)

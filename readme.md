@@ -15,12 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.9
-- Trying floating versions in both csproj and nuspec
-- Enum.ToValue() extension can now return null if the EnumValue attribute has a value of null or if Enum passed is (Enum)null
-- Enum.ToText() extension can now return null if the EnumText attribute has a value of null or if Enum passed is (Enum)null
-- Enum.ToEnumText() extension can now return null if the EnumText attribute do not exist or its value is null, or Enum passed is (Enum)null
-- Enum.ToEnumValue() extension can now return null if the EnumValue attribute do not exist or its value is null, or Enum passed is (Enum)null
+- 6.6.1.10
+- New DefaultJsonSerializationOptions on every Json() call for sanity
 
 #### Version history
 - View git history of this file if interested

@@ -89,5 +89,5 @@ https://systemlibrary.github.io/systemlibrary-common-net/</Description>
 		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-version</PackageReleaseNotes>
 		<AssemblyVersion></AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>
-</PropertyGroup>
+	</PropertyGroup>
 </Project>
