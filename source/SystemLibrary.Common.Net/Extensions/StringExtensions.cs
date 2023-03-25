@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
@@ -1077,6 +1078,13 @@ public static class StringExtensions
         }
 
         return sb.ToString();
+    }
+
+    public static string ServerMapPath(this string path)
+    {
+        if (path.IsNot()) return null;
+
+        return Path.Combine((string)AppDomain.CurrentDomain.GetData("ContentRootPath"), path);
     }
 
 }

@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.6.1.10
-- New DefaultJsonSerializationOptions on every Json() call for sanity
+- 6.6.1.12
+- ServerMapPath was a static func, added 'this, its an extension method now
 
 #### Version history
 - View git history of this file if interested
