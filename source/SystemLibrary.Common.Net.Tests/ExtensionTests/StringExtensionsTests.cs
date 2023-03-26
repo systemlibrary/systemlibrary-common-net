@@ -692,4 +692,60 @@ public class StringExtensionsTests
         result = text.toCamelCase();
         Assert.IsTrue(result == "hello-World-This Was-Nice");
     }
+
+    [TestMethod]
+    public void To_Serer_Mapped_Path()
+    {
+        string text = null;
+        string result = text.ToServerMapPath();
+        Assert.IsTrue(result == null);
+
+        text = "";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", result);
+
+        text = "a";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a", result);
+
+        text = "a/b/c/d/e/12345/";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c\\d\\e\\12345\\", result);
+
+        text = "https://www.systemlibrary.com/hello/world/";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello\\world\\", result);
+
+        text = "https://www.sub.sub.subdomain.com/hello/world/";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello\\world\\", result);
+
+        text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello1\\world2\\", result);
+
+        text = "https://www.sub.sub.subdomain.com";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", result);
+
+        text = "/a/b/c";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c", result);
+
+        text = "/a/b/c/";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c\\", result);
+
+        text = "\\a\\b\\";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\", result);
+
+        text = "a\\b\\";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\", result);
+
+        text = "a\\b";
+        result = text.ToServerMapPath();
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b", result);
+    }
 }

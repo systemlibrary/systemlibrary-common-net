@@ -1080,11 +1080,115 @@ public static class StringExtensions
         return sb.ToString();
     }
 
-    public static string ServerMapPath(this string path)
+    /// <summary>
+    /// Convert path passed in to a full path that exists on your server
+    /// 
+    /// Examples: 
+    /// http://www.systemlibrary.com/a returns C:\www\systemlibrary\a
+    /// a returns C:\www\systemlibrary\a
+    /// /a returns C:\www\systemlibrary\a
+    /// /a/ returns C:\www\systemlibrary\a\
+    /// \a returns C:\www\systemlibrary\a
+    /// \a\b\ returns C:\www\systemlibrary\a\b\
+    /// 
+    /// If path passed ends with slash, it returns ending slash, else not
+    /// 
+    /// NOTE:
+    /// Server Root Path is taken from CurrentDomain 'ContentRootPath', fall back to AppContext.BaseDirectory.Parent, and if any of the folders are inside a \bin folder, it goes to the parent of that bin folder
+    /// 
+    /// Returns null if null is passed
+    /// Returns root if empty is passed
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var text = "/hello/world/";
+    /// var result = text.ToServerMapPath();
+    /// //result == "root of website\hello\world\"
+    /// </code>
+    /// </example>
+    public static string ToServerMapPath(this string path)
     {
-        if (path.IsNot()) return null;
+        if (path == null) return path;
 
-        return Path.Combine((string)AppDomain.CurrentDomain.GetData("ContentRootPath"), path);
+        if (path.Contains(":\\")) return path;
+
+        if (path.StartsWith("~"))
+            path = path.Substring(1);
+
+        void ConvertWebPathToServerPath()
+        {
+            if (path.Contains("://"))
+            {
+                if (path.Contains("?"))
+                    path = path.Split('?')[0];
+
+                var temp = new StringBuilder("");
+                var parts = path.Substring(path.IndexOf("://") + 3).Split('/', StringSplitOptions.RemoveEmptyEntries);
+                for (var i = 1; i < parts.Length; i++)
+                {
+                    temp.Append("/" + parts[i]);
+                }
+
+                if(path.EndsWith("/"))
+                    path = temp.ToString() + "/";
+                else
+                    path = temp.ToString(); 
+            }
+
+            if (!path.StartsWith("/"))
+                path = "/" + path;
+
+            path = path.Replace("/", "\\");
+        }
+
+        void ConvertToValidRelativeServerPath()
+        {
+            if (!path.StartsWith("\\"))
+                path = "\\" + path;
+        }
+        
+        if (path.Contains("/"))
+        {
+            ConvertWebPathToServerPath();
+        }
+        else
+        {
+            ConvertToValidRelativeServerPath();
+        }
+
+        var contentRootPath = (string)null;
+        
+        void FindContentRootPath()
+        {
+            contentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
+
+            if (contentRootPath.EndsWith("\\"))
+                contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
+            if (contentRootPath.IsNot())
+                contentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
+
+            bool IsWithinBin()
+            {
+                return contentRootPath.Contains("\\bin\\") || contentRootPath.Contains("\\Bin\\");
+            }
+
+            var wasInsideBin = false;
+            while (IsWithinBin())
+            {
+                wasInsideBin = true;
+                var currentDir = new DirectoryInfo(contentRootPath).Parent;
+                contentRootPath = currentDir.FullName;
+            }
+
+            if(wasInsideBin)
+            {
+                contentRootPath = new DirectoryInfo(contentRootPath).Parent.FullName;
+            }
+        }
+
+        FindContentRootPath();
+            
+        return contentRootPath + path;
     }
 
 }
