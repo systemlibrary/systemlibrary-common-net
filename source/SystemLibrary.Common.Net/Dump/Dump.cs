@@ -183,7 +183,10 @@ public static class Dump
     {
         if (type == SystemType.ExceptionType ||
             type.Name == "NullReferenceException" ||
-            type.Name == "RuntimeType")
+            type.Name == "RuntimeType" || 
+            type.Name == "RuntimeMethodInfo" ||
+            type.Name == "ModelBindingMessageProvider" ||
+            type.Name == "")
             return;
 
         if(type.Name == "RuntimeAssembly" ||
@@ -282,6 +285,8 @@ public static class Dump
     {
         if (level >= maxDepth)
             return;
+
+        if (logString.Length > 30000) return;
 
         var v = GetVariableValue(value);
 
