@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.7.1.2
-- Dump.Write maximum 30K chars written, two more "Names" ignores (RuntimeMethodInfo and ModelBindingProvider)
+- 6.8.0.1
+- Dump.Write limiting properties and fields by checking flags such as CanRead and IsPrivate
 
 #### Version history
 - View git history of this file if interested

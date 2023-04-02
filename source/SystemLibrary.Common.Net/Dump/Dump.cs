@@ -220,10 +220,17 @@ public static class Dump
             logString.Append("\n");
             foreach (var property in properties)
             {
-                logString.Append("\t");
+                if (!property.CanRead)
+                {
+                    logString.Append("\t");
+                    logString.Append(property.Name + ": cant read, continuing...\n");
+                    continue;
+                }
                 if (property?.PropertyType == null) continue;
                 if (property.PropertyType == SystemType.CharType) continue;
                 if (property.PropertyType.Name == "RuntimeType") continue;
+
+                logString.Append("\t");
 
                 try
                 {
@@ -249,6 +256,8 @@ public static class Dump
             foreach (var field in fields)
             {
                 if (field?.FieldType == null) continue;
+                if (field.IsPrivate) continue;
+
 
                 logString.Append("\t");
                 try
