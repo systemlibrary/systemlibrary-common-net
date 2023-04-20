@@ -7,7 +7,7 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Md5
 {
-    const int ResetCounter = 200;
+    const int ResetCounter = 400;
     static object counterlock = new object();
     static int MD5Counter = ResetCounter;
     static MD5 _MD5;
@@ -30,6 +30,9 @@ internal static class Md5
                     }
                 }
             }
+
+            if(_MD5 == null)
+                return MD5.Create();
 
             return _MD5;
         }
