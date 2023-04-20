@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.8.0.2
-- Sha and Md5 might throw exception first time, Ill have to reread the logic, but currently rather returning a new instance so its never null
+- 6.8.0.3
+- Sha and Md5 doubled the amount of requests before reinstantiated
+- Sha and Md5 reset counter is set to 0, in case of thousands are in queue, then a later thread disposes an already returned instance
 
 #### Version history
 - View git history of this file if interested

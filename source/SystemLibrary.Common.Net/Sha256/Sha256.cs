@@ -26,7 +26,7 @@ internal static class Sha256
                         _SHA256?.Dispose();
                         _SHA256 = null;
                         _SHA256 = SHA256.Create();
-                        SHA256Counter -= ResetCounter;
+                        SHA256Counter = 0;
                     }
                 }
             }

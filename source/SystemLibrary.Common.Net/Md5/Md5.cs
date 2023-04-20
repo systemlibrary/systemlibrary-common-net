@@ -26,7 +26,7 @@ internal static class Md5
                         _MD5?.Dispose();
                         _MD5 = null;
                         _MD5 = MD5.Create();
-                        MD5Counter -= ResetCounter;
+                        MD5Counter = 0;
                     }
                 }
             }
