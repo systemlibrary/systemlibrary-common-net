@@ -15,9 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.8.0.3
-- Sha and Md5 doubled the amount of requests before reinstantiated
-- Sha and Md5 reset counter is set to 0, in case of thousands are in queue, then a later thread disposes an already returned instance
+- 6.9.0.2
+- StringExtensions for (simple) Encrypt and Decrypt to be used to secure your configurations by adding a environmentvariable 'SYSLIBCRYPTATIONKEY' or in any other simple enc/dec you need
+- Remove an unused if
 
 #### Version history
 - View git history of this file if interested

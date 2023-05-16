@@ -44,11 +44,6 @@ internal static class Sha256
 
         if (bytes.Length == 0) return "";
 
-        if(SHA256 == null)
-        {
-
-        }
-
         return BitConverter.ToString(SHA256.ComputeHash(bytes));
     }
 

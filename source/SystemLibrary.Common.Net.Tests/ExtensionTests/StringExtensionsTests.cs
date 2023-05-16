@@ -279,7 +279,7 @@ public class StringExtensionsTests
         EnumTest b = EnumTest.B;
         EnumTest c = EnumTest.C;
 
-        Assert.AreEqual(a.GetEnumValue(),null, "A");
+        Assert.AreEqual(a.GetEnumValue(), null, "A");
         Assert.AreEqual(b.GetEnumValue(), "hello123", "hello123");
         Assert.AreEqual(c.GetEnumValue(), 100, "100");
     }
@@ -747,5 +747,27 @@ public class StringExtensionsTests
         text = "a\\b";
         result = text.ToServerMapPath();
         Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b", result);
+    }
+
+
+    [TestMethod]
+    public void Encrypt_And_Decrypt_Is_Success()
+    {
+        string data = null;
+        string result = data;
+
+        Assert.IsTrue(result == data.Encrypt().Decrypt(), "Data null failed");
+
+        data = "";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt().Decrypt(), "Blank: " + data.Encrypt());
+
+        data = "abcdef";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt().Decrypt(), "abcdef: " + data.Encrypt());
+
+        data = "@£$$€{[]}abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt().Decrypt(), "long: " + data.Encrypt());
     }
 }

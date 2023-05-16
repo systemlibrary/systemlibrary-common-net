@@ -1191,4 +1191,27 @@ public static class StringExtensions
         return contentRootPath + path;
     }
 
+    /// <summary>
+    /// Encrypts data with a default key.
+    /// 
+    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+    /// 
+    /// If data is null or blank, it returns null or blank
+    /// </summary>
+    public static string Encrypt(this string data)
+    {
+        return Cryptation.Encrypt(data, EnvironmentConfig.CryptationKey);
+    }
+
+    /// <summary>
+    /// Decrypts data with a default key.
+    /// 
+    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+    /// 
+    /// If data is null or blank, it returns null or blank
+    /// </summary>
+    public static string Decrypt(this string data)
+    {
+        return Cryptation.Decrypt(data, EnvironmentConfig.CryptationKey);
+    }
 }

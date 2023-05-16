@@ -319,4 +319,22 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
 /// </summary>
 public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
 {
+    internal static string _CryptationKey;
+    internal static string CryptationKey
+    {
+        get
+        {
+            if (_CryptationKey == null)
+            {
+                _CryptationKey = System.Environment.GetEnvironmentVariable("SYSLIBCRYPTATIONKEY");
+
+                if (_CryptationKey.IsNot())
+                    _CryptationKey = "ABCDEFGH098765432";
+
+                _CryptationKey = _CryptationKey.ToMD5Hash().Replace("-", "");
+            }
+
+            return _CryptationKey;
+        }
+    }
 }
