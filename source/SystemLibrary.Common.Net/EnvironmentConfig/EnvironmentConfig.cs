@@ -319,6 +319,8 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
 /// </summary>
 public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
 {
+    const string KeyName = "SYSLIBCRYPTATIONKEY";
+
     internal static string _CryptationKey;
     internal static string CryptationKey
     {
@@ -326,7 +328,13 @@ public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
         {
             if (_CryptationKey == null)
             {
-                _CryptationKey = System.Environment.GetEnvironmentVariable("SYSLIBCRYPTATIONKEY");
+                _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName);
+
+                if (_CryptationKey.IsNot())
+                    _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
+
+                if (_CryptationKey.IsNot())
+                    _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
 
                 if (_CryptationKey.IsNot())
                     _CryptationKey = "ABCDEFGH098765432";

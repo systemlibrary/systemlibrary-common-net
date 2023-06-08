@@ -13,7 +13,7 @@ internal static class Cryptation
     {
         get
         {
-            if(_key == null)
+            if (_key == null)
             {
                 _key = EnvironmentConfig.CryptationKey.GetBytes();
             }
@@ -80,5 +80,6 @@ internal static class Cryptation
                 }
             }
         }
+
     }
 }

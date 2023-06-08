@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -72,6 +73,8 @@ public static class Dump
         try
         {
             InitializeFolders();
+
+            WrittenQueue.Clear();
 
             StringBuilder logString = new StringBuilder();
 
@@ -157,7 +160,9 @@ public static class Dump
 
         else if (e is ICollection ic)
             logString.Append(" collection count: " + ic.Count + "\n");
-        else
+        else if (e.GetType().Name.StartsWith("<") && e.GetType().Name.Contains("__"))
+            logString.Append(" enumerable function count" + "\n");
+        else 
             logString.Append(" unknown count" + "\n");
 
         if (e is IDictionary || e is IList || e is Array || e is ICollection)
@@ -311,9 +316,9 @@ public static class Dump
         {
             var type = value.GetType();
 
-            if (IsListType(value) && value is IEnumerable e)
+            if (IsListType(value))
             {
-                WriteList(logString, type, level, e);
+                WriteList(logString, type, level, value as IEnumerable);
                 return;
             }
 
@@ -409,6 +414,30 @@ public static class Dump
 
         else if (value is long?)
             return (value as long?).Value + "";
+
+        else if(value is Memory<string> memString)
+            return memString.Span.ToString();
+
+        else if(value is Memory<bool> memBool)
+            return memBool.Span.ToString();
+
+        else if (value is Memory<int> memInt)
+            return memInt.Span.ToString();
+
+        else if (value is Memory<DateTime> memDateTime)
+            return memDateTime.Span.ToString();
+
+        else if(value is ReadOnlyMemory<string> romString)
+            return romString.Span.ToString();
+
+        else if (value is ReadOnlyMemory<int> romInt)
+            return romInt.Span.ToString();
+
+        else if (value is ReadOnlyMemory<string> romBool)
+            return romBool.Span.ToString();
+
+        else if (value is ReadOnlyMemory<DateTime> romDateTime)
+            return romDateTime.Span.ToString();
 
         return null;
     }

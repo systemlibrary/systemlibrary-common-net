@@ -183,6 +183,47 @@ public class DumpTests
     }
 
     [TestMethod]
+    public void Dump_IenumerableString_Success_And_Clear()
+    {
+        var texts = new List<string>()
+        {
+            "Hello",
+            "World",
+            "1234"
+        };
+        Dump.Clear();
+
+        Dump.Write(texts);
+        var content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"));
+        Dump.Clear();
+
+        Dump.Write(texts.ToArray());
+        content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"));
+        Dump.Clear();
+
+        var enumerable = texts as IEnumerable<string>;
+        Dump.Write(enumerable);
+        content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"));
+        Dump.Clear();
+
+        var funcResult = GetEnumerableStringsFromFunction();
+        Dump.Write(funcResult);
+        content = File.ReadAllText(DumpPath);
+        Assert.IsTrue(content.Contains("World"));
+        Dump.Clear();
+    }
+
+    static IEnumerable<string> GetEnumerableStringsFromFunction()
+    {
+        yield return "Hello";
+        yield return "World";
+        yield return "12345";
+    }
+
+        [TestMethod]
     public void Dump_Simple_Interface()
     {
         System.Threading.Thread.Sleep(275);
