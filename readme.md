@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.9.1.2
-- Decrypt fails in a async read operation, now storing each decrypted value in a concurrent dictionary (thread-safe)
+- 6.9.1.3
+- Decrypt fails in a async read operation, key and decrypting the value is now locked 
 
 #### Version history
 - View git history of this file if interested

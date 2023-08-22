@@ -14,6 +14,7 @@ internal static class CryptationKey
     const string KeyName = "SYSLIBCRYPTATIONKEY";
 
     internal static byte[] _Key;
+    static object KeyLock = new object();
 
     internal static byte[] Current
     {
@@ -21,21 +22,26 @@ internal static class CryptationKey
         {
             if (_Key == null)
             {
-                var temp = System.Environment.GetEnvironmentVariable(KeyName);
+                lock (KeyLock)
+                {
+                    if (_Key != null) return _Key;
 
-                if (temp.IsNot())
-                    temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
+                    var temp = System.Environment.GetEnvironmentVariable(KeyName);
 
-                if (temp.IsNot())
-                    temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
+                    if (temp.IsNot())
+                        temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
 
-                if(temp.IsNot())
-                    temp = CryptationKeyFile.Name;
+                    if (temp.IsNot())
+                        temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
 
-                if (temp.IsNot())
-                    temp = "ABCDEFGH098765432";
+                    if (temp.IsNot())
+                        temp = CryptationKeyFile.Name;
 
-                _Key = Encoding.UTF8.GetBytes(temp.ToMD5Hash().Replace("-", ""));
+                    if (temp.IsNot())
+                        temp = "ABCDEFGH098765432";
+
+                    _Key = Encoding.UTF8.GetBytes(temp.ToMD5Hash().Replace("-", ""));
+                }
             }
             return _Key;
         }
