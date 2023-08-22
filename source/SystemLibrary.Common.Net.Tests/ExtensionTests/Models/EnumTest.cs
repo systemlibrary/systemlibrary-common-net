@@ -12,6 +12,12 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
 
         [EnumText("Hello World")]
         [EnumValue(100)]
-        C
+        C,
+
+        [EnumValue("dd")]
+        [EnumText("Dd")]
+        d,
+
+        e
     }
 }

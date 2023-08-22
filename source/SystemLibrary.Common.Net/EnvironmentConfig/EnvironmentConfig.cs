@@ -1,4 +1,6 @@
-﻿using SystemLibrary.Common.Net.Attributes;
+﻿using System.Text;
+
+using SystemLibrary.Common.Net.Attributes;
 
 namespace SystemLibrary.Common.Net;
 
@@ -319,30 +321,4 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
 /// </summary>
 public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
 {
-    const string KeyName = "SYSLIBCRYPTATIONKEY";
-
-    internal static string _CryptationKey;
-    internal static string CryptationKey
-    {
-        get
-        {
-            if (_CryptationKey == null)
-            {
-                _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName);
-
-                if (_CryptationKey.IsNot())
-                    _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
-
-                if (_CryptationKey.IsNot())
-                    _CryptationKey = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
-
-                if (_CryptationKey.IsNot())
-                    _CryptationKey = "ABCDEFGH098765432";
-
-                _CryptationKey = _CryptationKey.ToMD5Hash().Replace("-", "");
-            }
-
-            return _CryptationKey;
-        }
-    }
 }

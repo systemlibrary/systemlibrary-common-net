@@ -340,6 +340,22 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
+    public void ToEnum_Invalid_Text_Value_And_Name_But_Matches_CaseInsensitiveName()
+    {
+        var find = "c";
+        var res = find.ToEnum<EnumTest>();
+        Assert.IsTrue(res == EnumTest.C);
+
+        find = "D";
+        res = find.ToEnum<EnumTest>();
+        Assert.IsTrue(res == EnumTest.d);
+
+        find = "E";
+        res = find.ToEnum<EnumTest>();
+        Assert.IsTrue(res == EnumTest.e);
+    }
+
+    [TestMethod]
     public void Max_Length()
     {
         var data = (string)null;

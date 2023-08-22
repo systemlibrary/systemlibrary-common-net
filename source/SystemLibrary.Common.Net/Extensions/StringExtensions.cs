@@ -153,8 +153,15 @@ public static class StringExtensions
     /// </example>
     public static T ToEnum<T>(this string text) where T : struct, IComparable, IFormattable, IConvertible
     {
-        T result;
-        var type = typeof(T);
+        if (text == null) return default(T);
+
+        return (T)text?.ToEnum(typeof(T));
+    }
+
+    public static object ToEnum(this string text, Type enumType)
+    {
+        object result;
+        var type = enumType;
 
         if (type.IsEnum)
         {
@@ -169,24 +176,28 @@ public static class StringExtensions
                     if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                     {
                         if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == text)
-                            if (Enum.TryParse(enumKey.Name, out result))
+                            if (Enum.TryParse(type, enumKey.Name, out result))
                                 return result;
                     }
 
                     if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
                     {
                         if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == text)
-                            if (Enum.TryParse(enumKey.Name, out result))
+                            if (Enum.TryParse(type,enumKey.Name, out result))
                                 return result;
                     }
                 }
             }
         }
 
-        if (text.IsNot()) return default;
+        if (text.IsNot())
+            return Activator.CreateInstance(type);
 
-        if (Enum.TryParse(text, true, out result))
+        if (Enum.TryParse(enumType, text, true, out result))
             return result;
+
+        if (result == null)
+            return Activator.CreateInstance(type);
 
         return result;
     }
@@ -1200,7 +1211,7 @@ public static class StringExtensions
     /// </summary>
     public static string Encrypt(this string data)
     {
-        return Cryptation.Encrypt(data, EnvironmentConfig.CryptationKey);
+        return Cryptation.Encrypt(data, CryptationKey.Current);
     }
 
     /// <summary>
@@ -1212,6 +1223,6 @@ public static class StringExtensions
     /// </summary>
     public static string Decrypt(this string data)
     {
-        return Cryptation.Decrypt(data, EnvironmentConfig.CryptationKey);
+        return Cryptation.Decrypt(data, CryptationKey.Current);
     }
 }

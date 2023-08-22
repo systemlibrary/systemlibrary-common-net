@@ -20,7 +20,7 @@ public static class Dump
     static string LogFullPath;
     static string Folder;
     static bool DirExists;
-    static List<int> WrittenQueue = new List<int>();
+    static List<int> Visited = new List<int>();
 
     static Dump()
     {
@@ -74,7 +74,7 @@ public static class Dump
         {
             InitializeFolders();
 
-            WrittenQueue.Clear();
+            Visited.Clear();
 
             StringBuilder logString = new StringBuilder();
 
@@ -331,13 +331,13 @@ public static class Dump
                     if (hash > 1)
                     {
                         // Self-referenced objects are added to a 'already written queue' so it is ignored, every other time
-                        if (WrittenQueue.Contains(hash))
+                        if (Visited.Contains(hash))
                         {
                             logString.Append("Object already logged, continuing...\n");
-                            WrittenQueue.Remove(hash);
+                            Visited.Remove(hash);
                             return;
                         }
-                        WrittenQueue.Add(hash);
+                        Visited.Add(hash);
                     }
                 }
                 WriteClass(logString, value, type, level);
@@ -502,6 +502,7 @@ public static class Dump
     static void WriteToFileWithDateTime(StringBuilder logString)
     {
         logString.Append("\n");
+
         SafeWrite(logString.ToString());
     }
 
@@ -526,13 +527,13 @@ public static class Dump
             try
             {
                 if (Directory.Exists(@"C:\Temp"))
-                    File.AppendAllText(@"C:\Temp\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
+                    File.AppendAllText(@"C:\Temp\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
                 else if (Directory.Exists(@"C:\Logs"))
-                    File.AppendAllText(@"C:\Logs\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
+                    File.AppendAllText(@"C:\Logs\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
                 else if (Directory.Exists(@"C:\"))
-                    File.AppendAllText(@"C:\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
+                    File.AppendAllText(@"C:\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
                 else if (Directory.Exists(Environment.CurrentDirectory))
-                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
+                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
             }
             catch
             {

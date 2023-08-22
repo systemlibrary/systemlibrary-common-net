@@ -60,10 +60,12 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="7.0.9" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.*" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.*" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.*" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="6.0.*" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 	</ItemGroup>
 
 	<PropertyGroup>

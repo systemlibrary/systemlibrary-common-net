@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.9.0.4
-- Dump.Write clears the queue whenever Write is invoked so dumping the same object twice in a row is allowed
+- 6.9.1.2
+- Decrypt fails in a async read operation, now storing each decrypted value in a concurrent dictionary (thread-safe)
 
 #### Version history
 - View git history of this file if interested
