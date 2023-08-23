@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.9.1.3
-- Decrypt fails in a async read operation, key and decrypting the value is now locked 
+- 6.9.2.1
+- IsJson string extension added (poor mans validation of a string, checks only start and end characters)
 
 #### Version history
 - View git history of this file if interested

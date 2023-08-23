@@ -1225,4 +1225,24 @@ public static class StringExtensions
     {
         return Cryptation.Decrypt(data, CryptationKey.Current);
     }
+
+
+    /// <summary>
+    /// Returns true if 'data' is json formatted text
+    /// 
+    /// Returns false if 'data' is null, empty or not on json formatted text
+    /// </summary>
+    /// <returns>True or false</returns>
+    public static bool IsJson(this string data)
+    {
+        if (data.IsNot()) return false;
+
+        if (data.StartsWithAny("{", "[", " [", " {"))
+        {
+            if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
+                return true;
+        }
+
+        return false;
+    }
 }

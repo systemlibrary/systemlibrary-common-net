@@ -798,8 +798,6 @@ public class StringExtensionsTests
             var result = value.Decrypt();
 
             Assert.IsTrue(result == accept);
-            Dump.Write(result);
         }
-        
     }
 }
