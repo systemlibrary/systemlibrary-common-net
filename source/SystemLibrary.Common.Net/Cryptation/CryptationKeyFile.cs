@@ -31,7 +31,23 @@ internal static class CryptationKeyFile
                         return _Name;
                     }
 
-                    var fullName = GetKeyFileFullName(root);
+                    var rootDirectoryInfo = new DirectoryInfo(root);
+
+                    int searchBinFolderDepth = 3;
+
+                    var startSearch = new DirectoryInfo(root);
+                    while(searchBinFolderDepth > 0 )
+                    {
+                        if(startSearch?.Name?.ToLower() == "bin")
+                        {
+                            rootDirectoryInfo = startSearch.Parent;
+                            break;
+                        }
+                        startSearch = startSearch?.Parent;
+
+                        searchBinFolderDepth--;
+                    }
+                    var fullName = GetKeyFileFullName(rootDirectoryInfo.FullName);
 
                     if (fullName != null)
                         _Name = Path.GetFileName(fullName).Replace(".xml", "");

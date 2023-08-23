@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.9.2.1
-- IsJson string extension added (poor mans validation of a string, checks only start and end characters)
+- 6.9.2.2
+- Internal CryptationKeyFile.Name root folder searches up 3 levels for a "bin" and stops at its parent if found
 
 #### Version history
 - View git history of this file if interested

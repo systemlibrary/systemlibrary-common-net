@@ -1175,6 +1175,7 @@ public static class StringExtensions
 
             if (contentRootPath.EndsWith("\\"))
                 contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
+
             if (contentRootPath.IsNot())
                 contentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
 

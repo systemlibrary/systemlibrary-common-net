@@ -36,7 +36,7 @@ internal static class CryptationKey
 
                     if (temp.IsNot())
                         temp = CryptationKeyFile.Name;
-
+                    
                     if (temp.IsNot())
                         temp = "ABCDEFGH098765432";
 
