@@ -786,4 +786,20 @@ public class StringExtensionsTests
         result = data;
         Assert.IsTrue(result == data.Encrypt().Decrypt(), "long: " + data.Encrypt());
     }
+
+    [TestMethod]
+    public void Decrypt_Encrypted_String_MultipleTimes_In_A_Row_Success()
+    {
+        var accept = "";
+        for (var i = 0; i < 1000; i++)
+        {
+            var value = "";
+
+            var result = value.Decrypt();
+
+            Assert.IsTrue(result == accept);
+            Dump.Write(result);
+        }
+        
+    }
 }
