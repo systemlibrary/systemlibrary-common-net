@@ -34,7 +34,7 @@ appSettings.json:
 	{
 		"systemLibraryCommonNet": {
 			"dump": {
-				"folder": "C:\\logs\\",
+				"folder": "%HomeDrive%\\Logs\\",
 				"fileName": "SysLib.log"
 			},
 			"json": {

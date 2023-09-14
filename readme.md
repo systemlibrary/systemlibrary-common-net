@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.9.2.2
-- Internal CryptationKeyFile.Name root folder searches up 3 levels for a "bin" and stops at its parent if found
+- 6.9.2.4
+- Dump.Write supports EnvVariable in Folder, to support writing on MacOs and Windows "in one configuration", ex %HomeDrive%\logs\
+- TryCatch inside Dump.Write also removed C:\ to "Folder" variable in case Dump.Write crashes once
 
 #### Version history
 - View git history of this file if interested

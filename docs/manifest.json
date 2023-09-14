@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-1.html",
-          "hash": "//KMW1BX3ZhvMXaIGeBM5kSWj/K7+KGNUAP09ualXZE="
+          "hash": "DmarEW8tnsn18b4m/3U37dT5Sk5SuVdhKDopE7Zob7M="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html",
-          "hash": "5lIGIoBD5fM59p4DDAmCdajfBdFt8mh3cREMloTQVjs="
+          "hash": "21tK7JMylVGsRGquFtZGpYJbhhHw1BLhZDdgb4VaetY="
         }
       },
       "is_incremental": false,
@@ -305,6 +305,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html",
+          "hash": "nj9gCHHkbsDJYGoblkOKMErEgjQLTnQa/FuBwNZ90HQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
+          "hash": "lrQaMGRKtZR+aNYKaS5HmmZX5298rlRNc+cD8eSjSNo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html",
+          "hash": "ZxFmM/9C+QVMHtAKmHBVEJ49TkA6vym6vF4kWqKOQ54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.yml",
       "output": {
         ".html": {
@@ -333,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "anXC8cu2JYEviAxO6ZShTVaGpQNdxE2tOUgq6a0tfdY="
+          "hash": "He62xnp0KcIWKfjCVdY0CyD9Uv39VYGT5RmNkcwU7+M="
         }
       },
       "is_incremental": false,
@@ -348,30 +384,32 @@
           "hash": "nq1hGVnT0xEzZvgpTHkiRgZeUgRbXC1facpBSTLHjxc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     }
   ],
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 1
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 27,
-          "skipped_file_count": 27
+          "total_file_count": 30,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -384,8 +422,8 @@
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

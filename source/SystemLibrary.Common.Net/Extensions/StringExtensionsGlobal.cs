@@ -1,4 +1,5 @@
 ﻿//namespace SystemLibrary.Common.Net.Global;
+
 //using System;
 //using System.Collections.Generic;
 //using System.IO;
@@ -154,8 +155,15 @@
 //    /// </example>
 //    public static T ToEnum<T>(this string text) where T : struct, IComparable, IFormattable, IConvertible
 //    {
-//        T result;
-//        var type = typeof(T);
+//        if (text == null) return default(T);
+
+//        return (T)text?.ToEnum(typeof(T));
+//    }
+
+//    public static object ToEnum(this string text, Type enumType)
+//    {
+//        object result;
+//        var type = enumType;
 
 //        if (type.IsEnum)
 //        {
@@ -170,24 +178,28 @@
 //                    if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
 //                    {
 //                        if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == text)
-//                            if (Enum.TryParse(enumKey.Name, out result))
+//                            if (Enum.TryParse(type, enumKey.Name, out result))
 //                                return result;
 //                    }
 
 //                    if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
 //                    {
 //                        if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == text)
-//                            if (Enum.TryParse(enumKey.Name, out result))
+//                            if (Enum.TryParse(type, enumKey.Name, out result))
 //                                return result;
 //                    }
 //                }
 //            }
 //        }
 
-//        if (text.IsNot()) return default;
+//        if (text.IsNot())
+//            return Activator.CreateInstance(type);
 
-//        if (Enum.TryParse(text, true, out result))
+//        if (Enum.TryParse(enumType, text, true, out result))
 //            return result;
+
+//        if (result == null)
+//            return Activator.CreateInstance(type);
 
 //        return result;
 //    }
@@ -1165,6 +1177,7 @@
 
 //            if (contentRootPath.EndsWith("\\"))
 //                contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
+
 //            if (contentRootPath.IsNot())
 //                contentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
 
@@ -1192,4 +1205,47 @@
 //        return contentRootPath + path;
 //    }
 
+//    /// <summary>
+//    /// Encrypts data with a default key.
+//    /// 
+//    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// </summary>
+//    public static string Encrypt(this string data)
+//    {
+//        return Cryptation.Encrypt(data, CryptationKey.Current);
+//    }
+
+//    /// <summary>
+//    /// Decrypts data with a default key.
+//    /// 
+//    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// </summary>
+//    public static string Decrypt(this string data)
+//    {
+//        return Cryptation.Decrypt(data, CryptationKey.Current);
+//    }
+
+
+//    /// <summary>
+//    /// Returns true if 'data' is json formatted text
+//    /// 
+//    /// Returns false if 'data' is null, empty or not on json formatted text
+//    /// </summary>
+//    /// <returns>True or false</returns>
+//    public static bool IsJson(this string data)
+//    {
+//        if (data.IsNot()) return false;
+
+//        if (data.StartsWithAny("{", "[", " [", " {"))
+//        {
+//            if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
+//                return true;
+//        }
+
+//        return false;
+//    }
 //}

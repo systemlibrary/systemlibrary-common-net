@@ -24,13 +24,16 @@ public static class Dump
 
     static Dump()
     {
+        // NOTE: Why would current be null or the configurations deeper down, at any time in runtime? 
         LogFullPath = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
+
         if (LogFullPath.IsNot())
-            LogFullPath = "C:\\Logs\\syslib-error.log";
+            LogFullPath = Environment.GetEnvironmentVariable("HomeDrive") + "\\Logs\\syslib-error.log";
 
         Folder = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Folder;
+
         if (Folder.IsNot())
-            Folder = "C:\\Logs\\";
+            Folder = Environment.GetEnvironmentVariable("HomeDrive") + "\\";
     }
 
     /// <summary>
@@ -88,18 +91,13 @@ public static class Dump
         {
             try
             {
-                if (Directory.Exists(@"C:\Temp"))
-                    File.AppendAllText(@"C:\Temp\syslib-log.txt", "ex " + ex + "\n");
-                else if (Directory.Exists(@"C:\Logs"))
-                    File.AppendAllText(@"C:\Logs\syslib-log.txt", "ex " + ex + "\n");
-                else if (Directory.Exists(@"C:\"))
-                    File.AppendAllText(@"C:\syslib-log.txt", "ex " + ex + "\n");
-                else if (Directory.Exists(Environment.CurrentDirectory))
-                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", ex.Message + "\n");
+                if (Directory.Exists(Folder))
+                    File.AppendAllText(Folder + "syslib-error" + DateTime.Now.Millisecond + ".log", ex.Message + "\n");
             }
             catch
             {
                 //Swallow infinite loop, in case of:
+                //File already opened exception (multi threaded scenario)
                 //Write access exception
                 //Full disk exception
             }
@@ -526,14 +524,8 @@ public static class Dump
         {
             try
             {
-                if (Directory.Exists(@"C:\Temp"))
-                    File.AppendAllText(@"C:\Temp\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
-                else if (Directory.Exists(@"C:\Logs"))
-                    File.AppendAllText(@"C:\Logs\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
-                else if (Directory.Exists(@"C:\"))
-                    File.AppendAllText(@"C:\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
-                else if (Directory.Exists(Environment.CurrentDirectory))
-                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n" + message);
+                if(Directory.Exists(Folder))
+                    File.AppendAllText(Folder + @"\syslib-log" + DateTime.Now.Millisecond + ".log", "Error writing dump file: " + ex.Message + "\n" + message);
             }
             catch
             {

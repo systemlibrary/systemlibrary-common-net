@@ -4,6 +4,7 @@
 //using System.Collections;
 //using System.Collections.Generic;
 //using System.IO;
+//using System.Linq;
 //using System.Reflection;
 //using System.Text;
 //using System.Threading;
@@ -21,17 +22,20 @@
 //    static string LogFullPath;
 //    static string Folder;
 //    static bool DirExists;
-//    static List<int> WrittenQueue = new List<int>();
+//    static List<int> Visited = new List<int>();
 
 //    static Dump()
 //    {
+//        // NOTE: Why would current be null or the configurations deeper down, at any time in runtime? 
 //        LogFullPath = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
+
 //        if (LogFullPath.IsNot())
-//            LogFullPath = "C:\\Logs\\syslib-error.log";
+//            LogFullPath = Environment.GetEnvironmentVariable("HomeDrive") + "\\Logs\\syslib-error.log";
 
 //        Folder = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Folder;
+
 //        if (Folder.IsNot())
-//            Folder = "C:\\Logs\\";
+//            Folder = Environment.GetEnvironmentVariable("HomeDrive") + "\\";
 //    }
 
 //    /// <summary>
@@ -75,6 +79,8 @@
 //        {
 //            InitializeFolders();
 
+//            Visited.Clear();
+
 //            StringBuilder logString = new StringBuilder();
 
 //            logString.Append(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + "\t");
@@ -87,18 +93,13 @@
 //        {
 //            try
 //            {
-//                if (Directory.Exists(@"C:\Temp"))
-//                    File.AppendAllText(@"C:\Temp\syslib-log.txt", "ex " + ex + "\n");
-//                else if (Directory.Exists(@"C:\Logs"))
-//                    File.AppendAllText(@"C:\Logs\syslib-log.txt", "ex " + ex + "\n");
-//                else if (Directory.Exists(@"C:\"))
-//                    File.AppendAllText(@"C:\syslib-log.txt", "ex " + ex + "\n");
-//                else if (Directory.Exists(Environment.CurrentDirectory))
-//                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", ex.Message + "\n");
+//                if (Directory.Exists(Folder))
+//                    File.AppendAllText(Folder + "syslib-error" + DateTime.Now.Millisecond + ".log", ex.Message + "\n");
 //            }
 //            catch
 //            {
 //                //Swallow infinite loop, in case of:
+//                //File already opened exception (multi threaded scenario)
 //                //Write access exception
 //                //Full disk exception
 //            }
@@ -159,6 +160,8 @@
 
 //        else if (e is ICollection ic)
 //            logString.Append(" collection count: " + ic.Count + "\n");
+//        else if (e.GetType().Name.StartsWith("<") && e.GetType().Name.Contains("__"))
+//            logString.Append(" enumerable function count" + "\n");
 //        else
 //            logString.Append(" unknown count" + "\n");
 
@@ -185,7 +188,10 @@
 //    {
 //        if (type == SystemType.ExceptionType ||
 //            type.Name == "NullReferenceException" ||
-//            type.Name == "RuntimeType")
+//            type.Name == "RuntimeType" ||
+//            type.Name == "RuntimeMethodInfo" ||
+//            type.Name == "ModelBindingMessageProvider" ||
+//            type.Name == "")
 //            return;
 
 //        if (type.Name == "RuntimeAssembly" ||
@@ -219,10 +225,17 @@
 //            logString.Append("\n");
 //            foreach (var property in properties)
 //            {
-//                logString.Append("\t");
+//                if (!property.CanRead)
+//                {
+//                    logString.Append("\t");
+//                    logString.Append(property.Name + ": cant read, continuing...\n");
+//                    continue;
+//                }
 //                if (property?.PropertyType == null) continue;
 //                if (property.PropertyType == SystemType.CharType) continue;
 //                if (property.PropertyType.Name == "RuntimeType") continue;
+
+//                logString.Append("\t");
 
 //                try
 //                {
@@ -248,6 +261,8 @@
 //            foreach (var field in fields)
 //            {
 //                if (field?.FieldType == null) continue;
+//                if (field.IsPrivate) continue;
+
 
 //                logString.Append("\t");
 //                try
@@ -285,6 +300,8 @@
 //        if (level >= maxDepth)
 //            return;
 
+//        if (logString.Length > 30000) return;
+
 //        var v = GetVariableValue(value);
 
 //        if (v != null)
@@ -299,9 +316,9 @@
 //        {
 //            var type = value.GetType();
 
-//            if (IsListType(value) && value is IEnumerable e)
+//            if (IsListType(value))
 //            {
-//                WriteList(logString, type, level, e);
+//                WriteList(logString, type, level, value as IEnumerable);
 //                return;
 //            }
 
@@ -314,13 +331,13 @@
 //                    if (hash > 1)
 //                    {
 //                        // Self-referenced objects are added to a 'already written queue' so it is ignored, every other time
-//                        if (WrittenQueue.Contains(hash))
+//                        if (Visited.Contains(hash))
 //                        {
 //                            logString.Append("Object already logged, continuing...\n");
-//                            WrittenQueue.Remove(hash);
+//                            Visited.Remove(hash);
 //                            return;
 //                        }
-//                        WrittenQueue.Add(hash);
+//                        Visited.Add(hash);
 //                    }
 //                }
 //                WriteClass(logString, value, type, level);
@@ -398,6 +415,30 @@
 //        else if (value is long?)
 //            return (value as long?).Value + "";
 
+//        else if (value is Memory<string> memString)
+//            return memString.Span.ToString();
+
+//        else if (value is Memory<bool> memBool)
+//            return memBool.Span.ToString();
+
+//        else if (value is Memory<int> memInt)
+//            return memInt.Span.ToString();
+
+//        else if (value is Memory<DateTime> memDateTime)
+//            return memDateTime.Span.ToString();
+
+//        else if (value is ReadOnlyMemory<string> romString)
+//            return romString.Span.ToString();
+
+//        else if (value is ReadOnlyMemory<int> romInt)
+//            return romInt.Span.ToString();
+
+//        else if (value is ReadOnlyMemory<string> romBool)
+//            return romBool.Span.ToString();
+
+//        else if (value is ReadOnlyMemory<DateTime> romDateTime)
+//            return romDateTime.Span.ToString();
+
 //        return null;
 //    }
 
@@ -461,6 +502,7 @@
 //    static void WriteToFileWithDateTime(StringBuilder logString)
 //    {
 //        logString.Append("\n");
+
 //        SafeWrite(logString.ToString());
 //    }
 
@@ -484,14 +526,8 @@
 //        {
 //            try
 //            {
-//                if (Directory.Exists(@"C:\Temp"))
-//                    File.AppendAllText(@"C:\Temp\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
-//                else if (Directory.Exists(@"C:\Logs"))
-//                    File.AppendAllText(@"C:\Logs\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
-//                else if (Directory.Exists(@"C:\"))
-//                    File.AppendAllText(@"C:\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
-//                else if (Directory.Exists(Environment.CurrentDirectory))
-//                    File.AppendAllText(Environment.CurrentDirectory + @"\syslib-log" + DateTime.Now.Millisecond + ".txt", "Error writing dump file: " + ex.Message + "\n");
+//                if (Directory.Exists(Folder))
+//                    File.AppendAllText(Folder + @"\syslib-log" + DateTime.Now.Millisecond + ".log", "Error writing dump file: " + ex.Message + "\n" + message);
 //            }
 //            catch
 //            {

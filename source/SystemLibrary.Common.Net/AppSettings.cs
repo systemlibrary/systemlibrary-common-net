@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Linq;
+using System.Text.Json;
 
 namespace SystemLibrary.Common.Net;
 
@@ -12,7 +14,7 @@ namespace SystemLibrary.Common.Net;
 ///     ...,
 ///     "systemLibraryCommonNet": {
 ///         "dump": {
-///             "folder": "C:\\logs\\",
+///             "folder": "C:\\logs\\", // or %HomeDrive%\\logs\\ which works on MacOs too. Note: can maximum contain one env variable
 ///             "fileName": "output.log"
 ///         },
 ///         "json": {
@@ -56,12 +58,28 @@ internal class AppSettings : Config<AppSettings>
             public string FileName { get; set; }
             public DumpConfiguration()
             {
+                Folder = "%HomeDrive%\\Logs\\";
                 FileName = "SysLib.log";
-                Folder = "C:\\Logs";
             }
 
             public string GetFullLogPath()
             {
+                var firstIndex = Folder.IndexOf('%');
+                if (firstIndex > -1)
+                {
+                    var lastIndex = Folder.LastIndexOf('%');
+
+                    if (firstIndex == lastIndex) throw new Exception("Log folder cannot contain only one %, specify for instance: %HomeDrive%");
+
+                    var varName = Folder.Substring(firstIndex + 1, lastIndex - firstIndex - 1);
+                    var value = Environment.GetEnvironmentVariable(varName);
+
+                    if (!Folder.EndsWith("%"))
+                        Folder = value + "\\" + Folder.Substring(lastIndex + 1);
+                    else
+                        Folder = value + "\\";
+                }
+
                 if (Folder.EndsWith("\\"))
                     return Folder + FileName;
 
