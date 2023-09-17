@@ -10,11 +10,14 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         {
             var conf = Configs.EnvironmentConfig.Current;
 
-            Assert.IsTrue(conf.NewPropertyValue == "12345");
+            if(Configs.EnvironmentConfig.Current.Name == "Release")
+                Assert.IsTrue(conf.NewPropertyValue == "456");
 
-            Assert.IsTrue(conf.Name.Length > 1);
+            if (Configs.EnvironmentConfig.Current.Name == "Debug")
+                Assert.IsTrue(conf.NewPropertyValue == "7890");
 
-            Assert.IsTrue(conf.IsLocal || conf.IsProd || conf.IsTest);
+            if(Configs.EnvironmentConfig.Current.Name == "Untransformed")
+                Assert.IsTrue(conf.NewPropertyValue == "12345");
         }
     }
 }

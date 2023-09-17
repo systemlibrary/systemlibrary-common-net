@@ -1,49 +1,30 @@
-﻿using System.Text;
+﻿using System;
+using System.Diagnostics;
+using System.Text;
 
 using SystemLibrary.Common.Net.Attributes;
 
 namespace SystemLibrary.Common.Net;
 
-/// <summary>
-/// Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file
-/// 
-/// Inherits this EnvironmentConfig&lt;T&gt; so  add your own functionality and properties to the EnvironmentConfig
-/// </summary>
-public abstract class EnvironmentConfig<T> : Config<T> where T : class
+public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
+    where T : class
+    where TEnvironmentNameEnum : struct, IComparable, IFormattable, IConvertible
 {
-    enum Environment
-    {
-        [EnumValue("")]
-        None,
-        Local,
-        Dev,
-        Development,
-        UnitTest,
-        QA,
-        AT,
-        Stage,
-        Staging,
-        Test,
-        PreProd,
-        PreProduction,
-        Prod,
-        Production
-    }
-
-    Environment? _EnvironmentName;
-    Environment EnvironmentName
+    TEnvironmentNameEnum? _EnvironmentName;
+    public TEnvironmentNameEnum EnvironmentName
     {
         get
         {
             if (_EnvironmentName == null)
-                _EnvironmentName = Name.ToEnum<Environment>();
+                return default(TEnvironmentNameEnum);
 
             return _EnvironmentName.Value;
         }
     }
 
-    string _Name;
+    internal string GetName() => Name;
 
+    string _Name;
     /// <summary>
     /// Returns environment name based on 'ASPNETCORE_ENVIRONMENT' variable passed to the startup of your application
     /// 
@@ -244,7 +225,6 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
                 return _Name;
 
             _Name = AspNetCoreEnvironment.Value;
-
             //TODO: Consider throwing new Exception("Environment 'Name' is not set in either 'ASPNETCORE_ENVIRONMENT', or in environmentConfig.json file, or environmentConfig.json file is located in wrong folder");
             //TODO: Consider this way it works, returns empty name, so it never does any transformations
             //TODO: Consider supporting 'environment' in 'appSettings' for the package: systemLibraryCommonNet { environment { name: '...' } }
@@ -253,61 +233,7 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
         set
         {
             _Name = value;
-        }
-    }
-
-    bool? _IsLocal;
-
-    /// <summary>
-    /// Returns true if IsTest and IsProd is false
-    /// </summary>
-    public bool IsLocal
-    {
-        get
-        {
-            if (_IsLocal == null)
-                _IsLocal = !IsTest && !IsProd;
-
-            return _IsLocal.Value;
-        }
-    }
-
-    bool? _IsProd;
-
-    /// <summary>
-    /// Returns true if environment 'name' is 'prod' or 'production', case insensitive
-    /// </summary>
-    public bool IsProd
-    {
-        get
-        {
-            if (_IsProd == null)
-                _IsProd =
-                    EnvironmentName == Environment.Prod ||
-                    EnvironmentName == Environment.Production;
-
-            return _IsProd.Value;
-        }
-    }
-
-    bool? _IsTest;
-
-    /// <summary>
-    /// Returns true if environment 'name' is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive
-    /// </summary>
-    public bool IsTest
-    {
-        get
-        {
-            if (_IsTest == null)
-                _IsTest =
-                    EnvironmentName == Environment.Test ||
-                    EnvironmentName == Environment.Stage ||
-                    EnvironmentName == Environment.Staging ||
-                    EnvironmentName == Environment.AT ||
-                    EnvironmentName == Environment.QA;
-
-            return _IsTest.Value;
+            _EnvironmentName = _Name.ToEnum<TEnvironmentNameEnum>();
         }
     }
 }
@@ -319,6 +245,44 @@ public abstract class EnvironmentConfig<T> : Config<T> where T : class
 /// 
 /// See documentation for 'EnvironmentConfig&lt;&gt;', specifically the 'Name' property as that is used for all transformations
 /// </summary>
-public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig>
+public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, EnvironmentName>
 {
+    /// <summary>
+    /// Returns true if IsTest and IsProd is false
+    /// </summary>
+    public static bool IsLocal => !IsProd && !IsTest;
+
+    /// <summary>
+    /// Returns true if environment 'name' is 'prod' or 'production', case insensitive
+    /// </summary>
+    public static bool IsProd => Current.EnvironmentName == EnvironmentName.Prod || Current.EnvironmentName == EnvironmentName.Production;
+
+    /// <summary>
+    /// Returns true if environment 'name' is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive
+    /// </summary>
+    public static bool IsTest => Current.EnvironmentName == EnvironmentName.Test ||
+        Current.EnvironmentName == EnvironmentName.Stage ||
+        Current.EnvironmentName == EnvironmentName.Staging ||
+        Current.EnvironmentName == EnvironmentName.QA ||
+        Current.EnvironmentName == EnvironmentName.AT;
+}
+
+
+public enum EnvironmentName
+{
+    [EnumValue("")]
+    None,
+    Local,
+    Dev,
+    Development,
+    UnitTest,
+    QA,
+    AT,
+    Stage,
+    Staging,
+    Test,
+    PreProd,
+    PreProduction,
+    Prod,
+    Production
 }

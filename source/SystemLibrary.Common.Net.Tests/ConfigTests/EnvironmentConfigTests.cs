@@ -9,8 +9,13 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         public void Read_Environment_Config_Current_Instance()
         {
             var conf = EnvironmentConfig.Current;
-            
-            Assert.IsTrue(conf != null && conf.Name.Is());
+
+            Assert.IsTrue(conf != null && conf.Name.Is(), "Name invalid");
+
+            if(conf.Name.Contains("rod"))
+                Assert.IsTrue(!Configs.EnvironmentConfig.IsLocal, "Local is true");
+            else
+                Assert.IsTrue(Configs.EnvironmentConfig.IsLocal, "Not local");
         }
 
         [TestMethod]
@@ -19,37 +24,35 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             var conf = EnvironmentConfig.Current;
 
             Assert.IsTrue(conf != null);
+
             Assert.IsTrue(conf.Name.Is());
 
-            if (conf.Name.Is())
+            if(conf.Name == "Release" || conf.Name == "Debug" || conf.Name.Contains("rod") || conf.Name.Contains("dev"))
             {
-                if(conf.Name == "Release" || conf.Name == "Debug")
-                {
-                    //Do nothing...
-                }
-                else
-                {
-                    Assert.IsTrue(conf.Name == "Untransformed", "Unknown configuration mode, should not transform any file - as no such transformation file exists, name: " + conf.Name);
-                }
+                //Do nothing...
+            }
+            else
+            {
+                Assert.IsTrue(conf.Name == "Untransformed", "Unknown configuration mode, should not transform any file - as no such transformation file exists, name: " + conf.Name);
             }
         }
 
         [TestMethod]
         public void Read_Environment()
         {
-            var env = EnvironmentConfig.Current.Name.ToLower();
+            var env = Configs.EnvironmentConfig.Current.Name.ToLower();
 
             if (env == "qa" || env == "stage" || env == "test" || env == "at")
             {
-                Assert.IsTrue(EnvironmentConfig.Current.IsTest, "Is test failed for environment startup: " + env);
+                Assert.IsTrue(Configs.EnvironmentConfig.IsTest, "Is test failed for environment startup: " + env);
             }
             else if (env == "production" || env == "prod" || env == "preprod" || env == "preproduction")
             {
-                Assert.IsTrue(EnvironmentConfig.Current.IsProd, "Is test failed for environment startup: " + env);
+                Assert.IsTrue(Configs.EnvironmentConfig.IsProd, "Is test failed for environment startup: " + env);
             }
             else if(env == "dev" || env == "development" || env == "local")
             {
-                Assert.IsTrue(EnvironmentConfig.Current.IsLocal, "Is test failed for environment startup: " + env);
+                Assert.IsTrue(Configs.EnvironmentConfig.IsLocal, "Is test failed for environment startup: " + env);
             }
             else if(env == "unknown")
             {
@@ -57,7 +60,34 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             }
             else
             {
-                Assert.IsTrue(EnvironmentConfig.Current.IsLocal, env + " is not IsLocal");
+                Assert.IsTrue(Configs.EnvironmentConfig.IsLocal, env + " is not IsLocal");
+            }
+        }
+
+        [TestMethod]
+        public void Use_EnvironmentConfig_AsIs_From_Library()
+        {
+            var env = EnvironmentConfig.Current.Name.ToLower();
+
+            if (env == "qa" || env == "stage" || env == "test" || env == "at")
+            {
+                Assert.IsTrue(EnvironmentConfig.IsTest, "Is test failed for environment startup: " + env);
+            }
+            else if (env == "production" || env == "prod" || env == "preprod" || env == "preproduction")
+            {
+                Assert.IsTrue(EnvironmentConfig.IsProd, "Is test failed for environment startup: " + env);
+            }
+            else if (env == "dev" || env == "development" || env == "local")
+            {
+                Assert.IsTrue(EnvironmentConfig.IsLocal, "Is test failed for environment startup: " + env);
+            }
+            else if (env == "unknown")
+            {
+                Assert.IsTrue(EnvironmentConfig.Current.Name.Is(), "env is unknown, but environment name is null");
+            }
+            else
+            {
+                Assert.IsTrue(EnvironmentConfig.IsLocal, env + " is not IsLocal");
             }
         }
     }

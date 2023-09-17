@@ -66,14 +66,13 @@ namespace SystemLibrary.Common.Net
 
                 var configs = GetConfigurationFilesInFolder(rootDirectory + "configs\\", true);
 
-                var configuration = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
+                var configuration = GetConfigurationFilesInFolder(rootDirectory + "configuration\\", true);
 
                 var configurations = GetConfigurationFilesInFolder(rootDirectory + "configurations\\", true);
 
                 ConfigurationFiles = rootConfigurationFiles.Add(IgnoreRuntimeConfigAndDeps, config, configs, configuration, configurations);
 
                 var builder = new ConfigurationBuilder();
-
                 var appSettingFiles = ConfigurationFiles.Where(FilterAppSettingsFiles);
 
                 AddConfigurationFiles(builder, appSettingFiles);

@@ -155,7 +155,7 @@ public static class StringExtensions
     {
         if (text == null) return default(T);
 
-        return (T)text?.ToEnum(typeof(T));
+        return (T)text.ToEnum(typeof(T));
     }
 
     public static object ToEnum(this string text, Type enumType)
@@ -191,13 +191,16 @@ public static class StringExtensions
         }
 
         if (text.IsNot())
+        {
             return Activator.CreateInstance(type);
+        }
 
         if (Enum.TryParse(enumType, text, true, out result))
             return result;
 
         if (result == null)
             return Activator.CreateInstance(type);
+
 
         return result;
     }

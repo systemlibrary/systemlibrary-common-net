@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System;
+
+using Microsoft.Extensions.Configuration;
 
 namespace SystemLibrary.Common.Net
 {
@@ -138,7 +140,19 @@ namespace SystemLibrary.Common.Net
 
         static Config()
         {
-            _Config = ConfigLoader<T>.Load().Get<T>();
+            var configLoader = ConfigLoader<T>.Load();
+            try
+            {
+                _Config = configLoader.Get<T>();
+            }
+            catch
+            {
+                // NOTE: Static properties inside the Config class errors unless already instantiated
+                // could check for static members myself, but try-catch for now
+                _Config = Activator.CreateInstance<T>();
+                _Config = configLoader.Get<T>();
+            }
+
             if (_Config == null && typeof(T) == typeof(EnvironmentConfig))
                 throw new System.Exception("EnvironmentConfig could not be created - make sure the 'environmentConfig.json' is not empty, it must minimum contain one property, for instance 'name' set to some value like 'prod'.");
         }
