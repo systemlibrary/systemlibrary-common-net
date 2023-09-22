@@ -5,6 +5,8 @@ namespace SystemLibrary.Common.Net.Tests;
 public class Data : DataInherited
 {
     public bool IsSuccess { get; set; }
+    public string NorwegianLetters { get; set; }
+    public string TextWithUnicodeCodepoints { get; set; }
 }
 
 public class DataInherited

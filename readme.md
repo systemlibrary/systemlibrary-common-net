@@ -15,13 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.10.0.1
-- EnvironmentConfig class is changed, it now takes another generic param (Enum of 'environment names') (breaking change)
-- ConfigLoader now re-tries if crashing, by creating the Config default first time (static member initialization fails. Static members get method is actually invoked)
-- EnvironmentConfig.Current.IsProd => EnvironmentConfig.IsProd (breaking change)
-- EnvironmentConfig.Current.IsLocal => EnvironmentConfig.IsLocal (breaking change)
-- New public var: EnvironmentCOnfig.EnvironmentName is now converted 'once' during 'Name set', stored as static Enum (optimization)
- 
+- 6.10.0.2
+- Json() new param to support translating unicode codepoints to 'letters', for instance U+00F8 is converted to 'ø'
 
 #### Version history
 - View git history of this file if interested

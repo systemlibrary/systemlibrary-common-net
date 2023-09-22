@@ -44,6 +44,20 @@ public class JsonSerializationDefaultOptionsTests
         Assert.IsTrue(car.Name == "Ferrari", "Car name " + car.Name);
         Assert.IsTrue(car.Xhtml.Text.Contains("hello"));
     }
+
+    [TestMethod]
+    public void Json_With_NorwegianLetters_Converted_Success()
+    {
+        var text = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "Data.json");
+
+        var data = text.Json<Data>(null, true);
+
+        var norwegianLetters = data.NorwegianLetters;
+        var textWithUnicodeCodepoints = data.TextWithUnicodeCodepoints;
+
+        Assert.IsTrue(textWithUnicodeCodepoints == "Strømmen Strømmen", textWithUnicodeCodepoints);
+        Assert.IsTrue(norwegianLetters == "æøåÆØÅ", norwegianLetters);
+    }
 }
 
 public class Car

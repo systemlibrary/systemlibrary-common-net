@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -7,6 +8,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
+using Microsoft.Extensions.Options;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
@@ -674,11 +677,14 @@ public static class StringExtensions
     /// var user = json.Json&lt;User&gt;();
     /// </code>
     /// </example>
-    public static T Json<T>(this string json, JsonSerializerOptions options = null) where T : class
+    public static T Json<T>(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
     {
         if (json.IsNot()) return default;
 
         options = GetJsonSerializerOptions.Default(options);
+
+        if (transformUnicodeCodepoints)
+            json = json.TranslateUnicodeCodepoints();
 
         return JsonSerializer.Deserialize<T>(json, options);
     }
@@ -1246,7 +1252,24 @@ public static class StringExtensions
             if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
                 return true;
         }
-
         return false;
+    }
+
+    public static string TranslateUnicodeCodepoints(this string data)
+    {
+        if (data.IsNot()) return data;
+
+        if (data.Length < 4) return data;
+
+        var sb = new StringBuilder(data);
+        foreach (System.Text.RegularExpressions.Match m in new System.Text.RegularExpressions.Regex(@"\\u(\w{4})").Matches(data))
+        {
+            sb = sb.Replace(m.Value, ((char)(int.Parse(m.Value.Substring(2), System.Globalization.NumberStyles.AllowHexSpecifier))).ToString());
+        }
+        foreach (System.Text.RegularExpressions.Match m in new System.Text.RegularExpressions.Regex(@"[Uu][+](\w{4})").Matches(data))
+        {
+            sb = sb.Replace(m.Value, ((char)(int.Parse(m.Value.Substring(2), System.Globalization.NumberStyles.AllowHexSpecifier))).ToString());
+        }
+        return sb.ToString();
     }
 }

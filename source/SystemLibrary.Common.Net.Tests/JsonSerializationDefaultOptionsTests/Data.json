@@ -13,5 +13,7 @@
     "numberProperty": null,
     "carEnumPropertyAsNull": null
   },
+  "norwegianLetters": "æøåÆØÅ",
+  "TextWithUnicodeCodepoints": "Str\u00F8mmen StrU+00F8mmen",
   "IsSuccess": true
 }

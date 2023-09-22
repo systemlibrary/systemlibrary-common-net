@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -84,13 +85,16 @@ public static class ObjectExtensions
     /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
     /// </code>
     /// </example>
-    public static string Json(this object obj, JsonSerializerOptions options = null)
+    public static string Json(this object obj, JsonSerializerOptions options = null, bool translateUnicodeCodepoints = false)
     {
         if (obj == null) return null;
 
         options = GetJsonSerializerOptions.Default(options);
 
-        return JsonSerializer.Serialize(obj, options);
+        if(!translateUnicodeCodepoints)
+            return JsonSerializer.Serialize(obj, options);
+
+        return JsonSerializer.Serialize(obj, options).TranslateUnicodeCodepoints();
     }
 
     /// <summary>
