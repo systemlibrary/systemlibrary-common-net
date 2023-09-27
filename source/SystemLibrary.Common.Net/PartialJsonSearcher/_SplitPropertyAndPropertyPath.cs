@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net
             string[] propertyPaths = null;
 
             //TODO: update to one stringbuilder/span/...
-            if (propertySearchPath.ContainsAny("/", "\\"))
+            if (propertySearchPath?.ContainsAny("/", "\\") == true)
             {
                 propertySearchPath = propertySearchPath.TrimEnd("/", "\\");
 

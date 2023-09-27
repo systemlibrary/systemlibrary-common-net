@@ -28,6 +28,14 @@ namespace SystemLibrary.Common.Net
 
             if (value.IsNot()) return default;
 
+            if (!value.IsJson())
+            {
+                if (AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Dump == true) 
+                    Dump.Write("Value is not json: " + value);
+
+                return default;
+            }
+
             var type = typeof(T);
             if (type == SystemType.StringType)
                 return (T)(object)value;

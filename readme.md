@@ -15,8 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.10.0.2
-- Json() new param to support translating unicode codepoints to 'letters', for instance U+00F8 is converted to 'ø'
+- 6.10.0.3
+- PartialJson.Searcher checking if valid json, else not trying to deserialize
+- Added option for "dump:true" to dump internal warnings and errors to file
 
 #### Version history
 - View git history of this file if interested

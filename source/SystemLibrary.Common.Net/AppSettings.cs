@@ -15,7 +15,8 @@ namespace SystemLibrary.Common.Net;
 ///     "systemLibraryCommonNet": {
 ///         "dump": {
 ///             "folder": "C:\\logs\\", // or %HomeDrive%\\logs\\ which works on MacOs too. Note: can maximum contain one env variable
-///             "fileName": "output.log"
+///             "fileName": "output.log",
+///             "debug": true // or false to avoid dumping internal warnings and errors
 ///         },
 ///         "json": {
 ///             "writeIndented": false,
@@ -56,10 +57,12 @@ internal class AppSettings : Config<AppSettings>
         {
             public string Folder { get; set; }
             public string FileName { get; set; }
+            public bool Dump { get; set; }
             public DumpConfiguration()
             {
                 Folder = "%HomeDrive%\\Logs\\";
                 FileName = "SysLib.log";
+                Dump = false;
             }
 
             public string GetFullLogPath()
