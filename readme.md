@@ -15,9 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.10.0.3
-- PartialJson.Searcher checking if valid json, else not trying to deserialize
-- Added option for "dump:true" to dump internal warnings and errors to file
+- 6.11.0.1
+- Dump.Dump changed to Dump.Debug (breaking change), still set to True or False, to dump also internal warnings/info messages from SystemLibrary. Defaults to False
+- Encrypt now also encrypt with a variable if set inside Environment Variables for 'User'
+- Decrypt now throws excpetion saying where it read the key from and the first 2 letters of the value
 
 #### Version history
 - View git history of this file if interested

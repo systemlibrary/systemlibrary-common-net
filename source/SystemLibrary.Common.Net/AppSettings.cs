@@ -57,12 +57,12 @@ internal class AppSettings : Config<AppSettings>
         {
             public string Folder { get; set; }
             public string FileName { get; set; }
-            public bool Dump { get; set; }
+            public bool Debug { get; set; }
             public DumpConfiguration()
             {
                 Folder = "%HomeDrive%\\Logs\\";
                 FileName = "SysLib.log";
-                Dump = false;
+                Debug = false;
             }
 
             public string GetFullLogPath()

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -647,7 +649,7 @@ public static class StringExtensions
     /// // Searches for a property anywhere in the json named "fired"
     /// </code>
     /// </example>
-    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null) where T : class
+    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
     {
         return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
     }
@@ -1255,6 +1257,17 @@ public static class StringExtensions
         return false;
     }
 
+    /// <summary>
+    /// Translate unicode code points to characters
+    /// 
+    /// Example: 
+    /// HellU+00F8 is converted into Hellø
+    /// 
+    /// and
+    /// 
+    /// Hell\u00F8 is converted also into Hellø
+    /// </summary>
+    /// <returns>Returns translated text</returns>
     public static string TranslateUnicodeCodepoints(this string data)
     {
         if (data.IsNot()) return data;
@@ -1271,5 +1284,60 @@ public static class StringExtensions
             sb = sb.Replace(m.Value, ((char)(int.Parse(m.Value.Substring(2), System.Globalization.NumberStyles.AllowHexSpecifier))).ToString());
         }
         return sb.ToString();
+    }
+
+    /// <summary>
+    /// Returns a compressed variation of the input data if possible
+    /// 
+    /// Returns null or empty if input is null or empty
+    /// </summary>
+    public static string Compress(this string data, Encoding encoding = null)
+    {
+        if (data.IsNot()) return data;
+
+        var bytes = data.GetBytes(encoding);
+
+        using (var input = new MemoryStream(bytes))
+        {
+            using (var output = new MemoryStream())
+            {
+                using (var stream = new GZipStream(output, CompressionLevel.SmallestSize))
+                {
+                    input.CopyToAsync(stream);
+                }
+
+                return Convert.ToBase64String(output.ToArray());
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns a decompressed version of the compress data
+    /// 
+    /// Returns null or empty if input is null or empty
+    /// 
+    /// Note: Make sure you decompress with same encoding as it was compressed with
+    /// </summary>
+    public static string Decompress(this string data, Encoding encoding = null)
+    {
+        if (data.IsNot()) return data;
+
+        var bytes = Convert.FromBase64String(data);
+
+        using (var output = new MemoryStream())
+        {
+            using (var input = new MemoryStream(bytes))
+            {
+                using (var stream = new GZipStream(input, CompressionMode.Decompress))
+                {
+                    stream.CopyToAsync(output);
+                }
+            }
+
+            if (encoding == null)
+                return Encoding.UTF8.GetString(output.ToArray());
+
+            return encoding.GetString(output.ToArray());
+        }
     }
 }

@@ -6,10 +6,15 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+
 namespace SystemLibrary.Common.Net;
 
 internal static class Cryptation
 {
+    public static string DevelopmentCryptationKey;
+
+
     public static string Encrypt(string text, byte[] key)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
@@ -53,6 +58,7 @@ internal static class Cryptation
         if (cipherText.IsNot()) return cipherText;
 
         var shelfKey = cipherText + key.Length;
+
         if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
 
         lock (DecryptedShelfLock)
@@ -70,16 +76,25 @@ internal static class Cryptation
 
                 using (MemoryStream memoryStream = new MemoryStream(buffer))
                 {
-                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    try
                     {
-                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
                         {
-                            var value = streamReader.ReadToEnd();
+                            using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                            {
+                                var value = streamReader.ReadToEnd();
 
-                            DecryptedShelf.TryAdd(shelfKey, value);
+                                DecryptedShelf.TryAdd(shelfKey, value);
 
-                            return value;
+                                return value;
+                            }
                         }
+                    }
+                    catch(Exception ex)
+                    {
+                        var message = CryptationKey.GetExceptionMessage(cipherText);
+
+                        throw new Exception(message, ex);
                     }
                 }
             }

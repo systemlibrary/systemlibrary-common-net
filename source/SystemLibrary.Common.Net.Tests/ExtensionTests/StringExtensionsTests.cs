@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Text.Json;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -790,14 +791,72 @@ public class StringExtensionsTests
     [TestMethod]
     public void Decrypt_Encrypted_String_MultipleTimes_In_A_Row_Success()
     {
-        var accept = "";
-        for (var i = 0; i < 1000; i++)
+        for (var i = 0; i < 2000; i++)
         {
-            var value = "";
+            var value = "abcdef";
 
-            var result = value.Decrypt();
+            var encrypted = value.Encrypt();
 
-            Assert.IsTrue(result == accept);
+            var result = encrypted.Decrypt();
+
+            Assert.IsTrue(encrypted.Is() && encrypted != value);
+            Assert.IsTrue(result == value);
+        }
+    }
+
+
+    static int Decrypt_In_Async_Startup_Success_Counter = 0;
+    static void Decrypt_In_Async_Startup_Success_Counter_Increment()
+    {
+        Decrypt_In_Async_Startup_Success_Counter++;
+    }
+
+    [TestMethod]
+    public void Decrypt_In_Async_Startup_Success()
+    {
+        var r = new Random(DateTime.Now.Millisecond);
+
+        Async.FireAndForget(() => Call(0));
+        Async.FireAndForget(() => Call(0));
+        Async.FireAndForget(() => Call(0));
+        Async.FireAndForget(() => Call(0));
+        Async.FireAndForget(() => Call(0));
+
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+
+        System.Threading.Thread.Sleep(1500);
+
+        Assert.IsTrue(Decrypt_In_Async_Startup_Success_Counter == 0, "Exception counter was: " + Decrypt_In_Async_Startup_Success_Counter);
+    }
+
+    static void Call(int sleep)
+    {
+        System.Threading.Thread.Sleep(sleep);
+        try
+        {
+            var data = "ubfc8LNl5DiTV3RQxFHMYw==";
+            var result = data.Decrypt();
+            if (result.IsNot())
+                Decrypt_In_Async_Startup_Success_Counter_Increment();
+        }
+        catch
+        {
+            Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
     }
 }

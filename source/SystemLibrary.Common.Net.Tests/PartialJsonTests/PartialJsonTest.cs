@@ -75,8 +75,16 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
 
             var firstName = data.PartialJson<string>("firstName");
 
-            Assert.IsTrue(firstName == "FirstNameEmployee1");
+            Assert.IsTrue(firstName == "FirstNameEmployee1", firstName);
+        }
+        [TestMethod]
+        public void Read_Age_Returning_First_Value_As_Int()
+        {
+            var data = GetData();
 
+            var age = data.PartialJson<int>("age");
+
+            Assert.IsTrue(age == 1, age + "");
         }
 
         [TestMethod]

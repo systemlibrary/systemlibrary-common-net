@@ -28,14 +28,6 @@ namespace SystemLibrary.Common.Net
 
             if (value.IsNot()) return default;
 
-            if (!value.IsJson())
-            {
-                if (AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Dump == true) 
-                    Dump.Write("Value is not json: " + value);
-
-                return default;
-            }
-
             var type = typeof(T);
             if (type == SystemType.StringType)
                 return (T)(object)value;
@@ -45,6 +37,17 @@ namespace SystemLibrary.Common.Net
 
             if (type == SystemType.IntType)
                 return (T)(object)int.Parse(value);
+
+            if (!type.IsClass)
+                throw new System.Exception("Not yet implemented deserialization to " + type.Name);
+
+            if (!value.IsJson())
+            {
+                if (AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Debug == true)
+                    Dump.Write("PartialJsonSearcher.Search, value is not json formatted: " + value);
+
+                return default;
+            }
 
             return JsonSerializer.Deserialize<T>(value, options);
         }
