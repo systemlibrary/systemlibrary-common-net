@@ -851,7 +851,19 @@ public static class StringExtensions
         if (encoding == default)
             encoding = Encoding.UTF8;
 
-        return encoding.GetString(Convert.FromBase64String(base64String));
+        return encoding.GetString(base64String.FromBase64AsBytes());
+    }
+
+    /// <summary>
+    /// Returns the base64string input as a byte array
+    /// 
+    /// Returns null if input is null
+    /// </summary>
+    public static byte[] FromBase64AsBytes(this string base64String)
+    {
+        if (base64String == null) return null;
+
+        return Convert.FromBase64String(base64String);
     }
 
     /// <summary>

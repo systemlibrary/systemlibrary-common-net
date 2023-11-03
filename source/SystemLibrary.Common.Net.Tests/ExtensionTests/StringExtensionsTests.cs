@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Text.Json;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -212,25 +213,25 @@ public class StringExtensionsTests
 
         result = data.ToBase64();
         Assert.IsTrue(result == null);
-        result = result.FromBase64();
+        result = result.FromBase64(Encoding.UTF8);
         Assert.IsTrue(result == data);
 
         data = "";
         result = data.ToBase64();
         Assert.IsTrue(result == "");
-        result = result.FromBase64();
+        result = result.FromBase64(Encoding.UTF8);
         Assert.IsTrue(result == data);
 
         data = "hello world";
         result = data.ToBase64();
         Assert.IsTrue(result.Length > 10 && result.EndsWith("="));
-        result = result.FromBase64();
+        result = result.FromBase64(Encoding.UTF8);
         Assert.IsTrue(result == data);
 
         data = "A lot of various characters ÆØÅæøå ABCDEFGHIJKLMONPQRSTUVXYZ: 1234567890,.-_?\"*|!#¤%&/()=?…±òü±²³";
         result = data.ToBase64();
         Assert.IsTrue(result != null);
-        result = result.FromBase64();
+        result = result.FromBase64(Encoding.UTF8);
         Assert.IsTrue(result == data && result.Length == data.Length);
     }
 
