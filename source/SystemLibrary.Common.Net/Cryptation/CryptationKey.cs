@@ -63,12 +63,16 @@ internal static class CryptationKey
         }
     }
 
-    internal static string GetExceptionMessage(string cipherText)
+    internal static string GetExceptionMessage(string cipherText, bool onErrorOutputKeyParts)
     {
         var m1 = "Could not decrypt value starting with letter: " + cipherText.MaxLength(2);
         var m2 = (string)null;
 
-        if (Cryptation.DevelopmentCryptationKey?.Length > 0)
+        if(!onErrorOutputKeyParts)
+        {
+            m2 = "Tried decrypting, with a user specified salt";
+        }
+        else if (Cryptation.DevelopmentCryptationKey?.Length > 0)
         {
             m1 += " from Cryptation.DevelopmentCryptationKey";
             m2 = "Tried decrypting with key starting with: " + Cryptation.DevelopmentCryptationKey.MaxLength(2);

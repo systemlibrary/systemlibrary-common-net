@@ -790,6 +790,29 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
+    public void Encrypt_And_Decrypt_With_Salt16_Is_Success()
+    {
+        string data = null;
+        string result = data;
+
+        var salt16 = "ABCDEF1234567890".GetBytes();
+
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Data null failed");
+
+        data = "";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Blank: " + data.Encrypt());
+
+        data = "abcdef";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "abcdef: " + data.Encrypt());
+
+        data = "@£$$€{[]}abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
+        result = data;
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "long: " + data.Encrypt());
+    }
+
+    [TestMethod]
     public void Decrypt_Encrypted_String_MultipleTimes_In_A_Row_Success()
     {
         for (var i = 0; i < 2000; i++)

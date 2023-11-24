@@ -1239,6 +1239,20 @@ public static class StringExtensions
     }
 
     /// <summary>
+    /// Encrypts data with a user specific salt
+    /// - If length is more than 16 it throws exception
+    /// - If length is less than 16 it throws exception
+    /// 
+    /// If data is null or blank, it returns null or blank
+    /// </summary>
+    public static string Encrypt(this string data, byte[] salt16)
+    {
+        if (salt16.Length != 16) throw new Exception("Salt must be a byte length of 16");
+
+        return Cryptation.Encrypt(data, salt16);
+    }
+
+    /// <summary>
     /// Decrypts data with a default key.
     /// 
     /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
@@ -1247,7 +1261,21 @@ public static class StringExtensions
     /// </summary>
     public static string Decrypt(this string data)
     {
-        return Cryptation.Decrypt(data, CryptationKey.Current);
+        return Cryptation.Decrypt(data, CryptationKey.Current, true);
+    }
+    
+    /// <summary>
+    /// Decrypts data with a user specific salt
+    /// - If length is more than 16 it throws exception
+    /// - If length is less than 16 it throws exception
+    /// 
+    /// If data is null or blank, it returns null or blank
+    /// </summary>
+    public static string Decrypt(this string data, byte[] salt16)
+    {
+        if (salt16.Length != 16) throw new Exception("Salt must be a byte length of 16");
+
+        return Cryptation.Decrypt(data, salt16, false);
     }
 
 

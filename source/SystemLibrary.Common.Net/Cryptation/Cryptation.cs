@@ -14,11 +14,40 @@ internal static class Cryptation
 {
     public static string DevelopmentCryptationKey;
 
+    static byte[] _Dummy;
+    static byte[] Dummy
+    {
+        get
+        {
+            if (_Dummy == null)
+                _Dummy = "1234567890123456".GetBytes();
+
+            return _Dummy;
+        }
+    }
+
+    static void ValidateKey(ref byte[] key)
+    {
+        if(key.Length < 16)
+        {
+            var temp = new byte[16];
+            for(int i = 0; i < temp.Length; i++)
+            {
+                if (i < key.Length)
+                    temp[i] = key[i];
+                else
+                    temp[i] = Dummy[i];
+            }
+            key = temp;
+        }
+    }
 
     public static string Encrypt(string text, byte[] key)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
         if (text.IsNot()) return text;
+
+        ValidateKey(ref key);
 
         byte[] iv = new byte[16];
         byte[] array;
@@ -51,11 +80,13 @@ internal static class Cryptation
 
     static object DecryptedShelfLock = new object();
 
-    public static string Decrypt(string cipherText, byte[] key)
+    public static string Decrypt(string cipherText, byte[] key, bool onErrorOutputKeyParts)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
 
         if (cipherText.IsNot()) return cipherText;
+
+        ValidateKey(ref key);
 
         var shelfKey = cipherText + key.Length;
 
@@ -92,7 +123,7 @@ internal static class Cryptation
                     }
                     catch(Exception ex)
                     {
-                        var message = CryptationKey.GetExceptionMessage(cipherText);
+                        var message = CryptationKey.GetExceptionMessage(cipherText, onErrorOutputKeyParts);
 
                         throw new Exception(message, ex);
                     }
