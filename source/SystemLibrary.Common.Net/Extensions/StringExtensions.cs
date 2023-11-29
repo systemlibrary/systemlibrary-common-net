@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Options;
 
 using SystemLibrary.Common.Net;
@@ -1227,29 +1228,45 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Encrypts data with a default key.
+    /// Encrypts data with a default key and default iv
     /// 
-    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+    /// Set the key by setting environment variable 'SYSLIBCRYPTATIONKEY', in either user or computer, to a value
+    /// - If environment variable is not set, it will search for the first 'data protection key' file (named like 'key-**.xml') anywhere in root or any parent folder
+    /// - If no key is configured, default key is used: ABCDEFGH098765432
     /// 
+    /// Default iv is 16 bytes of 0
+    ///
     /// If data is null or blank, it returns null or blank
     /// </summary>
     public static string Encrypt(this string data)
     {
-        return Cryptation.Encrypt(data, CryptationKey.Current);
+        return Cryptation.Encrypt(data, CryptationKey.Current).ToBase64();
     }
 
     /// <summary>
-    /// Encrypts data with a user specific salt
-    /// - If length is more than 16 it throws exception
-    /// - If length is less than 16 it throws exception
+    /// Encrypts data with a user specific key and an optional iv
     /// 
     /// If data is null or blank, it returns null or blank
     /// </summary>
-    public static string Encrypt(this string data, byte[] salt16)
+    public static string Encrypt(this string data, byte[] key, byte[] iv = null)
     {
-        if (salt16.Length != 16) throw new Exception("Salt must be a byte length of 16");
+        if (iv != null && iv.Length != 16)
+            throw new Exception("Encryption aes-256 must receive a iv of 16 length");
 
-        return Cryptation.Encrypt(data, salt16);
+        if (key != null && key.Length != 16 && key.Length != 32)
+            throw new Exception("Key length must be either 16 or 32");
+
+        return Cryptation.Encrypt(data, key, iv).ToBase64();
+    }
+
+    /// <summary>
+    /// Encrypts data with a user specific key and an optional iv
+    /// 
+    /// If data is null or blank, it returns null or blank
+    /// </summary>
+    public static string Encrypt(this string data, string key, string iv = null)
+    {
+        return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
     }
 
     /// <summary>
@@ -1261,7 +1278,7 @@ public static class StringExtensions
     /// </summary>
     public static string Decrypt(this string data)
     {
-        return Cryptation.Decrypt(data, CryptationKey.Current, true);
+        return Cryptation.Decrypt(data, CryptationKey.Current, null, true);
     }
     
     /// <summary>
@@ -1271,13 +1288,12 @@ public static class StringExtensions
     /// 
     /// If data is null or blank, it returns null or blank
     /// </summary>
-    public static string Decrypt(this string data, byte[] salt16)
+    public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
     {
-        if (salt16.Length != 16) throw new Exception("Salt must be a byte length of 16");
+        if (key.IsNot()) throw new Exception("Key cannot be null or empty");
 
-        return Cryptation.Decrypt(data, salt16, false);
+        return Cryptation.Decrypt(cipherText, key, iv, false);
     }
-
 
     /// <summary>
     /// Returns true if 'data' is json formatted text

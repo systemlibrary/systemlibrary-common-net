@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EnvironmentConfig&lt;T&gt;
+    <title>EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="EnvironmentConfig&lt;T&gt;
+    <meta name="title" content="EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -189,7 +189,7 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2">
   
   
   <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.html">SystemLibrary.Common.Net</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
@@ -197,20 +197,18 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Class containing various environment specific variables common to all .NET applications based on your 'environmentConfig.json' file</p>
-<p>Inherits this EnvironmentConfig&lt;T&gt; so  add your own functionality and properties to the EnvironmentConfig</p>
-</div>
+    <div class="markdown level0 summary h1-class-summary"></div>
   </div>
   
-  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig_1" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1" class="text-break h1-class-header">EnvironmentConfig&lt;T&gt;
+  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig_2" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2" class="text-break h1-class-header">EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;
   </h1>
-  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig_1" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1" class="h1-custom-display className">public abstract class EnvironmentConfig&lt;T&gt; : Config&lt;T&gt; where T : class</h1>
+  <h1 id="SystemLibrary_Common_Net_EnvironmentConfig_2" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2" class="h1-custom-display className">public abstract class EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt; : Config&lt;T&gt; where T : class where TEnvironmentNameEnum : struct, IComparable, IFormattable, IConvertible</h1>
   
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config</a>&lt;T&gt;</div>
-    <div class="level2"><span class="xref">EnvironmentConfig&lt;T&gt;</span></div>
+    <div class="level2"><span class="xref">EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;</span></div>
       <div class="level3"><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></div>
   </div>
   <div class="inheritedMembers">
@@ -232,12 +230,16 @@
         <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">TEnvironmentNameEnum</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   
   
   <div class="custom-menu-data custom-menu-data-first">
-    <h5 id="SystemLibrary_Common_Net_EnvironmentConfig_1_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
+    <h5 id="SystemLibrary_Common_Net_EnvironmentConfig_2_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
     <div class="custom-menu-data-container custom-menu-data-container--example">
     </div>
@@ -245,7 +247,7 @@
   
   
   <div class="custom-menu-data">
-    <h5 id="SystemLibrary_Common_Net_EnvironmentConfig_1_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
+    <h5 id="SystemLibrary_Common_Net_EnvironmentConfig_2_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
   
     <div class="custom-menu-data-container">
       <div class="custom-menu-data-class-arguments" style="display: none;">
@@ -263,6 +265,10 @@
                 <td><span class="parametername">T</span></td>
                 <td></td>
               </tr>
+              <tr>
+                <td><span class="parametername">TEnvironmentNameEnum</span></td>
+                <td></td>
+              </tr>
             </tbody>
           </table>
   
@@ -276,21 +282,16 @@
   </h3>
   
   <div class="custom-container">
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if IsTest and IsProd is false</p>
-</div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_1_IsLocal">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L264">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L14">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsLocal_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsLocal*"></a>
+  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsLocal" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsLocal" class="h4-custom-functionName">public bool IsLocal { get; }</h4>
+  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName" class="h4-custom-functionName">public TEnvironmentNameEnum EnvironmentName { get; }</h4>
   		<div class="custom-menu-data-container">
   
   			<div class="custom-menu-data-arguments" style="display: none;">
@@ -313,95 +314,7 @@
   	</thead>
   	<tbody>
   		<tr>
-  			<td><span class="xref">System.Boolean</span></td>
-  			<td></td>
-  		</tr>
-  	</tbody>
-  </table>
-  
-  <div class="custom-container">
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if environment 'name' is 'prod' or 'production', case insensitive</p>
-</div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
-  
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_1_IsProd">
-  		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L280">View Source</a>
-  		</span>
-  	</div>
-  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsProd_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsProd*"></a>
-  
-  	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsProd" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsProd" class="h4-custom-functionName">public bool IsProd { get; }</h4>
-  		<div class="custom-menu-data-container">
-  
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
-  
-  			</div>
-  
-  		</div>
-  	</div>
-  </div>
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed propertyValue-table">
-  	<thead>
-  		<tr>
-  			<th>Type</th>
-  			<th>Description</th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  		<tr>
-  			<td><span class="xref">System.Boolean</span></td>
-  			<td></td>
-  		</tr>
-  	</tbody>
-  </table>
-  
-  <div class="custom-container">
-  	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if environment 'name' is 'Test', 'Stage', 'Staging', 'QA' or 'AT', case insensitive</p>
-</div>
-  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
-  	</div>
-  
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_1_IsTest">
-  		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L298">View Source</a>
-  		</span>
-  	</div>
-  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsTest_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsTest*"></a>
-  
-  	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_1_IsTest" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.IsTest" class="h4-custom-functionName">public bool IsTest { get; }</h4>
-  		<div class="custom-menu-data-container">
-  
-  			<div class="custom-menu-data-arguments" style="display: none;">
-  				<div class="syslib-tab-menu-data--close">X</div>
-  
-  			</div>
-  
-  		</div>
-  	</div>
-  </div>
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed propertyValue-table">
-  	<thead>
-  		<tr>
-  			<th>Type</th>
-  			<th>Description</th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  		<tr>
-  			<td><span class="xref">System.Boolean</span></td>
+  			<td><span class="xref">TEnvironmentNameEnum</span></td>
   			<td></td>
   		</tr>
   	</tbody>
@@ -417,15 +330,15 @@
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_1_Name">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_2_Name">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L239">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L220">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_1_Name_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.Name*"></a>
+  	<a id="SystemLibrary_Common_Net_EnvironmentConfig_2_Name_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2.Name*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_1_Name" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`1.Name" class="h4-custom-functionName">public string Name { get; set; }</h4>
+  		<h4 id="SystemLibrary_Common_Net_EnvironmentConfig_2_Name" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2.Name" class="h4-custom-functionName">public string Name { get; set; }</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
@@ -441,7 +354,7 @@ else:
 
 if: environmentConfig.json exists
     if transformation file exists for &apos;temp environment&apos; 
-        then: run transformation
+        then: run transformation for environmentConfig.json
 
     if: environmentConfig.json contains &apos;name&apos; property
         return: &apos;value&apos;
@@ -555,8 +468,8 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
 <p>IIS</p>
 <pre><code>if: &apos;ASPNETCORE_ENVIRONMENT&apos; exists in web.config
     if: environmentConfig.json exists
-        if: transformation file exists for &apos;value&apos; 
-        then:run transformation
+        if: transformation file exists &apos;value&apos; 
+        then: run transformation 
 
         if: environmentConfig.json contains &apos;name&apos; property
             return: &apos;value&apos;
@@ -627,7 +540,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div class="extensionmethods-content">
-  	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_">ObjectExtensions.Json(Object, JsonSerializerOptions)</a>
+  	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Boolean_">ObjectExtensions.Json(Object, JsonSerializerOptions, Boolean)</a>
   </div>
   <div class="extensionmethods-content">
   	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_Serialization_JsonConverter___">ObjectExtensions.Json(Object, JsonConverter[])</a>
@@ -1272,7 +1185,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

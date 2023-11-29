@@ -48,7 +48,7 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
     /// 
     /// if: environmentConfig.json exists
     ///     if transformation file exists for 'temp environment' 
-    ///         then: run transformation
+    ///         then: run transformation for environmentConfig.json
     ///     
     ///     if: environmentConfig.json contains 'name' property
     ///         return: 'value'
@@ -174,8 +174,8 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
     /// <code class="language-xml hljs">
     /// if: 'ASPNETCORE_ENVIRONMENT' exists in web.config
     ///     if: environmentConfig.json exists
-    ///         if: transformation file exists for 'value' 
-    ///         then:run transformation
+    ///         if: transformation file exists 'value' 
+    ///         then: run transformation 
     ///         
     ///         if: environmentConfig.json contains 'name' property
     ///             return: 'value'

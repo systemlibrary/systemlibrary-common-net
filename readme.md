@@ -15,10 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.11.1.2
-- Encrypt and Decrypt contains a salt16 overloaded method
-- Encrypt and Decrypt internally supports now up to 16 chars, previously you needed 16 chars
-- 6.11.1.1 was on a detached head, so that should not be used
+- 6.12.0.1
+- Encrypt and Decrypt argument changed from "salt" to "key" (breaking change)
+- Optional: pass your own random initialization vector (16 bytes) to generate different result with the same key
+- Key must be either 16 or 32 characters/bytes (breaking change)
 
 #### Version history
 - View git history of this file if interested

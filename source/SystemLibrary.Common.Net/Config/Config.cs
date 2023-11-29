@@ -7,12 +7,14 @@ namespace SystemLibrary.Common.Net
     /// <summary>
     /// Class for creating configurations (xml or json) files next to your code files
     /// 
-    /// Configurations must be placed in either:
+    /// Configurations can be placed in either:
     /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
     /// 
-    /// Configurations can also be appended to 'appSettings.json' if you do not want Configs/Configurations folder in root, but careful about naming clashes then
+    /// Or appended to your existing 'appSettings.json' file
     /// 
-    /// Transformations are ran by passing 'ASPNETCORE_ENVIRONMENT' to your application on startup:
+    /// Transformations are ran based on the 'ASPNETCORE_ENVIRONMENT' variable passed to your application
+    /// 
+    /// Some recommended pointers:
     /// - launchSettings.json when using IIS Express
     /// - web.config if you use IIS
     /// - mstest.runsettings if you run transformations in unit tests

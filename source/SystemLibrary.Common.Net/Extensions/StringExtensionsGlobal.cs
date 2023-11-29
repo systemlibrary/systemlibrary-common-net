@@ -1,14 +1,19 @@
 ﻿//namespace SystemLibrary.Common.Net.Global;
-
 //using System;
 //using System.Collections.Generic;
+//using System.Data.Common;
 //using System.IO;
+//using System.IO.Compression;
 //using System.Linq;
+//using System.Net.Http;
 //using System.Reflection;
 //using System.Reflection.Metadata.Ecma335;
 //using System.Text;
 //using System.Text.Json;
 //using System.Text.Json.Serialization;
+
+//using Microsoft.AspNetCore.DataProtection.KeyManagement;
+//using Microsoft.Extensions.Options;
 
 //using SystemLibrary.Common.Net;
 //using SystemLibrary.Common.Net.Attributes;
@@ -157,7 +162,7 @@
 //    {
 //        if (text == null) return default(T);
 
-//        return (T)text?.ToEnum(typeof(T));
+//        return (T)text.ToEnum(typeof(T));
 //    }
 
 //    public static object ToEnum(this string text, Type enumType)
@@ -193,13 +198,16 @@
 //        }
 
 //        if (text.IsNot())
+//        {
 //            return Activator.CreateInstance(type);
+//        }
 
 //        if (Enum.TryParse(enumType, text, true, out result))
 //            return result;
 
 //        if (result == null)
 //            return Activator.CreateInstance(type);
+
 
 //        return result;
 //    }
@@ -643,7 +651,7 @@
 //    /// // Searches for a property anywhere in the json named "fired"
 //    /// </code>
 //    /// </example>
-//    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null) where T : class
+//    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
 //    {
 //        return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
 //    }
@@ -673,11 +681,14 @@
 //    /// var user = json.Json&lt;User&gt;();
 //    /// </code>
 //    /// </example>
-//    public static T Json<T>(this string json, JsonSerializerOptions options = null) where T : class
+//    public static T Json<T>(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
 //    {
 //        if (json.IsNot()) return default;
 
 //        options = GetJsonSerializerOptions.Default(options);
+
+//        if (transformUnicodeCodepoints)
+//            json = json.TranslateUnicodeCodepoints();
 
 //        return JsonSerializer.Deserialize<T>(json, options);
 //    }
@@ -842,7 +853,19 @@
 //        if (encoding == default)
 //            encoding = Encoding.UTF8;
 
-//        return encoding.GetString(Convert.FromBase64String(base64String));
+//        return encoding.GetString(base64String.FromBase64AsBytes());
+//    }
+
+//    /// <summary>
+//    /// Returns the base64string input as a byte array
+//    /// 
+//    /// Returns null if input is null
+//    /// </summary>
+//    public static byte[] FromBase64AsBytes(this string base64String)
+//    {
+//        if (base64String == null) return null;
+
+//        return Convert.FromBase64String(base64String);
 //    }
 
 //    /// <summary>
@@ -1206,15 +1229,45 @@
 //    }
 
 //    /// <summary>
-//    /// Encrypts data with a default key.
+//    /// Encrypts data with a default key and default iv
 //    /// 
-//    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+//    /// Set the key by setting environment variable 'SYSLIBCRYPTATIONKEY', in either user or computer, to a value
+//    /// - If environment variable is not set, it will search for the first 'data protection key' file (named like 'key-**.xml') anywhere in root or any parent folder
+//    /// - If no key is configured, default key is used: ABCDEFGH098765432
 //    /// 
+//    /// Default iv is 16 bytes of 0
+//    ///
 //    /// If data is null or blank, it returns null or blank
 //    /// </summary>
 //    public static string Encrypt(this string data)
 //    {
-//        return Cryptation.Encrypt(data, CryptationKey.Current);
+//        return Cryptation.Encrypt(data, CryptationKey.Current).ToBase64();
+//    }
+
+//    /// <summary>
+//    /// Encrypts data with a user specific key and an optional iv
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// </summary>
+//    public static string Encrypt(this string data, byte[] key, byte[] iv = null)
+//    {
+//        if (iv != null && iv.Length != 16)
+//            throw new Exception("Encryption aes-256 must receive a iv of 16 length");
+
+//        if (key != null && key.Length != 16 && key.Length != 32)
+//            throw new Exception("Key length must be either 16 or 32");
+
+//        return Cryptation.Encrypt(data, key, iv).ToBase64();
+//    }
+
+//    /// <summary>
+//    /// Encrypts data with a user specific key and an optional iv
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// </summary>
+//    public static string Encrypt(this string data, string key, string iv = null)
+//    {
+//        return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
 //    }
 
 //    /// <summary>
@@ -1226,9 +1279,22 @@
 //    /// </summary>
 //    public static string Decrypt(this string data)
 //    {
-//        return Cryptation.Decrypt(data, CryptationKey.Current);
+//        return Cryptation.Decrypt(data, CryptationKey.Current, null, true);
 //    }
 
+//    /// <summary>
+//    /// Decrypts data with a user specific salt
+//    /// - If length is more than 16 it throws exception
+//    /// - If length is less than 16 it throws exception
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// </summary>
+//    public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
+//    {
+//        if (key.IsNot()) throw new Exception("Key cannot be null or empty");
+
+//        return Cryptation.Decrypt(cipherText, key, iv, false);
+//    }
 
 //    /// <summary>
 //    /// Returns true if 'data' is json formatted text
@@ -1245,7 +1311,90 @@
 //            if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
 //                return true;
 //        }
-
 //        return false;
+//    }
+
+//    /// <summary>
+//    /// Translate unicode code points to characters
+//    /// 
+//    /// Example: 
+//    /// HellU+00F8 is converted into Hellø
+//    /// 
+//    /// and
+//    /// 
+//    /// Hell\u00F8 is converted also into Hellø
+//    /// </summary>
+//    /// <returns>Returns translated text</returns>
+//    public static string TranslateUnicodeCodepoints(this string data)
+//    {
+//        if (data.IsNot()) return data;
+
+//        if (data.Length < 4) return data;
+
+//        var sb = new StringBuilder(data);
+//        foreach (System.Text.RegularExpressions.Match m in new System.Text.RegularExpressions.Regex(@"\\u(\w{4})").Matches(data))
+//        {
+//            sb = sb.Replace(m.Value, ((char)(int.Parse(m.Value.Substring(2), System.Globalization.NumberStyles.AllowHexSpecifier))).ToString());
+//        }
+//        foreach (System.Text.RegularExpressions.Match m in new System.Text.RegularExpressions.Regex(@"[Uu][+](\w{4})").Matches(data))
+//        {
+//            sb = sb.Replace(m.Value, ((char)(int.Parse(m.Value.Substring(2), System.Globalization.NumberStyles.AllowHexSpecifier))).ToString());
+//        }
+//        return sb.ToString();
+//    }
+
+//    /// <summary>
+//    /// Returns a compressed variation of the input data if possible
+//    /// 
+//    /// Returns null or empty if input is null or empty
+//    /// </summary>
+//    public static string Compress(this string data, Encoding encoding = null)
+//    {
+//        if (data.IsNot()) return data;
+
+//        var bytes = data.GetBytes(encoding);
+
+//        using (var input = new MemoryStream(bytes))
+//        {
+//            using (var output = new MemoryStream())
+//            {
+//                using (var stream = new GZipStream(output, CompressionLevel.SmallestSize))
+//                {
+//                    input.CopyToAsync(stream);
+//                }
+
+//                return Convert.ToBase64String(output.ToArray());
+//            }
+//        }
+//    }
+
+//    /// <summary>
+//    /// Returns a decompressed version of the compress data
+//    /// 
+//    /// Returns null or empty if input is null or empty
+//    /// 
+//    /// Note: Make sure you decompress with same encoding as it was compressed with
+//    /// </summary>
+//    public static string Decompress(this string data, Encoding encoding = null)
+//    {
+//        if (data.IsNot()) return data;
+
+//        var bytes = Convert.FromBase64String(data);
+
+//        using (var output = new MemoryStream())
+//        {
+//            using (var input = new MemoryStream(bytes))
+//            {
+//                using (var stream = new GZipStream(input, CompressionMode.Decompress))
+//                {
+//                    stream.CopyToAsync(output);
+//                }
+//            }
+
+//            if (encoding == null)
+//                return Encoding.UTF8.GetString(output.ToArray());
+
+//            return encoding.GetString(output.ToArray());
+//        }
 //    }
 //}

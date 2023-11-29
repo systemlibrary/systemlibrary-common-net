@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,43 +16,16 @@ internal static class Cryptation
 {
     public static string DevelopmentCryptationKey;
 
-    static byte[] _Dummy;
-    static byte[] Dummy
-    {
-        get
-        {
-            if (_Dummy == null)
-                _Dummy = "1234567890123456".GetBytes();
-
-            return _Dummy;
-        }
-    }
-
-    static void ValidateKey(ref byte[] key)
-    {
-        if(key.Length < 16)
-        {
-            var temp = new byte[16];
-            for(int i = 0; i < temp.Length; i++)
-            {
-                if (i < key.Length)
-                    temp[i] = key[i];
-                else
-                    temp[i] = Dummy[i];
-            }
-            key = temp;
-        }
-    }
-
-    public static string Encrypt(string text, byte[] key)
+    public static byte[] Encrypt(string text, byte[] key, byte[] iv = null)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
-        if (text.IsNot()) return text;
 
-        ValidateKey(ref key);
+        if (text.IsNot()) return text.GetBytes();
 
-        byte[] iv = new byte[16];
-        byte[] array;
+        if (iv == null)
+            iv = new byte[16];
+
+        byte[] bytes;
 
         using (Aes aes = Aes.Create())
         {
@@ -68,27 +43,27 @@ internal static class Cryptation
                         streamWriter.Write(text);
                     }
 
-                    array = memoryStream.ToArray();
+                    bytes = memoryStream.ToArray();
                 }
             }
         }
-
-        return Convert.ToBase64String(array);
+        return bytes;
     }
 
     static ConcurrentDictionary<string, string> DecryptedShelf = new ConcurrentDictionary<string, string>();
 
     static object DecryptedShelfLock = new object();
 
-    public static string Decrypt(string cipherText, byte[] key, bool onErrorOutputKeyParts)
+    public static string Decrypt(string cipherText, byte[] key, byte[] iv, bool onErrorOutputKeyParts)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
 
         if (cipherText.IsNot()) return cipherText;
 
-        ValidateKey(ref key);
+        if (iv == null)
+            iv = new byte[16];
 
-        var shelfKey = cipherText + key.Length;
+        var shelfKey = key[0] + key[1] + iv.Length + cipherText + key.Length;
 
         if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
 
@@ -96,18 +71,21 @@ internal static class Cryptation
         {
             if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
 
-            byte[] iv = new byte[16];
             byte[] buffer = Convert.FromBase64String(cipherText);
-
-            using (Aes aes = Aes.Create())
+         
+            try
             {
-                aes.Key = key;
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                using (Aes aes = Aes.Create())
                 {
-                    try
+                    aes.Key = key;
+                    aes.IV = iv;
+
+                    aes.Padding = PaddingMode.PKCS7;
+                    aes.Mode = CipherMode.CBC;
+
+                    ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                    using (MemoryStream memoryStream = new MemoryStream(buffer))
                     {
                         using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
                         {
@@ -121,13 +99,13 @@ internal static class Cryptation
                             }
                         }
                     }
-                    catch(Exception ex)
-                    {
-                        var message = CryptationKey.GetExceptionMessage(cipherText, onErrorOutputKeyParts);
-
-                        throw new Exception(message, ex);
-                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                var message = CryptationKey.GetExceptionMessage(cipherText, onErrorOutputKeyParts);
+
+                throw new Exception(message, ex);
             }
         }
     }

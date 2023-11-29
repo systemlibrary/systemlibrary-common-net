@@ -13,6 +13,35 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringExtensionsTests
 {
     [TestMethod]
+    public void Encrypt_And_Decrypt_With_Key_And_Iv_Success()
+    {
+        var userdata = "123456789-1234-4567-9000-abdef12346789;12345678;email@dummy.com;SpecialChars@|1,-.:;##End";
+        var key = "aaaaa.CCCDDeeeFF-GGGG.HHHiiiii";
+        var iv = "1122334455666-";
+
+        for(var i = 10; i < 100; i++)
+        {
+            var tempKey = key + i;
+            var tempIv = iv + i;
+            var encrypted = userdata.Encrypt(tempKey.GetBytes(), tempIv.GetBytes());
+            var decrypted = encrypted.Decrypt(tempKey.GetBytes(), tempIv.GetBytes());
+            Assert.IsTrue(userdata == decrypted, "Index failed " + i);
+        }
+
+        key = "aaaaa.CCCDDeee";
+        iv = "1122334455666-";
+
+        for (var i = 10; i < 100; i++)
+        {
+            var tempKey = key + i;
+            var tempIv = iv + i;
+            var encrypted = userdata.Encrypt(tempKey.GetBytes(), tempIv.GetBytes());
+            var decrypted = encrypted.Decrypt(tempKey.GetBytes(), tempIv.GetBytes());
+            Assert.IsTrue(userdata == decrypted, "Index failed " + i);
+        }
+    }
+
+    [TestMethod]
     public void String_Is()
     {
         string data = null;
@@ -801,15 +830,15 @@ public class StringExtensionsTests
 
         data = "";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Blank: " + data.Encrypt());
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Blank: " + data.Encrypt(salt16));
 
         data = "abcdef";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "abcdef: " + data.Encrypt());
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "abcdef: " + data.Encrypt(salt16));
 
         data = "@£$$€{[]}abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "long: " + data.Encrypt());
+        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "long: " + data.Encrypt(salt16));
     }
 
     [TestMethod]
@@ -875,7 +904,7 @@ public class StringExtensionsTests
         {
             var data = "ubfc8LNl5DiTV3RQxFHMYw==";
             var result = data.Decrypt();
-            if (result.IsNot())
+            if (result != "Hello world")
                 Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
         catch
