@@ -35,7 +35,7 @@ appSettings.json:
 		"systemLibraryCommonNet": {
 			"dump": {
 				"folder": "%HomeDrive%\\Logs\\",
-				"fileName": "SysLib.log"
+				"fileName": "DumpWrite.log"
 			},
 			"json": {
 				"maxDepth": 32,

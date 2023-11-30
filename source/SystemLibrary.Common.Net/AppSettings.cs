@@ -61,7 +61,7 @@ internal class AppSettings : Config<AppSettings>
             public DumpConfiguration()
             {
                 Folder = "%HomeDrive%\\Logs\\";
-                FileName = "SysLib.log";
+                FileName = "DumpWrite.log";
                 Debug = false;
             }
 

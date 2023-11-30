@@ -15,10 +15,9 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.12.0.1
-- Encrypt and Decrypt argument changed from "salt" to "key" (breaking change)
-- Optional: pass your own random initialization vector (16 bytes) to generate different result with the same key
-- Key must be either 16 or 32 characters/bytes (breaking change)
+- 6.12.0.2
+- SysLib.log renamed to DumpWrite.log
+
 
 #### Version history
 - View git history of this file if interested
