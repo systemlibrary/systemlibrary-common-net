@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
 
@@ -85,11 +86,24 @@ internal class AppSettings : Config<AppSettings>
                     }
                     catch
                     {
-                        value = Environment.GetEnvironmentVariable(varName, EnvironmentVariableTarget.Machine);
+                    }
+                    if (value.IsNot())
+                    {
+                        try
+                        {
+                            value = Environment.GetEnvironmentVariable(varName, EnvironmentVariableTarget.Machine);
+                        }
+                        catch
+                        {
+                        }
                     }
 
-                    if (value.Is())
-                        Folder = Folder.Replace("%" + varName + "%", value);
+                    if (value.IsNot() && varName.ToLower() == "homedrive")
+                    {
+                        value = Environment.GetLogicalDrives()?[0];
+                    }
+
+                    Folder = Folder.Replace("%" + varName + "%", value);
                 }
 
                 if(FileName.StartsWith("\\"))
