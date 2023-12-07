@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.12.0.3
-- DumpWrite should now write to files in more scenarios
+- 6.12.0.4
+- DumpWrite %HomeDrive% variable errors in previous patch, fixed now
 
 
 #### Version history

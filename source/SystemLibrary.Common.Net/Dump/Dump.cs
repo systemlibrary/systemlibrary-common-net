@@ -26,7 +26,7 @@ public static class Dump
     static Dump()
     {
         LogFullPath = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
-        Folder = new FileInfo(LogFullPath).DirectoryName;
+        Folder = new FileInfo(LogFullPath).DirectoryName + "\\";
     }
 
     /// <summary>

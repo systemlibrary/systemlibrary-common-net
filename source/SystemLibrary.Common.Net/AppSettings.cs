@@ -68,6 +68,7 @@ internal class AppSettings : Config<AppSettings>
             public string GetFullLogPath()
             {
                 var firstIndex = Folder.IndexOf('%');
+
                 if (firstIndex > -1)
                 {
                     var lastIndex = Folder.LastIndexOf('%');
@@ -75,13 +76,24 @@ internal class AppSettings : Config<AppSettings>
                     if (firstIndex == lastIndex) throw new Exception("Log folder cannot contain only one %, specify for instance: %HomeDrive%");
 
                     var varName = Folder.Substring(firstIndex + 1, lastIndex - firstIndex - 1);
-                    var value = Environment.GetEnvironmentVariable(varName);
 
-                    if (!Folder.EndsWith("%"))
-                        Folder = value + "\\" + Folder.Substring(lastIndex + 1);
-                    else
-                        Folder = value + "\\";
+                    var value = "";
+
+                    try
+                    {
+                        value = Environment.GetEnvironmentVariable(varName);
+                    }
+                    catch
+                    {
+                        value = Environment.GetEnvironmentVariable(varName, EnvironmentVariableTarget.Machine);
+                    }
+
+                    if (value.Is())
+                        Folder = Folder.Replace("%" + varName + "%", value);
                 }
+
+                if(FileName.StartsWith("\\"))
+                    FileName = FileName.Substring(1);
 
                 if (Folder.EndsWith("\\"))
                     return Folder + FileName;

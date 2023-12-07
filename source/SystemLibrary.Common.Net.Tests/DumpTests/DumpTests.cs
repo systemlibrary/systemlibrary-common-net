@@ -56,9 +56,16 @@ public class DumpTests
         Assert.IsTrue(content.Contains("1000"), "!1000");
         Assert.IsTrue(content.Contains("Efgh"), "!Efgh");
         Assert.IsTrue(content.Contains("BBB"), "!BBB");
-
     }
 
+    [TestMethod]
+    public void Dump_Simple_Write()
+    {
+        var strings = new string[] { "Hello", "World" };
+
+        Dump.Clear();
+        Dump.Write(strings);
+    }
 
     [TestMethod]
     public void Dump_Arrays_Success()
