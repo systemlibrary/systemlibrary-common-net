@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -350,6 +352,39 @@ public class DumpTests
         var content = File.ReadAllText(DumpPath);
 
         Assert.IsTrue(content?.Length <= 500);
+
+        Dump.Clear();
+    }
+
+    [TestMethod]
+    public void Dump_Write_Async()
+    {
+        System.Threading.Thread.Sleep(900);
+        var dict = new ConcurrentDictionary<string, string>();
+
+        var tasks = new List<Task>();
+
+        Dump.Clear();
+
+        void Wr(string i)
+        {
+            Dump.Write(i);
+        }
+
+        for(int i = 0; i < 1000; i++)
+        {
+            tasks.Add(Task.Run(() => Wr(i + " nr")));
+        }
+
+        var task = Task.WhenAll(tasks.ToArray());
+
+        task.ConfigureAwait(false)
+            .GetAwaiter()
+            .GetResult();
+
+        var content = File.ReadAllText("C:\\Logs\\systemlibrary-common-net-tests.log");
+
+        Assert.IsTrue(content.Length > 10000);
 
         Dump.Clear();
     }

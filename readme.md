@@ -15,8 +15,8 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.12.0.2
-- SysLib.log renamed to DumpWrite.log
+- 6.12.0.3
+- DumpWrite should now write to files in more scenarios
 
 
 #### Version history
