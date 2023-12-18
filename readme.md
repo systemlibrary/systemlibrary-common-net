@@ -12,14 +12,11 @@ Library with classes and methods for every .NET &gt;= 6 application
 - Simple fire and forget in 'Async.Run()'
 
 ## Requirements
-- &gt;= .NET 6
+- &gt;= .NET 7
 
 ## Latest Version
-- 7.0.0.1
-- Upgraded to .NET7
-- Decrypt() got a new overload for key and iv as string
-- CryptationKey now searches from app root and up to 10 parents for a key file to use as the 'Key'
-
+- 7.0.0.2
+- Updated docs and readme
 
 #### Version history
 - View git history of this file if interested

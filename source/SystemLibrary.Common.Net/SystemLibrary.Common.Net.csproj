@@ -75,7 +75,7 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<Version>$(NugetVersion)</Version>
 		<Title>SystemLibrary Common Net</Title>
-		<Description>Library with classes and methods for every .NET &amp;gt;= 6 application
+		<Description>Library with classes and methods for every .NET &amp;gt;= 7 application
 https://github.com/systemlibrary/systemlibrary-common-net/#Description
 
 Installation
