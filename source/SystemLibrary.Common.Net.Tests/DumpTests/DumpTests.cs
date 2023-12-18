@@ -68,6 +68,14 @@ public class DumpTests
     }
 
     [TestMethod]
+    public void Dump_Simple_List_Write()
+    {
+        var strings = new List<string> { "Hello", "World", "!" };
+        Dump.Clear();
+        Dump.Write(strings);
+    }
+
+    [TestMethod]
     public void Dump_Arrays_Success()
     {
         var strings = new string[] { "Hello", "World" };

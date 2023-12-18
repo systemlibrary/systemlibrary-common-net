@@ -1,7 +1,7 @@
 ﻿# Installation
 
 ## Requirements
-* .NET &gt;= 6.0
+* .NET &gt;= 7.0
 
 ## Install nuget package
 
