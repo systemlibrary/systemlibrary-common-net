@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<OutputType>Library</OutputType>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Configurations>Release;Unknown;Debug</Configurations>
@@ -60,11 +60,11 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="7.0.11" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.*" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.*" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.*" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="6.0.*" />
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="7.0.14" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 	</ItemGroup>
 
@@ -87,7 +87,7 @@ https://systemlibrary.github.io/systemlibrary-common-net/</Description>
 		<PackageProjectUrl>https://www.systemlibrary.com/#SystemLibraryCommonNet</PackageProjectUrl>
 		<PackageIcon>nuget-icon.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
-		<PackageTags>C# .NET 6.0 Config Extensions</PackageTags>
+		<PackageTags>C# .NET 7.0 Config Extensions</PackageTags>
 		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-version</PackageReleaseNotes>
 		<AssemblyVersion></AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>

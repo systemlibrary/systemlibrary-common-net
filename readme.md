@@ -15,8 +15,10 @@ Library with classes and methods for every .NET &gt;= 6 application
 - &gt;= .NET 6
 
 ## Latest Version
-- 6.12.0.5
-- DumpWrite %HomeDrive% variable fall back to first logical drive if not grabbed
+- 7.0.0.1
+- Upgraded to .NET7
+- Decrypt() got a new overload for key and iv as string
+- CryptationKey now searches from app root and up to 10 parents for a key file to use as the 'Key'
 
 
 #### Version history

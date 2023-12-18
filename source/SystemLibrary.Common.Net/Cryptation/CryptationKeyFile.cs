@@ -33,25 +33,28 @@ internal static class CryptationKeyFile
 
                     var rootDirectoryInfo = new DirectoryInfo(root);
 
-                    int searchBinFolderDepth = 3;
+                    int maxSearchDepth = 10;
 
-                    var startSearch = new DirectoryInfo(root);
-                    while(searchBinFolderDepth > 0 )
+                    var currentSearchDir = new DirectoryInfo(root);
+
+                    while(maxSearchDepth > 0)
                     {
-                        if(startSearch?.Name?.ToLower() == "bin")
+                        var fullName = GetKeyFileFullName(currentSearchDir.FullName);
+
+                        if (fullName != null)
                         {
-                            rootDirectoryInfo = startSearch.Parent;
+                            _Name = Path.GetFileName(fullName).Replace(".xml", "");
                             break;
                         }
-                        startSearch = startSearch?.Parent;
 
-                        searchBinFolderDepth--;
+                        currentSearchDir = currentSearchDir?.Parent;
+
+                        if (currentSearchDir == null) break;
+
+                        maxSearchDepth--;
                     }
-                    var fullName = GetKeyFileFullName(rootDirectoryInfo.FullName);
-
-                    if (fullName != null)
-                        _Name = Path.GetFileName(fullName).Replace(".xml", "");
-                    else
+                    
+                    if(_Name == null)
                         _Name = "";
                 }
             }
@@ -62,26 +65,28 @@ internal static class CryptationKeyFile
 
     static string GetKeyFileFullName(string rootDirectory)
     {
-        var files = Directory.GetFiles(rootDirectory, "*.xml", SearchOption.TopDirectoryOnly);
+        var fileNames = Directory.GetFiles(rootDirectory, "*.xml", SearchOption.TopDirectoryOnly);
 
-        if (files == null || files.Length == 0)
-            files = Directory.GetFiles(rootDirectory, "*.xml", SearchOption.AllDirectories);
+        if (fileNames == null || fileNames.Length == 0)
+            return null;
 
         var directory = new DirectoryInfo(rootDirectory);
 
-        foreach (var file in files)
+        foreach (var fileName in fileNames)
         {
-            if (file.Length < 44) continue;
+            if (fileName.Length < 44) continue;
 
-            if (!file.Contains("\\key-")) continue;
+            if (!fileName.Contains("\\key-")) continue;
 
-            var content = File.ReadAllText(file);
+            var content = File.ReadAllText(fileName);
 
             if (content.IsNot()) continue;
 
             if (!content.Contains("deserializerType")) continue;
 
-            return file;
+            if (!content.Contains("encryption")) continue;
+
+            return fileName;
         }
         return null;
     }

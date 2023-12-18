@@ -68,7 +68,7 @@ internal static class CryptationKey
         var m1 = "Could not decrypt value starting with letter: " + cipherText.MaxLength(2);
         var m2 = (string)null;
 
-        if(!onErrorOutputKeyParts)
+        if (!onErrorOutputKeyParts)
         {
             m2 = "Tried decrypting, with a user specified salt";
         }
@@ -162,7 +162,7 @@ internal static class CryptationKey
             }
         }
 
-        if(m2.IsNot())
+        if (m2.IsNot())
         {
             m2 = "Tried decrypting, but could not find a key to decrypt with";
         }
