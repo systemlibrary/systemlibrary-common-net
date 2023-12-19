@@ -1,41 +1,48 @@
 # SystemLibrary Common Net
 
 ## Description
-Library with classes and methods for every .NET &gt;= 6 application
+Library with classes and methods for every &gt;=  .NET 7 application
 
 ### Features
-- Extensions for strings, arrays, lists, ... such as "Is()" and "IsNot()"
-- Configuration class Config&lt;&gt; which reads your .json config files into C# classes, including transformations
+- Extensions fro Strings, Arrays, Lists, ... such as Is(), IsNot() and ToEnum()
+- Inherit the Config class which reads .json configuration file into a C# class with transformations based on 'EnvironmentName', at runtime
 - Dump.Write() "equivalent" to console.log in javascript
-- Convert to and from json through .ToJson() on any object
-- Convert parts of a json string to a C# class through .PartialJson()
-- Simple fire and forget in 'Async.Run()'
+- ToValue and ToText extensions on Enums, supporting two attributes (EnumText, EnumValue) to fill data to an Enum
+- ToJson() on any object, converting to json string or to an object from a json string
+- PartialJson on a json string, to convert only a part of the whole json, into the C# class, no need to model it all
+- Simple fire and forget in Async.Run()
+- Simply cryptate a String or Byte[] through extension method Encrypt() and decrypt with Decrypt() - uses AES CBC PKCS7
+- Simply obfuscate a String through extension Obfuscate() and Deobfuscate()
+- Simply convert to a Base64 string for Strings and Byte[] through extension method ToBase64()
+- Simply hash a String or Byte[] through extension methods ToSha1(), ToSha256() and ToMd5()
+ 
 
 ## Requirements
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.0.0.2
+- 7.0.0.3
 - Updated docs and readme
 
 #### Version history
 - View git history of this file if interested
 
 ## Installation
-https://systemlibrary.github.io/systemlibrary-common-net/Install.html
+- Simply install the nuget package
+- [Installation guide](https://systemlibrary.github.io/systemlibrary-common-net/Install.html)
 
-## Docs
-Documentation with code samples:  
-https://systemlibrary.github.io/systemlibrary-common-net/
+
+## Documentation
+- [Documentation with code samples](https://systemlibrary.github.io/systemlibrary-common-net/)
 
 ## Nuget
-https://www.nuget.org/packages/SystemLibrary.Common.Net/
+- [Nuget package page](https://www.nuget.org/packages/SystemLibrary.Common.Net/)
 
 ## Source
-https://github.com/systemlibrary/systemlibrary-common-net
+- [Github](https://github.com/systemlibrary/systemlibrary-common-net)
 
 ## Suggestions and feedback
-support@systemlibrary.com
+- [Send us an email](mailto:support@systemlibrary.com)
 
-## Lisence
+## License
 - Free

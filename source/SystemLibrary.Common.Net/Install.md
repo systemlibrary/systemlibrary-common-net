@@ -1,13 +1,13 @@
 ﻿# Installation
 
 ## Requirements
-* .NET &gt;= 7.0
+* &gt;= .NET 7
 
 ## Install nuget package
-
 * Open your project/solution in Visual Studio
 * Open Nuget Project Manager
-* Search and install SystemLibrary.Common.Net
+* Search SystemLibrary.Common.Net
+* Install SystemLibrary.Common.Net
 
 ## First time usage
 
@@ -20,30 +20,31 @@
 		public void Test() 
 		{
 			var s = "";
-			var b = s.IsNot(); //IsNot() is an extension method in this package living in the global namespace
-								 //In this case the method IsNot returns true
+			var b = s.IsNot();	//IsNot() is an extension method in this package living in the global namespace
+								//In this case the method IsNot returns true as null, blank and an empty space returns true in IsNot()
 		}
 	}
 ```
 
 ## Package Configurations
-* Default and modifiable configurations for this package:
+* Below are the default and modifiable configurations for this package
 
-appSettings.json:
+###### appSettings.json:
 ```json  
 	{
 		"systemLibraryCommonNet": {
 			"dump": {
 				"folder": "%HomeDrive%\\Logs\\",
-				"fileName": "DumpWrite.log"
+				"fileName": "DumpWrite.log",
+				"debug": false
 			},
 			"json": {
+				"allowTrailingCommas": true,
 				"maxDepth": 32,
 				"propertyNameCaseInsensitive": true,
-				"writeIndented": false,
-				"allowTrailingCommas": true,
-				"readCommentHandling": "Allow"
+				"readCommentHandling": "Skip",
+				"writeIndented": false
 			}
 		}
 	}
-```  
+```

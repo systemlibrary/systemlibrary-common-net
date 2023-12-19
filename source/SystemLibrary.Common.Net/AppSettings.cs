@@ -47,11 +47,11 @@ internal class AppSettings : Config<AppSettings>
 
         public class JsonConfiguration
         {
-            public int MaxDepth { get; set; } = 32;
             public bool AllowTrailingCommas { get; set; } = true;
+            public int MaxDepth { get; set; } = 32;
             public bool PropertyNameCaseInsensitive { get; set; } = true;
-            public bool WriteIndented { get; set; } = false;
             public JsonCommentHandling ReadCommentHandling { get; set; } = JsonCommentHandling.Skip;
+            public bool WriteIndented { get; set; } = false;
         }
 
         public class DumpConfiguration
@@ -106,7 +106,7 @@ internal class AppSettings : Config<AppSettings>
                     Folder = Folder.Replace("%" + varName + "%", value);
                 }
 
-                if(FileName.StartsWith("\\"))
+                if (FileName.StartsWith("\\"))
                     FileName = FileName.Substring(1);
 
                 if (Folder.EndsWith("\\"))
