@@ -1,8 +1,8 @@
 ﻿//namespace SystemLibrary.Common.Net.Global;
-
 //using System;
 //using System.Collections;
 //using System.Collections.Generic;
+//using System.Diagnostics;
 //using System.IO;
 //using System.Linq;
 //using System.Reflection;
@@ -26,16 +26,8 @@
 
 //    static Dump()
 //    {
-//        // NOTE: Why would current be null or the configurations deeper down, at any time in runtime? 
-//        LogFullPath = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.GetFullLogPath();
-
-//        if (LogFullPath.IsNot())
-//            LogFullPath = Environment.GetEnvironmentVariable("HomeDrive") + "\\Logs\\syslib-error.log";
-
-//        Folder = AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Folder;
-
-//        if (Folder.IsNot())
-//            Folder = Environment.GetEnvironmentVariable("HomeDrive") + "\\";
+//        LogFullPath = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+//        Folder = new FileInfo(LogFullPath).DirectoryName + "\\";
 //    }
 
 //    /// <summary>
@@ -93,8 +85,7 @@
 //        {
 //            try
 //            {
-//                if (Directory.Exists(Folder))
-//                    File.AppendAllText(Folder + "syslib-error" + DateTime.Now.Millisecond + ".log", ex.Message + "\n");
+//                File.AppendAllText(Folder + "DumpWrite" + DateTime.Now.Millisecond + ".log", ex.Message + "\n");
 //            }
 //            catch
 //            {
@@ -109,10 +100,16 @@
 //    static void InitializeFolders()
 //    {
 //        if (DirExists) return;
-
 //        if (!Directory.Exists(Folder))
-//            Directory.CreateDirectory(Folder);
-
+//        {
+//            try
+//            {
+//                Directory.CreateDirectory(Folder);
+//            }
+//            catch
+//            {
+//            }
+//        }
 //        DirExists = true;
 //    }
 
@@ -514,7 +511,7 @@
 //        {
 //            try
 //            {
-//                readWriteLock.AcquireWriterLock(10);
+//                readWriteLock.AcquireWriterLock(12);
 //            }
 //            catch
 //            {
@@ -526,8 +523,7 @@
 //        {
 //            try
 //            {
-//                if (Directory.Exists(Folder))
-//                    File.AppendAllText(Folder + @"\syslib-log" + DateTime.Now.Millisecond + ".log", "Error writing dump file: " + ex.Message + "\n" + message);
+//                File.AppendAllText(Folder + @"DumpWrite" + DateTime.Now.Millisecond + ".log", "Error writing to dump file: " + ex.Message + "\nDumped message was:" + message + "\n");
 //            }
 //            catch
 //            {

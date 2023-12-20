@@ -52,11 +52,15 @@
 		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="mstest.runsettings" />
+		<None Remove="_Files\data-array-space-and-newline.json" />
+		<None Remove="_Files\data-new-line.json" />
 		<None Remove="_Files\json-serialization-data-real-as-int.json" />
 		<None Remove="_Files\json-serialization-data-short-format.json" />
 		<None Remove="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
+	  <EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
+	  <EmbeddedResource Include="_Files\data-new-line.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data.json" />

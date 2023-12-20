@@ -75,14 +75,14 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<Version>$(NugetVersion)</Version>
 		<Title>SystemLibrary Common Net</Title>
-		<Description>Library with classes and methods for every .NET &amp;gt;= 7 application
-https://github.com/systemlibrary/systemlibrary-common-net/#Description
+		<Description>Library with classes and methods for every &amp;gt;= .NET 7 application
+			https://github.com/systemlibrary/systemlibrary-common-net/#Description
 
-Installation
-https://systemlibrary.github.io/systemlibrary-common-net/Install.html
+			Installation
+			https://systemlibrary.github.io/systemlibrary-common-net/Install.html
 
-Documentation with sample code
-https://systemlibrary.github.io/systemlibrary-common-net/</Description>
+			Documentation with sample code
+			https://systemlibrary.github.io/systemlibrary-common-net/</Description>
 		<Copyright>Copyright © System Library</Copyright>
 		<PackageProjectUrl>https://www.systemlibrary.com/#SystemLibraryCommonNet</PackageProjectUrl>
 		<PackageIcon>nuget-icon.png</PackageIcon>

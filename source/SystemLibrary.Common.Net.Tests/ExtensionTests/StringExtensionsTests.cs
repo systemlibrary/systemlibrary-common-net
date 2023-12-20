@@ -13,6 +13,26 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class StringExtensionsTests
 {
     [TestMethod]
+    public void Is_Json_Success()
+    {
+        var data = "{ \"firstName\": \"Hello\", \"age\": 10 }";
+
+        Assert.IsTrue(data.IsJson(), "Invalid json 1");
+
+        data = Assemblies.GetEmbeddedResource("_Files", "data.json");
+
+        Assert.IsTrue(data.IsJson(), "Invalid json 2");
+
+        data = Assemblies.GetEmbeddedResource("_Files", "data-array-space-and-newline.json");
+
+        Assert.IsTrue(data.IsJson(), "Invalid json 3");
+
+        data = Assemblies.GetEmbeddedResource("_Files", "data-new-line.json");
+
+        Assert.IsTrue(data.IsJson(), "Invalid json 4");
+    }
+
+    [TestMethod]
     public void Encrypt_And_Decrypt_With_Key_And_Iv_Success()
     {
         var userdata = "123456789-1234-4567-9000-abdef12346789;12345678;email@dummy.com;SpecialChars@|1,-.:;##End";

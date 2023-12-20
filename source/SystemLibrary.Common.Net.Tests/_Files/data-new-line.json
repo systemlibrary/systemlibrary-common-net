@@ -1,0 +1,74 @@
+﻿{
+  "emptyObject": {
+    "empty": ""
+  },
+  "employees": [
+    {
+      "firstName": "FirstNameEmployee1",
+      "lastName": "LastNameEmployee1",
+      "birth": "2021-03-17",
+      "age": 1,
+      "salary": 1000,
+      "title": "CEO1"
+    },
+    {
+      "firstName": "FirstNameEmployee2",
+      "lastName": "LastNameEmployee2",
+      "birth": "2021-03-17",
+      "age": 2,
+      "salary": 2000,
+      "title": "CEO2"
+    }
+  ],
+  "users": [
+    {
+      "firstName": "FirstNameUsers1",
+      "lastName": "LastNameUsers1",
+      "birth": "2021-03-17",
+      "age": 1
+    },
+    {
+      "firstName": "FirstNameUsers2",
+      "lastName": "LastNameUsers2",
+      "birth": "2021-03-17",
+      "age": 2
+    }
+  ],
+  "outerList": {
+    "innerArray": [
+      {
+        "firstName": "FirstNameInnerArray1",
+        "lastName": "LastNameInnerArray1",
+        "birth": "2021-03-17",
+        "age": 1
+      },
+      {
+        "firstName": "FirstNameInnerArray2",
+        "lastName": "LastNameInnerArray2",
+        "birth": "2021-03-17",
+        "age": 2
+      }
+    ],
+    "list": [
+      {
+        "users": [
+          {
+            "firstName": "FirstNameListUsers1",
+            "lastName": "LastNameListUsers1",
+            "birth": "2021-03-17",
+            "age": 1
+          },
+          {
+            "firstName": "FirstNameListUsers2",
+            "lastName": "LastNameListUsers2",
+            "birth": "2021-03-17",
+            "age": 2
+          }
+        ]
+      }
+    ]
+  },
+  "somethingAtTheEnd": {
+    "end": 0
+  }
+}

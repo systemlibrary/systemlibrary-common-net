@@ -1232,12 +1232,15 @@
 //    /// Encrypts data with a default key and default iv
 //    /// 
 //    /// Set the key by setting environment variable 'SYSLIBCRYPTATIONKEY', in either user or computer, to a value
-//    /// - If environment variable is not set, it will search for the first 'data protection key' file (named like 'key-**.xml') anywhere in root or any parent folder
+//    /// - If environment variable is not set, it will search for the first 'data protection key' file (format of file name is: 'key-*.xml') anywhere in root or any parent folder
 //    /// - If no key is configured, default key is used: ABCDEFGH098765432
 //    /// 
+//    /// Default key is 'ABCDEFGH098765432'
 //    /// Default iv is 16 bytes of 0
 //    ///
-//    /// If data is null or blank, it returns null or blank
+//    /// If data is null it returns null
+//    /// 
+//    /// Note: returns the bytes encrypted as a Base64 string representation
 //    /// </summary>
 //    public static string Encrypt(this string data)
 //    {
@@ -1248,22 +1251,8 @@
 //    /// Encrypts data with a user specific key and an optional iv
 //    /// 
 //    /// If data is null or blank, it returns null or blank
-//    /// </summary>
-//    public static string Encrypt(this string data, byte[] key, byte[] iv = null)
-//    {
-//        if (iv != null && iv.Length != 16)
-//            throw new Exception("Encryption aes-256 must receive a iv of 16 length");
-
-//        if (key != null && key.Length != 16 && key.Length != 32)
-//            throw new Exception("Key length must be either 16 or 32");
-
-//        return Cryptation.Encrypt(data, key, iv).ToBase64();
-//    }
-
-//    /// <summary>
-//    /// Encrypts data with a user specific key and an optional iv
 //    /// 
-//    /// If data is null or blank, it returns null or blank
+//    /// Note: returns the bytes encrypted as a Base64 string representation
 //    /// </summary>
 //    public static string Encrypt(this string data, string key, string iv = null)
 //    {
@@ -1271,27 +1260,69 @@
 //    }
 
 //    /// <summary>
-//    /// Decrypts data with a default key.
+//    /// Encrypts data with a user specific key and an optional iv
 //    /// 
-//    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
-//    /// 
-//    /// If data is null or blank, it returns null or blank
+//    /// If data is null it returns null
+//    ///
+//    /// Note: returns the bytes encrypted as a Base64 string representation
 //    /// </summary>
-//    public static string Decrypt(this string data)
+//    public static string Encrypt(this string data, byte[] key, byte[] iv = null)
 //    {
-//        return Cryptation.Decrypt(data, CryptationKey.Current, null, true);
+//        if (key != null && key.Length != 16 && key.Length != 32)
+//            throw new Exception("Key length must be either 16 or 32");
+
+//        if (iv != null && iv.Length != 16)
+//            throw new Exception("AES must receive an IV of 16 characters length");
+
+//        return Cryptation.Encrypt(data, key, iv).ToBase64();
 //    }
 
 //    /// <summary>
-//    /// Decrypts data with a user specific salt
-//    /// - If length is more than 16 it throws exception
-//    /// - If length is less than 16 it throws exception
+//    /// Decrypts data with a default key.
+//    /// 
+//    /// Can override the default key by either:
+//    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+//    /// - a dataprotection file in xml format (key-*.xml) stored in root or a parent folder
 //    /// 
 //    /// If data is null or blank, it returns null or blank
+//    /// 
+//    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
+//    /// </summary>
+//    public static string Decrypt(this string cipherText)
+//    {
+//        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, true);
+//    }
+
+//    /// <summary>
+//    /// Decrypts data with a key and an IV
+//    /// 
+//    /// - If key or IV is null, a default value is used
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// 
+//    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
+//    /// </summary>
+//    public static string Decrypt(this string cipherText, string key, string iv = null)
+//    {
+//        return Decrypt(cipherText, key.GetBytes(), iv.GetBytes());
+//    }
+
+//    /// <summary>
+//    /// Decrypts data with a key and an IV
+//    /// 
+//    /// - If key or IV is null, a default value is used
+//    /// 
+//    /// If data is null or blank, it returns null or blank
+//    /// 
+//    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
 //    /// </summary>
 //    public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
 //    {
-//        if (key.IsNot()) throw new Exception("Key cannot be null or empty");
+//        if (key != null && key.Length != 16 && key.Length != 32)
+//            throw new Exception("Key length must be either 16 or 32");
+
+//        if (iv != null && iv.Length != 16)
+//            throw new Exception("AES must receive an IV of 16 characters length");
 
 //        return Cryptation.Decrypt(cipherText, key, iv, false);
 //    }
@@ -1308,7 +1339,13 @@
 
 //        if (data.StartsWithAny("{", "[", " [", " {"))
 //        {
-//            if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
+//            if (data.EndsWithAny("}", "]",
+//                "} ", "] ",
+//                "}\n", "]\n",
+//                "]" + System.Environment.NewLine, "}" + System.Environment.NewLine,
+//                "]\r\n", "}\r\n",
+//                "] \r\n", "} \r\n"
+//                ))
 //                return true;
 //        }
 //        return false;

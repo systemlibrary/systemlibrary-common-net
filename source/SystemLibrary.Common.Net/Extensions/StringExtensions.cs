@@ -1238,6 +1238,8 @@ public static class StringExtensions
     /// Default iv is 16 bytes of 0
     ///
     /// If data is null it returns null
+    /// 
+    /// Note: returns the bytes encrypted as a Base64 string representation
     /// </summary>
     public static string Encrypt(this string data)
     {
@@ -1247,7 +1249,21 @@ public static class StringExtensions
     /// <summary>
     /// Encrypts data with a user specific key and an optional iv
     /// 
+    /// If data is null or blank, it returns null or blank
+    /// 
+    /// Note: returns the bytes encrypted as a Base64 string representation
+    /// </summary>
+    public static string Encrypt(this string data, string key, string iv = null)
+    {
+        return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
+    }
+
+    /// <summary>
+    /// Encrypts data with a user specific key and an optional iv
+    /// 
     /// If data is null it returns null
+    ///
+    /// Note: returns the bytes encrypted as a Base64 string representation
     /// </summary>
     public static string Encrypt(this string data, byte[] key, byte[] iv = null)
     {
@@ -1261,25 +1277,19 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Encrypts data with a user specific key and an optional iv
-    /// 
-    /// If data is null or blank, it returns null or blank
-    /// </summary>
-    public static string Encrypt(this string data, string key, string iv = null)
-    {
-        return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
-    }
-
-    /// <summary>
     /// Decrypts data with a default key.
     /// 
-    /// Can override the default key by setting environment variable on your computer 'SYSLIBCRYPTATIONKEY' to a value
+    /// Can override the default key by either:
+    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+    /// - a dataprotection file in xml format (key-*.xml) stored in root or a parent folder
     /// 
     /// If data is null or blank, it returns null or blank
+    /// 
+    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
     /// </summary>
-    public static string Decrypt(this string data)
+    public static string Decrypt(this string cipherText)
     {
-        return Cryptation.Decrypt(data, CryptationKey.Current, null, true);
+        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, true);
     }
 
     /// <summary>
@@ -1288,6 +1298,8 @@ public static class StringExtensions
     /// - If key or IV is null, a default value is used
     /// 
     /// If data is null or blank, it returns null or blank
+    /// 
+    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
     /// </summary>
     public static string Decrypt(this string cipherText, string key, string iv = null)
     {
@@ -1295,11 +1307,13 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Decrypts data with a user specific salt
-    /// - If length is more than 16 it throws exception
-    /// - If length is less than 16 it throws exception
+    /// Decrypts data with a key and an IV
+    /// 
+    /// - If key or IV is null, a default value is used
     /// 
     /// If data is null or blank, it returns null or blank
+    /// 
+    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
     /// </summary>
     public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
     {
@@ -1324,7 +1338,13 @@ public static class StringExtensions
 
         if (data.StartsWithAny("{", "[", " [", " {"))
         {
-            if (data.EndsWithAny("}", "]", "] ", "} ", "]\n", "}\n", "]\n ", "}\n "))
+            if(data.EndsWithAny("}", "]", 
+                "} ", "] ", 
+                "}\n", "]\n",
+                "]" + System.Environment.NewLine, "}" + System.Environment.NewLine,
+                "]\r\n", "}\r\n",
+                "] \r\n", "} \r\n"
+                ))
                 return true;
         }
         return false;
