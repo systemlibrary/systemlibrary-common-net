@@ -21,10 +21,10 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.1.0.1
-- Updated descriptions on Encrypt and Decrypt methods
-- Decrypt argument renamed to chiperText (breaking change)
-- string.Extension IsJson supports more ending variations
+- 7.1.0.2
+- Json() - a default TypeConverter added
+- Json() - overloaded method taking a option object and converter array
+- Json() - enum converter does not throw, it uses the ToEnum(type) as fallback (slow performance vice, reading attributes...)
 
 #### Version history
 - View git history of this file if interested

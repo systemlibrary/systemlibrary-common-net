@@ -125,4 +125,34 @@ public static class ObjectExtensions
 
         return JsonSerializer.Serialize(obj, options);
     }
+
+
+    /// <summary>
+    /// Convert object to json with your custom json converters
+    /// 
+    /// Returns a json formatted string representation of the object or null if object is null
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class User {
+    ///     public string FirstName { get;set; }
+    /// }
+    /// 
+    /// class CustomConverter : JsonConverter...
+    /// 
+    /// var user = new User();
+    /// user.FirstName = "Hello World";
+    /// var json = user.Json(new CustomConverter());
+    /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
+    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
+    /// </code>
+    /// </example>
+    public static string Json(this object obj, JsonSerializerOptions options, params JsonConverter[] jsonConverters)
+    {
+        if (obj == null) return null;
+
+        options = GetJsonSerializerOptions.Default(options, jsonConverters);
+
+        return JsonSerializer.Serialize(obj, options);
+    }
 }

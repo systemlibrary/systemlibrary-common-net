@@ -201,6 +201,7 @@ public static class StringExtensions
             return Activator.CreateInstance(type);
         }
 
+        // NOTE: This should be tried first, for performance (?)
         if (Enum.TryParse(enumType, text, true, out result))
             return result;
 
@@ -1230,9 +1231,11 @@ public static class StringExtensions
     /// <summary>
     /// Encrypts data with a default key and default iv
     /// 
-    /// Set the key by setting environment variable 'SYSLIBCRYPTATIONKEY', in either user or computer, to a value
-    /// - If environment variable is not set, it will search for the first 'data protection key' file (format of file name is: 'key-*.xml') anywhere in root or any parent folder
-    /// - If no key is configured, default key is used: ABCDEFGH098765432
+    /// Can override the default key by either:
+    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
     /// 
     /// Default key is 'ABCDEFGH098765432'
     /// Default iv is 16 bytes of 0
@@ -1249,6 +1252,8 @@ public static class StringExtensions
     /// <summary>
     /// Encrypts data with a user specific key and an optional iv
     /// 
+    /// If IV is null, defaults to 16 bytes of 0
+    /// 
     /// If data is null or blank, it returns null or blank
     /// 
     /// Note: returns the bytes encrypted as a Base64 string representation
@@ -1260,6 +1265,8 @@ public static class StringExtensions
 
     /// <summary>
     /// Encrypts data with a user specific key and an optional iv
+    /// 
+    /// If IV is null, defaults to 16 bytes of 0
     /// 
     /// If data is null it returns null
     ///
@@ -1281,7 +1288,11 @@ public static class StringExtensions
     /// 
     /// Can override the default key by either:
     /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
-    /// - a dataprotection file in xml format (key-*.xml) stored in root or a parent folder
+    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+    /// 
+    /// IV defaults to default 16 bytes of 0
     /// 
     /// If data is null or blank, it returns null or blank
     /// 
@@ -1295,7 +1306,13 @@ public static class StringExtensions
     /// <summary>
     /// Decrypts data with a key and an IV
     /// 
-    /// - If key or IV is null, a default value is used
+    /// If key is null, uses either:
+    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+    /// 
+    /// If IV is null, uses default 16 bytes of 0
     /// 
     /// If data is null or blank, it returns null or blank
     /// 

@@ -1282,7 +1282,8 @@
 //    /// 
 //    /// Can override the default key by either:
 //    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
-//    /// - a dataprotection file in xml format (key-*.xml) stored in root or a parent folder
+//    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+//    ///     - Ex: key-12345678-1234-1234-1234-123456789012
 //    /// 
 //    /// If data is null or blank, it returns null or blank
 //    /// 

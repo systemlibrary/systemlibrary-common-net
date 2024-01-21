@@ -12,7 +12,7 @@ namespace SystemLibrary.Common.Net
         {
             Type = typeof(TEnum);
         }
-        
+
         public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType == JsonTokenType.Number)
@@ -30,8 +30,8 @@ namespace SystemLibrary.Common.Net
                 if (!Enum.TryParse(Type, value, false, out var result)
                     && !Enum.TryParse(Type, value, true, out result))
                 {
-                    //TODO: Consider reading "attributes conversion" like "ToEnum<>()" does
-                    throw new JsonException("Could not convert " + value + " to Enum " + Type.Name);
+                    // NOTE: Fallback to ToEnum, reading attributes, not efficient
+                    return (TEnum)value.ToEnum(Type);
                 }
                 return (TEnum)result;
             }
