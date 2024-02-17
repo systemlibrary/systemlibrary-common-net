@@ -1,12 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using SystemLibrary.Common.Net.Extensions;
-
-namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
+﻿namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 
 //[TestClass]
 //public class IServiceCollectionExtensionsTests

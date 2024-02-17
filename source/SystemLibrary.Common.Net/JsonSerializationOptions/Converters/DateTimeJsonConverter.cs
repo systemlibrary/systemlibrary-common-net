@@ -4,17 +4,17 @@ using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net
 {
-	/// <summary>
-	/// DateTime json converter that takes a string format
-	/// </summary>
-	/// <example>
-	/// Example of an additional datetime converter:
-	/// <code>
-	/// var options = new JsonSerializationOptions();
-	/// options.Converters.Add(new DateTimeJsonConverter("yyyy/MM/dd hh:mm"));
-	/// </code>
-	/// </example>
-	public class DateTimeJsonConverter : JsonConverter<DateTime>
+    /// <summary>
+    /// DateTime json converter that takes a string format
+    /// </summary>
+    /// <example>
+    /// Example of an additional datetime converter:
+    /// <code>
+    /// var options = new JsonSerializationOptions();
+    /// options.Converters.Add(new DateTimeJsonConverter("yyyy/MM/dd hh:mm"));
+    /// </code>
+    /// </example>
+    public class DateTimeJsonConverter : JsonConverter<DateTime>
 	{
 		string Format;
 
