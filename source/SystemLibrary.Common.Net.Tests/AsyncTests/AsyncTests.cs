@@ -31,7 +31,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
         [TestMethod]
         public void Run_Multiple_Fire_And_Forget_Success()
         {
-            Async.FireAndForget(Ex,() => Call());
+            Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
 

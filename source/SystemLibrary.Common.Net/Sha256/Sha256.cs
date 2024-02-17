@@ -31,13 +31,13 @@ internal static class Sha256
                 }
             }
 
-            if(_SHA256 == null)
+            if (_SHA256 == null)
                 return SHA256.Create();
 
             return _SHA256;
         }
     }
-    
+
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;

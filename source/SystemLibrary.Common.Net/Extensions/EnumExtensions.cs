@@ -257,7 +257,7 @@ public static class EnumExtensions
     /// </example>
     public static object GetEnumValue(this Enum enumField)
     {
-        if (enumField == null) return null; 
+        if (enumField == null) return null;
 
         var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 

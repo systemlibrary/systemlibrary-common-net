@@ -72,7 +72,7 @@ internal static class Cryptation
             if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
 
             byte[] buffer = Convert.FromBase64String(cipherText);
-         
+
             try
             {
                 using (Aes aes = Aes.Create())

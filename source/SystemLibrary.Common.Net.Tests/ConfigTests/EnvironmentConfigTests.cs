@@ -5,14 +5,14 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     [TestClass]
     public class EnvironmentConfigTests
     {
-        [TestMethod] 
+        [TestMethod]
         public void Read_Environment_Config_Current_Instance()
         {
             var conf = EnvironmentConfig.Current;
 
             Assert.IsTrue(conf != null && conf.Name.Is(), "Name invalid");
 
-            if(conf.Name.Contains("rod"))
+            if (conf.Name.Contains("rod"))
                 Assert.IsTrue(!Configs.EnvironmentConfig.IsLocal, "Local is true");
             else
                 Assert.IsTrue(Configs.EnvironmentConfig.IsLocal, "Not local");
@@ -27,7 +27,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
 
             Assert.IsTrue(conf.Name.Is());
 
-            if(conf.Name == "Release" || conf.Name == "Debug" || conf.Name.Contains("rod") || conf.Name.Contains("dev"))
+            if (conf.Name == "Release" || conf.Name == "Debug" || conf.Name.Contains("rod") || conf.Name.Contains("dev"))
             {
                 //Do nothing...
             }
@@ -50,11 +50,11 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             {
                 Assert.IsTrue(Configs.EnvironmentConfig.IsProd, "Is test failed for environment startup: " + env);
             }
-            else if(env == "dev" || env == "development" || env == "local")
+            else if (env == "dev" || env == "development" || env == "local")
             {
                 Assert.IsTrue(Configs.EnvironmentConfig.IsLocal, "Is test failed for environment startup: " + env);
             }
-            else if(env == "unknown")
+            else if (env == "unknown")
             {
                 Assert.IsTrue(EnvironmentConfig.Current.Name.Is(), "env is unknown, but environment name is null");
             }

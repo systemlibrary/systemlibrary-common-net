@@ -6,11 +6,10 @@ namespace SystemLibrary.Common.Net
 {
     internal class EnumStringConverterFactory : JsonConverterFactory
     {
-        //readonly JsonStringEnumConverter stringEnumConverter;
+        static Type EnumStringConverterGenericType = typeof(EnumStringConverter<>);
 
         public EnumStringConverterFactory(JsonNamingPolicy namingPolicy = null, bool allowIntegerValues = true)
         {
-            //stringEnumConverter = new(namingPolicy, allowIntegerValues);
         }
 
         public override bool CanConvert(Type typeToConvert)
@@ -20,8 +19,8 @@ namespace SystemLibrary.Common.Net
 
         public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
         {
-            //TODO: Consider passing "options" to the generic factory...
-            return (JsonConverter)Activator.CreateInstance(typeof(EnumStringConverter<>).MakeGenericType(typeToConvert));
+            //TODO: Consider making this a singleton, created once
+            return (JsonConverter)Activator.CreateInstance(EnumStringConverterGenericType.MakeGenericType(typeToConvert));
         }
     }
 }

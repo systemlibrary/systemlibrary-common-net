@@ -26,7 +26,7 @@ public class EnumExtensionsTests
     public void Enum_To_Array()
     {
         var integers = new object[] { 1, 2, 3, 4 };
-        
+
         var colors = integers.AsEnumArray<Colors>();
 
         Assert.IsTrue(colors.Length == integers.Length);

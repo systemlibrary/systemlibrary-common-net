@@ -73,7 +73,7 @@ public class ByteArrayExtensionTests
 
         bytes = "Hello World".GetBytes();
         hash = bytes.ToSha256Hash();
-        Assert.IsTrue(hash.Length >= 95, "Length "+ hash.Length);
+        Assert.IsTrue(hash.Length >= 95, "Length " + hash.Length);
     }
 
     [TestMethod]

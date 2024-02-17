@@ -13,7 +13,7 @@ namespace SystemLibrary.Common.Net
 
             if (reader.TokenType == JsonTokenType.Number)
             {
-                if(reader.TryGetInt64(out long value)) return value;
+                if (reader.TryGetInt64(out long value)) return value;
 
                 return Convert.ToInt64(reader.GetDouble());
             }
@@ -30,7 +30,7 @@ namespace SystemLibrary.Common.Net
             {
                 return f;
             }
-            else if(double.TryParse(v, out double d))
+            else if (double.TryParse(v, out double d))
             {
                 return Convert.ToInt64(d);
             }

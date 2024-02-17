@@ -13,7 +13,7 @@ namespace SystemLibrary.Common.Net
                 using (Stream stream = asm.GetManifestResourceStream(path))
                 {
                     if (stream == null) return null;
-                    
+
                     if (stream.Length > int.MaxValue)
                         throw new Exception("The embedded resource is too large, max bytes supported is: " + int.MaxValue);
 

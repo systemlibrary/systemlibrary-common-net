@@ -31,13 +31,13 @@ internal static class Sha1
                 }
             }
 
-            if(_SHA1 == null)
+            if (_SHA1 == null)
                 return SHA1.Create();
 
             return _SHA1;
         }
     }
-    
+
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;

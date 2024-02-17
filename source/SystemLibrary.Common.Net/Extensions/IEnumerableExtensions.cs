@@ -87,7 +87,7 @@ public static class IEnumerableExtensions
 
         if (value == null) return false;
 
-        if(value is T t)
+        if (value is T t)
             return enumerable.Contains(t);
 
         return false;
@@ -118,7 +118,7 @@ public static class IEnumerableExtensions
         {
             if (iCollection is IList list)
                 return list.Count == 0 || (list.Count == 1 && list[0] == null);
-            
+
             return iCollection.Count == 0;
         }
 

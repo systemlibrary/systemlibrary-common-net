@@ -18,12 +18,12 @@ internal static class Obfuscate
         var span = text.AsSpan();
 
         if (deobfuscate)
-            salt = salt * -1; 
+            salt = salt * -1;
 
         var l = text.Length;
         var chars = new char[l];
 
-        for(int i = 0; i < span.Length; i++)
+        for (int i = 0; i < span.Length; i++)
         {
             chars[i] = (char)(span[i] - salt);
 

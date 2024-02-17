@@ -31,7 +31,7 @@ internal static class Md5
                 }
             }
 
-            if(_MD5 == null)
+            if (_MD5 == null)
                 return MD5.Create();
 
             return _MD5;

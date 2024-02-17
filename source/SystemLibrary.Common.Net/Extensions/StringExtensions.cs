@@ -189,7 +189,7 @@ public static class StringExtensions
                     if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
                     {
                         if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == text)
-                            if (Enum.TryParse(type,enumKey.Name, out result))
+                            if (Enum.TryParse(type, enumKey.Name, out result))
                                 return result;
                     }
                 }
@@ -721,7 +721,7 @@ public static class StringExtensions
         if (json.IsNot()) return null;
 
         var options = GetJsonSerializerOptions.Default(null, converters);
-        
+
         return JsonSerializer.Deserialize<T>(json, options);
     }
 
@@ -883,7 +883,7 @@ public static class StringExtensions
     {
         if (text == null) return null;
 
-        if(encoding == null)
+        if (encoding == null)
             return Encoding.UTF8.GetBytes(text);
 
         return encoding.GetBytes(text);
@@ -1165,10 +1165,10 @@ public static class StringExtensions
                     temp.Append("/" + parts[i]);
                 }
 
-                if(path.EndsWith("/"))
+                if (path.EndsWith("/"))
                     path = temp.ToString() + "/";
                 else
-                    path = temp.ToString(); 
+                    path = temp.ToString();
             }
 
             if (!path.StartsWith("/"))
@@ -1182,7 +1182,7 @@ public static class StringExtensions
             if (!path.StartsWith("\\"))
                 path = "\\" + path;
         }
-        
+
         if (path.Contains("/"))
         {
             ConvertWebPathToServerPath();
@@ -1193,7 +1193,7 @@ public static class StringExtensions
         }
 
         var contentRootPath = (string)null;
-        
+
         void FindContentRootPath()
         {
             contentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
@@ -1217,14 +1217,14 @@ public static class StringExtensions
                 contentRootPath = currentDir.FullName;
             }
 
-            if(wasInsideBin)
+            if (wasInsideBin)
             {
                 contentRootPath = new DirectoryInfo(contentRootPath).Parent.FullName;
             }
         }
 
         FindContentRootPath();
-            
+
         return contentRootPath + path;
     }
 
@@ -1355,8 +1355,8 @@ public static class StringExtensions
 
         if (data.StartsWithAny("{", "[", " [", " {"))
         {
-            if(data.EndsWithAny("}", "]", 
-                "} ", "] ", 
+            if (data.EndsWithAny("}", "]",
+                "} ", "] ",
                 "}\n", "]\n",
                 "]" + System.Environment.NewLine, "}" + System.Environment.NewLine,
                 "]\r\n", "}\r\n",

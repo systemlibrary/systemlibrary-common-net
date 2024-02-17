@@ -108,13 +108,13 @@ public class DumpTests
         {
             throw new Exception("Hello world2");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Dump.Write(ex);
         }
         var content = File.ReadAllText(DumpPath);
         Assert.IsTrue(content.Contains("Hello world1"), "!1");
-        Assert.IsTrue(content.Contains("Hello world2") ,"!2");
+        Assert.IsTrue(content.Contains("Hello world2"), "!2");
         Assert.IsFalse(content.Contains("Length"), "!Length");
     }
 
@@ -240,7 +240,7 @@ public class DumpTests
         yield return "12345";
     }
 
-        [TestMethod]
+    [TestMethod]
     public void Dump_Simple_Interface()
     {
         System.Threading.Thread.Sleep(275);
@@ -251,7 +251,7 @@ public class DumpTests
         var content = File.ReadAllText(DumpPath);
 
         Assert.IsTrue(content.Contains("Interface name..."));
-        
+
         Dump.Clear();
     }
 
@@ -386,7 +386,7 @@ public class DumpTests
             Dump.Write(i);
         }
 
-        for(int i = 0; i < 1000; i++)
+        for (int i = 0; i < 1000; i++)
         {
             tasks.Add(Task.Run(() => Wr(i + " nr")));
         }

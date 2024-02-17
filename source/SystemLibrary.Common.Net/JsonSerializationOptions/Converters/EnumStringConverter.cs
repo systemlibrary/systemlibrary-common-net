@@ -16,7 +16,14 @@ namespace SystemLibrary.Common.Net
         public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType == JsonTokenType.Number)
-                return (TEnum)(object)reader.GetInt32();
+            {
+                if (reader.TryGetInt32(out int i32))
+                    return (TEnum)(object)i32;
+
+                if (reader.TryGetInt64(out long i64))
+                    return (TEnum)(object)i64;
+            }
+
 
             if (reader.TokenType == JsonTokenType.Null || reader.TokenType == JsonTokenType.False)
                 return default;

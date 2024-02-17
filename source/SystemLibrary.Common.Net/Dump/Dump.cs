@@ -158,7 +158,7 @@ public static class Dump
             logString.Append(" collection count: " + ic.Count + "\n");
         else if (e.GetType().Name.StartsWith("<") && e.GetType().Name.Contains("__"))
             logString.Append(" enumerable function count" + "\n");
-        else 
+        else
             logString.Append(" unknown count" + "\n");
 
         if (e is IDictionary || e is IList || e is Array || e is ICollection)
@@ -184,13 +184,13 @@ public static class Dump
     {
         if (type == SystemType.ExceptionType ||
             type.Name == "NullReferenceException" ||
-            type.Name == "RuntimeType" || 
+            type.Name == "RuntimeType" ||
             type.Name == "RuntimeMethodInfo" ||
             type.Name == "ModelBindingMessageProvider" ||
             type.Name == "")
             return;
 
-        if(type.Name == "RuntimeAssembly" ||
+        if (type.Name == "RuntimeAssembly" ||
             type.Name == "Constructor")
         {
             logString.Append(type.Name + (IsClassType(type) ? " (class, skipped)" : ""));
@@ -411,10 +411,10 @@ public static class Dump
         else if (value is long?)
             return (value as long?).Value + "";
 
-        else if(value is Memory<string> memString)
+        else if (value is Memory<string> memString)
             return memString.Span.ToString();
 
-        else if(value is Memory<bool> memBool)
+        else if (value is Memory<bool> memBool)
             return memBool.Span.ToString();
 
         else if (value is Memory<int> memInt)
@@ -423,7 +423,7 @@ public static class Dump
         else if (value is Memory<DateTime> memDateTime)
             return memDateTime.Span.ToString();
 
-        else if(value is ReadOnlyMemory<string> romString)
+        else if (value is ReadOnlyMemory<string> romString)
             return romString.Span.ToString();
 
         else if (value is ReadOnlyMemory<int> romInt)

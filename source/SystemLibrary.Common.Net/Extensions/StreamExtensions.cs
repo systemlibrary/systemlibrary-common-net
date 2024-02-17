@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SystemLibrary.Common.Net.Extensions;
@@ -22,13 +23,13 @@ public static class StreamExtensions
     ///    return await contentStream.ToJsonAsync&lt;T&gt;(jsonSerializerOptions).ConfigureAwait(false);
     /// </code>
     /// </example>
-    public static async Task<T> ToJsonAsync<T>(this Stream stream, JsonSerializerOptions options = null) where T : class
+    public static async Task<T> JsonAsync<T>(this Stream stream, JsonSerializerOptions options = null, CancellationToken cancellationToken = default)
     {
         if (stream == null) return default;
 
         options = GetJsonSerializerOptions.Default(options);
 
-        return await JsonSerializer.DeserializeAsync<T>(stream, options).ConfigureAwait(false);
+        return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken).ConfigureAwait(false);
     }
 
     /// <summary>

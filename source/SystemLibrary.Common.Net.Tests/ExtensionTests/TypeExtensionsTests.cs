@@ -7,7 +7,7 @@ using SystemLibrary.Common.Net.Extensions;
 namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 
 [TestClass]
-public class TypeExtensionsTests 
+public class TypeExtensionsTests
 {
     [TestMethod]
     public void Type_Inherits()

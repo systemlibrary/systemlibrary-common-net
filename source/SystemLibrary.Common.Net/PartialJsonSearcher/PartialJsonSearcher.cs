@@ -4,7 +4,7 @@ namespace SystemLibrary.Common.Net
 {
     internal static partial class PartialJsonSearcher
     {
-        public static T Search<T>(string json, string propertySearchPath = null, JsonSerializerOptions options = null, bool returnPropertyValue = false) 
+        public static T Search<T>(string json, string propertySearchPath = null, JsonSerializerOptions options = null, bool returnPropertyValue = false)
         {
             if (json.IsNot()) return default;
 

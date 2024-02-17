@@ -22,7 +22,7 @@ public static class ByteArrayExtensions
     public static string ToBase64(this byte[] bytes)
     {
         if (bytes == null) return null;
-        
+
         // Research performance? Add compress to base64? Or a new method .Compress extension?
         //https://learn.microsoft.com/en-us/answers/questions/226531/c-best-method-to-reduce-size-of-large-string-data.html
 
@@ -46,7 +46,7 @@ public static class ByteArrayExtensions
 
         if (bytes.Length == 0) return "";
 
-        if(encoding == null)
+        if (encoding == null)
             return System.Text.Encoding.UTF8.GetString(bytes);
 
         return encoding.GetString(bytes);

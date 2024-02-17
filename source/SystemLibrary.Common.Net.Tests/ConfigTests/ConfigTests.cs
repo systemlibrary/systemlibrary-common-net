@@ -8,7 +8,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
     [TestClass]
     public class ConfigTests
     {
-        [TestMethod] 
+        [TestMethod]
         public void Read_Non_Existing_Settings_Does_Not_Throw()
         {
             var conf = NonExistingSettings.Current;
@@ -24,20 +24,20 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             var environment = EnvironmentConfig.Current.Name;
 
             Assert.IsTrue(conf != null, "A file 'CarSettings.xml' or 'CarSettings.json' must exist in either ~/Configs/ or ~/Configurations/ or root: ~/");
-            
+
             if (environment == "Release")
             {
                 Assert.IsTrue(conf.FirstName?.Contains("Release") == true, "firstname is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.lastname?.Contains("Release") == true, "LastName is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.age > 200, "Age is an invalid int, or not within the range");
             }
-            else if(environment == "Debug")
+            else if (environment == "Debug")
             {
                 //NOTE: We are building "Release" configuration, so the test setting "Debug" do not work, unless we also specify a 'Debug' transformation file  
                 //Assert.IsTrue(conf.lastname?.Contains("Release") == false, "LastName contains Release: " + conf.lastname);
                 Assert.IsTrue(conf.age > 0 && conf.age < 200, "Age is an invalid int, or not within the range");
             }
-            else if(environment == "Unknown" || environment == "Untransformed")
+            else if (environment == "Unknown" || environment == "Untransformed")
             {
                 //Unknown configuration mode not created test for yet
                 Assert.IsTrue(!conf.FirstName.Contains("Release"), "FirstName contains release during Unknown/Untransformed");
@@ -66,7 +66,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
                 Assert.IsTrue(conf.lastname?.Contains("Release") == true, "LastName is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.age > 200, "Age is an invalid int, or not within the range");
             }
-            else if(environment == "Debug")
+            else if (environment == "Debug")
             {
                 Assert.IsTrue(conf.FirstName?.Contains("Debug") == true, "firstname is invalid, it must be get; and set; property");
                 Assert.IsTrue(conf.lastname?.Contains("Debug") == true, "LastName is invalid, it must be get; and set; property");

@@ -91,7 +91,7 @@ public static class ObjectExtensions
 
         options = GetJsonSerializerOptions.Default(options);
 
-        if(!translateUnicodeCodepoints)
+        if (!translateUnicodeCodepoints)
             return JsonSerializer.Serialize(obj, options);
 
         return JsonSerializer.Serialize(obj, options).TranslateUnicodeCodepoints();
@@ -120,7 +120,7 @@ public static class ObjectExtensions
     public static string Json(this object obj, params JsonConverter[] jsonConverters)
     {
         if (obj == null) return null;
-        
+
         var options = GetJsonSerializerOptions.Default(null, jsonConverters);
 
         return JsonSerializer.Serialize(obj, options);

@@ -13,6 +13,7 @@ static internal class GetJsonSerializerOptions
     {
         if (options.Converters?.Count > 0) return;
 
+        // NOTE: Optimize by creating these converters just once during app run time, they can be singleton IIRC
         options.Converters.Add(new EnumStringConverterFactory());
         options.Converters.Add(new JsonStringEnumConverter());
         options.Converters.Add(new IntJsonConverter());
@@ -65,10 +66,10 @@ static internal class GetJsonSerializerOptions
         {
             AddConverters(options);
 
-            if (options.MaxDepth < 2)
+            if (options.MaxDepth < 0)
                 options.MaxDepth = DefaultJsonSerializerOptions.MaxDepth;
         }
-        
+
         return options;
     }
 }

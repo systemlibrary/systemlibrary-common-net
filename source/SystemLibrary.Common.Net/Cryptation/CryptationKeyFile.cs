@@ -37,7 +37,7 @@ internal static class CryptationKeyFile
 
                     var currentSearchDir = new DirectoryInfo(root);
 
-                    while(maxSearchDepth > 0)
+                    while (maxSearchDepth > 0)
                     {
                         var fullName = GetKeyFileFullName(currentSearchDir.FullName);
 
@@ -53,8 +53,8 @@ internal static class CryptationKeyFile
 
                         maxSearchDepth--;
                     }
-                    
-                    if(_Name == null)
+
+                    if (_Name == null)
                         _Name = "";
                 }
             }

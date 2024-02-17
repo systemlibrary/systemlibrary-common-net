@@ -21,9 +21,9 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.1.0.3
-- Json() - Int64/long converter fall back to try parsing double, which again is converted to int64
-- Update dep packages to latest 7 versions
+- 7.2.0.1
+- StreamExtension: ToJsonAsync renamed to JsonAsync (breaking change)
+- StreamExtension: ToJsonAsync no where clause on Class, can pass in "anything" as T
 
 #### Version history
 - View git history of this file if interested

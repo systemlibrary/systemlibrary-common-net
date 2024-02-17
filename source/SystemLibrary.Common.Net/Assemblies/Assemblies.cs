@@ -156,7 +156,7 @@ namespace SystemLibrary.Common.Net
         /// <typeparam name="TAttributeType">Type of class that inherits Attribute</typeparam>
         /// <returns>An IEnumerable of Type</returns>
         public static IEnumerable<Type> FindAllTypesInheritingWithAttribute<TClassType, TAttributeType>()
-            where TClassType : class 
+            where TClassType : class
             where TAttributeType : Attribute
         {
             return FindTypesInheriting(typeof(TClassType), typeof(TAttributeType));

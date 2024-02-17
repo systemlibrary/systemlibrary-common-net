@@ -39,7 +39,7 @@ public class StringExtensionsTests
         var key = "aaaaa.CCCDDeeeFF-GGGG.HHHiiiii";
         var iv = "1122334455666-";
 
-        for(var i = 10; i < 100; i++)
+        for (var i = 10; i < 100; i++)
         {
             var tempKey = key + i;
             var tempIv = iv + i;

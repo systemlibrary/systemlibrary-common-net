@@ -50,7 +50,7 @@ public class StringExtensionsBenchmarks
             if (res.Length == 0)
                 Dump.Write("Never occurs - just so the setup is being ran and not ignored");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Dump.Write(ex);
         }

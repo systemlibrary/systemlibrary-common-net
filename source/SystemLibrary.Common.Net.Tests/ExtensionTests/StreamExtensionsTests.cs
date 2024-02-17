@@ -106,7 +106,7 @@ public class StreamExtensionsTests
                 writer.Flush();
                 memory.Seek(0, SeekOrigin.Begin);
 
-                var response = memory.ToJsonAsync<Data>().GetAwaiter().GetResult();
+                var response = memory.JsonAsync<Data>().GetAwaiter().GetResult();
 
                 Assert.IsTrue(data != null);
 
