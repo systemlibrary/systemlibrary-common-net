@@ -21,10 +21,9 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.1.0.2
-- Json() - a default TypeConverter added
-- Json() - overloaded method taking a option object and converter array
-- Json() - enum converter does not throw, it uses the ToEnum(type) as fallback (slow performance vice, reading attributes...)
+- 7.1.0.3
+- Json() - Int64/long converter fall back to try parsing double, which again is converted to int64
+- Update dep packages to latest 7 versions
 
 #### Version history
 - View git history of this file if interested

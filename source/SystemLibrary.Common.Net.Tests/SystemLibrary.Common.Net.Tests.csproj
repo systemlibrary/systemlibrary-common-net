@@ -51,6 +51,7 @@
 		<None Remove="Configs\AppSettings\appSettings.json" />
 		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
+		<None Remove="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
 		<None Remove="mstest.runsettings" />
 		<None Remove="_Files\data-array-space-and-newline.json" />
 		<None Remove="_Files\data-new-line.json" />
@@ -59,6 +60,7 @@
 		<None Remove="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
 	  <EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
 	  <EmbeddedResource Include="_Files\data-new-line.json" />
 	  <EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
@@ -128,9 +130,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-		<PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
-		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.2.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.2.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />

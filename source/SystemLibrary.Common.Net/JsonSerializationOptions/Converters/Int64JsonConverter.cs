@@ -12,7 +12,11 @@ namespace SystemLibrary.Common.Net
                 return 0;
 
             if (reader.TokenType == JsonTokenType.Number)
-                return reader.GetInt64();
+            {
+                if(reader.TryGetInt64(out long value)) return value;
+
+                return Convert.ToInt64(reader.GetDouble());
+            }
 
             if (reader.TokenType == JsonTokenType.True)
                 return 1;
@@ -20,41 +24,25 @@ namespace SystemLibrary.Common.Net
             if (reader.TokenType == JsonTokenType.False)
                 return 0;
 
-            if (reader.TokenType == JsonTokenType.String)
-                return long.Parse(reader.GetString());
+            var v = reader.GetString();
 
-            throw new JsonException("Error reading: " + reader.GetString() + " into an Int64/long");
+            if (long.TryParse(v, out long f))
+            {
+                return f;
+            }
+            else if(double.TryParse(v, out double d))
+            {
+                return Convert.ToInt64(d);
+            }
+            else
+            {
+                throw new JsonException("Error reading: " + reader.GetString() + " into an Int64/long");
+            }
         }
 
         public override void Write(Utf8JsonWriter writer, long value, JsonSerializerOptions options)
         {
             writer.WriteNumberValue(value);
-        }
-    }
-
-    // Creds: https://stackoverflow.com/questions/66919668/net-core-graphql-graphql-systemtextjson-serialization-and-deserialization-of
-    internal class TypeConverter : JsonConverter<Type>
-    {
-        public override Type Read(
-            ref Utf8JsonReader reader,
-            Type typeToConvert,
-            JsonSerializerOptions options
-            )
-        {
-            var assemblyQualifiedName = reader.GetString();
-
-            if (assemblyQualifiedName == null) return default;
-
-            return Type.GetType(assemblyQualifiedName);
-        }
-
-        public override void Write(
-            Utf8JsonWriter writer,
-            Type value,
-            JsonSerializerOptions options
-            )
-        {
-            writer.WriteStringValue(value?.AssemblyQualifiedName);
         }
     }
 }

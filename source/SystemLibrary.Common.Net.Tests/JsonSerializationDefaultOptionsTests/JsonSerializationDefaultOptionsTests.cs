@@ -58,6 +58,29 @@ public class JsonSerializationDefaultOptionsTests
         Assert.IsTrue(textWithUnicodeCodepoints == "Strømmen Strømmen", textWithUnicodeCodepoints);
         Assert.IsTrue(norwegianLetters == "æøåÆØÅ", norwegianLetters);
     }
+
+    [TestMethod]
+    public void Json_DataWithAllNumberTypes_Converted_Success()
+    {
+        var text = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithAllNumberTypes.json");
+
+        var data = text.Json<DataWithAllNumberTypesModels>();
+
+        Assert.IsTrue(data != null);
+
+        Assert.IsTrue(data.inner[0].attributes.id > 1, "First element, id is wrong");
+        Assert.IsTrue(data.inner[0].attributes.deci > 1, "First element, deci is wrong");
+        Assert.IsTrue(data.inner[0].attributes.name.Is(), "First element, name is wrong");
+        Assert.IsTrue(data.inner[0].attributes.anotherId.ToString().EndsWith("2"), "First element, anotherid is wrong");
+
+        Assert.IsTrue(data.inner[1].attributes.id > 285222112, "Second element, id is wrong");
+        Assert.IsTrue(data.inner[1].attributes.deci > 285222112, "Second element, deci is wrong");
+        Assert.IsTrue(data.inner[1].attributes.name.Is(), "Second element, name is wrong");
+        Assert.IsTrue(data.inner[1].attributes.anotherId.ToString().EndsWith("2"), "Second element, anotherid is wrong");
+
+        Assert.IsTrue(data.inner[2].attributes.deci == 123, "Third element, deci is wrong");
+        Assert.IsTrue(data.inner[2].attributes.deci == 123.0, "Third element, deci is wrong");
+    }
 }
 
 public class Car
