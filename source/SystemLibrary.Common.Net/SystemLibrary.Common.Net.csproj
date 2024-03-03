@@ -10,11 +10,11 @@
 		<DefaultItemExcludes>$(DefaultItemExcludes);Release.cmd;**\*.nupkg;nuget-icon.png;</DefaultItemExcludes>
 		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 		<DebugType>pdbonly</DebugType>
-		<GenerateDocumentationFile>False</GenerateDocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PackageOutputPath>..\SystemLibrary.Common.Net</PackageOutputPath>
 		<Company>System Library</Company>
 		<Authors>System Library</Authors>
-		<Product>$(AssemblyVersion)</Product>
+		<Product>$(Version)</Product>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -89,7 +89,7 @@
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageTags>C# .NET 7.0 Config Extensions</PackageTags>
 		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-version</PackageReleaseNotes>
-		<AssemblyVersion></AssemblyVersion>
+		<AssemblyVersion>$(NugetVersion)</AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>
 	</PropertyGroup>
 </Project>
