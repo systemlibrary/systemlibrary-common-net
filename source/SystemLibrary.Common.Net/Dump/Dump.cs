@@ -508,15 +508,11 @@ public static class Dump
     {
         try
         {
-            try
-            {
-                readWriteLock.AcquireWriterLock(12);
-            }
-            catch
-            {
-            }
+            readWriteLock.AcquireWriterLock(125);
 
             File.AppendAllText(LogFullPath, message, Encoding.UTF8);
+
+            readWriteLock.ReleaseWriterLock();
         }
         catch (Exception ex)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
@@ -111,5 +112,23 @@ public static class TypeExtensions
             return type.GenericTypeArguments[0].Name;
 
         return type.Name;
+    }
+
+    public static Type GetFirstGenericType(this Type type)
+    {
+        if (type == null || !type.IsGenericType) return default;
+
+        foreach (Type @interface in type.GetInterfaces())
+        {
+            if (@interface.IsGenericType)
+            {
+                if (@interface.GetGenericTypeDefinition() == typeof(ICollection<>))
+                    return @interface.GetGenericArguments()[0];
+                else if (@interface.GetGenericTypeDefinition() == typeof(IList<>))
+                    return @interface.GetGenericArguments()[0];
+            }
+        }
+
+        return type.GetGenericArguments()[0];
     }
 }

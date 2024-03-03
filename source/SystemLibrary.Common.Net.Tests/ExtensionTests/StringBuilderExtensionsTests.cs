@@ -175,4 +175,71 @@ public class StringBuilderExtensionsTests
         expected = false;
         Assert.IsTrue(result == expected, "ÆØÅ 8 errored");
     }
+
+    [TestMethod]
+    public void IndexOf_Success()
+    {
+        StringBuilder sb = null;
+        int result = 0;
+        int expected = -1;
+
+        result = sb.IndexOf("abc");
+        Assert.IsTrue(result == expected, "abc 1 errored");
+
+        sb = new StringBuilder();
+        result = sb.IndexOf("abc");
+        Assert.IsTrue(result == expected, "abc 2 errored");
+
+        sb = new StringBuilder("");
+        result = sb.IndexOf("abc");
+        Assert.IsTrue(result == expected, "abc 3 errored");
+
+        sb = new StringBuilder("ab");
+        result = sb.IndexOf("abc");
+        Assert.IsTrue(result == expected, "abc 4 errored");
+
+        sb = new StringBuilder("abc");
+        result = sb.IndexOf("abc");
+        expected = 0;
+        Assert.IsTrue(result == expected, "abc 5 errored " + result);
+
+        sb = new StringBuilder(" abc");
+        result = sb.IndexOf("abc");
+        expected = 1;
+        Assert.IsTrue(result == expected, "abc 6 errored " + result);
+
+        sb = new StringBuilder("ABC abc");
+        result = sb.IndexOf("abc");
+        expected = 4;
+        Assert.IsTrue(result == expected, "abc 7 errored " + result);
+
+        sb = new StringBuilder("\t\t\t\t\n\n\nn\nHELLO WORLDabcDEF!");
+        result = sb.IndexOf("abc");
+        expected = 20;
+        Assert.IsTrue(result == expected, "abc 8 errored " + result);
+
+        sb = new StringBuilder("\t\t\t\t\n\n\nn\nHELLO WORLDabc");
+        result = sb.IndexOf("abc");
+        expected = 20;
+        Assert.IsTrue(result == expected, "abc 9 errored " + result);
+
+        sb = new StringBuilder("abc\t\t\t\t\n\n\nn\nHELLO WORLDabc");
+        result = sb.IndexOf("abc");
+        expected = 0;
+        Assert.IsTrue(result == expected, "abc 10 errored " + result);
+
+        sb = new StringBuilder("\t\t\t\t\n\n\nn\nHELLO WORLDabcDEF!");
+        result = sb.IndexOf("ABC", true);
+        expected = 20;
+        Assert.IsTrue(result == expected, "abc 11 errored " + result);
+
+        sb = new StringBuilder("\t\t\t\t\n\n\nn\nHELLO WORLDDEF!      ABC");
+        result = sb.IndexOf("abc", true);
+        expected = 30;
+        Assert.IsTrue(result == expected, "abc 12 errored " + result);
+
+        sb.Insert(result, "HELLO");
+        result = sb.IndexOf("helloAbC", true);
+        Assert.IsTrue(result == expected, "abc 13 errored " + result);
+    }
 }

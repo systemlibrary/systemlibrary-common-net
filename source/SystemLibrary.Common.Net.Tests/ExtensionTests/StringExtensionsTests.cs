@@ -761,6 +761,37 @@ public class StringExtensionsTests
     }
 
     [TestMethod]
+    public void Convert_ToBOM_Success()
+    {
+        var bomBytes = new byte[] {
+            239,
+            187,
+            191
+        };
+        var bomChar = Encoding.UTF8.GetString(bomBytes);
+
+        var test = "".ToUtf8BOM();
+        var expected = "";
+
+        Assert.IsTrue(test == expected, "Err1: " + test);
+
+        test = "ÆØÅæøå?".ToUtf8BOM();
+        expected = "ÆØÅæøå?";
+
+        Assert.IsTrue(test == bomChar + expected, "Err2: " + test);
+
+        test = "ÆØÅæøå?".ToUtf8BOM().ToUtf8BOM().ToUtf8BOM().ToUtf8BOM().ToUtf8BOM();
+        expected = "ÆØÅæøå?";
+
+        Assert.IsTrue(test == bomChar + expected, "Err3: " + test);
+
+        test = "ÆØÅæøå?".ToUtf8BOM();
+        expected = "ÆØÅæøå?".ToUtf8BOM();
+
+        Assert.IsTrue(test == expected, "Err4: " + test);
+    }
+
+    [TestMethod]
     public void To_Serer_Mapped_Path()
     {
         string text = null;
@@ -815,7 +846,6 @@ public class StringExtensionsTests
         result = text.ToServerMapPath();
         Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b", result);
     }
-
 
     [TestMethod]
     public void Encrypt_And_Decrypt_Is_Success()
@@ -908,6 +938,8 @@ public class StringExtensionsTests
     {
         Decrypt_In_Async_Startup_Success_Counter++;
     }
+
+
 
     [TestMethod]
     public void Decrypt_In_Async_Startup_Success()

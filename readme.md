@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.2.0.1
-- StreamExtension: ToJsonAsync renamed to JsonAsync (breaking change)
-- StreamExtension: ToJsonAsync no where clause on Class, can pass in "anything" as T
+- 7.2.1.5
+- Added generating doc for outputting comments
 
 #### Version history
 - View git history of this file if interested

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
@@ -84,5 +85,59 @@ public static class StringBuilderExtensions
             }
         }
         return false;
+    }
+
+    //Creds: https://stackoverflow.com/questions/1359948/why-doesnt-stringbuilder-have-indexof-method
+    /// <summary>
+    /// Returns the index of the text within the StringBuilder or -1 if not found
+    /// </summary>        
+    /// <param name="text">The string to find</param>
+    /// <param name="start">The starting index.</param>
+    /// <param name="ignoreCase">if set to <c>true</c> it will ignore case</param>
+    public static int IndexOf(this StringBuilder stringBuilder, string text, bool ignoreCase = false, int start = 0)
+    {
+        if (stringBuilder == null) return -1;
+
+        if (text == null) return -1;
+
+        int index;
+        int length = text.Length;
+
+        if (length > stringBuilder.Length) return -1;
+
+        int maxSearchLength = (stringBuilder.Length - length) + 1;
+
+        if (ignoreCase)
+        {
+            for (int i = start; i < maxSearchLength; ++i)
+            {
+                if (Char.ToLower(stringBuilder[i]) == Char.ToLower(text[0]))
+                {
+                    index = 1;
+                    while ((index < length) && (Char.ToLower(stringBuilder[i + index]) == Char.ToLower(text[index])))
+                        ++index;
+
+                    if (index == length)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
+
+        for (int i = start; i < maxSearchLength; ++i)
+        {
+            if (stringBuilder[i] == text[0])
+            {
+                index = 1;
+                while ((index < length) && (stringBuilder[i + index] == text[index]))
+                    ++index;
+
+                if (index == length)
+                    return i;
+            }
+        }
+
+        return -1;
     }
 }

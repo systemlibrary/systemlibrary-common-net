@@ -10,6 +10,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Web;
 
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Options;
@@ -1449,5 +1450,56 @@ public static class StringExtensions
 
             return encoding.GetString(output.ToArray());
         }
+    }
+
+    /// <summary>
+    /// Returns html encoded version of the input.
+    /// 
+    /// Example: &lt;p&gt; becomes &lt ;p&gt ; (without spaces of course)
+    /// 
+    /// Returns null or blank, if input is null or blank
+    /// </summary>
+    public static string HtmlEncode(this string text)
+    {
+        if (text.Is())
+            return HttpUtility.HtmlEncode(text);
+
+        return text;
+    }
+
+    /// <summary>
+    /// Returns html version of the html encoded input
+    /// 
+    /// Example: &lt ;p& gt; (without spaces of course) becomes &lt;p&gt; 
+    /// 
+    /// Returns null or blank, if input is null or blank
+    /// </summary>
+    public static string HtmlDecode(this string htmlEncodedText)
+    {
+        if (htmlEncodedText.Is())
+            return HttpUtility.HtmlDecode(htmlEncodedText);
+
+        return htmlEncodedText;
+    }
+
+    public static string ToUtf8BOM(this string text)
+    {
+        if (text.IsNot()) return text;
+
+        var first = (text[0] + "").GetBytes();
+
+        if(first?.Length == 3)
+        {
+            if (first[0] == 239 && first[1] == 187 && first[2] == 191)
+            {
+                return text;
+            }
+        }
+
+        var utf8BOM = new UTF8Encoding(true, false);
+        var lvBOM = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+        var bytes = utf8BOM.GetBytes(lvBOM + text);
+
+        return Encoding.UTF8.GetString(bytes);
     }
 }

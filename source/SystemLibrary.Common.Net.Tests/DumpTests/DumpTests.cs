@@ -374,7 +374,7 @@ public class DumpTests
     [TestMethod]
     public void Dump_Write_Async()
     {
-        System.Threading.Thread.Sleep(900);
+        System.Threading.Thread.Sleep(0);
         var dict = new ConcurrentDictionary<string, string>();
 
         var tasks = new List<Task>();
@@ -401,6 +401,6 @@ public class DumpTests
 
         Assert.IsTrue(content.Length > 10000);
 
-        Dump.Clear();
+        //Dump.Clear();
     }
 }

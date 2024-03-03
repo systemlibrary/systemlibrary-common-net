@@ -32,4 +32,44 @@ public class TypeExtensionsTests
         res = listType.Inherits(enumerableType);
         Assert.IsTrue(res);
     }
+
+    [TestMethod]
+    public void Type_Get_First_Generic_Type()
+    {
+        var type = typeof(IList<string>);
+        var expected = typeof(string);
+        var res = type.GetFirstGenericType();
+
+        Assert.IsTrue(res == expected);
+
+        type = typeof(string);
+        expected = null;
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected);
+
+        type = null;
+        expected = null;
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected);
+
+        type = typeof(int);
+        expected = null;
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected, "int");
+
+        type = typeof(List<int>);
+        expected = typeof(int);
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected, "List int");
+
+        type = typeof(Dictionary<string, object>);
+        expected = typeof(KeyValuePair<string,object>);
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected, "Dictionary keyvaluepair");
+
+        type = typeof(Dictionary<int, List<int>>);
+        expected = typeof(KeyValuePair<int, List<int>>);
+        res = type.GetFirstGenericType();
+        Assert.IsTrue(res == expected, "Dictionary keyvaluepair list of int");
+    }
 }
