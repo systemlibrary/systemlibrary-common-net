@@ -66,7 +66,7 @@ static internal class GetJsonSerializerOptions
         {
             AddConverters(options);
 
-            if (options.MaxDepth < 0)
+            if (options.MaxDepth <= 0)
                 options.MaxDepth = DefaultJsonSerializerOptions.MaxDepth;
         }
 
