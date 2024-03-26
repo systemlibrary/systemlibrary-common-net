@@ -49,6 +49,19 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
+    public void Convert_User_WithNorwegian_Characters_To_String_Not_Camel_Casing()
+    {
+        User user = new User();
+        user.Age = 10;
+        user.FirstName = "ÆØÅ æøå";
+
+        var json = user.Json();
+
+        Assert.IsTrue(json.Contains("ÆØÅ æøå"));
+        Assert.IsTrue(json.Contains("FirstName"));
+    }
+
+    [TestMethod]
     public void Convert_User_To_String_With_Custom_Converter()
     {
         User user = new User();

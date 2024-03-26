@@ -1,5 +1,8 @@
-﻿using System.Text.Json;
+﻿
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Unicode;
 
 namespace SystemLibrary.Common.Net;
 
@@ -30,6 +33,16 @@ static internal class GetJsonSerializerOptions
         {
             var options = new JsonSerializerOptions
             {
+                Encoder = JavaScriptEncoder.Create(
+                    UnicodeRanges.BasicLatin,
+                    UnicodeRanges.LatinExtendedA,
+                    UnicodeRanges.LatinExtendedB,
+                    UnicodeRanges.LatinExtendedAdditional,
+                    UnicodeRanges.LatinExtendedC,
+                    UnicodeRanges.Latin1Supplement,
+                    UnicodeRanges.CurrencySymbols,
+                    UnicodeRanges.Cyrillic,
+                    UnicodeRanges.GreekandCoptic),
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
                 MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
                 AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,

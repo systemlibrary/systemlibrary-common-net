@@ -21,10 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.2.1.6
-- Json: MaxDepth < 0 before using the default, changed to: If it is 0 or less, it uses the default level
-- Dump.Write: duplicated ReleaseLock invokes, removed one and added basck Try-Catch surrounding acquiring lock
-- GenerateDoc: False, from True, as the comments are too long and 'ugly', need to rephrase them all
+- 7.3.0.1
+- Json: Unicode Ranges added by default: Latin, Cyrilic, MathSymbols
 
 #### Version history
 - View git history of this file if interested
