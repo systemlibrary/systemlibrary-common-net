@@ -1,10 +1,9 @@
-﻿
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 3, launchCount: 3, iterationCount: 4, invocationCount: 50)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 3, launchCount: 3, iterationCount: 4, invocationCount: 75)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringExtensionsBenchmarks
@@ -164,4 +163,6 @@ public class StringExtensionsBenchmarks
     {
         return kiloBytes550.ToSha256Hash();
     }
+
+
 }

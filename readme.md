@@ -21,8 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.3.0.1
-- Json: Unicode Ranges added by default: Latin, Cyrilic, MathSymbols
+- 7.3.0.2
+- ReadOnlySpan<Char>: two extensions added, ToBase64 and GetBytes(), outperforming Substring when converting a part of a string to base64
 
 #### Version history
 - View git history of this file if interested
