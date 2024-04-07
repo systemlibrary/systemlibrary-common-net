@@ -5,7 +5,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, launchCount: 3, iterationCount: 3, invocationCount: 33)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, launchCount: 2, iterationCount: 3, invocationCount: 100)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class SpanVsSubstringBenchmark
@@ -18,7 +18,7 @@ public class SpanVsSubstringBenchmark
         var span = SampleText.AsSpan(75, 275);
 
         Span<byte> bytes = new byte[span.Length];
-        
+
         Encoding.UTF8.GetBytes(span, bytes);
 
         var a = bytes.ToArray();
@@ -52,7 +52,5 @@ public class SpanVsSubstringBenchmark
 
         return a;
     }
-
-  
 
 }
