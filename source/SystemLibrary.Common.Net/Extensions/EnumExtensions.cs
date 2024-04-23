@@ -221,9 +221,28 @@ public static class EnumExtensions
         var valueAttribute = GetAttribute<EnumValueAttribute>(enumField, SystemType.EnumValueAttributeType);
 
         if (valueAttribute != null)
+        {
             return valueAttribute.Value?.ToString();
+        }
 
-        return enumField.ToString();
+        var value = enumField.ToString();
+
+        if (value != null && value.Length > 1 && value[0] == '_' && char.IsDigit(value[1]))
+        {
+            // NOTE: Will remove underscore when format is: _[digits][any text]
+            if(value.Length > 2)
+            {
+                if(char.IsDigit(value[2]))
+                {
+                    return value.Substring(1);
+                }
+            }
+            else
+            {
+                return value.Substring(1);
+            }
+        }
+        return value;
     }
 
     /// <summary>

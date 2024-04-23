@@ -37,5 +37,7 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         public double longnumberdecimals { get; set; }
 
         public int And { get; set; }
+
+        public EnumTest EnumTestProp { get; set; }
     }
 }

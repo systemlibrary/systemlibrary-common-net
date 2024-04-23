@@ -49,6 +49,46 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
+    public void Convert_User_With_Enum_As_Underscore_Int_Returns_The_Enum_Name_As_Is()
+    {
+        User user = new User();
+
+        user.EnumTestProp = EnumTest._997;
+
+        var json = user.Json();
+
+        Assert.IsTrue(json.Contains("_997"));
+
+        user.EnumTestProp = EnumTest._999;
+
+        json = user.Json();
+
+        Assert.IsTrue(json.Contains("_999"));
+    }
+
+    [TestMethod]
+    public void Convert_Json_Int_To_Enum_With_Underscore()
+    {
+        User user = new User();
+
+        user.EnumTestProp = EnumTest._997;
+
+        var json = user.Json();
+
+        json = json.Replace("_997", "990");
+
+        var user2 = json.Json<User>();
+
+        Assert.IsTrue(user2.EnumTestProp.ToValue() == "990");
+
+        json = json.Replace("990", "998");
+
+        var user3 = json.Json<User>();
+
+        Assert.IsTrue(user3.EnumTestProp.ToValue() == "998", "It is 998 still, its invalid Enum [or removed key], it shouldve matched _999");
+    }
+
+    [TestMethod]
     public void Convert_User_WithNorwegian_Characters_To_String_Not_Camel_Casing()
     {
         User user = new User();

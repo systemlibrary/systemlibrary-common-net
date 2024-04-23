@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
@@ -139,5 +140,41 @@ public static class StringBuilderExtensions
         }
 
         return -1;
+    }
+
+    static Dictionary<string, string> HtmlEncodeReplacements = new Dictionary<string, string>
+    {
+        { "\"", "&quot;" },
+        { "'", "&apos;" },
+    };
+
+    public static void HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
+    {
+        foreach (var replacement in HtmlEncodeReplacements)
+            html.Replace(replacement.Key, replacement.Value);
+
+        if(additionalReplacements != null)
+        {
+            foreach(var replacement in additionalReplacements)
+                html.Replace(replacement.Key, replacement.Value);
+        }
+    }
+
+    static Dictionary<string, string> HtmlDecodeReplacements = new Dictionary<string, string>
+    {
+        { "&quot;", "\"" },
+        { "&apos;", "'" }
+    };
+
+    public static void HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
+    {
+        foreach (var replacement in HtmlDecodeReplacements)
+            html.Replace(replacement.Key, replacement.Value);
+
+        if(additionalReplacements != null)
+        {
+            foreach(var replacement in additionalReplacements)
+                html.Replace(replacement.Key, replacement.Value);
+        }
     }
 }

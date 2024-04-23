@@ -366,7 +366,7 @@ public class StringExtensionsTests
         string a0 = null;
         string a00 = "";
         Assert.AreEqual("A", a0.ToEnum<EnumTest>().ToString(), "a0");
-        Assert.AreEqual("A", a00.ToEnum<EnumTest>().ToString(), "a00");
+        Assert.AreEqual("A", a00.ToEnum<EnumTest>().ToString(), "a00 !!!");
 
         string a1 = "a";
         string a2 = "A";
@@ -388,6 +388,35 @@ public class StringExtensionsTests
         string c2 = "100";
         Assert.AreEqual("C", c1.ToString().ToEnum<EnumTest>().ToString(), "100 int");
         Assert.AreEqual("C", c2.ToEnum<EnumTest>().ToString(), "100 str");
+    }
+
+    [TestMethod]
+    public void Int_To_Enum_Matching_Name_Prefixed_With_Underscore()
+    {
+        var i997 = 997;
+        var i998 = 998;
+        var i999 = 999;
+
+        var e997 = i997.ToString().ToEnum<EnumTest>();
+        var e998 = i998.ToString().ToEnum<EnumTest>();
+        var e999 = i999.ToString().ToEnum<EnumTest>();
+
+        Assert.IsTrue(e997 == EnumTest._997, "e997 is not _997, " + e997.ToString());
+        Assert.IsTrue(e998 == EnumTest._999, "e998 is not _999, " + e998.ToString());
+        Assert.IsTrue(e999 == EnumTest._999, "e999 is not _999, " + e999.ToString());
+    }
+
+    [TestMethod]
+    public void Enum_To_Value_With_Underscore_Name_Returns_The_Int()
+    {
+        EnumTest _997 = EnumTest._997;
+        EnumTest _999 = EnumTest._999;
+
+        var value7 = _997.ToValue();
+        var value9 = _999.ToValue();
+
+        Assert.IsTrue(value7 == "997", "997? " + value7);
+        Assert.IsTrue(value9 == "998", "998? " + value9);
     }
 
     [TestMethod]

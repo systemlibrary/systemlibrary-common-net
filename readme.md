@@ -21,8 +21,12 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.3.0.2
-- ReadOnlySpan<Char>: two extensions added, ToBase64 and GetBytes(), outperforming Substring when converting a part of a string to base64
+- 7.3.0.4
+- Json: supports "_int" as enum name, a json response with "900" or 900 (int) is converted to the EnumName "_int" if matching number
+- ToEnum: supports converting to and from int into an Enum with name format: "_int"
+- ToEnum: optimized caching the Members of the Type saving some few bytes and cycles per invocation
+- ToValue: if an Enum with name format: "_int" is invoked as ToValue(), the Value attribute is first checked, if not found, the int is returned (without underscore)
+- ToValue: format "_int" and one wants the "_int"? Simply .ToString() then
 
 #### Version history
 - View git history of this file if interested

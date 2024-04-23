@@ -3,7 +3,7 @@
 using SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
 
-//BenchmarkRunner.Run<StringCondition>();
+BenchmarkRunner.Run<StringConditionBenchmarks>();
 //BenchmarkRunner.Run<StringExtensionsBenchmarks>();
-BenchmarkRunner.Run<SpanVsSubstringBenchmark>();
+//BenchmarkRunner.Run<SpanVsSubstringBenchmark>();
 

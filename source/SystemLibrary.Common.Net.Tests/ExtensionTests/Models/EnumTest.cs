@@ -18,6 +18,11 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         [EnumText("Dd")]
         d,
 
-        e
+        e,
+
+        _997,
+
+        [EnumValue(value: 998)]
+        _999
     }
 }

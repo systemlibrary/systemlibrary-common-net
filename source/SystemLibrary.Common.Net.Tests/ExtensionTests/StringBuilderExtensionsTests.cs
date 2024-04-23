@@ -242,4 +242,41 @@ public class StringBuilderExtensionsTests
         result = sb.IndexOf("helloAbC", true);
         Assert.IsTrue(result == expected, "abc 13 errored " + result);
     }
+
+
+    [TestMethod]
+    public void Html_Decode_Success()
+    {
+        var sb = new StringBuilder("& < > &quot; &apos; and NOR: ÆØÅæøå <p></p>");
+
+        sb.HtmlDecodeQuotes();
+
+        var res = sb.ToString();
+
+        Assert.IsTrue(res.Contains("'"));
+        Assert.IsTrue(res.Contains("& "));
+        Assert.IsTrue(res.Contains("\""));
+        Assert.IsTrue(res.Contains("<"));
+        Assert.IsTrue(res.Contains(">"));
+        Assert.IsTrue(res.Contains("Ø"));
+        Assert.IsTrue(res.Contains("ø"));
+    }
+
+    [TestMethod]
+    public void Html_Encode_Success()
+    {
+        var sb = new StringBuilder("& < > \" ' and NOR: ÆØÅæøå <p></p>");
+        
+        sb.HtmlEncodeQuotes();
+
+        var res = sb.ToString();
+
+        Assert.IsTrue(res.Contains("&quot;"));
+        Assert.IsTrue(res.Contains("& "));
+        Assert.IsTrue(res.Contains("&apos;"));
+        Assert.IsTrue(res.Contains("<"));
+        Assert.IsTrue(res.Contains(">"));
+        Assert.IsTrue(res.Contains("Ø"));
+        Assert.IsTrue(res.Contains("ø"));
+    }
 }

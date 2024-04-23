@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.Options;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
+using SystemLibrary.Common.Net.Cache;
 using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
@@ -168,47 +170,98 @@ public static class StringExtensions
     public static object ToEnum(this string text, Type enumType)
     {
         object result;
-        var type = enumType;
 
-        if (type.IsEnum)
+        if (text != null && text.Length > 0 && char.IsDigit(text[0]))
         {
-            var members = type.GetMembers(BindingFlags.Public | BindingFlags.Static);
+            if (Enum.TryParse(enumType, text, false, out result) || Enum.TryParse(enumType, text, true, out result))
+            {
+                var cacheKey = enumType.GetHashCode();
+
+                if (!DictionaryCache.EnumMemberInfoCache.TryGetValue(cacheKey, out var members))
+                {
+                    members = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+
+                    DictionaryCache.EnumMemberInfoCache.TryAdd(cacheKey, members);
+                }
+
+                if (members?.Length > 0 && result != null)
+                {
+                    var n = result.ToString();
+                    for (int i = 0; i < members.Length; i++)
+                    {
+                        if (members[i].Name == n)
+                        {
+                            return result;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (Enum.TryParse(enumType, text, false, out result) || Enum.TryParse(enumType, text, true, out result))
+            {
+                return result;
+            }
+        }
+
+        if (enumType.IsEnum)
+        {
+            var cacheKey = enumType.GetHashCode();
+
+            if (!DictionaryCache.EnumMemberInfoCache.TryGetValue(cacheKey, out var members))
+            {
+                members = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+
+                DictionaryCache.EnumMemberInfoCache.TryAdd(cacheKey, members);
+            }
 
             if (members?.Length > 0)
             {
                 text = text?.ToLower();
 
+                var checkUnderscore = text?.Length > 1;
+
                 foreach (var enumKey in members)
                 {
                     if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
                     {
-                        if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == text)
-                            if (Enum.TryParse(type, enumKey.Name, out result))
-                                return result;
+                        if (enumValueAttribute != null)
+                        {
+                            if (enumValueAttribute.Value is string svalue && svalue == text)
+                            {
+                                if (Enum.TryParse(enumType, enumKey.Name, out result))
+                                    return result;
+                            }
+                            else if ((enumValueAttribute.Value + "").ToLower() == text)
+                            {
+                                if (Enum.TryParse(enumType, enumKey.Name, out result))
+                                    return result;
+                            }
+                        }
                     }
 
                     if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
                     {
                         if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == text)
-                            if (Enum.TryParse(type, enumKey.Name, out result))
+                            if (Enum.TryParse(enumType, enumKey.Name, out result))
                                 return result;
+                    }
+
+                    if (checkUnderscore && enumKey.Name[0] == '_')
+                    {
+                        if (text != null && enumKey.Name.EndsWith(text))
+                        {
+                            if (Enum.TryParse(enumType, enumKey.Name, out result))
+                                return result;
+                        }
                     }
                 }
             }
         }
 
-        if (text.IsNot())
-        {
-            return Activator.CreateInstance(type);
-        }
-
-        // NOTE: This should be tried first, for performance (?)
-        if (Enum.TryParse(enumType, text, true, out result))
-            return result;
-
-        if (result == null)
-            return Activator.CreateInstance(type);
-
+        if (result == null || text.IsNot())
+            return Activator.CreateInstance(enumType);
 
         return result;
     }
@@ -1488,7 +1541,7 @@ public static class StringExtensions
 
         var first = (text[0] + "").GetBytes();
 
-        if(first?.Length == 3)
+        if (first?.Length == 3)
         {
             if (first[0] == 239 && first[1] == 187 && first[2] == 191)
             {
