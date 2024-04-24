@@ -2,6 +2,8 @@
 using System.Dynamic;
 using System.Reflection;
 
+using SystemLibrary.Common.Net.Cache;
+
 namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
@@ -54,7 +56,15 @@ public static class DynamicExtensions
         if (source != null)
         {
             var type = source.GetType();
-            foreach (PropertyInfo property in type.GetProperties())
+            var hashCode = type.GetHashCode();
+            if(!DictionaryCache.MergeTypePropertiesCache.TryGetValue(hashCode, out PropertyInfo[] properties))
+            {
+                properties = type.GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance) as PropertyInfo[];
+
+                DictionaryCache.MergeTypePropertiesCache.TryAdd(hashCode, properties);
+            }
+
+            foreach (PropertyInfo property in properties)
                 if (property.CanRead)
                     dictionary[property.Name] = property.GetValue(source);
         }
@@ -63,7 +73,16 @@ public static class DynamicExtensions
         {
             foreach (var update in updates)
             {
-                foreach (PropertyInfo property in update.GetType().GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance))
+                var type = update.GetType();
+                var hashCode = type.GetHashCode();
+                if (!DictionaryCache.MergeTypePropertiesCache.TryGetValue(hashCode, out PropertyInfo[] properties))
+                {
+                    properties = type.GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
+
+                    DictionaryCache.MergeTypePropertiesCache.TryAdd(hashCode, properties);
+                }
+
+                foreach (PropertyInfo property in properties)
                     if (property.CanRead)
                         dictionary[property.Name] = property.GetValue(update);
             }
