@@ -21,8 +21,9 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.3.1.1
-- DictionaryCache added to simplify invocation of using ConcurrentDictionaries
+- 7.4.0.1
+- DictionaryCache has been removed (breaking change)
+- ConcurrentDictionary extensions has been added instead of DictionaryCache
 
 #### Version history
 - View git history of this file if interested

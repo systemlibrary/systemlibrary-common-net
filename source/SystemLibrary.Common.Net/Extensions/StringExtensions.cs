@@ -176,12 +176,10 @@ public static class StringExtensions
             {
                 var cacheKey = enumType.GetHashCode();
 
-                if (!DictionaryCache.EnumMemberInfoCache.TryGetValue(cacheKey, out var members))
+                var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
                 {
-                    members = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
-
-                    DictionaryCache.EnumMemberInfoCache.TryAdd(cacheKey, members);
-                }
+                    return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+                });
 
                 if (members?.Length > 0 && result != null)
                 {
@@ -208,12 +206,10 @@ public static class StringExtensions
         {
             var cacheKey = enumType.GetHashCode();
 
-            if (!DictionaryCache.EnumMemberInfoCache.TryGetValue(cacheKey, out var members))
+            var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
             {
-                members = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
-
-                DictionaryCache.EnumMemberInfoCache.TryAdd(cacheKey, members);
-            }
+                return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+            });
 
             if (members?.Length > 0)
             {
