@@ -1,11 +1,5 @@
-﻿using System.Collections.Concurrent;
-using System.Reflection;
-using System.Text;
-
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-
-using SystemLibrary.Common.Net.Extensions;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
@@ -16,12 +10,9 @@ public class StringConditionBenchmarks
 {
     static Type T;
 
-    static ConcurrentDictionary<int, FieldInfo[]> Cached;
-
     [GlobalSetup]
     public void Setup()
     {
-        Cached = new ConcurrentDictionary<int, FieldInfo[]>();
         T = typeof(BenchMarkEnum);
     }
 
@@ -154,102 +145,6 @@ public class StringConditionBenchmarks
 
     //    return members;
     //}
-
-    
-
-    [Benchmark]
-    public object A1()
-    {
-        return Func(() => "haha");
-    }
-
-    [Benchmark]
-    public object A2()
-    {
-        return Func2(() => "haha");
-    }
-
-    [Benchmark]
-    public object A3()
-    {
-        var a = 222;
-        var b = "hello world";
-        var c = DateTime.Now;
-        return Func(() => a + b + c);
-    }
-
-    [Benchmark]
-    public object A4()
-    {
-        var a = 222;
-        var b = "hello world";
-        var c = DateTime.Now;
-        return Func2(() => a + b + c);
-    }
-
-    static StringBuilder Func<T>(Func<T> getItem)
-    {
-        var key = new StringBuilder("common.web.cache");
-        var getItemMethod = getItem.Method;
-
-        key.Append(getItemMethod.Name);
-        key.Append(getItemMethod.DeclaringType?.FullName);
-        key.Append(getItemMethod.ReturnType?.FullName);
-
-        var target = getItem.Target;
-        if (target != null)
-        {
-            var type = target.GetType();
-            var fields = type.GetFields(BindingFlags.FlattenHierarchy | BindingFlags.Instance | BindingFlags.Public);
-            if (fields.Length > 0)
-            {
-                foreach (var field in fields)
-                {
-                    var value = field.GetValue(target);
-                    if (value != null)
-                        key.Append(value.ToString());
-                }
-            }
-        }
-        return key;
-    }
-
-    static StringBuilder Func2<T>(Func<T> getItem)
-    {
-        var key = new StringBuilder("common.web.cache", capacity:  255);
-
-        var getItemMethod = getItem.Method;
-
-        key.Append(getItemMethod.Name);
-        key.Append(getItemMethod.DeclaringType.GetHashCode());
-        key.Append(getItemMethod.ReturnType.GetHashCode());
-
-        var target = getItem.Target;
-        if (target != null)
-        {
-            var type = target.GetType();
-            var fields = Cached.TryGet(type, () =>
-            {
-                return type.GetFields(BindingFlags.FlattenHierarchy | BindingFlags.Instance | BindingFlags.Public);
-            });
-
-            if (fields.Length > 0)
-            {
-                foreach (var field in fields)
-                {
-                    key.Append(field.Name);
-
-                    var value = field.GetValue(target);
-
-                    if (value != null)
-                    {
-                        key.Append(value.GetHashCode());
-                    }
-                }
-            }
-        }
-        return key;
-    }
 }
 
 public enum BenchMarkEnum
