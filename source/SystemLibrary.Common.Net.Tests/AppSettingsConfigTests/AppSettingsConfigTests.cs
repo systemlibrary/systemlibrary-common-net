@@ -14,6 +14,7 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
             Assert.IsTrue(config.Parent != null, "Parent is null");
             Assert.IsTrue(config.Parent.Color == "orange", "Parent color");
         }
+
     }
 }
 

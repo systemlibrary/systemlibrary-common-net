@@ -21,8 +21,9 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.3.0.5
-- Merge: optimization storing Properties of the Types in a dictionary
+- 7.3.0.6
+- Internal namespace change
+- Updated deps
 
 #### Version history
 - View git history of this file if interested

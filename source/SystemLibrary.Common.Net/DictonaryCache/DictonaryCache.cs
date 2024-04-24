@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemLibrary.Common.Net.Cache;
+namespace SystemLibrary.Common.Net;
 
 internal static class DictionaryCache
 {

@@ -7,7 +7,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 3, invocationCount: 1000000, launchCount: 5)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 200000, launchCount: 4)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringConditionBenchmarks
@@ -144,27 +144,15 @@ public class StringConditionBenchmarks
 
     //    if (MemberInfoCache.TryGetValue(key, out var value))
     //        return value;
-        
+
     //    var members = type.GetMembers(BindingFlags.Public | BindingFlags.Static);
-       
+
     //    MemberInfoCache.TryAdd(key, members);
 
     //    return members;
     //}
 
-    [Benchmark]
-    public object T1()
-    {
-        var key = T.Namespace + T.Name + nameof(BenchmarkAttribute);
 
-        return key;
-    }
-
-    [Benchmark]
-    public object t2()
-    {
-        return T.GetHashCode();
-    }
 }
 
 public enum BenchMarkEnum
