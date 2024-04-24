@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.3.0.6
-- Internal namespace change
-- Updated deps
+- 7.3.1.1
+- DictionaryCache added to simplify invocation of using ConcurrentDictionaries
 
 #### Version history
 - View git history of this file if interested
