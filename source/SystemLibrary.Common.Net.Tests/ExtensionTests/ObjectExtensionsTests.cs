@@ -79,7 +79,7 @@ public class ObjectExtensionsTests
 
         var json = user.Json();
 
-        Assert.IsTrue(json.Contains("_997"), "997: " + json);
+        Assert.IsTrue(json.Contains("997"), "997: " + json);
 
         user.EnumTestProp = EnumTest._999;
 
@@ -97,7 +97,7 @@ public class ObjectExtensionsTests
 
         var json = user.Json();
 
-        json = json.Replace("_997", "990");
+        json = json.Replace("997", "990");
 
         var user2 = json.Json<User>();
 
@@ -106,6 +106,7 @@ public class ObjectExtensionsTests
         json = json.Replace("990", "998");
 
         var user3 = json.Json<User>();
+        Assert.IsTrue(user3.EnumTestProp == EnumTest._999, "Could not convert 998 to 999");
 
         Assert.IsTrue(user3.EnumTestProp.ToValue() == "998", "It is 998 still, its invalid Enum [or removed key], it shouldve matched _999");
     }

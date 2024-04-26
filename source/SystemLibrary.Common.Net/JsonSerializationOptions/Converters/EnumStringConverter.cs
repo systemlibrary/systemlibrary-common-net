@@ -45,14 +45,7 @@ namespace SystemLibrary.Common.Net
                 writer.WriteNumberValue(0);
             else
             {
-                var enumValue = ((Enum)(object)value).ToValue();
-
-                var enumName = value.ToString();
-
-                if(enumName == "_" + enumValue)
-                    writer.WriteStringValue(enumName);
-                else
-                    writer.WriteStringValue(enumValue);
+                writer.WriteStringValue(((Enum)(object)value).ToValue());
             }
         }
     }

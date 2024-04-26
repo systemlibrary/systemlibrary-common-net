@@ -21,8 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.5.0.1
-- Json: Enum in classes converted to Json, now uses the EnumValue in the outputted json instead of just "Enum.ToString()". It falls back to ToString if no EnumValue exist
+- 7.5.0.2
+- Json: enums are converted to their values when converting to string, and from string to class, it uses value to match Enum
 
 #### Version history
 - View git history of this file if interested
