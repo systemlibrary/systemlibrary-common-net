@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -17,13 +18,13 @@ static internal class GetJsonSerializerOptions
         if (options.Converters?.Count > 0) return;
 
         // NOTE: Optimize by creating these converters just once during app run time, they can be singleton IIRC
+        options.Converters.Add(new StringJsonConverter());
+        options.Converters.Add(new IntJsonConverter());
         options.Converters.Add(new EnumStringConverterFactory());
         options.Converters.Add(new JsonStringEnumConverter());
-        options.Converters.Add(new IntJsonConverter());
-        options.Converters.Add(new StringJsonConverter());
-        options.Converters.Add(new LongJsonConverter());
         options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
         options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
+        options.Converters.Add(new LongJsonConverter());
         options.Converters.Add(new TypeConverter());
     }
 

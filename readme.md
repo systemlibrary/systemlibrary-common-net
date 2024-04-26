@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.4.0.1
-- DictionaryCache has been removed (breaking change)
-- ConcurrentDictionary extensions has been added instead of DictionaryCache
+- 7.5.0.1
+- Json: Enum in classes converted to Json, now uses the EnumValue in the outputted json instead of just "Enum.ToString()". It falls back to ToString if no EnumValue exist
 
 #### Version history
 - View git history of this file if interested

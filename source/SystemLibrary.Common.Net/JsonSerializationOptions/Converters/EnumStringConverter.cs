@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+
+using SystemLibrary.Common.Net.Extensions;
+
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SystemLibrary.Common.Net
 {
@@ -36,7 +41,19 @@ namespace SystemLibrary.Common.Net
 
         public override void Write(Utf8JsonWriter writer, TEnum value, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(value?.ToString());
+            if (value == null)
+                writer.WriteNumberValue(0);
+            else
+            {
+                var enumValue = ((Enum)(object)value).ToValue();
+
+                var enumName = value.ToString();
+
+                if(enumName == "_" + enumValue)
+                    writer.WriteStringValue(enumName);
+                else
+                    writer.WriteStringValue(enumValue);
+            }
         }
     }
 }

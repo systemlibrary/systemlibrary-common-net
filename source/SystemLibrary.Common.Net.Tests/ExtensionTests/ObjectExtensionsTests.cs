@@ -13,6 +13,28 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class ObjectExtensionsTests
 {
     [TestMethod]
+    public void Convert_Class_With_Enum_Not_Set_Does_Not_Print_Default_SkippingNulLValues()
+    {
+        var user = new User();
+
+        var json = user.Json();
+
+        Assert.IsTrue(json == "{}");
+    }
+
+    [TestMethod]
+    public void Convert_Class_With_Enum_Uses_ToValue()
+    {
+        var user = new User();
+
+        user.EnumTestProp = EnumTest.B;
+
+        var json = user.Json();
+
+        Assert.IsTrue(json.Contains("hello123"));
+    }
+
+    [TestMethod]
     public void Convert_User_To_String_Camel_Casing()
     {
         User user = new User();
@@ -57,13 +79,13 @@ public class ObjectExtensionsTests
 
         var json = user.Json();
 
-        Assert.IsTrue(json.Contains("_997"));
+        Assert.IsTrue(json.Contains("_997"), "997: " + json);
 
         user.EnumTestProp = EnumTest._999;
 
         json = user.Json();
 
-        Assert.IsTrue(json.Contains("_999"));
+        Assert.IsTrue(json.Contains("998"), "999: " + json);
     }
 
     [TestMethod]
