@@ -43,6 +43,7 @@
 				"maxDepth": 32,
 				"propertyNameCaseInsensitive": true,
 				"readCommentHandling": "Skip",
+				"jsonIgnoreCondition": "WhenWritingNull"
 				"writeIndented": false
 			}
 		}

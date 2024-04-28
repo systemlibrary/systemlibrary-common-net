@@ -90,6 +90,9 @@ namespace SystemLibrary.Common.Net.Tests.AppSettingsTests
 
                 if (property.Name == "ReadCommentHandling")
                     Assert.IsTrue(value == "Skip", "!ReadCommentHandling");
+
+                if (property.Name == "JsonIgnoreCondition")
+                    Assert.IsTrue(value == "WhenWritingNull", "!JsonIgnoreCondition");
             }
         }
 

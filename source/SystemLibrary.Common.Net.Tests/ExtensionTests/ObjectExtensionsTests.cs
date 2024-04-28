@@ -13,13 +13,33 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class ObjectExtensionsTests
 {
     [TestMethod]
-    public void Convert_Class_With_Enum_Not_Set_Does_Not_Print_Default_SkippingNulLValues()
+    public void Convert_Class_Does_Not_Print_Null_Values()
     {
         var user = new User();
 
         var json = user.Json();
 
-        Assert.IsTrue(json == "{}");
+        Assert.IsTrue(json.Contains("Birth"));
+        Assert.IsTrue(json.Contains("EnumTestProp"));
+        Assert.IsTrue(json.Contains("number"));
+        Assert.IsTrue(json.Contains("IsEnabled"));
+        Assert.IsTrue(!json.Contains("FirstName"));
+        Assert.IsTrue(!json.Contains("Owner"));
+        Assert.IsTrue(!json.Contains("LastName"));
+        Assert.IsTrue(!json.Contains("NullableAgeProperty"));
+        Assert.IsTrue(!json.Contains("Names"));
+        Assert.IsTrue(!json.Contains("LastNames"));
+    }
+
+    [TestMethod]
+    public void Convert_Class_Does_Print_Enum_First_Value()
+    {
+        var user = new User();
+
+        var json = user.Json();
+
+        Assert.IsTrue(json.Contains("EnumTestProp"));
+        Assert.IsTrue(json.Contains(EnumTest.A.ToValue()));
     }
 
     [TestMethod]
@@ -71,6 +91,17 @@ public class ObjectExtensionsTests
     }
 
     [TestMethod]
+    public void Convert_User_With_Enum_As_0_Selected_Outputs_The_Property()
+    {
+        User user = new User();
+
+        user.EnumTestProp = EnumTest.A;
+
+        var json = user.Json();
+        Dump.Write(json);
+    }
+
+    [TestMethod]
     public void Convert_User_With_Enum_As_Underscore_Int_Returns_The_Enum_Name_As_Is()
     {
         User user = new User();
@@ -101,11 +132,12 @@ public class ObjectExtensionsTests
 
         var user2 = json.Json<User>();
 
-        Assert.IsTrue(user2.EnumTestProp.ToValue() == "990");
+        Assert.IsTrue(user2.EnumTestProp.ToValue() == "990", "990");
 
         json = json.Replace("990", "998");
 
         var user3 = json.Json<User>();
+
         Assert.IsTrue(user3.EnumTestProp == EnumTest._999, "Could not convert 998 to 999");
 
         Assert.IsTrue(user3.EnumTestProp.ToValue() == "998", "It is 998 still, its invalid Enum [or removed key], it shouldve matched _999");

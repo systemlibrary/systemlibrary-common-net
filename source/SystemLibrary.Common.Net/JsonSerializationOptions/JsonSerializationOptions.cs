@@ -44,7 +44,7 @@ static internal class GetJsonSerializerOptions
                     UnicodeRanges.CurrencySymbols,
                     UnicodeRanges.Cyrillic,
                     UnicodeRanges.GreekandCoptic),
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                DefaultIgnoreCondition = Config.SystemLibraryCommonNet.Json.JsonIgnoreCondition,
                 MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
                 AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
                 PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,

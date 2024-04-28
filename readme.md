@@ -21,8 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.5.0.2
-- Json: enums are converted to their values when converting to string, and from string to class, it uses value to match Enum
+- 7.6.0.1
+- Json: default JsonIgnoreValues are bumped from default to null values only (breaking change)
 
 #### Version history
 - View git history of this file if interested
