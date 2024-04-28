@@ -126,7 +126,6 @@ public static class ObjectExtensions
         return JsonSerializer.Serialize(obj, options);
     }
 
-
     /// <summary>
     /// Convert object to json with your custom json converters
     /// 

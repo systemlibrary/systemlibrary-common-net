@@ -237,6 +237,84 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Converts the ReadOnlySpan of Char to a byte array</p>
+<p>Returns null if input is null, else byte array</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_System_ReadOnlySpan_System_Char__System_Text_Encoding_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L82">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_System_ReadOnlySpan_System_Char__System_Text_Encoding_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes(System.ReadOnlySpan{System.Char},System.Text.Encoding)" class="h4-custom-functionName">public static byte[] GetBytes(this ReadOnlySpan&lt;char&gt; span, Encoding encoding = null)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var textSpan = &quot;Hello World&quot;.AsSpan();
+
+var bytes = textSpan.GetBytes();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.ReadOnlySpan</span>&lt;<span class="xref">System.Char</span>&gt;</td>
+  							<td><span class="parametername">span</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Encoding</span></td>
+  							<td><span class="parametername">encoding</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Byte</span>[]</td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns true if the span is not null and length larger than 0 else false</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
@@ -244,7 +322,7 @@
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is__1_System_ReadOnlySpan___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/SpanExtensions.cs/#L17">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L20">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is*"></a>
@@ -331,7 +409,7 @@ var isSpan = textSpan.Is(); // True, span is not null</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot__1_System_ReadOnlySpan___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/SpanExtensions.cs/#L32">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L35">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot*"></a>
@@ -398,6 +476,84 @@ var isSpan = textSpan.IsNot(); // False, as span is not null, and has text lengt
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Boolean</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert a ReadOnlySpan to Base64 (only for Char type for time being)</p>
+<p>Returns null if input is null, else a Base64 representation of the input</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_System_ReadOnlySpan_System_Char__System_Text_Encoding_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L52">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_System_ReadOnlySpan_System_Char__System_Text_Encoding_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64(System.ReadOnlySpan{System.Char},System.Text.Encoding)" class="h4-custom-functionName">public static string ToBase64(this ReadOnlySpan&lt;char&gt; span, Encoding encoding = null)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var textSpan = &quot;Hello World&quot;.AsSpan();
+
+var base64 = textSpan.ToBase64();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.ReadOnlySpan</span>&lt;<span class="xref">System.Char</span>&gt;</td>
+  							<td><span class="parametername">span</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Encoding</span></td>
+  							<td><span class="parametername">encoding</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
   							<td></td>
   						</tr>
   					</tbody>
@@ -1048,7 +1204,7 @@ var isSpan = textSpan.IsNot(); // False, as span is not null, and has text lengt
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/SpanExtensions.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

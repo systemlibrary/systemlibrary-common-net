@@ -253,6 +253,7 @@
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])" class="h4-custom-functionName">public static TEnum[] AsEnumArray&lt;TEnum&gt;(this object[] objects)
+
     where TEnum : struct, IComparable, IFormattable, IConvertible</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
@@ -408,6 +409,97 @@ var contains = json.Contains(&quot;firstName&quot;) &amp;&amp; json.Contains(&qu
   						<tr>
   							<td><span class="xref">System.Boolean</span></td>
   							<td><span class="parametername">translateUnicodeCodepoints</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert object to json with your custom json converters</p>
+<p>Returns a json formatted string representation of the object or null if object is null</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Text_Json_Serialization_JsonConverter___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L150">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Text_Json_Serialization_JsonConverter___" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Text.Json.JsonSerializerOptions,System.Text.Json.Serialization.JsonConverter[])" class="h4-custom-functionName">public static string Json(this object obj, JsonSerializerOptions options, params JsonConverter[] jsonConverters)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>class User {
+    public string FirstName { get;set; }
+}
+
+class CustomConverter : JsonConverter...
+
+var user = new User();
+user.FirstName = &quot;Hello World&quot;;
+var json = user.Json(new CustomConverter());
+var contains = json.Contains(&quot;firstName&quot;) &amp;&amp; json.Contains(&quot;Hello World&quot;); 
+// contains is True, note that Json() has formatted &apos;FirstName&apos; to camelCasing</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Object</span></td>
+  							<td><span class="parametername">obj</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Json.JsonSerializerOptions</span></td>
+  							<td><span class="parametername">options</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Text.Json.Serialization.JsonConverter</span>[]</td>
+  							<td><span class="parametername">jsonConverters</span></td>
   							<td></td>
   						</tr>
   					</tbody>
