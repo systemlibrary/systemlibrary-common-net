@@ -23,6 +23,7 @@ Library with classes and methods for every &gt;=  .NET 7 application
 ## Latest Version
 - 7.6.0.1
 - Json: default JsonIgnoreValues are bumped from default to null values only (breaking change)
+- Json: JsonIgnoreCondition, the "DefaultIgnoreCondition", is now an option to this package, can be set in appsettings
 
 #### Version history
 - View git history of this file if interested
