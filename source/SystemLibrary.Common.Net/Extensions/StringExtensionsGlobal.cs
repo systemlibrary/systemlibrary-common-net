@@ -1,5 +1,6 @@
-﻿//namespace SystemLibrary.Common.Net.Global;
+﻿////namespace SystemLibrary.Common.Net.Global;
 //using System;
+//using System.Collections.Concurrent;
 //using System.Collections.Generic;
 //using System.Data.Common;
 //using System.IO;
@@ -11,6 +12,7 @@
 //using System.Text;
 //using System.Text.Json;
 //using System.Text.Json.Serialization;
+//using System.Web;
 
 //using Microsoft.AspNetCore.DataProtection.KeyManagement;
 //using Microsoft.Extensions.Options;
@@ -168,46 +170,94 @@
 //    public static object ToEnum(this string text, Type enumType)
 //    {
 //        object result;
-//        var type = enumType;
 
-//        if (type.IsEnum)
+//        if (text != null && text.Length > 0 && char.IsDigit(text[0]))
 //        {
-//            var members = type.GetMembers(BindingFlags.Public | BindingFlags.Static);
+//            if (Enum.TryParse(enumType, text, false, out result) || Enum.TryParse(enumType, text, true, out result))
+//            {
+//                var cacheKey = enumType.GetHashCode();
+
+//                var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+//                {
+//                    return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+//                });
+
+//                if (members?.Length > 0 && result != null)
+//                {
+//                    var n = result.ToString();
+//                    for (int i = 0; i < members.Length; i++)
+//                    {
+//                        if (members[i].Name == n)
+//                        {
+//                            return result;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        else
+//        {
+//            if (Enum.TryParse(enumType, text, false, out result) || Enum.TryParse(enumType, text, true, out result))
+//            {
+//                return result;
+//            }
+//        }
+
+//        if (enumType.IsEnum)
+//        {
+//            var cacheKey = enumType.GetHashCode();
+
+//            var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+//            {
+//                return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+//            });
 
 //            if (members?.Length > 0)
 //            {
 //                text = text?.ToLower();
 
+//                var checkUnderscore = text?.Length > 1;
+
 //                foreach (var enumKey in members)
 //                {
 //                    if (enumKey.GetCustomAttribute(SystemType.EnumValueAttributeType) is EnumValueAttribute enumValueAttribute)
 //                    {
-//                        if (enumValueAttribute != null && enumValueAttribute.Value != null && (enumValueAttribute.Value + "").ToLower() == text)
-//                            if (Enum.TryParse(type, enumKey.Name, out result))
-//                                return result;
+//                        if (enumValueAttribute != null)
+//                        {
+//                            if (enumValueAttribute.Value is string svalue && svalue == text)
+//                            {
+//                                if (Enum.TryParse(enumType, enumKey.Name, out result))
+//                                    return result;
+//                            }
+//                            else if ((enumValueAttribute.Value + "").ToLower() == text)
+//                            {
+//                                if (Enum.TryParse(enumType, enumKey.Name, out result))
+//                                    return result;
+//                            }
+//                        }
 //                    }
 
 //                    if (enumKey.GetCustomAttribute(SystemType.EnumTextAttributeType) is EnumTextAttribute enumTextAttribute)
 //                    {
 //                        if (enumTextAttribute != null && enumTextAttribute.Text?.ToLower() == text)
-//                            if (Enum.TryParse(type, enumKey.Name, out result))
+//                            if (Enum.TryParse(enumType, enumKey.Name, out result))
 //                                return result;
+//                    }
+
+//                    if (checkUnderscore && enumKey.Name[0] == '_')
+//                    {
+//                        if (text != null && enumKey.Name.EndsWith(text))
+//                        {
+//                            if (Enum.TryParse(enumType, enumKey.Name, out result))
+//                                return result;
+//                        }
 //                    }
 //                }
 //            }
 //        }
 
-//        if (text.IsNot())
-//        {
-//            return Activator.CreateInstance(type);
-//        }
-
-//        if (Enum.TryParse(enumType, text, true, out result))
-//            return result;
-
-//        if (result == null)
-//            return Activator.CreateInstance(type);
-
+//        if (result == null || text.IsNot())
+//            return Activator.CreateInstance(enumType);
 
 //        return result;
 //    }
@@ -1231,9 +1281,11 @@
 //    /// <summary>
 //    /// Encrypts data with a default key and default iv
 //    /// 
-//    /// Set the key by setting environment variable 'SYSLIBCRYPTATIONKEY', in either user or computer, to a value
-//    /// - If environment variable is not set, it will search for the first 'data protection key' file (format of file name is: 'key-*.xml') anywhere in root or any parent folder
-//    /// - If no key is configured, default key is used: ABCDEFGH098765432
+//    /// Can override the default key by either:
+//    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+//    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+//    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
 //    /// 
 //    /// Default key is 'ABCDEFGH098765432'
 //    /// Default iv is 16 bytes of 0
@@ -1250,6 +1302,8 @@
 //    /// <summary>
 //    /// Encrypts data with a user specific key and an optional iv
 //    /// 
+//    /// If IV is null, defaults to 16 bytes of 0
+//    /// 
 //    /// If data is null or blank, it returns null or blank
 //    /// 
 //    /// Note: returns the bytes encrypted as a Base64 string representation
@@ -1261,6 +1315,8 @@
 
 //    /// <summary>
 //    /// Encrypts data with a user specific key and an optional iv
+//    /// 
+//    /// If IV is null, defaults to 16 bytes of 0
 //    /// 
 //    /// If data is null it returns null
 //    ///
@@ -1284,6 +1340,9 @@
 //    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
 //    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
 //    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+//    /// 
+//    /// IV defaults to default 16 bytes of 0
 //    /// 
 //    /// If data is null or blank, it returns null or blank
 //    /// 
@@ -1297,7 +1356,13 @@
 //    /// <summary>
 //    /// Decrypts data with a key and an IV
 //    /// 
-//    /// - If key or IV is null, a default value is used
+//    /// If key is null, uses either:
+//    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
+//    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
+//    ///     - Ex: key-12345678-1234-1234-1234-123456789012
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+//    /// 
+//    /// If IV is null, uses default 16 bytes of 0
 //    /// 
 //    /// If data is null or blank, it returns null or blank
 //    /// 
@@ -1434,5 +1499,56 @@
 
 //            return encoding.GetString(output.ToArray());
 //        }
+//    }
+
+//    /// <summary>
+//    /// Returns html encoded version of the input.
+//    /// 
+//    /// Example: &lt;p&gt; becomes &lt ;p&gt ; (without spaces of course)
+//    /// 
+//    /// Returns null or blank, if input is null or blank
+//    /// </summary>
+//    public static string HtmlEncode(this string text)
+//    {
+//        if (text.Is())
+//            return HttpUtility.HtmlEncode(text);
+
+//        return text;
+//    }
+
+//    /// <summary>
+//    /// Returns html version of the html encoded input
+//    /// 
+//    /// Example: &lt ;p& gt; (without spaces of course) becomes &lt;p&gt; 
+//    /// 
+//    /// Returns null or blank, if input is null or blank
+//    /// </summary>
+//    public static string HtmlDecode(this string htmlEncodedText)
+//    {
+//        if (htmlEncodedText.Is())
+//            return HttpUtility.HtmlDecode(htmlEncodedText);
+
+//        return htmlEncodedText;
+//    }
+
+//    public static string ToUtf8BOM(this string text)
+//    {
+//        if (text.IsNot()) return text;
+
+//        var first = (text[0] + "").GetBytes();
+
+//        if (first?.Length == 3)
+//        {
+//            if (first[0] == 239 && first[1] == 187 && first[2] == 191)
+//            {
+//                return text;
+//            }
+//        }
+
+//        var utf8BOM = new UTF8Encoding(true, false);
+//        var lvBOM = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+//        var bytes = utf8BOM.GetBytes(lvBOM + text);
+
+//        return Encoding.UTF8.GetString(bytes);
 //    }
 //}

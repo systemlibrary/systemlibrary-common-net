@@ -25,6 +25,7 @@ namespace SystemLibrary.Common.Net
         public static Type ExceptionType = typeof(Exception);
 
         public static Type ListType = typeof(List<>);
+        public static Type IListType = typeof(IList<>);
         public static Type DictionaryType = typeof(Dictionary<,>);
 
         public static Type ObjectType = typeof(object);

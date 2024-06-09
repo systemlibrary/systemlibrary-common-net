@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html",
-          "hash": "1VjBoxuVMezXKtouqJ5CJIflhliWRsGSsNhCNE3lRM0="
+          "hash": "raXgfUF5noE2Vg55eSrmGyVrwbM1zCKHM1AiYDewi8I="
         }
       },
       "is_incremental": false,
@@ -329,11 +329,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html",
+          "hash": "a3zD2+Vpd4f6fxd6nb3PvtKw0Ssv7We0Pxn8G7qCPLQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html",
+          "hash": "2dg0KkZimDlK8kimNvOsjP3p4+e49AyH/pHCNoGLwvc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.yml",
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html",
-          "hash": "rYVpdwsASycwykP8Md5mKgQdAEHBS+SQegTM+Iklros="
+          "hash": "e+90Zo5xZC8uAIdhlkvZm3woQ4iPTNl6atFa/JmnXr0="
         }
       },
       "is_incremental": true,
@@ -357,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "lWYffrAhASQ7iNOkUrzNErUIhB1GGE90n569fogVjPo="
+          "hash": "59FFqHVbsXPwAttskyBT6/D1KwqgxzPoYT3LyK8yLR4="
         }
       },
       "is_incremental": false,
@@ -394,8 +418,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 29,
-          "skipped_file_count": 16
+          "total_file_count": 31,
+          "skipped_file_count": 18
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

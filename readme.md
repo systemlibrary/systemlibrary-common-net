@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Version
-- 7.6.0.2
-- nuget doesnt show 7.6.0.1... even though listed; just trying a bump
-- updated docs
+- 7.6.0.4
+- Added SystemType IListType<>
 
 #### Version history
 - View git history of this file if interested

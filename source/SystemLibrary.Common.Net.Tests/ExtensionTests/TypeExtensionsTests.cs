@@ -72,4 +72,27 @@ public class TypeExtensionsTests
         res = type.GetFirstGenericType();
         Assert.IsTrue(res == expected, "Dictionary keyvaluepair list of int");
     }
+
+    [TestMethod]
+    public void IsList_Or_Array_Success()
+    {
+        var list = new List<int>();
+
+        var res = list.GetType().IsListOrArray();
+
+        Assert.IsTrue(res, "List");
+
+        var a = new List<int>();
+        var b = (object)a;
+        var ilist = (IList<int>)b; 
+
+        res = ilist.GetType().IsListOrArray();
+
+        Assert.IsTrue(res, "IList");
+
+        var arr = new int[1];
+
+        res = arr.GetType().IsListOrArray();
+        Assert.IsTrue(res, "Array");
+    }
 }
