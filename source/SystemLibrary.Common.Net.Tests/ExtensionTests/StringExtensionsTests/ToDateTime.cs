@@ -163,9 +163,12 @@ partial class StringExtensionsTests
         "2001-12-24T23:22:59+04:00",
         "12/24/2001 11:22:59 PM",
         "Mandag, 24 Desember 2001 23:22:59",
+        "Monday, 24 December 2001 23:22:59",
         "1009236179",
 
+        "24. December 2001",
         "24. Desember 2001",
+        "24. Dec 2001 - 23:22",
         "24. Des 2001 - 23:22",
         "24 Des 2001",
         "24 Des 2001",

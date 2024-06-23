@@ -123,6 +123,12 @@ partial class StringExtensions
             }
         }
 
+        foreach(var culture in Cultures)
+        {
+            if (DateTime.TryParseExact(date, culture.DateTimeFormat.GetAllDateTimePatterns(), culture, DateTimeStyles.None, out res))
+                return res;
+        }
+
         throw new Exception("Input was not recognized as a valid DateTime. No matching format provided for: " + date + ". You sent in: " + format);
     }
 
@@ -130,6 +136,9 @@ partial class StringExtensions
     {
         new CultureInfo("no-NO"),
         new CultureInfo("es-ES"),
+        new CultureInfo("en-US"),
+        new CultureInfo("en-GB"),
+        new CultureInfo("en-CA"),
         new CultureInfo("ru-RU"),
         new CultureInfo("fr-FR"),
         new CultureInfo("sv-SE"),
