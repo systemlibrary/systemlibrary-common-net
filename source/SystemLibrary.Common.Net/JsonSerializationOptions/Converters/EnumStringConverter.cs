@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net
 {
     internal class EnumStringConverter<TEnum> : JsonConverter<TEnum> where TEnum : IComparable, IFormattable, IConvertible
     {
-        static Type Type;
+        Type Type;
 
         public EnumStringConverter()
         {

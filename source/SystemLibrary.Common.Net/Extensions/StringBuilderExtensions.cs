@@ -110,12 +110,13 @@ public static class StringBuilderExtensions
 
         if (ignoreCase)
         {
+            var textLowered = text.ToLower();
             for (int i = start; i < maxSearchLength; ++i)
             {
-                if (Char.ToLower(stringBuilder[i]) == Char.ToLower(text[0]))
+                if (Char.ToLower(stringBuilder[i]) == textLowered[0])
                 {
                     index = 1;
-                    while ((index < length) && (Char.ToLower(stringBuilder[i + index]) == Char.ToLower(text[index])))
+                    while ((index < length) && (Char.ToLower(stringBuilder[i + index]) == textLowered[index]))
                         ++index;
 
                     if (index == length)
@@ -153,9 +154,9 @@ public static class StringBuilderExtensions
         foreach (var replacement in HtmlEncodeReplacements)
             html.Replace(replacement.Key, replacement.Value);
 
-        if(additionalReplacements != null)
+        if (additionalReplacements != null)
         {
-            foreach(var replacement in additionalReplacements)
+            foreach (var replacement in additionalReplacements)
                 html.Replace(replacement.Key, replacement.Value);
         }
     }
@@ -171,9 +172,9 @@ public static class StringBuilderExtensions
         foreach (var replacement in HtmlDecodeReplacements)
             html.Replace(replacement.Key, replacement.Value);
 
-        if(additionalReplacements != null)
+        if (additionalReplacements != null)
         {
-            foreach(var replacement in additionalReplacements)
+            foreach (var replacement in additionalReplacements)
                 html.Replace(replacement.Key, replacement.Value);
         }
     }

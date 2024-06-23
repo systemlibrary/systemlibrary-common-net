@@ -24,16 +24,17 @@ public static class Async
     /// 
     /// class CarApi {
     ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
-    ///     List&lt;Car&gt; Get(string name) {
+    ///     List&lt;Car&gt; GetByName(string name) {
     ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
     ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
     ///     }
     /// }
     /// 
+    /// var carApi = new CarApi();
     /// var cars = Async.Run&lt;Car&gt;(
-    ///     () => new CarApi().GetTop1("ferrari"),
-    ///     () => new CarApi().GetTop1("volvo"),
-    ///     () => new CarApi().GetTop1("tesla")
+    ///     () => carApi.GetByName("ferrari"),
+    ///     () => carApi.GetByName("volvo"),
+    ///     () => carApi.GetByName("tesla")
     /// ); 
     /// 
     /// // Variable 'cars' is filled after all three api requests has completed.
@@ -62,7 +63,7 @@ public static class Async
 
         var task = Task.WhenAll(tasks.ToArray());
 
-        task.ConfigureAwait(false)
+        task.ConfigureAwait( false)
             .GetAwaiter()
             .GetResult();
 
@@ -80,16 +81,17 @@ public static class Async
     /// 
     /// class CarApi {
     ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
-    ///     List&lt;Car&gt; Get(string name) {
+    ///     List&lt;Car&gt; GetByName(string name) {
     ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
     ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
     ///     }
     /// }
     /// 
+    /// var carApi = new CarApi();
     /// var cars = Async.Run&lt;Car&gt;(
-    ///     () => new CarApi().GetAll("ferrari"),
-    ///     () => new CarApi().GetAll("volvo"),
-    ///     () => new CarApi().GetAll("tesla")
+    ///     () => carApi.GetByName("ferrari"),
+    ///     () => carApi.GetByName("volvo"),
+    ///     () => carApi.GetByName("tesla")
     /// ); 
     /// 
     /// // Variable 'cars' is filled after all three api requests has completed.

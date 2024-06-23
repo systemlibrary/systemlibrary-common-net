@@ -33,7 +33,7 @@ public static class StreamExtensions
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// Reads the stream to its end, hashing its content and returns the resulting Md5 hash
     /// 
     /// Returns null if stream is null or cannot be read
     /// 
@@ -51,7 +51,7 @@ public static class StreamExtensions
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// Reads the stream to its end, hashing its content and returns the resulting Md5 hash
     /// 
     /// Returns null if stream is null or cannot be read
     /// 
@@ -69,7 +69,7 @@ public static class StreamExtensions
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// Reads the stream to its end, hashing its content and returns the resulting Sha1 hash
     /// 
     /// Returns null if stream is null or cannot be read
     /// 
@@ -87,7 +87,7 @@ public static class StreamExtensions
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing the content and returning the hash as a string
+    /// Reads the stream to its end, hashing its content and returns the resulting Sha1 hash
     /// 
     /// Returns null if stream is null or cannot be read
     /// 
@@ -102,5 +102,37 @@ public static class StreamExtensions
     public static async Task<string> ToSha1HashAsync(this Stream stream)
     {
         return await Sha1.ComputeAsync(stream).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Reads the stream to its end, hashing its content and returns the resulting Sha256 hash
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToSha256Hash();
+    /// </code>
+    /// </example>
+    public static string ToSha256Hash(this Stream stream)
+    {
+        return Sha256.Compute(stream);
+    }
+
+    /// <summary>
+    /// Reads the stream to its end, hashing its content and returns the resulting Sha256 hash
+    /// 
+    /// Returns null if stream is null or cannot be read
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
+    /// var hash = fileStream.ToSha256HashAsync().Result;
+    /// </code>
+    /// </example>
+    public static async Task<string> ToSha256HashAsync(this Stream stream)
+    {
+        return await Sha256.ComputeAsync(stream).ConfigureAwait(false);
     }
 }

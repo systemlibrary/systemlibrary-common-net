@@ -50,12 +50,13 @@ namespace SystemLibrary.Common.Net
             "Salesforce",
             "React",
             "moq",
+            "Moq",
             "automapper",
+            "AutoMapper",
             "Autofac",
             "Dapper",
             "SystemLibrary.Common.Net",
-            "SystemLibrary.Common.Net.Json",
-            "SystemLibrary.Common.Web.HttpBaseClient",
+            "SystemLibrary.Common.Web",
             "testhost",
             "netstandard",
             "Anonymously Hosted",
@@ -108,7 +109,10 @@ namespace SystemLibrary.Common.Net
             "Xamarin.",
             "CommonServiceLocator.",
             "NuGet.Packaging.",
-            "IdentityServer4."
+            "IdentityServer4.",
+            "FluentEmail",
+            "Grpc."
+
         };
 
         static IEnumerable<Asm> WhiteListedAssemblies { get; }

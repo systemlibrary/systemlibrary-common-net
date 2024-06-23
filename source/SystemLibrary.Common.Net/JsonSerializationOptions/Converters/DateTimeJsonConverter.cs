@@ -18,7 +18,7 @@ public class DateTimeJsonConverter : JsonConverter<DateTime>
 {
     string Format;
 
-    public DateTimeJsonConverter(string format)
+    public DateTimeJsonConverter(string format = null)
     {
         Format = format;
     }
@@ -30,20 +30,6 @@ public class DateTimeJsonConverter : JsonConverter<DateTime>
 
     public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        var value = reader.GetString();
-
-        if (value.IsNot())
-            return DateTime.MinValue;
-
-        if (DateTime.TryParse(value, out DateTime res))
-            return res;
-
-        if (DateTime.TryParseExact(value, Format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res))
-            return res;
-
-        if (DateTime.TryParseExact(value, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.RoundtripKind, out res))
-            return res;
-
-        return DateTime.ParseExact(value, Format, null);
+        return reader.GetString().ToDateTime(Format);
     }
 }

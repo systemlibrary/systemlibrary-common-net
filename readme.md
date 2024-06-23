@@ -4,7 +4,7 @@
 Library with classes and methods for every &gt;=  .NET 7 application
 
 ### Features
-- Extensions fro Strings, Arrays, Lists, ... such as Is(), IsNot() and ToEnum()
+- Extensions for Strings, Arrays, Lists, ... such as Is(), IsNot() and ToEnum()
 - Inherit the Config class which reads .json configuration file into a C# class with transformations based on 'EnvironmentName', at runtime
 - Dump.Write() "equivalent" to console.log in javascript
 - ToValue and ToText extensions on Enums, supporting two attributes (EnumText, EnumValue) to fill data to an Enum
@@ -20,11 +20,19 @@ Library with classes and methods for every &gt;=  .NET 7 application
 ## Requirements
 - &gt;= .NET 7
 
-## Latest Version
-- 7.6.0.4
-- Added SystemType IListType<>
+## Latest Release Notes
+- 7.7.0.1
+- Json() date-time conversion formats changed, supporting a lot more date-time formats by default, but might've removed one or two (breaking change)
+- Json() custom converters passed gets precedence over the built-in converters, so built-in converters failures wont happen before your own
+- Json() one overload removed, and comments and samples are adjusted to whats happening in regards to camel-casing (breaking change)
+- Json(camelCase:true/false) added as extension to any object 
+- Assemblies black list updated with "Grpc." and "FluentEmail" (breaking change)
+- StreamExtension.ToSha256Hash added
+- StringBuilderExtensions.IndexOf optimized by ~1/3
+- Async.Run comment adjusted
 
-#### Version history
+ 
+#### Version history 
 - View git history of this file if interested
 
 ## Installation

@@ -10,7 +10,7 @@ using SystemLibrary.Common.Net.Tests.Extensions.DataModel;
 namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 
 [TestClass]
-public class StringExtensionsTests
+public partial class StringExtensionsTests
 {
     [TestMethod]
     public void Is_Json_Success()
@@ -1017,5 +1017,11 @@ public class StringExtensionsTests
         {
             Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
+    }
+
+    [TestMethod]
+    public void Strings_To_DateTime()
+    {
+
     }
 }

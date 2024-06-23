@@ -22,7 +22,7 @@ static internal class GetJsonSerializerOptions
         options.Converters.Add(new IntJsonConverter());
         options.Converters.Add(new EnumStringConverterFactory());
         options.Converters.Add(new JsonStringEnumConverter());
-        options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+        options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd HH:mm:ss"));
         options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
         options.Converters.Add(new LongJsonConverter());
         options.Converters.Add(new TypeConverter());

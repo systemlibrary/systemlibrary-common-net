@@ -13,6 +13,22 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 public class ObjectExtensionsTests
 {
     [TestMethod]
+    public void Convert_CamelCase_Props()
+    {
+        var user = new User();
+
+        user.FirstName = "Hello";
+        user.LastName = "World";
+
+        var json = user.Json(true);
+
+        Assert.IsTrue(json.Contains("birth"), "birth");
+        Assert.IsTrue(!json.Contains("FirstName"), "First");
+        Assert.IsTrue(json.Contains("firstName"), "first");
+        Assert.IsTrue(json.Contains("lastName"), "last");
+    }
+
+    [TestMethod]
     public void Convert_Class_Does_Not_Print_Null_Values()
     {
         var user = new User();
@@ -36,8 +52,12 @@ public class ObjectExtensionsTests
     {
         var user = new User();
 
+        user.FirstName = "Hello world";
+
         var json = user.Json();
 
+        Assert.IsTrue(json.Contains("FirstName"));
+        Assert.IsTrue(!json.Contains("LastName"), "LastName is null, yet part of output");
         Assert.IsTrue(json.Contains("EnumTestProp"));
         Assert.IsTrue(json.Contains(EnumTest.A.ToValue()));
     }

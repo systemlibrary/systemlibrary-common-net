@@ -81,6 +81,99 @@ public class JsonSerializationDefaultOptionsTests
         Assert.IsTrue(data.inner[2].attributes.deci == 123, "Third element, deci is wrong");
         Assert.IsTrue(data.inner[2].attributes.deci == 123.0, "Third element, deci is wrong");
     }
+
+    [TestMethod]
+    public void Json_With_Various_DateTimeFormats_Success()
+    {
+        var text = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithVariousDateTimeFormats.json");
+
+        var data = text.Json<DataWithVariousDateTimeFormatsModels>();
+
+        Assert.IsTrue(data != null, "Null");
+
+        ValidateDateTimeMinutePrecision(data.nor1, nameof(data.nor1));
+        ValidateDateTimeMinutePrecision(data.nor2, nameof(data.nor2));
+        ValidateDateTimeMinutePrecision(data.nor3, nameof(data.nor3));
+        ValidateDateTimeDayPrecision(data.nor4, nameof(data.nor4));
+
+        ValidateDateTimeMinutePrecision(data.nor5, nameof(data.nor5));
+        ValidateDateTimeMinutePrecision(data.nor6, nameof(data.nor6));
+        ValidateDateTimeMinutePrecision(data.nor7, nameof(data.nor7));
+        ValidateDateTimeDayPrecision(data.nor8, nameof(data.nor8));
+
+        ValidateDateTimeMinutePrecision(data.eng1, nameof(data.eng1));
+        ValidateDateTimeMinutePrecision(data.eng2, nameof(data.eng2));
+        ValidateDateTimeMinutePrecision(data.eng3, nameof(data.eng3));
+        ValidateDateTimeDayPrecision(data.eng4, nameof(data.eng4));
+
+        ValidateDateTimeMinutePrecisionWithTimezone(data.timezoneprecision, nameof(data.timezoneprecision));
+        ValidateDateTimeMinutePrecisionWithTimezone(data.timezoneprecision2, nameof(data.timezoneprecision2));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.fullprecision, nameof(data.fullprecision));
+        ValidateDateTimeMinutePrecisionUTCZ(data.fullprecision2, nameof(data.fullprecision2));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.msprecision, nameof(data.msprecision));
+        ValidateDateTimeMinutePrecisionUTCZ(data.msprecision2, nameof(data.msprecision2));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.secprecision, nameof(data.secprecision));
+        ValidateDateTimeMinutePrecisionUTCZ(data.secprecision2, nameof(data.secprecision2));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.noprecision, nameof(data.noprecision));
+        ValidateDateTimeMinutePrecisionUTCZ(data.noprecision2, nameof(data.noprecision2));
+
+        ValidateDateTimeDayPrecision(data.common1, nameof(data.common1));
+        ValidateDateTimeDayPrecision(data.common2, nameof(data.common2));
+        ValidateDateTimeDayPrecision(data.common3, nameof(data.common3));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.rfc1123, nameof(data.rfc1123));
+        ValidateDateTimeMinutePrecisionWithTimezone(data.rfc1123zzz, nameof(data.rfc1123zzz));
+        ValidateDateTimeMinutePrecisionWithTimezone(data.rfc1123timezone, nameof(data.rfc1123timezone));
+
+        ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339mstimezone, nameof(data.rfc3339mstimezone));
+        ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339fullmstimezone, nameof(data.rfc3339fullmstimezone));
+        ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339timezonewithoutseconds, nameof(data.rfc3339timezonewithoutseconds));
+        
+        ValidateDateTimeDayPrecision(data.basic1, nameof(data.basic1));
+        ValidateDateTimeMinutePrecision(data.basic2, nameof(data.basic2));
+        ValidateDateTimeMinutePrecisionUTCZ(data.basic3, nameof(data.basic3));
+        ValidateDateTimeMinutePrecisionWithTimezone(data.basic4, nameof(data.basic4));
+
+        ValidateDateTimeMinutePrecisionWithTimezone(data.iso8601timezone, nameof(data.iso8601timezone));
+        ValidateDateTimeMinutePrecision(data.usampm, nameof(data.usampm));
+        ValidateDateTimeMinutePrecision(data.europeanweekday, nameof(data.europeanweekday));
+        ValidateDateTimeMinutePrecision(data.unixtimestamp, nameof(data.unixtimestamp));
+
+        ValidateDateTimeMonthPrecision(data.dateString1, nameof(data.dateString1));
+        ValidateDateTimeMonthPrecision(data.dateString2, nameof(data.dateString2));
+        ValidateDateTimeMonthPrecision(data.dateString3, nameof(data.dateString3));
+        ValidateDateTimeMonthPrecision(data.dateString4, nameof(data.dateString4));
+        ValidateDateTimeMonthPrecision(data.dateString5, nameof(data.dateString5));
+    }
+
+    static void ValidateDateTimeMonthPrecision(DateTime d, string msg)
+    {
+        Assert.IsTrue(d.Day == 24 && d.Month == 12 && d.Year == 2001,"Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm"));
+    }
+
+    static void ValidateDateTimeMinutePrecisionUTCZ(DateTime d, string msg)
+    {
+        Assert.IsTrue(d.Month == 12 && d.Day == 25 && d.Year == 2001 && d.Hour == 00 && d.Minute == 22, "Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm"));
+    }
+
+    static void ValidateDateTimeMinutePrecisionWithTimezone(DateTime d, string msg)
+    {
+        Assert.IsTrue(d.Month == 12 && d.Day == 24 && d.Year == 2001 && d.Hour == 20 && d.Minute == 22, "Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm"));
+    }
+
+    static void ValidateDateTimeMinutePrecision(DateTime d, string msg)
+    {
+        Assert.IsTrue(d.Month == 12 && d.Day == 24 && d.Year == 2001 && d.Hour == 23 && d.Minute == 22, "Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    static void ValidateDateTimeDayPrecision(DateTime d, string msg)
+    {
+        Assert.IsTrue(d.Year == 2001 && d.Day == 24 && d.Month == 12, "Error: " + msg + ": " + d.ToString());
+    }
 }
 
 public class Car

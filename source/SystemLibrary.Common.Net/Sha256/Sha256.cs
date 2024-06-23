@@ -61,7 +61,7 @@ internal static class Sha256
         if (stream == null) return null;
 
         if (!stream.CanRead) return null;
-
+        
         return BitConverter.ToString(await SHA256.ComputeHashAsync(stream).ConfigureAwait(false));
     }
 }

@@ -63,17 +63,13 @@ public static class ObjectExtensions
     }
 
     /// <summary>
-    /// Convert object to json
-    /// 
-    /// Default options are: 
-    /// - case insensitive
-    /// - allows trailing commas
-    /// - camel cased
+    /// Convert object to json with option to camelCase C# properties when converting to a json-string
     /// 
     /// Returns a json formatted string representation of the object or null if object is null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
+    /// // Assume camelCase argument true:
     /// class User {
     ///     public string FirstName { get;set; }
     /// }
@@ -82,23 +78,23 @@ public static class ObjectExtensions
     /// user.FirstName = "Hello World";
     /// var json = user.Json();
     /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
-    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
+    /// // contains is True, note that Json() has formatted 'FirstName' to 'firstName' when going from C# model to json string
     /// </code>
     /// </example>
-    public static string Json(this object obj, JsonSerializerOptions options = null, bool translateUnicodeCodepoints = false)
+    public static string Json(this object obj, bool camelCase)
     {
         if (obj == null) return null;
 
-        options = GetJsonSerializerOptions.Default(options);
+        var options = GetJsonSerializerOptions.Default(null);
 
-        if (!translateUnicodeCodepoints)
-            return JsonSerializer.Serialize(obj, options);
+        if (camelCase)
+            options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 
         return JsonSerializer.Serialize(obj, options).TranslateUnicodeCodepoints();
     }
 
     /// <summary>
-    /// Convert object to json with your custom json converters
+    /// Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones
     /// 
     /// Returns a json formatted string representation of the object or null if object is null
     /// </summary>
@@ -113,8 +109,40 @@ public static class ObjectExtensions
     /// var user = new User();
     /// user.FirstName = "Hello World";
     /// var json = user.Json(new CustomConverter());
-    /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
-    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
+    /// var isTrue = json.Contains("FirstName") &amp;&amp; json.Contains("Hello World"); 
+    /// // isTrue is 'True' as FirstName is not camelCased by default and 'Hello World' is its value
+    /// </code>
+    /// </example>
+    public static string Json(this object obj, JsonSerializerOptions options = null, bool translateUnicodeCodepoints = false, params JsonConverter[] jsonConverters)
+    {
+        if (obj == null) return null;
+
+        options = GetJsonSerializerOptions.Default(options, jsonConverters);
+
+        if(!translateUnicodeCodepoints)
+            return JsonSerializer.Serialize(obj, options);
+
+        return JsonSerializer.Serialize(obj, options).TranslateUnicodeCodepoints();
+    }
+
+    /// <summary>
+    /// Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones
+    /// 
+    /// Returns a json formatted string representation of the object or null if object is null
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class User {
+    ///     public string FirstName { get;set; }
+    /// }
+    /// 
+    /// class CustomConverter : JsonConverter...
+    /// 
+    /// var user = new User();
+    /// user.FirstName = "Hello World";
+    /// var json = user.Json(new CustomConverter());
+    /// var isTrue = json.Contains("FirstName") &amp;&amp; json.Contains("Hello World"); 
+    /// // isTrue is 'True' as FirstName is not camelCased by default and 'Hello World' is its value
     /// </code>
     /// </example>
     public static string Json(this object obj, params JsonConverter[] jsonConverters)
@@ -122,35 +150,6 @@ public static class ObjectExtensions
         if (obj == null) return null;
 
         var options = GetJsonSerializerOptions.Default(null, jsonConverters);
-
-        return JsonSerializer.Serialize(obj, options);
-    }
-
-    /// <summary>
-    /// Convert object to json with your custom json converters
-    /// 
-    /// Returns a json formatted string representation of the object or null if object is null
-    /// </summary>
-    /// <example>
-    /// <code class="language-csharp hljs">
-    /// class User {
-    ///     public string FirstName { get;set; }
-    /// }
-    /// 
-    /// class CustomConverter : JsonConverter...
-    /// 
-    /// var user = new User();
-    /// user.FirstName = "Hello World";
-    /// var json = user.Json(new CustomConverter());
-    /// var contains = json.Contains("firstName") &amp;&amp; json.Contains("Hello World"); 
-    /// // contains is True, note that Json() has formatted 'FirstName' to camelCasing
-    /// </code>
-    /// </example>
-    public static string Json(this object obj, JsonSerializerOptions options, params JsonConverter[] jsonConverters)
-    {
-        if (obj == null) return null;
-
-        options = GetJsonSerializerOptions.Default(options, jsonConverters);
 
         return JsonSerializer.Serialize(obj, options);
     }

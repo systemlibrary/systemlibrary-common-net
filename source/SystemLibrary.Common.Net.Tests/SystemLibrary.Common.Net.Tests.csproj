@@ -52,6 +52,7 @@
 		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
 		<None Remove="Configs\Integration\integrationsettings.json" />
 		<None Remove="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
+		<None Remove="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
 		<None Remove="mstest.runsettings" />
 		<None Remove="_Files\data-array-space-and-newline.json" />
 		<None Remove="_Files\data-new-line.json" />
@@ -60,6 +61,7 @@
 		<None Remove="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
 	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
 	  <EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
 	  <EmbeddedResource Include="_Files\data-new-line.json" />

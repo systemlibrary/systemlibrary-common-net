@@ -1,24 +1,23 @@
-﻿namespace SystemLibrary.Common.Net
+﻿namespace SystemLibrary.Common.Net;
+
+internal static class AspNetCoreEnvironment
 {
-    internal static class AspNetCoreEnvironment
+    static string _Value;
+
+    internal static string Value
     {
-        static string _Value;
-
-        internal static string Value
+        get
         {
-            get
+            if (_Value == null)
             {
-                if (_Value == null)
-                {
-                    _Value = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                _Value = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-                    //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
-                    if (_Value.IsEmpty())
-                        _Value = "";
-                }
-
-                return _Value;
+                //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
+                if (_Value.IsEmpty())
+                    _Value = "";
             }
+
+            return _Value;
         }
     }
 }
