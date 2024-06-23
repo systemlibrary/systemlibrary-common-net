@@ -336,7 +336,7 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Md5 hash</p>
 <p>Returns null if stream is null or cannot be read</p>
 <p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
 </div>
@@ -409,7 +409,7 @@ var hash = fileStream.ToMD5Hash();</code></pre>
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Md5 hash</p>
 <p>Returns null if stream is null or cannot be read</p>
 <p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
 </div>
@@ -482,7 +482,7 @@ var hash = fileStream.ToMD5HashAsync().Result;</code></pre>
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha1 hash</p>
 <p>Returns null if stream is null or cannot be read</p>
 <p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
 </div>
@@ -555,7 +555,7 @@ var hash = fileStream.ToSha1Hash();</code></pre>
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing the content and returning the hash as a string</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha1 hash</p>
 <p>Returns null if stream is null or cannot be read</p>
 <p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
 </div>
@@ -576,6 +576,150 @@ var hash = fileStream.ToSha1Hash();</code></pre>
   				<div class="syslib-tab-menu-data--close">X</div>
   				<div class="codewrapper"><pre><code>var fileStream = new FileStream(@&quot;C:\file.txt&quot;, FileMode.Open);
 var hash = fileStream.ToSha1HashAsync().Result;</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.IO.Stream</span></td>
+  							<td><span class="parametername">stream</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha256 hash</p>
+<p>Returns null if stream is null or cannot be read</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_System_IO_Stream_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L118">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_System_IO_Stream_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash(System.IO.Stream)" class="h4-custom-functionName">public static string ToSha256Hash(this Stream stream)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var fileStream = new FileStream(@&quot;C:\file.txt&quot;, FileMode.Open);
+var hash = fileStream.ToSha256Hash();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.IO.Stream</span></td>
+  							<td><span class="parametername">stream</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha256 hash</p>
+<p>Returns null if stream is null or cannot be read</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_System_IO_Stream_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L134">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_System_IO_Stream_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync(System.IO.Stream)" class="h4-custom-functionName">public static async Task&lt;string&gt; ToSha256HashAsync(this Stream stream)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var fileStream = new FileStream(@&quot;C:\file.txt&quot;, FileMode.Open);
+var hash = fileStream.ToSha256HashAsync().Result;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>

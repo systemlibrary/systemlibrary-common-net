@@ -114,6 +114,20 @@ public static class TypeExtensions
         return type.Name;
     }
 
+    /// <summary>
+    /// Returns the first generic type found or null if not generic type
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class Car
+    /// {
+    /// }
+    /// 
+    /// var type = typeof(List&lt;Car&gt;);
+    /// var genericType = type.GetFirstGenericType();
+    /// // genericType is now 'typeof(Car)'
+    /// </code>
+    /// </example>
     public static Type GetFirstGenericType(this Type type)
     {
         if (type == null || !type.IsGenericType) return default;

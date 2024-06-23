@@ -250,7 +250,7 @@ Actions passed to the method will run till completion or till main thread is shu
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_FireAndForget_System_Action___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L181">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L183">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_FireAndForget_" data-uid="SystemLibrary.Common.Net.Async.FireAndForget*"></a>
@@ -309,7 +309,7 @@ Actions passed to the method will run till completion or till main thread is shu
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_Exception__System_Action___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L142">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L144">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_FireAndForget_" data-uid="SystemLibrary.Common.Net.Async.FireAndForget*"></a>
@@ -366,7 +366,7 @@ Actions passed to the method will run till completion or till main thread is shu
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_Run__1_System_Func___0____">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L44">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L45">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
@@ -382,16 +382,17 @@ Actions passed to the method will run till completion or till main thread is shu
 
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
-    List&lt;Car> Get(string name) {
+    List&lt;Car> GetByName(string name) {
         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
+var carApi = new CarApi();
 var cars = Async.Run&lt;Car>(
-    () => new CarApi().GetTop1(&quot;ferrari&quot;),
-    () => new CarApi().GetTop1(&quot;volvo&quot;),
-    () => new CarApi().GetTop1(&quot;tesla&quot;)
+    () => carApi.GetByName(&quot;ferrari&quot;),
+    () => carApi.GetByName(&quot;volvo&quot;),
+    () => carApi.GetByName(&quot;tesla&quot;)
 ); 
 
 // Variable &apos;cars&apos; is filled after all three api requests has completed.
@@ -471,7 +472,7 @@ var cars = Async.Run&lt;Car>(
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L100">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L102">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
@@ -487,16 +488,17 @@ var cars = Async.Run&lt;Car>(
 
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
-    List&lt;Car> Get(string name) {
+    List&lt;Car> GetByName(string name) {
         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
         return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
+var carApi = new CarApi();
 var cars = Async.Run&lt;Car>(
-    () => new CarApi().GetAll(&quot;ferrari&quot;),
-    () => new CarApi().GetAll(&quot;volvo&quot;),
-    () => new CarApi().GetAll(&quot;tesla&quot;)
+    () => carApi.GetByName(&quot;ferrari&quot;),
+    () => carApi.GetByName(&quot;volvo&quot;),
+    () => carApi.GetByName(&quot;tesla&quot;)
 ); 
 
 // Variable &apos;cars&apos; is filled after all three api requests has completed.

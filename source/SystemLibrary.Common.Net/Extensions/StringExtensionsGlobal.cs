@@ -1,4 +1,4 @@
-﻿////namespace SystemLibrary.Common.Net.Global;
+﻿//namespace SystemLibrary.Common.Net.Global;
 //using System;
 //using System.Collections.Concurrent;
 //using System.Collections.Generic;
@@ -37,8 +37,23 @@
 ///// // result is 'true'
 ///// </code>
 ///// </example>
-//public static class StringExtensions
+//public static partial class StringExtensions
 //{
+//    /// <summary>
+//    /// Returns a MinValue if input is null or blank
+//    /// 
+//    /// Returns a DateTime if successful conversion
+//    /// 
+//    /// Throws exception if input is in an unknown format and could therefore not be converted
+//    /// </summary>
+//    public static DateTime ToDateTime(this string date, string format = null)
+//    {
+//        if (date == null)
+//            return DateTime.MinValue;
+
+//        // NOTE: This is not the source, this is the "global dummy class" due how DocFx works
+//        return DateTime.MinValue;
+//    }
 //    /// <summary>
 //    /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
 //    /// If 'data' and all fallbacks are null or empty, this returns "", never null
@@ -308,7 +323,7 @@
 //        var textSpan = text.AsSpan();
 
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i].Length != 0 && textSpan.EndsWith(values[i]))
+//            if (values[i] != null && textSpan.EndsWith(values[i]))
 //                return true;
 
 //        return false;
@@ -330,10 +345,10 @@
 //        if (text.IsNot()) return false;
 //        if (values.IsNot()) return false;
 
-//        var textSpan = text.ToLower().AsSpan();
+//        var textSpan = text.AsSpan();
 
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i].Length != 0 && textSpan.EndsWith(values[i].ToLower()))
+//            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.OrdinalIgnoreCase))
 //                return true;
 
 //        return false;
@@ -710,9 +725,8 @@
 //    /// Convert string formatted json to object T
 //    /// 
 //    /// Default options are: 
-//    /// - case insensitive
+//    /// - case insensitive deserialization
 //    /// - allows trailing commas
-//    /// - camel cased
 //    /// 
 //    /// Throws exception if json has invalid formatted json text
 //    /// </summary>
@@ -729,6 +743,7 @@
 //    /// }";
 //    /// 
 //    /// var user = json.Json&lt;User&gt;();
+//    /// // NOTE: Naming is camelCase'd in json, but still matched (case insensitive) during deserialization by default
 //    /// </code>
 //    /// </example>
 //    public static T Json<T>(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
@@ -764,6 +779,7 @@
 //    /// }";
 //    /// 
 //    /// var user = json.Json&lt;User&gt;(new CustomConverter());
+//    /// // NOTE: Naming is camelCase'd in json, but still matched (case insensitive) during deserialization by default
 //    /// </code>
 //    /// </example>
 //    public static T Json<T>(this string json, params JsonConverter[] converters) where T : class
@@ -1531,6 +1547,11 @@
 //        return htmlEncodedText;
 //    }
 
+//    /// <summary>
+//    /// Convert input to Utf8 BOM
+//    /// 
+//    /// Returns a new converted string
+//    /// </summary>
 //    public static string ToUtf8BOM(this string text)
 //    {
 //        if (text.IsNot()) return text;
@@ -1551,4 +1572,33 @@
 
 //        return Encoding.UTF8.GetString(bytes);
 //    }
+
+//    /// <summary>
+//    /// Returns the string as an integer
+//    /// 
+//    /// Returns 0 if string is null or blank
+//    /// 
+//    /// Throws if string is not a number
+//    /// </summary>
+//    public static int ToInt(this string number)
+//    {
+//        if (number.IsNot()) return 0;
+
+//        return Convert.ToInt32(number);
+//    }
+
+//    /// <summary>
+//    /// Returns the string as an integer64
+//    /// 
+//    /// Returns 0 if string is null or blank
+//    /// 
+//    /// Throws if string is not a number
+//    /// </summary>
+//    public static Int64 ToInt64(this string number)
+//    {
+//        if (number.IsNot()) return 0;
+
+//        return Convert.ToInt64(number);
+//    }
 //}
+
