@@ -221,10 +221,10 @@ public partial class StringExtensionsTests
         Assert.IsTrue(result == data, "long text");
 
         data = "High Salt A lot of various with high salt ÆØÅæøå ABCDEFGHIJKLMONPQRSTUVXYZ: 1234567890,.-_?\"*|!#¤%&/()=?…±òü±²³";
-        result = data.Obfuscate(10555);
+        result = data.Obfuscate(int.MaxValue);
         Assert.IsTrue(result.Length == data.Length);
         Assert.IsTrue(result != data);
-        result = result.Deobfuscate(10555);
+        result = result.Deobfuscate(int.MaxValue);
         Assert.IsTrue(result == data, "high salt");
 
         result = data.Obfuscate(10000);
@@ -821,7 +821,7 @@ public partial class StringExtensionsTests
     }
 
     [TestMethod]
-    public void To_Serer_Mapped_Path()
+    public void To_Server_Map_Path()
     {
         string text = null;
         string result = text.ToServerMapPath();
@@ -829,7 +829,7 @@ public partial class StringExtensionsTests
 
         text = "";
         result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", result);
+        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", "WTF" +result);
 
         text = "a";
         result = text.ToServerMapPath();

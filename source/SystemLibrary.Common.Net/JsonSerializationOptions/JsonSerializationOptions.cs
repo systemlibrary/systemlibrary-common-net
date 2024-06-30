@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
+using static SystemLibrary.Common.Net.AppSettings.Configuration;
+
 namespace SystemLibrary.Common.Net;
 
 static internal class GetJsonSerializerOptions
@@ -13,19 +15,36 @@ static internal class GetJsonSerializerOptions
 
     static JsonSerializerOptions _DefaultJsonSerializerOptions;
 
+    static IntJsonConverter IntJsonConverter = new IntJsonConverter();
+    static TypeConverter TypeConverter = new TypeConverter();
+    static LongJsonConverter LongJsonConverter = new LongJsonConverter();
+
     static void AddConverters(JsonSerializerOptions options)
     {
         if (options.Converters?.Count > 0) return;
 
         // NOTE: Optimize by creating these converters just once during app run time, they can be singleton IIRC
         options.Converters.Add(new StringJsonConverter());
-        options.Converters.Add(new IntJsonConverter());
+        options.Converters.Add(IntJsonConverter);
         options.Converters.Add(new EnumStringConverterFactory());
         options.Converters.Add(new JsonStringEnumConverter());
         options.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd HH:mm:ss"));
         options.Converters.Add(new DateTimeOffsetJsonConverter("yyyy-MM-dd"));
-        options.Converters.Add(new LongJsonConverter());
-        options.Converters.Add(new TypeConverter());
+        options.Converters.Add(LongJsonConverter);
+        options.Converters.Add(TypeConverter);
+    }
+
+    static JsonConfiguration _JsonConfiguration;
+    static JsonConfiguration JsonConfiguration
+    {
+        get
+        {
+            if (_JsonConfiguration == null)
+            {
+                _JsonConfiguration = Config.SystemLibraryCommonNet.Json;
+            }
+            return _JsonConfiguration;
+        }
     }
 
     static JsonSerializerOptions DefaultJsonSerializerOptions
@@ -44,14 +63,14 @@ static internal class GetJsonSerializerOptions
                     UnicodeRanges.CurrencySymbols,
                     UnicodeRanges.Cyrillic,
                     UnicodeRanges.GreekandCoptic),
-                DefaultIgnoreCondition = Config.SystemLibraryCommonNet.Json.JsonIgnoreCondition,
-                MaxDepth = Config.SystemLibraryCommonNet.Json.MaxDepth,
-                AllowTrailingCommas = Config.SystemLibraryCommonNet.Json.AllowTrailingCommas,
-                PropertyNameCaseInsensitive = Config.SystemLibraryCommonNet.Json.PropertyNameCaseInsensitive,
-                WriteIndented = Config.SystemLibraryCommonNet.Json.WriteIndented,
+                DefaultIgnoreCondition = JsonConfiguration.JsonIgnoreCondition,
+                MaxDepth = JsonConfiguration.MaxDepth,
+                AllowTrailingCommas = JsonConfiguration.AllowTrailingCommas,
+                PropertyNameCaseInsensitive = JsonConfiguration.PropertyNameCaseInsensitive,
+                WriteIndented = JsonConfiguration.WriteIndented,
                 PropertyNamingPolicy = null,
                 IncludeFields = true,
-                ReadCommentHandling = Config.SystemLibraryCommonNet.Json.ReadCommentHandling,
+                ReadCommentHandling = JsonConfiguration.ReadCommentHandling,
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 ReferenceHandler = ReferenceHandler.IgnoreCycles,
             };

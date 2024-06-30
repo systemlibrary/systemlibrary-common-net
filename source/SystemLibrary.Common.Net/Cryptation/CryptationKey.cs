@@ -13,7 +13,6 @@ internal static class CryptationKey
 {
     internal const string KeyName = "SYSLIBCRYPTATIONKEY";
 
-
     internal static byte[] _Key;
     static object KeyLock = new object();
 
@@ -26,12 +25,6 @@ internal static class CryptationKey
                 lock (KeyLock)
                 {
                     if (_Key != null) return _Key;
-
-                    if (Cryptation.DevelopmentCryptationKey?.Length > 0)
-                    {
-                        _Key = Encoding.UTF8.GetBytes(Cryptation.DevelopmentCryptationKey.ToMD5Hash().Replace("-", ""));
-                        return _Key;
-                    }
 
                     var temp = System.Environment.GetEnvironmentVariable(KeyName);
 
@@ -70,12 +63,7 @@ internal static class CryptationKey
 
         if (!onErrorOutputKeyParts)
         {
-            m2 = "Tried decrypting, with a user specified salt";
-        }
-        else if (Cryptation.DevelopmentCryptationKey?.Length > 0)
-        {
-            m1 += " from Cryptation.DevelopmentCryptationKey";
-            m2 = "Tried decrypting with key starting with: " + Cryptation.DevelopmentCryptationKey.MaxLength(2);
+            m2 = "Tried decrypting, with a user specified salt, cipher text starts with " + cipherText.MaxLength(2);
         }
         else
         {

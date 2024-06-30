@@ -17,6 +17,24 @@ partial class StringExtensionsTests
         }
     }
 
+    [TestMethod]
+    public void To_DateTimeOffset()
+    {
+        foreach (var date in dateStrings)
+        {
+            var dateTime = date.ToDateTimeOffset();
+
+            ValidateConvertedStringToDateTime(dateTime, date);
+        }
+    }
+
+    static void ValidateConvertedStringToDateTime(DateTimeOffset dt, string date)
+    {
+        var expected = GetExpectedDateTime(date);
+
+        Assert.IsTrue(dt == expected || dt.DateTime == expected, "\nInput " + date + " \nResult: " + dt.ToString("yyyy-MM-dd HH:mm:ss.fffffff") + " \nExpected: " + expected.ToString("yyyy-MM-dd HH:mm:ss.fffffff") + " " + expected.Kind + " " + dt.LocalDateTime);
+    }
+
     static void ValidateConvertedStringToDateTime(DateTime dt, string date)
     {
         var expected = GetExpectedDateTime(date);
@@ -96,7 +114,7 @@ partial class StringExtensionsTests
                 ms = 0;
         }
 
-        var expected = new DateTime(y, M, d, h, m, s, ms);
+        var expected = new DateTime(y, M, d, h, m, s, ms, DateTimeKind.Unspecified);
 
         if (t > 0)
         {
@@ -113,22 +131,22 @@ partial class StringExtensionsTests
         "24-12-2001 23:22",
         "24-12-2001 23:22:59.777",
         "24-12-2001",
-
+        
         "24.12.2001 23:22:59",
         "24.12.2001 23:22",
         "24.12.2001 23:22:59.777",
         "24.12.2001",
-
+        
         "12/24/2001 23:22:59",
         "12/24/2001 23:22",
         "12/24/2001 23:22:59.777",
         "12/24/2001",
-
+        
         "2001-12-24T23:22:59.8888888+04:00",
         "2001-12-24T23:22:59.777+04:00",
         "2001-12-24T23:22:59+04:00",
         "2001-12-24T23:22+04:00",
-
+        
         "2001/12/24T23:22:59+04:00",
         "2001/12/24T23:22+04:00",
         "2001-12-24T23:22:59.8888888Z",
@@ -140,26 +158,26 @@ partial class StringExtensionsTests
         "2001/12/24T23:22:59Z",
         "2001-12-24T23:22Z",
         "2001/12/24T23:22Z",
-
+        
         "2001-12-24",
         "2001/12/24",
         "2001.12.24",
-
+        
         "Mon, 24 Dec 2001 23:22:59 GMT",
         "Mon, 24 Dec 2001 23:22:59 +04:00",
         "Mon, 24 Dec 2001 23:22:59 +04:00",
         "Tue, 25 Dec 2001 00:22:59 CET",
-
+        
         "2001-12-24T23:22:59Z",
         "2001-12-24T23:22:59.777Z",
         "2001-12-24T23:22:59.8888888Z",
         "2001-12-24T23:22Z",
-
+        
         "12/24/01",
         "20011224T232259",
         "20011224T232259Z",
         "20011224T232259+0400",
-
+        
         "2001-12-24T23:22:59+04:00",
         "12/24/2001 11:22:59 PM",
         "Mandag, 24 Desember 2001 23:22:59",
@@ -174,16 +192,16 @@ partial class StringExtensionsTests
         "24 Des 2001",
         "Desember 24, 2001",
         "2001-12-24T23:22:59",
-
+        
         "24-12-2001 23:22:59.8888888",      // "MM-dd-yyyy HH:mm:ss.fffffff",
         
-
+        
         "12/24/2001 23:22:59.8888888",      // "MM/dd/yyyy HH:mm:ss.fffffff"
         "12/24/2001 23:22:59.777",          // "MM/dd/yyyy HH:mm:ss.fff"
         "12/24/2001 23:22:59",              // "MM/dd/yyyy HH:mm:ss"
         "12/24/2001 23:22",                 // "MM/dd/yyyy HH:mm"
         "12/24/2001",                       // "MM/dd/yyyy"
-
+        
         "2001-12-24T23:22:59.8888888",      // "yyyy-MM-ddTHH:mm:ss.fffffff"
         "2001-12-24T23:22:59.8888888Z",     // "yyyy-MM-ddTHH:mm:ss.fffffffK"
         "2001-12-24T23:22:59.777Z",         // "yyyy-MM-ddTHH:mm:ss.fffK"
@@ -192,14 +210,14 @@ partial class StringExtensionsTests
         "2001-12-24T23:22:59",              // "yyyy-MM-ddTHH:mm:ss"
         "2001-12-24T23:22Z",                // "yyyy-MM-ddTHH:mmK"
         "2001-12-24T23:22",                 // "yyyy-MM-ddTHH:mm"
-
+        
         "2001-12-24",                       // "yyyy-MM-dd"
         "2001/12/24",                       // "yyyy/MM/dd"
         "2001.12.24",                       // "yyyy.MM.dd"
-
+        
         "2001-12-24T23:22:59.777Z",         // "yyyy-MM-ddTHH:mm:ss.fffK"
         "2001-12-24T23:22:59.8888888Z",     // "yyyy-MM-ddTHH:mm:ss.fffffffK"
-
+        
         "Mon, 24 Dec 2001 23:22:59 +01:00", // "ddd, dd MMM yyyy HH':'mm':'ss zzz"
         "Mon, 24 Dec 2001 23:22:59 GMT",    // "ddd, dd MMM yyyy HH':'mm':'ss 'GMT'"
         "Mon, 24 Dec 2001 23:22:59 GMT",    // "ddd, dd MMM yyyy HH:mm:ss GMT"
@@ -210,23 +228,23 @@ partial class StringExtensionsTests
         "2001-12-24",
         "2001/12",
         "12/24/2001",
-
+        
         "20011224T232259",
         "20011224T232259.777",
         "20011224T232259.8888888",
-
+        
         "2001-12-24T23:22:59+04:00",
         "2001-12-24T23:22:59.777+04:00",
         "2001-12-24T23:22:59.8888888+04:00",
-
+        
         "20011224 232259",
         "20011224 232259.777",
         "20011224 232259.8888888",
-
+        
         "24 December 2001 23:22:59",
         "24 December 2001 23:22:59.777",
         "24 December 2001 23:22:59.8888888",
-
+        
         "1009236179777",
     };
 }

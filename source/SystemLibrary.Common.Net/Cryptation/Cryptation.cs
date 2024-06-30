@@ -14,8 +14,6 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Cryptation
 {
-    public static string DevelopmentCryptationKey;
-
     public static byte[] Encrypt(string text, byte[] key, byte[] iv = null)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/

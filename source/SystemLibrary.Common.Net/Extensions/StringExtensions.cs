@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -109,11 +110,11 @@ public static partial class StringExtensions
     /// </example>
     public static string ReplaceAllWith(this string text, string newValue, params string[] oldValues)
     {
-        if (text.IsEmpty()) return text;
+        if (text == null) return text;
 
-        if (newValue.IsEmpty()) return text;
+        if (newValue == null) return text;
 
-        if (oldValues.IsNot()) return text;
+        if (oldValues == null) return text;
 
         if (oldValues.Length > 1)
         {
@@ -332,7 +333,7 @@ public static partial class StringExtensions
         var textSpan = text.AsSpan();
 
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.OrdinalIgnoreCase))
+            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.InvariantCultureIgnoreCase))
                 return true;
 
         return false;
@@ -393,29 +394,6 @@ public static partial class StringExtensions
             return true;
 
         return false;
-    }
-
-    /// <summary>
-    /// Returns true if text is null or has a length of 0 (empty string), else false
-    /// </summary>
-    /// <example>
-    /// <code>
-    /// var text = "Hello world";
-    /// var isEmpty = text.IsEmpty(); 
-    /// // isEmpty is false
-    /// 
-    /// var text = ""; //or null
-    /// var isEmpty = text.IsEmpty();
-    /// // isEmpty is true
-    /// 
-    /// var text = " "; //a space
-    /// var isEmpty = text.IsEmpty();
-    /// // isEmpty is false
-    /// </code>
-    /// </example>
-    public static bool IsEmpty(this string text)
-    {
-        return text == null || text.Length == 0;
     }
 
     /// <summary>
@@ -783,7 +761,7 @@ public static partial class StringExtensions
     /// 
     /// - factor is a number between 0 and 1
     /// 
-    /// - pass auto: true, to automatically check difference in the new value, and if it is too small, the value is rather darkened instead of lightened, or ligtened instead of darkened
+    /// - pass auto: true, to automatically check difference in the new value, and if the diff is too small (almost same color), the value is rather darkened instead of lightened, or ligtened instead of darkened
     /// </summary>
     /// <example>
     /// <code>
@@ -1166,6 +1144,52 @@ public static partial class StringExtensions
         return sb.ToString();
     }
 
+    static string _ContentRootPath;
+    static string GetContentRootPath
+    {
+        get
+        {
+            if (_ContentRootPath == null)
+            {
+                _ContentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
+
+                if (_ContentRootPath.IsNot())
+                    _ContentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
+
+                if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
+                    _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
+
+                bool IsWithinBin()
+                {
+                    return _ContentRootPath.Contains("\\bin\\", StringComparison.Ordinal) ||
+                        _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
+                        _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal);
+                }
+
+                var wasInBin = false;
+                while (IsWithinBin())
+                {
+                    wasInBin = true;
+                    var temp = _ContentRootPath;
+                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent?.FullName;
+
+                    if (_ContentRootPath == null)
+                    {
+                        _ContentRootPath = temp;
+                        break;
+                    }
+                }
+
+                if (wasInBin)
+                {
+                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent.FullName;
+                }
+            }
+
+            return _ContentRootPath;
+        }
+    }
+
     /// <summary>
     /// Convert path passed in to a full path that exists on your server
     /// 
@@ -1189,39 +1213,40 @@ public static partial class StringExtensions
     /// <code>
     /// var text = "/hello/world/";
     /// var result = text.ToServerMapPath();
-    /// //result == "root of website\hello\world\"
+    /// //result == "c:\pub\www\hello\world\", full path on server including disc (at least on Windows)
     /// </code>
     /// </example>
     public static string ToServerMapPath(this string path)
     {
         if (path == null) return path;
 
-        if (path.Contains(":\\")) return path;
+        if (path.Contains(":\\", StringComparison.Ordinal)) return path;
 
-        if (path.StartsWith("~"))
+        if (path.StartsWith("~", StringComparison.Ordinal))
             path = path.Substring(1);
 
         void ConvertWebPathToServerPath()
         {
-            if (path.Contains("://"))
+            if (path.Contains("://", StringComparison.Ordinal))
             {
-                if (path.Contains("?"))
-                    path = path.Split('?')[0];
+                if (path.Contains("?", StringComparison.Ordinal))
+                    path = path.Split('?', 2)[0];
 
                 var temp = new StringBuilder("");
-                var parts = path.Substring(path.IndexOf("://") + 3).Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+                var parts = path.Substring(path.IndexOf("://", StringComparison.Ordinal) + 3).Split('/', StringSplitOptions.RemoveEmptyEntries);
                 for (var i = 1; i < parts.Length; i++)
                 {
                     temp.Append("/" + parts[i]);
                 }
 
-                if (path.EndsWith("/"))
-                    path = temp.ToString() + "/";
-                else
-                    path = temp.ToString();
+                if (path.EndsWith("/", StringComparison.Ordinal))
+                    temp.Append("/");
+
+                path = temp.ToString();
             }
 
-            if (!path.StartsWith("/"))
+            if (!path.StartsWith("/", StringComparison.Ordinal))
                 path = "/" + path;
 
             path = path.Replace("/", "\\");
@@ -1229,11 +1254,11 @@ public static partial class StringExtensions
 
         void ConvertToValidRelativeServerPath()
         {
-            if (!path.StartsWith("\\"))
+            if (!path.StartsWith("\\", StringComparison.Ordinal))
                 path = "\\" + path;
         }
 
-        if (path.Contains("/"))
+        if (path.Contains("/", StringComparison.Ordinal))
         {
             ConvertWebPathToServerPath();
         }
@@ -1242,40 +1267,7 @@ public static partial class StringExtensions
             ConvertToValidRelativeServerPath();
         }
 
-        var contentRootPath = (string)null;
-
-        void FindContentRootPath()
-        {
-            contentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
-
-            if (contentRootPath.EndsWith("\\"))
-                contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
-
-            if (contentRootPath.IsNot())
-                contentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
-
-            bool IsWithinBin()
-            {
-                return contentRootPath.Contains("\\bin\\") || contentRootPath.Contains("\\Bin\\");
-            }
-
-            var wasInsideBin = false;
-            while (IsWithinBin())
-            {
-                wasInsideBin = true;
-                var currentDir = new DirectoryInfo(contentRootPath).Parent;
-                contentRootPath = currentDir.FullName;
-            }
-
-            if (wasInsideBin)
-            {
-                contentRootPath = new DirectoryInfo(contentRootPath).Parent.FullName;
-            }
-        }
-
-        FindContentRootPath();
-
-        return contentRootPath + path;
+        return GetContentRootPath + path;
     }
 
     /// <summary>
@@ -1421,11 +1413,11 @@ public static partial class StringExtensions
     /// Translate unicode code points to characters
     /// 
     /// Example: 
-    /// HellU+00F8 is converted into Hellø
+    /// HellU+00F8 is converted into Hellø (NOR char oslash;)
     /// 
     /// and
     /// 
-    /// Hell\u00F8 is converted also into Hellø
+    /// Hell\u00F8 is converted also into Hellø (NOR char oslash;)
     /// </summary>
     /// <returns>Returns translated text</returns>
     public static string TranslateUnicodeCodepoints(this string data)
@@ -1584,4 +1576,6 @@ public static partial class StringExtensions
 
         return Convert.ToInt64(number);
     }
+
+
 }

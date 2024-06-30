@@ -1621,19 +1621,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny
   nameWithType: StringExtensions.IsAny
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
-  name: IsEmpty(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsEmpty_System_String_
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty(System.String)
-  nameWithType: StringExtensions.IsEmpty(String)
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty*
-  name: IsEmpty
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsEmpty_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsEmpty
-  nameWithType: StringExtensions.IsEmpty
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
   name: IsJson(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_System_String_
@@ -1817,6 +1804,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime
   nameWithType: StringExtensions.ToDateTime
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  name: ToDateTimeOffset(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String, System.String)
+  nameWithType: StringExtensions.ToDateTimeOffset(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset*
+  name: ToDateTimeOffset
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  nameWithType: StringExtensions.ToDateTimeOffset
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
   name: ToEnum(String, Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_System_String_System_Type_

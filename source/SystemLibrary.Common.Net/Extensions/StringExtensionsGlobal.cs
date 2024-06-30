@@ -3,6 +3,7 @@
 //using System.Collections.Concurrent;
 //using System.Collections.Generic;
 //using System.Data.Common;
+//using System.Globalization;
 //using System.IO;
 //using System.IO.Compression;
 //using System.Linq;
@@ -39,21 +40,6 @@
 ///// </example>
 //public static partial class StringExtensions
 //{
-//    /// <summary>
-//    /// Returns a MinValue if input is null or blank
-//    /// 
-//    /// Returns a DateTime if successful conversion
-//    /// 
-//    /// Throws exception if input is in an unknown format and could therefore not be converted
-//    /// </summary>
-//    public static DateTime ToDateTime(this string date, string format = null)
-//    {
-//        if (date == null)
-//            return DateTime.MinValue;
-
-//        // NOTE: This is not the source, this is the "global dummy class" due how DocFx works
-//        return DateTime.MinValue;
-//    }
 //    /// <summary>
 //    /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
 //    /// If 'data' and all fallbacks are null or empty, this returns "", never null
@@ -125,11 +111,11 @@
 //    /// </example>
 //    public static string ReplaceAllWith(this string text, string newValue, params string[] oldValues)
 //    {
-//        if (text.IsEmpty()) return text;
+//        if (text == null) return text;
 
-//        if (newValue.IsEmpty()) return text;
+//        if (newValue == null) return text;
 
-//        if (oldValues.IsNot()) return text;
+//        if (oldValues == null) return text;
 
 //        if (oldValues.Length > 1)
 //        {
@@ -348,7 +334,7 @@
 //        var textSpan = text.AsSpan();
 
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.OrdinalIgnoreCase))
+//            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.InvariantCultureIgnoreCase))
 //                return true;
 
 //        return false;
@@ -409,29 +395,6 @@
 //            return true;
 
 //        return false;
-//    }
-
-//    /// <summary>
-//    /// Returns true if text is null or has a length of 0 (empty string), else false
-//    /// </summary>
-//    /// <example>
-//    /// <code>
-//    /// var text = "Hello world";
-//    /// var isEmpty = text.IsEmpty(); 
-//    /// // isEmpty is false
-//    /// 
-//    /// var text = ""; //or null
-//    /// var isEmpty = text.IsEmpty();
-//    /// // isEmpty is true
-//    /// 
-//    /// var text = " "; //a space
-//    /// var isEmpty = text.IsEmpty();
-//    /// // isEmpty is false
-//    /// </code>
-//    /// </example>
-//    public static bool IsEmpty(this string text)
-//    {
-//        return text == null || text.Length == 0;
 //    }
 
 //    /// <summary>
@@ -799,7 +762,7 @@
 //    /// 
 //    /// - factor is a number between 0 and 1
 //    /// 
-//    /// - pass auto: true, to automatically check difference in the new value, and if it is too small, the value is rather darkened instead of lightened, or ligtened instead of darkened
+//    /// - pass auto: true, to automatically check difference in the new value, and if the diff is too small (almost same color), the value is rather darkened instead of lightened, or ligtened instead of darkened
 //    /// </summary>
 //    /// <example>
 //    /// <code>
@@ -1182,6 +1145,52 @@
 //        return sb.ToString();
 //    }
 
+//    static string _ContentRootPath;
+//    static string GetContentRootPath
+//    {
+//        get
+//        {
+//            if (_ContentRootPath == null)
+//            {
+//                _ContentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
+
+//                if (_ContentRootPath.IsNot())
+//                    _ContentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
+
+//                if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
+//                    _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
+
+//                bool IsWithinBin()
+//                {
+//                    return _ContentRootPath.Contains("\\bin\\", StringComparison.Ordinal) ||
+//                        _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
+//                        _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal);
+//                }
+
+//                var wasInBin = false;
+//                while (IsWithinBin())
+//                {
+//                    wasInBin = true;
+//                    var temp = _ContentRootPath;
+//                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent?.FullName;
+
+//                    if (_ContentRootPath == null)
+//                    {
+//                        _ContentRootPath = temp;
+//                        break;
+//                    }
+//                }
+
+//                if (wasInBin)
+//                {
+//                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent.FullName;
+//                }
+//            }
+
+//            return _ContentRootPath;
+//        }
+//    }
+
 //    /// <summary>
 //    /// Convert path passed in to a full path that exists on your server
 //    /// 
@@ -1205,39 +1214,40 @@
 //    /// <code>
 //    /// var text = "/hello/world/";
 //    /// var result = text.ToServerMapPath();
-//    /// //result == "root of website\hello\world\"
+//    /// //result == "c:\pub\www\hello\world\", full path on server including disc (at least on Windows)
 //    /// </code>
 //    /// </example>
 //    public static string ToServerMapPath(this string path)
 //    {
 //        if (path == null) return path;
 
-//        if (path.Contains(":\\")) return path;
+//        if (path.Contains(":\\", StringComparison.Ordinal)) return path;
 
-//        if (path.StartsWith("~"))
+//        if (path.StartsWith("~", StringComparison.Ordinal))
 //            path = path.Substring(1);
 
 //        void ConvertWebPathToServerPath()
 //        {
-//            if (path.Contains("://"))
+//            if (path.Contains("://", StringComparison.Ordinal))
 //            {
-//                if (path.Contains("?"))
-//                    path = path.Split('?')[0];
+//                if (path.Contains("?", StringComparison.Ordinal))
+//                    path = path.Split('?', 2)[0];
 
 //                var temp = new StringBuilder("");
-//                var parts = path.Substring(path.IndexOf("://") + 3).Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+//                var parts = path.Substring(path.IndexOf("://", StringComparison.Ordinal) + 3).Split('/', StringSplitOptions.RemoveEmptyEntries);
 //                for (var i = 1; i < parts.Length; i++)
 //                {
 //                    temp.Append("/" + parts[i]);
 //                }
 
-//                if (path.EndsWith("/"))
-//                    path = temp.ToString() + "/";
-//                else
-//                    path = temp.ToString();
+//                if (path.EndsWith("/", StringComparison.Ordinal))
+//                    temp.Append("/");
+
+//                path = temp.ToString();
 //            }
 
-//            if (!path.StartsWith("/"))
+//            if (!path.StartsWith("/", StringComparison.Ordinal))
 //                path = "/" + path;
 
 //            path = path.Replace("/", "\\");
@@ -1245,11 +1255,11 @@
 
 //        void ConvertToValidRelativeServerPath()
 //        {
-//            if (!path.StartsWith("\\"))
+//            if (!path.StartsWith("\\", StringComparison.Ordinal))
 //                path = "\\" + path;
 //        }
 
-//        if (path.Contains("/"))
+//        if (path.Contains("/", StringComparison.Ordinal))
 //        {
 //            ConvertWebPathToServerPath();
 //        }
@@ -1258,40 +1268,7 @@
 //            ConvertToValidRelativeServerPath();
 //        }
 
-//        var contentRootPath = (string)null;
-
-//        void FindContentRootPath()
-//        {
-//            contentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
-
-//            if (contentRootPath.EndsWith("\\"))
-//                contentRootPath = contentRootPath.Substring(0, contentRootPath.Length - 1);
-
-//            if (contentRootPath.IsNot())
-//                contentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
-
-//            bool IsWithinBin()
-//            {
-//                return contentRootPath.Contains("\\bin\\") || contentRootPath.Contains("\\Bin\\");
-//            }
-
-//            var wasInsideBin = false;
-//            while (IsWithinBin())
-//            {
-//                wasInsideBin = true;
-//                var currentDir = new DirectoryInfo(contentRootPath).Parent;
-//                contentRootPath = currentDir.FullName;
-//            }
-
-//            if (wasInsideBin)
-//            {
-//                contentRootPath = new DirectoryInfo(contentRootPath).Parent.FullName;
-//            }
-//        }
-
-//        FindContentRootPath();
-
-//        return contentRootPath + path;
+//        return GetContentRootPath + path;
 //    }
 
 //    /// <summary>
@@ -1437,11 +1414,11 @@
 //    /// Translate unicode code points to characters
 //    /// 
 //    /// Example: 
-//    /// HellU+00F8 is converted into Hellø
+//    /// HellU+00F8 is converted into Hellø (NOR char oslash;)
 //    /// 
 //    /// and
 //    /// 
-//    /// Hell\u00F8 is converted also into Hellø
+//    /// Hell\u00F8 is converted also into Hellø (NOR char oslash;)
 //    /// </summary>
 //    /// <returns>Returns translated text</returns>
 //    public static string TranslateUnicodeCodepoints(this string data)
@@ -1600,5 +1577,351 @@
 
 //        return Convert.ToInt64(number);
 //    }
-//}
 
+//    /// <summary>
+//    /// Returns a MinValue if input is null or blank
+//    /// 
+//    /// Returns a DateTime if successful conversion
+//    /// 
+//    /// Throws exception if input is in an unknown format and could therefore not be converted
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var date = "2000-24-12";
+//    /// var dateTime = date.ToDateTime();
+//    /// </code>
+//    /// </example>
+//    public static DateTime ToDateTime(this string date, string format = null)
+//    {
+//        if (date == null)
+//            return DateTime.MinValue;
+
+//        var l = date.Length;
+
+//        if (l < 4)
+//            return DateTime.MinValue;
+
+//        if (l == 4)
+//        {
+//            return new DateTime(Convert.ToInt32(date), 1, 1);
+//        }
+
+
+//        if (DateTime.TryParse(date, out DateTime res))
+//            return res;
+
+//        if (format.Is())
+//        {
+//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime res2))
+//                return res2;
+
+//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res2))
+//                return res2;
+
+//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.None, out res2))
+//                return res2;
+//        }
+
+//        if (DateTime.TryParse(date, null, DateTimeStyles.RoundtripKind, out res) ||
+//            DateTime.TryParse(date, null, DateTimeStyles.AssumeUniversal, out res))
+//        {
+//            return res;
+//        }
+
+//        var monthName = char.IsAsciiLetter(date[4]) || char.IsAsciiLetter(date[0]);
+
+//        if (monthName)
+//        {
+//            if (TryParseWithFormats(date, MonthlyNameDateTimeFormats, out res))
+//                return res;
+//        }
+
+//        var z = date[l - 1] == 'Z' || date[l - 1] == 'z';
+
+//        if (l <= 12)
+//        {
+//            if (z)
+//            {
+//                if (TryParseWithFormats(date, ShortDateTimeFormatsEndsInZ, out res))
+//                    return res;
+//            }
+//            else
+//            {
+//                if (TryParseWithFormats(date, ShortDateTimeFormats, out res))
+//                    return res;
+//            }
+//        }
+//        else
+//        {
+//            if (z)
+//            {
+//                if (TryParseWithFormats(date, LongDateTimeFormatsEndsInZ, out res))
+//                    return res;
+//            }
+//            else
+//            {
+//                var plus = date[l - 6] == '+';
+
+//                if (plus)
+//                {
+//                    if (TryParseWithFormats(date, LongDateTimeFormatsWithPlus, out res))
+//                        return res;
+//                }
+//                else
+//                {
+//                    if (TryParseWithFormats(date, LongDateTimeFormats, out res))
+//                        return res;
+//                }
+//            }
+//        }
+
+//        if (long.TryParse(date, out long unixTimestamp))
+//        {
+//            if (unixTimestamp > 99999999999)
+//                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(unixTimestamp);
+//            else
+//                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(unixTimestamp);
+//        }
+
+//        foreach (var culture in Cultures)
+//        {
+//            foreach (var cultureFormat in DateTimeFormatsCulture)
+//            {
+//                if (DateTime.TryParseExact(date, cultureFormat, culture, DateTimeStyles.RoundtripKind, out res))
+//                    return res;
+//            }
+//        }
+
+//        if (TryParseWithFormats(date, AllCultureFormats, out res))
+//            return res;
+
+//        throw new Exception("Input was not recognized as a valid DateTime. No matching format provided for: " + date + ". You sent in: " + format);
+//    }
+
+//    /// <summary>
+//    /// Returns a MinValue if input is null or blank
+//    /// 
+//    /// Returns a DateTimeOffset if successful conversion
+//    /// 
+//    /// Throws exception if input is in an unknown format and could therefore not be converted
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var date = "2000-24-12";
+//    /// var dateTimeOffset = date.ToDateTimeOffset();
+//    /// </code>
+//    /// </example>
+//    public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
+//    {
+//        if (date == null)
+//            return DateTimeOffset.MinValue;
+
+//        var l = date.Length;
+
+//        if (l < 4)
+//            return DateTimeOffset.MinValue;
+
+//        if (l == 4)
+//            return new DateTimeOffset(new DateTime(Convert.ToInt32(date), 1, 1));
+
+
+//        if (DateTimeOffset.TryParse(date, out DateTimeOffset res))
+//            return res;
+
+//        if (format.Is())
+//        {
+//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTimeOffset res2))
+//                return res2;
+
+//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res2))
+//                return res2;
+
+//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.None, out res2))
+//                return res2;
+//        }
+
+//        if (DateTimeOffset.TryParse(date, null, DateTimeStyles.RoundtripKind, out res) ||
+//            DateTimeOffset.TryParse(date, null, DateTimeStyles.AssumeUniversal, out res))
+//        {
+//            return res;
+//        }
+
+//        var monthName = char.IsAsciiLetter(date[4]) || char.IsAsciiLetter(date[0]);
+
+//        if (monthName)
+//        {
+//            if (TryParseWithFormats(date, MonthlyNameDateTimeFormats, out res))
+//                return res;
+//        }
+
+//        var z = date[l - 1] == 'Z' || date[l - 1] == 'z';
+
+//        if (l <= 12)
+//        {
+//            if (z)
+//            {
+//                if (TryParseWithFormats(date, ShortDateTimeFormatsEndsInZ, out res))
+//                    return res;
+//            }
+//            else
+//            {
+//                if (TryParseWithFormats(date, ShortDateTimeFormats, out res))
+//                    return res;
+//            }
+//        }
+//        else
+//        {
+//            if (z)
+//            {
+//                if (TryParseWithFormats(date, LongDateTimeFormatsEndsInZ, out res))
+//                    return res;
+//            }
+//            else
+//            {
+//                var plus = date[l - 6] == '+';
+
+//                if (plus)
+//                {
+//                    if (TryParseWithFormats(date, LongDateTimeFormatsWithPlus, out res))
+//                        return res;
+//                }
+//                else
+//                {
+//                    if (TryParseWithFormats(date, LongDateTimeFormats, out res))
+//                        return res;
+//                }
+//            }
+//        }
+
+//        if (long.TryParse(date, out long unixTimestamp))
+//        {
+//            if (unixTimestamp > 99999999999)
+//                return new DateTimeOffset(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(unixTimestamp));
+//            else
+//                return new DateTimeOffset(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(unixTimestamp));
+//        }
+
+//        foreach (var culture in Cultures)
+//        {
+//            foreach (var cultureFormat in DateTimeFormatsCulture)
+//            {
+//                if (DateTimeOffset.TryParseExact(date, cultureFormat, culture, DateTimeStyles.RoundtripKind, out res))
+//                    return res;
+//            }
+//        }
+
+//        if (TryParseWithFormats(date, AllCultureFormats, out res))
+//            return res;
+
+//        throw new Exception("Input was not recognized as a valid DateTime. No matching format provided for: " + date + ". You sent in: " + format);
+//    }
+
+//    static CultureInfo[] Cultures = new[]
+//      {
+//        new CultureInfo("no-NO"),
+//        new CultureInfo("es-ES"),
+//        new CultureInfo("en-US"),
+//        new CultureInfo("en-GB"),
+//        new CultureInfo("en-CA"),
+//        new CultureInfo("ru-RU"),
+//        new CultureInfo("fr-FR"),
+//        new CultureInfo("sv-SE"),
+//        new CultureInfo("da-DK"),
+//        new CultureInfo("de-DE"),
+//        new CultureInfo("pl-PL")
+//    };
+
+//    static string[] _AllCultureFormats;
+//    static string[] AllCultureFormats
+//    {
+//        get
+//        {
+//            if (_AllCultureFormats == null)
+//            {
+//                var formats = new List<string>();
+//                foreach (var culture in Cultures)
+//                {
+//                    formats.AddRange(culture.DateTimeFormat.GetAllDateTimePatterns());
+//                }
+
+//                _AllCultureFormats = formats.ToArray();
+//            }
+//            return _AllCultureFormats;
+//        }
+//    }
+
+//    static string[] DateTimeFormatsCulture = new[]
+//    {
+//        "MMMM dd, yyyy",
+//        "MMM dd, yyyy",
+//        "dddd, dd MMMM yyyy HH:mm:ss",
+//        "dddd, dd MMM yyyy HH:mm:ss",
+//        "dd. MMMM yyyy",
+//        "dd. MMM yyyy - HH:mm",
+//        "dd MMM yyyy"
+//    };
+
+//    static string[] AllDateTimeFormats = new[] {
+//        "dd-MM-yyyy",                           // Norwegian datetime formats
+//        "dd-MM-yyyy HH:mm",
+//        "dd-MM-yyyy HH:mm:ss",
+//        "dd-MM-yyyy HH:mm:ss.fff",
+//        "dd-MM-yyyy HH:mm:ss.fffffff",
+
+//        "dd.MM.yyyy",                           // Norwegian datetime formats
+//        "dd.MM.yyyy HH:mm",
+//        "dd.MM.yyyy HH:mm:ss",
+//        "dd.MM.yyyy HH:mm:ss.fff",
+//        "dd.MM.yyyy HH:mm:ss.fffffff",
+
+//        "MM/dd/yyyy HH:mm:ss.fffffff",          // English datetime formats
+//        "MM/dd/yyyy HH:mm:ss.fff",
+
+//        "ddd, dd MMM yyyy HH:mm:ss CET",        // RFC 1123
+
+//        "yyyyMMddTHHmmssK",                     // Basic format without separators
+
+//        "yyyyMMddTHHmmss.fff",                  // ISO 8601 Basic without dashes or colons
+//        "yyyyMMddTHHmmss.fffffff",              // ISO 8601 Basic without dashes or colons
+
+//        "yyyyMMdd HHmmss",                      // Compact format with space separator
+//        "yyyyMMdd HHmmss.fff",                  // Compact format with space separator
+//        "yyyyMMdd HHmmss.fffffff",              // Compact format with space separator
+//        "yyyy-MM-dd"
+//    };
+
+//    static string[] ShortDateTimeFormats = AllDateTimeFormats.Where(x => x.Length <= 12).ToArray();
+//    static string[] ShortDateTimeFormatsEndsInZ = ShortDateTimeFormats.Where(x => x[x.Length - 1] == 'Z' || x[x.Length - 1] == 'z').ToArray();
+
+//    static string[] LongDateTimeFormats = AllDateTimeFormats.Where(x => x.Length > 12).ToArray();
+//    static string[] LongDateTimeFormatsWithPlus = LongDateTimeFormats.Where(x => x.EndsWith("K") || x.EndsWith("Z") || x.EndsWith("Z")).ToArray();
+//    static string[] LongDateTimeFormatsEndsInZ = LongDateTimeFormatsWithPlus.Concat(LongDateTimeFormats.Where(x => x[x.Length - 1] == 'Z' || x[x.Length - 1] == 'z')).ToArray();
+
+//    static string[] MonthlyNameDateTimeFormats = AllDateTimeFormats.Where(x => x.Contains("MMMM ")).ToArray();
+
+//    static bool TryParseWithFormats(string date, string[] formats, out DateTime result)
+//    {
+//        foreach (var format in formats)
+//        {
+//            if (DateTime.TryParseExact(date, format, null, DateTimeStyles.None, out result))
+//                return true;
+//        }
+
+//        result = DateTime.MinValue;
+
+//        return false;
+//    }
+//    static bool TryParseWithFormats(string date, string[] formats, out DateTimeOffset result)
+//    {
+//        foreach (var format in formats)
+//        {
+//            if (DateTimeOffset.TryParseExact(date, format, null, DateTimeStyles.None, out result))
+//                return true;
+//        }
+
+//        result = DateTimeOffset.MinValue;
+
+//        return false;
+//    }
+
+//}

@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 5000, launchCount: 3)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 250, launchCount: 3)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringConditionBenchmarks
@@ -14,6 +14,13 @@ public class StringConditionBenchmarks
     public void Setup()
     {
         T = typeof(BenchMarkEnum);
+    }
+
+    [Benchmark]
+    public string To_Server_Mapped_Path()
+    {
+        var text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
+        return text.ToServerMapPath();
     }
 
     //[Benchmark]

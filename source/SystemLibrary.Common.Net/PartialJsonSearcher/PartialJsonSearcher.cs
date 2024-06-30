@@ -4,6 +4,8 @@ namespace SystemLibrary.Common.Net
 {
     internal static partial class PartialJsonSearcher
     {
+        static bool IsDebugging = AppSettings.Current?.SystemLibraryCommonNet?.Debug == true;
+
         public static T Search<T>(string json, string propertySearchPath = null, JsonSerializerOptions options = null, bool returnPropertyValue = false)
         {
             if (json.IsNot()) return default;
@@ -43,7 +45,7 @@ namespace SystemLibrary.Common.Net
 
             if (!value.IsJson())
             {
-                if (AppSettings.Current?.SystemLibraryCommonNet?.Dump?.Debug == true)
+                if (IsDebugging)
                     Dump.Write("PartialJsonSearcher.Search, value is not json formatted: " + value);
 
                 return default;

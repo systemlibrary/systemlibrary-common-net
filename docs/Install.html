@@ -401,7 +401,6 @@
 * Install SystemLibrary.Common.Net
 
 ## First time usage
-
 - Classes and methods can be used out of the box by including the namespace they live in
 
 - Sample:
@@ -411,23 +410,23 @@
 		public void Test() 
 		{
 			var s = !????!!????!;
-			var b = s.IsNot();	//IsNot() is an extension method in this package living in the global namespace
-								//In this case the method IsNot returns true as null, blank and an empty space returns true in IsNot()
+			var b = s.IsNot();	//IsNot() is a method from this package living in the global namespace
+								//Is true in this case, as null, !????!!????! and !????! !????! returns true
 		}
 	}
 !====!!====!!====!
 
 ## Package Configurations
-* Below are the default and modifiable configurations for this package
+* Below are all default and modifiable configurations for this package
 
 ###### appSettings.json:
 !====!!====!!====!json  
 	{
 		!????!systemLibraryCommonNet!????!: {
+			!????!debug!????!: false,
 			!????!dump!????!: {
 				!????!folder!????!: !????!%HomeDrive%\\Logs\\!????!,
 				!????!fileName!????!: !????!DumpWrite.log!????!,
-				!????!debug!????!: false
 			},
 			!????!json!????!: {
 				!????!allowTrailingCommas!????!: true,

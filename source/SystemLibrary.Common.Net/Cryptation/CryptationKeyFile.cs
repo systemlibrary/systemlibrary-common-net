@@ -10,6 +10,7 @@ namespace SystemLibrary.Common.Net;
 internal static class CryptationKeyFile
 {
     internal static string _Name;
+
     static object _NameLock = new object();
 
     internal static string Name

@@ -44,6 +44,7 @@ internal class AppSettings : Config<AppSettings>
         {
             Dump = new DumpConfiguration();
             Json = new JsonConfiguration();
+            Debug = false;
         }
 
         public class JsonConfiguration
@@ -60,12 +61,10 @@ internal class AppSettings : Config<AppSettings>
         {
             public string Folder { get; set; }
             public string FileName { get; set; }
-            public bool Debug { get; set; }
             public DumpConfiguration()
             {
                 Folder = "%HomeDrive%\\Logs\\";
                 FileName = "DumpWrite.log";
-                Debug = false;
             }
 
             public string GetFullLogPath()
@@ -118,6 +117,7 @@ internal class AppSettings : Config<AppSettings>
             }
         }
 
+        public bool Debug { get; set; }
         public DumpConfiguration Dump { get; set; }
         public JsonConfiguration Json { get; set; }
     }
