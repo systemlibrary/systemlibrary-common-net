@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
-using static SystemLibrary.Common.Net.AppSettings.Configuration;
+using static SystemLibrary.Common.Net.AppSettings.PackageConfig;
 
 namespace SystemLibrary.Common.Net;
 
@@ -34,8 +34,8 @@ static internal class GetJsonSerializerOptions
         options.Converters.Add(TypeConverter);
     }
 
-    static JsonConfiguration _JsonConfiguration;
-    static JsonConfiguration JsonConfiguration
+    static JsonConfig _JsonConfiguration;
+    static JsonConfig JsonConfiguration
     {
         get
         {

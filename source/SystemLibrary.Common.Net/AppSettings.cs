@@ -6,48 +6,23 @@ using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net;
 
-/// <summary>
-/// Override default configurations in 'SystemLibrary.Common.Net' by adding 'systemLibraryCommonNet' object to 'appSettings.json'
-/// </summary>
-/// <example>
-/// 'appSettings.json'
-/// <code class="language-csharp hljs">
-/// {
-///     ...,
-///     "systemLibraryCommonNet": {
-///         "dump": {
-///             "folder": "C:\\logs\\", // or %HomeDrive%\\logs\\ which works on MacOs too. Note: can maximum contain one env variable
-///             "fileName": "output.log",
-///             "debug": true // or false to avoid dumping internal warnings and errors
-///         },
-///         "json": {
-///             "writeIndented": false,
-///             "maxDepth": 16,
-///             "allowTrailingCommas": true,
-///             "propertyNameCaseInsensitive": true
-///         }
-///     },
-///     ...
-/// }
-/// </code>
-/// </example>
 internal class AppSettings : Config<AppSettings>
 {
     public AppSettings()
     {
-        SystemLibraryCommonNet = new Configuration();
+        SystemLibraryCommonNet = new PackageConfig();
     }
 
-    public class Configuration
+    public class PackageConfig
     {
-        public Configuration()
+        public PackageConfig()
         {
-            Dump = new DumpConfiguration();
-            Json = new JsonConfiguration();
+            Dump = new DumpConfig();
+            Json = new JsonConfig();
             Debug = false;
         }
 
-        public class JsonConfiguration
+        public class JsonConfig
         {
             public bool AllowTrailingCommas { get; set; } = true;
             public int MaxDepth { get; set; } = 32;
@@ -57,11 +32,11 @@ internal class AppSettings : Config<AppSettings>
             public bool WriteIndented { get; set; } = false;
         }
 
-        public class DumpConfiguration
+        public class DumpConfig
         {
             public string Folder { get; set; }
             public string FileName { get; set; }
-            public DumpConfiguration()
+            public DumpConfig()
             {
                 Folder = "%HomeDrive%\\Logs\\";
                 FileName = "DumpWrite.log";
@@ -118,9 +93,9 @@ internal class AppSettings : Config<AppSettings>
         }
 
         public bool Debug { get; set; }
-        public DumpConfiguration Dump { get; set; }
-        public JsonConfiguration Json { get; set; }
+        public DumpConfig Dump { get; set; }
+        public JsonConfig Json { get; set; }
     }
 
-    public Configuration SystemLibraryCommonNet { get; set; }
+    public PackageConfig SystemLibraryCommonNet { get; set; }
 }

@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html",
-          "hash": "bpGTzQweJB4A9wCrWVMiHVOrJi8errA4KJeX6nGjZwI="
+          "hash": "U7vKTHDYAmc9JjfZIuKnS7rXkbZpqW0Y53el5E9pHrA="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html",
-          "hash": "Yp25cxT0nj9pVgi1LGssBbMCYXA25ixbbdFiPV5eTmg="
+          "hash": "DZVscS3VEb8A2f48/a3BhYMQ8RInn7N2WBVzFuqM/rU="
         }
       },
       "is_incremental": false,
@@ -329,30 +329,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
-          "hash": "vXzJGmL/+izd77KQp3o/LnFem6r4OregJOqBroToIrM="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.yml",
-      "output": {
-        ".html": {
-          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html",
-          "hash": "RazdlOvji0HPjlVkKEBnVxZUdxKyQNBwte/VRUuNFrY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.yml",
       "output": {
         ".html": {
@@ -381,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "6gUr64D6dhRnuTgDxf/aBnACPeR6zj9ujhhPi15WgR8="
+          "hash": "lWYffrAhASQ7iNOkUrzNErUIhB1GGE90n569fogVjPo="
         }
       },
       "is_incremental": false,
@@ -418,8 +394,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 31,
-          "skipped_file_count": 16
+          "total_file_count": 29,
+          "skipped_file_count": 27
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

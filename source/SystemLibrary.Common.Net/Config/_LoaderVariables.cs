@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+using Microsoft.Extensions.Configuration;
+
+using SystemLibrary.Common.Net.Extensions;
+
+namespace SystemLibrary.Common.Net;
+
+internal static class ConfigVariables
+{
+    internal static IConfigurationRoot AppSettings;
+
+    internal static string _EnvironmentNameLowered;
+
+    internal static string EnvironmentNameLowered
+    {
+        get
+        {
+            if (_EnvironmentNameLowered == null)
+            {
+                _EnvironmentNameLowered = AspNetCoreEnvironment.Value.ToLower();
+            }
+            return _EnvironmentNameLowered;
+        }
+    }
+
+    internal static string[] ConfigurationFilesLowered;
+
+    internal static string[] AppSettingFilesLowered;
+
+    static ConfigVariables()
+    {
+        var contentRootDirectory = AppDomainInternal.ContentRootPath;
+
+        if (!contentRootDirectory.EndsWith("/") && !contentRootDirectory.EndsWith("\\"))
+        {
+            if(contentRootDirectory.Contains("/"))
+                contentRootDirectory = contentRootDirectory + "/";
+            else
+                contentRootDirectory = contentRootDirectory + "\\";
+        }
+
+        var rootConfigurationFiles = GetConfigurationFilesInFolder(contentRootDirectory, false);
+
+        var config = GetConfigurationFilesInFolder(contentRootDirectory + "config\\", true);
+
+        var configs = GetConfigurationFilesInFolder(contentRootDirectory + "configs\\", true);
+
+        var configuration = GetConfigurationFilesInFolder(contentRootDirectory + "configuration\\", true);
+
+        var configurations = GetConfigurationFilesInFolder(contentRootDirectory + "configurations\\", true);
+
+        var tempConfigFiles = rootConfigurationFiles.Add(FilterValidConfigurationFileNames, config, configs, configuration, configurations);
+
+        ConfigurationFilesLowered = Array.ConvertAll(tempConfigFiles, s => s.ToLower());
+
+        AppSettingFilesLowered = ConfigurationFilesLowered.Where(FilterAppSettingFiles).ToArray();
+
+        var appSettingsBuilder = new ConfigurationBuilder();
+
+        AddConfigurationFilesAndTransformationFiles(appSettingsBuilder, AppSettingFilesLowered);
+
+        AppSettings = appSettingsBuilder
+            .AddEnvironmentVariables()
+            .Build();
+    }
+
+    static string[] GetConfigurationFilesInFolder(string directoryPath, bool searchRecursively)
+    {
+        if (!Directory.Exists(directoryPath)) return new string[0];
+
+        string[] files;
+        if (!searchRecursively)
+            files = Directory.GetFiles(directoryPath, "*.*", SearchOption.TopDirectoryOnly);
+        else
+            files = Directory.GetFiles(directoryPath, "*.*", SearchOption.AllDirectories);
+
+        if (files == null || files.Length == 0) return new string[0];
+
+        return files
+            .Where(x => x.EndsWithAnyCaseInsensitive(".json", ".xml", ".config"))
+            .ToArray();
+    }
+
+    static bool FilterAppSettingFiles(string fileLowered)
+    {
+        if (fileLowered.IsNot()) return false;
+
+        fileLowered = fileLowered.ToLower();
+
+        return (fileLowered.Contains("\\appsettings.") || fileLowered.Contains("/appsettings.")) && fileLowered.EndsWithAnyCaseInsensitive(".json", ".xml", ".config");
+    }
+
+    static bool FilterValidConfigurationFileNames(string file)
+    {
+        if (file.IsNot()) return false;
+
+        file = file.ToLower();
+
+        if (file.Contains(".runtimeconfig.") ||
+            file.Contains(".deps.json") || 
+            file.Contains("microsoft.visualstudio") ||
+            file.ContainsAny("packages.json", "packages.xml", "package.json", "package-lock.json"))
+            return false;
+
+        return true;
+    }
+
+    internal static void AddConfigurationFilesAndTransformationFiles(ConfigurationBuilder builder, IEnumerable<string> files)
+    {
+        if (files == null) return;
+
+        foreach (var f in files)
+        {
+            if (f.IsNot()) continue;
+
+            var extension = Path.GetExtension(f)?.ToLower();
+            if (extension == ".json")
+            {
+                builder.AddJsonFile(f, true, true);
+            }
+            else if (extension == ".xml")
+            {
+                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
+
+                builder.AddXmlFile(f, true, true);
+            }
+            else if (extension == ".config")
+            {
+                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
+
+                var data = File.ReadAllText(f);
+                if (data.Length > 0)
+                {
+                    if (data.StartsWith("<") || data.EndsWith(">"))
+                        builder.AddXmlFile(f, true, true);
+                    else
+                        builder.AddJsonFile(f, true, true);
+                }
+            }
+        }
+    }
+}

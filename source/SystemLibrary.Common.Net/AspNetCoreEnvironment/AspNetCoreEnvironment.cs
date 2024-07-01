@@ -1,4 +1,6 @@
-﻿namespace SystemLibrary.Common.Net;
+﻿using System;
+
+namespace SystemLibrary.Common.Net;
 
 internal static class AspNetCoreEnvironment
 {
@@ -15,6 +17,11 @@ internal static class AspNetCoreEnvironment
                 //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
                 if (_Value == null)
                     _Value = "";
+
+                if (AppSettings.Current?.SystemLibraryCommonNet?.Debug == true)
+                {
+                    Dump.Write("Debug is 'true': ASPNETCORE_ENVIRONMENT is " + _Value);
+                }
             }
 
             return _Value;

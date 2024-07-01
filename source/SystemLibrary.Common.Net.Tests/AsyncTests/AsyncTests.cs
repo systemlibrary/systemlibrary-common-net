@@ -46,7 +46,8 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
-            System.Threading.Thread.Sleep(4000);
+
+            System.Threading.Thread.Sleep(2500);
 
             Assert.IsTrue(ExceptionCounter > 9, "Exception counter was: " + ExceptionCounter);
         }
@@ -64,8 +65,9 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             using (var client = new HttpClient(handler))
             {
                 client.BaseAddress = new Uri("https://www.systemlibrary.com/unknown-url");
+                client.Timeout = TimeSpan.FromMilliseconds(1500);
                 var response = client.GetStringAsync("")
-                    .ConfigureAwait(false)
+                    .ConfigureAwait(true)
                     .GetAwaiter()
                     .GetResult();
             }

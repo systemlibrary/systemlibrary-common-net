@@ -236,6 +236,8 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
             _EnvironmentName = _Name.ToEnum<TEnvironmentNameEnum>();
         }
     }
+
+
 }
 
 /// <summary>
@@ -265,6 +267,25 @@ public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, Environmen
         Current.EnvironmentName == EnvironmentName.Staging ||
         Current.EnvironmentName == EnvironmentName.QA ||
         Current.EnvironmentName == EnvironmentName.AT;
+
+    string _ContentRootPathNotUsed;
+
+    /// <summary>
+    /// Returns the application's root folder full path
+    /// 
+    /// NOTE: Full path can never contain 'bin', if so the parent of 'bin' is returned
+    /// </summary>
+    public string ContentRootPath
+    {
+        get
+        {
+            return AppDomainInternal.ContentRootPath;
+        }
+        set
+        {
+            _ContentRootPathNotUsed = value;
+        }
+    }
 }
 
 

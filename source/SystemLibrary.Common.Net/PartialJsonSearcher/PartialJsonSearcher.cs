@@ -46,7 +46,7 @@ namespace SystemLibrary.Common.Net
             if (!value.IsJson())
             {
                 if (IsDebugging)
-                    Dump.Write("PartialJsonSearcher.Search, value is not json formatted: " + value);
+                    Dump.Write("Debug is 'true': PartialJsonSearcher.Search value is not JSON format: " + value);
 
                 return default;
             }

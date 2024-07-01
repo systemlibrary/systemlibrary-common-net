@@ -829,6 +829,7 @@ public partial class StringExtensionsTests
 
         text = "";
         result = text.ToServerMapPath();
+
         Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", "WTF" +result);
 
         text = "a";
