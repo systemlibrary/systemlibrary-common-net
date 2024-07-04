@@ -178,7 +178,7 @@
 //            {
 //                var cacheKey = enumType.GetHashCode();
 
-//                var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+//                var members = Dictionaries.TypeEnumStaticMembers.Cache(cacheKey, () =>
 //                {
 //                    return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
 //                });
@@ -206,9 +206,7 @@
 
 //        if (enumType.IsEnum)
 //        {
-//            var cacheKey = enumType.GetHashCode();
-
-//            var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+//            var members = Dictionaries.TypeEnumStaticMembers.Cache(enumType, () =>
 //            {
 //                return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
 //            });
@@ -1145,52 +1143,6 @@
 //        return sb.ToString();
 //    }
 
-//    static string _ContentRootPath;
-//    static string GetContentRootPath
-//    {
-//        get
-//        {
-//            if (_ContentRootPath == null)
-//            {
-//                _ContentRootPath = AppDomain.CurrentDomain?.GetData("ContentRootPath") + "";
-
-//                if (_ContentRootPath.IsNot())
-//                    _ContentRootPath = new DirectoryInfo(AppContext.BaseDirectory).Parent.FullName;
-
-//                if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
-//                    _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
-
-//                bool IsWithinBin()
-//                {
-//                    return _ContentRootPath.Contains("\\bin\\", StringComparison.Ordinal) ||
-//                        _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
-//                        _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal);
-//                }
-
-//                var wasInBin = false;
-//                while (IsWithinBin())
-//                {
-//                    wasInBin = true;
-//                    var temp = _ContentRootPath;
-//                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent?.FullName;
-
-//                    if (_ContentRootPath == null)
-//                    {
-//                        _ContentRootPath = temp;
-//                        break;
-//                    }
-//                }
-
-//                if (wasInBin)
-//                {
-//                    _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent.FullName;
-//                }
-//            }
-
-//            return _ContentRootPath;
-//        }
-//    }
-
 //    /// <summary>
 //    /// Convert path passed in to a full path that exists on your server
 //    /// 
@@ -1268,7 +1220,7 @@
 //            ConvertToValidRelativeServerPath();
 //        }
 
-//        return GetContentRootPath + path;
+//        return AppDomainInternal.ContentRootPath + path;
 //    }
 
 //    /// <summary>
@@ -1593,109 +1545,8 @@
 //    /// </example>
 //    public static DateTime ToDateTime(this string date, string format = null)
 //    {
-//        if (date == null)
-//            return DateTime.MinValue;
-
-//        var l = date.Length;
-
-//        if (l < 4)
-//            return DateTime.MinValue;
-
-//        if (l == 4)
-//        {
-//            return new DateTime(Convert.ToInt32(date), 1, 1);
-//        }
-
-
-//        if (DateTime.TryParse(date, out DateTime res))
-//            return res;
-
-//        if (format.Is())
-//        {
-//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime res2))
-//                return res2;
-
-//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res2))
-//                return res2;
-
-//            if (DateTime.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.None, out res2))
-//                return res2;
-//        }
-
-//        if (DateTime.TryParse(date, null, DateTimeStyles.RoundtripKind, out res) ||
-//            DateTime.TryParse(date, null, DateTimeStyles.AssumeUniversal, out res))
-//        {
-//            return res;
-//        }
-
-//        var monthName = char.IsAsciiLetter(date[4]) || char.IsAsciiLetter(date[0]);
-
-//        if (monthName)
-//        {
-//            if (TryParseWithFormats(date, MonthlyNameDateTimeFormats, out res))
-//                return res;
-//        }
-
-//        var z = date[l - 1] == 'Z' || date[l - 1] == 'z';
-
-//        if (l <= 12)
-//        {
-//            if (z)
-//            {
-//                if (TryParseWithFormats(date, ShortDateTimeFormatsEndsInZ, out res))
-//                    return res;
-//            }
-//            else
-//            {
-//                if (TryParseWithFormats(date, ShortDateTimeFormats, out res))
-//                    return res;
-//            }
-//        }
-//        else
-//        {
-//            if (z)
-//            {
-//                if (TryParseWithFormats(date, LongDateTimeFormatsEndsInZ, out res))
-//                    return res;
-//            }
-//            else
-//            {
-//                var plus = date[l - 6] == '+';
-
-//                if (plus)
-//                {
-//                    if (TryParseWithFormats(date, LongDateTimeFormatsWithPlus, out res))
-//                        return res;
-//                }
-//                else
-//                {
-//                    if (TryParseWithFormats(date, LongDateTimeFormats, out res))
-//                        return res;
-//                }
-//            }
-//        }
-
-//        if (long.TryParse(date, out long unixTimestamp))
-//        {
-//            if (unixTimestamp > 99999999999)
-//                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(unixTimestamp);
-//            else
-//                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(unixTimestamp);
-//        }
-
-//        foreach (var culture in Cultures)
-//        {
-//            foreach (var cultureFormat in DateTimeFormatsCulture)
-//            {
-//                if (DateTime.TryParseExact(date, cultureFormat, culture, DateTimeStyles.RoundtripKind, out res))
-//                    return res;
-//            }
-//        }
-
-//        if (TryParseWithFormats(date, AllCultureFormats, out res))
-//            return res;
-
-//        throw new Exception("Input was not recognized as a valid DateTime. No matching format provided for: " + date + ". You sent in: " + format);
+//        // DUMMY CODE: Just for docs, the real code is under StringExtensions.cs
+//        return DateTime.MinValue;
 //    }
 
 //    /// <summary>
@@ -1713,215 +1564,7 @@
 //    /// </example>
 //    public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
 //    {
-//        if (date == null)
-//            return DateTimeOffset.MinValue;
-
-//        var l = date.Length;
-
-//        if (l < 4)
-//            return DateTimeOffset.MinValue;
-
-//        if (l == 4)
-//            return new DateTimeOffset(new DateTime(Convert.ToInt32(date), 1, 1));
-
-
-//        if (DateTimeOffset.TryParse(date, out DateTimeOffset res))
-//            return res;
-
-//        if (format.Is())
-//        {
-//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTimeOffset res2))
-//                return res2;
-
-//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.AssumeUniversal, out res2))
-//                return res2;
-
-//            if (DateTimeOffset.TryParseExact(date, format, null, System.Globalization.DateTimeStyles.None, out res2))
-//                return res2;
-//        }
-
-//        if (DateTimeOffset.TryParse(date, null, DateTimeStyles.RoundtripKind, out res) ||
-//            DateTimeOffset.TryParse(date, null, DateTimeStyles.AssumeUniversal, out res))
-//        {
-//            return res;
-//        }
-
-//        var monthName = char.IsAsciiLetter(date[4]) || char.IsAsciiLetter(date[0]);
-
-//        if (monthName)
-//        {
-//            if (TryParseWithFormats(date, MonthlyNameDateTimeFormats, out res))
-//                return res;
-//        }
-
-//        var z = date[l - 1] == 'Z' || date[l - 1] == 'z';
-
-//        if (l <= 12)
-//        {
-//            if (z)
-//            {
-//                if (TryParseWithFormats(date, ShortDateTimeFormatsEndsInZ, out res))
-//                    return res;
-//            }
-//            else
-//            {
-//                if (TryParseWithFormats(date, ShortDateTimeFormats, out res))
-//                    return res;
-//            }
-//        }
-//        else
-//        {
-//            if (z)
-//            {
-//                if (TryParseWithFormats(date, LongDateTimeFormatsEndsInZ, out res))
-//                    return res;
-//            }
-//            else
-//            {
-//                var plus = date[l - 6] == '+';
-
-//                if (plus)
-//                {
-//                    if (TryParseWithFormats(date, LongDateTimeFormatsWithPlus, out res))
-//                        return res;
-//                }
-//                else
-//                {
-//                    if (TryParseWithFormats(date, LongDateTimeFormats, out res))
-//                        return res;
-//                }
-//            }
-//        }
-
-//        if (long.TryParse(date, out long unixTimestamp))
-//        {
-//            if (unixTimestamp > 99999999999)
-//                return new DateTimeOffset(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(unixTimestamp));
-//            else
-//                return new DateTimeOffset(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(unixTimestamp));
-//        }
-
-//        foreach (var culture in Cultures)
-//        {
-//            foreach (var cultureFormat in DateTimeFormatsCulture)
-//            {
-//                if (DateTimeOffset.TryParseExact(date, cultureFormat, culture, DateTimeStyles.RoundtripKind, out res))
-//                    return res;
-//            }
-//        }
-
-//        if (TryParseWithFormats(date, AllCultureFormats, out res))
-//            return res;
-
-//        throw new Exception("Input was not recognized as a valid DateTime. No matching format provided for: " + date + ". You sent in: " + format);
+//        // DUMMY CODE: Just for docs, the real code is under StringExtensions.cs
+//        return DateTimeOffset.MinValue;
 //    }
-
-//    static CultureInfo[] Cultures = new[]
-//      {
-//        new CultureInfo("no-NO"),
-//        new CultureInfo("es-ES"),
-//        new CultureInfo("en-US"),
-//        new CultureInfo("en-GB"),
-//        new CultureInfo("en-CA"),
-//        new CultureInfo("ru-RU"),
-//        new CultureInfo("fr-FR"),
-//        new CultureInfo("sv-SE"),
-//        new CultureInfo("da-DK"),
-//        new CultureInfo("de-DE"),
-//        new CultureInfo("pl-PL")
-//    };
-
-//    static string[] _AllCultureFormats;
-//    static string[] AllCultureFormats
-//    {
-//        get
-//        {
-//            if (_AllCultureFormats == null)
-//            {
-//                var formats = new List<string>();
-//                foreach (var culture in Cultures)
-//                {
-//                    formats.AddRange(culture.DateTimeFormat.GetAllDateTimePatterns());
-//                }
-
-//                _AllCultureFormats = formats.ToArray();
-//            }
-//            return _AllCultureFormats;
-//        }
-//    }
-
-//    static string[] DateTimeFormatsCulture = new[]
-//    {
-//        "MMMM dd, yyyy",
-//        "MMM dd, yyyy",
-//        "dddd, dd MMMM yyyy HH:mm:ss",
-//        "dddd, dd MMM yyyy HH:mm:ss",
-//        "dd. MMMM yyyy",
-//        "dd. MMM yyyy - HH:mm",
-//        "dd MMM yyyy"
-//    };
-
-//    static string[] AllDateTimeFormats = new[] {
-//        "dd-MM-yyyy",                           // Norwegian datetime formats
-//        "dd-MM-yyyy HH:mm",
-//        "dd-MM-yyyy HH:mm:ss",
-//        "dd-MM-yyyy HH:mm:ss.fff",
-//        "dd-MM-yyyy HH:mm:ss.fffffff",
-
-//        "dd.MM.yyyy",                           // Norwegian datetime formats
-//        "dd.MM.yyyy HH:mm",
-//        "dd.MM.yyyy HH:mm:ss",
-//        "dd.MM.yyyy HH:mm:ss.fff",
-//        "dd.MM.yyyy HH:mm:ss.fffffff",
-
-//        "MM/dd/yyyy HH:mm:ss.fffffff",          // English datetime formats
-//        "MM/dd/yyyy HH:mm:ss.fff",
-
-//        "ddd, dd MMM yyyy HH:mm:ss CET",        // RFC 1123
-
-//        "yyyyMMddTHHmmssK",                     // Basic format without separators
-
-//        "yyyyMMddTHHmmss.fff",                  // ISO 8601 Basic without dashes or colons
-//        "yyyyMMddTHHmmss.fffffff",              // ISO 8601 Basic without dashes or colons
-
-//        "yyyyMMdd HHmmss",                      // Compact format with space separator
-//        "yyyyMMdd HHmmss.fff",                  // Compact format with space separator
-//        "yyyyMMdd HHmmss.fffffff",              // Compact format with space separator
-//        "yyyy-MM-dd"
-//    };
-
-//    static string[] ShortDateTimeFormats = AllDateTimeFormats.Where(x => x.Length <= 12).ToArray();
-//    static string[] ShortDateTimeFormatsEndsInZ = ShortDateTimeFormats.Where(x => x[x.Length - 1] == 'Z' || x[x.Length - 1] == 'z').ToArray();
-
-//    static string[] LongDateTimeFormats = AllDateTimeFormats.Where(x => x.Length > 12).ToArray();
-//    static string[] LongDateTimeFormatsWithPlus = LongDateTimeFormats.Where(x => x.EndsWith("K") || x.EndsWith("Z") || x.EndsWith("Z")).ToArray();
-//    static string[] LongDateTimeFormatsEndsInZ = LongDateTimeFormatsWithPlus.Concat(LongDateTimeFormats.Where(x => x[x.Length - 1] == 'Z' || x[x.Length - 1] == 'z')).ToArray();
-
-//    static string[] MonthlyNameDateTimeFormats = AllDateTimeFormats.Where(x => x.Contains("MMMM ")).ToArray();
-
-//    static bool TryParseWithFormats(string date, string[] formats, out DateTime result)
-//    {
-//        foreach (var format in formats)
-//        {
-//            if (DateTime.TryParseExact(date, format, null, DateTimeStyles.None, out result))
-//                return true;
-//        }
-
-//        result = DateTime.MinValue;
-
-//        return false;
-//    }
-//    static bool TryParseWithFormats(string date, string[] formats, out DateTimeOffset result)
-//    {
-//        foreach (var format in formats)
-//        {
-//            if (DateTimeOffset.TryParseExact(date, format, null, DateTimeStyles.None, out result))
-//                return true;
-//        }
-
-//        result = DateTimeOffset.MinValue;
-
-//        return false;
-//    }
-
 //}

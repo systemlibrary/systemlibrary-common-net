@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html",
-          "hash": "MEFdX+QUGfWTAj+dRrSPR2TmCP9X/FZWDnS/OgDMQlE="
+          "hash": "3NQwDq4BeFv6W849oICsQl2CTj3rSR4riO8qCJcsVxs="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html",
-          "hash": "Yq5OKPLpe9jixPj85gjvZIPPE3C2jOan4f2odHuJaJM="
+          "hash": "0cSvowVrjivNoZZTj5nD/V4QEOqAz7RnXHAPQbAVxrE="
         }
       },
       "is_incremental": false,
@@ -329,6 +329,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html",
+          "hash": "a3zD2+Vpd4f6fxd6nb3PvtKw0Ssv7We0Pxn8G7qCPLQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html",
+          "hash": "srSs51QDKNvc/YiLusA0ABjns9psy1MH5ezOEfYy+fs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html",
+          "hash": "ZxFmM/9C+QVMHtAKmHBVEJ49TkA6vym6vF4kWqKOQ54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.yml",
       "output": {
         ".html": {
@@ -357,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "lWYffrAhASQ7iNOkUrzNErUIhB1GGE90n569fogVjPo="
+          "hash": "7+LOQ2bNUUavbLA7I17iwzIjmzlvcFfmhszY8q6Kpq0="
         }
       },
       "is_incremental": false,
@@ -394,7 +430,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 29,
+          "total_file_count": 32,
           "skipped_file_count": 27
         },
         "TocDocumentProcessor": {

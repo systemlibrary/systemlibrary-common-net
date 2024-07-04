@@ -7,7 +7,6 @@ using System.Runtime.Serialization;
 
 partial class StringExtensions
 {
-
     /// <summary>
     /// Returns a MinValue if input is null or blank
     /// 
