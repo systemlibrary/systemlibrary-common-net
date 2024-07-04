@@ -16,7 +16,7 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<int, string> cache = null;
 
-        var result = cache.TryGet(type, () => "Hello world");
+        var result = cache.Cache(type, () => "Hello world");
 
         Assert.IsTrue(result == "Hello world");
     }
@@ -28,7 +28,7 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<string, string> cache = null;
 
-        var result = cache.TryGet(type.Name, () => "Hello world");
+        var result = cache.Cache(type.Name, () => "Hello world");
 
         Assert.IsTrue(result == "Hello world");
     }
@@ -40,7 +40,7 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<int, string> cache = new ConcurrentDictionary<int, string>();
 
-        var result = cache.TryGet(type, () => "Hello world");
+        var result = cache.Cache(type, () => "Hello world");
 
         Assert.IsTrue(result == "Hello world");
     }
@@ -52,7 +52,7 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<string, string> cache = new ConcurrentDictionary<string, string>();
 
-        var result = cache.TryGet(type.Name, () => "Hello world");
+        var result = cache.Cache(type.Name, () => "Hello world");
 
         Assert.IsTrue(result == "Hello world");
     }
@@ -64,16 +64,16 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<int, string> cache = new ConcurrentDictionary<int, string>();
 
-        var result = cache.TryGet(type, () => "Hello world");
+        var result = cache.Cache(type, () => "Hello world");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type, () => "Not returned");
+        result = cache.Cache(type, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type, () => "Not returned");
+        result = cache.Cache(type, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type, () => "Not returned");
+        result = cache.Cache(type, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
     }
 
@@ -84,16 +84,16 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         ConcurrentDictionary<string, string> cache = new ConcurrentDictionary<string, string>();
 
-        var result = cache.TryGet(type.Name, () => "Hello world");
+        var result = cache.Cache(type.Name, () => "Hello world");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type.Name, () => "Not returned");
+        result = cache.Cache(type.Name, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type.Name, () => "Not returned");
+        result = cache.Cache(type.Name, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
 
-        result = cache.TryGet(type.Name, () => "Not returned");
+        result = cache.Cache(type.Name, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
     }
 }

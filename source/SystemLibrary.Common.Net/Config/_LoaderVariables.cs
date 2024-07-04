@@ -43,6 +43,9 @@ internal static class ConfigVariables
                 contentRootDirectory = contentRootDirectory + "\\";
         }
 
+        // TODO: Optimize by invoking the searches in paralell ? 
+        // - not sure its worth it, benchmark, as one often just have 1 folder anyways
+        // - at least try it out
         var rootConfigurationFiles = GetConfigurationFilesInFolder(contentRootDirectory, false);
 
         var config = GetConfigurationFilesInFolder(contentRootDirectory + "config\\", true);

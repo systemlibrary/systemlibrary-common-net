@@ -56,7 +56,7 @@ public static class DynamicExtensions
         {
             var type = (Type)source.GetType();
 
-            var properties = Dictionaries.MergeProperties.TryGet(type, () =>
+            var properties = Dictionaries.MergeProperties.Cache(type, () =>
             {
                 return type.GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
             });
@@ -72,7 +72,7 @@ public static class DynamicExtensions
             {
                 var type = update.GetType();
 
-                var properties = Dictionaries.MergeProperties.TryGet(type, () =>
+                var properties = Dictionaries.MergeProperties.Cache(type, () =>
                 {
                     return type.GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
                 });

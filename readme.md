@@ -20,11 +20,9 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.9.0.1
-- Environment.ContentRootPath added as singleton (new)
-- StringExtensions.ToServerMapPath optimized and uses Environment.ContentRootPath (breaking change)
-- Config&lt;T&gt; optimized greatly and uses Environment.ContentRootPath to define root to search in, no longer searches inside Bin (breaking change)
-- Internal structure changes and renamings
+- 7.10.0.1
+- Dictionary.TryGet extension renamed to Cache() (breaking change)
+- StringBuilder.HtmlDecode and Encode now got comments
  
 #### Version history 
 - View git history of this file if interested

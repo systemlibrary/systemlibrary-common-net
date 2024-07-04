@@ -18,16 +18,14 @@ public static class ConcurrentDictionaryExtensions
     /// 
     /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
     /// </summary>
-    public static T TryGet<T>(this ConcurrentDictionary<int, T> dictionary, int key, Func<T> getItem)
+    public static T Cache<T>(this ConcurrentDictionary<int, T> dictionary, int key, Func<T> getItem)
     {
         if (dictionary == null)
         {
             return getItem();
         }
 
-        var hashCode = key.GetHashCode();
-
-        if (!dictionary.TryGetValue(hashCode, out var result))
+        if (!dictionary.TryGetValue(key, out var result))
         {
             if (dictionary.Count > 100000)
             {
@@ -35,7 +33,7 @@ public static class ConcurrentDictionaryExtensions
             }
             result = getItem();
 
-            dictionary.TryAdd(hashCode, result);
+            dictionary.TryAdd(key, result);
         }
 
         return result;
@@ -50,7 +48,7 @@ public static class ConcurrentDictionaryExtensions
     /// 
     /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
     /// </summary>
-    public static T TryGet<T>(this ConcurrentDictionary<int, T> dictionary, Type type, Func<T> getItem)
+    public static T Cache<T>(this ConcurrentDictionary<int, T> dictionary, Type type, Func<T> getItem)
     {
         if (dictionary == null)
         {
@@ -82,7 +80,7 @@ public static class ConcurrentDictionaryExtensions
     /// 
     /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
     /// </summary>
-    public static T TryGet<T>(this ConcurrentDictionary<string, T> dictionary, string key, Func<T> getItem)
+    public static T Cache<T>(this ConcurrentDictionary<string, T> dictionary, string key, Func<T> getItem)
     {
         if (dictionary == null)
             return getItem();

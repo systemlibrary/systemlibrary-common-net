@@ -177,7 +177,7 @@ public static partial class StringExtensions
             {
                 var cacheKey = enumType.GetHashCode();
 
-                var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+                var members = Dictionaries.TypeEnumStaticMembers.Cache(cacheKey, () =>
                 {
                     return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
                 });
@@ -205,9 +205,7 @@ public static partial class StringExtensions
 
         if (enumType.IsEnum)
         {
-            var cacheKey = enumType.GetHashCode();
-
-            var members = Dictionaries.TypeEnumStaticMembers.TryGet(cacheKey, () =>
+            var members = Dictionaries.TypeEnumStaticMembers.Cache(enumType, () =>
             {
                 return enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
             });
@@ -1530,6 +1528,4 @@ public static partial class StringExtensions
 
         return Convert.ToInt64(number);
     }
-
-
 }

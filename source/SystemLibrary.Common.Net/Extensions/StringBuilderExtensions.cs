@@ -149,6 +149,11 @@ public static class StringBuilderExtensions
         { "'", "&apos;" },
     };
 
+    /// <summary>
+    /// Replaces " with &quot; and single quote with &apos; within the StringBuilder
+    /// 
+    /// Throws if stringbuilder passed is null
+    /// </summary>
     public static void HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
         foreach (var replacement in HtmlEncodeReplacements)
@@ -167,6 +172,11 @@ public static class StringBuilderExtensions
         { "&apos;", "'" }
     };
 
+    /// <summary>
+    /// Replaces &quot; with " and &apos; with a single quote within the StringBuilder
+    /// 
+    /// Throws if stringbuilder passed is null
+    /// </summary>
     public static void HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
         foreach (var replacement in HtmlDecodeReplacements)
