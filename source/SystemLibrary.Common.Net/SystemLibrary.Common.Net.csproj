@@ -10,7 +10,7 @@
 		<DefaultItemExcludes>$(DefaultItemExcludes);Release.cmd;**\*.nupkg;nuget-icon.png;</DefaultItemExcludes>
 		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 		<DebugType>pdbonly</DebugType>
-		<GenerateDocumentationFile>False</GenerateDocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PackageOutputPath>..\SystemLibrary.Common.Net</PackageOutputPath>
 		<Company>System Library</Company>
 		<Authors>System Library</Authors>
@@ -19,19 +19,20 @@
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DefineConstants />
-		<WarningLevel>0</WarningLevel>
+		<WarningLevel>3</WarningLevel>
 		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
+		<Optimize>True</Optimize>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DefineConstants />
-		<WarningLevel>0</WarningLevel>
+		<WarningLevel>3</WarningLevel>
 		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
 		<DefineConstants />
-		<WarningLevel>0</WarningLevel>
+		<WarningLevel>3</WarningLevel>
 		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 	</PropertyGroup>
 
@@ -68,6 +69,10 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Services\" />
+	</ItemGroup>
+
 	<PropertyGroup>
 		<In>$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)\Properties\AssemblyInfo.cs'))</In>
 		<Pattern>\[assembly: AssemblyVersion\("(?&lt;Library&gt;\d+)\.(?&lt;Major&gt;\d+)\.(?&lt;Minor&gt;[\d]+)(?&lt;Patch&gt;[0-9A-Za-z-.]+)?</Pattern>
@@ -93,5 +98,6 @@
 		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-version</PackageReleaseNotes>
 		<AssemblyVersion>$(NugetVersion)</AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>
+		<NoWin32Manifest>true</NoWin32Manifest>
 	</PropertyGroup>
 </Project>

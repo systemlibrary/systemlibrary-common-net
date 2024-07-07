@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -9,13 +7,11 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods on Object
-/// 
-/// For instance: AsEnum(), AsEnumArray(), etc...
 /// </summary>
 public static class ObjectExtensions
 {
     /// <summary>
-    /// Convert multiple objects of the same 'enum value' to an array of that enum type
+    /// Join multiple arrays of same 'Enum' to an Array of that Enum Type
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -45,6 +41,7 @@ public static class ObjectExtensions
     /// // colors[1] == Black
     /// </code>
     /// </example>
+    /// <returns>An array of Enum Type</returns>
     public static TEnum[] AsEnumArray<TEnum>(this object[] objects) where TEnum : struct, IComparable, IFormattable, IConvertible
     {
         if (objects.IsNot()) return default;
@@ -63,10 +60,12 @@ public static class ObjectExtensions
     }
 
     /// <summary>
-    /// Convert object to json with option to camelCase C# properties when converting to a json-string
-    /// 
-    /// Returns a json formatted string representation of the object or null if object is null
+    /// Convert object to its json string representation with option to camelCase properties
     /// </summary>
+    /// <remarks>
+    /// Uses built-in custom json converters for int, datetime, Enum, etc.
+    /// - for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// // Assume camelCase argument true:
@@ -81,6 +80,7 @@ public static class ObjectExtensions
     /// // contains is True, note that Json() has formatted 'FirstName' to 'firstName' when going from C# model to json string
     /// </code>
     /// </example>
+    /// <returns>Returns json string representation of input, or null if input was so</returns>
     public static string Json(this object obj, bool camelCase)
     {
         if (obj == null) return null;
@@ -94,10 +94,12 @@ public static class ObjectExtensions
     }
 
     /// <summary>
-    /// Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones
-    /// 
-    /// Returns a json formatted string representation of the object or null if object is null
+    /// Convert object to its json string representation with option to pass Custom JsonConverters
     /// </summary>
+    /// <remarks>
+    /// Uses built-in custom json converters for int, datetime, Enum, etc.
+    /// - for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class User {
@@ -113,6 +115,7 @@ public static class ObjectExtensions
     /// // isTrue is 'True' as FirstName is not camelCased by default and 'Hello World' is its value
     /// </code>
     /// </example>
+    /// <returns>Returns json string representation of input, or null if input was so</returns>
     public static string Json(this object obj, JsonSerializerOptions options = null, bool translateUnicodeCodepoints = false, params JsonConverter[] jsonConverters)
     {
         if (obj == null) return null;
@@ -126,10 +129,12 @@ public static class ObjectExtensions
     }
 
     /// <summary>
-    /// Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones
-    /// 
-    /// Returns a json formatted string representation of the object or null if object is null
+    /// Convert object to its json string representation with option to pass Custom JsonConverters
     /// </summary>
+    /// <remarks>
+    /// Uses built-in custom json converters for int, datetime, Enum, etc.
+    /// - for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class User {
@@ -145,6 +150,7 @@ public static class ObjectExtensions
     /// // isTrue is 'True' as FirstName is not camelCased by default and 'Hello World' is its value
     /// </code>
     /// </example>
+    /// <returns>Returns json string representation of input, or null if input was so</returns>
     public static string Json(this object obj, params JsonConverter[] jsonConverters)
     {
         if (obj == null) return null;

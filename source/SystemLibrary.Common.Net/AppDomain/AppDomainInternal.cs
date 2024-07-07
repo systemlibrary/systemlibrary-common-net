@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SystemLibrary.Common.Net;
 
@@ -38,6 +34,8 @@ internal static class AppDomainInternal
                     //    return false;
 
                     return _ContentRootPath.Contains("\\bin\\", StringComparison.Ordinal) ||
+                         _ContentRootPath.Contains("/bin/", StringComparison.Ordinal) ||
+                         _ContentRootPath.Contains("/Bin/", StringComparison.Ordinal) ||
                         _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
                         _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal);
                 }
@@ -63,6 +61,8 @@ internal static class AppDomainInternal
                     // Move to parent of Bin as the Condition checks ending slash of Bin
                     _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent.FullName;
                 }
+
+                _ContentRootPath = _ContentRootPath.Replace("\\", "/");
             }
 
             return _ContentRootPath;

@@ -8,15 +8,15 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods for Enum as a Generic Type
-/// 
-/// WARNING: Current version of C# does not allow extension methods 'generic types', hence these are static methods
 /// </summary>
+/// <remarks>
+/// Current version of C# does not allow extension methods 'generic types', hence these are static methods
+/// </remarks>
 public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattable, IConvertible
 {
     /// <summary>
-    /// Get all keys in the Enum as enumerable of strings
+    /// Get all keys in the Enum as an IEnumerable of string
     /// </summary>
-    /// <returns>All keys in the enum as strings</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum Color 
@@ -33,6 +33,7 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
     /// // Note: it returns the Keys converted to strings only, ignoring EnumText attribute
     /// </code>
     /// </example>
+    /// <returns>Keys as an IEnumerable of string</returns>
     public static IEnumerable<string> GetKeys()
     {
         var type = typeof(TEnum);
@@ -49,7 +50,6 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
     /// <summary>
     /// Get all keys as the enum value itself
     /// </summary>
-    /// <returns>All keys in the enum as Enums</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum Color 
@@ -65,6 +65,7 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
     /// // enums[1] is Color.White
     /// </code>
     /// </example>
+    /// <returns>IEnumerable of Enum of your choice</returns>
     public static IEnumerable<TEnum> GetEnums()
     {
         var type = typeof(TEnum);
@@ -85,9 +86,8 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
 public static class EnumExtensions
 {
     /// <summary>
-    /// Check if enum is equal to any of the ones in the array
+    /// Check if Enum is matching any in the array
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum Color {
@@ -104,6 +104,7 @@ public static class EnumExtensions
     /// }
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool IsAny(this Enum enumField, params Enum[] values)
     {
         foreach (var value in values)
@@ -115,8 +116,6 @@ public static class EnumExtensions
 
     /// <summary>
     /// Gets the EnumText attribute's value, fallback to enumField.ToString()
-    /// 
-    /// Returns null if enum passed is null or EnumText attribute has a value of null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -136,6 +135,7 @@ public static class EnumExtensions
     /// // Pink
     /// </code>
     /// </example>
+    /// <returns>Returns the text in EnumText attribute or Enum as string or null if nullwas passed</returns>
     public static string ToText(this Enum enumField)
     {
         if (enumField == null) return null;
@@ -150,8 +150,6 @@ public static class EnumExtensions
 
     /// <summary>
     /// Gets the EnumText attribute's object value
-    /// 
-    /// Returns null if enum passed is null or EnumText attribute has a value of null or EnumText attribute do not exist
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -176,6 +174,7 @@ public static class EnumExtensions
     /// // null
     /// </code>
     /// </example>
+    /// <returns>Returns EnumText attributes value or null if not defined</returns>
     public static string GetEnumText(this Enum enumField)
     {
         if (enumField == null) return null;
@@ -187,8 +186,6 @@ public static class EnumExtensions
 
     /// <summary>
     /// Gets the EnumValue attribute's value, fallback to enumField.ToString()
-    /// 
-    /// Returns null if enum passed is null or EnumValue attribute has a value of null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -214,6 +211,7 @@ public static class EnumExtensions
     /// // value is null, as Blue have EnumValue null
     /// </code>
     /// </example>
+    /// <returns>Returns value of EnumValue attribute if exist, or Enum as string</returns>
     public static string ToValue(this Enum enumField)
     {
         if (enumField == null) return null;
@@ -247,8 +245,6 @@ public static class EnumExtensions
 
     /// <summary>
     /// Gets the EnumValue-attribute's object value
-    /// 
-    /// Returns null if enum passed is null or EnumValue attribute has a value of null or EnumValue attribute do not exist
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -274,6 +270,7 @@ public static class EnumExtensions
     /// // null as Blue have null as the EnumValue
     /// </code>
     /// </example>
+    /// <returns>Returns EnumValue attribute's value or null if not exist</returns>
     public static object GetEnumValue(this Enum enumField)
     {
         if (enumField == null) return null;

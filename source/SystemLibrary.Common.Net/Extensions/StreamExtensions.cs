@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
-/// Extensions for streams like reading content as json directly into class through ToJsonAsync()
+/// Extensions for streams like reading content as json directly into class through JsonAsync()
 /// </summary>
 public static class StreamExtensions
 {
     /// <summary>
-    /// Read a stream as of 'json data' into a class T
+    /// Reading a Stream async as JsonData converting it into a class T
     /// 
-    /// Usually used whenever receiving content from an API or similar over the network, and with the stream automatically convert its content in an async manner to your class
-    /// 
-    /// Note: if you do not send in 'JsonSerializerOptions' the common ones from SystemLibrary will be used, which contain a 'String To Enum', 'Int to String' and some other additional converters than the standard that comes with System.Text.json
+    /// Used for instance when you read the content of a HttpResponse and directly converting it into T instead of storing as string first
     /// </summary>
     /// <example>
     /// <code>
     /// using (var contentStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
-    ///    return await contentStream.ToJsonAsync&lt;T&gt;(jsonSerializerOptions).ConfigureAwait(false);
+    ///    return await contentStream.JsonAsync&lt;T&gt;(jsonSerializerOptions).ConfigureAwait(false);
     /// </code>
     /// </example>
+    /// <returns>T or default</returns>
     public static async Task<T> JsonAsync<T>(this Stream stream, JsonSerializerOptions options = null, CancellationToken cancellationToken = default)
     {
         if (stream == null) return default;
@@ -33,81 +32,78 @@ public static class StreamExtensions
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Md5 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
-    /// 
-    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// Reads a stream and hashing its content as MD5
     /// </summary>
+    /// <remarks>
+    /// If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
     /// var hash = fileStream.ToMD5HashAsync().Result;
     /// </code>
     /// </example>
+    /// <returns>Md5 hash or null if unreadable stream</returns>
     public static async Task<string> ToMD5HashAsync(this Stream stream)
     {
         return await Md5.ComputeAsync(stream).ConfigureAwait(false);
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Md5 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
-    /// 
-    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// Reads a stream and hashing its content as MD5
     /// </summary>
+    /// <remarks>
+    /// If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// <example>
     /// <code>
     /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
     /// var hash = fileStream.ToMD5Hash();
     /// </code>
     /// </example>
+    /// <returns>Md5 hash or null if unreadable stream</returns>
     public static string ToMD5Hash(this Stream stream)
     {
         return Md5.Compute(stream);
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Sha1 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
-    /// 
-    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
+    /// Reads a stream and hashing its content as Sha1
     /// </summary>
+    /// <remarks>
+    /// If data is smaller than ~200 bytes then .ToMD5Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
     /// var hash = fileStream.ToSha1Hash();
     /// </code>
     /// </example>
+    /// <returns>Sha1 hash or null if unreadable stream</returns>
     public static string ToSha1Hash(this Stream stream)
     {
         return Sha1.Compute(stream);
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Sha1 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
-    /// 
-    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
+    /// Reads a stream and hashing its content as Sha1
     /// </summary>
+    /// <remarks>
+    /// If data is smaller than ~200 bytes then .ToMD5Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);
     /// var hash = fileStream.ToSha1HashAsync().Result;
     /// </code>
     /// </example>
+    /// <returns>Sha1 hash or null if unreadable stream</returns>
     public static async Task<string> ToSha1HashAsync(this Stream stream)
     {
         return await Sha1.ComputeAsync(stream).ConfigureAwait(false);
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Sha256 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
+    /// Reads a stream and hashing its content as Sha256
     /// </summary>
     /// <example>
     /// <code>
@@ -115,15 +111,14 @@ public static class StreamExtensions
     /// var hash = fileStream.ToSha256Hash();
     /// </code>
     /// </example>
+    /// <returns>Sha256 hash or null if unreadable stream</returns>
     public static string ToSha256Hash(this Stream stream)
     {
         return Sha256.Compute(stream);
     }
 
     /// <summary>
-    /// Reads the stream to its end, hashing its content and returns the resulting Sha256 hash
-    /// 
-    /// Returns null if stream is null or cannot be read
+    /// Reads a stream and hashing its content as Sha256
     /// </summary>
     /// <example>
     /// <code>
@@ -131,6 +126,7 @@ public static class StreamExtensions
     /// var hash = fileStream.ToSha256HashAsync().Result;
     /// </code>
     /// </example>
+    /// <returns>Sha256 hash or null if unreadable stream</returns>
     public static async Task<string> ToSha256HashAsync(this Stream stream)
     {
         return await Sha256.ComputeAsync(stream).ConfigureAwait(false);

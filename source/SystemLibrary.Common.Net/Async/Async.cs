@@ -7,14 +7,15 @@ using SystemLibrary.Common.Net.Extensions;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// Contains methods for running functions in a non-blocking way
-///
-/// NOTE: Might be removed at a later point in time or rewritten/restructured completely
+/// Run methods in a non-blocking manner
 /// </summary>
+/// <remarks>
+/// Might be removed at some point if little or no usage is found
+/// </remarks>
 public static class Async
 {
     /// <summary>
-    /// Execute methods in a async manner, appending each single result to a list, and it halts execution till all functions passed as params has completed 
+    /// Execute methods in an async manner, appending each single result to a list, and it halts execution till all functions passed as params has completed 
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -126,16 +127,20 @@ public static class Async
         return list;
     }
 
-
     /// <summary>
     /// Run all actions seperately in a non-blocking way
     /// 
-    /// Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
-    /// Actions passed to the method will run till completion or till main thread is shutdown
+    /// Each action passed is ran in a try catch without notifying callee
     /// 
-    /// Each action passed is ran in a try-catch without 'ever' crashing the callee.
-    /// - Pass in onError callback which executes if any exception is thrown
+    /// See the overloaded method if you want to ignore exceptions
     /// </summary>
+    /// <remarks>
+    /// All functions passed to this is ran in an unordered and non-blocking way
+    /// 
+    /// All functions passed will run till completion, erroring or till main thread is shut down
+    /// </remarks>
+    /// <param name="onError">Callback invoked if an exception occured</param>
+    /// <param name="actions">Array of methods to invoke in a non-blocking way</param>
     /// <example>
     /// <code class="language-csharp hljs">
     /// Async.FireAndForget((ex) => Log.Error(ex), () => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));
@@ -166,15 +171,16 @@ public static class Async
     /// <summary>
     /// Run all actions seperately in a non-blocking way
     /// 
-    /// Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
-    /// Actions passed to the method will run till completion or till main thread is shutdown
+    /// Each action passed is ran in a try catch without notifying callee
     /// 
-    /// Each action passed is ran in a try-catch without 'ever' crashing the callee.
-    /// 
-    /// See the overloaded method if you want to handle exceptions that might occur running your 'actions'
+    /// See the overloaded method to add a callback for logging exceptions
     /// </summary>
-    /// <param name="onError">Pass in function if some action errors, to log or see the error</param>
-    /// <param name="actions">Fire and forget actions...</param>
+    /// <remarks>
+    /// All functions passed to this is ran in an unordered and non-blocking way
+    /// 
+    /// All functions passed will run till completion, erroring or till main thread is shut down
+    /// </remarks>
+    /// <param name="actions">Array of methods to invoke in a non-blocking way</param>
     /// <example>
     /// <code class="language-csharp hljs">
     /// Async.FireAndForget(() => System.IO.File.AppenAllText("C:\temp\text.log", "hello world"));

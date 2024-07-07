@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Serialization;
 
 partial class StringExtensions
 {
     /// <summary>
-    /// Returns a MinValue if input is null or blank
-    /// 
-    /// Returns a DateTime if successful conversion
-    /// 
-    /// Throws exception if input is in an unknown format and could therefore not be converted
+    /// Converts input date to a DateTime by trying different formats till successfully converted or throwing exception
     /// </summary>
     /// <example>
     /// <code>
-    /// var date = "2000-24-12";
+    /// var date = "2000-12-24";
     /// var dateTime = date.ToDateTime();
     /// </code>
     /// </example>
+    /// <returns>Returns DateTime.MinValue if input is too short</returns>
     public static DateTime ToDateTime(this string date, string format = null)
     {
         if (date == null)

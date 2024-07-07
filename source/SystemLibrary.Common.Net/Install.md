@@ -10,7 +10,8 @@
 * Install SystemLibrary.Common.Net
 
 ## First time usage
-- Classes and methods can be used out of the box by including the namespace they live in
+- String extensions and Dump.Write can be used anywhere as they live in the global namespace
+- Other classes and methods can be used by using the namespace they live in
 
 - Sample:
 ```csharp  
@@ -26,7 +27,7 @@
 ```
 
 ## Package Configurations
-* Below are all default and modifiable configurations for this package
+* All the default and configurable settings for this package.
 
 ###### appSettings.json:
 ```json  
@@ -44,6 +45,9 @@
 				"readCommentHandling": "Skip",
 				"jsonIgnoreCondition": "WhenWritingNull"
 				"writeIndented": false
+			},
+			"cryptation": {
+				"keyFile" : ""
 			}
 		}
 	}

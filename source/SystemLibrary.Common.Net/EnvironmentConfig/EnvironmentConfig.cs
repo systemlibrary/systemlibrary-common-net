@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Text;
 
 using SystemLibrary.Common.Net.Attributes;
 
@@ -236,17 +234,16 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
             _EnvironmentName = _Name.ToEnum<TEnvironmentNameEnum>();
         }
     }
-
-
 }
 
 /// <summary>
-/// Class containing environment variables read from your 'environmentConfig.json', if you have added one
+/// Standard class for environmental configurations read from environmentConfig.json if exists
 /// 
-/// If you add additional environment configurations to 'environmentConfig.json', then ignore this class, and create your own new class that inherits the generic one: 'EnvironmentConfig&lt;YourClass&gt;'
-/// 
-/// See documentation for 'EnvironmentConfig&lt;&gt;', specifically the 'Name' property as that is used for all transformations
+/// If you've added more properties to environmentConfig.json than just the 'Name' you'd have to inherit 'EnvironmentConfig&lt;YourClass&gt;' and use that instead
 /// </summary>
+/// <remarks>
+/// See the documentation for 'Name' property on class 'EnvironmentConfig&lt;&gt;' for more details regarding transformations
+/// </remarks>
 public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, EnvironmentName>
 {
     /// <summary>
@@ -287,7 +284,6 @@ public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, Environmen
         }
     }
 }
-
 
 public enum EnvironmentName
 {

@@ -3,8 +3,12 @@
 namespace SystemLibrary.Common.Net.Attributes;
 
 /// <summary>
-/// Add additional object data to an Enum Key
+/// Decorate Enum Key with a value
 /// </summary>
+/// <remarks>
+/// The string extension Json() will try matching a value in a json-string to the EnumValue specified first, and fall back to normal behavior if no match
+/// The string extension Json() will output the EnumValue if specified, when converting a class to json-string
+/// </remarks>
 /// <example>
 /// <code class="language-csharp hljs">
 /// enum Color 

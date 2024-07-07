@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Microsoft.Extensions.Logging;
+﻿using System.Text;
 
 namespace SystemLibrary.Common.Net;
 
 internal static class CryptationKey
 {
-    internal const string KeyName = "SYSLIBCRYPTATIONKEY";
-
     internal static byte[] _Key;
+
     static object KeyLock = new object();
 
     internal static byte[] Current
@@ -26,135 +18,32 @@ internal static class CryptationKey
                 {
                     if (_Key != null) return _Key;
 
-                    var temp = System.Environment.GetEnvironmentVariable(KeyName);
+                    var key = CryptationKeyFile.NameHashed;
 
-                    try
+                    if (key.IsNot())
                     {
-                        if (temp.IsNot())
-                            temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.User);
+                        key = "ABCDEFGHIJKLMNOPQRST123456789011";
                     }
-                    catch
-                    {
-                    }
-
-                    if (temp.IsNot())
-                        temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
-
-                    if (temp.IsNot())
-                        temp = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
-
-                    if (temp.IsNot())
-                        temp = CryptationKeyFile.Name;
-
-                    if (temp.IsNot())
-                        temp = "ABCDEFGH098765432";
-
-                    _Key = Encoding.UTF8.GetBytes(temp.ToMD5Hash().Replace("-", ""));
+                    _Key = Encoding.UTF8.GetBytes(key.MaxLength(47).Replace("-", ""));
                 }
             }
             return _Key;
         }
     }
 
-    internal static string GetExceptionMessage(string cipherText, bool onErrorOutputKeyParts)
+    internal static string GetExceptionMessage(string cipherText)
     {
-        var m1 = "Could not decrypt value starting with letter: " + cipherText.MaxLength(2);
-        var m2 = (string)null;
-
-        if (!onErrorOutputKeyParts)
+        var error = "Could not decrypt value starting with the two chars: " + cipherText.MaxLength(2);
+        var hasKeyFile = CryptationKeyFile.NameHashed.Is();
+        if (hasKeyFile)
         {
-            m2 = "Tried decrypting, with a user specified salt, cipher text starts with " + cipherText.MaxLength(2);
+            error += "\nTried decrypt with data key file starting with: " + CryptationKeyFile.NameHashed.MaxLength(5) + "...";
         }
-        else
+        else    
         {
-            try
-            {
-                var v1 = System.Environment.GetEnvironmentVariable(KeyName);
-                if (v1.Is())
-                {
-                    m1 += " from Environment.GetEnvironmentVariable()";
-                    m2 = "Tried decrypting with key starting with: " + v1.MaxLength(2);
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                if (m2.IsNot())
-                {
-                    var v2 = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.User);
-                    if (v2.Is())
-                    {
-                        m1 += " from Environment.GetEnvironmentVariable() as User";
-                        m2 = "Tried decrypting with key starting with: " + v2.MaxLength(2);
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                if (m2.IsNot())
-                {
-                    var v3 = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Machine);
-                    if (v3.Is())
-                    {
-                        m1 += " from Environment.GetEnvironmentVariable() as Machine";
-                        m2 = "Tried decrypting with key starting with: " + v3.MaxLength(2);
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                if (m2.IsNot())
-                {
-                    var v4 = System.Environment.GetEnvironmentVariable(KeyName, System.EnvironmentVariableTarget.Process);
-                    if (v4.Is())
-                    {
-                        m1 += " from Environment.GetEnvironmentVariable() as Process";
-                        m2 = "Tried decrypting with key starting with: " + v4.MaxLength(2);
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                if (m2.IsNot())
-                {
-                    var v5 = CryptationKeyFile.Name;
-                    if (v5.Is())
-                    {
-                        m1 += " from CryptationKeyFile";
-                        m2 = "Tried decrypting with key starting with: " + v5.MaxLength(2);
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-            if (m2.IsNot())
-            {
-                m1 += " default library hardcoded value";
-                m2 = "Tried decrypting with key starting with: AB";
-            }
+            error += "\nTried decrypt with key from Library, starting with ABC and IV starting with " + CryptationIV.IV[0];
         }
 
-        if (m2.IsNot())
-        {
-            m2 = "Tried decrypting, but could not find a key to decrypt with";
-        }
-
-        return m1 + "\n" + m2;
+        return error;
     }
 }

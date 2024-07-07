@@ -3,15 +3,18 @@ using System.Collections.Generic;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
+/// <summary>
+/// Extension methods for IList of strings
+/// </summary>
 public static class IListStringExtensions
 {
     /// <summary>
-    /// Convert an IList of strings to a list of Enums
-    /// 
-    /// - Does not throw exception if string list is null or empty
-    /// - Tries to convert both EnumValue or EnumText or the Enum Key itself to the Enum
-    /// - Null or Empty strings will be converted to the default Enum Key
+    /// Convert an IList of string to a new List of Enum
     /// </summary>
+    /// <remarks>
+    /// Does not Throw exception
+    /// Tries to convert data through EnumValue and EnumText if match is found
+    /// </remarks>
     /// <example>
     /// Example:
     /// <code>
@@ -37,6 +40,7 @@ public static class IListStringExtensions
     /// // enums[4] == Car4, case insensitive match
     /// </code>
     /// </example>
+    /// <returns>A new list with 0 or more Enums</returns>
     public static List<TEnum> ToEnumList<TEnum>(this IList<string> collection) where TEnum : struct, IComparable, IFormattable, IConvertible
     {
         if (collection.IsNot())

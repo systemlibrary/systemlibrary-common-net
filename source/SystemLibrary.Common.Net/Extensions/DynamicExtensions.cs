@@ -7,9 +7,10 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods for Dynamic objects
-/// 
-/// WARNING: Current version of C# does not allow extension methods on 'dynamic', hence these are static methods
 /// </summary>
+/// <remarks>
+/// Current version of C# does not allow extension methods on 'dynamic', hence these are static methods
+/// </remarks>
 public static class DynamicExtensions
 {
     /// <summary>

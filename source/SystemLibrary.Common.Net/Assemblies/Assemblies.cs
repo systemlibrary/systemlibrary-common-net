@@ -6,10 +6,11 @@ using Asm = System.Reflection.Assembly;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// Class to find types and embedded resources in loaded Assemblies
-/// 
-/// Built on System.Reflection.Assembly
+/// Static functions running on loaded Assemblies in your application
 /// </summary>
+/// <remarks>
+/// Built on top of System.Reflection.Assembly
+/// </remarks>
 public static partial class Assemblies
 {
     static string[] BlacklistedAssemblyNames => new string[]
@@ -118,31 +119,31 @@ public static partial class Assemblies
     static IEnumerable<Asm> WhiteListedAssemblies { get; }
 
     /// <summary>
-    /// Find all types inheriting class T in all loaded assemblies
-    /// 
-    /// Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce, ...
+    /// Find all types inheriting/implements T from all white listed loaded assemblies
     /// </summary>
+    /// <remarks>
+    /// Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// public class Car : IVehicle {
     /// }
-    /// 
     /// var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle&gt;
     /// // returns 'Car' and all other types that inherits/implements IVehicle
     /// </code>
     /// </example>
-    /// <typeparam name="TClassType">Must be a class</typeparam>
-    /// <returns>An IEnumerable of Type</returns>
+    /// <returns>IEnumerable of System.Type</returns>
     public static IEnumerable<Type> FindAllTypesInheriting<TClassType>() where TClassType : class
     {
         return FindTypesInheriting(typeof(TClassType));
     }
 
     /// <summary>
-    /// Find all types inheriting class T with a certain attribute in all loaded assemblies
-    /// 
-    /// Skips searching in assemblies starting with common names like: Microsoft, System, Windows, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Dapper, Autofac, Automapper, Salesforce, ...
+    /// Find all types inheriting/implements T with a attribute from all white listed loaded assemblies
     /// </summary>
+    /// <remarks>
+    /// Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// public class NameAttribute : Attribute { 
@@ -156,9 +157,9 @@ public static partial class Assemblies
     /// // returns 'Car' and all other types that inherits/implements IVehicle which also contains the attribute
     /// </code>
     /// </example>
-    /// <typeparam name="TClassType">Must be a class</typeparam>
-    /// <typeparam name="TAttributeType">Type of class that inherits Attribute</typeparam>
-    /// <returns>An IEnumerable of Type</returns>
+    /// <typeparam name="TClassType">Class</typeparam>
+    /// <typeparam name="TAttributeType">Attribute</typeparam>
+    /// <returns>IEnumerable of System.Type</returns>
     public static IEnumerable<Type> FindAllTypesInheritingWithAttribute<TClassType, TAttributeType>()
         where TClassType : class
         where TAttributeType : Attribute
@@ -167,8 +168,11 @@ public static partial class Assemblies
     }
 
     /// <summary>
-    /// Read an embedded resource's content as string
+    /// Read an embedded resource and return its content as string
     /// </summary>
+    /// <remarks>
+    /// Searches only in one assembly, defaulting to 'CallingAssembly'
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = Assemblies.GetEmbeddedResource("Folder/SubFolder/SubFolder2", "json.txt");
@@ -184,7 +188,7 @@ public static partial class Assemblies
     }
 
     /// <summary>
-    /// Read an embedded resource's content as byte array
+    /// Read an embedded resource and return its content as byte[]
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">

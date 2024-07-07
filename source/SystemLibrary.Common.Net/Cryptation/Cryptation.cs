@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Concurrent;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 namespace SystemLibrary.Common.Net;
 
@@ -21,7 +14,9 @@ internal static class Cryptation
         if (text.IsNot()) return text.GetBytes();
 
         if (iv == null)
-            iv = new byte[16];
+        {
+            iv = CryptationIV.IV;
+        }
 
         byte[] bytes;
 
@@ -29,7 +24,7 @@ internal static class Cryptation
         {
             aes.Key = key;
             aes.IV = iv;
-
+            
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
             using (MemoryStream memoryStream = new MemoryStream())
@@ -52,14 +47,16 @@ internal static class Cryptation
 
     static object DecryptedShelfLock = new object();
 
-    public static string Decrypt(string cipherText, byte[] key, byte[] iv, bool onErrorOutputKeyParts)
+    public static string Decrypt(string cipherText, byte[] key, byte[] iv)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
 
         if (cipherText.IsNot()) return cipherText;
 
         if (iv == null)
-            iv = new byte[16];
+        {
+            iv = CryptationIV.IV;
+        }
 
         var shelfKey = key[0] + key[1] + iv.Length + cipherText + key.Length;
 
@@ -101,7 +98,7 @@ internal static class Cryptation
             }
             catch (Exception ex)
             {
-                var message = CryptationKey.GetExceptionMessage(cipherText, onErrorOutputKeyParts);
+                var message = CryptationKey.GetExceptionMessage(cipherText);
 
                 throw new Exception(message, ex);
             }

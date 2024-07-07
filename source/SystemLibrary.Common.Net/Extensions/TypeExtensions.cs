@@ -11,13 +11,10 @@ namespace SystemLibrary.Common.Net.Extensions;
 public static class TypeExtensions
 {
     /// <summary>
-    /// Check if 'thisType' inherits (implements) 'type'
-    ///
-    /// Returns false if both types are the same or if 'type' is not inherited by 'thisType'
+    /// Check if 'thisType' inherits or implements 'type
     /// 
-    /// For interfaces this can be read as 'implements'
+    /// False if both types are the same
     /// </summary>
-    /// <returns>Returns true or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class Car : IVehicle 
@@ -31,6 +28,7 @@ public static class TypeExtensions
     /// // result is false, as Car cannot inherit/implement itself
     /// </code>
     /// </example>
+    /// <returns>true or false</returns>
     public static bool Inherits(this Type thisType, Type type)
     {
         if (thisType == type) return false;
@@ -41,7 +39,9 @@ public static class TypeExtensions
     /// <summary>
     /// Check if type is a list or array
     /// </summary>
-    /// <returns>Returns true or false</returns>
+    /// <remarks>
+    /// Does not check on IList, nor Dictionary, just List or Array
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var array = new string[] { "" };
@@ -50,6 +50,7 @@ public static class TypeExtensions
     /// //result is true
     /// </code>
     /// </example>
+    /// <returns>true or false</returns>
     public static bool IsListOrArray(this Type type)
     {
         if (type.IsArray) return true;
@@ -61,7 +62,6 @@ public static class TypeExtensions
     /// <summary>
     /// Checks if type is a dictionary
     /// </summary>
-    /// <returns>Returns true or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var dictionary = new Dictionary&lt;string, string&gt;();
@@ -70,6 +70,7 @@ public static class TypeExtensions
     /// //result is true
     /// </code>
     /// </example>
+    /// <returns>true or false</returns>
     public static bool IsDictionary(this Type type)
     {
         if (type.IsArray) return false;
@@ -79,9 +80,9 @@ public static class TypeExtensions
     }
 
     /// <summary>
-    /// Returns the type.Name
+    /// Returns the Name of the Type that makes 'most sense'
     /// 
-    /// For generics such as List, Dictionary or Array, it returns the "inner type name" of those
+    /// For generics, such as a IList, List, Dictionary, it will return the Name of the first generic Type specified
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -103,6 +104,7 @@ public static class TypeExtensions
     /// // result is "Car"
     /// </code>
     /// </example>
+    /// <returns>The type name</returns>
     public static string GetTypeName(this Type type)
     {
         if (type.IsListOrArray())
@@ -111,11 +113,16 @@ public static class TypeExtensions
         if (type.IsDictionary())
             return type.GenericTypeArguments[0].Name;
 
+        var firstGenericType = type.GetFirstGenericType();
+        if(firstGenericType != null)
+        {
+            return firstGenericType.Name;
+        }
         return type.Name;
     }
 
     /// <summary>
-    /// Returns the first generic type found or null if not generic type
+    /// Returns the first generic type specified, or null
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">

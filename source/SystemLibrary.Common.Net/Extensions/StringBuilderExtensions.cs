@@ -10,27 +10,27 @@ namespace SystemLibrary.Common.Net.Extensions;
 public static class StringBuilderExtensions
 {
     /// <summary>
-    /// Returns true if the string builder is not null and has a text length greater than 0
+    /// Check if stringbuilder is not null and has content
     /// </summary>
+    /// <returns>True or false</returns>
     public static bool Is(this StringBuilder stringBuilder)
     {
         return stringBuilder != null && stringBuilder.Length != 0;
     }
 
     /// <summary>
-    /// Returns true if string builder is null or is empty
+    /// Check if stringbuilder is null or has no content
     /// </summary>
+    /// <returns>True or false</returns>
     public static bool IsNot(this StringBuilder stringBuilder)
     {
         return stringBuilder == null || stringBuilder.Length == 0;
     }
 
     /// <summary>
-    /// Returns true if stringbuilder ends with a certain text, else false
-    /// 
-    /// - does not throw exception on null
-    /// - pass flag for case sensitivity
+    /// Check if stringbuilder ends with a certain text
     /// </summary>
+    /// <returns>True or false</returns>
     public static bool EndsWith(this StringBuilder stringBuilder, string ending, bool caseInsensitive = false)
     {
         if (stringBuilder == null || stringBuilder.Length == 0) return false;
@@ -65,10 +65,9 @@ public static class StringBuilderExtensions
     }
 
     /// <summary>
-    /// Removes the ending of the text inside the stringbuilder, if it matches the 'ending'
-    /// 
-    /// Returns true if a text was removed, else false
+    /// Check if stringbuilder ends with certain texts, if so, the first ending match was removed
     /// </summary>
+    /// <returns>True if text was removed, else false</returns>
     public static bool TrimEnd(this StringBuilder stringBuilder, params string[] values)
     {
         if (values.IsNot()) return false;
@@ -90,11 +89,12 @@ public static class StringBuilderExtensions
 
     //Creds: https://stackoverflow.com/questions/1359948/why-doesnt-stringbuilder-have-indexof-method
     /// <summary>
-    /// Returns the index of the text within the StringBuilder or -1 if not found
+    /// Returns the index of the text within the StringBuilder
     /// </summary>        
     /// <param name="text">The string to find</param>
     /// <param name="start">The starting index.</param>
     /// <param name="ignoreCase">if set to <c>true</c> it will ignore case</param>
+    /// <returns>Int or -1 if not found</returns>
     public static int IndexOf(this StringBuilder stringBuilder, string text, bool ignoreCase = false, int start = 0)
     {
         if (stringBuilder == null) return -1;
@@ -152,7 +152,7 @@ public static class StringBuilderExtensions
     /// <summary>
     /// Replaces " with &quot; and single quote with &apos; within the StringBuilder
     /// 
-    /// Throws if stringbuilder passed is null
+    /// Throws on null argument
     /// </summary>
     public static void HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
@@ -175,7 +175,7 @@ public static class StringBuilderExtensions
     /// <summary>
     /// Replaces &quot; with " and &apos; with a single quote within the StringBuilder
     /// 
-    /// Throws if stringbuilder passed is null
+    /// Throws on null argument
     /// </summary>
     public static void HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {

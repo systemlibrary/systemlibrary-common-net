@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -19,6 +17,7 @@ internal class AppSettings : Config<AppSettings>
         {
             Dump = new DumpConfig();
             Json = new JsonConfig();
+            Cryptation = new CryptationConfig();
             Debug = false;
         }
 
@@ -30,6 +29,11 @@ internal class AppSettings : Config<AppSettings>
             public JsonCommentHandling ReadCommentHandling { get; set; } = JsonCommentHandling.Skip;
             public JsonIgnoreCondition JsonIgnoreCondition { get; set; } = JsonIgnoreCondition.WhenWritingNull;
             public bool WriteIndented { get; set; } = false;
+        }
+
+        public class CryptationConfig
+        {
+            public string KeyFile { get; set; }
         }
 
         public class DumpConfig
@@ -95,6 +99,7 @@ internal class AppSettings : Config<AppSettings>
         public bool Debug { get; set; }
         public DumpConfig Dump { get; set; }
         public JsonConfig Json { get; set; }
+        public CryptationConfig Cryptation { get; set; }
     }
 
     public PackageConfig SystemLibraryCommonNet { get; set; }

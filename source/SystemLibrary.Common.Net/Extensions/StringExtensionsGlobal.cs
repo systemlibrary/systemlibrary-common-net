@@ -1165,11 +1165,11 @@
 //    /// <example>
 //    /// <code>
 //    /// var text = "/hello/world/";
-//    /// var result = text.ToServerMapPath();
+//    /// var result = text.ToAppPath();
 //    /// //result == "c:\pub\www\hello\world\", full path on server including disc (at least on Windows)
 //    /// </code>
 //    /// </example>
-//    public static string ToServerMapPath(this string path)
+//    public static string ToAppPath(this string path)
 //    {
 //        if (path == null) return path;
 
@@ -1230,9 +1230,9 @@
 //    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
 //    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
 //    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGHIJKLMNOPQRST123456789011
 //    /// 
-//    /// Default key is 'ABCDEFGH098765432'
+//    /// Default key is 'ABCDEFGH09876543'
 //    /// Default iv is 16 bytes of 0
 //    ///
 //    /// If data is null it returns null
@@ -1285,7 +1285,7 @@
 //    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
 //    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
 //    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGHIJKLMNOPQRST123456789011
 //    /// 
 //    /// IV defaults to default 16 bytes of 0
 //    /// 
@@ -1305,7 +1305,7 @@
 //    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
 //    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
 //    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+//    /// - If environment variable nor a key file is found, defaults to: ABCDEFGHIJKLMNOPQRST123456789011
 //    /// 
 //    /// If IV is null, uses default 16 bytes of 0
 //    /// 

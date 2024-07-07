@@ -33,6 +33,19 @@ public partial class StringExtensionsTests
     }
 
     [TestMethod]
+    public void Encrypt_Hello_World()
+    {
+        var data = "Hello world";
+        var enc = data.Encrypt();
+
+        Assert.IsTrue("EjaRD20hw9BVwybKH8ea5w==" == enc, "Enc with default 32 char key changed: " + enc);
+
+        var dec = enc.Decrypt();
+
+        Assert.IsTrue(dec == data, "Decrypt has changed");
+    }
+
+    [TestMethod]
     public void Encrypt_And_Decrypt_With_Key_And_Iv_Success()
     {
         var userdata = "123456789-1234-4567-9000-abdef12346789;12345678;email@dummy.com;SpecialChars@|1,-.:;##End";
@@ -821,60 +834,80 @@ public partial class StringExtensionsTests
     }
 
     [TestMethod]
-    public void To_Server_Map_Path()
+    public void To_App_Path()
     {
         string text = null;
-        string result = text.ToServerMapPath();
+        string result = text.ToAppPath();
         Assert.IsTrue(result == null);
 
         text = "";
-        result = text.ToServerMapPath();
+        result = text.ToAppPath();
 
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", "WTF" +result);
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/", "1 " + result);
 
         text = "a";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a", "2 " + result);
 
         text = "a/b/c/d/e/12345/";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c\\d\\e\\12345\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/d/e/12345/", "3 " + result);
 
         text = "https://www.systemlibrary.com/hello/world/";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello\\world\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "4 " + result);
 
         text = "https://www.sub.sub.subdomain.com/hello/world/";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello\\world\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "5 " + result);
 
         text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\hello1\\world2\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello1/world2/", "6 " + result);
 
         text = "https://www.sub.sub.subdomain.com";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/", "7 " + result);
 
         text = "/a/b/c";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c", "8 " + result);
 
         text = "/a/b/c/";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\c\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/", "9 "+ result);
 
         text = "\\a\\b\\";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/", "10 " + result);
 
         text = "a\\b\\";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b\\", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/", "11 " + result);
 
         text = "a\\b";
-        result = text.ToServerMapPath();
-        Assert.IsTrue(result == "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a\\b", result);
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b","12 " + result);
+
+        text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/";
+        result = text.ToAppPath();
+        Assert.IsTrue(result == text, "13 " +result);
+
+        text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a";
+        result = text.ToAppPath();
+        Assert.IsTrue(result == text, "14 " + result);
+
+        text = "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a";
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a", "15 " + result);
+
+        text = "C:\\hello\\world";
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world", "15 " + result);
+
+        text = "C:\\hello\\world\\";
+        result = text.ToAppPath();
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "16 " + result);
     }
 
     [TestMethod]
@@ -893,7 +926,7 @@ public partial class StringExtensionsTests
         result = data;
         Assert.IsTrue(result == data.Encrypt().Decrypt(), "abcdef: " + data.Encrypt());
 
-        data = "@£$$€{[]}abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
+        data = "@£$$€{[]}abcdefghijklmno \n\n\n\t\tpqr stuvwxyzæø åABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
         result = data;
         Assert.IsTrue(result == data.Encrypt().Decrypt(), "long: " + data.Encrypt());
     }
@@ -962,14 +995,11 @@ public partial class StringExtensionsTests
         }
     }
 
-
     static int Decrypt_In_Async_Startup_Success_Counter = 0;
     static void Decrypt_In_Async_Startup_Success_Counter_Increment()
     {
         Decrypt_In_Async_Startup_Success_Counter++;
     }
-
-
 
     [TestMethod]
     public void Decrypt_In_Async_Startup_Success()
@@ -1009,13 +1039,16 @@ public partial class StringExtensionsTests
         System.Threading.Thread.Sleep(sleep);
         try
         {
-            var data = "ubfc8LNl5DiTV3RQxFHMYw==";
-            var result = data.Decrypt();
+            var dataWas = "ubfc8LNl5DiTV3RQxFHMYw==";
+            var data = "2xz+T59D3qVIJ2vINrn8Pg==";
+            var result = dataWas.Decrypt();
             if (result != "Hello world")
                 Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
-        catch
+        catch(Exception ex)
         {
+            Dump.Write(ex.Message);
+
             Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
     }

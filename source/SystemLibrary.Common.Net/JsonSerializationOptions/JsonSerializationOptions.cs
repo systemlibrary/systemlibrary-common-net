@@ -1,6 +1,4 @@
-﻿
-using System.ComponentModel;
-using System.Text.Encodings.Web;
+﻿using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
@@ -12,8 +10,6 @@ namespace SystemLibrary.Common.Net;
 static internal class GetJsonSerializerOptions
 {
     static AppSettings Config => AppSettings.Current;
-
-    static JsonSerializerOptions _DefaultJsonSerializerOptions;
 
     static IntJsonConverter IntJsonConverter = new IntJsonConverter();
     static TypeConverter TypeConverter = new TypeConverter();
@@ -47,22 +43,38 @@ static internal class GetJsonSerializerOptions
         }
     }
 
+    static JavaScriptEncoder _JavaScriptEncoder;
+    static JavaScriptEncoder JavaScriptEncoder
+    {
+        get
+        {
+            if (_JavaScriptEncoder == null)
+            {
+                _JavaScriptEncoder = JavaScriptEncoder.Create(
+                            UnicodeRanges.BasicLatin,
+                            UnicodeRanges.LatinExtendedA,
+                            UnicodeRanges.LatinExtendedB,
+                            UnicodeRanges.LatinExtendedAdditional,
+                            UnicodeRanges.LatinExtendedC,
+                            UnicodeRanges.Latin1Supplement,
+                            UnicodeRanges.CurrencySymbols,
+                            UnicodeRanges.Cyrillic,
+                            UnicodeRanges.GreekandCoptic);
+                            // TODO: Figure out, measure, if these are worth or not worth:
+                            //UnicodeRanges.GeneralPunctuation,
+                            //UnicodeRanges.LatinExtendedD
+            }
+            return _JavaScriptEncoder;
+        }
+    }
+
     static JsonSerializerOptions DefaultJsonSerializerOptions
     {
         get
         {
             var options = new JsonSerializerOptions
             {
-                Encoder = JavaScriptEncoder.Create(
-                    UnicodeRanges.BasicLatin,
-                    UnicodeRanges.LatinExtendedA,
-                    UnicodeRanges.LatinExtendedB,
-                    UnicodeRanges.LatinExtendedAdditional,
-                    UnicodeRanges.LatinExtendedC,
-                    UnicodeRanges.Latin1Supplement,
-                    UnicodeRanges.CurrencySymbols,
-                    UnicodeRanges.Cyrillic,
-                    UnicodeRanges.GreekandCoptic),
+                Encoder = JavaScriptEncoder,
                 DefaultIgnoreCondition = JsonConfiguration.JsonIgnoreCondition,
                 MaxDepth = JsonConfiguration.MaxDepth,
                 AllowTrailingCommas = JsonConfiguration.AllowTrailingCommas,

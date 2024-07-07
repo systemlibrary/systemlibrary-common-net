@@ -14,7 +14,6 @@ public static class UriExtensions
     /// 
     /// https://www.sub1.sub2.domain.com => domain.com
     /// </summary>
-    /// <returns>Primary domain name or "", never null</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
@@ -24,6 +23,7 @@ public static class UriExtensions
     /// // result is "github.io"
     /// </code>
     /// </example>
+    /// <returns>Primary domain name or "", never null</returns>
     public static string GetPrimaryDomain(this Uri uri, string topLevelDomain = ".com")
     {
         if (uri == null)

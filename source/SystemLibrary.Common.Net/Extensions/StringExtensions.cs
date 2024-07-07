@@ -1,28 +1,20 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Net.Http;
 using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Web;
-
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.Extensions.Options;
 
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
 using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
-/// This class contains extension methods for Strings
+/// This class contains extension methods for string
 /// 
 /// StringExtensions exists in the global namespace
 /// </summary>
@@ -40,10 +32,10 @@ using SystemLibrary.Common.Net.Extensions;
 public static partial class StringExtensions
 {
     /// <summary>
-    /// Returns 'data', or first non-null and non-blank fallback, if text is null or empty.
-    /// If 'data' and all fallbacks are null or empty, this returns "", never null
+    /// Returns data or the first fallback that exists
+    /// 
+    /// If all subsequent fallbacks are null, this returns ""
     /// </summary>
-    /// <returns>First non-null, non-empty and non-space string value, or empty string, never null.</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text1 = null;
@@ -55,6 +47,7 @@ public static partial class StringExtensions
     /// // result is "hello" as the others are blank/empty
     /// </code>
     /// </example>
+    /// <returns>First non-null, non-empty and non-space string value, or empty string, never null.</returns>
     public static string OrFirstOf(this string text, params string[] fallbacks)
     {
         if (text.Is()) return text;
@@ -68,13 +61,12 @@ public static partial class StringExtensions
         return "";
     }
 
-    // <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     /// <summary>
     /// Returns the domain part of the uri or blank, never null:
     /// 
     /// https://www.sub1.sub2.domain.com => domain.com
     /// </summary>
-    /// <returns>Primary domain name or "", never null</returns>
+    /// <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var result = new Uri('https://systemlibrary.com/image?q=90&amp;format=jpg').GetPrimaryDomain();
@@ -84,6 +76,7 @@ public static partial class StringExtensions
     /// // result is "github.io"
     /// </code>
     /// </example>
+    /// <returns>Primary domain or blank, never null</returns>
     public static string GetPrimaryDomain(this string url)
     {
         if (url == null || url.Length == 0) return "";
@@ -98,7 +91,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns a new string where all 'old values' are replaced with the 'newValue'
     /// 
-    /// Returns null or blank if such a text is passed in, does not throw exception
+    /// Does not throw on argument null
     /// </summary>
     /// <example>
     /// <code>
@@ -108,6 +101,7 @@ public static partial class StringExtensions
     /// // result == A A AA, all mathing texts are replaces with the first param 'A'
     /// </code>
     /// </example>
+    /// <returns>A new string with all replacements</returns>
     public static string ReplaceAllWith(this string text, string newValue, params string[] oldValues)
     {
         if (text == null) return text;
@@ -133,7 +127,6 @@ public static partial class StringExtensions
     /// </summary>
     /// <typeparam name="T">T must be an Enum</typeparam>
     /// <param name="text">Value must match the Key or the 'EnumValueAttribute' or 'EnumTextAttribute' of a Key in the Enum (EnumValue is checked before EnumText), else this returns default of the Enum T</param>
-    /// <returns>Returns first matching Key or default of the Enum</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// enum EnumColor
@@ -160,6 +153,7 @@ public static partial class StringExtensions
     /// // value is EnumColor.None, no match, returns first enum Key
     /// </code>
     /// </example>
+    /// <returns>Returns first matching Key or default of the Enum</returns>
     public static T ToEnum<T>(this string text) where T : struct, IComparable, IFormattable, IConvertible
     {
         if (text == null) return default(T);
@@ -167,6 +161,10 @@ public static partial class StringExtensions
         return (T)text.ToEnum(typeof(T));
     }
 
+    /// <summary>
+    /// Convert a string to the Enum Type and cast as Object on returnal
+    /// </summary>
+    /// <returns>Returns first match or the first Key in the Enum</returns>
     public static object ToEnum(this string text, Type enumType)
     {
         object result;
@@ -263,7 +261,6 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns true if text starts with any of the values, case sensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -272,6 +269,7 @@ public static partial class StringExtensions
     /// // result is true, due to the text begins with 'hel'
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool StartsWithAny(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
@@ -290,7 +288,6 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns true if text ends with any of the values, case sensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -298,6 +295,7 @@ public static partial class StringExtensions
     /// // result is true, because the last part of text ends with rld
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool EndsWithAny(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
@@ -315,7 +313,6 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns true if text ends with any of the values, case insensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "heLLo WoRLd";
@@ -323,6 +320,7 @@ public static partial class StringExtensions
     /// // result is true, because the last part of text ends with RLd - case insensitive
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
@@ -340,7 +338,6 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns true if text equals any of the values, case sensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -348,6 +345,7 @@ public static partial class StringExtensions
     /// // result is true, as the last 'hello world' matches exactly
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool IsAny(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
@@ -362,10 +360,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns true if text is null, "" or " ", else false
-    /// 
-    /// Note: it does not check if it contains multiple spaces so it is not exactly as string.IsNullOrWhiteSpace()
+    /// Check if string is null, "" or " "
     /// </summary>
+    /// <remarks>
+    /// It does not check multiple spaces or new lines or tabs, so not the same as string.IsNullOrWhiteSpace()
+    /// </remarks>
     /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -395,9 +394,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns true if text is not null and not "" and not  " ", else false
+    /// Check if string is not null, "" and " "
     /// </summary>
-    /// <returns>True or false</returns>
+    /// <remarks>
+    /// It does not check multiple spaces or new lines or tabs
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// // Old way: string.IsNullOrWhiteSpace(text);
@@ -407,6 +408,7 @@ public static partial class StringExtensions
     /// // result is true because text is set to something, and not just "" or " "
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool Is(this string text)
     {
         if (text == null || text.Length == 0) return false;
@@ -415,11 +417,10 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns true if text is not null and not "" and not  " " and not any of the 'invalidTexts', else false
+    /// Check if string is not null, "" and " " and not any of the 'invalidTexts', else false
     /// 
     /// Case sensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -430,6 +431,7 @@ public static partial class StringExtensions
     /// // result is false, because text equals to the invalid text passed in, which was 'hello world'
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool Is(this string text, params string[] invalidTexts)
     {
         if (text.IsNot())
@@ -446,9 +448,10 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns new string without all non-digit and non-letters
+    /// Returns a new string with digits and letters only
+    /// 
+    /// Question marks, commas, exclamation marks, etc, are removed
     /// </summary>
-    /// <returns>String with digits and letters only or "", never null</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var email = "support@system.library.com";
@@ -457,6 +460,7 @@ public static partial class StringExtensions
     /// // text is "supportsystemlibrarycom"
     /// </code>
     /// </example>
+    /// <returns>String with digits and characters, or blank if input is null or empty</returns>
     public static string ToLetterAndDigits(this string text)
     {
         if (text.IsNot()) return "";
@@ -465,9 +469,8 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns true if text contains any of the values, case sensitive
+    /// Check if text contains any of the values, case sensitive
     /// </summary>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello";
@@ -476,6 +479,7 @@ public static partial class StringExtensions
     /// // result is true, because lo is part of the text
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool ContainsAny(this string text, params string[] values)
     {
         if (text.IsNot()) return false;
@@ -486,15 +490,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns trimmed version of the text input, if text ends with any of the values, case sensitive
-    /// 
-    /// This is not recursive, so after removal of 1 value, it will return
-    /// 
-    /// NOTE: Works like "".TrimEnd(), but with multiple strings in one go
-    /// 
-    /// NOTE: It does not implicitly trim spaces, unless you pass spaces as one of the values
+    /// Trim the end of a string if it ends with any of the inputs
+    /// - It does not trim spaces, you must specify it as argument if so
+    /// - Not recursive, returns after the first trimming
+    /// - Case sensitive
     /// </summary>
-    /// <returns>Returns the input string as is or without one of the values passed</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var result = "abcd".TrimEnd(" ", "!", "c", "d");
@@ -506,6 +506,7 @@ public static partial class StringExtensions
     /// // result is "abc" because it matches 'd' then returns, so 'bc' is never checked
     /// </code>
     /// </example>
+    /// <returns>Returns the input string as is or without first value matched as ending</returns>
     public static string TrimEnd(this string text, params string[] values)
     {
         if (text.IsNot()) return text;
@@ -542,11 +543,9 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns true if text ends with any of the characters, case insensitive
-    /// 
+    /// Check if text ends ends with any characters from another string, case insensitive
     /// </summary>
     /// <param name="characters">Each character in this string will be checked</param>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -555,6 +554,7 @@ public static partial class StringExtensions
     /// // result is true, because it ends with 'd'
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool EndsWithAnyCharacter(this string text, string characters)
     {
         if (text.IsNot()) return true;
@@ -574,9 +574,8 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns the string or a substring of the string, based on max allowed string length
+    /// Check if string is longer and returns a substring up to MaxLength
     /// </summary>
-    /// <returns>Returns the string as it is if text is blank/null or shorter than maxLength, else returns a substring with a length of 'maxLength'. If maxLength is negative it returns ""</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var text = "hello world";
@@ -584,6 +583,7 @@ public static partial class StringExtensions
     /// // result is "h" as it only can be 1 character long
     /// </code>
     /// </example> 
+    /// <returns>Returns the string as it is if text is blank/null or shorter than maxLength, else returns a substring with a length of 'maxLength'. If maxLength is negative it returns ""</returns>
     public static string MaxLength(this string text, int maxLength)
     {
         if (text == null) return "";
@@ -598,15 +598,13 @@ public static partial class StringExtensions
     /// <summary>
     /// Return a part of the json as T
     /// 
-    /// Searches through the json formatted text to find the property it takes as input, and outputs T
+    /// Searches through the json looking for a property that has the same name as T type, and outputs T
     /// 
-    /// Supports a 'search path' seperated by a forward slash to the leaf property you want to convert to T
+    /// Supports taking a 'search property path' seperated by a forward slash to the leaf property you want to convert to T, case insensitive
     /// 
-    /// Searching for a property by name is case-insensitive
+    /// Throws if a node towards the leaf is not found when specifying a 'search property path'
     /// 
-    /// Throws exception if the json formatted text is invalid or a parent property to the leaf do not exist in the json text
-    /// 
-    /// Returns T or null if the leaf property do not exist
+    /// Throws if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
     /// <typeparam name="T">A class or list/array of a class
     /// 
@@ -620,7 +618,6 @@ public static partial class StringExtensions
     /// 
     /// Example: root/property1/property2/leaf where 'leaf' will be deserialized as T
     /// </param>
-    /// <returns>Returns json as T or null if not found</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// // Assume json string stored in a C# variable named 'data':
@@ -676,6 +673,7 @@ public static partial class StringExtensions
     /// // Searches for a property anywhere in the json named "fired"
     /// </code>
     /// </example>
+    /// <returns>Returns T or null if the leaf property do not exist</returns>
     public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
     {
         return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
@@ -688,9 +686,8 @@ public static partial class StringExtensions
     /// - case insensitive deserialization
     /// - allows trailing commas
     /// 
-    /// Throws exception if json has invalid formatted json text
+    /// Throws exception if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
-    /// <returns>Returns T or null if json is null or empty</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class User {
@@ -706,6 +703,7 @@ public static partial class StringExtensions
     /// // NOTE: Naming is camelCase'd in json, but still matched (case insensitive) during deserialization by default
     /// </code>
     /// </example>
+    /// <returns>Returns T or null if json is null or empty</returns>
     public static T Json<T>(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
     {
         if (json.IsNot()) return default;
@@ -721,9 +719,8 @@ public static partial class StringExtensions
     /// <summary>
     /// Convert string formatted json to object T with your additional JsonConverters
     /// 
-    /// Throws exception if json has invalid formatted json text
+    /// Throws exception if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
-    /// <returns>Returns T or null if json is null or empty</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class User {
@@ -742,6 +739,7 @@ public static partial class StringExtensions
     /// // NOTE: Naming is camelCase'd in json, but still matched (case insensitive) during deserialization by default
     /// </code>
     /// </example>
+    /// <returns>Returns T or null if json is null or empty</returns>
     public static T Json<T>(this string json, params JsonConverter[] converters) where T : class
     {
         if (json.IsNot()) return null;
@@ -768,6 +766,7 @@ public static partial class StringExtensions
     /// // newValue is #4F4F4F
     /// </code>
     /// </example>
+    /// <returns>A new hex darkened or lightend, or null/blank if input was so</returns>
     public static string HexDarkenOrLighten(this string hex, double factor = 0.31, bool auto = false)
     {
         if (hex.IsNot()) return hex;
@@ -842,27 +841,25 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns input as a base64 string
-    /// 
-    /// Returns null or empty if input is null or empty
-    /// 
-    /// //Tip: If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
+    /// Convert input to its Base64
     /// </summary>
+    /// <remarks>
+    /// If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
+    /// </remarks>
     /// <example>
     /// <code>
     /// var value = "Hello world";
     /// var base64string = value.ToBase64();
     /// </code>
     /// </example>
+    /// <returns>Base64 string, or null or blank if input was so</returns>
     public static string ToBase64(this string text, Encoding encoding = default)
     {
         return GetBytes(text, encoding).ToBase64();
     }
 
     /// <summary>
-    /// Returns the base64string input as a readable string
-    /// 
-    /// Returns null or empty if input is null or empty
+    /// Convert base64string back to a normal string
     /// </summary>
     /// <example>
     /// <code>
@@ -872,6 +869,7 @@ public static partial class StringExtensions
     /// // value == valueAgain
     /// </code>
     /// </example>
+    /// <returns>String or null/empty if input was so</returns>
     public static string FromBase64(this string base64String, Encoding encoding = default)
     {
         if (base64String == null) return null;
@@ -884,9 +882,8 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns the base64string input as a byte array
-    /// 
-    /// Returns null if input is null
     /// </summary>
+    /// <returns>String or null/empty if input was so</returns>
     public static byte[] FromBase64AsBytes(this string base64String)
     {
         if (base64String == null) return null;
@@ -895,9 +892,7 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns a byte array of the input
-    /// 
-    /// Returns null or empty if input is null or empty
+    /// Returns the byte representation of the text
     /// </summary>
     /// <example>
     /// <code>
@@ -905,6 +900,7 @@ public static partial class StringExtensions
     /// var bytes = value.GetBytes();
     /// </code>
     /// </example>
+    /// <returns>Byte array or null if input was null/empty</returns>
     public static byte[] GetBytes(this string text, Encoding encoding = default)
     {
         if (text == null) return null;
@@ -919,19 +915,17 @@ public static partial class StringExtensions
     /// Obfuscate a string to a different string with a salt
     /// 
     /// Throws exception if salt is &lt;= 0, salt should be in range from 1 to 65000
-    /// 
-    /// Returns a new obfuscated string
-    /// 
-    /// Returns null or empty if input is null or empty
-    /// 
-    /// // Tip: Method .ToBase64() is faster if data is more than 400KB
     /// </summary>
+    /// <remarks>
+    /// Method .ToBase64() is faster if data is more than 400KB
+    /// </remarks>
     /// <example>
     /// <code>
     /// var value = "Hello world";
     /// var obfuscatedText = value.Obfuscate();
     /// </code>
     /// </example>
+    /// <returns>String or null/empty if input was so</returns>
     public static string Obfuscate(this string text, int salt = 11)
     {
         return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, false);
@@ -941,8 +935,6 @@ public static partial class StringExtensions
     /// Deobfuscate a string back to its readable state with a salt
     /// 
     /// Returns the text as it was before obfuscating, assuming you used the same salt value
-    /// 
-    /// Returns null or empty if input is null or empty
     /// </summary>
     /// <example>
     /// <code>
@@ -952,6 +944,7 @@ public static partial class StringExtensions
     /// // value == deobfuscatedText
     /// </code>
     /// </example>
+    /// <returns>String or null/empty if input was so</returns>
     public static string Deobfuscate(this string text, int salt = 11)
     {
         return SystemLibrary.Common.Net.Obfuscate.Convert(text, salt, true);
@@ -959,19 +952,18 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns a MD5 hash version of the text input, resulting in a 47 character long text (including dashes).
-    /// 
-    /// Returns null or empty if that was the input
-    /// 
-    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
-    /// 
-    /// Note: Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
     /// </summary>
+    /// <remarks>
+    /// If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
+    /// </remarks>
     /// <example>
     /// <code>
     /// var value = "Hello world";
     /// var md5text = value.ToMD5Hash();
     /// </code>
     /// </example>
+    /// <returns>Md5 hash string or null/empty if input was so</returns>
     public static string ToMD5Hash(this string text)
     {
         return Md5.Compute(text.GetBytes());
@@ -979,19 +971,18 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes). 
-    /// 
-    /// Returns null or empty if that was the input
-    /// 
-    /// Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster
-    /// 
-    /// Note: Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
     /// </summary>
+    /// <remarks>
+    /// If data is smaller than ~200 bytes then .ToMD5Hash() is faster
+    /// Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscater'
+    /// </remarks>
     /// <example>
     /// <code>
     /// var value = "Hello world";
     /// var sha1 = value.ToSha1Hash();
     /// </code>
     /// </example>
+    /// <returns>Sha1 hash string or null/empty if input was so</returns>
     public static string ToSha1Hash(this string text)
     {
         return Sha1.Compute(text.GetBytes());
@@ -1006,15 +997,16 @@ public static partial class StringExtensions
     /// var sha1 = value.ToSha1Hash();
     /// </code>
     /// </example>
+    /// <returns>Sha256 hash string or null/empty if input was so</returns>
     public static string ToSha256Hash(this string text)
     {
         return Sha256.Compute(text.GetBytes());
     }
 
     /// <summary>
-    /// Returns uri ("url") encoded version of a string or null if input was null
+    /// Returns uri encoded version of a string, usually safe as a query parameter in a url for instance
     /// 
-    /// Example: For instance: A 'space' becomes %20, and a '+' sign becomes %2B
+    /// For instance: A 'space' becomes %20, and a '+' sign becomes %2B
     /// </summary>
     /// <example>
     /// <code>
@@ -1031,9 +1023,8 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns uri ("url") encoded version of a string or null if input was null
-    /// 
-    /// Example: For instance: A 'space' becomes %20, and a '+' sign becomes %2B
+    /// Returns uri decoded version of a uri encoded string
+    /// Example: For instance: %20 becomes 'space', and %2B becomes '+'
     /// </summary>
     /// <example>
     /// <code>
@@ -1042,6 +1033,7 @@ public static partial class StringExtensions
     /// //plain == "Hello world + ?"
     /// </code>
     /// </example>
+    /// <returns>Uri decoded or null/blank if input was so</returns>
     public static string UriDecode(this string text)
     {
         if (text == null) return null;
@@ -1050,14 +1042,7 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns string as pascal cased
-    /// 
-    /// Each word's first letter is upper case
-    /// - words after a space or a dash
-    /// 
-    /// All other letters are lower cased
-    /// 
-    /// Note: Returns null or empty if that is the input
+    /// Returns string as pascal cased, each character after a space or a dash is upper cased, while all others are forced lower cased
     /// </summary>
     /// <example>
     /// <code>
@@ -1066,6 +1051,7 @@ public static partial class StringExtensions
     /// //result == "Abc Def"
     /// </code>
     /// </example>
+    /// <returns>string pascal cased or null/empty if input was so</returns>
     public static string ToPascalCase(this string text)
     {
         if (text.IsNot()) return text;
@@ -1103,8 +1089,6 @@ public static partial class StringExtensions
     /// - except the very first letter, it is lower cased
     /// 
     /// All other letters are lower cased
-    /// 
-    /// Note: Returns null or empty if that is the input
     /// </summary>
     /// <example>
     /// <code>
@@ -1113,6 +1097,7 @@ public static partial class StringExtensions
     /// //result == "abc Def"
     /// </code>
     /// </example>
+    /// <returns>camelCased version of input, or null/blank if input was so</returns>
     public static string toCamelCase(this string text)
     {
         if (text.IsNot()) return text;
@@ -1143,39 +1128,57 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Convert path passed in to a full path that exists on your server
+    /// Convert any uri to a application url, targetting files/folders inside your running app
+    /// 
+    /// Assume app is hosted in C:/www/syslib/
     /// 
     /// Examples: 
-    /// http://www.systemlibrary.com/a returns C:\www\systemlibrary\a
-    /// a returns C:\www\systemlibrary\a
-    /// /a returns C:\www\systemlibrary\a
-    /// /a/ returns C:\www\systemlibrary\a\
-    /// \a returns C:\www\systemlibrary\a
-    /// \a\b\ returns C:\www\systemlibrary\a\b\
+    /// http://www.systemlibrary.com/a returns C:\www\syslib\a 
+    /// a returns C:/www/syslib/a
+    /// /a returns C:/www/syslib/a
+    /// a/ returns C:/www/syslib/a/
+    /// /a/ returns C:/www/syslib/a/
+    /// \a returns C:/www/syslib/a
+    /// \a\b\ returns C:/www/syslib/a/b/
     /// 
-    /// If path passed ends with slash, it returns ending slash, else not
-    /// 
-    /// NOTE:
-    /// Server Root Path is taken from CurrentDomain 'ContentRootPath', fall back to AppContext.BaseDirectory.Parent, and if any of the folders are inside a \bin folder, it goes to the parent of that bin folder
-    /// 
-    /// Returns null if null is passed
-    /// Returns root if empty is passed
+    /// If input ends with slash, return value ends with slash
     /// </summary>
+    /// <remarks>
+    /// Always returns URL's with forward slashes
+    /// Server Root Path is read from CurrentDomain["ContentRootPath"] with fallback to AppContext.BaseDirectory.Parent. If a folder in the returning path is /bin/ it will navigate to the parent of such a folder then return
+    /// Remember that a URL is not a browser specific term, Uniform Resource Locator
+    /// </remarks>
     /// <example>
     /// <code>
-    /// var text = "/hello/world/";
-    /// var result = text.ToServerMapPath();
-    /// //result == "c:\pub\www\hello\world\", full path on server including disc (at least on Windows)
+    /// var text = "/hello/world.txt";
+    /// var result = text.ToAppPath();
+    /// // result == "C:/pub/www/hello/world.txt"
+    /// 
+    /// var text2 = "https://www.syslib.com/hello";
+    /// var result2 = text2.ToAppPath();
+    /// // result2 == "C:/www/hello", no ending slash as text2 did not contain it
     /// </code>
     /// </example>
-    public static string ToServerMapPath(this string path)
+    /// <returns>Absolute application url based on input 'path', or null or empty if input was so</returns>
+    public static string ToAppPath(this string path)
     {
         if (path == null) return path;
 
-        if (path.Contains(":\\", StringComparison.Ordinal)) return path;
+        if (path.StartsWith("file:/")) return path;
+
+        if (path.Contains(":\\", StringComparison.Ordinal)) return path.Replace("\\", "/").ToAppPath();
 
         if (path.StartsWith("~", StringComparison.Ordinal))
             path = path.Substring(1);
+
+        if (path.StartsWith(AppDomainInternal.ContentRootPath))
+            return path;
+
+        var driveUriFormat = path.IndexOf(":/");
+        if (driveUriFormat > 0 && driveUriFormat < 5)
+        {
+            return path.Substring(driveUriFormat + ":\\".Length).ToAppPath();
+        }
 
         void ConvertWebPathToServerPath()
         {
@@ -1218,54 +1221,76 @@ public static partial class StringExtensions
         {
             ConvertToValidRelativeServerPath();
         }
-
-        return AppDomainInternal.ContentRootPath + path;
+        return (AppDomainInternal.ContentRootPath + path).Replace("\\", "/");
     }
 
     /// <summary>
-    /// Encrypts data with a default key and default iv
+    /// Encrypt data
     /// 
-    /// Can override the default key by either:
-    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
-    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
-    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+    /// Defaults:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// Default key is 'ABCDEFGH098765432'
-    /// Default iv is 16 bytes of 0
-    ///
-    /// If data is null it returns null
-    /// 
-    /// Note: returns the bytes encrypted as a Base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV by default
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data)
     {
         return Cryptation.Encrypt(data, CryptationKey.Current).ToBase64();
     }
 
     /// <summary>
-    /// Encrypts data with a user specific key and an optional iv
+    /// Encrypts data with a specific key and an optional iv
     /// 
-    /// If IV is null, defaults to 16 bytes of 0
+    /// Defaults if passing in null:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// If data is null or blank, it returns null or blank
-    /// 
-    /// Note: returns the bytes encrypted as a Base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV if null is passed as argument
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data, string key, string iv = null)
     {
         return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
     }
 
     /// <summary>
-    /// Encrypts data with a user specific key and an optional iv
+    /// Encrypts data with a specific key and an optional iv
     /// 
-    /// If IV is null, defaults to 16 bytes of 0
+    /// Defaults if passing in null:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// If data is null it returns null
-    ///
-    /// Note: returns the bytes encrypted as a Base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV if null is passed as argument
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data, byte[] key, byte[] iv = null)
     {
         if (key != null && key.Length != 16 && key.Length != 32)
@@ -1278,54 +1303,72 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypts data with a default key.
+    /// Decrypt data
     /// 
-    /// Can override the default key by either:
-    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
-    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
-    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+    /// Defaults:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// IV defaults to default 16 bytes of 0
-    /// 
-    /// If data is null or blank, it returns null or blank
-    /// 
-    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV by default
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText)
     {
-        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, true);
+        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null);
     }
 
     /// <summary>
-    /// Decrypts data with a key and an IV
+    /// Decrypts data with a key and an optional IV
     /// 
-    /// If key is null, uses either:
-    /// - set environment variable 'SYSLIBCRYPTATIONKEY' to a value, in either user or computer
-    /// - if no environment variable was set, searches for a 'data protection key file' (format: key-*.xml) and if found, uses the file name without extension as the key
-    ///     - Ex: key-12345678-1234-1234-1234-123456789012
-    /// - If environment variable nor a key file is found, defaults to: ABCDEFGH098765432
+    /// Defaults if passing null:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// If IV is null, uses default 16 bytes of 0
-    /// 
-    /// If data is null or blank, it returns null or blank
-    /// 
-    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV by default
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, string key, string iv = null)
     {
         return Decrypt(cipherText, key.GetBytes(), iv.GetBytes());
     }
 
     /// <summary>
-    /// Decrypts data with a key and an IV
+    /// Decrypts data with a key and an optional IV
     /// 
-    /// - If key or IV is null, a default value is used
+    /// Defaults if passing null:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
     /// 
-    /// If data is null or blank, it returns null or blank
-    /// 
-    /// Note: takes cipherText as returned from Encrypt(), a base64 string representation
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV by default
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
     {
         if (key != null && key.Length != 16 && key.Length != 32)
@@ -1334,14 +1377,16 @@ public static partial class StringExtensions
         if (iv != null && iv.Length != 16)
             throw new Exception("AES must receive an IV of 16 characters length");
 
-        return Cryptation.Decrypt(cipherText, key, iv, false);
+        return Cryptation.Decrypt(cipherText, key, iv);
     }
 
     /// <summary>
-    /// Returns true if 'data' is json formatted text
-    /// 
-    /// Returns false if 'data' is null, empty or not on json formatted text
+    /// Check if input is a valid json beginning
     /// </summary>
+    /// <example>
+    /// var data = "Hello world";
+    /// var isJson = data.IsJon(); // False
+    /// </example>
     /// <returns>True or false</returns>
     public static bool IsJson(this string data)
     {
@@ -1371,7 +1416,7 @@ public static partial class StringExtensions
     /// 
     /// Hell\u00F8 is converted also into Hellø (NOR char oslash;)
     /// </summary>
-    /// <returns>Returns translated text</returns>
+    /// <returns>Translated text</returns>
     public static string TranslateUnicodeCodepoints(this string data)
     {
         if (data.IsNot()) return data;
@@ -1391,10 +1436,12 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns a compressed variation of the input data if possible
-    /// 
-    /// Returns null or empty if input is null or empty
+    /// Compress the input data and return
     /// </summary>
+    /// <remarks>
+    /// Returned value might be larger if the input is onl a character or two.
+    /// </remarks>
+    /// <returns>Compressed version of input as Base64, or null/empty if input was so</returns>
     public static string Compress(this string data, Encoding encoding = null)
     {
         if (data.IsNot()) return data;
@@ -1416,17 +1463,15 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns a decompressed version of the compress data
-    /// 
-    /// Returns null or empty if input is null or empty
-    /// 
-    /// Note: Make sure you decompress with same encoding as it was compressed with
+    /// Decompress compressed data and return the result
     /// </summary>
-    public static string Decompress(this string data, Encoding encoding = null)
+    /// <param name="compressedData">A base64 compressed version of data</param>
+    /// <returns>Decompressed version of input, or null/empty if input was so</returns>
+    public static string Decompress(this string compressedData, Encoding encoding = null)
     {
-        if (data.IsNot()) return data;
+        if (compressedData.IsNot()) return compressedData;
 
-        var bytes = Convert.FromBase64String(data);
+        var bytes = Convert.FromBase64String(compressedData);
 
         using (var output = new MemoryStream())
         {
@@ -1446,12 +1491,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns html encoded version of the input.
+    /// Html encode input and return the result
     /// 
     /// Example: &lt;p&gt; becomes &lt ;p&gt ; (without spaces of course)
-    /// 
-    /// Returns null or blank, if input is null or blank
     /// </summary>
+    /// <returns>HtmlEncoded version of input, if input is null/empty it returns null/empty</returns>
     public static string HtmlEncode(this string text)
     {
         if (text.Is())
@@ -1461,12 +1505,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns html version of the html encoded input
+    /// Html decode input and return the result
     /// 
     /// Example: &lt ;p& gt; (without spaces of course) becomes &lt;p&gt; 
-    /// 
-    /// Returns null or blank, if input is null or blank
     /// </summary>
+    /// <returns>HtmlDecoded version of input, if input is null/empty it returns null/empty</returns>
     public static string HtmlDecode(this string htmlEncodedText)
     {
         if (htmlEncodedText.Is())
@@ -1477,9 +1520,8 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Convert input to Utf8 BOM
-    /// 
-    /// Returns a new converted string
     /// </summary>
+    /// <returns>A new string Utf8BOM encoded</returns>
     public static string ToUtf8BOM(this string text)
     {
         if (text.IsNot()) return text;
@@ -1502,12 +1544,13 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns the string as an integer
+    /// Convert string to integer
     /// 
-    /// Returns 0 if string is null or blank
+    /// Returns 0 on empty/null strings
     /// 
     /// Throws if string is not a number
     /// </summary>
+    /// <returns>Converted string as Integer</returns>
     public static int ToInt(this string number)
     {
         if (number.IsNot()) return 0;
@@ -1516,12 +1559,13 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns the string as an integer64
+    /// Convert string to Int64
     /// 
-    /// Returns 0 if string is null or blank
+    /// Returns 0 on empty/null strings
     /// 
     /// Throws if string is not a number
     /// </summary>
+    /// <returns>Converted string as Int64</returns>
     public static Int64 ToInt64(this string number)
     {
         if (number.IsNot()) return 0;

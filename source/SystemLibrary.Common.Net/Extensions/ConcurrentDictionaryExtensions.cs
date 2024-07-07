@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
 public static class ConcurrentDictionaryExtensions
 {
     /// <summary>
-    /// Try Get the item from the dictionary
-    /// 
-    /// If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned
-    /// 
-    /// NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner
-    /// 
-    /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
+    /// Get T from a static concurrent dictionary based on a key 'int' or adds it to dictionary before returnal
     /// </summary>
+    /// <remarks>
+    /// The static concurrent dictionary lives as long as application runs
+    /// 
+    /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+    /// </remarks>
+    /// <returns>Returns T either from Cache or from the Method</returns>
     public static T Cache<T>(this ConcurrentDictionary<int, T> dictionary, int key, Func<T> getItem)
     {
         if (dictionary == null)
@@ -40,14 +36,14 @@ public static class ConcurrentDictionaryExtensions
     }
 
     /// <summary>
-    /// Try Get the item from the dictionary
-    /// 
-    /// If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned
-    /// 
-    /// NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner
-    /// 
-    /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
+    /// Get T from a static concurrent dictionary based on a key 'Type' or adds it to dictionary before returnal
     /// </summary>
+    /// <remarks>
+    /// The static concurrent dictionary lives as long as application runs
+    /// 
+    /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+    /// </remarks>
+    /// <returns>Returns T either from Cache or from the Method</returns>
     public static T Cache<T>(this ConcurrentDictionary<int, T> dictionary, Type type, Func<T> getItem)
     {
         if (dictionary == null)
@@ -72,14 +68,14 @@ public static class ConcurrentDictionaryExtensions
     }
 
     /// <summary>
-    /// Try Get the item from the dictionary
-    /// 
-    /// If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned
-    /// 
-    /// NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner
-    /// 
-    /// NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again
+    /// Get T from a static concurrent dictionary based on a key 'string' or adds it to dictionary before returnal
     /// </summary>
+    /// <remarks>
+    /// The static concurrent dictionary lives as long as application runs
+    /// 
+    /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+    /// </remarks>
+    /// <returns>Returns T either from Cache or from the Method</returns>
     public static T Cache<T>(this ConcurrentDictionary<string, T> dictionary, string key, Func<T> getItem)
     {
         if (dictionary == null)

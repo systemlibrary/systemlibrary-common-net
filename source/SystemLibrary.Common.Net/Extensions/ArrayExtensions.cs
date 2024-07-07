@@ -9,7 +9,7 @@ namespace SystemLibrary.Common.Net.Extensions;
 public static class ArrayExtensions
 {
     /// <summary>
-    /// Append one array with other arrays, returning a new array of elements
+    /// Add one array with another, resulting in a new array
     /// </summary>
     /// <example>
     /// <code>
@@ -19,15 +19,14 @@ public static class ArrayExtensions
     /// // arr3 now contains { 2, 1 }, in that order
     /// </code>
     /// </example>
-    /// <returns>Returns null if everything is null, else a new array of items</returns>
+    /// <returns>Returns null or a new array</returns>
     public static T[] Add<T>(this T[] current, params T[][] additional)
     {
         return Add(current, null, additional);
     }
 
     /// <summary>
-    /// Add one array with another array, returning a new array of elements
-    /// 
+    /// Add one array with another, resulting in a new array
     /// - Pass a predicate method to filter out values
     /// </summary>
     /// <example>

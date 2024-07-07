@@ -1,94 +1,99 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.Extensions.Options;
 
 namespace SystemLibrary.Common.Net;
 
 internal static class CryptationKeyFile
 {
-    internal static string _Name;
+    internal static string _NameHashed;
 
-    static object _NameLock = new object();
+    internal static string Dir { get; set; }
 
-    internal static string Name
+    internal static string IV;
+
+    static object _Lock = new object();
+
+    internal static string NameHashed
     {
         get
         {
-            if (_Name == null)
+            if (_NameHashed == null)
             {
-                lock (_NameLock)
+                lock (_Lock)
                 {
-                    if (_Name != null) return _Name;
+                    if (_NameHashed != null) return _NameHashed;
 
-                    // Try read the data protected key file and use its filename as the "key"
-                    var root = AppDomain.CurrentDomain?.BaseDirectory;
+                    var keyManagementOptions = Services.Get<IOptions<KeyManagementOptions>>();
 
-                    if (root == null)
+                    Dir = (keyManagementOptions?.Value?.XmlRepository as FileSystemXmlRepository)?.Directory?.FullName;
+
+                    if (Dir.Is())
                     {
-                        _Name = "";
-                        return _Name;
-                    }
+                        var keyFileName = GetKeyFileFullName(Dir);
 
-                    var rootDirectoryInfo = new DirectoryInfo(root);
+                        _NameHashed = Path.GetFileName(keyFileName);
 
-                    int maxSearchDepth = 10;
-
-                    var currentSearchDir = new DirectoryInfo(root);
-
-                    while (maxSearchDepth > 0)
-                    {
-                        var fullName = GetKeyFileFullName(currentSearchDir.FullName);
-
-                        if (fullName != null)
+                        if(_NameHashed.Is())
                         {
-                            _Name = Path.GetFileName(fullName).Replace(".xml", "");
-                            break;
+                            CryptationIV.SetIV(_NameHashed.Replace("key-", "")
+                                .Replace("xml", "")
+                                .Obfuscate(116)
+                                .ToSha256Hash());
+
+                            _NameHashed = _NameHashed.ToSha256Hash();
                         }
-
-                        currentSearchDir = currentSearchDir?.Parent;
-
-                        if (currentSearchDir == null) break;
-
-                        maxSearchDepth--;
                     }
 
-                    if (_Name == null)
-                        _Name = "";
+                    // NOTE: Not enabled, we do not fallback to "appName" as Key if a key-file do not exist
+                    // var dataProtectionOptions = Services.Get<IOptions<DataProtectionOptions>>();
+                    // dir = dataProtectionOptions?.Value?.ApplicationDiscriminator;
+                    if (_NameHashed == null)
+                        _NameHashed = "";
                 }
             }
 
-            return _Name;
+            return _NameHashed;
         }
     }
 
-    static string GetKeyFileFullName(string rootDirectory)
+    static string GetKeyFileFullName(string keyDirectory)
     {
-        var fileNames = Directory.GetFiles(rootDirectory, "*.xml", SearchOption.TopDirectoryOnly);
+        var fileNames = Directory.GetFiles(keyDirectory, "*.xml", SearchOption.TopDirectoryOnly);
 
         if (fileNames == null || fileNames.Length == 0)
             return null;
 
-        var directory = new DirectoryInfo(rootDirectory);
+        fileNames = fileNames.Order().ToArray();
 
-        foreach (var fileName in fileNames)
+        foreach (var fullFileName in fileNames)
         {
-            if (fileName.Length < 44) continue;
+            var validated = ValidateFileContent(fullFileName);
 
-            if (!fileName.Contains("\\key-")) continue;
-
-            var content = File.ReadAllText(fileName);
-
-            if (content.IsNot()) continue;
-
-            if (!content.Contains("deserializerType")) continue;
-
-            if (!content.Contains("encryption")) continue;
-
-            return fileName;
+            if (validated != null) return validated;
         }
         return null;
+    }
+
+    static string ValidateFileContent(string fullFileName)
+    {
+        if (fullFileName.Length < 44) return null;
+
+        if (!fullFileName.Contains("key-")) return null;
+
+        var content = File.ReadAllText(fullFileName);
+
+        if (content.IsNot()) return null;
+
+        content = content.ToLower();
+
+        if (!content.Contains("deserialize")) return null;
+
+        if (!content.Contains("encrypt")) return null;
+
+        return fullFileName;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SystemLibrary.Common.Net;
+﻿namespace SystemLibrary.Common.Net;
 
 internal static class AspNetCoreEnvironment
 {

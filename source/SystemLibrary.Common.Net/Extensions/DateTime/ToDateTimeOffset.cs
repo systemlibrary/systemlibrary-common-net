@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Serialization;
 
 partial class StringExtensions
 {
     /// <summary>
-    /// Returns a MinValue if input is null or blank
-    /// 
-    /// Returns a DateTimeOffset if successful conversion
-    /// 
-    /// Throws exception if input is in an unknown format and could therefore not be converted
+    /// Converts input date to a DateTimeOffset by trying different formats till successfully converted or throwing exception
     /// </summary>
     /// <example>
     /// <code>
-    /// var date = "2000-24-12";
-    /// var dateTimeOffset = date.ToDateTimeOffset();
+    /// var date = "2000-12-24";
+    /// var dateTime = date.ToDateTimeOffset();
     /// </code>
     /// </example>
+    /// <returns>Returns DateTimeOffset.MinValue if input is too short</returns>
     public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
     {
         if (date == null)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
@@ -8,17 +7,17 @@ public static class ByteArrayExtensions
 {
     /// <summary>
     /// Return a base64 string of the bytes
-    /// 
-    /// If input is null or empty it returns null or empty string
     /// </summary>
+    /// <remarks>
+    /// If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
+    /// </remarks>
     /// <example>
     /// <code>
     /// var bytes = "hello world".GetBytes();
     /// var base64string = bytes.ToBase64();
-    /// 
-    /// //Tip: If you dont need base64 format, .Obfuscating() method is faster if data is less than ~400KB
     /// </code>
     /// </example>
+    /// <returns>Returns Base64 string or null or empty if input was so</returns>
     public static string ToBase64(this byte[] bytes)
     {
         if (bytes == null) return null;
@@ -30,9 +29,7 @@ public static class ByteArrayExtensions
     }
 
     /// <summary>
-    /// Return a text representation of the bytes
-    /// 
-    /// If input is null or empty, it returns null or empty string
+    /// Return a text representation of the byte array
     /// </summary>
     /// <example>
     /// <code>
@@ -40,6 +37,7 @@ public static class ByteArrayExtensions
     /// var text = bytes.ToText();  //text == hello world
     /// </code>
     /// </example>
+    /// <returns>Text, or null or empty if input was null or empty</returns>
     public static string ToText(this byte[] bytes, Encoding encoding = default)
     {
         if (bytes == null) return null;
@@ -54,17 +52,17 @@ public static class ByteArrayExtensions
 
     /// <summary>
     /// Returns a sha1 hash string of the bytes
-    /// 
-    /// If input is null or empty it returns null or empty string
-    /// 
-    /// Tip: If data is less than ~200 bytes then .ToMD5Hash() is faster
     /// </summary>
+    /// <remarks>
+    /// If data is less than ~200 bytes then .ToMD5Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var bytes = "hello world".GetBytes();
     /// var sha1string = bytes.ToSha1Hash();
     /// </code>
     /// </example>
+    /// <returns>A Sha1 hash or null or empty if input is null or empty</returns>
     public static string ToSha1Hash(this byte[] bytes)
     {
         if (bytes == null) return null;
@@ -76,15 +74,17 @@ public static class ByteArrayExtensions
 
     /// <summary>
     /// Returns a sha 256 hash string of the bytes
-    /// 
-    /// If input is null or empty it returns null or empty string
     /// </summary>
+    /// <remarks>
+    /// If input is null or empty it returns null or empty string
+    /// </remarks>
     /// <example>
     /// <code>
     /// var bytes = "hello world".GetBytes();
     /// var sha256string = bytes.ToSha256Hash();
     /// </code>
     /// </example>
+    /// <returns>A Sha256 hash, or null or empty if input was so</returns>
     public static string ToSha256Hash(this byte[] bytes)
     {
         if (bytes == null) return null;
@@ -94,20 +94,19 @@ public static class ByteArrayExtensions
         return Sha256.Compute(bytes);
     }
 
-
     /// <summary>
     /// Returns a hash string of the bytes
-    /// 
-    /// If input is null or empty it returns null or empty string
-    /// 
-    /// Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster
     /// </summary>
+    /// <remarks>
+    /// If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var bytes = "hello world".GetBytes();
     /// var md5string = bytes.ToMD5Hash();
     /// </code>
     /// </example>
+    /// <returns>Md5 hash or null or empty if input was so</returns>
     public static string ToMD5Hash(this byte[] bytes)
     {
         if (bytes == null) return null;

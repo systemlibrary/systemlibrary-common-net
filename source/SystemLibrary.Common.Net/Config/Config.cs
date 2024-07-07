@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// Class for creating configurations (xml or json) files next to your code files
+/// Class to load and read configuration files (xml, json or config) as a Class with transformations if exist
 /// 
 /// Configurations can be placed in either:
 /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
@@ -14,20 +14,21 @@ namespace SystemLibrary.Common.Net;
 /// 
 /// Transformations are ran based on the 'ASPNETCORE_ENVIRONMENT' variable passed to your application
 /// 
-/// Some recommended pointers:
+/// Recommended pointers:
 /// - launchSettings.json when using IIS Express
 /// - web.config if you use IIS
 /// - mstest.runsettings if you run transformations in unit tests
 /// - commandline with --configuration if running as 'exe'
+/// </summary>
+/// <remarks>
+/// The Current instance on the Config object is a Singleton and only loaded once
 /// 
-/// NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type
+/// Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type
 /// 
-/// NOTE: Transformations are only ran on the first time '.Current' is invoked
-/// 
-/// NOTE: Environment variables like 'UserName', is added only to 'appSettings' and not your custom configurations like: ~/Configs/testConfig.json, which mean 'UserName' always exists in 'AppSettings' if you create the string variable and returns the user name on your computer
+/// Environment variables like 'UserName' is only added to 'appSettings' reads not your custom configuration files
 /// 
 /// WARNING: The generic T cannot be a nested class
-/// </summary>
+/// </remarks>
 /// <example>
 /// - Create new file '~/TestConfig.json'
 /// - Can also be placed under ~/Configs/ or ~/Configurations/
@@ -160,7 +161,7 @@ public abstract partial class Config<T> where T : class
     }
 
     /// <summary>
-    /// Get the current configuration as a Singleton object
+    /// Get the current configuration as a singleton object, always instantiated
     /// </summary>
     public static T Current => _Config;
 }

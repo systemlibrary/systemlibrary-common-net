@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -12,10 +10,13 @@ using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
-/// Global dumping of 'any' object to a local file for easy debugging and logging
-/// - look at it as javascripts 'console.log'
-/// - calls to Dump.Write should not go to your production environment
+/// Dump any object to a local file for easy debugging and logging purposes
+/// 
+/// Dump.Write calls should only occur during development as it is slow
 /// </summary>
+/// <remarks>
+/// "Equivalent" to javascripts 'console.log'
+/// </remarks>
 public static class Dump
 {
     static string LogFullPath;
@@ -30,7 +31,7 @@ public static class Dump
     }
 
     /// <summary>
-    /// Tries to delete the current log file created by Dump.Write() if such file exists, else does nothing
+    /// Deletes the current log file if exists
     /// </summary>
     public static void Clear()
     {
@@ -44,9 +45,11 @@ public static class Dump
     }
 
     /// <summary>
-    /// Write any object to disc
-    /// - Look at it as javascripts 'console.log'
+    /// Dump any object to the dump file
     /// </summary>
+    /// <remarks>
+    /// "Equivalent" to javascripts 'console.log'
+    /// </remarks>
     /// <example>
     /// <code class="language-xml hljs">
     /// class Car {

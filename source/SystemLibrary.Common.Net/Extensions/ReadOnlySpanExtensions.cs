@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Text;
 
-using static System.Net.Mime.MediaTypeNames;
-
 namespace SystemLibrary.Common.Net.Extensions;
 
+/// <summary>
+/// Extension methods for ReadOnlySpan
+/// </summary>
 public static class ReadOnlySpanExtensions
 {
     /// <summary>
-    /// Returns true if the span is not null and length larger than 0 else false
+    /// Checks if span is not null and length is larger than 0
     /// </summary>
     /// <example>
     /// <code>
@@ -17,13 +18,14 @@ public static class ReadOnlySpanExtensions
     /// var isSpan = textSpan.Is(); // True, span is not null
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool Is<T>(this ReadOnlySpan<T> span)
     {
         return span != null && span.Length != 0;
     }
 
     /// <summary>
-    /// Returns true if the span is null or length is 0 else false
+    /// Checks if span is null or length is 0
     /// </summary>
     /// <example>
     /// <code>
@@ -32,15 +34,14 @@ public static class ReadOnlySpanExtensions
     /// var isSpan = textSpan.IsNot(); // False, as span is not null, and has text length &gt; 0
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool IsNot<T>(this ReadOnlySpan<T> span)
     {
         return span == null || span.Length == 0;
     }
 
     /// <summary>
-    /// Convert a ReadOnlySpan to Base64 (only for Char type for time being)
-    /// 
-    /// Returns null if input is null, else a Base64 representation of the input
+    /// Convert a ReadOnlySpan of char to Base64
     /// </summary>
     /// <example>
     /// <code>
@@ -49,6 +50,7 @@ public static class ReadOnlySpanExtensions
     /// var base64 = textSpan.ToBase64();
     /// </code>
     /// </example>
+    /// <returns>Base64 string or null if input was so</returns>
     public static string ToBase64(this ReadOnlySpan<char> span, Encoding encoding = default)
     {
         if (span == null) return default;
@@ -69,8 +71,6 @@ public static class ReadOnlySpanExtensions
 
     /// <summary>
     /// Converts the ReadOnlySpan of Char to a byte array
-    /// 
-    /// Returns null if input is null, else byte array
     /// </summary>
     /// <example>
     /// <code>
@@ -79,6 +79,7 @@ public static class ReadOnlySpanExtensions
     /// var bytes = textSpan.GetBytes();
     /// </code>
     /// </example>
+    /// <returns>Byte array or null if input was so</returns>
     public static byte[] GetBytes(this ReadOnlySpan<char> span, Encoding encoding = default)
     {
         if (span == null) return default;

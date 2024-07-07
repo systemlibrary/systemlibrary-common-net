@@ -5,13 +5,19 @@ using System.Text.Json.Serialization;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// DateTime json converter that takes a string format
+/// Use to convert a string to DateTime during Json() invocation with your own format
 /// </summary>
+/// <remarks>
+/// Class is exposed if you must specify your own date time format when Json() extension method could not convert it automatically
+/// </remarks>
 /// <example>
-/// Example of an additional datetime converter:
+/// Example:
 /// <code>
 /// var options = new JsonSerializationOptions();
 /// options.Converters.Add(new DateTimeJsonConverter("yyyy/MM/dd hh:mm"));
+/// 
+/// // Assume "json" is a string and somewhere there's a date on format "2000/12/24 12:30"
+/// var result = json.Json(options);
 /// </code>
 /// </example>
 public class DateTimeJsonConverter : JsonConverter<DateTime>

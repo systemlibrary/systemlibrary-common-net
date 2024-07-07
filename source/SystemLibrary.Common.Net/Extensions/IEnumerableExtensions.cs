@@ -7,15 +7,12 @@ namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods for IEnumerables
-/// 
-/// For instance: Has, DistinctBy, Is, ...
 /// </summary>
 public static class IEnumerableExtensions
 {
     /// <summary>
     /// Select items grouped by a property of your choice
     /// </summary>
-    /// <returns>A new list filtered on the property of your choice</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// class Car 
@@ -32,6 +29,7 @@ public static class IEnumerableExtensions
     /// // list contains now 1 car
     /// </code>
     /// </example>
+    /// <returns>IEnumerable filtered on the property of your choice</returns>
     public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> items, Func<T, TKey> selector)
         where T : class
     {
@@ -39,13 +37,13 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Check if the enumerable contains 'value'
+    /// Check if the IEnumerable contains 'value'
     /// 
-    /// Does not throw exception if enumerable is null nor if argument 'value' is null
-    /// 
-    /// Uses Linq.Contains() internally
+    /// Does not throw on null
     /// </summary>
-    /// <returns>Returns true or false</returns>
+    /// <remarks>
+    /// Uses Linq.Contains() internally, but does not throw on null
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     ///  var texts = new string[] { "Hello", "World" };
@@ -53,6 +51,7 @@ public static class IEnumerableExtensions
     ///  //has is False
     /// </code>
     /// </example>
+    /// <returns>Returns true or false</returns>
     public static bool Has<T>(this IEnumerable<T> enumerable, T value) where T : IComparable, IConvertible
     {
         if (enumerable == null) return false;
@@ -63,13 +62,9 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Check if the enumerable contains 'value'
-    /// 
-    /// Does not throw exception if enumerable is null nor if argument 'value' is null
-    /// 
-    /// Uses Linq.Contains() internally
+    /// Check if the enumerable contains 'value', does not throw if value is null
     /// </summary>
-    /// <returns>Returns true or false</returns>
+    /// <remarks>Uses Linq.Contains() internally</remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var users = new List&lt;User&gt;();
@@ -81,6 +76,7 @@ public static class IEnumerableExtensions
     /// // result is true, the list contains that specific user object
     /// </code>
     /// </example>
+    /// <returns>Returns true or false</returns>
     public static bool Has<T>(this IEnumerable<T> enumerable, object value) where T : class
     {
         if (enumerable == null) return false;
@@ -94,8 +90,7 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Check if the enumerable does not exist, if so it returns true, else if it is not null and it has at least 1 item, this will return false
-    /// Note: the Linq.Any() throws exception if null while this function does not throw exception
+    /// Checks if the Enumerable exists and has at least 1 item, without throwing
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -110,6 +105,7 @@ public static class IEnumerableExtensions
     /// // result is true as the list currently is null
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool IsNot<T>(this IEnumerable<T> enumerable)
     {
         if (enumerable == null) return true;
@@ -126,8 +122,7 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Check if the enumerable exists, if so it returns true, else if it is null or it has 0 items in it, this returns false
-    /// Note: the Linq.Any() throws exception if null while this function does not throw exception
+    /// Checks if the Enumerable exists and has at least 1 item, without throwing
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -143,6 +138,7 @@ public static class IEnumerableExtensions
     /// // result is false as the list is null
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool Is<T>(this IEnumerable<T> enumerable)
     {
         if (enumerable == null) return false;
