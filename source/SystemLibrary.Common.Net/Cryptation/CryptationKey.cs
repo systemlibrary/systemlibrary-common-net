@@ -17,8 +17,7 @@ internal static partial class CryptationKey
             {
                 var temp = Current;
 
-                if (_KeyDirectory == null)
-                    _KeyDirectory = "";
+                _KeyDirectory ??= "";
             }
 
             return _KeyDirectory;

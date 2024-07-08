@@ -806,11 +806,11 @@ public static partial class StringExtensions
                     if (colorValue <= 128)
                         colorValue = 255 - number;
                     else
-                        colorValue = colorValue - number;
+                        colorValue -= number;
                 }
 
                 if (colorValue > 255)
-                    colorValue = colorValue - 255;
+                    colorValue -= 255;
             }
             else
             {
@@ -824,7 +824,7 @@ public static partial class StringExtensions
                         colorValue = number - colorValue;
                 }
                 if (colorValue > 255)
-                    colorValue = colorValue - 255;
+                    colorValue -= 255;
 
             }
 
@@ -1602,12 +1602,7 @@ public static partial class StringExtensions
     {
         get
         {
-            if (_KeyRingProtector == null)
-            {
-                _KeyRingProtector = DataProtectionProvider.CreateProtector("SysLibDataProtector");
-
-                // NOTE: Deterministic can be set to "false", then data protectors should be kept and ye...
-            }
+            _KeyRingProtector ??= DataProtectionProvider.CreateProtector("SysLibDataProtector");
             return _KeyRingProtector;
         }
     }

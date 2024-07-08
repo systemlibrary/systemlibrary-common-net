@@ -18,7 +18,7 @@ internal static class Obfuscate
         var span = text.AsSpan();
 
         if (deobfuscate)
-            salt = salt * -1;
+            salt *= -1;
 
         var l = text.Length;
         var chars = new char[l];

@@ -19,10 +19,7 @@ internal static class ConfigVariables
     {
         get
         {
-            if (_EnvironmentNameLowered == null)
-            {
-                _EnvironmentNameLowered = AspNetCoreEnvironment.Value.ToLower();
-            }
+            _EnvironmentNameLowered ??= AspNetCoreEnvironment.Value.ToLower();
             return _EnvironmentNameLowered;
         }
     }
@@ -38,9 +35,9 @@ internal static class ConfigVariables
         if (!contentRootDirectory.EndsWith("/") && !contentRootDirectory.EndsWith("\\"))
         {
             if (contentRootDirectory.Contains("/"))
-                contentRootDirectory = contentRootDirectory + "/";
+                contentRootDirectory += "/";
             else
-                contentRootDirectory = contentRootDirectory + "\\";
+                contentRootDirectory += "\\";
         }
 
         // TODO: Optimize by invoking the searches in paralell ? 

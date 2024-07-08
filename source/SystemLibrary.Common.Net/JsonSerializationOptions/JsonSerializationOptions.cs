@@ -35,10 +35,7 @@ static internal class GetJsonSerializerOptions
     {
         get
         {
-            if (_JsonConfiguration == null)
-            {
-                _JsonConfiguration = Config.SystemLibraryCommonNet.Json;
-            }
+            _JsonConfiguration ??= Config.SystemLibraryCommonNet.Json;
             return _JsonConfiguration;
         }
     }
@@ -48,9 +45,7 @@ static internal class GetJsonSerializerOptions
     {
         get
         {
-            if (_JavaScriptEncoder == null)
-            {
-                _JavaScriptEncoder = JavaScriptEncoder.Create(
+            _JavaScriptEncoder ??= JavaScriptEncoder.Create(
                             UnicodeRanges.BasicLatin,
                             UnicodeRanges.LatinExtendedA,
                             UnicodeRanges.LatinExtendedB,
@@ -60,10 +55,6 @@ static internal class GetJsonSerializerOptions
                             UnicodeRanges.CurrencySymbols,
                             UnicodeRanges.Cyrillic,
                             UnicodeRanges.GreekandCoptic);
-                // TODO: Figure out, measure, if these are worth or not worth:
-                //UnicodeRanges.GeneralPunctuation,
-                //UnicodeRanges.LatinExtendedD
-            }
             return _JavaScriptEncoder;
         }
     }
