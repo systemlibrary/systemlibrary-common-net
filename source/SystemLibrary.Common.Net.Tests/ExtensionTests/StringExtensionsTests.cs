@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Extensions;
@@ -12,6 +13,14 @@ namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 [TestClass]
 public partial class StringExtensionsTests
 {
+    [TestInitialize]
+    public void TestInitialize()
+    {
+        var typeKey = Type.GetType("SystemLibrary.Common.Net.CryptationKey, SystemLibrary.Common.Net");
+
+        typeKey.SetStaticMember("_Key", (byte[])null);
+    }
+
     [TestMethod]
     public void Is_Json_Success()
     {
@@ -35,14 +44,21 @@ public partial class StringExtensionsTests
     [TestMethod]
     public void Encrypt_Hello_World()
     {
-        var data = "Hello world";
-        var enc = data.Encrypt();
+        var serviceCollection = Services.Configure();
 
-        Assert.IsTrue("EjaRD20hw9BVwybKH8ea5w==" == enc, "Enc with default 32 char key changed: " + enc);
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        Services.Configure(serviceProvider);
+
+        var data = "Hello world";
+
+        var enc = data.Encrypt();
+        var prev = "1hGSKl2xIGoboY7NmkctiEZCS52o6+C2MeGTBe5YAYQ=";
+        Assert.IsTrue(prev.Length == enc.Length && enc.EndsWith("="), "Enc with default 32 char key changed: " + enc);
 
         var dec = enc.Decrypt();
 
-        Assert.IsTrue(dec == data, "Decrypt has changed");
+        Assert.IsTrue(dec == data, "Decrypt has changed: " + dec);
     }
 
     [TestMethod]
@@ -875,7 +891,7 @@ public partial class StringExtensionsTests
 
         text = "/a/b/c/";
         result = text.ToAppPath();
-        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/", "9 "+ result);
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/", "9 " + result);
 
         text = "\\a\\b\\";
         result = text.ToAppPath();
@@ -887,11 +903,11 @@ public partial class StringExtensionsTests
 
         text = "a\\b";
         result = text.ToAppPath();
-        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b","12 " + result);
+        Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b", "12 " + result);
 
         text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/";
         result = text.ToAppPath();
-        Assert.IsTrue(result == text, "13 " +result);
+        Assert.IsTrue(result == text, "13 " + result);
 
         text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a";
         result = text.ToAppPath();
@@ -932,26 +948,76 @@ public partial class StringExtensionsTests
     }
 
     [TestMethod]
+    public void Encrypt_And_Decrypt_With_Custom_Key()
+    {
+        string data = "Hello";
+        string result = data;
+        var key = "1234567890123456";
+
+        Assert.IsTrue(result == data.Encrypt(key).Decrypt(key), "Data null failed");
+
+        var enc1 = data.Encrypt(key, addIV: true);
+        var enc2 = data.Encrypt(key, addIV: true);
+        var enc3 = data.Encrypt(key, addIV: true);
+
+        Assert.IsFalse(enc1 == enc2 && enc2 == enc3, "Is deterministic with null as IV, it shouldve used random IV");
+
+        var dec1 = enc1.Decrypt(key, addedIV: true);
+        var dec2 = enc2.Decrypt(key, addedIV: true);
+        var dec3 = enc3.Decrypt(key, addedIV: true);
+
+        Assert.IsTrue(dec1 == dec2 && dec2 == dec3 && dec3 == data, "Error: " + dec1);
+
+        var iv = "1234567890123456";
+
+        // ENCRYPT WITH KEY,IV, but ADD IV to output, just need Key to decrypt properly
+        var enc4 = data.Encrypt(key, iv, addIV: true);
+        var enc5 = data.Encrypt(key, iv, addIV: true);
+        var enc6 = data.Encrypt(key, iv, addIV: true);
+
+        Assert.IsTrue(enc4 == enc5 && enc5 == enc6, "Is NOT deterministic with null as IV, it shouldve used random IV");
+
+        var dec4 = enc4.Decrypt(key, addedIV: true);
+        var dec5 = enc5.Decrypt(key, addedIV: true);
+        var dec6 = enc6.Decrypt(key, addedIV: true);
+
+        Assert.IsTrue(dec4 == dec5 && dec5 == dec6 && dec6 == data, "Error: " + dec1);
+
+        // ENCRYPT WITH KEY,IV, not adding IV to output
+        var enc7 = data.Encrypt(key, iv);
+        var enc8 = data.Encrypt(key, iv);
+        var enc9 = data.Encrypt(key, iv);
+
+        Assert.IsTrue(enc7 == enc8 && enc8 == enc9, "Is NOT deterministic with null as IV, it shouldve used random IV");
+
+        var dec7 = enc7.Decrypt(key, iv);
+        var dec8 = enc8.Decrypt(key, iv);
+        var dec9 = enc9.Decrypt(key, iv);
+
+        Assert.IsTrue(dec7 == dec8 && dec8 == dec9 && dec9 == data, "Error: " + dec1);
+    }
+
+    [TestMethod]
     public void Encrypt_And_Decrypt_With_Salt16_Is_Success()
     {
         string data = null;
         string result = data;
 
-        var salt16 = "ABCDEF1234567890".GetBytes();
+        var key = "ABCDEF1234567890".GetBytes();
 
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Data null failed");
+        Assert.IsTrue(result == data.Encrypt(key).Decrypt(key), "Data null failed");
 
         data = "";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "Blank: " + data.Encrypt(salt16));
+        Assert.IsTrue(result == data.Encrypt(key).Decrypt(key), "Blank: " + data.Encrypt(key));
 
         data = "abcdef";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "abcdef: " + data.Encrypt(salt16));
+        Assert.IsTrue(result == data.Encrypt(key).Decrypt(key), "abcdef: " + data.Encrypt(key) + " VS " + data.Encrypt(key).Decrypt(key));
 
         data = "@£$$€{[]}abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ^^*'?=)(/&%¤#\"!|`1234567890 <>;:,.-_ /*-+";
         result = data;
-        Assert.IsTrue(result == data.Encrypt(salt16).Decrypt(salt16), "long: " + data.Encrypt(salt16));
+        Assert.IsTrue(result == data.Encrypt(key).Decrypt(key), "long: " + data.Encrypt(key));
     }
 
     [TestMethod]
@@ -1004,6 +1070,12 @@ public partial class StringExtensionsTests
     [TestMethod]
     public void Decrypt_In_Async_Startup_Success()
     {
+        var serviceCollection = new ServiceCollection();
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        Services.Configure(serviceCollection);
+        Services.Configure(serviceProvider);
+
         var r = new Random(DateTime.Now.Millisecond);
 
         Async.FireAndForget(() => Call(0));
@@ -1012,24 +1084,24 @@ public partial class StringExtensionsTests
         Async.FireAndForget(() => Call(0));
         Async.FireAndForget(() => Call(0));
 
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
-        Async.FireAndForget(() => Call(r.Next(10, 1000)));
+        Async.FireAndForget(() => Call(r.Next(10, 450)));
+        Async.FireAndForget(() => Call(r.Next(10, 450)));
+        Async.FireAndForget(() => Call(r.Next(10, 450)));
+        Async.FireAndForget(() => Call(r.Next(10, 450)));
+        Async.FireAndForget(() => Call(r.Next(10, 400)));
+        Async.FireAndForget(() => Call(r.Next(10, 400)));
+        Async.FireAndForget(() => Call(r.Next(10, 400)));
+        Async.FireAndForget(() => Call(r.Next(10, 400)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
+        Async.FireAndForget(() => Call(r.Next(10, 350)));
 
-        System.Threading.Thread.Sleep(1500);
+        System.Threading.Thread.Sleep(625);
 
         Assert.IsTrue(Decrypt_In_Async_Startup_Success_Counter == 0, "Exception counter was: " + Decrypt_In_Async_Startup_Success_Counter);
     }
@@ -1039,23 +1111,17 @@ public partial class StringExtensionsTests
         System.Threading.Thread.Sleep(sleep);
         try
         {
-            var dataWas = "ubfc8LNl5DiTV3RQxFHMYw==";
-            var data = "2xz+T59D3qVIJ2vINrn8Pg==";
-            var result = dataWas.Decrypt();
+            var data = "1hGSKl2xIGoboY7NmkctiEZCS52o6+C2MeGTBe5YAYQ=";
+            var result = data.Decrypt();
+
             if (result != "Hello world")
                 Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            Dump.Write(ex.Message);
+            Dump.Write(ex.Message + " " + "Hello world".Encrypt());
 
             Decrypt_In_Async_Startup_Success_Counter_Increment();
         }
-    }
-
-    [TestMethod]
-    public void Strings_To_DateTime()
-    {
-
     }
 }

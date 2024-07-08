@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
@@ -151,5 +153,45 @@ public static class TypeExtensions
         }
 
         return type.GetGenericArguments()[0];
+    }
+
+    public static void SetStaticMember(this Type type, string memberName, object value)
+    {
+        var property = type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic)?
+                .Where(x => x.Name == memberName)?
+                .FirstOrDefault();
+        if(property == null)
+        {
+            property = type.GetProperties(BindingFlags.Static | BindingFlags.Public)?
+                .Where(x => x.Name == memberName)?
+                .FirstOrDefault();
+        }
+        if (property != null)
+        {
+            property.SetValue(null, value);
+        }
+
+        else
+        {
+            var field = type.GetFields(BindingFlags.Static | BindingFlags.NonPublic)?
+            .Where(x => x.Name == memberName)?
+            .FirstOrDefault();
+
+            if(field == null)
+            {
+                field = type.GetFields(BindingFlags.Static | BindingFlags.Public)?
+                 .Where(x => x.Name == memberName)?
+                 .FirstOrDefault();
+            }
+
+            if(field != null)
+            {
+                field.SetValue(null, value);
+            }
+            else
+            {
+                throw new Exception(memberName + " do not exist on " + type.Name + " as a static member");
+            }
+        }
     }
 }

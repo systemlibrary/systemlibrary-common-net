@@ -47,7 +47,7 @@
 				"writeIndented": false
 			},
 			"cryptation": {
-				"keyFile" : ""
+				"deterministic" : true //false
 			}
 		}
 	}

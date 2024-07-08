@@ -1,19 +1,14 @@
-﻿using System.Text;
+﻿using SystemLibrary.Common.Net.Extensions;
 
 namespace SystemLibrary.Common.Net;
 
 static internal class CryptationIV
 {
-    internal static byte[] IV = new byte[16];
- 
-    internal static void SetIV(string ivBasedOnData)
+    internal static byte[] Current
     {
-        Dump.Write(ivBasedOnData);
-        var ivBytes = Encoding.UTF8.GetBytes(ivBasedOnData);
-
-        for (int i = 0; i < IV.Length; i++)
+        get
         {
-            IV[i] = ivBytes[i];
+            return Randomness.Bytes(16);
         }
     }
 }

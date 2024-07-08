@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
 
 partial class StringExtensions
 {

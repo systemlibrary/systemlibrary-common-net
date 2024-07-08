@@ -7,7 +7,7 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Cryptation
 {
-    public static byte[] Encrypt(string text, byte[] key, byte[] iv = null)
+    public static byte[] Encrypt(string text, byte[] key, byte[] iv, bool addIV)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
 
@@ -15,7 +15,10 @@ internal static class Cryptation
 
         if (iv == null)
         {
-            iv = CryptationIV.IV;
+            if (!addIV)
+                iv = new byte[16];
+            else
+                iv = CryptationIV.Current;
         }
 
         byte[] bytes;
@@ -29,9 +32,12 @@ internal static class Cryptation
 
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                if(addIV)
+                    memoryStream.Write(iv, 0, iv.Length);
+
+                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
                 {
-                    using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                    using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
                     {
                         streamWriter.Write(text);
                     }
@@ -47,27 +53,49 @@ internal static class Cryptation
 
     static object DecryptedShelfLock = new object();
 
-    public static string Decrypt(string cipherText, byte[] key, byte[] iv)
+    public static string Decrypt(string cipherText, byte[] key, byte[] iv, bool addedIV)
     {
         // CREDS: https://www.c-sharpcorner.com/article/encryption-and-decryption-using-a-symmetric-key-in-c-sharp/
 
         if (cipherText.IsNot()) return cipherText;
 
-        if (iv == null)
+        string shelfKey = null;
+        if (cipherText.Length > 148)
         {
-            iv = CryptationIV.IV;
+            shelfKey = cipherText.MaxLength(148);
+            if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
         }
-
-        var shelfKey = key[0] + key[1] + iv.Length + cipherText + key.Length;
-
-        if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
-
+        else
+        {
+            if (DecryptedShelf.ContainsKey(cipherText)) return DecryptedShelf[cipherText];
+        }
         lock (DecryptedShelfLock)
         {
-            if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
+            if (shelfKey != null)
+            {
+                if (DecryptedShelf.ContainsKey(shelfKey)) return DecryptedShelf[shelfKey];
+            }
+            else
+            {
+                if (DecryptedShelf.ContainsKey(cipherText)) return DecryptedShelf[cipherText];
+            }
 
             byte[] buffer = Convert.FromBase64String(cipherText);
+            if (iv == null)
+            {
+                iv = new byte[16];
 
+                if (addedIV)
+                {
+                    Array.Copy(buffer, iv, 16);
+
+                    byte[] temp = new byte[buffer.Length - 16];
+                    Array.Copy(buffer, 16, temp, 0, temp.Length);
+                    buffer = temp;
+                    temp = null;
+                }
+            }
+            
             try
             {
                 using (Aes aes = Aes.Create())
@@ -88,7 +116,14 @@ internal static class Cryptation
                             {
                                 var value = streamReader.ReadToEnd();
 
-                                DecryptedShelf.TryAdd(shelfKey, value);
+                                if (shelfKey != null)
+                                {
+                                    DecryptedShelf.TryAdd(shelfKey, value);
+                                }
+                                else
+                                {
+                                    DecryptedShelf.TryAdd(cipherText, value);
+                                }
 
                                 return value;
                             }

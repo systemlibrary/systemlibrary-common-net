@@ -2,11 +2,30 @@
 
 namespace SystemLibrary.Common.Net;
 
-internal static class CryptationKey
+internal static partial class CryptationKey
 {
     internal static byte[] _Key;
 
-    static object KeyLock = new object();
+    static object Lock = new object();
+
+    internal static string _KeyDirectory;
+    internal static string KeyDirectory
+    {
+        get
+        {
+            if (_KeyDirectory == null)
+            {
+                var temp = Current;
+
+                if (_KeyDirectory == null)
+                    _KeyDirectory = "";
+            }
+
+            return _KeyDirectory;
+        }
+    }
+
+    internal static string KeyStart;
 
     internal static byte[] Current
     {
@@ -14,35 +33,44 @@ internal static class CryptationKey
         {
             if (_Key == null)
             {
-                lock (KeyLock)
+                lock (Lock)
                 {
                     if (_Key != null) return _Key;
 
-                    var key = CryptationKeyFile.NameHashed;
-
-                    if (key.IsNot())
-                    {
-                        key = "ABCDEFGHIJKLMNOPQRST123456789011";
-                    }
-                    _Key = Encoding.UTF8.GetBytes(key.MaxLength(47).Replace("-", ""));
+                    _Key = Encoding.UTF8.GetBytes(GetKey());
                 }
             }
             return _Key;
         }
     }
 
+    static string GetKey()
+    {
+        var key = GetKeyFromDataRingKeyFile();
+
+        if (key.IsNot())
+        {
+            key = GetKeyFromAsmName();
+        }
+
+        if (key.IsNot())
+        {
+            key = "ABCDEFGHIJKLMNOPQRST123456789011";
+
+            KeyStart = key.MaxLength(maxLength: 4);
+        }
+        else
+        {
+            KeyStart = key.MaxLength(maxLength: 2);
+        }
+        return key.ToSha256Hash().MaxLength(47).Replace("-", "");
+    }
+
     internal static string GetExceptionMessage(string cipherText)
     {
-        var error = "Could not decrypt value starting with the two chars: " + cipherText.MaxLength(2);
-        var hasKeyFile = CryptationKeyFile.NameHashed.Is();
-        if (hasKeyFile)
-        {
-            error += "\nTried decrypt with data key file starting with: " + CryptationKeyFile.NameHashed.MaxLength(5) + "...";
-        }
-        else    
-        {
-            error += "\nTried decrypt with key from Library, starting with ABC and IV starting with " + CryptationIV.IV[0];
-        }
+        var error = "Could not decrypt value starting with: " + cipherText.MaxLength(4);
+
+        error += "\nTried decrypt with data key starting with: " + KeyStart + "...";
 
         return error;
     }

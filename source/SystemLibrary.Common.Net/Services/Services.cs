@@ -11,6 +11,13 @@ public static class Services
 
     internal static IServiceProvider ServiceProviderInstance;
 
+    public static IServiceCollection Configure()
+    {
+        ServiceCollectionInstance = new ServiceCollection();
+
+        return ServiceCollectionInstance;
+    }
+
     public static void Configure(IServiceCollection serviceCollection)
     {
         ServiceCollectionInstance = serviceCollection;
@@ -23,16 +30,6 @@ public static class Services
 
     public static T Get<T>() where T : class
     {
-        try
-        {
-            var service = ServiceProviderInstance.GetRequiredService<T>();
-
-            if (service != null) return service;
-        }
-        catch
-        {
-        }
-
         return ServiceProviderInstance?.GetService<T>();
     }
 

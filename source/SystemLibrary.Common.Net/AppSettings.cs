@@ -33,7 +33,7 @@ internal class AppSettings : Config<AppSettings>
 
         public class CryptationConfig
         {
-            public string KeyFile { get; set; }
+            public bool Deterministic { get; set; }
         }
 
         public class DumpConfig

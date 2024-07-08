@@ -9,6 +9,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Web;
 
+using Microsoft.AspNetCore.DataProtection;
+
 using SystemLibrary.Common.Net;
 using SystemLibrary.Common.Net.Attributes;
 using SystemLibrary.Common.Net.Extensions;
@@ -1245,7 +1247,7 @@ public static partial class StringExtensions
     /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data)
     {
-        return Cryptation.Encrypt(data, CryptationKey.Current).ToBase64();
+        return Cryptation.Encrypt(data, CryptationKey.Current, null, true).ToBase64();
     }
 
     /// <summary>
@@ -1267,39 +1269,45 @@ public static partial class StringExtensions
     /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </remarks>
     /// <returns>An encrypted base64 string or null/empty if input was so</returns>
-    public static string Encrypt(this string data, string key, string iv = null)
-    {
-        return Cryptation.Encrypt(data, key.GetBytes(), iv.GetBytes()).ToBase64();
-    }
-
-    /// <summary>
-    /// Encrypts data with a specific key and an optional iv
-    /// 
-    /// Defaults if passing in null:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
-    /// </summary>
-    /// <remarks>
-    /// Uses the built-in Key and IV if null is passed as argument
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
-    /// </remarks>
-    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
-    public static string Encrypt(this string data, byte[] key, byte[] iv = null)
+    public static string Encrypt(this string data, string key, string IV = null, bool addIV = false)
     {
         if (key != null && key.Length != 16 && key.Length != 32)
             throw new Exception("Key length must be either 16 or 32");
 
-        if (iv != null && iv.Length != 16)
+        if (IV != null && IV.Length != 16)
             throw new Exception("AES must receive an IV of 16 characters length");
 
-        return Cryptation.Encrypt(data, key, iv).ToBase64();
+        return Cryptation.Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV).ToBase64();
+    }
+
+    /// <summary>
+    /// Encrypts data with a specific key and an optional iv
+    /// 
+    /// Defaults if passing in null:
+    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// IV: 16 bytes of 0
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </summary>
+    /// <remarks>
+    /// Uses the built-in Key and IV if null is passed as argument
+    /// 
+    /// Overwrite defaults by creating a 'data protection key file'
+    /// - It is a .NET thing, look it up
+    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// </remarks>
+    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
+    public static string Encrypt(this string data, byte[] key, byte[] IV = null, bool addIV = false)
+    {
+        if (key != null && key.Length != 16 && key.Length != 32)
+            throw new Exception("Key length must be either 16 or 32");
+
+        if (IV != null && IV.Length != 16)
+            throw new Exception("AES must receive an IV of 16 characters length");
+
+        return Cryptation.Encrypt(data, key, IV, addIV).ToBase64();
     }
 
     /// <summary>
@@ -1323,7 +1331,7 @@ public static partial class StringExtensions
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText)
     {
-        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null);
+        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, true);
     }
 
     /// <summary>
@@ -1345,9 +1353,9 @@ public static partial class StringExtensions
     /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </remarks>
     /// <returns>Decrypted string or null/empty if input was so</returns>
-    public static string Decrypt(this string cipherText, string key, string iv = null)
+    public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
     {
-        return Decrypt(cipherText, key.GetBytes(), iv.GetBytes());
+        return Decrypt(cipherText, key.GetBytes(), IV.GetBytes(), addedIV);
     }
 
     /// <summary>
@@ -1369,15 +1377,15 @@ public static partial class StringExtensions
     /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </remarks>
     /// <returns>Decrypted string or null/empty if input was so</returns>
-    public static string Decrypt(this string cipherText, byte[] key, byte[] iv = null)
+    public static string Decrypt(this string cipherText, byte[] key, byte[] IV = null, bool addedIV = false)
     {
         if (key != null && key.Length != 16 && key.Length != 32)
             throw new Exception("Key length must be either 16 or 32");
 
-        if (iv != null && iv.Length != 16)
+        if (IV != null && IV.Length != 16)
             throw new Exception("AES must receive an IV of 16 characters length");
 
-        return Cryptation.Decrypt(cipherText, key, iv);
+        return Cryptation.Decrypt(cipherText, key, IV, addedIV);
     }
 
     /// <summary>
@@ -1571,5 +1579,56 @@ public static partial class StringExtensions
         if (number.IsNot()) return 0;
 
         return Convert.ToInt64(number);
+    }
+
+    static IDataProtectionProvider _DataProtectionProvider;
+    static IDataProtectionProvider DataProtectionProvider
+    {
+        get
+        {
+            _DataProtectionProvider = Services.Get<IDataProtectionProvider>();
+
+            if (_DataProtectionProvider == null)
+                throw new Exception("Missing a service named IDataProtectionProvider. Call serviceCollection.AddDataProtection() in your startup. Remember to also call: Services.Configure(serviceCollection); and Services.Configure(serviceProvider); so the Services in this library knows about it");
+
+            return _DataProtectionProvider;
+        }
+    }
+
+    static bool CryptationDeterministic = AppSettings.Current.SystemLibraryCommonNet.Cryptation.Deterministic;
+
+    static IDataProtector _KeyRingProtector;
+    static IDataProtector KeyRingProtector
+    {
+        get
+        {
+            if(_KeyRingProtector == null)
+            {
+                _KeyRingProtector = DataProtectionProvider.CreateProtector("SysLibDataProtector");
+
+                // NOTE: Deterministic can be set to "false", then data protectors should be kept and ye...
+            }
+            return _KeyRingProtector;
+        }
+    }
+
+    /// <summary>
+    /// Encrypt data which can be Decrypted through 'DecryptUsingKeyRing'
+    /// 
+    /// Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.
+    /// </summary>
+    public static string EncryptUsingKeyRing(this string data)
+    {
+        return KeyRingProtector.Protect(data);
+    }
+
+    /// <summary>
+    /// Decrypt data that was Encrypted through 'EncryptUsingKeyRing'
+    /// 
+    /// Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.
+    /// </summary>
+    public static string DecryptUsingKeyRing(this string data)
+    {
+        return KeyRingProtector.Unprotect(data);
     }
 }
