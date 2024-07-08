@@ -37,7 +37,7 @@ internal static class ConfigVariables
 
         if (!contentRootDirectory.EndsWith("/") && !contentRootDirectory.EndsWith("\\"))
         {
-            if(contentRootDirectory.Contains("/"))
+            if (contentRootDirectory.Contains("/"))
                 contentRootDirectory = contentRootDirectory + "/";
             else
                 contentRootDirectory = contentRootDirectory + "\\";
@@ -104,7 +104,7 @@ internal static class ConfigVariables
         file = file.ToLower();
 
         if (file.Contains(".runtimeconfig.") ||
-            file.Contains(".deps.json") || 
+            file.Contains(".deps.json") ||
             file.Contains("microsoft.visualstudio") ||
             file.ContainsAny("packages.json", "packages.xml", "package.json", "package-lock.json"))
             return false;

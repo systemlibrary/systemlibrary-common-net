@@ -116,7 +116,7 @@ public static class TypeExtensions
             return type.GenericTypeArguments[0].Name;
 
         var firstGenericType = type.GetFirstGenericType();
-        if(firstGenericType != null)
+        if (firstGenericType != null)
         {
             return firstGenericType.Name;
         }
@@ -160,7 +160,7 @@ public static class TypeExtensions
         var property = type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic)?
                 .Where(x => x.Name == memberName)?
                 .FirstOrDefault();
-        if(property == null)
+        if (property == null)
         {
             property = type.GetProperties(BindingFlags.Static | BindingFlags.Public)?
                 .Where(x => x.Name == memberName)?
@@ -177,14 +177,14 @@ public static class TypeExtensions
             .Where(x => x.Name == memberName)?
             .FirstOrDefault();
 
-            if(field == null)
+            if (field == null)
             {
                 field = type.GetFields(BindingFlags.Static | BindingFlags.Public)?
                  .Where(x => x.Name == memberName)?
                  .FirstOrDefault();
             }
 
-            if(field != null)
+            if (field != null)
             {
                 field.SetValue(null, value);
             }

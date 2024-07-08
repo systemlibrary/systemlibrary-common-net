@@ -27,12 +27,12 @@ internal static class Cryptation
         {
             aes.Key = key;
             aes.IV = iv;
-            
+
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                if(addIV)
+                if (addIV)
                     memoryStream.Write(iv, 0, iv.Length);
 
                 using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
@@ -95,7 +95,7 @@ internal static class Cryptation
                     temp = null;
                 }
             }
-            
+
             try
             {
                 using (Aes aes = Aes.Create())
@@ -110,9 +110,9 @@ internal static class Cryptation
 
                     using (MemoryStream memoryStream = new MemoryStream(buffer))
                     {
-                        using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
                         {
-                            using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                            using (StreamReader streamReader = new StreamReader(cryptoStream))
                             {
                                 var value = streamReader.ReadToEnd();
 

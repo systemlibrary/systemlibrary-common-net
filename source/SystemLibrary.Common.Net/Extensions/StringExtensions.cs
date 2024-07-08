@@ -1602,7 +1602,7 @@ public static partial class StringExtensions
     {
         get
         {
-            if(_KeyRingProtector == null)
+            if (_KeyRingProtector == null)
             {
                 _KeyRingProtector = DataProtectionProvider.CreateProtector("SysLibDataProtector");
 

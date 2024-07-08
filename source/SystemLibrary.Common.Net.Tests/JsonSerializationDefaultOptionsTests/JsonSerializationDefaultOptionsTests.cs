@@ -132,7 +132,7 @@ public class JsonSerializationDefaultOptionsTests
         ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339mstimezone, nameof(data.rfc3339mstimezone));
         ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339fullmstimezone, nameof(data.rfc3339fullmstimezone));
         ValidateDateTimeMinutePrecisionUTCZ(data.rfc3339timezonewithoutseconds, nameof(data.rfc3339timezonewithoutseconds));
-        
+
         ValidateDateTimeDayPrecision(data.basic1, nameof(data.basic1));
         ValidateDateTimeMinutePrecision(data.basic2, nameof(data.basic2));
         ValidateDateTimeMinutePrecisionUTCZ(data.basic3, nameof(data.basic3));
@@ -152,7 +152,7 @@ public class JsonSerializationDefaultOptionsTests
 
     static void ValidateDateTimeMonthPrecision(DateTime d, string msg)
     {
-        Assert.IsTrue(d.Day == 24 && d.Month == 12 && d.Year == 2001,"Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm"));
+        Assert.IsTrue(d.Day == 24 && d.Month == 12 && d.Year == 2001, "Error: " + msg + ": " + d.ToString("yyyy-MM-dd HH:mm"));
     }
 
     static void ValidateDateTimeMinutePrecisionUTCZ(DateTime d, string msg)

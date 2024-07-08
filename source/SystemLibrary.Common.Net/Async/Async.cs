@@ -64,7 +64,7 @@ public static class Async
 
         var task = Task.WhenAll(tasks.ToArray());
 
-        task.ConfigureAwait( false)
+        task.ConfigureAwait(false)
             .GetAwaiter()
             .GetResult();
 

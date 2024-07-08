@@ -24,7 +24,7 @@ public class DataWithVariousDateTimeFormatsModels
     public DateTime msprecision { get; set; }
     public DateTime msprecision2 { get; set; }
     public DateTime secprecision { get; set; }
-    public DateTime secprecision2{ get; set; }
+    public DateTime secprecision2 { get; set; }
 
     public DateTime noprecision { get; set; }
     public DateTime noprecision2 { get; set; }

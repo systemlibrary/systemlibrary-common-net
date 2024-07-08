@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -183,7 +182,7 @@ public class ObjectExtensionsTests
         user.Age = 10;
         user.FirstName = "Hello";
 
-        var json = user.Json((JsonConverter[])null);
+        var json = user.Json(null);
 
         Assert.IsTrue(!json.Contains("age"));
         Assert.IsTrue(json.Contains("FirstName"));

@@ -266,7 +266,7 @@ public class StringBuilderExtensionsTests
     public void Html_Encode_Success()
     {
         var sb = new StringBuilder("& < > \" ' and NOR: ÆØÅæøå <p></p>");
-        
+
         sb.HtmlEncodeQuotes();
 
         var res = sb.ToString();

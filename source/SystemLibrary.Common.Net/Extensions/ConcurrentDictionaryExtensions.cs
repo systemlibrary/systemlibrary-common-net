@@ -81,7 +81,7 @@ public static class ConcurrentDictionaryExtensions
         if (dictionary == null)
             return getItem();
 
-        if (key == null) 
+        if (key == null)
             return getItem();
 
         if (!dictionary.TryGetValue(key, out var result))

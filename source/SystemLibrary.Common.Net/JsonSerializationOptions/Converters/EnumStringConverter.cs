@@ -4,8 +4,6 @@ using System.Text.Json.Serialization;
 
 using SystemLibrary.Common.Net.Extensions;
 
-using static System.Net.Mime.MediaTypeNames;
-
 namespace SystemLibrary.Common.Net
 {
     internal class EnumStringConverter<TEnum> : JsonConverter<TEnum> where TEnum : IComparable, IFormattable, IConvertible

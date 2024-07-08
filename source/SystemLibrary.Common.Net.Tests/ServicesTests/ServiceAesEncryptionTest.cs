@@ -18,7 +18,7 @@ public class ServiceAesEncryptionTest
     {
         var typeKey = Type.GetType("SystemLibrary.Common.Net.CryptationKey, SystemLibrary.Common.Net");
 
-        typeKey.SetStaticMember("_Key", (byte[])null);
+        typeKey.SetStaticMember("_Key", null);
     }
 
     [TestMethod]

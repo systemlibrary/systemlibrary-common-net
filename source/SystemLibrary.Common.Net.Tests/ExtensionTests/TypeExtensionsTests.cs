@@ -63,7 +63,7 @@ public class TypeExtensionsTests
         Assert.IsTrue(res == expected, "List int");
 
         type = typeof(Dictionary<string, object>);
-        expected = typeof(KeyValuePair<string,object>);
+        expected = typeof(KeyValuePair<string, object>);
         res = type.GetFirstGenericType();
         Assert.IsTrue(res == expected, "Dictionary keyvaluepair");
 
@@ -84,7 +84,7 @@ public class TypeExtensionsTests
 
         var a = new List<int>();
         var b = (object)a;
-        var ilist = (IList<int>)b; 
+        var ilist = (IList<int>)b;
 
         res = ilist.GetType().IsListOrArray();
 

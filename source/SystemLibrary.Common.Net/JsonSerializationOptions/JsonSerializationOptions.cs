@@ -60,9 +60,9 @@ static internal class GetJsonSerializerOptions
                             UnicodeRanges.CurrencySymbols,
                             UnicodeRanges.Cyrillic,
                             UnicodeRanges.GreekandCoptic);
-                            // TODO: Figure out, measure, if these are worth or not worth:
-                            //UnicodeRanges.GeneralPunctuation,
-                            //UnicodeRanges.LatinExtendedD
+                // TODO: Figure out, measure, if these are worth or not worth:
+                //UnicodeRanges.GeneralPunctuation,
+                //UnicodeRanges.LatinExtendedD
             }
             return _JavaScriptEncoder;
         }

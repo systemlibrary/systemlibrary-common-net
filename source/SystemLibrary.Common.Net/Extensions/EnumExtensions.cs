@@ -228,9 +228,9 @@ public static class EnumExtensions
         if (value != null && value.Length > 1 && value[0] == '_' && char.IsDigit(value[1]))
         {
             // NOTE: Will remove underscore when format is: _[digits][any text]
-            if(value.Length > 2)
+            if (value.Length > 2)
             {
-                if(char.IsDigit(value[2]))
+                if (char.IsDigit(value[2]))
                 {
                     return value.Substring(1);
                 }

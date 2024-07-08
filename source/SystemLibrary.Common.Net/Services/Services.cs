@@ -33,7 +33,7 @@ public static class Services
         return ServiceProviderInstance?.GetService<T>();
     }
 
-    public static void AddScoped<T,TImpementation>()
+    public static void AddScoped<T, TImpementation>()
         where T : class
         where TImpementation : class, T
     {
