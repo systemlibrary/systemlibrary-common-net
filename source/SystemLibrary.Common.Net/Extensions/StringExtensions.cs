@@ -1227,76 +1227,54 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Encrypt data
+    /// Encrypt data with built-in key and IV
     /// 
-    /// Defaults:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
+    /// Key is generated in order:
+    /// If services.AddDataProtection has been setup
+    /// - file name of first data protection key file
+    /// - if no file: AppName set during SetApplicationName()
+    /// - if still no key: uses Entry Assembly Name
     /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// Else
+    /// - Hardcoded key: ABCDEFGHIJKLMNOPQRST123456789011
+    /// 
+    /// IV: 
+    /// A random IV is generated each time and appended to output
     /// </summary>
     /// <remarks>
-    /// Uses the built-in Key and IV by default
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// - KeyDataProtection file must be an XML file, starting with "key-" to be used as a Key
+    /// - All built-in ways of using the Key is hashed first before being used as a 32 char key
+    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
     /// </remarks>
-    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
+    /// <returns>An encrypted base64 string where IV is first 16 bytes, or null/empty if input was so</returns>
     public static string Encrypt(this string data)
     {
         return Cryptation.Encrypt(data, CryptationKey.Current, null, true).ToBase64();
     }
 
     /// <summary>
-    /// Encrypts data with a specific key and an optional iv
+    /// Encrypt data with a key and an optional IV
     /// 
-    /// Defaults if passing in null:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// If IV is null, it will create a random IV if "add IV" is True, else 16 bytes of 0
     /// </summary>
     /// <remarks>
-    /// Uses the built-in Key and IV if null is passed as argument
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// - Key must be 16 or 32 characters long
+    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
     /// </remarks>
     /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data, string key, string IV = null, bool addIV = false)
     {
-        if (key != null && key.Length != 16 && key.Length != 32)
-            throw new Exception("Key length must be either 16 or 32");
-
-        if (IV != null && IV.Length != 16)
-            throw new Exception("AES must receive an IV of 16 characters length");
-
-        return Cryptation.Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV).ToBase64();
+        return Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV);
     }
 
     /// <summary>
-    /// Encrypts data with a specific key and an optional iv
+    /// Encrypt data with a key and an optional IV
     /// 
-    /// Defaults if passing in null:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// If IV is null, it will create a random IV if "add IV" is True, else 16 bytes of 0
     /// </summary>
     /// <remarks>
-    /// Uses the built-in Key and IV if null is passed as argument
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// - Key must be 16 or 32 bytes long
+    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
     /// </remarks>
     /// <returns>An encrypted base64 string or null/empty if input was so</returns>
     public static string Encrypt(this string data, byte[] key, byte[] IV = null, bool addIV = false)
@@ -1311,23 +1289,10 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypt data
+    /// Decrypt data with built-in key and IV
     /// 
-    /// Defaults:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// cipherText is the result of the .Encrypt() method without arguments
     /// </summary>
-    /// <remarks>
-    /// Uses the built-in Key and IV by default
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
-    /// </remarks>
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText)
     {
@@ -1336,21 +1301,11 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Decrypts data with a key and an optional IV
-    /// 
-    /// Defaults if passing null:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
     /// <remarks>
-    /// Uses the built-in Key and IV by default
+    /// AddedIv must be true if you set 'addIV' to True during Encrypt()
     /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too
     /// </remarks>
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
@@ -1360,21 +1315,11 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Decrypts data with a key and an optional IV
-    /// 
-    /// Defaults if passing null:
-    /// Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// IV: 16 bytes of 0
-    /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
     /// </summary>
     /// <remarks>
-    /// Uses the built-in Key and IV by default
+    /// AddedIv must be true if you set 'addIV' to True during Encrypt()
     /// 
-    /// Overwrite defaults by creating a 'data protection key file'
-    /// - It is a .NET thing, look it up
-    /// - Place the generated "key.xml" file in a parent folder of the app OR define in config "cryptation": { "keyFile" : "path..." }
+    /// If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too
     /// </remarks>
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, byte[] key, byte[] IV = null, bool addedIV = false)
