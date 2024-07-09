@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
 {
@@ -12,6 +13,8 @@ namespace SystemLibrary.Common.Net.Tests.Extensions.DataModel
         public EnumTest EnumTestPropertyName { get; set; }
         public Owner OwnerPropertyName { get; set; }
         public IOwner IOwner { get; set; }
+        public long FieldLong { get; set; }
+        public short FieldShort { get; set; }
     }
 
     public interface IOwner

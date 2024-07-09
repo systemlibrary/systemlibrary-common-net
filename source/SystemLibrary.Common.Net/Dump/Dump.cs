@@ -21,14 +21,8 @@ public static class Dump
 {
     static string LogFullPath;
     static string Folder;
-    static bool DirExists;
+    static bool Initialized;
     static List<int> Visited = new List<int>();
-
-    static Dump()
-    {
-        LogFullPath = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
-        Folder = new FileInfo(LogFullPath).DirectoryName + "\\";
-    }
 
     /// <summary>
     /// Deletes the current log file if exists
@@ -71,7 +65,7 @@ public static class Dump
     {
         try
         {
-            InitializeFolders();
+            Initialize();
 
             Visited.Clear();
 
@@ -99,20 +93,32 @@ public static class Dump
         }
     }
 
-    static void InitializeFolders()
+    internal static object Lock = new object();
+
+    static void Initialize()
     {
-        if (DirExists) return;
-        if (!Directory.Exists(Folder))
+        if (Initialized) return;
+
+        lock (Lock)
         {
-            try
+            if (Initialized) return;
+
+            if (!Directory.Exists(Folder))
             {
-                Directory.CreateDirectory(Folder);
+                try
+                {
+                    Directory.CreateDirectory(Folder);
+                }
+                catch
+                {
+                }
             }
-            catch
-            {
-            }
+
+            LogFullPath = AppSettings.Current.SystemLibraryCommonNet.Dump.GetFullLogPath();
+            Folder = new FileInfo(LogFullPath).DirectoryName + "\\";
+
+            Initialized = true;
         }
-        DirExists = true;
     }
 
     static string WriteBoolProperty(string n, bool b)

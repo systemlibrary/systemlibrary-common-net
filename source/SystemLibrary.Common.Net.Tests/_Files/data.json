@@ -9,7 +9,10 @@
       "birth": "2021-03-17",
       "age": 1,
       "salary": 1000,
-      "title": "CEO1"
+      "title": "CEO1",
+      "fieldLong": 777,
+      "fieldShort": 55,
+      "birth": "2200-12-12"
     },
     {
       "firstName": "FirstNameEmployee2",

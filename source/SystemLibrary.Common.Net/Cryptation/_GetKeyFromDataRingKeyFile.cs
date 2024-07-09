@@ -19,6 +19,8 @@ partial class CryptationKey
 
         var keyFileName = GetKeyFileFullName(_KeyDirectory);
 
+        if (keyFileName.IsNot()) return null;
+
         return Path.GetFileName(keyFileName);
     }
 
@@ -50,7 +52,7 @@ partial class CryptationKey
 
         if (content.IsNot()) return null;
 
-        content = content.ToLower();
+        if (!content.Contains("key")) return null;
 
         if (!content.Contains("deserialize")) return null;
 

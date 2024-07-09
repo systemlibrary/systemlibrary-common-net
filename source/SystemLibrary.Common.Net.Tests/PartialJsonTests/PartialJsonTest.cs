@@ -52,6 +52,9 @@ namespace SystemLibrary.Common.Net.Tests.JsonTokenSearcher
             Assert.IsTrue(employees[0].FirstName.Contains("1"));
             Assert.IsTrue(employees[0].FirstName.Contains("Employee"));
             Assert.IsTrue(employees[0].Age == 1);
+            Assert.IsTrue(employees[0].FieldLong > 5, "Field long");
+            Assert.IsTrue(employees[0].FieldShort > 5, "fied short");
+            Assert.IsTrue(employees[0].Birth.Year > DateTime.Now.Year);
         }
 
         [TestMethod]

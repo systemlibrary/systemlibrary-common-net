@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Text.Json;
 
 namespace SystemLibrary.Common.Net;
 
@@ -24,7 +25,7 @@ internal static partial class PartialJsonSearcher
 
         if (!jsonElement.HasValue) return default;
 
-        var value = jsonElement.Value.ToString();
+        var value = jsonElement.ToString();
 
         if (value.IsNot()) return default;
 
@@ -37,6 +38,18 @@ internal static partial class PartialJsonSearcher
 
         if (type == SystemType.IntType)
             return (T)(object)int.Parse(value);
+
+        if (type == SystemType.Int64Type)
+            return (T)(object)long.Parse(value);
+
+        if (type == SystemType.Int16Type)
+            return (T)(object)short.Parse(value);
+
+        if (type == SystemType.DateTimeType)
+            return (T)(object)value.ToDateTime();
+
+        if (type == SystemType.DateTimeOffsetType)
+            return (T)(object)value.ToDateTimeOffset();
 
         if (!type.IsClass)
             throw new System.Exception("Not yet implemented deserialization to " + type.Name);

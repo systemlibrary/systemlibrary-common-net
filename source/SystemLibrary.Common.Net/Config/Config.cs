@@ -157,7 +157,7 @@ public abstract partial class Config<T> where T : class
         }
 
         if (_Config == null && typeof(T) == typeof(EnvironmentConfig))
-            throw new System.Exception("EnvironmentConfig could not be created - make sure the 'environmentConfig.json' is not empty, it must minimum contain one property, for instance 'name' set to some value like 'prod'.");
+            throw new Exception("EnvironmentConfig could not be created - make sure the 'environmentConfig.json' is not empty, it must minimum contain one property, for instance 'name' set to some value like 'prod'.");
     }
 
     /// <summary>
