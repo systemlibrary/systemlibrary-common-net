@@ -35,7 +35,7 @@
 		"systemLibraryCommonNet": {
 			"debug": false,
 			"dump": {
-				"folder": "%HomeDrive%\\Logs\\",
+				"folder": "%HomeDrive%/Logs/",
 				"fileName": "DumpWrite.log",
 			},
 			"json": {
@@ -45,9 +45,6 @@
 				"readCommentHandling": "Skip",
 				"jsonIgnoreCondition": "WhenWritingNull"
 				"writeIndented": false
-			},
-			"cryptation": {
-				"deterministic" : true //false
 			}
 		}
 	}

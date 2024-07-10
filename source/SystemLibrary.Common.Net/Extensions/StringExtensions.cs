@@ -1540,8 +1540,6 @@ public static partial class StringExtensions
         }
     }
 
-    static bool CryptationDeterministic = AppSettings.Current.SystemLibraryCommonNet.Cryptation.Deterministic;
-
     static IDataProtector _KeyRingProtector;
     static IDataProtector KeyRingProtector
     {

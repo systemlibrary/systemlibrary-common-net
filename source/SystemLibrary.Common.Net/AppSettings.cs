@@ -17,7 +17,6 @@ internal class AppSettings : Config<AppSettings>
         {
             Dump = new DumpConfig();
             Json = new JsonConfig();
-            Cryptation = new CryptationConfig();
             Debug = false;
         }
 
@@ -31,18 +30,13 @@ internal class AppSettings : Config<AppSettings>
             public bool WriteIndented { get; set; } = false;
         }
 
-        public class CryptationConfig
-        {
-            public bool Deterministic { get; set; }
-        }
-
         public class DumpConfig
         {
             public string Folder { get; set; }
             public string FileName { get; set; }
             public DumpConfig()
             {
-                Folder = "%HomeDrive%\\Logs\\";
+                Folder = "%HomeDrive%/Logs/";
                 FileName = "DumpWrite.log";
             }
 
@@ -89,17 +83,22 @@ internal class AppSettings : Config<AppSettings>
                 if (FileName.StartsWith("\\"))
                     FileName = FileName.Substring(1);
 
+                if(FileName.StartsWith("/"))
+                    FileName = FileName.Substring(1);
+
                 if (Folder.EndsWith("\\"))
                     return Folder + FileName;
 
-                return Folder + "\\" + FileName;
+                if(Folder.EndsWith("/"))
+                    return Folder + FileName;
+
+                return Folder + "/" + FileName;
             }
         }
 
         public bool Debug { get; set; }
         public DumpConfig Dump { get; set; }
         public JsonConfig Json { get; set; }
-        public CryptationConfig Cryptation { get; set; }
     }
 
     public PackageConfig SystemLibraryCommonNet { get; set; }

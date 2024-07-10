@@ -32,6 +32,8 @@ internal static class AppDomainInternal
                     if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
                         _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
 
+                    if (_ContentRootPath.EndsWith("/", StringComparison.Ordinal))
+                        _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
 
                     bool IsWithinBin()
                     {
