@@ -33,11 +33,13 @@ internal static partial class CryptationKey
 
     static string GetKey()
     {
-        var key = GetKeyFromDataRingKeyFile();
+        var key = TryGetKeyFromDataRingKeyFile();
 
         if (key.IsNot())
         {
-            key = GetKeyFromAsmName();
+            Debug.Write("Encryption Key is based on app name");
+
+            key = TryGetKeyFromAppNameOrAsmName();
         }
 
         if (key.IsNot())

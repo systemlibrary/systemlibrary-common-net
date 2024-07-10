@@ -9,7 +9,7 @@ namespace SystemLibrary.Common.Net;
 
 partial class CryptationKey
 {
-    internal static string GetKeyFromDataRingKeyFile()
+    internal static string TryGetKeyFromDataRingKeyFile()
     {
         if (_KeyFileName.Is()) return _KeyFileName;
 

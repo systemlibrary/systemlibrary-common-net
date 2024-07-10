@@ -8,7 +8,7 @@ namespace SystemLibrary.Common.Net;
 
 partial class CryptationKey
 {
-    static string GetKeyFromAsmName()
+    static string TryGetKeyFromAppNameOrAsmName()
     {
         var keyManagementOptions = Services.Get<IOptions<KeyManagementOptions>>();
 
