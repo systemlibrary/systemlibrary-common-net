@@ -8,21 +8,9 @@ internal static partial class CryptationKey
 
     static object Lock = new object();
 
+    internal static string _KeyFileName;
+
     internal static string _KeyDirectory;
-    internal static string KeyDirectory
-    {
-        get
-        {
-            if (_KeyDirectory == null)
-            {
-                var temp = Current;
-
-                _KeyDirectory ??= "";
-            }
-
-            return _KeyDirectory;
-        }
-    }
 
     internal static string KeyStart;
 
@@ -55,6 +43,9 @@ internal static partial class CryptationKey
         if (key.IsNot())
         {
             key = "ABCDEFGHIJKLMNOPQRST123456789011";
+
+            if (AppSettings.Current?.SystemLibraryCommonNet?.Debug == true)
+                Dump.Write("Debug is 'true': Encryption Key is default from Library, call service.AddDataProtection to use a unique...");
 
             KeyStart = key.MaxLength(maxLength: 4);
         }

@@ -11,17 +11,22 @@ partial class CryptationKey
 {
     internal static string GetKeyFromDataRingKeyFile()
     {
+        if (_KeyFileName.Is()) return _KeyFileName;
+
         var keyManagementOptions = Services.Get<IOptions<KeyManagementOptions>>();
 
         _KeyDirectory = (keyManagementOptions?.Value?.XmlRepository as FileSystemXmlRepository)?.Directory?.FullName;
 
+        if (_KeyDirectory.IsNot())
+            _KeyDirectory = EnvironmentConfig.Current.ContentRootPath;
+
         if (_KeyDirectory.IsNot()) return null;
 
-        var keyFileName = GetKeyFileFullName(_KeyDirectory);
+        _KeyFileName = GetKeyFileFullName(_KeyDirectory);
 
-        if (keyFileName.IsNot()) return null;
+        if(_KeyFileName.IsNot()) return null;
 
-        return Path.GetFileName(keyFileName);
+        return Path.GetFileName(_KeyFileName);
     }
 
     static string GetKeyFileFullName(string keyDirectory)
