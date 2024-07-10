@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace SystemLibrary.Common.Net;
 
@@ -56,8 +55,7 @@ internal static partial class PartialJsonSearcher
 
         if (!value.IsJson())
         {
-            if (AppSettings.Current?.SystemLibraryCommonNet?.Debug == true)
-                Dump.Write("Debug is 'true': PartialJsonSearcher.Search value is not JSON format: " + value);
+            Debug.Write("PartialJsonSearcher.Search value is not JSON format: " + value);
 
             return default;
         }

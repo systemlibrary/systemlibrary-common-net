@@ -44,8 +44,7 @@ internal static partial class CryptationKey
         {
             key = "ABCDEFGHIJKLMNOPQRST123456789011";
 
-            if (AppSettings.Current?.SystemLibraryCommonNet?.Debug == true)
-                Dump.Write("Debug is 'true': Encryption Key is default from Library, call service.AddDataProtection to use a unique...");
+            Debug.Write("Encryption Key is default from Library, call service.AddDataProtection to use a unique");
 
             KeyStart = key.MaxLength(maxLength: 4);
         }

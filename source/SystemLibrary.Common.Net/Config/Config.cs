@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 using Microsoft.Extensions.Configuration;
+
+using SystemLibrary.Common.Net.Attributes;
 
 namespace SystemLibrary.Common.Net;
 
@@ -158,10 +163,61 @@ public abstract partial class Config<T> where T : class
 
         if (_Config == null && typeof(T) == typeof(EnvironmentConfig))
             throw new Exception("EnvironmentConfig could not be created - make sure the 'environmentConfig.json' is not empty, it must minimum contain one property, for instance 'name' set to some value like 'prod'.");
+
+        DecryptPublicGetSetProperties(_Config, typeof(T));
     }
 
     /// <summary>
     /// Get the current configuration as a singleton object, always instantiated
     /// </summary>
     public static T Current => _Config;
+
+    static void DecryptPublicGetSetProperties(object instance, Type type)
+    {
+        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.SetProperty)?.Where(prop => prop.PropertyType == SystemType.StringType);
+
+        if (properties == null) return;
+
+        foreach (var property in properties)
+        {
+            if (property == null) continue;
+
+            var isEligibleForDecryption = property.Name.EndsWith("Decrypted") || property.Name.EndsWith("Decrypt");
+
+            var attribute = property.GetCustomAttribute<DecryptAttribute>();
+
+            // Not a decrypt property
+            if (!isEligibleForDecryption && attribute == null) continue;
+
+            // Name convention mismatch, but propertyName not specified, not able to decrypt
+            if (!isEligibleForDecryption && attribute.PropertyName.IsNot())
+            {
+                Debug.Write("Config did not decrypt " + property.Name + " as DecryptAttribute 'PropertyName' is null/blank");
+                continue;
+            }
+
+            var encryptedPropertyName = attribute?.PropertyName ??
+                property.Name.ReplaceAllWith("", "Decrypted", "Decrypt");
+
+            var encryptedProperty = FindEncryptedProperty(properties, encryptedPropertyName);
+
+            if (encryptedProperty == null)
+            {
+                Debug.Write("Config did not decrypt " + property.Name + " as the encrypted property was not found: " + encryptedPropertyName);
+                continue;
+            }
+
+            var decryptedValue = (encryptedProperty.GetValue(instance) as string).Decrypt();
+
+            if (decryptedValue != null)
+            {
+                property.SetValue(instance, decryptedValue);
+            }
+        }
+    }
+
+    static PropertyInfo FindEncryptedProperty(IEnumerable<PropertyInfo> properties, string encryptedPropertyName)
+    {
+        return properties.FirstOrDefault(x => x.Name == encryptedPropertyName);
+    }
 }

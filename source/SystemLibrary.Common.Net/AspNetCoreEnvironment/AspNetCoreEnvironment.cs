@@ -15,10 +15,7 @@ internal static class AspNetCoreEnvironment
                 //TODO: Read EnvironmentName-variable used in web apps through "UseEnvironment()" call, somehow...
                 _Value ??= "";
 
-                if (AppSettings.Current?.SystemLibraryCommonNet?.Debug == true)
-                {
-                    Dump.Write("Debug is 'true': ASPNETCORE_ENVIRONMENT is " + _Value);
-                }
+                Debug.Write("ASPNETCORE_ENVIRONMENT is " + _Value);
             }
 
             return _Value;
