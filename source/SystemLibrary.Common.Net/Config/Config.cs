@@ -10,7 +10,7 @@ using SystemLibrary.Common.Net.Attributes;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// Class to load and read configuration files (xml, json or config) as a Class with transformations if exist
+/// Class to load and read configuration files (xml, json or config) as a Class with transformations if exist and with decrypting encrypted properties
 /// 
 /// Configurations can be placed in either:
 /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
@@ -30,6 +30,10 @@ namespace SystemLibrary.Common.Net;
 /// 
 /// Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type
 /// 
+/// Encrypted properties such as "ApiToken {get;set;}" can be decrypted auto by creating a "ApiTokenDecrypt {get;set;}"
+/// - must be string, public, and marked with get;set;
+/// - convention by specifying suffix "Decrypt" or "Decrypted" or use attribute [Decrypt] on a property
+/// 
 /// Environment variables like 'UserName' is only added to 'appSettings' reads not your custom configuration files
 /// 
 /// WARNING: The generic T cannot be a nested class
@@ -45,8 +49,8 @@ namespace SystemLibrary.Common.Net;
 ///     "Options": {
 ///         "Url": "https://....",
 ///     },
-///     
 ///     "ValidPhoneNumbers": [0,1,2,3]
+///     "password": "/HjLI26feCvCwaBOmXfu6ZFK1KLR33YbAdDZIlzuM5I=",
 /// }
 /// </code>
 /// 
@@ -61,6 +65,9 @@ namespace SystemLibrary.Common.Net;
 ///    public ApiOptions Options { get; set; }
 ///    
 ///    public int[] ValidPhoneNumbers { get; set; }
+///    
+///    public class Password { get; set; } // Contains encrypted value
+///    public class PasswordDecrypted { get; set; } // Contains decrypted Password at runtime
 /// }
 /// 
 /// public class ApiOptions 
