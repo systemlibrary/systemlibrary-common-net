@@ -37,9 +37,10 @@ internal static partial class CryptationKey
 
         if (key.IsNot())
         {
-            Debug.Write("Encryption Key is based on app name");
-
             key = TryGetKeyFromAppNameOrAsmName();
+
+            if(key != null)
+                Debug.Write("Encryption Key is based on app name");
         }
 
         if (key.IsNot())

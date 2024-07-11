@@ -164,7 +164,14 @@ public abstract partial class Config<T> where T : class
         if (_Config == null && typeof(T) == typeof(EnvironmentConfig))
             throw new Exception("EnvironmentConfig could not be created - make sure the 'environmentConfig.json' is not empty, it must minimum contain one property, for instance 'name' set to some value like 'prod'.");
 
-        DecryptPublicGetSetProperties(_Config, typeof(T));
+        try
+        {
+            DecryptPublicGetSetProperties(_Config, typeof(T));
+        }
+        catch(Exception ex)
+        {
+            Debug.Write(ex.Message);
+        }
     }
 
     /// <summary>
@@ -212,6 +219,10 @@ public abstract partial class Config<T> where T : class
             if (decryptedValue != null)
             {
                 property.SetValue(instance, decryptedValue);
+            }
+            else
+            {
+                Debug.Write("Decrypting " + encryptedProperty.Name + " returned null");
             }
         }
     }

@@ -17,7 +17,7 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
         }
 
         [TestMethod]
-        public void Read_Sub_Directory_Setting_In_Configs_Folder_With_Transformations()
+        public void Read_Sub_Directory_Setting_In_Configs_Folder_With_Transformations_And_Cryptation()
         {
             var conf = IntegrationSettings.Current;
 
@@ -47,6 +47,12 @@ namespace SystemLibrary.Common.Net.Tests.ConfigTests
             {
                 Assert.IsTrue(false, "Error: Mode should be either release or debug, it is: " + environment + ", change it in mstest.runsettings");
             }
+
+
+            Assert.IsTrue(conf.PasswordDecrypt == "Hello world", conf.PasswordDecrypt);
+            Assert.IsTrue(conf.PasswordDecrypted == "Hello world", conf.PasswordDecrypted);
+            Assert.IsTrue(conf.HelloWorld == "Hello world", conf.HelloWorld);
+            Assert.IsTrue(conf.HelloWorld2 == "Hello world", conf.HelloWorld2);
 
             Assert.IsTrue(conf.IsEnabled);
         }
