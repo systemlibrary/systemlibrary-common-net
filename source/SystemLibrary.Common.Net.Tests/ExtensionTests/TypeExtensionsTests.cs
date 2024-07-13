@@ -34,6 +34,37 @@ public class TypeExtensionsTests
     }
 
     [TestMethod]
+    public void IsKeyValuePairType()
+    {
+        var type = typeof(string);
+
+        Assert.IsTrue(!type.IsKeyValuePair());
+
+        type = typeof(object);  
+        Assert.IsTrue(!type.IsKeyValuePair());
+
+        type = typeof(List<int>);
+        Assert.IsTrue(!type.IsKeyValuePair());
+        type   = typeof(IEnumerable<int>);  
+        Assert.IsTrue(!(type.IsKeyValuePair()));
+
+        type = typeof(IEnumerable<object>);
+        Assert.IsTrue(!(type.IsKeyValuePair()));
+
+        type = typeof(KeyValuePair<int, int>);
+        Assert.IsTrue(type.IsKeyValuePair());
+
+        type = typeof(KeyValuePair<int, object>);
+        Assert.IsTrue(type.IsKeyValuePair());
+
+        type = typeof(KeyValuePair<string, int>);
+        Assert.IsTrue(type.IsKeyValuePair());
+        
+        type = typeof(KeyValuePair<int, string>);
+        Assert.IsTrue(type.IsKeyValuePair());
+    }
+
+    [TestMethod]
     public void Type_Get_First_Generic_Type()
     {
         var type = typeof(IList<string>);

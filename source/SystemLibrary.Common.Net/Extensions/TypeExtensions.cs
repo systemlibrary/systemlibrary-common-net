@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using Microsoft.VisualBasic.FileIO;
+
 namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
@@ -141,20 +143,37 @@ public static class TypeExtensions
     {
         if (type == null || !type.IsGenericType) return default;
 
-        foreach (Type @interface in type.GetInterfaces())
+        var interfaces = type.GetInterfaces();
+
+        if (interfaces != null)
         {
-            if (@interface.IsGenericType)
+            foreach (Type @interface in interfaces)
             {
-                if (@interface.GetGenericTypeDefinition() == typeof(ICollection<>))
-                    return @interface.GetGenericArguments()[0];
-                else if (@interface.GetGenericTypeDefinition() == typeof(IList<>))
-                    return @interface.GetGenericArguments()[0];
+                if (@interface.IsGenericType)
+                {
+                    if (@interface.GetGenericTypeDefinition() == typeof(ICollection<>))
+                        return @interface.GetGenericArguments()[0];
+                    else if (@interface.GetGenericTypeDefinition() == typeof(IList<>))
+                        return @interface.GetGenericArguments()[0];
+                }
             }
         }
 
         return type.GetGenericArguments()[0];
     }
 
+    public static bool IsKeyValuePair(this Type type)
+    {
+        if (type.IsGenericType && type.GetGenericTypeDefinition() == SystemType.KeyValueType)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Set a static member on a Type, no matter if it is internal or private
+    /// </summary>
     public static void SetStaticMember(this Type type, string memberName, object value)
     {
         var property = type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic)?

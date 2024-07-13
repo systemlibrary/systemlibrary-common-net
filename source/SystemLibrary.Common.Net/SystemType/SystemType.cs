@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using SystemLibrary.Common.Net.Attributes;
@@ -24,6 +25,7 @@ public static class SystemType
     public static Type GuidType = typeof(Guid);
     public static Type CharType = typeof(char);
     public static Type DoubleType = typeof(double);
+    public static Type UriType = typeof(Uri);
 
     public static Type ExceptionType = typeof(Exception);
 
@@ -44,4 +46,7 @@ public static class SystemType
     public static Type TimeSpanTypeNullable = typeof(TimeSpan?);
     public static Type DateTimeOffsetTypeNullable = typeof(DateTimeOffset?);
     public static Type DoubleTypeNullable = typeof(double?);
+
+    public static Type ICollectionType = typeof(ICollection);
+    public static Type KeyValueType = typeof(KeyValuePair<,>);
 }

@@ -24,13 +24,14 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - Json Encoder reused as a singleton (optimization)
 - Proof read somewhat all comments and adjusted accordingly
 - Added comments yet again to nuget package so consumers of package can see them through intellisense
-- Remarks added to the docs output website, hidden from intellisense
+- Remarks removed from "comment", and added to the docs output website, hidden from intellisense
 - Return comment moved to return section instead of as "last part of comment"
 - ToServerMapPath() returns forward slashes paths to support Linux (breaking change)
 - ToServerMapPath() renamed to ToAppPath (breaking change)
 - Cryptation Env Key "SYSLIBCRYPTATIONKEY" removed (breaking change)
 - Cryptation Key and IV either defaults, based on your input, or auto based on 'data key file' (breaking change)
 - Services (Service Locator) added, with Configure method for both ServiceCollection and ServiceProvider
+- TypeExtension.IsKeyValuePair() added
  
 #### Version history 
 - View git history of this file if interested
