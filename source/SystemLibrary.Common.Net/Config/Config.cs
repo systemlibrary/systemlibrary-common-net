@@ -12,14 +12,14 @@ namespace SystemLibrary.Common.Net;
 /// <summary>
 /// Class to load and read configuration files (xml, json or config) as a Class with transformations if exist and with decrypting encrypted properties
 /// 
-/// Configurations can be placed in either:
+/// <para>Configurations can be placed in either:</para>
 /// ~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
 /// 
-/// Or appended to your existing 'appSettings.json' file
+/// <para>Or appended to your existing 'appSettings.json' file</para>
 /// 
 /// Transformations are ran based on the 'ASPNETCORE_ENVIRONMENT' variable passed to your application
 /// 
-/// Recommended pointers:
+/// <para>Recommended pointers:</para>
 /// - launchSettings.json when using IIS Express
 /// - web.config if you use IIS
 /// - mstest.runsettings if you run transformations in unit tests
@@ -28,13 +28,13 @@ namespace SystemLibrary.Common.Net;
 /// <remarks>
 /// The Current instance on the Config object is a Singleton and only loaded once
 /// 
-/// Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type
+/// <para>Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type</para>
 /// 
 /// Encrypted properties such as "ApiToken {get;set;}" can be decrypted auto by creating a "ApiTokenDecrypt {get;set;}"
 /// - must be string, public, and marked with get;set;
 /// - convention by specifying suffix "Decrypt" or "Decrypted" or use attribute [Decrypt] on a property
 /// 
-/// Environment variables like 'UserName' is only added to 'appSettings' reads not your custom configuration files
+/// <para>Environment variables like 'UserName' is only added to 'appSettings' reads not your custom configuration files</para>
 /// 
 /// WARNING: The generic T cannot be a nested class
 /// </remarks>

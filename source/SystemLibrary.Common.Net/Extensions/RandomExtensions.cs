@@ -3,6 +3,9 @@ using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
+/// <summary>
+/// Shortcut for generating random variables through System.Random
+/// </summary>
 public static class Randomness
 {
     static Random R;
@@ -19,16 +22,28 @@ public static class Randomness
         CharsLength = Chars.Length;
     }
 
+    /// <summary>
+    /// Generate a random Integer
+    /// </summary>
+    /// <returns>Integer >= 0</returns>
     public static int Int(int maxValue = int.MaxValue)
     {
         return R.Next(0, maxValue);
     }
 
+    /// <summary>
+    /// Generate a random Integer
+    /// </summary>
+    /// <returns>Integer >= 0</returns>
     public static int Int(int minValue, int maxValue)
     {
         return R.Next(minValue, maxValue);
     }
 
+    /// <summary>
+    /// Generate a random Byte array
+    /// </summary>
+    /// <returns>Byte array filled with random int's</returns>
     public static byte[] Bytes(int length = 16)
     {
         var bytes = new byte[length];
@@ -38,6 +53,10 @@ public static class Randomness
         return bytes;
     }
 
+    /// <summary>
+    /// Generate a random string
+    /// </summary>
+    /// <returns>Returns a string of length</returns>
     public static string String(int length = 6)
     {
         var result = new StringBuilder(length);

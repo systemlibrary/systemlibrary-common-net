@@ -3,6 +3,8 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<OutputType>Library</OutputType>
 		<Configurations>Release;Unknown;Debug</Configurations>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Product>SystemLibrary.Common.Net $(Version)</Product>
 	</PropertyGroup>
 
 	<PropertyGroup>

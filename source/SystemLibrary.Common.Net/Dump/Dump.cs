@@ -12,7 +12,7 @@ using SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// Dump any object to a local file for easy debugging and logging purposes
 /// 
-/// Dump.Write calls should only occur during development as it is slow
+/// <para>Dump.Write calls should only occur during development as it is slow</para>
 /// </summary>
 /// <remarks>
 /// "Equivalent" to javascripts 'console.log'

@@ -8,14 +8,14 @@ namespace SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// This class contains extension methods for Type
 /// 
-/// For instance: Inherits()
+/// <para>For instance: Inherits()</para>
 /// </summary>
 public static class TypeExtensions
 {
     /// <summary>
     /// Check if 'thisType' inherits or implements 'type
     /// 
-    /// False if both types are the same
+    /// <para>False if both types are the same</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -84,7 +84,7 @@ public static class TypeExtensions
     /// <summary>
     /// Returns the Name of the Type that makes 'most sense'
     /// 
-    /// For generics, such as a IList, List, Dictionary, it will return the Name of the first generic Type specified
+    /// <para>For generics, such as a IList, List, Dictionary, it will return the Name of the first generic Type specified</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -160,8 +160,15 @@ public static class TypeExtensions
         return type.GetGenericArguments()[0];
     }
 
+    /// <summary>
+    /// Check if type is a KeyValuePair generic
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns>true or false</returns>
     public static bool IsKeyValuePair(this Type type)
     {
+        if (type == null) return false;
+
         if (type.IsGenericType && type.GetGenericTypeDefinition() == SystemType.KeyValueType)
         {
             return true;
@@ -174,6 +181,8 @@ public static class TypeExtensions
     /// </summary>
     public static void SetStaticMember(this Type type, string memberName, object value)
     {
+        if (type == null) return;
+
         var property = type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic)?
                 .Where(x => x.Name == memberName)?
                 .FirstOrDefault();

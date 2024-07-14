@@ -5,14 +5,14 @@ namespace SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// This class contains extension methods for Uri
 /// 
-/// For instance: GetPrimaryDomain(), etc...
+/// <para>For instance: GetPrimaryDomain(), etc...</para>
 /// </summary>
 public static class UriExtensions
 {
     /// <summary>
     /// Returns the domain part of the uri or blank, never null:
     /// 
-    /// https://www.sub1.sub2.domain.com => domain.com
+    /// <para>https://www.sub1.sub2.domain.com => domain.com</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">

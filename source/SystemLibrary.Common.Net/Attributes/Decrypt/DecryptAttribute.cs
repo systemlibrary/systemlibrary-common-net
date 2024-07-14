@@ -5,16 +5,16 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// <summary>
 /// Mark a property as the Decrypted value of an Encrypted Configuration Property
 /// 
-/// The property marked must be Public, Instance, Get and Set.
+/// <para>The property marked must be Public, Instance, Get and Set.</para>
 /// 
-/// This attribute goes hand in hand with Config class, when a Config class is created it looks for which properties has this attribute and decrypts accordingly
+/// <para>This attribute goes hand in hand with Config class, when a Config class is created it looks for which properties has this attribute and decrypts accordingly</para>
 /// 
 /// To decrypt properties must be encrypted through Encrypt() extension in this library that takes no Key/IV but the "default" youve specified
 /// </summary>
 /// <remarks>
 /// The PropertyName must be a property within this same class, and class must inherit Config to work automatically
 /// 
-/// Feel free to use this attribute in other scenarios as it most likely wont change name nor namespace in future versions
+/// <para>Feel free to use this attribute in other scenarios as it most likely wont change name nor namespace in future versions</para>
 /// 
 /// But do note it is created to Decrypt an Encrypt Config Property  whenever the Config class is created and the decrypted value is a "singleton", it only decrypts once
 /// </remarks>

@@ -26,9 +26,9 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
     /// <summary>
     /// Returns environment name based on 'ASPNETCORE_ENVIRONMENT' variable passed to the startup of your application
     /// 
-    /// Note: This 'name' is used for transformations for configurations you've created that inherits Config&lt;&gt;
+    /// <para>Note: This 'name' is used for transformations for configurations you've created that inherits Config&lt;&gt;</para>
     /// 
-    /// Note: Transformations are ran before 'name' here is returned for file 'environmentConfig.json' if it exists
+    /// <para>Note: Transformations are ran before 'name' here is returned for file 'environmentConfig.json' if it exists</para>
     /// 
     /// Note: changing environment name requires shell restart (iisreset for instance)
     /// </summary>
@@ -239,7 +239,7 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
 /// <summary>
 /// Standard class for environmental configurations read from environmentConfig.json if exists
 /// 
-/// If you've added more properties to environmentConfig.json than just the 'Name' you'd have to inherit 'EnvironmentConfig&lt;YourClass&gt;' and use that instead
+/// <para>If you've added more properties to environmentConfig.json than just the 'Name' you'd have to inherit 'EnvironmentConfig&lt;YourClass&gt;' and use that instead</para>
 /// </summary>
 /// <remarks>
 /// See the documentation for 'Name' property on class 'EnvironmentConfig&lt;&gt;' for more details regarding transformations
@@ -269,9 +269,10 @@ public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, Environmen
 
     /// <summary>
     /// Returns the application's root folder full path
-    /// 
-    /// NOTE: Full path can never contain 'bin', if so the parent of 'bin' is returned
     /// </summary>
+    /// <remarks>
+    /// Full path can never contain 'bin', if so the parent of 'bin' is returned
+    /// </remarks>
     public string ContentRootPath
     {
         get

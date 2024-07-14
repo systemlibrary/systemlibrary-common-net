@@ -27,7 +27,7 @@ public static class ArrayExtensions
 
     /// <summary>
     /// Add one array with another, resulting in a new array
-    /// - Pass a predicate method to filter out values
+    /// <para>- Pass a predicate method to filter out values</para>
     /// </summary>
     /// <example>
     /// <code>

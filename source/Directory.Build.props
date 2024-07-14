@@ -5,15 +5,13 @@
 	</PropertyGroup>
 	
 	<PropertyGroup>
-		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<DebugType>pdbonly</DebugType>
 		<NoWarn>CS1591;CS1570;CS1573;1701;1702;IDE1006;CS8618;</NoWarn>
-		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<PackageOutputPath>..\$(MSBuildProjectName)</PackageOutputPath>
 		<Company>System Library</Company>
 		<Authors>System Library</Authors>
-		<Product>SystemLibrary.Common.Net $(Version)</Product>
 		<Optimize>true</Optimize>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>

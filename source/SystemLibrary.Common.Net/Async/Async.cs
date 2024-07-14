@@ -130,14 +130,14 @@ public static class Async
     /// <summary>
     /// Run all actions seperately in a non-blocking way
     /// 
-    /// Each action passed is ran in a try catch without notifying callee
+    /// <para>Each action passed is ran in a try catch without notifying callee</para>
     /// 
     /// See the overloaded method if you want to ignore exceptions
     /// </summary>
     /// <remarks>
     /// All functions passed to this is ran in an unordered and non-blocking way
     /// 
-    /// All functions passed will run till completion, erroring or till main thread is shut down
+    /// <para>All functions passed will run till completion, erroring or till main thread is shut down</para>
     /// </remarks>
     /// <param name="onError">Callback invoked if an exception occured</param>
     /// <param name="actions">Array of methods to invoke in a non-blocking way</param>
@@ -171,14 +171,14 @@ public static class Async
     /// <summary>
     /// Run all actions seperately in a non-blocking way
     /// 
-    /// Each action passed is ran in a try catch without notifying callee
+    /// <para>Each action passed is ran in a try catch without notifying callee</para>
     /// 
     /// See the overloaded method to add a callback for logging exceptions
     /// </summary>
     /// <remarks>
     /// All functions passed to this is ran in an unordered and non-blocking way
     /// 
-    /// All functions passed will run till completion, erroring or till main thread is shut down
+    /// <para>All functions passed will run till completion, erroring or till main thread is shut down</para>
     /// </remarks>
     /// <param name="actions">Array of methods to invoke in a non-blocking way</param>
     /// <example>

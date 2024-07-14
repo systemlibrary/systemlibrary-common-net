@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace SystemLibrary.Common.Net;
 
+/// <summary>
+/// Service Locator
+/// </summary>
 public static class Services
 {
     internal static IServiceCollection ServiceCollectionInstance;
@@ -18,21 +21,33 @@ public static class Services
         return ServiceCollectionInstance;
     }
 
+    /// <summary>
+    /// Pass a reference to the Service Collection which will be used to add or remove services from
+    /// </summary>
     public static void Configure(IServiceCollection serviceCollection)
     {
         ServiceCollectionInstance = serviceCollection;
     }
 
+    /// <summary>
+    /// Pass a reference to the Service Provider which will be used to loook up services from
+    /// </summary>
     public static void Configure(IServiceProvider serviceProvider)
     {
         ServiceProviderInstance = serviceProvider;
     }
 
+    /// <summary>
+    /// Get service as T or default if not found
+    /// </summary>
     public static T Get<T>() where T : class
     {
         return ServiceProviderInstance?.GetService<T>();
     }
 
+    /// <summary>
+    /// Add a scoped service to the service collection
+    /// </summary>
     public static void AddScoped<T, TImpementation>()
         where T : class
         where TImpementation : class, T
@@ -43,6 +58,9 @@ public static class Services
         ServiceCollectionInstance.AddScoped<T, TImpementation>();
     }
 
+    /// <summary>
+    /// Add a service as singleton to the service collection
+    /// </summary>
     public static void AddSingleton<T, TImpementation>()
         where T : class
         where TImpementation : class, T
@@ -53,6 +71,9 @@ public static class Services
         ServiceCollectionInstance.AddSingleton<T, TImpementation>();
     }
 
+    /// <summary>
+    /// Remove a service from the service collection
+    /// </summary>
     public static void Remove<T>()
     {
         if (ServiceCollectionInstance == null)

@@ -16,7 +16,7 @@ public static class DynamicExtensions
     /// <summary>
     /// Merge dynamic objects into a one new dynamic object
     /// 
-    /// The latter updating value takes precedence if both objects contains same property name
+    /// <para>The latter updating value takes precedence if both objects contains same property name</para>
     /// </summary>
     /// <param name="source">An anonymous/dynamic object</param>
     /// <param name="updates">One or more anonymous/dynamic objects, but if error occurs, cast the 'updating' objects to an actual object before invoking this method</param>

@@ -44,7 +44,7 @@ public static class ConcurrentDictionaryExtensions
     /// <remarks>
     /// The static concurrent dictionary lives as long as application runs
     /// 
-    /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+    /// <para>Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again</para>
     /// </remarks>
     /// <returns>Returns T either from Cache or from the Method</returns>
     public static T Cache<T>(this ConcurrentDictionary<int, T> dictionary, Type type, Func<T> getItem)

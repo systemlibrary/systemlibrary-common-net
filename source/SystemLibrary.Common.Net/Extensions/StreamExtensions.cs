@@ -13,7 +13,7 @@ public static class StreamExtensions
     /// <summary>
     /// Reading a Stream async as JsonData converting it into a class T
     /// 
-    /// Used for instance when you read the content of a HttpResponse and directly converting it into T instead of storing as string first
+    /// <para>Used for instance when you read the content of a HttpResponse and directly converting it into T instead of storing as string first</para>
     /// </summary>
     /// <example>
     /// <code>
