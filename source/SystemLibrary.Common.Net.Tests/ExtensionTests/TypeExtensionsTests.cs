@@ -40,12 +40,12 @@ public class TypeExtensionsTests
 
         Assert.IsTrue(!type.IsKeyValuePair());
 
-        type = typeof(object);  
+        type = typeof(object);
         Assert.IsTrue(!type.IsKeyValuePair());
 
         type = typeof(List<int>);
         Assert.IsTrue(!type.IsKeyValuePair());
-        type   = typeof(IEnumerable<int>);  
+        type = typeof(IEnumerable<int>);
         Assert.IsTrue(!(type.IsKeyValuePair()));
 
         type = typeof(IEnumerable<object>);
@@ -59,7 +59,7 @@ public class TypeExtensionsTests
 
         type = typeof(KeyValuePair<string, int>);
         Assert.IsTrue(type.IsKeyValuePair());
-        
+
         type = typeof(KeyValuePair<int, string>);
         Assert.IsTrue(type.IsKeyValuePair());
     }

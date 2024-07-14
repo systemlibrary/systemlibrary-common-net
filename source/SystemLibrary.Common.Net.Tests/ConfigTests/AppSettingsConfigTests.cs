@@ -9,11 +9,11 @@ public class AppSettingsConfigTests : Config<AppSettingsConfigTests>
 
     public string Password { get; set; }
     public string PasswordSecond { get; set; }
-    
+
     public string PasswordDecrypt { get; set; }
-    
+
     public string PasswordDecrypted { get; set; }
-    
+
     [Decrypt(nameof(Password))]
     public string HelloWorld { get; set; }
 

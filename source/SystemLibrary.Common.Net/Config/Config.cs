@@ -175,9 +175,9 @@ public abstract partial class Config<T> where T : class
         {
             DecryptPublicGetSetProperties(_Config, typeof(T));
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            Debug.Write(ex.Message);
+            Debug.Log(ex.Message);
         }
     }
 
@@ -206,7 +206,7 @@ public abstract partial class Config<T> where T : class
             // Name convention mismatch, but propertyName not specified, not able to decrypt
             if (!isEligibleForDecryption && attribute.PropertyName.IsNot())
             {
-                Debug.Write("Config did not decrypt " + property.Name + " as DecryptAttribute 'PropertyName' is null/blank");
+                Debug.Log("Config did not decrypt " + property.Name + " as DecryptAttribute 'PropertyName' is null/blank");
                 continue;
             }
 
@@ -217,7 +217,7 @@ public abstract partial class Config<T> where T : class
 
             if (encryptedProperty == null)
             {
-                Debug.Write("Config did not decrypt " + property.Name + " as the encrypted property was not found: " + encryptedPropertyName);
+                Debug.Log("Config did not decrypt " + property.Name + " as the encrypted property was not found: " + encryptedPropertyName);
                 continue;
             }
 
@@ -229,7 +229,7 @@ public abstract partial class Config<T> where T : class
             }
             else
             {
-                Debug.Write("Decrypting " + encryptedProperty.Name + " returned null");
+                Debug.Log("Decrypting " + encryptedProperty.Name + " returned null");
             }
         }
     }

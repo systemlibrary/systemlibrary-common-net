@@ -90,8 +90,11 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Checks if the Enumerable exists and has at least 1 item, without throwing
+    /// Checks if the Enumerable exists and has at least 1 item
     /// </summary>
+    /// <remarks>
+    /// Does not throw exception on null
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var list = new List&lt;string&gt;();
@@ -122,8 +125,11 @@ public static class IEnumerableExtensions
     }
 
     /// <summary>
-    /// Checks if the Enumerable exists and has at least 1 item, without throwing
+    /// Checks if the Enumerable exists and has at least 1 item
     /// </summary>
+    /// <remarks>
+    /// Does not throw exception on null
+    /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
     /// var list = new List&lt;string&gt;();

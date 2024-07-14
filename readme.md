@@ -32,6 +32,12 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - Cryptation Key and IV either defaults, based on your input, or auto based on 'data key file' (breaking change)
 - Services (Service Locator) added, with Configure method for both ServiceCollection and ServiceProvider
 - TypeExtension.IsKeyValuePair() added
+
+#### Major breaking changes list
+- 7.10 to 7.11
+- Cryptation totally redone, Encrypt() now always generates random IV and IV is part of output cipher text
+- Cryptation Env. Key "SYSLIBCRYPTATIONKEY" removed
+- Services (a service locator) added
  
 #### Version history 
 - View git history of this file if interested

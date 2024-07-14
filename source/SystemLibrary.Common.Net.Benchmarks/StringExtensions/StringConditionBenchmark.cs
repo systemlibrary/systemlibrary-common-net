@@ -20,7 +20,7 @@ public class StringConditionBenchmarks
     public string To_Server_Mapped_Path()
     {
         var text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
-        return text.ToServerMapPath();
+        return text.ToAppPath();
     }
 
     //[Benchmark]

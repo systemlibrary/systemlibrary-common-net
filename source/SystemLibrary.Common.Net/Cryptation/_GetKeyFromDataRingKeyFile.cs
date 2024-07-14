@@ -24,7 +24,7 @@ partial class CryptationKey
 
         _KeyFileName = GetKeyFileFullName(_KeyDirectory);
 
-        if(_KeyFileName.IsNot()) return null;
+        if (_KeyFileName.IsNot()) return null;
 
         return Path.GetFileName(_KeyFileName);
     }

@@ -19,11 +19,11 @@ partial class CryptationKey
         var dataProtectionOptions = Services.Get<IOptions<DataProtectionOptions>>();
 
         var key = dataProtectionOptions?.Value?.ApplicationDiscriminator;
-        
+
         // DataProtectionOption was specified, but appName was not set, return custom one
         if (key.IsNot())
         {
-            Debug.Write("AssemblyName is used as Key, as DataProtection service is added, but without AppName");
+            Debug.Log("AssemblyName is used as Key, as DataProtection service is added, but without AppName");
 
             key = Assembly.GetEntryAssembly()?
                 .GetName()?

@@ -3,6 +3,9 @@ using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
+/// <summary>
+/// Byte array extensions
+/// </summary>
 public static class ByteArrayExtensions
 {
     /// <summary>

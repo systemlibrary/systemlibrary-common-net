@@ -3,6 +3,9 @@ using System.Collections.Concurrent;
 
 namespace SystemLibrary.Common.Net.Extensions;
 
+/// <summary>
+/// Concurrent dictionary extensions
+/// </summary>
 public static class ConcurrentDictionaryExtensions
 {
     /// <summary>

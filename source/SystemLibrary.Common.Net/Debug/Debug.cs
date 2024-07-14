@@ -8,15 +8,12 @@ internal static class Debug
     {
         get
         {
-            if(_Debugging == null)
-            {
-                _Debugging = AppSettings.Current?.SystemLibraryCommonNet?.Debug == true;
-            }
+            _Debugging ??= AppSettings.Current?.SystemLibraryCommonNet?.Debug == true;
             return _Debugging.Value;
         }
     }
 
-    internal static void Write(string msg)
+    internal static void Log(string msg)
     {
         if (Debugging)
         {

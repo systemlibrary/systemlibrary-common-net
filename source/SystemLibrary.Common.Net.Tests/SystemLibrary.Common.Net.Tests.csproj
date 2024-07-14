@@ -1,49 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DefineConstants>
-		</DefineConstants>
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
-		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docs|AnyCPU'">
-		<DefineConstants>
-		</DefineConstants>
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
-		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DefineConstants>
-		</DefineConstants>
 		<Configurations>Release;Unknown;Debug</Configurations>
-		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
-		<DefineConstants>
-		</DefineConstants>
 		<Configurations>Release;Unknown</Configurations>
-		<NoWarn>1701;1702;IDE1006;CS8618;</NoWarn>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
-		<DefineConstants>
-		</DefineConstants>
 		<Configurations>Release;Debug;Dev</Configurations>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-		<GenerateDependencyFile>true</GenerateDependencyFile>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
+	
 	<ItemGroup>
 		<None Remove="AppSettingsTests\text.json" />
 		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.config" />

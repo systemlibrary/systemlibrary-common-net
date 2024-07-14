@@ -1446,7 +1446,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Html encode input and return the result
     /// 
-    /// Example: &lt;p&gt; becomes &lt ;p&gt ; (without spaces of course)
+    /// Example: &lt;p&gt; becomes & lt ; & gt ; (without spaces of course)
     /// </summary>
     /// <returns>HtmlEncoded version of input, if input is null/empty it returns null/empty</returns>
     public static string HtmlEncode(this string text)

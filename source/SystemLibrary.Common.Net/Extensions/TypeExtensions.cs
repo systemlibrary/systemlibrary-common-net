@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using Microsoft.VisualBasic.FileIO;
-
 namespace SystemLibrary.Common.Net.Extensions;
 
 /// <summary>

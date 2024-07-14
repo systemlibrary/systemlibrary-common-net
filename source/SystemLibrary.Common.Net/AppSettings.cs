@@ -83,13 +83,13 @@ internal class AppSettings : Config<AppSettings>
                 if (FileName.StartsWith("\\"))
                     FileName = FileName.Substring(1);
 
-                if(FileName.StartsWith("/"))
+                if (FileName.StartsWith("/"))
                     FileName = FileName.Substring(1);
 
                 if (Folder.EndsWith("\\"))
                     return Folder + FileName;
 
-                if(Folder.EndsWith("/"))
+                if (Folder.EndsWith("/"))
                     return Folder + FileName;
 
                 return Folder + "/" + FileName;

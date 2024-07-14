@@ -39,15 +39,15 @@ internal static partial class CryptationKey
         {
             key = TryGetKeyFromAppNameOrAsmName();
 
-            if(key != null)
-                Debug.Write("Encryption Key is based on app name");
+            if (key != null)
+                Debug.Log("Encryption Key is based on app name");
         }
 
         if (key.IsNot())
         {
             key = "ABCDEFGHIJKLMNOPQRST123456789011";
 
-            Debug.Write("Encryption Key is default from Library, call service.AddDataProtection to use a unique");
+            Debug.Log("Encryption Key is default from Library, call service.AddDataProtection to use a unique");
 
             KeyStart = key.MaxLength(maxLength: 4);
         }
