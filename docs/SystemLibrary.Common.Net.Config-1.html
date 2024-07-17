@@ -197,28 +197,36 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Class for creating configurations (xml or json) files next to your code files</p>
-<p>Configurations can be placed in either:
-~/<em>.json, ~/</em>.xml, ~/Configs/<strong>.[json|xml], or ~/Configurations/</strong>.[json|xml]</p>
-<p>Or appended to your existing 'appSettings.json' file</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Class to load and read configuration files (xml, json or config) as a Class with transformations if exist and with decrypting encrypted properties</p>
+<p>Configurations can be placed in either:</p>
+~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
+<p>Or appended to your existing &apos;appSettings.json&apos; file</p>
 <p>Transformations are ran based on the 'ASPNETCORE_ENVIRONMENT' variable passed to your application</p>
-<p>Some recommended pointers:</p>
+<p>Recommended pointers:</p>
+- launchSettings.json when using IIS Express
+- web.config if you use IIS
+- mstest.runsettings if you run transformations in unit tests
+- commandline with --configuration if running as &apos;exe&apos;
+</div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Config_1_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>The Current instance on the Config object is a Singleton and only loaded once</p>
+<p>Read the example of &apos;EnvironmentConfig.Name&apos; property, it gives details on where/how to set environment per application type</p>
+<p>Encrypted properties such as &quot;ApiToken {get;set;}&quot; can be decrypted auto by creating a &quot;ApiTokenDecrypt {get;set;}&quot;</p>
 <ul>
-<li>launchSettings.json when using IIS Express</li>
-<li>web.config if you use IIS</li>
-<li>mstest.runsettings if you run transformations in unit tests</li>
-<li>commandline with --configuration if running as 'exe'</li>
+<li>must be string, public, and marked with get;set;</li>
+<li>convention by specifying suffix &quot;Decrypt&quot; or &quot;Decrypted&quot; or use attribute [Decrypt] on a property</li>
 </ul>
-<p>NOTE: Read the example of 'EnvironmentConfig.Name' property, it gives details on where/how to set environment per application type</p>
-<p>NOTE: Transformations are only ran on the first time '.Current' is invoked</p>
-<p>NOTE: Environment variables like 'UserName', is added only to 'appSettings' and not your custom configurations like: ~/Configs/testConfig.json, which mean 'UserName' always exists in 'AppSettings' if you create the string variable and returns the user name on your computer</p>
+<p>Environment variables like &apos;UserName&apos; is only added to &apos;appSettings&apos; reads not your custom configuration files</p>
 <p>WARNING: The generic T cannot be a nested class</p>
 </div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="text-break h1-class-header">Config&lt;T&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Config_1" data-uid="SystemLibrary.Common.Net.Config`1" class="h1-custom-display className">public abstract class Config&lt;T&gt;
+
     where T : class</h1>
   
   <div class="inheritance">
@@ -262,8 +270,8 @@
     &quot;Options&quot;: {
         &quot;Url&quot;: &quot;https://....&quot;,
     },
-
     &quot;ValidPhoneNumbers&quot;: [0,1,2,3]
+    &quot;password&quot;: &quot;/HjLI26feCvCwaBOmXfu6ZFK1KLR33YbAdDZIlzuM5I=&quot;,
 }</code></pre>
 <ul>
 <li>Create C# class with same name as your newly created json file and inherit Config&lt;&gt;:</li>
@@ -277,6 +285,9 @@
    public ApiOptions Options { get; set; }
 
    public int[] ValidPhoneNumbers { get; set; }
+
+   public class Password { get; set; } // Contains encrypted value
+   public class PasswordDecrypted { get; set; } // Contains decrypted Password at runtime
 }
 
 public class ApiOptions 
@@ -390,14 +401,15 @@ var name = testConfig.Name;
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Get the current configuration as a Singleton object</p>
+  		<div class="markdown level1 summary member-summary"><p>Get the current configuration as a singleton object, always instantiated</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Config_1_Current">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L165">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/Config.cs/#L187">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Config_1_Current_" data-uid="SystemLibrary.Common.Net.Config`1.Current*"></a>
@@ -431,6 +443,7 @@ var name = testConfig.Name;
   		</tr>
   	</tbody>
   </table>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div class="extensionmethods-content">
   	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean_">ObjectExtensions.Json(Object, Boolean)</a>
@@ -849,6 +862,29 @@ var name = testConfig.Name;
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1066,6 +1102,9 @@ var name = testConfig.Name;
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1081,7 +1120,7 @@ var name = testConfig.Name;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/_Loader.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Config/_Loader.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

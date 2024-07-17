@@ -467,7 +467,7 @@ div.article.row.grid-right {
 
 div.custom-menu-summary-data > .markdown.level1.summary.member-summary > p {
   margin-top: 6px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .markdown.level0.summary,
@@ -702,6 +702,7 @@ div.custom-menu-data {
   position: relative;
   margin: 0;
   margin-bottom: 28px;
+  margin-top: -2px;
 }
 
 .custom-menu-data > h4.h4-custom-functionName.non-function-element {
@@ -718,6 +719,8 @@ div.custom-menu-data {
 
 div.custom-menu-summary-data {
   margin: 0;
+  position: relative;
+  z-index: 99;
 }
 
 div.custom-menu-summary-data * {
@@ -1186,3 +1189,99 @@ article.content.wrap > h1.text-break {
   font-size: 42px;
 }
 
+.custom-remarks1 {
+  position: relative;
+  position: absolute;
+  z-index: 999;
+  margin-top: 1.25em;
+  float: right;
+  right: 0;
+  margin-right: 8px;
+  @media screen and (max-width: 767px) {
+    margin-right: 8px !important;
+  }
+}
+
+.custom-remarks1 p,
+.custom-remarks1 h5 {
+  line-height: 1.25 !important;
+  font-size: 13px !important;
+  font-weight: 100 !important;
+  color: lightslategray !important;
+  font-style: italic !important;
+}
+
+.custom-remarks1 h5 {
+  font-weight: 500 !important;
+  cursor: pointer;
+  text-decoration: underline;
+  user-select: none;
+  float: right;
+}
+
+.custom-remarks2 {
+  position: relative;
+  position: absolute;
+  z-index: 999;
+  margin-top: 1.25em;
+  float: right;
+  right: 0;
+  margin-right: 8px;
+}
+
+.custom-remarks2 p,
+.custom-remarks2 h5 {
+  line-height: 1.25 !important;
+  font-size: 13px !important;
+  font-weight: 100 !important;
+  color: lightslategray !important;
+  font-style: italic !important;
+}
+
+.custom-remarks2 h5 {
+  font-weight: 500 !important;
+  cursor: pointer;
+  text-decoration: underline;
+  user-select: none;
+  float: right;
+}
+
+.custom-remarks3,
+.custom-remarks4,
+.custom-remarks5 {
+  display: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  margin-left: -4000px !important;
+}
+
+div.custom-remarks1 > div.remarks {
+  visibility: hidden;
+  display: none;
+}
+
+div.custom-remarks2 > div.remarks {
+  visibility: hidden;
+  display: none;
+}
+
+.content.wrap div > div.remarks.visible {
+  visibility: visible !important;
+  display: block !important;
+  margin: 0 !important;
+  margin-top: 3em !important;
+  max-width: 66%;
+  float: right;
+  border: 1px solid #282828;
+  padding: 1em;
+  background: white;
+  z-index: 9999 !important;
+  position: relative;
+  right: -3.5em;
+  top: -1em;
+  min-width: 320px;
+}
+
+.content.wrap div > div.remarks.visible p {
+  margin: 0 !important;
+}

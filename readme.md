@@ -20,7 +20,7 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.11.0.1
+- 7.12.0.1
 - Json Encoder reused as a singleton (optimization)
 - Proof-read all comments and adjusted accordingly (fix)
 - Enabled (again) xml documentation file within nuget package for intellisense for consumers (feature)
@@ -32,7 +32,7 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - TypeExtension.IsKeyValuePair() added
 
 #### Major breaking changes list
-- 7.10 to 7.11
+- 7.10 to 7.12
 - Cryptation rewritten, as Encrypt() now generates random IV and the IV is part of the cipher text
 - Cryptation Env. Key "SYSLIBCRYPTATIONKEY" removed
 - Services (a kind of service locator) added

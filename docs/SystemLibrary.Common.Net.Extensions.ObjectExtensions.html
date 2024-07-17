@@ -198,7 +198,6 @@
   
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>This class contains extension methods on Object</p>
-<p>For instance: AsEnum(), AsEnumArray(), etc...</p>
 </div>
   </div>
   
@@ -239,20 +238,22 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert multiple objects of the same 'enum value' to an array of that enum type</p>
+  		<div class="markdown level1 summary member-summary"><p>Join multiple arrays of same 'Enum' to an Array of that Enum Type</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L48">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L45">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray*"></a>
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])" class="h4-custom-functionName">public static TEnum[] AsEnumArray&lt;TEnum&gt;(this object[] objects)
+
     where TEnum : struct, IComparable, IFormattable, IConvertible</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
@@ -332,7 +333,8 @@ var colors = texts.AsEnumArray&lt;Colors>();
   					<tbody>
   						<tr>
   							<td>TEnum[]</td>
-  							<td></td>
+  							<td><p>An array of Enum Type</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -343,12 +345,21 @@ var colors = texts.AsEnumArray&lt;Colors>();
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert object to json with option to camelCase C# properties when converting to a json-string</p>
-<p>Returns a json formatted string representation of the object or null if object is null</p>
+  		<div class="markdown level1 summary member-summary"><p>Convert object to its json string representation with option to camelCase properties</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean__remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>Uses built-in custom json converters for int, datetime, Enum, etc.</p>
+<ul>
+<li>for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key</li>
+</ul>
+</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean_">
@@ -417,7 +428,8 @@ var contains = json.Contains(&quot;firstName&quot;) &amp;&amp; json.Contains(&qu
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Returns json string representation of input, or null if input was so</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -428,17 +440,26 @@ var contains = json.Contains(&quot;firstName&quot;) &amp;&amp; json.Contains(&qu
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones</p>
-<p>Returns a json formatted string representation of the object or null if object is null</p>
+  		<div class="markdown level1 summary member-summary"><p>Convert object to its json string representation with option to pass Custom JsonConverters</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Boolean_System_Text_Json_Serialization_JsonConverter____remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>Uses built-in custom json converters for int, datetime, Enum, etc.</p>
+<ul>
+<li>for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key</li>
+</ul>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Boolean_System_Text_Json_Serialization_JsonConverter___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L116">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L119">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json*"></a>
@@ -513,7 +534,8 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Returns json string representation of input, or null if input was so</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -524,17 +546,26 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert object to json with option to pass custom JsonConverters which takes precedence over the built-in ones</p>
-<p>Returns a json formatted string representation of the object or null if object is null</p>
+  		<div class="markdown level1 summary member-summary"><p>Convert object to its json string representation with option to pass Custom JsonConverters</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_Serialization_JsonConverter____remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>Uses built-in custom json converters for int, datetime, Enum, etc.</p>
+<ul>
+<li>for instance Enum, with an EnumValue attribute, will be outputted as the EnumValue attribute and not the Enum.Key</li>
+</ul>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_Serialization_JsonConverter___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L148">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L154">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_" data-uid="SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json*"></a>
@@ -599,7 +630,8 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Returns json string representation of input, or null if input was so</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -607,6 +639,7 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -1017,6 +1050,29 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1234,6 +1290,9 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1249,7 +1308,7 @@ var isTrue = json.Contains(&quot;FirstName&quot;) &amp;&amp; json.Contains(&quot
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ObjectExtensions.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

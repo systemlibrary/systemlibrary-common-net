@@ -33,13 +33,13 @@ public static class Async
     /// 
     /// var carApi = new CarApi();
     /// var cars = Async.Run&lt;Car&gt;(
-    ///     () => carApi.GetByName("ferrari"),
-    ///     () => carApi.GetByName("volvo"),
-    ///     () => carApi.GetByName("tesla")
+    ///     () => carApi.GetByName("blue"),
+    ///     () => carApi.GetByName("red"),
+    ///     () => carApi.GetByName("orange")
     /// ); 
     /// 
     /// // Variable 'cars' is filled after all three api requests has completed.
-    /// // Assume we got 1 ferrari, 0 volvo and 1 tesla
+    /// // Assume we got 1 blue, 0 red and 1 orange
     /// // 'cars' now contain a total of 2 objects of type 'Car'
     /// </code>
     /// </example>
@@ -90,13 +90,13 @@ public static class Async
     /// 
     /// var carApi = new CarApi();
     /// var cars = Async.Run&lt;Car&gt;(
-    ///     () => carApi.GetByName("ferrari"),
-    ///     () => carApi.GetByName("volvo"),
-    ///     () => carApi.GetByName("tesla")
+    ///     () => carApi.GetByName("blue"),
+    ///     () => carApi.GetByName("red"),
+    ///     () => carApi.GetByName("orange")
     /// ); 
     /// 
     /// // Variable 'cars' is filled after all three api requests has completed.
-    /// // Assume we got 2 ferraris, 3 volvos and 4 teslas
+    /// // Assume we got 2 blue, 3 red and 4 orange
     /// // 'cars' now contain a total of 9 objects of type 'Car'
     /// </code>
     /// </example>

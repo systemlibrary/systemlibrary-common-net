@@ -197,9 +197,13 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Contains methods for running functions in a non-blocking way</p>
-<p>NOTE: Might be removed at a later point in time or rewritten/restructured completely</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Run methods in a non-blocking manner</p>
 </div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Async_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>Might be removed at some point if little or no usage is found</p>
+</div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Async" data-uid="SystemLibrary.Common.Net.Async" class="text-break h1-class-header">Async
@@ -240,17 +244,22 @@
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Run all actions seperately in a non-blocking way</p>
-<p>Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
-Actions passed to the method will run till completion or till main thread is shutdown</p>
-<p>Each action passed is ran in a try-catch without 'ever' crashing the callee.</p>
-<p>See the overloaded method if you want to handle exceptions that might occur running your 'actions'</p>
+<p>Each action passed is ran in a try catch without notifying callee</p>
+<p>See the overloaded method to add a callback for logging exceptions</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action____remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>All functions passed to this is ran in an unordered and non-blocking way</p>
+<p>All functions passed will run till completion, erroring or till main thread is shut down</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_FireAndForget_System_Action___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L183">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L189">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_FireAndForget_" data-uid="SystemLibrary.Common.Net.Async.FireAndForget*"></a>
@@ -281,7 +290,7 @@ Actions passed to the method will run till completion or till main thread is shu
   						<tr>
   							<td><span class="xref">System.Action</span>[]</td>
   							<td><span class="parametername">actions</span></td>
-  							<td><p>Fire and forget actions...</p>
+  							<td><p>Array of methods to invoke in a non-blocking way</p>
 </td>
   						</tr>
   					</tbody>
@@ -294,22 +303,26 @@ Actions passed to the method will run till completion or till main thread is shu
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Run all actions seperately in a non-blocking way</p>
-<p>Once FireAndForget() is invoked, your code continues executing, as all actions passed runs in a non-blocking way, in an unordered way.
-Actions passed to the method will run till completion or till main thread is shutdown</p>
-<p>Each action passed is ran in a try-catch without 'ever' crashing the callee.</p>
-<ul>
-<li>Pass in onError callback which executes if any exception is thrown</li>
-</ul>
+<p>Each action passed is ran in a try catch without notifying callee</p>
+<p>See the overloaded method if you want to ignore exceptions</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_Exception__System_Action____remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>All functions passed to this is ran in an unordered and non-blocking way</p>
+<p>All functions passed will run till completion, erroring or till main thread is shut down</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_Exception__System_Action___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L144">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L149">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_FireAndForget_" data-uid="SystemLibrary.Common.Net.Async.FireAndForget*"></a>
@@ -340,12 +353,14 @@ Actions passed to the method will run till completion or till main thread is shu
   						<tr>
   							<td><span class="xref">System.Action</span>&lt;<span class="xref">System.Exception</span>&gt;</td>
   							<td><span class="parametername">onError</span></td>
-  							<td></td>
+  							<td><p>Callback invoked if an exception occured</p>
+</td>
   						</tr>
   						<tr>
   							<td><span class="xref">System.Action</span>[]</td>
   							<td><span class="parametername">actions</span></td>
-  							<td></td>
+  							<td><p>Array of methods to invoke in a non-blocking way</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -357,16 +372,18 @@ Actions passed to the method will run till completion or till main thread is shu
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending each single result to a list, and it halts execution till all functions passed as params has completed</p>
+  		<div class="markdown level1 summary member-summary"><p>Execute methods in an async manner, appending each single result to a list, and it halts execution till all functions passed as params has completed</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_Run__1_System_Func___0____">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L45">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L46">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
@@ -390,13 +407,13 @@ class CarApi {
 
 var carApi = new CarApi();
 var cars = Async.Run&lt;Car>(
-    () => carApi.GetByName(&quot;ferrari&quot;),
-    () => carApi.GetByName(&quot;volvo&quot;),
-    () => carApi.GetByName(&quot;tesla&quot;)
+    () => carApi.GetByName(&quot;blue&quot;),
+    () => carApi.GetByName(&quot;red&quot;),
+    () => carApi.GetByName(&quot;orange&quot;)
 ); 
 
 // Variable &apos;cars&apos; is filled after all three api requests has completed.
-// Assume we got 1 ferrari, 0 volvo and 1 tesla
+// Assume we got 1 blue, 0 red and 1 orange
 // &apos;cars&apos; now contain a total of 2 objects of type &apos;Car&apos;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
@@ -463,6 +480,7 @@ var cars = Async.Run&lt;Car>(
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Execute methods in a async manner, appending the range of results per function to the same list, and it halts execution till all functions passed as params has completed</p>
@@ -470,9 +488,10 @@ var cars = Async.Run&lt;Car>(
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L102">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L103">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Async_Run_" data-uid="SystemLibrary.Common.Net.Async.Run*"></a>
@@ -496,13 +515,13 @@ class CarApi {
 
 var carApi = new CarApi();
 var cars = Async.Run&lt;Car>(
-    () => carApi.GetByName(&quot;ferrari&quot;),
-    () => carApi.GetByName(&quot;volvo&quot;),
-    () => carApi.GetByName(&quot;tesla&quot;)
+    () => carApi.GetByName(&quot;blue&quot;),
+    () => carApi.GetByName(&quot;red&quot;),
+    () => carApi.GetByName(&quot;orange&quot;)
 ); 
 
 // Variable &apos;cars&apos; is filled after all three api requests has completed.
-// Assume we got 2 ferraris, 3 volvos and 4 teslas
+// Assume we got 2 blue, 3 red and 4 orange
 // &apos;cars&apos; now contain a total of 9 objects of type &apos;Car&apos;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
@@ -566,6 +585,7 @@ var cars = Async.Run&lt;Car>(
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -976,6 +996,29 @@ var cars = Async.Run&lt;Car>(
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1193,6 +1236,9 @@ var cars = Async.Run&lt;Car>(
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1208,7 +1254,7 @@ var cars = Async.Run&lt;Car>(
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Async/Async.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

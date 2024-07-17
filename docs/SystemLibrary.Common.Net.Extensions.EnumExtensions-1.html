@@ -198,13 +198,18 @@
   
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>This class contains extension methods for Enum as a Generic Type</p>
-<p>WARNING: Current version of C# does not allow extension methods 'generic types', hence these are static methods</p>
 </div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>Current version of C# does not allow extension methods 'generic types', hence these are static methods</p>
+</div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1" class="text-break h1-class-header">EnumExtensions&lt;TEnum&gt;
   </h1>
   <h1 id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1" class="h1-custom-display className">public static class EnumExtensions&lt;TEnum&gt;
+
     where TEnum : IComparable, IFormattable, IConvertible</h1>
   
   <div class="inheritance">
@@ -275,9 +280,10 @@
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetEnums">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L68">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L69">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetEnums_" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetEnums*"></a>
@@ -320,7 +326,7 @@ var enums = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetEnums
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEnum&gt;</td>
-  							<td><p>All keys in the enum as Enums</p>
+  							<td><p>IEnumerable of Enum of your choice</p>
 </td>
   						</tr>
   					</tbody>
@@ -332,16 +338,18 @@ var enums = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetEnums
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Get all keys in the Enum as enumerable of strings</p>
+  		<div class="markdown level1 summary member-summary"><p>Get all keys in the Enum as an IEnumerable of string</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetKeys">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L36">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L37">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetKeys_" data-uid="SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetKeys*"></a>
@@ -385,7 +393,7 @@ var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetKeys()
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-  							<td><p>All keys in the enum as strings</p>
+  							<td><p>Keys as an IEnumerable of string</p>
 </td>
   						</tr>
   					</tbody>
@@ -394,6 +402,7 @@ var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetKeys()
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -804,6 +813,29 @@ var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetKeys()
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1021,6 +1053,9 @@ var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetKeys()
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1036,7 +1071,7 @@ var keys = SystemLibrary.Common.Net.Extensions.EnumExtesions&lt;Color>.GetKeys()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/EnumExtensions.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -197,7 +197,7 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Extensions for streams like reading content as json directly into class through ToJsonAsync()</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Extensions for streams like reading content as json directly into class through JsonAsync()</p>
 </div>
   </div>
   
@@ -238,16 +238,16 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Read a stream as of 'json data' into a class T</p>
-<p>Usually used whenever receiving content from an API or similar over the network, and with the stream automatically convert its content in an async manner to your class</p>
-<p>Note: if you do not send in 'JsonSerializerOptions' the common ones from SystemLibrary will be used, which contain a 'String To Enum', 'Int to String' and some other additional converters than the standard that comes with System.Text.json</p>
+  		<div class="markdown level1 summary member-summary"><p>Reading a Stream async as JsonData converting it into a class T</p>
+<p>Used for instance when you read the content of a HttpResponse and directly converting it into T instead of storing as string first</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_JsonAsync__1_System_IO_Stream_System_Text_Json_JsonSerializerOptions_System_Threading_CancellationToken_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L26">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L25">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_JsonAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync*"></a>
@@ -258,7 +258,7 @@
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
   				<div class="codewrapper"><pre><code>using (var contentStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
-   return await contentStream.ToJsonAsync&lt;T>(jsonSerializerOptions).ConfigureAwait(false);</code></pre>
+   return await contentStream.JsonAsync&lt;T>(jsonSerializerOptions).ConfigureAwait(false);</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -323,7 +323,8 @@
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
-  							<td></td>
+  							<td><p>T or default</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -334,18 +335,23 @@
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Md5 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
-<p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as MD5</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_System_IO_Stream__remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L66">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L65">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash*"></a>
@@ -396,7 +402,8 @@ var hash = fileStream.ToMD5Hash();</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Md5 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -407,18 +414,23 @@ var hash = fileStream.ToMD5Hash();</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Md5 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
-<p>Tip: If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as MD5</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_System_IO_Stream__remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>If data is larger than ~200 bytes then .ToSha1Hash() is faster</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L48">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L47">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync*"></a>
@@ -469,7 +481,8 @@ var hash = fileStream.ToMD5HashAsync().Result;</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-  							<td></td>
+  							<td><p>Md5 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -480,18 +493,23 @@ var hash = fileStream.ToMD5HashAsync().Result;</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha1 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
-<p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as Sha1</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_System_IO_Stream__remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L84">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L83">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash*"></a>
@@ -542,7 +560,8 @@ var hash = fileStream.ToSha1Hash();</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Sha1 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -553,18 +572,23 @@ var hash = fileStream.ToSha1Hash();</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha1 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
-<p>Tip: If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as Sha1</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_System_IO_Stream__remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>If data is smaller than ~200 bytes then .ToMD5Hash() is faster</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L102">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L101">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync*"></a>
@@ -615,7 +639,8 @@ var hash = fileStream.ToSha1HashAsync().Result;</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-  							<td></td>
+  							<td><p>Sha1 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -626,17 +651,18 @@ var hash = fileStream.ToSha1HashAsync().Result;</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha256 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as Sha256</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L118">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L116">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash*"></a>
@@ -687,7 +713,8 @@ var hash = fileStream.ToSha256Hash();</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Sha256 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -698,17 +725,18 @@ var hash = fileStream.ToSha256Hash();</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Reads the stream to its end, hashing its content and returns the resulting Sha256 hash</p>
-<p>Returns null if stream is null or cannot be read</p>
+  		<div class="markdown level1 summary member-summary"><p>Reads a stream and hashing its content as Sha256</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_System_IO_Stream_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L134">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StreamExtensions.cs/#L131">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_" data-uid="SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync*"></a>
@@ -759,7 +787,8 @@ var hash = fileStream.ToSha256HashAsync().Result;</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-  							<td></td>
+  							<td><p>Sha256 hash or null if unreadable stream</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -767,6 +796,7 @@ var hash = fileStream.ToSha256HashAsync().Result;</code></pre>
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -1177,6 +1207,29 @@ var hash = fileStream.ToSha256HashAsync().Result;</code></pre>
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1393,6 +1446,9 @@ var hash = fileStream.ToSha256HashAsync().Result;</code></pre>
   	setTimeout(() => hideSourceLinksForDocfxHideAttribute(), 35);
   
   	setTimeout(addEventsToTabCloseButtons, 40);
+  
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
   
   	//setTimeout(removeEmptyPopups, 50);
   </script>

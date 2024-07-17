@@ -197,7 +197,8 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"></div>
+    <div class="markdown level0 summary h1-class-summary"><p>EnvironmentConfig with option to bass a Configuration class on your own and a Enum that defines all environment names</p>
+</div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_EnvironmentConfig_2" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2" class="text-break h1-class-header">EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;
@@ -283,9 +284,10 @@
   
   <div class="custom-container">
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L14">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L13">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName_" data-uid="SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName*"></a>
@@ -320,15 +322,15 @@
   	</tbody>
   </table>
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns environment name based on 'ASPNETCORE_ENVIRONMENT' variable passed to the startup of your application</p>
-<p>Note: This 'name' is used for transformations for configurations you've created that inherits Config&lt;&gt;</p>
-<p>Note: Transformations are ran before 'name' here is returned for file 'environmentConfig.json' if it exists</p>
-<p>Note: changing environment name requires shell restart (iisreset for instance)</p>
+<p>Note: This &apos;name&apos; is used for transformations for configurations you&apos;ve created that inherits Config &lt;></p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
+  
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_EnvironmentConfig_2_Name">
   		<span class="small pull-right mobile-hide">
@@ -538,6 +540,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
   		</tr>
   	</tbody>
   </table>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div class="extensionmethods-content">
   	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean_">ObjectExtensions.Json(Object, Boolean)</a>
@@ -956,6 +959,29 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1173,6 +1199,9 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1188,7 +1217,7 @@ return: &quot;&quot; as &apos;name&apos;, never null</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/EnvironmentConfig/EnvironmentConfig.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

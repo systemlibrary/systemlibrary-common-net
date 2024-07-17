@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>SystemLibrary.Common.Net
+    <title>SystemLibrary.Common.Net.Global
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="SystemLibrary.Common.Net
+    <meta name="title" content="SystemLibrary.Common.Net.Global
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -189,59 +189,22 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Global">
   
-  <h1 id="SystemLibrary_Common_Net" data-uid="SystemLibrary.Common.Net" class="text-break">SystemLibrary.Common.Net
+  <h1 id="SystemLibrary_Common_Net_Global" data-uid="SystemLibrary.Common.Net.Global" class="text-break">SystemLibrary.Common.Net.Global
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.Assemblies.html">Assemblies</a></h4>
-      <section id="SystemLibrary.Common.Net.Assemblies--description"><p>Static functions running on loaded Assemblies in your application</p>
+      <h4><a class="xref" href="SystemLibrary.Common.Net.Global.Dump.html">Dump</a></h4>
+      <section id="SystemLibrary.Common.Net.Global.Dump--description"><p>Dump any object to a local file for easy debugging and logging purposes</p>
+<p>Dump.Write calls should only occur during development as it is slow</p>
 </section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.Async.html">Async</a></h4>
-      <section id="SystemLibrary.Common.Net.Async--description"><p>Run methods in a non-blocking manner</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.Config-1.html">Config&lt;T&gt;</a></h4>
-      <section id="SystemLibrary.Common.Net.Config`1--description"><p>Class to load and read configuration files (xml, json or config) as a Class with transformations if exist and with decrypting encrypted properties</p>
-<p>Configurations can be placed in either:</p>
-~/*.json, ~/*.xml, ~/Configs/**.[json|xml], or ~/Configurations/**.[json|xml]
-<p>Or appended to your existing &apos;appSettings.json&apos; file</p>
-<p>Transformations are ran based on the 'ASPNETCORE_ENVIRONMENT' variable passed to your application</p>
-<p>Recommended pointers:</p>
-- launchSettings.json when using IIS Express
-- web.config if you use IIS
-- mstest.runsettings if you run transformations in unit tests
-- commandline with --configuration if running as &apos;exe&apos;
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.DateTimeJsonConverter.html">DateTimeJsonConverter</a></h4>
-      <section id="SystemLibrary.Common.Net.DateTimeJsonConverter--description"><p>Use to convert a string to DateTime during Json() invocation with your own format</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html">DateTimeOffsetJsonConverter</a></h4>
-      <section id="SystemLibrary.Common.Net.DateTimeOffsetJsonConverter--description"><p>DateTime json converter that takes a string format</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html"></a></h4>
-      <section id="SystemLibrary.Common.Net.DocFxHide--description"></section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentConfig--description"><p>Standard class for environmental configurations read from environmentConfig.json if exists</p>
-<p>If you&apos;ve added more properties to environmentConfig.json than just the &apos;Name&apos; you&apos;d have to inherit &apos;EnvironmentConfig&lt;YourClass>&apos; and use that instead</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig-2.html">EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentConfig`2--description"><p>EnvironmentConfig with option to bass a Configuration class on your own and a Enum that defines all environment names</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.Services.html">Services</a></h4>
-      <section id="SystemLibrary.Common.Net.Services--description"><p>Services is a global way to reuse the configured service provider and collection</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.SystemType.html">SystemType</a></h4>
-      <section id="SystemLibrary.Common.Net.SystemType--description"><p>Static class containing common &quot;typeof&quot; calls for performance reasons</p>
-</section>
-    <h3 id="enums">Enums
-  </h3>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentName.html">EnvironmentName</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentName--description"><p>Enum list of common built-in environment names allowed</p>
-<p>Config tranformations and EnvironmentName will work with other env-names, but the IsLocal, IsTest, and IsProd will not</p>
+      <h4><a class="xref" href="SystemLibrary.Common.Net.Global.StringExtensions.html">StringExtensions</a></h4>
+      <section id="SystemLibrary.Common.Net.Global.StringExtensions--description"><p>This class contains extension methods for string</p>
+<p>StringExtensions exists in the global namespace</p>
 </section>
 </article>
           </div>

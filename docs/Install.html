@@ -401,7 +401,8 @@
 * Install SystemLibrary.Common.Net
 
 ## First time usage
-- Classes and methods can be used out of the box by including the namespace they live in
+- String extensions and Dump can be used out of the box as they are in the global namespace
+- Other classes and methods can be used by using the namespace they live in
 
 - Sample:
 !====!!====!!====!csharp  
@@ -417,7 +418,7 @@
 !====!!====!!====!
 
 ## Package Configurations
-* Below are all default and modifiable configurations for this package
+* All the default and configurable settings for this package.
 
 ###### appSettings.json:
 !====!!====!!====!json  
@@ -425,7 +426,7 @@
 		!????!systemLibraryCommonNet!????!: {
 			!????!debug!????!: false,
 			!????!dump!????!: {
-				!????!folder!????!: !????!%HomeDrive%\\Logs\\!????!,
+				!????!folder!????!: !????!%HomeDrive%/Logs/!????!,
 				!????!fileName!????!: !????!DumpWrite.log!????!,
 			},
 			!????!json!????!: {

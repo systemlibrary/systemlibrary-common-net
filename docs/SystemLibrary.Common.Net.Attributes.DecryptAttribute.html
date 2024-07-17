@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EnumTextAttribute
+    <title>DecryptAttribute
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="EnumTextAttribute
+    <meta name="title" content="DecryptAttribute
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -189,7 +189,7 @@
         <div class="article row grid-right">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute">
+            <article class="content wrap hideonload" id="_content" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute">
   
   
   <h6 style="margin-top: 10px; margin-bottom: 20px; visibility:hidden; display:none;"><strong style='visibility: hidden; display:none;'>Namespace</strong><a class="xref" href="SystemLibrary.Common.Net.Attributes.html">SystemLibrary.Common.Net.Attributes</a> <span class="h6-assembly-name" style="display: none; visibility: hidden;">SystemLibrary.Common.Net.dll</span></h6>
@@ -197,51 +197,54 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Decorate Enum Key with text</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Mark a property as the Decrypted value of an Encrypted Configuration Property</p>
+<p>The property marked must be Public, Instance, Get and Set.</p>
+<p>This attribute goes hand in hand with Config class, when a Config class is created it looks for which properties has this attribute and decrypts accordingly</p>
+<p>To decrypt properties must be encrypted through Encrypt() extension in this library that takes no Key/IV but the &quot;default&quot; youve specified</p>
 </div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>The PropertyName must be a property within this same class, and class must inherit Config to work automatically</p>
+<p>Attribute exists to read Config Properties that are public get;set;, but feel free to use Decrypt attribute yourself as it is not subject for breaking changes in near future</p>
+<p>The decryption occurs only once for the app life time, at the creation of the Configuration class</p>
+</div>
+    </div>
   </div>
   
-  <h1 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute" class="text-break h1-class-header">EnumTextAttribute
+  <h1 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute" class="text-break h1-class-header">DecryptAttribute
   </h1>
-  <h1 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute" class="h1-custom-display className">[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-public class EnumTextAttribute : Attribute</h1>
+  <h1 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute" class="h1-custom-display className">[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+public class DecryptAttribute : Attribute</h1>
   
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Attribute</span></div>
-    <div class="level2"><span class="xref">EnumTextAttribute</span></div>
+    <div class="level2"><span class="xref">DecryptAttribute</span></div>
   </div>
   
   
   <div class="custom-menu-data custom-menu-data-first">
-    <h5 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
     <div class="custom-menu-data-container custom-menu-data-container--example">
       <div class="custom-menu-data-class-example" style="display: none;">
         <div class="syslib-tab-menu-data--close">X</div>
-        <div class="codewrapper"><pre><code>enum Color 
+        <div class="codewrapper"><p>apiConfig.json:</p>
+<pre><code>{
+   token: &quot;An encrypted value of the token, store it safely in git as it is encrypted by a key/IV only you know!&quot;
+}</code></pre>
+<p>ApiConfig.cs:</p>
+<pre><code>class ApiConfig : Config
 {
-    [EnumText(&quot;Black Colored Text&quot;)]
-    Black,
-    White
-}
+   public string Token {get;set;} //Encrypted value...
 
-var color = Color.Black;
+    public string TokenDecrypted {get;set;} // Naming convention decrypting
+    public string TokenDecrypt {get;set;} // Naming convention decrypting
 
-var value = color.ToText();
-
-var value2 = Color.White.ToText();
-
-// &apos;value&apos; is now &quot;Black Colored Text&quot;
-// &apos;value2&apos; is now &quot;White&quot;, 
-// Note: .ToText() falls back to ToString() of the enum key
-
-var value = Color.White.GetEnumText();
-// &apos;value&apos; is now null, as White does not contain EnumTextAttribute
-
-var value = Color.Black.GetEnumText();
-// &apos;value&apos; is now a string with value &apos;Black Colored Text&apos; as &apos;Black&apos; has the EnumTextAttribute</code></pre>
+    [Decrypt(propertyName=&quot;Token&quot;)]
+    public string TokenDec {get;set;} // Attribute convention decrypting
+}</code></pre>
 </div>
         <div class="comment-examples-container-bottom"></div>
       </div>
@@ -250,7 +253,7 @@ var value = Color.Black.GetEnumText();
   
   
   <div class="custom-menu-data">
-    <h5 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
+    <h5 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute_arguments"><span class="custom-class-arguments custom-class-arguments-onclick">Arguments</span></h5>
   
     <div class="custom-menu-data-container">
       <div class="custom-menu-data-class-arguments" style="display: none;">
@@ -266,17 +269,22 @@ var value = Color.Black.GetEnumText();
   </h3>
   
   <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Set the property name that will be decrypted</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
   
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_System_String_">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumTextAttribute.cs/#L41">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Decrypt/DecryptAttribute.cs/#L50">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor*"></a>
+  	<a id="SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_System_String_" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor(System.String)" class="h4-custom-functionName">public EnumTextAttribute(string text = null)</h4>
+  		<h4 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_System_String_" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)" class="h4-custom-functionName">public DecryptAttribute(string propertyName = null)</h4>
   		<div class="custom-menu-data-container">
   
   			<div class="custom-menu-data-arguments" style="display: none;">
@@ -294,9 +302,8 @@ var value = Color.Black.GetEnumText();
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">text</span></td>
-  							<td><p>Set additional text metadata for the Enum key</p>
-</td>
+  							<td><span class="parametername">propertyName</span></td>
+  							<td></td>
   						</tr>
   					</tbody>
   				</table>
@@ -314,14 +321,14 @@ var value = Color.Black.GetEnumText();
   <div class="custom-container">
   
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_DecryptAttribute_PropertyName">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumTextAttribute.cs/#L38">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Decrypt/DecryptAttribute.cs/#L44">View Source</a>
   		</span>
   	</div>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text" data-uid="SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text" class="h4-custom-functionName">public string Text</h4>
+  		<h4 id="SystemLibrary_Common_Net_Attributes_DecryptAttribute_PropertyName" data-uid="SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName" class="h4-custom-functionName">public string PropertyName</h4>
   		<div class="custom-menu-data-container">
   
   			<div class="custom-menu-data-arguments" style="display: none;">
@@ -1026,7 +1033,7 @@ var value = Color.Black.GetEnumText();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumTextAttribute.cs/#L35" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Decrypt/DecryptAttribute.cs/#L41" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

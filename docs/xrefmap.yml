@@ -133,6 +133,31 @@ references:
   commentId: N:SystemLibrary.Common.Net.Attributes
   fullName: SystemLibrary.Common.Net.Attributes
   nameWithType: SystemLibrary.Common.Net.Attributes
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  name: DecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html
+  commentId: T:SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  nameWithType: DecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
+  name: DecryptAttribute(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute(System.String)
+  nameWithType: DecryptAttribute.DecryptAttribute(String)
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor*
+  name: DecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute
+  nameWithType: DecryptAttribute.DecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  name: PropertyName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute_PropertyName
+  commentId: F:SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  nameWithType: DecryptAttribute.PropertyName
 - uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute
   name: EnumTextAttribute
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html
@@ -971,6 +996,57 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json
   nameWithType: ObjectExtensions.Json
+- uid: SystemLibrary.Common.Net.Extensions.Randomness
+  name: Randomness
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.Randomness
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness
+  nameWithType: Randomness
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
+  name: Bytes(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Bytes_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
+  nameWithType: Randomness.Bytes(Int32)
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.Bytes*
+  name: Bytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Bytes_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.Bytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Bytes
+  nameWithType: Randomness.Bytes
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
+  name: Int(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
+  nameWithType: Randomness.Int(Int32)
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32,System.Int32)
+  name: Int(Int32, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_System_Int32_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32, System.Int32)
+  nameWithType: Randomness.Int(Int32, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int*
+  name: Int
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.Int
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int
+  nameWithType: Randomness.Int
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
+  name: String(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
+  nameWithType: Randomness.String(Int32)
+- uid: SystemLibrary.Common.Net.Extensions.Randomness.String*
+  name: String
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_String_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.String
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.Randomness.String
+  nameWithType: Randomness.String
 - uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
   name: ReadOnlySpanExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html
@@ -1305,6 +1381,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary
   nameWithType: TypeExtensions.IsDictionary
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  name: IsKeyValuePair(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  nameWithType: TypeExtensions.IsKeyValuePair(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair*
+  name: IsKeyValuePair
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair
+  nameWithType: TypeExtensions.IsKeyValuePair
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray(System.Type)
   name: IsListOrArray(Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsListOrArray_System_Type_
@@ -1318,6 +1407,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray
   nameWithType: TypeExtensions.IsListOrArray
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type,System.String,System.Object)
+  name: SetStaticMember(Type, String, Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_System_Type_System_String_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type,System.String,System.Object)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type, System.String, System.Object)
+  nameWithType: TypeExtensions.SetStaticMember(Type, String, Object)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember*
+  name: SetStaticMember
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember
+  nameWithType: TypeExtensions.SetStaticMember
 - uid: SystemLibrary.Common.Net.Extensions.UriExtensions
   name: UriExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html
@@ -1337,6 +1439,846 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain
   nameWithType: UriExtensions.GetPrimaryDomain
+- uid: SystemLibrary.Common.Net.Global
+  name: SystemLibrary.Common.Net.Global
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html
+  commentId: N:SystemLibrary.Common.Net.Global
+  fullName: SystemLibrary.Common.Net.Global
+  nameWithType: SystemLibrary.Common.Net.Global
+- uid: SystemLibrary.Common.Net.Global.Dump
+  name: Dump
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html
+  commentId: T:SystemLibrary.Common.Net.Global.Dump
+  fullName: SystemLibrary.Common.Net.Global.Dump
+  nameWithType: Dump
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear
+  name: Clear()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Clear
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear()
+  nameWithType: Dump.Clear()
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear*
+  name: Clear
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Clear
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear
+  nameWithType: Dump.Clear
+- uid: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  name: Write(Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  nameWithType: Dump.Write(Object)
+- uid: SystemLibrary.Common.Net.Global.Dump.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write
+  nameWithType: Dump.Write
+- uid: SystemLibrary.Common.Net.Global.StringExtensions
+  name: StringExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Global.StringExtensions
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions
+  nameWithType: StringExtensions
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String,System.Text.Encoding)
+  name: Compress(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Compress_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.Compress(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Compress*
+  name: Compress
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Compress_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Compress
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Compress
+  nameWithType: StringExtensions.Compress
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])
+  name: ContainsAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])
+  name.vb: ContainsAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.String())
+  nameWithType: StringExtensions.ContainsAny(String, String[])
+  nameWithType.vb: StringExtensions.ContainsAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*
+  name: ContainsAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny
+  nameWithType: StringExtensions.ContainsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String,System.Text.Encoding)
+  name: Decompress(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decompress_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.Decompress(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decompress*
+  name: Decompress
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decompress_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Decompress
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decompress
+  nameWithType: StringExtensions.Decompress
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Boolean)
+  name: Decrypt(String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name: Decrypt(String, Byte[], Byte[], Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Byte___System_Byte___System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name.vb: Decrypt(String, Byte(), Byte(), Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Byte[], System.Byte[], System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Byte(), System.Byte(), System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, Byte[], Byte[], Boolean)
+  nameWithType.vb: StringExtensions.Decrypt(String, Byte(), Byte(), Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.String,System.String,System.Boolean)
+  name: Decrypt(String, String, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_String_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.String,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.String, System.String, System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, String, String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt*
+  name: Decrypt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt
+  nameWithType: StringExtensions.Decrypt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  name: DecryptUsingKeyRing(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  nameWithType: StringExtensions.DecryptUsingKeyRing(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing*
+  name: DecryptUsingKeyRing
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing
+  nameWithType: StringExtensions.DecryptUsingKeyRing
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String,System.Int32)
+  name: Deobfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Deobfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate*
+  name: Deobfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate
+  nameWithType: StringExtensions.Deobfuscate
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Boolean)
+  name: Encrypt(String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name: Encrypt(String, Byte[], Byte[], Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Byte___System_Byte___System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name.vb: Encrypt(String, Byte(), Byte(), Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Byte[], System.Byte[], System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Byte(), System.Byte(), System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, Byte[], Byte[], Boolean)
+  nameWithType.vb: StringExtensions.Encrypt(String, Byte(), Byte(), Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.String,System.String,System.Boolean)
+  name: Encrypt(String, String, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_String_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.String,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.String, System.String, System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, String, String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt*
+  name: Encrypt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt
+  nameWithType: StringExtensions.Encrypt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  name: EncryptUsingKeyRing(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  nameWithType: StringExtensions.EncryptUsingKeyRing(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing*
+  name: EncryptUsingKeyRing
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing
+  nameWithType: StringExtensions.EncryptUsingKeyRing
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])
+  name: EndsWithAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])
+  name.vb: EndsWithAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.String())
+  nameWithType: StringExtensions.EndsWithAny(String, String[])
+  nameWithType.vb: StringExtensions.EndsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*
+  name: EndsWithAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
+  nameWithType: StringExtensions.EndsWithAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
+  name: EndsWithAnyCaseInsensitive(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
+  name.vb: EndsWithAnyCaseInsensitive(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String())
+  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive(String, String[])
+  nameWithType.vb: StringExtensions.EndsWithAnyCaseInsensitive(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*
+  name: EndsWithAnyCaseInsensitive
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
+  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
+  name: EndsWithAnyCharacter(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String, System.String)
+  nameWithType: StringExtensions.EndsWithAnyCharacter(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter*
+  name: EndsWithAnyCharacter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter
+  nameWithType: StringExtensions.EndsWithAnyCharacter
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  name: FromBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.FromBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64*
+  name: FromBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64
+  nameWithType: StringExtensions.FromBase64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  name: FromBase64AsBytes(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  nameWithType: StringExtensions.FromBase64AsBytes(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes*
+  name: FromBase64AsBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes
+  nameWithType: StringExtensions.FromBase64AsBytes
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  name: GetBytes(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.GetBytes(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes*
+  name: GetBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.GetBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes
+  nameWithType: StringExtensions.GetBytes
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  name: GetPrimaryDomain(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  nameWithType: StringExtensions.GetPrimaryDomain(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain*
+  name: GetPrimaryDomain
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  nameWithType: StringExtensions.GetPrimaryDomain
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  name: HexDarkenOrLighten(String, Double, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String, System.Double, System.Boolean)
+  nameWithType: StringExtensions.HexDarkenOrLighten(String, Double, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*
+  name: HexDarkenOrLighten
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  nameWithType: StringExtensions.HexDarkenOrLighten
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  name: HtmlDecode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  nameWithType: StringExtensions.HtmlDecode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode*
+  name: HtmlDecode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode
+  nameWithType: StringExtensions.HtmlDecode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  name: HtmlEncode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  nameWithType: StringExtensions.HtmlEncode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode*
+  name: HtmlEncode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode
+  nameWithType: StringExtensions.HtmlEncode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  name: Is(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  nameWithType: StringExtensions.Is(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name: Is(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name.vb: Is(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String())
+  nameWithType: StringExtensions.Is(String, String[])
+  nameWithType.vb: StringExtensions.Is(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is
+  nameWithType: StringExtensions.Is
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])
+  name: IsAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])
+  name.vb: IsAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String, System.String())
+  nameWithType: StringExtensions.IsAny(String, String[])
+  nameWithType.vb: StringExtensions.IsAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsAny*
+  name: IsAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny
+  nameWithType: StringExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  name: IsJson(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  nameWithType: StringExtensions.IsJson(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson*
+  name: IsJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsJson
+  nameWithType: StringExtensions.IsJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String,System.String[])
+  name: IsNot(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String,System.String[])
+  name.vb: IsNot(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String, System.String())
+  nameWithType: StringExtensions.IsNot(String, String[])
+  nameWithType.vb: StringExtensions.IsNot(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsNot
+  nameWithType: StringExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json*
+  name: Json
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Json
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json
+  nameWithType: StringExtensions.Json
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions,System.Boolean)
+  name: Json<T>(String, JsonSerializerOptions, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_JsonSerializerOptions_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions,System.Boolean)
+  name.vb: Json(Of T)(String, JsonSerializerOptions, Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.JsonSerializerOptions, System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.JsonSerializerOptions, System.Boolean)
+  nameWithType: StringExtensions.Json<T>(String, JsonSerializerOptions, Boolean)
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonSerializerOptions, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name: Json<T>(String, JsonConverter[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_Serialization_JsonConverter___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name.vb: Json(Of T)(String, JsonConverter())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.Serialization.JsonConverter[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.Serialization.JsonConverter())
+  nameWithType: StringExtensions.Json<T>(String, JsonConverter[])
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonConverter())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
+  name: MaxLength(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String, System.Int32)
+  nameWithType: StringExtensions.MaxLength(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength*
+  name: MaxLength
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
+  nameWithType: StringExtensions.MaxLength
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String,System.Int32)
+  name: Obfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Obfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate*
+  name: Obfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate
+  nameWithType: StringExtensions.Obfuscate
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name: OrFirstOf(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name.vb: OrFirstOf(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String())
+  nameWithType: StringExtensions.OrFirstOf(String, String[])
+  nameWithType.vb: StringExtensions.OrFirstOf(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf*
+  name: OrFirstOf
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  nameWithType: StringExtensions.OrFirstOf
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*
+  name: PartialJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  nameWithType: StringExtensions.PartialJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name: PartialJson<T>(String, String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: PartialJson(Of T)(String, String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson<T>(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.PartialJson<T>(String, String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.PartialJson(Of T)(String, String, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name: ReplaceAllWith(String, String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ReplaceAllWith_System_String_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name.vb: ReplaceAllWith(String, String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String, System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String, System.String, System.String())
+  nameWithType: StringExtensions.ReplaceAllWith(String, String, String[])
+  nameWithType.vb: StringExtensions.ReplaceAllWith(String, String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith*
+  name: ReplaceAllWith
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ReplaceAllWith_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith
+  nameWithType: StringExtensions.ReplaceAllWith
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
+  name: StartsWithAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
+  name.vb: StartsWithAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.String())
+  nameWithType: StringExtensions.StartsWithAny(String, String[])
+  nameWithType.vb: StringExtensions.StartsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*
+  name: StartsWithAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny
+  nameWithType: StringExtensions.StartsWithAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
+  name: ToAppPath(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
+  nameWithType: StringExtensions.ToAppPath(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath*
+  name: ToAppPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath
+  nameWithType: StringExtensions.ToAppPath
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  name: ToBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.ToBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64
+  nameWithType: StringExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  name: toCamelCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  nameWithType: StringExtensions.toCamelCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase*
+  name: toCamelCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  nameWithType: StringExtensions.toCamelCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String,System.String)
+  name: ToDateTime(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String, System.String)
+  nameWithType: StringExtensions.ToDateTime(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime*
+  name: ToDateTime
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime
+  nameWithType: StringExtensions.ToDateTime
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  name: ToDateTimeOffset(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String, System.String)
+  nameWithType: StringExtensions.ToDateTimeOffset(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset*
+  name: ToDateTimeOffset
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  nameWithType: StringExtensions.ToDateTimeOffset
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
+  name: ToEnum(String, Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_System_String_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String, System.Type)
+  nameWithType: StringExtensions.ToEnum(String, Type)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum*
+  name: ToEnum
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum
+  nameWithType: StringExtensions.ToEnum
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)
+  name: ToEnum<T>(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)
+  name.vb: ToEnum(Of T)(String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum<T>(System.String)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(Of T)(System.String)
+  nameWithType: StringExtensions.ToEnum<T>(String)
+  nameWithType.vb: StringExtensions.ToEnum(Of T)(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  name: ToInt(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  nameWithType: StringExtensions.ToInt(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt*
+  name: ToInt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToInt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt
+  nameWithType: StringExtensions.ToInt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  name: ToInt64(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  nameWithType: StringExtensions.ToInt64(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64*
+  name: ToInt64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToInt64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64
+  nameWithType: StringExtensions.ToInt64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  name: ToLetterAndDigits(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  nameWithType: StringExtensions.ToLetterAndDigits(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits*
+  name: ToLetterAndDigits
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits
+  nameWithType: StringExtensions.ToLetterAndDigits
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  name: ToMD5Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  nameWithType: StringExtensions.ToMD5Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash
+  nameWithType: StringExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  name: ToPascalCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  nameWithType: StringExtensions.ToPascalCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase*
+  name: ToPascalCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  nameWithType: StringExtensions.ToPascalCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  name: ToSha1Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  nameWithType: StringExtensions.ToSha1Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash
+  nameWithType: StringExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  name: ToSha256Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  nameWithType: StringExtensions.ToSha256Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  nameWithType: StringExtensions.ToSha256Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  name: ToUtf8BOM(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  nameWithType: StringExtensions.ToUtf8BOM(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM*
+  name: ToUtf8BOM
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM
+  nameWithType: StringExtensions.ToUtf8BOM
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  name: TranslateUnicodeCodepoints(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  nameWithType: StringExtensions.TranslateUnicodeCodepoints(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints*
+  name: TranslateUnicodeCodepoints
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints
+  nameWithType: StringExtensions.TranslateUnicodeCodepoints
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name: TrimEnd(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name.vb: TrimEnd(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String())
+  nameWithType: StringExtensions.TrimEnd(String, String[])
+  nameWithType.vb: StringExtensions.TrimEnd(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*
+  name: TrimEnd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  nameWithType: StringExtensions.TrimEnd
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  name: UriDecode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  nameWithType: StringExtensions.UriDecode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode*
+  name: UriDecode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  nameWithType: StringExtensions.UriDecode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  name: UriEncode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  nameWithType: StringExtensions.UriEncode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode*
+  name: UriEncode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  nameWithType: StringExtensions.UriEncode
+- uid: SystemLibrary.Common.Net.Services
+  name: Services
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html
+  commentId: T:SystemLibrary.Common.Net.Services
+  fullName: SystemLibrary.Common.Net.Services
+  nameWithType: Services
+- uid: SystemLibrary.Common.Net.Services.AddScoped*
+  name: AddScoped
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddScoped_
+  commentId: Overload:SystemLibrary.Common.Net.Services.AddScoped
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.AddScoped
+  nameWithType: Services.AddScoped
+- uid: SystemLibrary.Common.Net.Services.AddScoped``2
+  name: AddScoped<T, TImpementation>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddScoped__2
+  commentId: M:SystemLibrary.Common.Net.Services.AddScoped``2
+  name.vb: AddScoped(Of T, TImpementation)()
+  fullName: SystemLibrary.Common.Net.Services.AddScoped<T, TImpementation>()
+  fullName.vb: SystemLibrary.Common.Net.Services.AddScoped(Of T, TImpementation)()
+  nameWithType: Services.AddScoped<T, TImpementation>()
+  nameWithType.vb: Services.AddScoped(Of T, TImpementation)()
+- uid: SystemLibrary.Common.Net.Services.AddSingleton*
+  name: AddSingleton
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddSingleton_
+  commentId: Overload:SystemLibrary.Common.Net.Services.AddSingleton
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.AddSingleton
+  nameWithType: Services.AddSingleton
+- uid: SystemLibrary.Common.Net.Services.AddSingleton``2
+  name: AddSingleton<T, TImpementation>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddSingleton__2
+  commentId: M:SystemLibrary.Common.Net.Services.AddSingleton``2
+  name.vb: AddSingleton(Of T, TImpementation)()
+  fullName: SystemLibrary.Common.Net.Services.AddSingleton<T, TImpementation>()
+  fullName.vb: SystemLibrary.Common.Net.Services.AddSingleton(Of T, TImpementation)()
+  nameWithType: Services.AddSingleton<T, TImpementation>()
+  nameWithType.vb: Services.AddSingleton(Of T, TImpementation)()
+- uid: SystemLibrary.Common.Net.Services.Configure
+  name: Configure()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure
+  commentId: M:SystemLibrary.Common.Net.Services.Configure
+  fullName: SystemLibrary.Common.Net.Services.Configure()
+  nameWithType: Services.Configure()
+- uid: SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Configure(IServiceCollection)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: Services.Configure(IServiceCollection)
+- uid: SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  name: Configure(IServiceProvider)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_System_IServiceProvider_
+  commentId: M:SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  fullName: SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  nameWithType: Services.Configure(IServiceProvider)
+- uid: SystemLibrary.Common.Net.Services.Configure*
+  name: Configure
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Configure
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Configure
+  nameWithType: Services.Configure
+- uid: SystemLibrary.Common.Net.Services.Get*
+  name: Get
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Get_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Get
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Get
+  nameWithType: Services.Get
+- uid: SystemLibrary.Common.Net.Services.Get``1
+  name: Get<T>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Get__1
+  commentId: M:SystemLibrary.Common.Net.Services.Get``1
+  name.vb: Get(Of T)()
+  fullName: SystemLibrary.Common.Net.Services.Get<T>()
+  fullName.vb: SystemLibrary.Common.Net.Services.Get(Of T)()
+  nameWithType: Services.Get<T>()
+  nameWithType.vb: Services.Get(Of T)()
+- uid: SystemLibrary.Common.Net.Services.Remove*
+  name: Remove
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Remove_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Remove
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Remove
+  nameWithType: Services.Remove
+- uid: SystemLibrary.Common.Net.Services.Remove``1
+  name: Remove<T>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Remove__1
+  commentId: M:SystemLibrary.Common.Net.Services.Remove``1
+  name.vb: Remove(Of T)()
+  fullName: SystemLibrary.Common.Net.Services.Remove<T>()
+  fullName.vb: SystemLibrary.Common.Net.Services.Remove(Of T)()
+  nameWithType: Services.Remove<T>()
+  nameWithType.vb: Services.Remove(Of T)()
 - uid: SystemLibrary.Common.Net.SystemType
   name: SystemType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html
@@ -1427,6 +2369,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.GuidType
   fullName: SystemLibrary.Common.Net.SystemType.GuidType
   nameWithType: SystemType.GuidType
+- uid: SystemLibrary.Common.Net.SystemType.ICollectionType
+  name: ICollectionType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ICollectionType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ICollectionType
+  fullName: SystemLibrary.Common.Net.SystemType.ICollectionType
+  nameWithType: SystemType.ICollectionType
 - uid: SystemLibrary.Common.Net.SystemType.IListType
   name: IListType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IListType
@@ -1469,6 +2417,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.IntTypeNullable
   fullName: SystemLibrary.Common.Net.SystemType.IntTypeNullable
   nameWithType: SystemType.IntTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.KeyValueType
+  name: KeyValueType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_KeyValueType
+  commentId: F:SystemLibrary.Common.Net.SystemType.KeyValueType
+  fullName: SystemLibrary.Common.Net.SystemType.KeyValueType
+  nameWithType: SystemType.KeyValueType
 - uid: SystemLibrary.Common.Net.SystemType.ListType
   name: ListType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ListType
@@ -1499,3 +2453,9 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
   fullName: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
   nameWithType: SystemType.TimeSpanTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.UriType
+  name: UriType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_UriType
+  commentId: F:SystemLibrary.Common.Net.SystemType.UriType
+  fullName: SystemLibrary.Common.Net.SystemType.UriType
+  nameWithType: SystemType.UriType

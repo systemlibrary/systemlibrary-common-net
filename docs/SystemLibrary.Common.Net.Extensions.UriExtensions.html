@@ -240,10 +240,11 @@
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns the domain part of the uri or blank, never null:</p>
-<p><a href="https://www.sub1.sub2.domain.com">https://www.sub1.sub2.domain.com</a> =&gt; domain.com</p>
+<p>https://www.sub1.sub2.domain.com => domain.com</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
+  
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String_">
   		<span class="small pull-right mobile-hide">
@@ -315,6 +316,7 @@ var result = new Uri(&apos;https://systemlibrary.github.io/systemlibrary-common-
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -725,6 +727,29 @@ var result = new Uri(&apos;https://systemlibrary.github.io/systemlibrary-common-
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -941,6 +966,9 @@ var result = new Uri(&apos;https://systemlibrary.github.io/systemlibrary-common-
   	setTimeout(() => hideSourceLinksForDocfxHideAttribute(), 35);
   
   	setTimeout(addEventsToTabCloseButtons, 40);
+  
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
   
   	//setTimeout(removeEmptyPopups, 50);
   </script>

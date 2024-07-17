@@ -197,7 +197,8 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"></div>
+    <div class="markdown level0 summary h1-class-summary"><p>Concurrent dictionary extensions</p>
+</div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions" data-uid="SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions" class="text-break h1-class-header">ConcurrentDictionaryExtensions
@@ -237,17 +238,22 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Try Get the item from the dictionary</p>
-<p>If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned</p>
-<p>NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner</p>
-<p>NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again</p>
+  		<div class="markdown level1 summary member-summary"><p>Get T from a static concurrent dictionary based on a key 'int' or adds it to dictionary before returnal</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0___remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+<p>You are responsible for when to instantiate the dictionary</p>
+Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L21">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L20">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache_" data-uid="SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache*"></a>
@@ -316,7 +322,8 @@
   					<tbody>
   						<tr>
   							<td><span class="xref">T</span></td>
-  							<td></td>
+  							<td><p>Returns T either from Cache or from the Method</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -327,19 +334,25 @@
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Try Get the item from the dictionary</p>
-<p>If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned</p>
-<p>NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner</p>
-<p>NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again</p>
+  		<div class="markdown level1 summary member-summary"><p>Get T from a static concurrent dictionary based on a key 'Type' or adds it to dictionary before returnal</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0___remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+<p>You are responsible for when to instantiate the dictionary</p>
+<p>Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again</p>
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L51">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L50">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache_" data-uid="SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache*"></a>
@@ -408,7 +421,8 @@
   					<tbody>
   						<tr>
   							<td><span class="xref">T</span></td>
-  							<td></td>
+  							<td><p>Returns T either from Cache or from the Method</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -419,19 +433,25 @@
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Try Get the item from the dictionary</p>
-<p>If item is not in dictionary, the method getItem is invoked and result is added to dictionary and returned</p>
-<p>NOTE: This is a static cache, objects lives as long as application runs in a thread-safe manner</p>
-<p>NOTE 2: Item limit per dictionary is 100K before it is emptied and started over again</p>
+  		<div class="markdown level1 summary member-summary"><p>Get T from a static concurrent dictionary based on a key 'string' or adds it to dictionary before returnal</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  	<div class="custom-remarks2">
+  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0___remarks">Remarks</h5>
+  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+<p>You are responsible for when to instantiate the dictionary</p>
+Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
+</div>
+  	</div>
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L83">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L82">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache_" data-uid="SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache*"></a>
@@ -500,7 +520,8 @@
   					<tbody>
   						<tr>
   							<td><span class="xref">T</span></td>
-  							<td></td>
+  							<td><p>Returns T either from Cache or from the Method</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -508,6 +529,7 @@
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -918,6 +940,29 @@
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1135,6 +1180,9 @@
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1150,7 +1198,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ConcurrentDictionaryExtensions.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

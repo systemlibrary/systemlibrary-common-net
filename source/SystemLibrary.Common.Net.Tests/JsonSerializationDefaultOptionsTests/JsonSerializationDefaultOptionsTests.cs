@@ -36,12 +36,12 @@ public class JsonSerializationDefaultOptionsTests
     [TestMethod]
     public void Json_To_Object_With_Custom_Converter()
     {
-        var html = "{ \"name\":\"Ferrari\", \"xhtml\":\"<h1>hello</h1>\"}";
+        var html = "{ \"name\":\"Red\", \"xhtml\":\"<h1>hello</h1>\"}";
 
         var car = html.Json<Car>(new XhtmlJsonConverter());
 
         Assert.IsTrue(car != null);
-        Assert.IsTrue(car.Name == "Ferrari", "Car name " + car.Name);
+        Assert.IsTrue(car.Name == "Red", "Car name " + car.Name);
         Assert.IsTrue(car.Xhtml.Text.Contains("hello"));
     }
 

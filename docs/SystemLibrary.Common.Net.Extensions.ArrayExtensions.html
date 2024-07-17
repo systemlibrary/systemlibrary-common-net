@@ -238,10 +238,11 @@
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Append one array with other arrays, returning a new array of elements</p>
+  		<div class="markdown level1 summary member-summary"><p>Add one array with another, resulting in a new array</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
+  
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0_____0_____">
   		<span class="small pull-right mobile-hide">
@@ -318,7 +319,7 @@ var arr3 = arr.Add(arr2);
   					<tbody>
   						<tr>
   							<td>T[]</td>
-  							<td><p>Returns null if everything is null, else a new array of items</p>
+  							<td><p>Returns null or a new array</p>
 </td>
   						</tr>
   					</tbody>
@@ -330,19 +331,19 @@ var arr3 = arr.Add(arr2);
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Add one array with another array, returning a new array of elements</p>
-<ul>
-<li>Pass a predicate method to filter out values</li>
-</ul>
+  		<div class="markdown level1 summary member-summary"><p>Add one array with another, resulting in a new array</p>
+<p>- Pass a predicate method to filter out values</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0___System_Func___0_System_Boolean____0_____">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ArrayExtensions.cs/#L42">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ArrayExtensions.cs/#L41">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add_" data-uid="SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add*"></a>
@@ -429,6 +430,7 @@ var arr3 = arr.Add((i) => i > 1, arr2);
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -839,6 +841,29 @@ var arr3 = arr.Add((i) => i > 1, arr2);
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1055,6 +1080,9 @@ var arr3 = arr.Add((i) => i > 1, arr2);
   	setTimeout(() => hideSourceLinksForDocfxHideAttribute(), 35);
   
   	setTimeout(addEventsToTabCloseButtons, 40);
+  
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
   
   	//setTimeout(removeEmptyPopups, 50);
   </script>

@@ -197,8 +197,14 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"><p>Add additional object data to an Enum Key</p>
+    <div class="markdown level0 summary h1-class-summary"><p>Decorate Enum Key with a value</p>
 </div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>The string extension Json() will try matching a value in a json-string to the EnumValue specified first, and fall back to normal behavior if no match</p>
+<p>The string extension Json() will output the EnumValue if specified, when converting a class to json-string</p>
+</div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute" class="text-break h1-class-header">EnumValueAttribute
@@ -275,9 +281,10 @@ var value = Color.Black.GetEnumValue();
   
   <div class="custom-container">
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_System_Object_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L47">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L51">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_" data-uid="SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor*"></a>
@@ -313,14 +320,16 @@ var value = Color.Black.GetEnumValue();
   </div>
   
   
+  
   <h3 id="fields">Fields
   </h3>
   
   <div class="custom-container">
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Attributes_EnumValueAttribute_Value">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L45">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L49">View Source</a>
   		</span>
   	</div>
   
@@ -353,6 +362,7 @@ var value = Color.Black.GetEnumValue();
   		</tr>
   	</tbody>
   </table>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div class="extensionmethods-content">
   	<a class="xref" href="SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean_">ObjectExtensions.Json(Object, Boolean)</a>
@@ -771,6 +781,29 @@ var value = Color.Black.GetEnumValue();
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -988,6 +1021,9 @@ var value = Color.Black.GetEnumValue();
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1003,7 +1039,7 @@ var value = Color.Black.GetEnumValue();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L42" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Attributes/Enum/EnumValueAttribute.cs/#L46" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

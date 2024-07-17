@@ -197,7 +197,8 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"></div>
+    <div class="markdown level0 summary h1-class-summary"><p>Extension methods for ReadOnlySpan</p>
+</div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions" class="text-break h1-class-header">ReadOnlySpanExtensions
@@ -238,14 +239,14 @@
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Converts the ReadOnlySpan of Char to a byte array</p>
-<p>Returns null if input is null, else byte array</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_System_ReadOnlySpan_System_Char__System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L82">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L83">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes*"></a>
@@ -302,7 +303,8 @@ var bytes = textSpan.GetBytes();</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Byte</span>[]</td>
-  							<td></td>
+  							<td><p>Byte array or null if input was so</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -313,16 +315,18 @@ var bytes = textSpan.GetBytes();</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if the span is not null and length larger than 0 else false</p>
+  		<div class="markdown level1 summary member-summary"><p>Checks if span is not null and length is larger than 0</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is__1_System_ReadOnlySpan___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L20">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L22">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is*"></a>
@@ -389,7 +393,8 @@ var isSpan = textSpan.Is(); // True, span is not null</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Boolean</span></td>
-  							<td></td>
+  							<td><p>True or false</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -400,16 +405,18 @@ var isSpan = textSpan.Is(); // True, span is not null</code></pre>
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if the span is null or length is 0 else false</p>
+  		<div class="markdown level1 summary member-summary"><p>Checks if span is null or length is 0</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot__1_System_ReadOnlySpan___0__">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L35">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L38">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot*"></a>
@@ -476,7 +483,8 @@ var isSpan = textSpan.IsNot(); // False, as span is not null, and has text lengt
   					<tbody>
   						<tr>
   							<td><span class="xref">System.Boolean</span></td>
-  							<td></td>
+  							<td><p>True or false</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -487,17 +495,18 @@ var isSpan = textSpan.IsNot(); // False, as span is not null, and has text lengt
   
   
   
+  
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert a ReadOnlySpan to Base64 (only for Char type for time being)</p>
-<p>Returns null if input is null, else a Base64 representation of the input</p>
+  		<div class="markdown level1 summary member-summary"><p>Convert a ReadOnlySpan of char to Base64</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_System_ReadOnlySpan_System_Char__System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L52">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L54">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_" data-uid="SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64*"></a>
@@ -554,7 +563,8 @@ var base64 = textSpan.ToBase64();</code></pre>
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td></td>
+  							<td><p>Base64 string or null if input was so</p>
+</td>
   						</tr>
   					</tbody>
   				</table>
@@ -562,6 +572,7 @@ var base64 = textSpan.ToBase64();</code></pre>
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -972,6 +983,29 @@ var base64 = textSpan.ToBase64();</code></pre>
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -1189,6 +1223,9 @@ var base64 = textSpan.ToBase64();</code></pre>
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -1204,7 +1241,7 @@ var base64 = textSpan.ToBase64();</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/ReadOnlySpanExtensions.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

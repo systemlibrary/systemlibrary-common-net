@@ -198,8 +198,12 @@
   
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>This class contains extension methods for Dynamic objects</p>
-<p>WARNING: Current version of C# does not allow extension methods on 'dynamic', hence these are static methods</p>
 </div>
+    <div class="custom-remarks1">
+      <h5 id="SystemLibrary_Common_Net_Extensions_DynamicExtensions_remarks">Remarks</h5>
+      <div class="markdown level0 remarks"><p>Current version of C# does not allow extension methods on 'dynamic', hence these are static methods</p>
+</div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_Extensions_DynamicExtensions" data-uid="SystemLibrary.Common.Net.Extensions.DynamicExtensions" class="text-break h1-class-header">DynamicExtensions
@@ -245,9 +249,10 @@
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
+  
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_DynamicExtensions_Merge_System_Object_System_Object___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/DynamicExtensions.cs/#L49">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/DynamicExtensions.cs/#L50">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_DynamicExtensions_Merge_" data-uid="SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge*"></a>
@@ -334,6 +339,7 @@ var d = DynamicExtensions.Merge(a, b, c);
   		</div>
   	</div>
   </div>
+  
   
   
   
@@ -744,6 +750,29 @@ var d = DynamicExtensions.Merge(a, b, c);
   		);
   	}
   
+  	function addRemarksOnClickEvent(className) {
+  		var remarks = document.getElementsByClassName(className);
+  		if (remarks) {
+  			for (var i = 0; i < remarks.length; i++) {
+  				var remark = remarks[i];
+  				if (remark && remark.classList) {
+  					remark.addEventListener("click", function (e) {
+  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						if (!remarkTexts || !remarkTexts.length) {
+  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  						}
+  						if (remarkTexts && remarkTexts.length) {
+  							var remarkText = remarkTexts[0];
+  							if (remarkText) {
+  								remarkText.classList.toggle('visible');
+  							}
+  						}
+  					});
+  				}
+  			}
+  		}
+  	}
+  
   	function addEventDisplayMenuDataOnClickPart(partName) {
   		var i;
   
@@ -961,6 +990,9 @@ var d = DynamicExtensions.Merge(a, b, c);
   
   	setTimeout(addEventsToTabCloseButtons, 40);
   
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks1'), 50);
+  	setTimeout(() => addRemarksOnClickEvent('custom-remarks2'), 55);
+  
   	//setTimeout(removeEmptyPopups, 50);
   </script>
   
@@ -976,7 +1008,7 @@ var d = DynamicExtensions.Merge(a, b, c);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/DynamicExtensions.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/DynamicExtensions.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -1532,7 +1532,7 @@ public static partial class StringExtensions
     /// var html = "ampersand gt;";
     /// var encoded = html.HtmlDecode();
     /// // result equals >
-    /// // assume ampersand is the character, Microsofts Docfx limits, and their tactic on having XML as the doc...
+    /// // assume ampersand is the character, Microsofts Docfx has a ton of limits and their tactic to go with XML is to vomit of
     /// </code>
     /// </example>
     /// <returns>HtmlDecoded version of input, if input is null/empty it returns null/empty</returns>
