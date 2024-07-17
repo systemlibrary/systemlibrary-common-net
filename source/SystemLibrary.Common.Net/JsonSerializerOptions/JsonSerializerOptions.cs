@@ -7,7 +7,7 @@ using static SystemLibrary.Common.Net.AppSettings.PackageConfig;
 
 namespace SystemLibrary.Common.Net;
 
-static internal class GetJsonSerializerOptions
+static internal class _JsonSerializerOptions
 {
     static AppSettings Config => AppSettings.Current;
 

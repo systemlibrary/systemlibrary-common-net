@@ -14,5 +14,10 @@
 		<Authors>System Library</Authors>
 		<Optimize>true</Optimize>
 		<WarningLevel>4</WarningLevel>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<IncludeSymbols>False</IncludeSymbols>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+		<AnalysisLevel>none</AnalysisLevel>
 	</PropertyGroup>
 </Project>

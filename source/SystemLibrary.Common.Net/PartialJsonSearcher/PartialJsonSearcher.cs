@@ -8,7 +8,7 @@ internal static partial class PartialJsonSearcher
     {
         if (json.IsNot()) return default;
 
-        options = GetJsonSerializerOptions.Default(options);
+        options = _JsonSerializerOptions.Default(options);
 
         var documentOptions = GetJsonDocumentOptions(options);
 

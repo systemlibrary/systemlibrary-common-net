@@ -10,7 +10,7 @@
 * Install SystemLibrary.Common.Net
 
 ## First time usage
-- String extensions and Dump.Write can be used anywhere as they live in the global namespace
+- String extensions and Dump can be used out of the box as they are in the global namespace
 - Other classes and methods can be used by using the namespace they live in
 
 - Sample:

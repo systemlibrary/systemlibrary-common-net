@@ -1,4 +1,5 @@
 ﻿namespace SystemLibrary.Common.Net.Global;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,15 +19,13 @@ using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// This class contains extension methods for string
-/// 
-/// StringExtensions exists in the global namespace
+/// <para>StringExtensions exists in the global namespace</para>
 /// </summary>
 /// <example>
 /// <code>
 /// var result = "Hello world".Is()
 /// // result is 'true'
 /// </code>
-/// 
 /// <code>
 /// var result = "".IsNot();
 /// // result is 'true'
@@ -36,8 +35,7 @@ public static partial class StringExtensions
 {
     /// <summary>
     /// Returns data or the first fallback that exists
-    /// 
-    /// If all subsequent fallbacks are null, this returns ""
+    /// <para>If all subsequent fallbacks are null, this returns ""</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -45,7 +43,6 @@ public static partial class StringExtensions
     /// var text2 = "";
     /// var text3 = " ";
     /// var text4 = "hello";
-    /// 
     /// var result = text1.OrFirstOf(text2, text3, text4);
     /// // result is "hello" as the others are blank/empty
     /// </code>
@@ -65,9 +62,8 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Returns the domain part of the uri or blank, never null:
-    /// 
-    /// https://www.sub1.sub2.domain.com => domain.com
+    /// Returns the domain part of the uri or blank, never null, includes ".com":
+    /// <para>https://www.sub1.sub2.domain.com => domain.com</para>
     /// </summary>
     /// <inheritdoc cref="UriExtensions.GetPrimaryDomain"/>
     /// <example>
@@ -93,8 +89,7 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns a new string where all 'old values' are replaced with the 'newValue'
-    /// 
-    /// Does not throw on argument null
+    /// <para>Does not throw on argument null</para>
     /// </summary>
     /// <example>
     /// <code>
@@ -368,7 +363,6 @@ public static partial class StringExtensions
     /// <remarks>
     /// It does not check multiple spaces or new lines or tabs, so not the same as string.IsNullOrWhiteSpace()
     /// </remarks>
-    /// <returns>True or false</returns>
     /// <example>
     /// <code class="language-csharp hljs">
     /// //Old way: string.IsNullOrWhiteSpace(text);
@@ -382,6 +376,7 @@ public static partial class StringExtensions
     /// // result is false because two spaces counts as text in this function
     /// </code>
     /// </example>
+    /// <returns>True or false</returns>
     public static bool IsNot(this string text, params string[] additionalNotValues)
     {
         if (text == null || text.Length == 0) return true;
@@ -422,7 +417,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Check if string is not null, "" and " " and not any of the 'invalidTexts', else false
     /// 
-    /// Case sensitive
+    /// <para>Case sensitive</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -453,7 +448,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns a new string with digits and letters only
     /// 
-    /// Question marks, commas, exclamation marks, etc, are removed
+    /// <para>Question marks, commas, exclamation marks, etc, are removed</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -494,8 +489,8 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Trim the end of a string if it ends with any of the inputs
-    /// - It does not trim spaces, you must specify it as argument if so
-    /// - Not recursive, returns after the first trimming
+    /// <para>- It does not trim spaces, you must specify it as argument if so</para>
+    /// <para>- Not recursive, returns after the first trimming</para>
     /// - Case sensitive
     /// </summary>
     /// <example>
@@ -601,11 +596,11 @@ public static partial class StringExtensions
     /// <summary>
     /// Return a part of the json as T
     /// 
-    /// Searches through the json looking for a property that has the same name as T type, and outputs T
+    /// <para>Searches through the json looking for a property that has the same name as T type, and outputs T</para>
     /// 
-    /// Supports taking a 'search property path' seperated by a forward slash to the leaf property you want to convert to T, case insensitive
+    /// <para>Supports taking a 'search property path' seperated by a forward slash to the leaf property you want to convert to T, case insensitive</para>
     /// 
-    /// Throws if a node towards the leaf is not found when specifying a 'search property path'
+    /// <para>Throws if a node towards the leaf is not found when specifying a 'search property path'</para>
     /// 
     /// Throws if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
@@ -677,7 +672,7 @@ public static partial class StringExtensions
     /// </code>
     /// </example>
     /// <returns>Returns T or null if the leaf property do not exist</returns>
-    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, JsonSerializerOptions options = null)
+    public static T PartialJson<T>(this string json, string findPropertySearchPath = null, System.Text.Json.JsonSerializerOptions options = null)
     {
         return PartialJsonSearcher.Search<T>(json, findPropertySearchPath, options);
     }
@@ -685,9 +680,9 @@ public static partial class StringExtensions
     /// <summary>
     /// Convert string formatted json to object T
     /// 
-    /// Default options are: 
-    /// - case insensitive deserialization
-    /// - allows trailing commas
+    /// <para>Default options are: </para>
+    /// <para>- case insensitive deserialization</para>
+    /// <para>- allows trailing commas</para>
     /// 
     /// Throws exception if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
@@ -707,11 +702,11 @@ public static partial class StringExtensions
     /// </code>
     /// </example>
     /// <returns>Returns T or null if json is null or empty</returns>
-    public static T Json<T>(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
+    public static T Json<T>(this string json, System.Text.Json.JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false) where T : class
     {
         if (json.IsNot()) return default;
 
-        options = GetJsonSerializerOptions.Default(options);
+        options = _JsonSerializerOptions.Default(options);
 
         if (transformUnicodeCodepoints)
             json = json.TranslateUnicodeCodepoints();
@@ -722,7 +717,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Convert string formatted json to object T with your additional JsonConverters
     /// 
-    /// Throws exception if json has invalid formatted json text, does not throw on null/blank
+    /// <para>Throws exception if json has invalid formatted json text, does not throw on null/blank</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -747,7 +742,7 @@ public static partial class StringExtensions
     {
         if (json.IsNot()) return null;
 
-        var options = GetJsonSerializerOptions.Default(null, converters);
+        var options = _JsonSerializerOptions.Default(null, converters);
 
         return JsonSerializer.Deserialize<T>(json, options);
     }
@@ -755,10 +750,10 @@ public static partial class StringExtensions
     /// <summary>
     /// Darken or lighten a hex value by a factor
     /// 
-    /// - pass a positive factor to darken
-    /// - pass a negative factor to lighten
+    /// <para>- pass a positive factor to darken</para>
+    /// <para>- pass a negative factor to lighten</para>
     /// 
-    /// - factor is a number between 0 and 1
+    /// <para>- factor is a number between 0 and 1</para>
     /// 
     /// - pass auto: true, to automatically check difference in the new value, and if the diff is too small (almost same color), the value is rather darkened instead of lightened, or ligtened instead of darkened
     /// </summary>
@@ -917,7 +912,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Obfuscate a string to a different string with a salt
     /// 
-    /// Throws exception if salt is &lt;= 0, salt should be in range from 1 to 65000
+    /// <para>Throws exception if salt is &lt;= 0, salt should be in range from 1 to 65000</para>
     /// </summary>
     /// <remarks>
     /// Method .ToBase64() is faster if data is more than 400KB
@@ -936,9 +931,10 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Deobfuscate a string back to its readable state with a salt
-    /// 
-    /// Returns the text as it was before obfuscating, assuming you used the same salt value
     /// </summary>
+    /// <remarks>
+    /// Returns the text as it was before obfuscating, assuming you used the same salt value
+    /// </remarks>
     /// <example>
     /// <code>
     /// var value = "Hello world";
@@ -1009,7 +1005,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns uri encoded version of a string, usually safe as a query parameter in a url for instance
     /// 
-    /// For instance: A 'space' becomes %20, and a '+' sign becomes %2B
+    /// <para>For instance: A 'space' becomes %20, and a '+' sign becomes %2B</para>
     /// </summary>
     /// <example>
     /// <code>
@@ -1027,7 +1023,7 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns uri decoded version of a uri encoded string
-    /// Example: For instance: %20 becomes 'space', and %2B becomes '+'
+    /// <para>Example: For instance: %20 becomes 'space', and %2B becomes '+'</para>
     /// </summary>
     /// <example>
     /// <code>
@@ -1087,9 +1083,9 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns string as camel cased
     /// 
-    /// Each word's first letter is upper case
-    /// - words after a space or a dash
-    /// - except the very first letter, it is lower cased
+    /// <para>Each word's first letter is upper case</para>
+    /// <para>- words after a space or a dash</para>
+    /// <para>- except the very first letter, it is lower cased</para>
     /// 
     /// All other letters are lower cased
     /// </summary>
@@ -1133,7 +1129,7 @@ public static partial class StringExtensions
     /// <summary>
     /// Convert any uri to a application url, targetting files/folders inside your running app
     /// 
-    /// Assume app is hosted in C:/www/syslib/
+    /// <para>Assume app is hosted in C:/www/syslib/</para>
     /// 
     /// Examples: 
     /// http://www.systemlibrary.com/a returns C:\www\syslib\a 
@@ -1148,7 +1144,7 @@ public static partial class StringExtensions
     /// </summary>
     /// <remarks>
     /// Always returns URL's with forward slashes
-    /// Server Root Path is read from CurrentDomain["ContentRootPath"] with fallback to AppContext.BaseDirectory.Parent. If a folder in the returning path is /bin/ it will navigate to the parent of such a folder then return
+    /// <para>Server Root Path is read from CurrentDomain["ContentRootPath"] with fallback to AppContext.BaseDirectory.Parent. If a folder in the returning path is /bin/ it will navigate to the parent of such a folder then return</para>
     /// Remember that a URL is not a browser specific term, Uniform Resource Locator
     /// </remarks>
     /// <example>
@@ -1228,48 +1224,58 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// <para>Encrypt data with built-in key and IV</para>
-    /// 
-    /// Key is generated in order:
-    /// If services.AddDataProtection is registered
-    /// - file name of first data protection key file
-    /// - if no file: AppName is used, set during SetApplicationName()
-    /// - if still no key: uses Entry Assembly Name
-    /// <para>
-    /// Else
-    /// - Key: ABCDEFGHIJKLMNOPQRST123456789011
-    /// </para>
+    /// Encrypt data
+    /// <list>
+    /// <item>Key: If DataProtection has been setup</item>
+    /// <item>Filename of first data protection key file</item>
+    /// <item>if no file? AppName in SetApplicationName</item>
+    /// <item>if no appName? Entry Asm Name</item>
+    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// </list>
     /// IV:
-    /// A random IV is generated each time and appended to output
+    /// Random generated and appended to output
     /// </summary>
     /// <remarks>
-    /// - KeyDataProtection file must be an XML file, starting with "key-" to be used as a Key
-    /// - All built-in ways of using the Key is hashed first before being used as a 32 char key
-    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
+    /// - Data protection key file is a XML file, starting with "key-"
+    /// <para>- Built-in keys are always hashed before used as the Key</para>
+    /// - Optionally add IV to the fist 16 bytes of output, if not? IV is 16 bytes of 0
     /// </remarks>
     /// <example>
     /// <code>
-    /// var hello = "World";
-    /// var cipherText = hello.Encrypt();
-    /// var world = cipherText.Decrypt();
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt();
     /// </code>
     /// </example>
-    /// <returns>An encrypted base64 string where IV is first 16 bytes, or null/empty if input was so</returns>
-    public static string Encrypt(this string data)
+    /// <returns>Encrypted base64 string with IV in first 16 bytes, or null/empty if input was so</returns>
+    public static string Encrypt(this string data, bool addIV = true)
     {
-        return Cryptation.Encrypt(data, CryptationKey.Current, null, true).ToBase64();
+        return Cryptation.Encrypt(data, CryptationKey.Current, null, addIV).ToBase64();
     }
 
     /// <summary>
-    /// <para>Encrypt data with a key and an optional IV</para>
-    /// 
-    /// If IV is null, it will create a random IV if "add IV" is True, else 16 bytes of 0
+    /// Encrypt data with a key and an optional IV
+    /// <list>
+    /// <item>Key: If DataProtection has been setup</item>
+    /// <item>Filename of first data protection key file</item>
+    /// <item>if no file? AppName in SetApplicationName</item>
+    /// <item>if no appName? Entry Asm Name</item>
+    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// </list>
+    /// IV:
+    /// If null and 'addIV' is True, a random generated and appended to output, else 16 bytes of 0
     /// </summary>
     /// <remarks>
-    /// - Key must be 16 or 32 characters long
-    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
+    /// - Key must be 16 or 32 characters
+    /// <para>- Optionally add IV to the fist 16 bytes of output, if not? IV is 16 bytes of 0</para>
     /// </remarks>
-    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
+    /// <example>
+    /// <code>
+    /// var key = "16 or 32 chars...";
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt(key);
+    /// </code>
+    /// </example>
+    /// <returns>Encrypted base64 string with IV in first 16 bytes if 'addIV' was true, or null/empty if input was so</returns>
     public static string Encrypt(this string data, string key, string IV = null, bool addIV = false)
     {
         return Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV);
@@ -1277,14 +1283,28 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Encrypt data with a key and an optional IV
-    /// 
-    /// If IV is null, it will create a random IV if "add IV" is True, else 16 bytes of 0
+    /// <list>
+    /// <item>Key: If DataProtection has been setup</item>
+    /// <item>Filename of first data protection key file</item>
+    /// <item>if no file? AppName in SetApplicationName</item>
+    /// <item>if no appName? Entry Asm Name</item>
+    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// </list>
+    /// IV:
+    /// If null and 'addIV' is True, a random generated and appended to output, else 16 bytes of 0
     /// </summary>
     /// <remarks>
-    /// - Key must be 16 or 32 bytes long
-    /// - Choose between adding IV to the output, it will be the first 16 bytes if so
+    /// - Key must be 16 or 32 characters
+    /// <para>- Optionally add IV to the fist 16 bytes of output, if not? IV is 16 bytes of 0</para>
     /// </remarks>
-    /// <returns>An encrypted base64 string or null/empty if input was so</returns>
+    /// <example>
+    /// <code>
+    /// var key = "16 or 32 chars...".GetBytes();
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt(key);
+    /// </code>
+    /// </example>
+    /// <returns>Encrypted base64 string with IV in first 16 bytes if 'addIV' was true, or null/empty if input was so</returns>
     public static string Encrypt(this string data, byte[] key, byte[] IV = null, bool addIV = false)
     {
         if (key != null && key.Length != 16 && key.Length != 32)
@@ -1297,24 +1317,40 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypt data with built-in key and IV
-    /// 
-    /// cipherText is the result of the .Encrypt() method without arguments
+    /// Decrypt data
+    /// <para>cipherText is the result of the Encrypt() with same arguments</para>
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt();
+    /// var decrypted = encrypted.Decrypt();
+    /// </code>
+    /// </example>
     /// <returns>Decrypted string or null/empty if input was so</returns>
-    public static string Decrypt(this string cipherText)
+    public static string Decrypt(this string cipherText, bool addedIV = true)
     {
-        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, true);
+        return Cryptation.Decrypt(cipherText, CryptationKey.Current, null, addedIV);
     }
 
     /// <summary>
     /// Decrypts data with a key and an optional IV
+    /// 
+    /// <para>cipherText is the result of the .Encrypt() with same arguments</para>
     /// </summary>
     /// <remarks>
-    /// AddedIv must be true if you set 'addIV' to True during Encrypt()
+    /// 'addedIV' must be true if you set 'addIV' to 'true' during Encrypt()
     /// 
-    /// If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too
+    /// <para>If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too</para>
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// var key = "16 or 32 chars...";
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt(key);
+    /// var decrypted = encrypted.Decrypt(key);
+    /// </code>
+    /// </example>
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
     {
@@ -1323,12 +1359,20 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Decrypts data with a key and an optional IV
+    /// <para>cipherText is the result of the .Encrypt() with same arguments</para>
     /// </summary>
     /// <remarks>
     /// AddedIv must be true if you set 'addIV' to True during Encrypt()
-    /// 
-    /// If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too
+    /// <para>If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too</para>
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// var key = "16 or 32 chars...".GetBytes();
+    /// var data = "Hello world";
+    /// var encrypted = data.Encrypt(key);
+    /// var decrypted = encrypted.Decrypt(key);
+    /// </code>
+    /// </example>
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, byte[] key, byte[] IV = null, bool addedIV = false)
     {
@@ -1369,13 +1413,9 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Translate unicode code points to characters
-    /// 
-    /// Example: 
-    /// HellU+00F8 is converted into Hellø (NOR char oslash;)
-    /// 
-    /// and
-    /// 
-    /// Hell\u00F8 is converted also into Hellø (NOR char oslash;)
+    /// <para>Example: HellU+00F8 is converted into Hellø (NOR char oslash;)</para>
+    /// <para>and</para>
+    /// <para>Hell\u00F8 is converted also into Hellø (NOR char oslash;)</para>
     /// </summary>
     /// <returns>Translated text</returns>
     public static string TranslateUnicodeCodepoints(this string data)
@@ -1400,8 +1440,14 @@ public static partial class StringExtensions
     /// Compress the input data and return
     /// </summary>
     /// <remarks>
-    /// Returned value might be larger if the input is onl a character or two.
+    /// Returned value might be larger if the input is only a character or two.
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// var data = "Hello world";
+    /// var compressed = data.Compress();
+    /// </code>
+    /// </example>
     /// <returns>Compressed version of input as Base64, or null/empty if input was so</returns>
     public static string Compress(this string data, Encoding encoding = null)
     {
@@ -1426,6 +1472,14 @@ public static partial class StringExtensions
     /// <summary>
     /// Decompress compressed data and return the result
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var data = "Hello world";
+    /// var compressed = data.Compress();
+    /// var decompressed = compressed.Decompress();
+    /// Assert.IsTrue(data == decompressed);
+    /// </code>
+    /// </example>
     /// <param name="compressedData">A base64 compressed version of data</param>
     /// <returns>Decompressed version of input, or null/empty if input was so</returns>
     public static string Decompress(this string compressedData, Encoding encoding = null)
@@ -1453,9 +1507,15 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Html encode input and return the result
-    /// 
-    /// Example: &lt;p&gt; becomes & lt ; & gt ; (without spaces of course)
+    /// <para>Example: > becomes ampersandGT;</para>
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var html = ">";
+    /// var encoded = html.HtmlEncode();
+    /// // result contains ampersand gt; 
+    /// </code>
+    /// </example>
     /// <returns>HtmlEncoded version of input, if input is null/empty it returns null/empty</returns>
     public static string HtmlEncode(this string text)
     {
@@ -1467,9 +1527,16 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Html decode input and return the result
-    /// 
-    /// Example: &lt ;p& gt; (without spaces of course) becomes &lt;p&gt; 
+    /// <para>Example: ampersandGT; becomes ></para>
     /// </summary>
+    /// <example>
+    /// <code>
+    /// var html = "ampersand gt;";
+    /// var encoded = html.HtmlDecode();
+    /// // result equals >
+    /// // assume ampersand is the character, Microsofts Docfx limits, and their tactic on having XML as the doc...
+    /// </code>
+    /// </example>
     /// <returns>HtmlDecoded version of input, if input is null/empty it returns null/empty</returns>
     public static string HtmlDecode(this string htmlEncodedText)
     {
@@ -1506,9 +1573,7 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Convert string to integer
-    /// 
-    /// Returns 0 on empty/null strings
-    /// 
+    /// <para>Returns 0 on empty/null strings</para>
     /// Throws if string is not a number
     /// </summary>
     /// <returns>Converted string as Integer</returns>
@@ -1521,9 +1586,7 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Convert string to Int64
-    /// 
-    /// Returns 0 on empty/null strings
-    /// 
+    /// <para>Returns 0 on empty/null strings</para>
     /// Throws if string is not a number
     /// </summary>
     /// <returns>Converted string as Int64</returns>
@@ -1560,8 +1623,7 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Encrypt data which can be Decrypted through 'DecryptUsingKeyRing'
-    /// 
-    /// Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.
+    /// <para>Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.</para>
     /// </summary>
     public static string EncryptUsingKeyRing(this string data)
     {
@@ -1570,41 +1632,10 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Decrypt data that was Encrypted through 'EncryptUsingKeyRing'
-    /// 
-    /// Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.
+    /// <para>Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.</para>
     /// </summary>
     public static string DecryptUsingKeyRing(this string data)
     {
         return KeyRingProtector.Unprotect(data);
-    }
-
-    /// <summary>
-    /// Converts input date to a DateTime by trying different formats till successfully converted or throwing exception
-    /// </summary>
-    /// <example>
-    /// <code>
-    /// var date = "2000-12-24";
-    /// var dateTime = date.ToDateTime();
-    /// </code>
-    /// </example>
-    /// <returns>Returns DateTime.MinValue if input is too short</returns>
-    public static DateTime ToDateTime(this string date, string format = null)
-    {
-        return DateTime.MinValue;
-    }
-
-    /// <summary>
-    /// Converts input date to a DateTimeOffset by trying different formats till successfully converted or throwing exception
-    /// </summary>
-    /// <example>
-    /// <code>
-    /// var date = "2000-12-24";
-    /// var dateTime = date.ToDateTimeOffset();
-    /// </code>
-    /// </example>
-    /// <returns>Returns DateTimeOffset.MinValue if input is too short</returns>
-    public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
-    {
-        return DateTime.MinValue;
     }
 }

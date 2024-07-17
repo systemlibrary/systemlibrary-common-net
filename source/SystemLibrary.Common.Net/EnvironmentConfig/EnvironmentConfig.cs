@@ -1,9 +1,10 @@
 ﻿using System;
 
-using SystemLibrary.Common.Net.Attributes;
-
 namespace SystemLibrary.Common.Net;
 
+/// <summary>
+/// EnvironmentConfig with option to bass a Configuration class on your own and a Enum that defines all environment names
+/// </summary>
 public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
     where T : class
     where TEnvironmentNameEnum : struct, IComparable, IFormattable, IConvertible
@@ -25,13 +26,14 @@ public abstract class EnvironmentConfig<T, TEnvironmentNameEnum> : Config<T>
     string _Name;
     /// <summary>
     /// Returns environment name based on 'ASPNETCORE_ENVIRONMENT' variable passed to the startup of your application
-    /// 
-    /// <para>Note: This 'name' is used for transformations for configurations you've created that inherits Config&lt;&gt;</para>
-    /// 
-    /// <para>Note: Transformations are ran before 'name' here is returned for file 'environmentConfig.json' if it exists</para>
-    /// 
-    /// Note: changing environment name requires shell restart (iisreset for instance)
+    /// <para>Note: This 'name' is used for transformations for configurations you've created that inherits Config &lt;&gt;</para>
     /// </summary>
+    /// <remarks>
+    /// <list>
+    /// <item>Changing environment name requires shell restart (iisreset for instance)</item>
+    /// <item>Transformation for this class, EnvironmentConfig, is ran then based on ASPNETCORE_ENVIRONMENT passed. And a 'environmentConfig.someEnvName.json' file can also include a Name, which differs, which mean this Name in the transformed file is whats being returned</item>
+    /// </list>
+    /// </remarks>
     /// <example>
     /// Test Explorer
     /// <code class="language-xml hljs">
@@ -284,23 +286,4 @@ public class EnvironmentConfig : EnvironmentConfig<EnvironmentConfig, Environmen
             _ContentRootPathNotUsed = value;
         }
     }
-}
-
-public enum EnvironmentName
-{
-    [EnumValue("")]
-    None,
-    Local,
-    Dev,
-    Development,
-    UnitTest,
-    QA,
-    AT,
-    Stage,
-    Staging,
-    Test,
-    PreProd,
-    PreProduction,
-    Prod,
-    Production
 }

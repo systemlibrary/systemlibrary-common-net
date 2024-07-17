@@ -87,7 +87,6 @@ public static class StringBuilderExtensions
         return false;
     }
 
-    //Creds: https://stackoverflow.com/questions/1359948/why-doesnt-stringbuilder-have-indexof-method
     /// <summary>
     /// Returns the index of the text within the StringBuilder
     /// </summary>        
@@ -97,6 +96,7 @@ public static class StringBuilderExtensions
     /// <returns>Int or -1 if not found</returns>
     public static int IndexOf(this StringBuilder stringBuilder, string text, bool ignoreCase = false, int start = 0)
     {
+        //Creds: https://stackoverflow.com/questions/1359948/why-doesnt-stringbuilder-have-indexof-method
         if (stringBuilder == null) return -1;
 
         if (text == null) return -1;
@@ -151,8 +151,7 @@ public static class StringBuilderExtensions
 
     /// <summary>
     /// Replaces " with &quot; and single quote with &apos; within the StringBuilder
-    /// 
-    /// Throws on null argument
+    /// <para>Throws on null argument</para>
     /// </summary>
     public static void HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
@@ -174,8 +173,7 @@ public static class StringBuilderExtensions
 
     /// <summary>
     /// Replaces &quot; with " and &apos; with a single quote within the StringBuilder
-    /// 
-    /// Throws on null argument
+    /// <para>Throws on null argument</para>
     /// </summary>
     public static void HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {

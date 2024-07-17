@@ -22,22 +22,20 @@ Library with classes and methods for every &gt;=  .NET 7 application
 ## Latest Release Notes
 - 7.11.0.1
 - Json Encoder reused as a singleton (optimization)
-- Proof read somewhat all comments and adjusted accordingly
-- Added comments yet again to nuget package so consumers of package can see them through intellisense
-- Remarks removed from "comment", and added to the docs output website, hidden from intellisense
-- Return comment moved to return section instead of as "last part of comment"
-- ToServerMapPath() returns forward slashes paths to support Linux (breaking change)
-- ToServerMapPath() renamed to ToAppPath (breaking change)
+- Proof-read all comments and adjusted accordingly (fix)
+- Enabled (again) xml documentation file within nuget package for intellisense for consumers (feature)
+- ToServerMapPath() renamed to ToAppPath, and returns forward slashes to support *nix (breaking change)
 - Cryptation Env Key "SYSLIBCRYPTATIONKEY" removed (breaking change)
-- Cryptation Key and IV either defaults, based on your input, or auto based on 'data key file' (breaking change)
+- Cryptation Key and IV defaults to random generate IV and output IV (breaking change)
+- Cryptation Key default is based on DataProtection first, then AppName, AsmName then hardcoded value (breaking change)
 - Services (Service Locator) added, with Configure method for both ServiceCollection and ServiceProvider
 - TypeExtension.IsKeyValuePair() added
 
 #### Major breaking changes list
 - 7.10 to 7.11
-- Cryptation totally redone, Encrypt() now always generates random IV and IV is part of output cipher text
+- Cryptation rewritten, as Encrypt() now generates random IV and the IV is part of the cipher text
 - Cryptation Env. Key "SYSLIBCRYPTATIONKEY" removed
-- Services (a service locator) added
+- Services (a kind of service locator) added
  
 #### Version history 
 - View git history of this file if interested

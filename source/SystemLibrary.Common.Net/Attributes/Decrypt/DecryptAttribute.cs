@@ -14,31 +14,27 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// <remarks>
 /// The PropertyName must be a property within this same class, and class must inherit Config to work automatically
 /// 
-/// <para>Feel free to use this attribute in other scenarios as it most likely wont change name nor namespace in future versions</para>
-/// 
-/// But do note it is created to Decrypt an Encrypt Config Property  whenever the Config class is created and the decrypted value is a "singleton", it only decrypts once
+/// <para>Attribute exists to read Config Properties that are public get;set;, but feel free to use Decrypt attribute yourself as it is not subject for breaking changes in near future</para>
+/// <para>The decryption occurs only once for the app life time, at the creation of the Configuration class</para>
 /// </remarks>
 /// <example>
-/// Assume a config file:
+/// apiConfig.json:
 /// <code>
-/// api.json
 /// {
 ///    token: "An encrypted value of the token, store it safely in git as it is encrypted by a key/IV only you know!"
 /// }
 /// </code>
-/// Assume a cs file:
+/// ApiConfig.cs:
 /// <code>
-/// ApiConfig.cs
-/// 
 /// class ApiConfig : Config
 /// {
 ///    public string Token {get;set;} //Encrypted value...
 ///    
-///     public string TokenDecrypted {get;set;} // Auto decrypting based on name convention
-///     public string TokenDecrypt {get;set;} // Auto decrypting based on name convention
+///     public string TokenDecrypted {get;set;} // Naming convention decrypting
+///     public string TokenDecrypt {get;set;} // Naming convention decrypting
 ///     
 ///     [Decrypt(propertyName="Token")]
-///     public string TokenDec {get;set;} // Decrypt attribute specifies which property to decrypt
+///     public string TokenDec {get;set;} // Attribute convention decrypting
 /// }
 /// </code>
 /// </example>

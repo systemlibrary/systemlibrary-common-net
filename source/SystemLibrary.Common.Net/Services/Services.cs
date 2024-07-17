@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 namespace SystemLibrary.Common.Net;
 
 /// <summary>
-/// Service Locator
+/// Services is a global way to reuse the configured service provider and collection
 /// </summary>
 public static class Services
 {
@@ -14,27 +14,42 @@ public static class Services
 
     internal static IServiceProvider ServiceProviderInstance;
 
+    /// <summary>
+    /// Returns a new service collection
+    /// 
+    /// <para>Only a default JsonSerializerOpions has been registered</para>
+    /// </summary>
     public static IServiceCollection Configure()
     {
         ServiceCollectionInstance = new ServiceCollection();
+
+        ServiceCollectionInstance.AddSingleton(_JsonSerializerOptions.Default);
 
         return ServiceCollectionInstance;
     }
 
     /// <summary>
     /// Pass a reference to the Service Collection which will be used to add or remove services from
+    /// 
+    /// <para>A default JsonSerializerOpions will be added</para>
     /// </summary>
-    public static void Configure(IServiceCollection serviceCollection)
+    public static IServiceCollection Configure(IServiceCollection serviceCollection)
     {
         ServiceCollectionInstance = serviceCollection;
+
+        ServiceCollectionInstance.AddSingleton(_JsonSerializerOptions.Default);
+
+        return serviceCollection;
     }
 
     /// <summary>
     /// Pass a reference to the Service Provider which will be used to loook up services from
     /// </summary>
-    public static void Configure(IServiceProvider serviceProvider)
+    public static IServiceProvider Configure(IServiceProvider serviceProvider)
     {
         ServiceProviderInstance = serviceProvider;
+
+        return serviceProvider;
     }
 
     /// <summary>

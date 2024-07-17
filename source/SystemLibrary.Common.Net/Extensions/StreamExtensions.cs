@@ -26,7 +26,7 @@ public static class StreamExtensions
     {
         if (stream == null) return default;
 
-        options = GetJsonSerializerOptions.Default(options);
+        options = _JsonSerializerOptions.Default(options);
 
         return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken).ConfigureAwait(false);
     }
@@ -54,6 +54,7 @@ public static class StreamExtensions
     /// </summary>
     /// <remarks>
     /// If data is larger than ~200 bytes then .ToSha1Hash() is faster
+    /// </remarks>
     /// <example>
     /// <code>
     /// var fileStream = new FileStream(@"C:\file.txt", FileMode.Open);

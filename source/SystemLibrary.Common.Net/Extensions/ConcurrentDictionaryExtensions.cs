@@ -13,7 +13,7 @@ public static class ConcurrentDictionaryExtensions
     /// </summary>
     /// <remarks>
     /// The static concurrent dictionary lives as long as application runs
-    /// 
+    /// <para>You are responsible for when to instantiate the dictionary</para>
     /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
     /// </remarks>
     /// <returns>Returns T either from Cache or from the Method</returns>
@@ -43,7 +43,7 @@ public static class ConcurrentDictionaryExtensions
     /// </summary>
     /// <remarks>
     /// The static concurrent dictionary lives as long as application runs
-    /// 
+    /// <para>You are responsible for when to instantiate the dictionary</para>
     /// <para>Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again</para>
     /// </remarks>
     /// <returns>Returns T either from Cache or from the Method</returns>
@@ -75,7 +75,7 @@ public static class ConcurrentDictionaryExtensions
     /// </summary>
     /// <remarks>
     /// The static concurrent dictionary lives as long as application runs
-    /// 
+    /// <para>You are responsible for when to instantiate the dictionary</para>
     /// Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
     /// </remarks>
     /// <returns>Returns T either from Cache or from the Method</returns>

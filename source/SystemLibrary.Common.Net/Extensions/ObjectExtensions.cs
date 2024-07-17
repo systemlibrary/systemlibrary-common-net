@@ -85,7 +85,7 @@ public static class ObjectExtensions
     {
         if (obj == null) return null;
 
-        var options = GetJsonSerializerOptions.Default(null);
+        var options = _JsonSerializerOptions.Default(null);
 
         if (camelCase)
             options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
@@ -120,7 +120,7 @@ public static class ObjectExtensions
     {
         if (obj == null) return null;
 
-        options = GetJsonSerializerOptions.Default(options, jsonConverters);
+        options = _JsonSerializerOptions.Default(options, jsonConverters);
 
         if (!translateUnicodeCodepoints)
             return JsonSerializer.Serialize(obj, options);
@@ -155,7 +155,7 @@ public static class ObjectExtensions
     {
         if (obj == null) return null;
 
-        var options = GetJsonSerializerOptions.Default(null, jsonConverters);
+        var options = _JsonSerializerOptions.Default(null, jsonConverters);
 
         return JsonSerializer.Serialize(obj, options);
     }

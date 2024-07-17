@@ -24,10 +24,7 @@ partial class StringExtensions
             return DateTime.MinValue;
 
         if (l == 4)
-        {
             return new DateTime(Convert.ToInt32(date), 1, 1);
-        }
-
 
         if (DateTime.TryParse(date, out DateTime res))
             return res;
