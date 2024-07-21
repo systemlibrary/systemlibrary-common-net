@@ -996,57 +996,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json
   nameWithType: ObjectExtensions.Json
-- uid: SystemLibrary.Common.Net.Extensions.Randomness
-  name: Randomness
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html
-  commentId: T:SystemLibrary.Common.Net.Extensions.Randomness
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness
-  nameWithType: Randomness
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
-  name: Bytes(Int32)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Bytes_System_Int32_
-  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Bytes(System.Int32)
-  nameWithType: Randomness.Bytes(Int32)
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.Bytes*
-  name: Bytes
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Bytes_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.Bytes
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Bytes
-  nameWithType: Randomness.Bytes
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
-  name: Int(Int32)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_System_Int32_
-  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32)
-  nameWithType: Randomness.Int(Int32)
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32,System.Int32)
-  name: Int(Int32, Int32)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_System_Int32_System_Int32_
-  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32,System.Int32)
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int(System.Int32, System.Int32)
-  nameWithType: Randomness.Int(Int32, Int32)
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.Int*
-  name: Int
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_Int_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.Int
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.Int
-  nameWithType: Randomness.Int
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
-  name: String(Int32)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_String_System_Int32_
-  commentId: M:SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.String(System.Int32)
-  nameWithType: Randomness.String(Int32)
-- uid: SystemLibrary.Common.Net.Extensions.Randomness.String*
-  name: String
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.Randomness.html#SystemLibrary_Common_Net_Extensions_Randomness_String_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.Randomness.String
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.Randomness.String
-  nameWithType: Randomness.String
 - uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
   name: ReadOnlySpanExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html
@@ -1794,6 +1743,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny
   nameWithType: StringExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  name: IsFile(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsFile_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  nameWithType: StringExtensions.IsFile(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsFile*
+  name: IsFile
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsFile_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsFile
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsFile
+  nameWithType: StringExtensions.IsFile
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
   name: IsJson(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_System_String_
@@ -2184,6 +2146,57 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
   nameWithType: StringExtensions.UriEncode
+- uid: SystemLibrary.Common.Net.Randomness
+  name: Randomness
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html
+  commentId: T:SystemLibrary.Common.Net.Randomness
+  fullName: SystemLibrary.Common.Net.Randomness
+  nameWithType: Randomness
+- uid: SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  name: Bytes(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Bytes_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  nameWithType: Randomness.Bytes(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Bytes*
+  name: Bytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Bytes_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.Bytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.Bytes
+  nameWithType: Randomness.Bytes
+- uid: SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  name: Int(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  nameWithType: Randomness.Int(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Int(System.Int32,System.Int32)
+  name: Int(Int32, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_System_Int32_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Int(System.Int32,System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Int(System.Int32, System.Int32)
+  nameWithType: Randomness.Int(Int32, Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Int*
+  name: Int
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.Int
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.Int
+  nameWithType: Randomness.Int
+- uid: SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  name: String(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  nameWithType: Randomness.String(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.String*
+  name: String
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_String_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.String
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.String
+  nameWithType: Randomness.String
 - uid: SystemLibrary.Common.Net.Services
   name: Services
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html

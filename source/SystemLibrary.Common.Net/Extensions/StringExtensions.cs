@@ -593,13 +593,9 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Return a part of the json as T
-    /// 
     /// <para>Searches through the json looking for a property that has the same name as T type, and outputs T</para>
-    /// 
     /// <para>Supports taking a 'search property path' seperated by a forward slash to the leaf property you want to convert to T, case insensitive</para>
-    /// 
     /// <para>Throws if a node towards the leaf is not found when specifying a 'search property path'</para>
-    /// 
     /// Throws if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
     /// <typeparam name="T">A class or list/array of a class
@@ -677,11 +673,9 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Convert string formatted json to object T
-    /// 
     /// <para>Default options are: </para>
     /// <para>- case insensitive deserialization</para>
     /// <para>- allows trailing commas</para>
-    /// 
     /// Throws exception if json has invalid formatted json text, does not throw on null/blank
     /// </summary>
     /// <example>
@@ -1635,5 +1629,81 @@ public static partial class StringExtensions
     public static string DecryptUsingKeyRing(this string data)
     {
         return KeyRingProtector.Unprotect(data);
+    }
+
+    /// <summary>
+    /// Checks if input is a file path, either relative or absolute, either web or operative system path
+    /// <para>Input must contain a dot and be at least 4 char long</para>
+    /// </summary>
+    /// <remarks>
+    /// Does not throw
+    /// <para>Supports also query-params in the path</para>
+    /// Supports up to 6 characters in the extension
+    /// <para>Supports also query-params in the path</para>
+    /// Returns always false if input is longer than 4096
+    /// <para>/public/,/static/,/images/,assets/ strings will always return true, we assume a file is asked for in those cases</para>
+    /// </remarks>
+    /// <example>
+    /// var hello = "world";
+    /// var isFile = hello.IsFile(); // false
+    /// 
+    /// var file = "/image/redcar1.jpg?qualit=80";
+    /// var isFile = file.IsFile(); // true
+    /// 
+    /// var file2 = "/assets/bluecar";
+    /// var isFile = file2.IsFile(); // true, assumes any "assets/" request is a file
+    /// </example>
+    /// <returns>True or false</returns>
+    public static bool IsFile(this string path)
+    {
+        if (path == null) return false;
+
+        var length = path.Length;
+        if (length <= 3) return false;
+
+        if (length > 4096) return false;
+
+        bool HasAssetPath()
+        {
+            if (path.Contains("/public/", StringComparison.OrdinalIgnoreCase))
+                return true;
+            if (path.Contains("/images/", StringComparison.OrdinalIgnoreCase))
+                return true;
+            if (path.Contains("/static/", StringComparison.OrdinalIgnoreCase))
+                return true;
+            if (path.Contains("assets/", StringComparison.OrdinalIgnoreCase))
+                return true;
+            return false;
+        }
+
+        var hasInvalidPathChars = path.IndexOfAny(Path.GetInvalidPathChars()) != -1;
+        if (hasInvalidPathChars)
+            return HasAssetPath();
+
+        var extensionIndex = path.LastIndexOf('.');
+
+        if (extensionIndex == -1)
+            return HasAssetPath();
+
+        var queryIndex = path.IndexOf('?');
+
+        if (queryIndex == -1)
+        {
+            if (extensionIndex == length - 1) return HasAssetPath();
+
+            var lastIndexOfSlash = path.LastIndexOf('/');
+            if (lastIndexOfSlash > extensionIndex) return HasAssetPath();
+
+            return (extensionIndex >= length - 7) || HasAssetPath(); // .config
+        }
+
+        if (extensionIndex > queryIndex)
+        {
+            var temp = path.Substring(0, queryIndex);
+
+            return (temp.LastIndexOf(".") >= temp.Length - 7) || HasAssetPath(); // .config
+        }
+
+        return (queryIndex - 7 <= extensionIndex) || HasAssetPath();
     }
 }

@@ -89,6 +89,8 @@ public static class ObjectExtensions
 
         if (camelCase)
             options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        else
+            options.PropertyNamingPolicy = null;
 
         return JsonSerializer.Serialize(obj, options).TranslateUnicodeCodepoints();
     }

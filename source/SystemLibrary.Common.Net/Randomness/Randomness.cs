@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace SystemLibrary.Common.Net.Extensions;
+namespace SystemLibrary.Common.Net;
 
 /// <summary>
 /// Shortcut for generating random variables through System.Random
