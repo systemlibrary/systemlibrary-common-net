@@ -243,12 +243,18 @@
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0___remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0___remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
 <p>You are responsible for when to instantiate the dictionary</p>
 Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0__">
@@ -342,12 +348,18 @@ Item limit per dictionary is set to 100.000 items, if reached the dictionary is 
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0___remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0___remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
 <p>You are responsible for when to instantiate the dictionary</p>
 <p>Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0__">
@@ -441,12 +453,18 @@ Item limit per dictionary is set to 100.000 items, if reached the dictionary is 
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0___remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0___remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>The static concurrent dictionary lives as long as application runs</p>
 <p>You are responsible for when to instantiate the dictionary</p>
 Item limit per dictionary is set to 100.000 items, if reached the dictionary is cleaned and starts caching over again
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0__">
@@ -946,10 +964,19 @@ Item limit per dictionary is set to 100.000 items, if reached the dictionary is 
   			for (var i = 0; i < remarks.length; i++) {
   				var remark = remarks[i];
   				if (remark && remark.classList) {
+  					var closeBtns = remark.parentNode.getElementsByClassName('custom-remarks-menu-data--close');
+  					if (closeBtns) {
+  						var closeBtn = closeBtns[0];
+  						if (closeBtn) {
+  							closeBtn.addEventListener("click", function (e) {
+  								e.target.parentNode.classList.toggle('visible');
+  							});
+  						}
+  					}
   					remark.addEventListener("click", function (e) {
-  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						var remarkTexts = e.target.parentNode.getElementsByClassName(className + ' text');
   						if (!remarkTexts || !remarkTexts.length) {
-  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  							remarkTexts = e.target.parentNode.parentNode.getElementsByClassName(className + ' text');
   						}
   						if (remarkTexts && remarkTexts.length) {
   							var remarkText = remarkTexts[0];
@@ -1218,7 +1245,7 @@ Item limit per dictionary is set to 100.000 items, if reached the dictionary is 
           <div class="container">
             <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
             <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library</a></span>
           </div>
         </div>
       </footer>

@@ -354,10 +354,16 @@ var list = list.DistinctBy(x => x.Name).ToList();
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Uses Linq.Contains() internally, but does not throw on null</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0__remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Uses Linq.Contains() internally, but does not throw on null</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0_">
@@ -456,10 +462,16 @@ var list = list.DistinctBy(x => x.Name).ToList();
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Uses Linq.Contains() internally</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object__remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Uses Linq.Contains() internally</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object_">
@@ -562,10 +574,16 @@ var result = users.Has(user);
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Does not throw exception on null</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Does not throw exception on null</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0__">
@@ -664,10 +682,16 @@ var result = list.Is();
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Does not throw exception on null</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0___remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Does not throw exception on null</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0__">
@@ -1171,10 +1195,19 @@ var result = list.IsNot();
   			for (var i = 0; i < remarks.length; i++) {
   				var remark = remarks[i];
   				if (remark && remark.classList) {
+  					var closeBtns = remark.parentNode.getElementsByClassName('custom-remarks-menu-data--close');
+  					if (closeBtns) {
+  						var closeBtn = closeBtns[0];
+  						if (closeBtn) {
+  							closeBtn.addEventListener("click", function (e) {
+  								e.target.parentNode.classList.toggle('visible');
+  							});
+  						}
+  					}
   					remark.addEventListener("click", function (e) {
-  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						var remarkTexts = e.target.parentNode.getElementsByClassName(className + ' text');
   						if (!remarkTexts || !remarkTexts.length) {
-  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  							remarkTexts = e.target.parentNode.parentNode.getElementsByClassName(className + ' text');
   						}
   						if (remarkTexts && remarkTexts.length) {
   							var remarkText = remarkTexts[0];
@@ -1443,7 +1476,7 @@ var result = list.IsNot();
           <div class="container">
             <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
             <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library</a></span>
           </div>
         </div>
       </footer>

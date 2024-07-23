@@ -199,10 +199,15 @@
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>Static functions running on loaded Assemblies in your application</p>
 </div>
-    <div class="custom-remarks1">
-      <h5 id="SystemLibrary_Common_Net_Assemblies_remarks">Remarks</h5>
-      <div class="markdown level0 remarks"><p>Built on top of System.Reflection.Assembly</p>
+    <div class="custom-remarks-container">
+      <div class="custom-remarks custom-remarks1">
+        <h5 id="SystemLibrary_Common_Net_Assemblies_remarks">Remarks</h5>
+      </div>
+      <div class="custom-remarks custom-remarks1 text">
+        <div class="custom-remarks-menu-data--close">X</div>
+        <div class="markdown level0 remarks"><p>Built on top of System.Reflection.Assembly</p>
 </div>
+      </div>
     </div>
   </div>
   
@@ -248,10 +253,16 @@
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1_remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1_remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1">
@@ -329,10 +340,16 @@ var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2_remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2_remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Skips searching in known assemblies, names starting with Microsoft, System, EntityFramework, AWS, Serilog, MSTest, nunit, Newtonsoft, Xamarin, Dapper, Autofac, Automapper, Salesforce and more...</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2">
@@ -421,10 +438,16 @@ var vehicles = Assemblies.FindAllTypesInheriting&lt;IVehicle,NameAttribute>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks2">
-  		<h5 id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly__remarks">Remarks</h5>
-  		<div class="markdown level1 remarks"><p>Searches only in one assembly, defaulting to 'CallingAssembly'</p>
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly__remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Searches only in one assembly, defaulting to 'CallingAssembly'</p>
 </div>
+  		</div>
   	</div>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly_">
@@ -1001,10 +1024,19 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
   			for (var i = 0; i < remarks.length; i++) {
   				var remark = remarks[i];
   				if (remark && remark.classList) {
+  					var closeBtns = remark.parentNode.getElementsByClassName('custom-remarks-menu-data--close');
+  					if (closeBtns) {
+  						var closeBtn = closeBtns[0];
+  						if (closeBtn) {
+  							closeBtn.addEventListener("click", function (e) {
+  								e.target.parentNode.classList.toggle('visible');
+  							});
+  						}
+  					}
   					remark.addEventListener("click", function (e) {
-  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						var remarkTexts = e.target.parentNode.getElementsByClassName(className + ' text');
   						if (!remarkTexts || !remarkTexts.length) {
-  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  							remarkTexts = e.target.parentNode.parentNode.getElementsByClassName(className + ' text');
   						}
   						if (remarkTexts && remarkTexts.length) {
   							var remarkText = remarkTexts[0];
@@ -1273,7 +1305,7 @@ Assert.IsTrue(text.Contains(&quot;hello world&quot;));
           <div class="container">
             <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
             <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library</a></span>
           </div>
         </div>
       </footer>

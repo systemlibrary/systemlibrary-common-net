@@ -359,7 +359,7 @@ public static partial class StringExtensions
     /// Check if string is null, "" or " "
     /// </summary>
     /// <remarks>
-    /// It does not check multiple spaces or new lines or tabs, so not the same as string.IsNullOrWhiteSpace()
+    /// Example says "old way string.NullOrWhitespace", but it does not check multi spaces nor tabs, nor new lines, so not exactly the same
     /// </remarks>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -1216,17 +1216,16 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Encrypt data
+    /// Encrypt data with a random generated IV
     /// <list>
     /// <item>Key: If DataProtection has been setup</item>
-    /// <item>Filename of first data protection key file</item>
-    /// <item>if no file? AppName in SetApplicationName</item>
-    /// <item>if no appName? Entry Asm Name</item>
-    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// <item>If key file is used, uses the filename</item>
+    /// <item>Else appName if set through SetApplicationName()</item>
+    /// <item>Else assembly name</item>
+    /// <item>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011</item>
     /// </list>
-    /// IV:
-    /// Random generated and appended to output
     /// </summary>
+    /// <param name="addIV">Add the generated IV to the output or not</param>
     /// <remarks>
     /// - Data protection key file is a XML file, starting with "key-"
     /// <para>- Built-in keys are always hashed before used as the Key</para>
@@ -1247,15 +1246,15 @@ public static partial class StringExtensions
     /// <summary>
     /// Encrypt data with a key and an optional IV
     /// <list>
-    /// <item>Key: If DataProtection has been setup</item>
-    /// <item>Filename of first data protection key file</item>
-    /// <item>if no file? AppName in SetApplicationName</item>
-    /// <item>if no appName? Entry Asm Name</item>
-    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// <item>Key null?: If DataProtection has been setup</item>
+    /// <item>If key file is used, uses the filename</item>
+    /// <item>Else appName if set through SetApplicationName()</item>
+    /// <item>Else assembly name</item>
+    /// <item>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011</item>
     /// </list>
-    /// IV:
-    /// If null and 'addIV' is True, a random generated and appended to output, else 16 bytes of 0
+    /// Optional IV, addIV is true? Random IV, else 16 bytes of 0
     /// </summary>
+    /// <param name="addIV">Add the generated IV to the output or not</param>
     /// <remarks>
     /// - Key must be 16 or 32 characters
     /// <para>- Optionally add IV to the fist 16 bytes of output, if not? IV is 16 bytes of 0</para>
@@ -1276,15 +1275,15 @@ public static partial class StringExtensions
     /// <summary>
     /// Encrypt data with a key and an optional IV
     /// <list>
-    /// <item>Key: If DataProtection has been setup</item>
-    /// <item>Filename of first data protection key file</item>
-    /// <item>if no file? AppName in SetApplicationName</item>
-    /// <item>if no appName? Entry Asm Name</item>
-    /// <item>Else: hardcoded ABCDEFGHIJKLMNOPQRST123456789011</item>
+    /// <item>Key null?: If DataProtection has been setup</item>
+    /// <item>If key file is used, uses the filename</item>
+    /// <item>Else appName if set through SetApplicationName()</item>
+    /// <item>Else assembly name</item>
+    /// <item>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011</item>
     /// </list>
-    /// IV:
-    /// If null and 'addIV' is True, a random generated and appended to output, else 16 bytes of 0
+    /// Optional IV, addIV is true? Random IV, else 16 bytes of 0
     /// </summary>
+    /// <param name="addIV">Add the generated IV to the output or not</param>
     /// <remarks>
     /// - Key must be 16 or 32 characters
     /// <para>- Optionally add IV to the fist 16 bytes of output, if not? IV is 16 bytes of 0</para>
@@ -1309,9 +1308,12 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypt data
-    /// <para>cipherText is the result of the Encrypt() with same arguments</para>
+    /// Returns the decrypted version of the cipher text
     /// </summary>
+    /// <remarks>
+    /// Must pass same arguments as you did when you invoked .Encrypt()
+    /// <para>'addedIV' must be true if you set 'addIV' to 'true' during Encrypt()</para>
+    /// </remarks>
     /// <example>
     /// <code>
     /// var data = "Hello world";
@@ -1326,14 +1328,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypts data with a key and an optional IV
-    /// 
-    /// <para>cipherText is the result of the .Encrypt() with same arguments</para>
+    /// Returns the decrypted version of the cipher text
     /// </summary>
     /// <remarks>
-    /// 'addedIV' must be true if you set 'addIV' to 'true' during Encrypt()
-    /// 
-    /// <para>If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too</para>
+    /// Must pass same arguments as you did when you invoked .Encrypt()
+    /// <para>'addedIV' must be true if you set 'addIV' to 'true' during Encrypt()</para>
     /// </remarks>
     /// <example>
     /// <code>
@@ -1350,12 +1349,11 @@ public static partial class StringExtensions
     }
 
     /// <summary>
-    /// Decrypts data with a key and an optional IV
-    /// <para>cipherText is the result of the .Encrypt() with same arguments</para>
+    /// Returns the decrypted version of the cipher text
     /// </summary>
     /// <remarks>
-    /// AddedIv must be true if you set 'addIV' to True during Encrypt()
-    /// <para>If you passed an IV during Encrypt() with 'addIV' as False, you must pass IV here too</para>
+    /// Must pass same arguments as you did when you invoked .Encrypt()
+    /// <para>'addedIV' must be true if you set 'addIV' to 'true' during Encrypt()</para>
     /// </remarks>
     /// <example>
     /// <code>
@@ -1644,6 +1642,7 @@ public static partial class StringExtensions
     /// <para>/public/,/static/,/images/,assets/ strings will always return true, we assume a file is asked for in those cases</para>
     /// </remarks>
     /// <example>
+    /// <code>
     /// var hello = "world";
     /// var isFile = hello.IsFile(); // false
     /// 
@@ -1652,58 +1651,44 @@ public static partial class StringExtensions
     /// 
     /// var file2 = "/assets/bluecar";
     /// var isFile = file2.IsFile(); // true, assumes any "assets/" request is a file
+    /// </code>
     /// </example>
     /// <returns>True or false</returns>
     public static bool IsFile(this string path)
     {
-        if (path == null) return false;
-
-        var length = path.Length;
-        if (length <= 3) return false;
-
-        if (length > 4096) return false;
-
-        bool HasAssetPath()
-        {
-            if (path.Contains("/public/", StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (path.Contains("/images/", StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (path.Contains("/static/", StringComparison.OrdinalIgnoreCase))
-                return true;
-            if (path.Contains("assets/", StringComparison.OrdinalIgnoreCase))
-                return true;
+        if (path == null || path.Length <= 3 || path.Length > 4096)
             return false;
-        }
 
-        var hasInvalidPathChars = path.IndexOfAny(Path.GetInvalidPathChars()) != -1;
-        if (hasInvalidPathChars)
+        bool HasAssetPath() =>
+            path.Contains("/public/", StringComparison.OrdinalIgnoreCase) ||
+            path.Contains("/images/", StringComparison.OrdinalIgnoreCase) ||
+            path.Contains("/static/", StringComparison.OrdinalIgnoreCase) ||
+            path.Contains("assets/", StringComparison.OrdinalIgnoreCase);
+
+        if (path.IndexOfAny(Path.GetInvalidPathChars()) != -1)
             return HasAssetPath();
 
         var extensionIndex = path.LastIndexOf('.');
-
         if (extensionIndex == -1)
             return HasAssetPath();
 
         var queryIndex = path.IndexOf('?');
-
         if (queryIndex == -1)
         {
-            if (extensionIndex == length - 1) return HasAssetPath();
+            if (extensionIndex == path.Length - 1) return HasAssetPath();
 
-            var lastIndexOfSlash = path.LastIndexOf('/');
-            if (lastIndexOfSlash > extensionIndex) return HasAssetPath();
+            if (path.LastIndexOf('/') > extensionIndex) return HasAssetPath();
 
-            return (extensionIndex >= length - 7) || HasAssetPath(); // .config
+            return extensionIndex >= path.Length - 7 || HasAssetPath(); // .config
         }
 
         if (extensionIndex > queryIndex)
         {
             var temp = path.Substring(0, queryIndex);
 
-            return (temp.LastIndexOf(".") >= temp.Length - 7) || HasAssetPath(); // .config
+            return temp.LastIndexOf('.') >= temp.Length - 7 || HasAssetPath(); // .config
         }
 
-        return (queryIndex - 7 <= extensionIndex) || HasAssetPath();
+        return queryIndex - 7 <= extensionIndex || HasAssetPath();
     }
 }

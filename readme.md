@@ -20,15 +20,14 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.1
-- Randomness moved from ".Extensions" to root namespace (weak breaking change)
-- StringExtension.IsFile() added, return true or false
+- 7.13.0.2
+- StringExtension.IsFile refactored
+- StringExtensions updated Encrypt and Decrypt comments
 
 #### Major Breaking Versions List
 - 7.10 to 7.12
-- Cryptation rewritten, Encrypt() generates random IV and cipher text contains the IV used
+- Cryptation rewritten, Encrypt() return cipher text with a random IV
 - Cryptation Env. Key "SYSLIBCRYPTATIONKEY" removed
-- Services (a kind of service locator) added
  
 #### Version history 
 - View git history of this file if interested

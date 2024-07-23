@@ -199,10 +199,15 @@
   <div class="h1-class-summary-container">
     <div class="markdown level0 summary h1-class-summary"><p>Static class containing common &quot;typeof&quot; calls for performance reasons</p>
 </div>
-    <div class="custom-remarks1">
-      <h5 id="SystemLibrary_Common_Net_SystemType_remarks">Remarks</h5>
-      <div class="markdown level0 remarks"><p>typeof is 'slow' so whenever you remember, you should use any of these types</p>
+    <div class="custom-remarks-container">
+      <div class="custom-remarks custom-remarks1">
+        <h5 id="SystemLibrary_Common_Net_SystemType_remarks">Remarks</h5>
+      </div>
+      <div class="custom-remarks custom-remarks1 text">
+        <div class="custom-remarks-menu-data--close">X</div>
+        <div class="markdown level0 remarks"><p>typeof is 'slow' so whenever you remember, you should use any of these types</p>
 </div>
+      </div>
     </div>
   </div>
   
@@ -1814,10 +1819,19 @@
   			for (var i = 0; i < remarks.length; i++) {
   				var remark = remarks[i];
   				if (remark && remark.classList) {
+  					var closeBtns = remark.parentNode.getElementsByClassName('custom-remarks-menu-data--close');
+  					if (closeBtns) {
+  						var closeBtn = closeBtns[0];
+  						if (closeBtn) {
+  							closeBtn.addEventListener("click", function (e) {
+  								e.target.parentNode.classList.toggle('visible');
+  							});
+  						}
+  					}
   					remark.addEventListener("click", function (e) {
-  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						var remarkTexts = e.target.parentNode.getElementsByClassName(className + ' text');
   						if (!remarkTexts || !remarkTexts.length) {
-  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  							remarkTexts = e.target.parentNode.parentNode.getElementsByClassName(className + ' text');
   						}
   						if (remarkTexts && remarkTexts.length) {
   							var remarkText = remarkTexts[0];
@@ -2086,7 +2100,7 @@
           <div class="container">
             <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
             <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library</a></span>
           </div>
         </div>
       </footer>

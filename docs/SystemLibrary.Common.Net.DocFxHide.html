@@ -686,10 +686,19 @@ public class DocFxHide : Attribute</h1>
   			for (var i = 0; i < remarks.length; i++) {
   				var remark = remarks[i];
   				if (remark && remark.classList) {
+  					var closeBtns = remark.parentNode.getElementsByClassName('custom-remarks-menu-data--close');
+  					if (closeBtns) {
+  						var closeBtn = closeBtns[0];
+  						if (closeBtn) {
+  							closeBtn.addEventListener("click", function (e) {
+  								e.target.parentNode.classList.toggle('visible');
+  							});
+  						}
+  					}
   					remark.addEventListener("click", function (e) {
-  						var remarkTexts = e.target.getElementsByClassName('remarks');
+  						var remarkTexts = e.target.parentNode.getElementsByClassName(className + ' text');
   						if (!remarkTexts || !remarkTexts.length) {
-  							remarkTexts = e.target.parentNode.getElementsByClassName('remarks');
+  							remarkTexts = e.target.parentNode.parentNode.getElementsByClassName(className + ' text');
   						}
   						if (remarkTexts && remarkTexts.length) {
   							var remarkText = remarkTexts[0];

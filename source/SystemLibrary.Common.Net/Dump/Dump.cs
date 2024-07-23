@@ -12,7 +12,8 @@ using SystemLibrary.Common.Net.Extensions;
 /// <summary>
 /// Dump any object to a local file for easy debugging and logging purposes
 /// 
-/// <para>Dump.Write calls should only occur during development as it is slow</para>
+/// <para>Dump.Write calls should only occur during development as it is slow and not thread safe</para>
+/// <para>Has a write lock of 100ms, so thread-safe to some extent, one might see multiple dump files in a real async world</para>
 /// </summary>
 /// <remarks>
 /// "Equivalent" to javascripts 'console.log'

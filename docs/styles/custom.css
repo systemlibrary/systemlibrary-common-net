@@ -891,7 +891,9 @@ div.custom-menu-data > h4:hover {
   align-items: center;
   height: 38px;
   width: 38px;
-  font-size: 20px;
+  font-size: 18px;
+  font-family: cursive;
+  font-style: normal;
 }
 
 /* CUSTOMIZE CODE HIGHLIGHT */
@@ -1188,11 +1190,9 @@ div.codewrapper > ul > li > p.modest-p {
 article.content.wrap > h1.text-break {
   font-size: 42px;
 }
-
-.custom-remarks1 {
-  position: relative;
+.custom-remarks {
   position: absolute;
-  z-index: 999;
+  z-index: 990;
   margin-top: 1.25em;
   float: right;
   right: 0;
@@ -1202,48 +1202,28 @@ article.content.wrap > h1.text-break {
   }
 }
 
-.custom-remarks1 p,
-.custom-remarks1 h5 {
-  line-height: 1.25 !important;
+.custom-remarks.text,
+.custom-remarks.text p,
+.custom-remarks.text h5,
+.custom-remarks.text ul li,
+.custom-remarks.text ol li,
+.custom-remarks.text li p,
+.custom-remarks.text li span {
+  font-weight: 500;
+  color: #313131 !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
   font-size: 13px !important;
-  font-weight: 100 !important;
-  color: lightslategray !important;
   font-style: italic !important;
 }
 
-.custom-remarks1 h5 {
-  font-weight: 500 !important;
+.custom-remarks h5 {
   cursor: pointer;
   text-decoration: underline;
   user-select: none;
   float: right;
-}
-
-.custom-remarks2 {
-  position: relative;
-  position: absolute;
-  z-index: 999;
-  margin-top: 1.25em;
-  float: right;
-  right: 0;
-  margin-right: 8px;
-}
-
-.custom-remarks2 p,
-.custom-remarks2 h5 {
-  line-height: 1.25 !important;
-  font-size: 13px !important;
-  font-weight: 100 !important;
-  color: lightslategray !important;
-  font-style: italic !important;
-}
-
-.custom-remarks2 h5 {
-  font-weight: 500 !important;
-  cursor: pointer;
-  text-decoration: underline;
-  user-select: none;
-  float: right;
+  font-size: 13px;
+  color: #313131 !important;
 }
 
 .custom-remarks3,
@@ -1255,33 +1235,63 @@ article.content.wrap > h1.text-break {
   margin-left: -4000px !important;
 }
 
-div.custom-remarks1 > div.remarks {
+.custom-remarks.text {
   visibility: hidden;
   display: none;
 }
 
-div.custom-remarks2 > div.remarks {
-  visibility: hidden;
-  display: none;
-}
-
-.content.wrap div > div.remarks.visible {
+.content.wrap div .custom-remarks.text.visible {
   visibility: visible !important;
-  display: block !important;
-  margin: 0 !important;
-  margin-top: 3em !important;
-  max-width: 66%;
-  float: right;
-  border: 1px solid #282828;
+  box-shadow: 0px 3px 12px 3px #b7b7b7;
+  display: block;
+  max-width: 91%;
   padding: 1em;
-  background: white;
-  z-index: 9999 !important;
-  position: relative;
-  right: -3.5em;
-  top: -1em;
-  min-width: 320px;
+  background: #f8f8f8;
+  z-index: 999;
+  position: absolute;
+  min-width: 375px;
+  border-radius: 4px;
+  left: 0;
+  margin-left: 80px;
+  margin-top: 3em;
 }
 
-.content.wrap div > div.remarks.visible p {
-  margin: 0 !important;
+.custom-remarks-containter {
+  position: relative;
+  width: 100%;
+}
+
+.custom-remarks-menu-data--close {
+  cursor: pointer;
+  position: absolute;
+  z-index: 101;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  z-index: 9999;
+  text-align: center;
+  right: 0;
+  z-index: 9999;
+  user-select: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  font-family: cursive;
+  font-style: normal;
+}
+.markdown.remarks {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.custom-remarks .markdown.level1.remarks li {
+  list-style: none;
+  padding-left: 0;
+}
+.custom-remarks .markdown.level1.remarks ul {
+  list-style: none;
+  padding-left: 0;
 }

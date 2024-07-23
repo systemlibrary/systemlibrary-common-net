@@ -200,7 +200,8 @@
   </h3>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Global.Dump.html">Dump</a></h4>
       <section id="SystemLibrary.Common.Net.Global.Dump--description"><p>Dump any object to a local file for easy debugging and logging purposes</p>
-<p>Dump.Write calls should only occur during development as it is slow</p>
+<p>Dump.Write calls should only occur during development as it is slow and not thread safe</p>
+<p>Has a write lock of 100ms, so thread-safe to some extent, one might see multiple dump files in a real async world</p>
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Global.StringExtensions.html">StringExtensions</a></h4>
       <section id="SystemLibrary.Common.Net.Global.StringExtensions--description"><p>This class contains extension methods for string</p>
@@ -231,7 +232,7 @@
           <div class="container">
             <span>Package: <a href="https://www.nuget.org/packages/SystemLibrary.Common.Net/">nuget</a></span><br>
             <span>Source: <a href="https://github.com/systemlibrary/systemlibrary-common-net">github</a></span><br>
-            <span>Website: <a href="https://www.systemlibrary.com/">System Library Common Net</a></span>
+            <span>Website: <a href="https://www.systemlibrary.com/">System Library</a></span>
           </div>
         </div>
       </footer>
