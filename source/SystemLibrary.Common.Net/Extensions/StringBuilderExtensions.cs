@@ -153,7 +153,7 @@ public static class StringBuilderExtensions
     /// Replaces " with &quot; and single quote with &apos; within the StringBuilder
     /// <para>Throws on null argument</para>
     /// </summary>
-    public static void HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
+    public static StringBuilder HtmlEncodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
         foreach (var replacement in HtmlEncodeReplacements)
             html.Replace(replacement.Key, replacement.Value);
@@ -163,6 +163,8 @@ public static class StringBuilderExtensions
             foreach (var replacement in additionalReplacements)
                 html.Replace(replacement.Key, replacement.Value);
         }
+
+        return html;
     }
 
     static Dictionary<string, string> HtmlDecodeReplacements = new Dictionary<string, string>
@@ -175,7 +177,7 @@ public static class StringBuilderExtensions
     /// Replaces &quot; with " and &apos; with a single quote within the StringBuilder
     /// <para>Throws on null argument</para>
     /// </summary>
-    public static void HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
+    public static StringBuilder HtmlDecodeQuotes(this StringBuilder html, Dictionary<string, string> additionalReplacements = null)
     {
         foreach (var replacement in HtmlDecodeReplacements)
             html.Replace(replacement.Key, replacement.Value);
@@ -185,6 +187,7 @@ public static class StringBuilderExtensions
             foreach (var replacement in additionalReplacements)
                 html.Replace(replacement.Key, replacement.Value);
         }
+        return html;
     }
 
     /// <summary>
@@ -193,6 +196,7 @@ public static class StringBuilderExtensions
     /// </summary>
     /// <remarks>
     /// Does not throw
+    /// Returns null if null was input
     /// </remarks>
     /// <example>
     /// <code>
@@ -203,10 +207,12 @@ public static class StringBuilderExtensions
     /// </code>
     /// </example>
     /// <param name="maxLength">Max amount of characters to keep</param>
-    public static void MaxLength(this StringBuilder stringBuilder, int maxLength)
+    public static StringBuilder MaxLength(this StringBuilder stringBuilder, int maxLength)
     {
-        if (stringBuilder == null || stringBuilder.Length <= maxLength) return;
+        if (stringBuilder == null || stringBuilder.Length <= maxLength) return stringBuilder;
 
         stringBuilder.Length = maxLength;
+
+        return stringBuilder;
     }
 }
