@@ -279,4 +279,16 @@ public class StringBuilderExtensionsTests
         Assert.IsTrue(res.Contains("Ø"));
         Assert.IsTrue(res.Contains("ø"));
     }
+
+    [TestMethod]
+    public void Text_Max_Length_Success()
+    {
+        var sb = new StringBuilder("hello world");
+        sb.MaxLength(1);
+        Assert.IsTrue(sb.ToString() == "h", "Max length 1 failed " + sb);
+
+        sb.Append("ello");
+        sb.MaxLength(3);
+        Assert.IsTrue(sb.ToString() == "hel", "Max length 3 failed " + sb);
+    }
 }

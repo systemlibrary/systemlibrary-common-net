@@ -1256,6 +1256,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot
   nameWithType: StringBuilderExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder,System.Int32)
+  name: MaxLength(StringBuilder, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_MaxLength_System_Text_StringBuilder_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder, System.Int32)
+  nameWithType: StringBuilderExtensions.MaxLength(StringBuilder, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength*
+  name: MaxLength
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_MaxLength_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength
+  nameWithType: StringBuilderExtensions.MaxLength
 - uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])
   name: TrimEnd(StringBuilder, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_System_Text_StringBuilder_System_String___

@@ -14,7 +14,7 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
             var file = @"C:\temp\asynctests" + DateTime.Now.ToString("fff") + ".txt";
             Async.FireAndForget(() => System.IO.File.AppendAllText(file, "Hello world"));
 
-            System.Threading.Thread.Sleep(75);
+            System.Threading.Thread.Sleep(66);
 
             var text = System.IO.File.ReadAllText(file);
             Assert.IsTrue(text.Contains("Hello world"));
@@ -31,6 +31,8 @@ namespace SystemLibrary.Common.Net.Tests.AsyncTests
         [TestMethod]
         public void Run_Multiple_Fire_And_Forget_Success()
         {
+            System.Threading.Thread.Sleep(200);
+
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());
             Async.FireAndForget(Ex, () => Call());

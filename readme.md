@@ -20,9 +20,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.2
-- StringExtension.IsFile refactored
-- StringExtensions updated Encrypt and Decrypt comments
+- 7.13.0.3
+- StringBuilder.MaxLength added
 
 #### Major Breaking Versions List
 - 7.10 to 7.12

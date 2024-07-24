@@ -186,4 +186,27 @@ public static class StringBuilderExtensions
                 html.Replace(replacement.Key, replacement.Value);
         }
     }
+
+    /// <summary>
+    /// Reduce the string builder to a fixed max length
+    /// <para>Does nothing if stringbuilder is null or less than or equal to the max length specified</para>
+    /// </summary>
+    /// <remarks>
+    /// Does not throw
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var sb = new StringBuilder("hello world");
+    /// sb.MaxLength(1);
+    /// var text = sb.ToString();
+    /// // text == "h"
+    /// </code>
+    /// </example>
+    /// <param name="maxLength">Max amount of characters to keep</param>
+    public static void MaxLength(this StringBuilder stringBuilder, int maxLength)
+    {
+        if (stringBuilder == null || stringBuilder.Length <= maxLength) return;
+
+        stringBuilder.Length = maxLength;
+    }
 }
