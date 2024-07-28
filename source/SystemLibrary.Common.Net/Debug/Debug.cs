@@ -19,6 +19,5 @@ internal static class Debug
         {
             Dump.Write("Debug is 'true': " + msg);
         }
-
     }
 }

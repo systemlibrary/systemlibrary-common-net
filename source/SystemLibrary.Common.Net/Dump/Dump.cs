@@ -359,8 +359,13 @@ public static class Dump
             return "(null)";
 
         else if (value is Exception e)
+        {
+            if(e is AggregateException agg)
+            {
+                return agg.Flatten().ToString();
+            }
             return e.ToString();
-
+        }
         else if (value is string str)
             if (str.Length > 50)
                 return str + " (Length: " + str.Length + ")";
