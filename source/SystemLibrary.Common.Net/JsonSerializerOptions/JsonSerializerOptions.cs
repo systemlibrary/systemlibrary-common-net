@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
-using static SystemLibrary.Common.Net.AppSettings.PackageConfig;
+using static SystemLibrary.Common.Net.PackageConfig;
 
 namespace SystemLibrary.Common.Net;
 

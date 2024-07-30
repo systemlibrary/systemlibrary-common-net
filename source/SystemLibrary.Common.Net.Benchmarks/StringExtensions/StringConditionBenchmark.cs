@@ -3,25 +3,56 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 250, launchCount: 3)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 25000, launchCount: 3)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringConditionBenchmarks
 {
     static Type T;
+    string cacheKey;
+    int MaxCacheContainers;
+    Car c;
 
     [GlobalSetup]
     public void Setup()
     {
+        MaxCacheContainers = 2;
+        cacheKey = "hewkohwewoephjw 2u9234224ffAGHHRHEWHWascvwsfqw0 32039 3223u8r2 >| 4. |.-¤§.4|_51 12j qdoiqwj dwq";
         T = typeof(BenchMarkEnum);
+        c = new Car();
+        c.Name = "Hello";
+        c.FirstName = "Hello world";
+        c.LastName = "Hello Hello world long textHello world long textHello world long textHello world long textHello world long textHello world long textHello world long textworld long texHello world long textt";
+        c.Age = 100;
+        c.Age2 = 3333;
+        c.Age3 = 2;
+        c.Age4 = 1000000;
+        c.dt = DateTime.Now;
+        c.dt2 = DateTime.Now.AddDays(1);
     }
 
     [Benchmark]
-    public string To_Server_Mapped_Path()
+    public int Bitshift()
     {
-        var text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
-        return text.ToAppPath();
+        var cacheIndex = cacheKey.GetHashCode() & (MaxCacheContainers - 1);
+
+        return cacheIndex;
     }
+
+    [Benchmark]
+    public int MathAbs()
+    {
+        var cacheIndex = Math.Abs(cacheKey.GetHashCode() % 4);
+
+        return cacheIndex;
+    }
+
+    //[Benchmark]
+    //public string To_Server_Mapped_Path()
+    //{
+    //    var text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
+    //    return text.ToAppPath();
+    //}
 
     //[Benchmark]
     //public object String_Condition_Are_Equals()
@@ -168,3 +199,15 @@ public enum BenchMarkEnum
     _10000
 }
 
+public class Car
+{
+    public string Name { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int Age { get; set; }
+    public int Age2 { get; set; }
+    public int Age3 { get; set; }
+    public int Age4 { get; set; }
+    public DateTime dt { get; set; }
+    public DateTime dt2 { get; set; }
+}

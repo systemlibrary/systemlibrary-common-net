@@ -6,7 +6,7 @@
 //public static class Clock
 //{
 //    /// <summary>
-//    /// Measure an action and optionally write a debug message with a title
+//    /// Measure an action and optionally write a dump message with a title
 //    /// </summary>
 //    /// <example>
 //    /// <code>
@@ -14,7 +14,7 @@
 //    ///  return "Hello world form an API";
 //    /// }, "Hello world");
 //    /// // ms and ticks contains time used to return the text
-//    /// // a debug message has been written to disc
+//    /// // a dump message has been written to disc
 //    /// </code>
 //    /// </example>
 //    /// <returns>Time elapsed to run the method, in milliseconds and cpu ticks</returns>
@@ -34,7 +34,7 @@
 //        sw.Stop();
 
 //        if (title != null)
-//            Debug.Log(title + " executed in: " + sw.ElapsedTicks + " ticks, " + sw.ElapsedMilliseconds + "ms.");
+//            Dump.Write(title + " executed in: " + sw.ElapsedTicks + " ticks, " + sw.ElapsedMilliseconds + "ms.");
 
 //        var ms = sw.ElapsedMilliseconds;
 //        var ticks = sw.ElapsedTicks;

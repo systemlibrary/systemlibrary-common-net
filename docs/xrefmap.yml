@@ -1343,6 +1343,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary
   nameWithType: TypeExtensions.IsDictionary
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  name: IsInternal(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  nameWithType: TypeExtensions.IsInternal(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal*
+  name: IsInternal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal
+  nameWithType: TypeExtensions.IsInternal
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
   name: IsKeyValuePair(Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_System_Type_

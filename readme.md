@@ -20,8 +20,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.5
-- Dump.Write flattens aggregate exceptions 
+- 7.13.0.6
+- TypeExtension IsInternal added
 
 #### Major Breaking Versions List
 - 7.10 to 7.12

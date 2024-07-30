@@ -26,8 +26,8 @@ public static class Async
     /// class CarApi {
     ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
     ///     List&lt;Car&gt; GetByName(string name) {
-    ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-    ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
+    ///         //Client exists in nuget package: SystemLibrary.Common.Web
+    ///         return Client.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
     ///     }
     /// }
     /// 
@@ -83,8 +83,8 @@ public static class Async
     /// class CarApi {
     ///     //Simple dummy method that pretends to return a list of cars based on the name from some API
     ///     List&lt;Car&gt; GetByName(string name) {
-    ///         //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-    ///         return HttpBaseClient.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
+    ///         //Client exists in nuget package: SystemLibrary.Common.Web
+    ///         return Client.Get&lt;List&lt;Car&gt;&gt;("https://systemlibrary.com/cars/q=?" + name);   
     ///     }
     /// }
     /// 

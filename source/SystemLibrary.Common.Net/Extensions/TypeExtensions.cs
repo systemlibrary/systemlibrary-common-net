@@ -220,4 +220,19 @@ public static class TypeExtensions
             }
         }
     }
+
+    /// <summary>
+    /// Returns true if internal else false
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// var t = typeof(Car);
+    /// var isInternal = t.IsInternal();
+    /// </code>
+    /// </example>
+    /// <returns>True or false</returns>
+    public static bool IsInternal(this Type type)
+    {
+        return type.IsNotPublic && !type.IsNested;
+    }
 }

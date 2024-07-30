@@ -417,8 +417,8 @@
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> GetByName(string name) {
-        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
+        //Client exists in nuget package: SystemLibrary.Common.Web
+        return Client.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
@@ -525,8 +525,8 @@ var cars = Async.Run&lt;Car>(
 class CarApi {
     //Simple dummy method that pretends to return a list of cars based on the name from some API
     List&lt;Car> GetByName(string name) {
-        //HttpBaseClient exists in nuget package: SystemLibrary.Common.Web
-        return HttpBaseClient.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
+        //Client exists in nuget package: SystemLibrary.Common.Web
+        return Client.Get&lt;List&lt;Car>>(&quot;https://systemlibrary.com/cars/q=?&quot; + name);   
     }
 }
 
