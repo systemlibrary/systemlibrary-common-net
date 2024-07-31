@@ -8,7 +8,8 @@ namespace SystemLibrary.Common.Net;
 /// Use to convert a string to DateTime during Json() invocation with your own format
 /// </summary>
 /// <remarks>
-/// Class is exposed if you must specify your own date time format when Json() extension method could not convert it automatically
+/// Used internally
+/// Exposed if someone needs a different format that this Library does not support out of the box when using Json() extension method
 /// </remarks>
 /// <example>
 /// Example:

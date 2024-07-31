@@ -20,13 +20,15 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.6
-- TypeExtension IsInternal added
+- 7.13.0.7
+- DecryptAttribute: comments adjusted only
 
-#### Major Breaking Versions List
-- 7.10 to 7.12
+#### Major Breaking Versions
+- 7.12.0.1
 - Cryptation rewritten, Encrypt() return cipher text with a random IV
-- Cryptation Env. Key "SYSLIBCRYPTATIONKEY" removed
+- Cryptation environment key "SYSLIBCRYPTATIONKEY" removed
+- Json() conversions for date time rewritten
+- Config files read from 'content root', never /bin/
  
 #### Version history 
 - View git history of this file if interested

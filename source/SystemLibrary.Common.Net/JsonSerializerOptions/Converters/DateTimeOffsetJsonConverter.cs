@@ -7,6 +7,10 @@ namespace SystemLibrary.Common.Net;
 /// <summary>
 /// DateTime json converter that takes a string format
 /// </summary>
+/// <remarks>
+/// Used internally
+/// Exposed if someone needs a different format that this Library does not support out of the box when using Json() extension method
+/// </remarks>
 /// <example>
 /// Example of an additional datetime converter:
 /// <code>
