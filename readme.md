@@ -15,13 +15,14 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - Obfuscate a string through extension Obfuscate() and Deobfuscate()
 - Convert to Base64 for string and byte[] through extension method ToBase64()
 - Hash anything through ToSha1(), ToSha256() and ToMd5() extensions for string, byte[] and Stream
+- Services as a service locator
 
 ## Requirements
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.7
-- DecryptAttribute: comments adjusted only
+- 7.13.0.8
+- Updated package description
 
 #### Major Breaking Versions
 - 7.12.0.1
