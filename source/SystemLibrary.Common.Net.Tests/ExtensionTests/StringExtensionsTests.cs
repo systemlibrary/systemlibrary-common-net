@@ -541,7 +541,7 @@ public partial class StringExtensionsTests
     public void Ends_With_Any_Case_Insensitive()
     {
         var data = "hello WorLd123!aA";
-        var result = data.EndsWithAnyCaseInsensitive("helloworld", "something", "another one", "whatever", "world123!aa");
+        var result = data.EndsWithAny(StringComparison.OrdinalIgnoreCase, "helloworld", "something", "another one", "whatever", "world123!aa");
         Assert.IsTrue(result);
     }
 
@@ -558,7 +558,7 @@ public partial class StringExtensionsTests
         Assert.IsTrue(result == false, "Values is null");
 
         result = data.StartsWithAny("");
-        Assert.IsTrue(result == false, "Values is empty");
+        Assert.IsTrue(result == true, "Values is false when Empty");
 
         result = data.StartsWithAny("H");
         Assert.IsTrue(result, "H");
@@ -853,76 +853,76 @@ public partial class StringExtensionsTests
     public void To_App_Path()
     {
         string text = null;
-        string result = text.ToAppPath();
+        string result = text.ToPhysicalPath();
         Assert.IsTrue(result == null);
 
         text = "";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
 
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/", "1 " + result);
 
         text = "a";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a", "2 " + result);
 
         text = "a/b/c/d/e/12345/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/d/e/12345/", "3 " + result);
 
         text = "https://www.systemlibrary.com/hello/world/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "4 " + result);
 
         text = "https://www.sub.sub.subdomain.com/hello/world/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "5 " + result);
 
         text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello1/world2/", "6 " + result);
 
         text = "https://www.sub.sub.subdomain.com";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/", "7 " + result);
 
         text = "/a/b/c";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c", "8 " + result);
 
         text = "/a/b/c/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/c/", "9 " + result);
 
         text = "\\a\\b\\";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/", "10 " + result);
 
         text = "a\\b\\";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b/", "11 " + result);
 
         text = "a\\b";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/b", "12 " + result);
 
         text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a/";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == text, "13 " + result);
 
         text = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == text, "14 " + result);
 
         text = "C:\\syslib\\systemlibrary-common-net\\source\\SystemLibrary.Common.Net.Tests\\a";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/a", "15 " + result);
 
         text = "C:\\hello\\world";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world", "15 " + result);
 
         text = "C:\\hello\\world\\";
-        result = text.ToAppPath();
+        result = text.ToPhysicalPath();
         Assert.IsTrue(result == "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/hello/world/", "16 " + result);
     }
 

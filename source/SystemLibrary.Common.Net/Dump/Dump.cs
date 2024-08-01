@@ -166,7 +166,7 @@ public static class Dump
 
         else if (e is ICollection ic)
             logString.Append(" collection count: " + ic.Count + "\n");
-        else if (e.GetType().Name.StartsWith("<") && e.GetType().Name.Contains("__"))
+        else if (e.GetType().Name[0] == '<' && e.GetType().Name.Contains("__"))
             logString.Append(" enumerable function count" + "\n");
         else
             logString.Append(" unknown count" + "\n");

@@ -107,6 +107,8 @@ public static class EnumExtensions
     /// <returns>True or false</returns>
     public static bool IsAny(this Enum enumField, params Enum[] values)
     {
+        if (values == null) return false;
+
         foreach (var value in values)
             if (Equals(enumField, value))
                 return true;

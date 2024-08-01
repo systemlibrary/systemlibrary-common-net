@@ -63,7 +63,7 @@ partial class Assemblies
             resourcePath.Append(defaultAsmNamespace + "." +
             (folderPathInProject.IsNot() ? "" : folderPathInProject + "."));
 
-        else if (folderPathInProject?.EndsWith(".") == true)
+        else if (folderPathInProject?.EndsWith(".", StringComparison.Ordinal) == true)
             resourcePath.Append(folderPathInProject);
 
         else

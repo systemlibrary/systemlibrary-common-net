@@ -70,7 +70,7 @@ public static class StringBuilderExtensions
     /// <returns>True if text was removed, else false</returns>
     public static bool TrimEnd(this StringBuilder stringBuilder, params string[] values)
     {
-        if (values.IsNot()) return false;
+        if (values == null || values.Length == 0) return false;
 
         for (int i = 0; i < values.Length; i++)
         {

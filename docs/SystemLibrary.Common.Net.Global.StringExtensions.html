@@ -267,7 +267,7 @@
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Compress_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1438">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1497">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Compress_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Compress*"></a>
@@ -346,7 +346,7 @@ var compressed = data.Compress();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L480">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L509">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*"></a>
@@ -419,6 +419,92 @@ var result = text.ContainsAny(&quot;123&quot;, &quot;!&quot;, &quot;lo&quot;);
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Check if text contains any of the values, case sensitive, with a string comparison</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_StringComparison_System_String___">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L531">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_StringComparison_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.StringComparison,System.String[])" class="h4-custom-functionName">public static bool ContainsAny(this string text, StringComparison comparison, params string[] values)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello&quot;;
+
+var result = text.ContainsAny(StringComparison.Ordinal, &quot;123&quot;, &quot;!&quot;, &quot;lo&quot;);
+// result is true, because lo is part of the text</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.StringComparison</span></td>
+  							<td><span class="parametername">comparison</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
+</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Decompress compressed data and return the result</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
@@ -427,7 +513,7 @@ var result = text.ContainsAny(&quot;123&quot;, &quot;!&quot;, &quot;lo&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Decompress_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1471">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1530">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Decompress_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Decompress*"></a>
@@ -521,7 +607,7 @@ Assert.IsTrue(data == decompressed);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1321">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1380">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Decrypt*"></a>
@@ -613,7 +699,7 @@ var decrypted = encrypted.Decrypt();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Byte___System_Byte___System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1363">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1422">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Decrypt*"></a>
@@ -716,7 +802,7 @@ var decrypted = encrypted.Decrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_String_System_String_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1342">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1401">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Decrypt*"></a>
@@ -808,7 +894,7 @@ var decrypted = encrypted.Decrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1623">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1682">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing*"></a>
@@ -885,7 +971,7 @@ var decrypted = encrypted.Decrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_System_String_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L940">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L994">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate*"></a>
@@ -959,13 +1045,6 @@ var deobfuscatedText = obfuscatedText.Deobfuscate();
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Encrypt data with a random generated IV</p>
-<ul>
-<li>Key: If DataProtection has been setup</li>
-<li>If key file is used, uses the filename</li>
-<li>Else appName if set through SetApplicationName()</li>
-<li>Else assembly name</li>
-<li>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011</li>
-</ul>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
@@ -988,7 +1067,7 @@ var deobfuscatedText = obfuscatedText.Deobfuscate();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1240">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1296">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Encrypt*"></a>
@@ -1061,14 +1140,7 @@ var encrypted = data.Encrypt();</code></pre>
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Encrypt data with a key and an optional IV</p>
-<ul>
-<li>Key: If DataProtection has been setup</li>
-<li>If key file is used, uses the filename</li>
-<li>Else appName if set through SetApplicationName()</li>
-<li>Else assembly name</li>
-<li>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011
-Optional IV, addIV is true? Random IV, else 16 bytes of 0</li>
-</ul>
+<p>Optional IV, addIV is true? Random IV, else 16 bytes of 0</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
@@ -1090,7 +1162,7 @@ Optional IV, addIV is true? Random IV, else 16 bytes of 0</li>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Byte___System_Byte___System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1295">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1354">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Encrypt*"></a>
@@ -1174,13 +1246,6 @@ var encrypted = data.Encrypt(key);</code></pre>
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Encrypt data with a key and an optional IV</p>
-<ul>
-<li>Key: If DataProtection has been setup</li>
-<li>If key file is used, uses the filename</li>
-<li>Else appName if set through SetApplicationName()</li>
-<li>Else assembly name</li>
-<li>Else no data protection usage: ABCDEFGHIJKLMNOPQRST123456789011</li>
-</ul>
 <p>Optional IV, addIV is true? Random IV, else 16 bytes of 0</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
@@ -1203,7 +1268,7 @@ var encrypted = data.Encrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_String_System_String_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1268">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1325">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Encrypt*"></a>
@@ -1295,7 +1360,7 @@ var encrypted = data.Encrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1614">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1673">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing*"></a>
@@ -1361,7 +1426,7 @@ var encrypted = data.Encrypt(key);</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L296">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L323">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*"></a>
@@ -1433,27 +1498,27 @@ var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;rld&quot;);
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case insensitive</p>
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text ends with any of the values, case sensitive, using StringComparison.Ordinal</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_StringComparison_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L321">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L349">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*"></a>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])" class="h4-custom-functionName">public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)</h4>
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_StringComparison_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.StringComparison,System.String[])" class="h4-custom-functionName">public static bool EndsWithAny(this string text, StringComparison comparison, params string[] values)</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>var text = &quot;heLLo WoRLd&quot;;
-var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;RLD&quot;);
-// result is true, because the last part of text ends with RLd - case insensitive</code></pre>
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
+var result = text.EndsWithAny(StringComparison.Ordinal, &quot;&quot;, &quot;abdef&quot;, &quot;rld&quot;);
+// result is true, because the last part of text ends with rld</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -1474,6 +1539,11 @@ var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;RLD&quot;);
   						<tr>
   							<td><span class="xref">System.String</span></td>
   							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.StringComparison</span></td>
+  							<td><span class="parametername">comparison</span></td>
   							<td></td>
   						</tr>
   						<tr>
@@ -1521,7 +1591,7 @@ var result = text.EndsWithAny(&quot;&quot;, &quot;abdef&quot;, &quot;RLD&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L555">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L609">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter*"></a>
@@ -1603,7 +1673,7 @@ var result = text.EndsWithAnyCharacter(&quot;abcdef&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L864">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L918">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.FromBase64*"></a>
@@ -1684,7 +1754,7 @@ var valueAgain = base64string.FromBase64();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L878">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L932">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes*"></a>
@@ -1751,7 +1821,7 @@ var valueAgain = base64string.FromBase64();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L895">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L949">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.GetBytes*"></a>
@@ -1914,7 +1984,7 @@ var result = new Uri(&apos;https://systemlibrary.github.io/systemlibrary-common-
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L761">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L815">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*"></a>
@@ -2000,7 +2070,7 @@ var newValue = value.HexDarkenOrLighten();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1527">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1586">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode*"></a>
@@ -2077,7 +2147,7 @@ var encoded = html.HtmlDecode();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1506">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1565">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode*"></a>
@@ -2163,7 +2233,7 @@ var encoded = html.HtmlEncode();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L409">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L438">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
@@ -2241,7 +2311,7 @@ var result = text.Is();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L432">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L461">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Is_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Is*"></a>
@@ -2324,7 +2394,7 @@ var result2 = text.Is(&quot;hello world&quot;);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L346">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L375">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsAny*"></a>
@@ -2421,7 +2491,7 @@ Returns always false if input is longer than 4096
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsFile_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1653">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1712">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsFile_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsFile*"></a>
@@ -2501,7 +2571,7 @@ var isFile = file2.IsFile(); // true, assumes any &quot;assets/&quot; request is
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsJson_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1382">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1441">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsJson*"></a>
@@ -2586,7 +2656,7 @@ var isJson = data.IsJon(); // False</p>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L379">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L408">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_IsNot_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.IsNot*"></a>
@@ -2676,13 +2746,14 @@ Throws exception if json has invalid formatted json text, does not throw on null
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_JsonSerializerOptions_System_Boolean_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L698">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L752">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Json_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Json*"></a>
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_JsonSerializerOptions_System_Boolean_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions,System.Boolean)" class="h4-custom-functionName">public static T Json&lt;T&gt;(this string json, JsonSerializerOptions options = null, bool transformUnicodeCodepoints = false)
+
     where T : class</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
@@ -2786,13 +2857,14 @@ var user = json.Json&lt;User>();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_Serialization_JsonConverter___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L734">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L788">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Json_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Json*"></a>
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_Serialization_JsonConverter___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])" class="h4-custom-functionName">public static T Json&lt;T&gt;(this string json, params JsonConverter[] converters)
+
     where T : class</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
@@ -2893,7 +2965,7 @@ var user = json.Json&lt;User>(new CustomConverter());
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L584">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L638">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.MaxLength*"></a>
@@ -2985,7 +3057,7 @@ var result = text.MaxLength(1);
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_System_String_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L920">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L974">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate*"></a>
@@ -3152,7 +3224,7 @@ Throws if json has invalid formatted json text, does not throw on null/blank
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L670">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L724">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*"></a>
@@ -3466,54 +3538,28 @@ var result = text.StartsWithAny(&quot;&quot;, &quot;abcdef&quot;, &quot;hel&quot
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
-  		<div class="markdown level1 summary member-summary"><p>Convert any uri to a application url, targetting files/folders inside your running app</p>
-<p>Assume app is hosted in C:/www/syslib/</p>
-<p>Examples:
-<a href="http://www.systemlibrary.com/a">http://www.systemlibrary.com/a</a> returns C:\www\syslib\a
-a returns C:/www/syslib/a
-/a returns C:/www/syslib/a
-a/ returns C:/www/syslib/a/
-/a/ returns C:/www/syslib/a/
-\a returns C:/www/syslib/a
-\a\b\ returns C:/www/syslib/a/b/</p>
-<p>If input ends with slash, return value ends with slash</p>
+  		<div class="markdown level1 summary member-summary"><p>Returns true if text starts with any of the values, case sensitive, using a String Comparison</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
-  	<div class="custom-remarks-container">
-  		<div class="custom-remarks custom-remarks2">
-  			<h5 id="SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_System_String__remarks">Remarks</h5>
-  		</div>
   
-  		<div class="custom-remarks custom-remarks2 text">
-  			<div class="custom-remarks-menu-data--close">X</div>
-  			<div class="markdown level1 remarks"><p>Always returns URL's with forward slashes</p>
-<p>Server Root Path is read from CurrentDomain[&quot;ContentRootPath&quot;] with fallback to AppContext.BaseDirectory.Parent. If a folder in the returning path is /bin/ it will navigate to the parent of such a folder then return</p>
-Remember that a URL is not a browser specific term, Uniform Resource Locator
-</div>
-  		</div>
-  	</div>
-  
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_System_String_">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_StringComparison_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1155">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L297">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath*"></a>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)" class="h4-custom-functionName">public static string ToAppPath(this string path)</h4>
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_StringComparison_System_String___" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.StringComparison,System.String[])" class="h4-custom-functionName">public static bool StartsWithAny(this string text, StringComparison comparison, params string[] values)</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
-  				<div class="codewrapper"><pre><code>var text = &quot;/hello/world.txt&quot;;
-var result = text.ToAppPath();
-// result == &quot;C:/pub/www/hello/world.txt&quot;
+  				<div class="codewrapper"><pre><code>var text = &quot;hello world&quot;;
 
-var text2 = &quot;https://www.syslib.com/hello&quot;;
-var result2 = text2.ToAppPath();
-// result2 == &quot;C:/www/hello&quot;, no ending slash as text2 did not contain it</code></pre>
+var result = text.StartsWithAny(StringComparison.Ordinal, &quot;&quot;, &quot;abcdef&quot;, &quot;hel&quot;);
+// result is true, due to the text begins with &apos;hel&apos;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -3533,7 +3579,17 @@ var result2 = text2.ToAppPath();
   					<tbody>
   						<tr>
   							<td><span class="xref">System.String</span></td>
-  							<td><span class="parametername">path</span></td>
+  							<td><span class="parametername">text</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.StringComparison</span></td>
+  							<td><span class="parametername">comparison</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span>[]</td>
+  							<td><span class="parametername">values</span></td>
   							<td></td>
   						</tr>
   					</tbody>
@@ -3552,8 +3608,8 @@ var result2 = text2.ToAppPath();
   					</thead>
   					<tbody>
   						<tr>
-  							<td><span class="xref">System.String</span></td>
-  							<td><p>Absolute application url based on input 'path', or null or empty if input was so</p>
+  							<td><span class="xref">System.Boolean</span></td>
+  							<td><p>True or false</p>
 </td>
   						</tr>
   					</tbody>
@@ -3587,7 +3643,7 @@ var result2 = text2.ToAppPath();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_System_String_System_Text_Encoding_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L847">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L901">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToBase64*"></a>
@@ -3670,7 +3726,7 @@ var base64string = value.ToBase64();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1093">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1147">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase*"></a>
@@ -3745,7 +3801,7 @@ var result = text.ToPascalCase();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_System_String_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1701">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1760">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime*"></a>
@@ -3824,7 +3880,7 @@ var dateTime = date.ToDateTime();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1717">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1776">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset*"></a>
@@ -3982,6 +4038,7 @@ var dateTime = date.ToDateTimeOffset();</code></pre>
   
   	<div class="custom-menu-data">
   		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)" class="h4-custom-functionName">public static T ToEnum&lt;T&gt;(this string text)
+
     where T : struct, IComparable, IFormattable, IConvertible</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
@@ -4089,7 +4146,7 @@ Throws if string is not a number
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToInt_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1566">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1625">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToInt_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToInt*"></a>
@@ -4158,7 +4215,7 @@ Throws if string is not a number
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1579">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1638">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToInt64*"></a>
@@ -4226,7 +4283,7 @@ Throws if string is not a number
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L461">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L490">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits*"></a>
@@ -4314,7 +4371,7 @@ Md5 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscate
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L959">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1013">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash*"></a>
@@ -4388,7 +4445,7 @@ var md5text = value.ToMD5Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1047">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1101">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase*"></a>
@@ -4455,6 +4512,108 @@ var result = text.ToPascalCase();
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Convert any uri to a application url, targetting files/folders inside your running app</p>
+<p>Assume app is hosted in C:/www/syslib/</p>
+<p>Examples:
+<a href="http://www.systemlibrary.com/a">http://www.systemlibrary.com/a</a> returns C:\www\syslib\a
+a returns C:/www/syslib/a
+/a returns C:/www/syslib/a
+a/ returns C:/www/syslib/a/
+/a/ returns C:/www/syslib/a/
+\a returns C:/www/syslib/a
+\a\b\ returns C:/www/syslib/a/b/</p>
+<p>If input ends with slash, return value ends with slash</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  	<div class="custom-remarks-container">
+  		<div class="custom-remarks custom-remarks2">
+  			<h5 id="SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_System_String__remarks">Remarks</h5>
+  		</div>
+  
+  		<div class="custom-remarks custom-remarks2 text">
+  			<div class="custom-remarks-menu-data--close">X</div>
+  			<div class="markdown level1 remarks"><p>Always returns URL's with forward slashes</p>
+<p>Server Root Path is read from CurrentDomain[&quot;ContentRootPath&quot;] with fallback to AppContext.BaseDirectory.Parent. If a folder in the returning path is /bin/ it will navigate to the parent of such a folder then return</p>
+Remember that a URL is not a browser specific term, Uniform Resource Locator
+</div>
+  		</div>
+  	</div>
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1209">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)" class="h4-custom-functionName">public static string ToPhysicalPath(this string path)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var text = &quot;/hello/world.txt&quot;;
+var result = text.ToPhysicalPath();
+// result == &quot;C:/pub/www/hello/world.txt&quot;
+
+var text2 = &quot;https://www.syslib.com/hello&quot;;
+var result2 = text2.ToPhysicalPath();
+// result2 == &quot;C:/www/hello&quot;, no ending slash as text2 did not contain it</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">path</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><p>Absolute application url based on input 'path', or null or empty if input was so</p>
+</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns a Sha1 hash version of the text input, resulting in a 59 character long text (including dashes).</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
@@ -4475,7 +4634,7 @@ Sha1 is not secure, there are rainbow tables, it's a 'one way shrinking obfuscat
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L978">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1032">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash*"></a>
@@ -4549,7 +4708,7 @@ var sha1 = value.ToSha1Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L993">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1047">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash*"></a>
@@ -4623,7 +4782,7 @@ var sha1 = value.ToSha1Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1539">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1598">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM*"></a>
@@ -4693,7 +4852,7 @@ var sha1 = value.ToSha1Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1407">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1466">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints*"></a>
@@ -4753,7 +4912,7 @@ var sha1 = value.ToSha1Hash();</code></pre>
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Trim the end of a string if it ends with any of the inputs</p>
-<p>- It does not trim spaces, you must specify it as argument if so</p>
+<p>- It does not trim spaces, you must specify it as argument</p>
 <p>- Not recursive, returns after the first trimming</p>
 - Case sensitive
 </div>
@@ -4763,7 +4922,7 @@ var sha1 = value.ToSha1Hash();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L507">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L560">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*"></a>
@@ -4848,7 +5007,7 @@ var result = &quot;abcd&quot;.TrimEnd(&quot; &quot;, &quot;d&quot;, &quot;bc&quo
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1029">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1083">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.UriDecode*"></a>
@@ -4924,7 +5083,7 @@ var plain = coded.UriDecode();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_System_String_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1010">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/master/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1064">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.UriEncode*"></a>

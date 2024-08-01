@@ -164,5 +164,4 @@ public class StringExtensionsBenchmarks
         return kiloBytes550.ToSha256Hash();
     }
 
-
 }

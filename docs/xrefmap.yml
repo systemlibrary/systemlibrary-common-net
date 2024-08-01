@@ -1480,6 +1480,15 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.String())
   nameWithType: StringExtensions.ContainsAny(String, String[])
   nameWithType.vb: StringExtensions.ContainsAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.StringComparison,System.String[])
+  name: ContainsAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.StringComparison,System.String[])
+  name.vb: ContainsAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.ContainsAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.ContainsAny(String, StringComparison, String())
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*
   name: ContainsAny
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_
@@ -1604,6 +1613,15 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.String())
   nameWithType: StringExtensions.EndsWithAny(String, String[])
   nameWithType.vb: StringExtensions.EndsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.StringComparison,System.String[])
+  name: EndsWithAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.StringComparison,System.String[])
+  name.vb: EndsWithAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.EndsWithAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.EndsWithAny(String, StringComparison, String())
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*
   name: EndsWithAny
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_
@@ -1611,22 +1629,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
   nameWithType: StringExtensions.EndsWithAny
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
-  name: EndsWithAnyCaseInsensitive(String, String[])
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_System_String_System_String___
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String,System.String[])
-  name.vb: EndsWithAnyCaseInsensitive(String, String())
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String[])
-  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive(System.String, System.String())
-  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive(String, String[])
-  nameWithType.vb: StringExtensions.EndsWithAnyCaseInsensitive(String, String())
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive*
-  name: EndsWithAnyCaseInsensitive
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCaseInsensitive_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCaseInsensitive
-  nameWithType: StringExtensions.EndsWithAnyCaseInsensitive
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
   name: EndsWithAnyCharacter(String, String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_
@@ -1919,6 +1921,15 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.String())
   nameWithType: StringExtensions.StartsWithAny(String, String[])
   nameWithType.vb: StringExtensions.StartsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.StringComparison,System.String[])
+  name: StartsWithAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.StringComparison,System.String[])
+  name.vb: StartsWithAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.StartsWithAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.StartsWithAny(String, StringComparison, String())
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*
   name: StartsWithAny
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_
@@ -1926,19 +1937,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny
   nameWithType: StringExtensions.StartsWithAny
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
-  name: ToAppPath(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_System_String_
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath(System.String)
-  nameWithType: StringExtensions.ToAppPath(String)
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath*
-  name: ToAppPath
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToAppPath_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToAppPath
-  nameWithType: StringExtensions.ToAppPath
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String,System.Text.Encoding)
   name: ToBase64(String, Encoding)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_System_String_System_Text_Encoding_
@@ -2078,6 +2076,19 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
   nameWithType: StringExtensions.ToPascalCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  name: ToPhysicalPath(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  nameWithType: StringExtensions.ToPhysicalPath(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath*
+  name: ToPhysicalPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath
+  nameWithType: StringExtensions.ToPhysicalPath
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
   name: ToSha1Hash(String)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_

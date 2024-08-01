@@ -270,12 +270,39 @@ public static partial class StringExtensions
     {
         if (text.IsNot()) return false;
 
-        if (values.IsNot()) return false;
+        if (values == null || values.Length == 0) return false;
 
         var textSpan = text.AsSpan();
-
+        var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i].Length != 0 && textSpan.StartsWith(values[i]))
+            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], StringComparison.Ordinal))
+                return true;
+
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if text starts with any of the values, case sensitive, using a String Comparison
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var text = "hello world";
+    /// 
+    /// var result = text.StartsWithAny(StringComparison.Ordinal, "", "abcdef", "hel");
+    /// // result is true, due to the text begins with 'hel'
+    /// </code>
+    /// </example>
+    /// <returns>True or false</returns>
+    public static bool StartsWithAny(this string text, StringComparison comparison, params string[] values)
+    {
+        if (text.IsNot()) return false;
+
+        if (values == null || values.Length == 0) return false;
+
+        var textSpan = text.AsSpan();
+        var l = text.Length;
+        for (int i = 0; i < values.Length; i++)
+            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], comparison))
                 return true;
 
         return false;
@@ -294,38 +321,40 @@ public static partial class StringExtensions
     /// <returns>True or false</returns>
     public static bool EndsWithAny(this string text, params string[] values)
     {
-        if (text.IsNot()) return false;
-        if (values.IsNot()) return false;
+        if (text == null || text.Length == 0) return false;
+
+        if (values == null || values.Length == 0) return false;
 
         var textSpan = text.AsSpan();
-
+        var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && textSpan.EndsWith(values[i]))
+            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], StringComparison.Ordinal))
                 return true;
 
         return false;
     }
 
     /// <summary>
-    /// Returns true if text ends with any of the values, case insensitive
+    /// Returns true if text ends with any of the values, case sensitive, using StringComparison.Ordinal
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
-    /// var text = "heLLo WoRLd";
-    /// var result = text.EndsWithAny("", "abdef", "RLD");
-    /// // result is true, because the last part of text ends with RLd - case insensitive
+    /// var text = "hello world";
+    /// var result = text.EndsWithAny(StringComparison.Ordinal, "", "abdef", "rld");
+    /// // result is true, because the last part of text ends with rld
     /// </code>
     /// </example>
     /// <returns>True or false</returns>
-    public static bool EndsWithAnyCaseInsensitive(this string text, params string[] values)
+    public static bool EndsWithAny(this string text, StringComparison comparison, params string[] values)
     {
-        if (text.IsNot()) return false;
-        if (values.IsNot()) return false;
+        if (text == null || text.Length == 0) return false;
+
+        if (values == null || values.Length == 0) return false;
 
         var textSpan = text.AsSpan();
-
+        var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && textSpan.EndsWith(values[i], StringComparison.InvariantCultureIgnoreCase))
+            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], comparison))
                 return true;
 
         return false;
@@ -346,7 +375,7 @@ public static partial class StringExtensions
     {
         if (text.IsNot()) return false;
 
-        if (values.IsNot()) return false;
+        if (values == null || values.Length == 0) return false;
 
         for (int i = 0; i < values.Length; i++)
             if (text == values[i])
@@ -480,14 +509,38 @@ public static partial class StringExtensions
     {
         if (text.IsNot()) return false;
 
-        if (values.IsNot()) return false;
+        if (values == null || values.Length == 0) return false;
 
-        return values.Any(x => text.Contains(x));
+        var l = text.Length;
+        return values.Any(x => l >= x.Length && text.Contains(x, StringComparison.Ordinal));
+    }
+
+    /// <summary>
+    /// Check if text contains any of the values, case sensitive, with a string comparison
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// var text = "hello";
+    /// 
+    /// var result = text.ContainsAny(StringComparison.Ordinal, "123", "!", "lo");
+    /// // result is true, because lo is part of the text
+    /// </code>
+    /// </example>
+    /// <returns>True or false</returns>
+    public static bool ContainsAny(this string text, StringComparison comparison, params string[] values)
+    {
+        if (text.IsNot()) return false;
+
+        if (values == null || values.Length == 0) return false;
+
+        var l = text.Length;
+
+        return values.Any(x => l >= x.Length && text.Contains(x, comparison));
     }
 
     /// <summary>
     /// Trim the end of a string if it ends with any of the inputs
-    /// <para>- It does not trim spaces, you must specify it as argument if so</para>
+    /// <para>- It does not trim spaces, you must specify it as argument</para>
     /// <para>- Not recursive, returns after the first trimming</para>
     /// - Case sensitive
     /// </summary>
@@ -506,7 +559,8 @@ public static partial class StringExtensions
     public static string TrimEnd(this string text, params string[] values)
     {
         if (text.IsNot()) return text;
-        if (values.IsNot()) return text;
+
+        if (values == null || values.Length == 0) return text;
 
         int start = 0;
         int valueLength;
@@ -761,7 +815,7 @@ public static partial class StringExtensions
     {
         if (hex.IsNot()) return hex;
 
-        var hasHex = hex.StartsWith("#");
+        var hasHex = hex[0] == '#';
         if (hasHex)
             hex = hex.Substring(1);
 
@@ -1142,24 +1196,24 @@ public static partial class StringExtensions
     /// <example>
     /// <code>
     /// var text = "/hello/world.txt";
-    /// var result = text.ToAppPath();
+    /// var result = text.ToPhysicalPath();
     /// // result == "C:/pub/www/hello/world.txt"
     /// 
     /// var text2 = "https://www.syslib.com/hello";
-    /// var result2 = text2.ToAppPath();
+    /// var result2 = text2.ToPhysicalPath();
     /// // result2 == "C:/www/hello", no ending slash as text2 did not contain it
     /// </code>
     /// </example>
     /// <returns>Absolute application url based on input 'path', or null or empty if input was so</returns>
-    public static string ToAppPath(this string path)
+    public static string ToPhysicalPath(this string path)
     {
         if (path == null) return path;
 
         if (path.StartsWith("file:/")) return path;
 
-        if (path.Contains(":\\", StringComparison.Ordinal)) return path.Replace("\\", "/").ToAppPath();
+        if (path.Contains(":\\", StringComparison.Ordinal)) return path.Replace("\\", "/").ToPhysicalPath();
 
-        if (path.StartsWith("~", StringComparison.Ordinal))
+        if (path.Length > 0 && path[0] == '~')
             path = path.Substring(1);
 
         if (path.StartsWith(AppDomainInternal.ContentRootPath))
@@ -1168,7 +1222,7 @@ public static partial class StringExtensions
         var driveUriFormat = path.IndexOf(":/");
         if (driveUriFormat > 0 && driveUriFormat < 5)
         {
-            return path.Substring(driveUriFormat + ":\\".Length).ToAppPath();
+            return path.Substring(driveUriFormat + ":\\".Length).ToPhysicalPath();
         }
 
         void ConvertWebPathToServerPath()

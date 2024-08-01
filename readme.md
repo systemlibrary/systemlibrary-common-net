@@ -15,18 +15,23 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - Obfuscate a string through extension Obfuscate() and Deobfuscate()
 - Convert to Base64 for string and byte[] through extension method ToBase64()
 - Hash anything through ToSha1(), ToSha256() and ToMd5() extensions for string, byte[] and Stream
-- Services as a service locator
+- Services.Get() as a service locator
 
 ## Requirements
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.13.0.8
-- Updated package description
+- 7.14.0.1
+- StringExtensions StartsWithAny, EndsWithAny, ContainsAny now defaults to Comparison Ordinal (breaking change)
+- StringExtensions StartsWithAny, EndsWithAny, ContainsAny added overload method that takes StringComparison as first argument
+- StringExtensions micro optimizations for checking Array "IsNot()" now checks null and length == 0 internally for string extensions
+- IEnumerableExtensions IsNot() micro optimization avoiding a cast to IList in scenarios where count != 1
+- StringExtension.EndsWithAnyCaseInsensitive removed (breaking change)
+- ToAppPath renamed to ToPhysicalPath (breaking change)
 
 #### Major Breaking Versions
 - 7.12.0.1
-- Cryptation rewritten, Encrypt() return cipher text with a random IV
+- Cryptation rewritten, parameterless Encrypt() returns cipher text with a random IV
 - Cryptation environment key "SYSLIBCRYPTATIONKEY" removed
 - Json() conversions for date time rewritten
 - Config files read from 'content root', never /bin/

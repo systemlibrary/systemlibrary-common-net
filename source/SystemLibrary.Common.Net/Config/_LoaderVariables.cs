@@ -32,9 +32,9 @@ internal static class ConfigVariables
     {
         var contentRootDirectory = AppDomainInternal.ContentRootPath;
 
-        if (!contentRootDirectory.EndsWith("/") && !contentRootDirectory.EndsWith("\\"))
+        if (!contentRootDirectory.EndsWith("/", StringComparison.Ordinal) && !contentRootDirectory.EndsWith("\\", StringComparison.Ordinal))
         {
-            if (contentRootDirectory.Contains("/"))
+            if (contentRootDirectory.Contains("/", StringComparison.Ordinal))
                 contentRootDirectory += "/";
             else
                 contentRootDirectory += "\\";
@@ -81,7 +81,7 @@ internal static class ConfigVariables
         if (files == null || files.Length == 0) return new string[0];
 
         return files
-            .Where(x => x.EndsWithAnyCaseInsensitive(".json", ".xml", ".config"))
+            .Where(x => x.EndsWithAny(StringComparison.OrdinalIgnoreCase, ".json", ".xml", ".config"))
             .ToArray();
     }
 
@@ -91,7 +91,7 @@ internal static class ConfigVariables
 
         fileLowered = fileLowered.ToLower();
 
-        return (fileLowered.Contains("\\appsettings.") || fileLowered.Contains("/appsettings.")) && fileLowered.EndsWithAnyCaseInsensitive(".json", ".xml", ".config");
+        return (fileLowered.Contains("\\appsettings.") || fileLowered.Contains("/appsettings.")) && fileLowered.EndsWithAny(StringComparison.OrdinalIgnoreCase, ".json", ".xml", ".config");
     }
 
     static bool FilterValidConfigurationFileNames(string file)
@@ -100,10 +100,10 @@ internal static class ConfigVariables
 
         file = file.ToLower();
 
-        if (file.Contains(".runtimeconfig.") ||
-            file.Contains(".deps.json") ||
-            file.Contains("microsoft.visualstudio") ||
-            file.ContainsAny("packages.json", "packages.xml", "package.json", "package-lock.json"))
+        if (file.Contains(".runtimeconfig.", StringComparison.Ordinal) ||
+            file.Contains(".deps.json", StringComparison.Ordinal) ||
+            file.Contains("microsoft.visualstudio", StringComparison.Ordinal) ||
+            file.ContainsAny(StringComparison.Ordinal, "packages.json", "packages.xml", "package.json", "package-lock.json"))
             return false;
 
         return true;
@@ -124,18 +124,18 @@ internal static class ConfigVariables
             }
             else if (extension == ".xml")
             {
-                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
+                if (!f.Contains(".Tests", StringComparison.Ordinal) && f.Contains("\\SystemLibrary.Common.", StringComparison.Ordinal)) continue;
 
                 builder.AddXmlFile(f, true, true);
             }
             else if (extension == ".config")
             {
-                if (!f.Contains(".Tests") && f.Contains("\\SystemLibrary.Common.")) continue;
+                if (!f.Contains(".Tests", StringComparison.Ordinal) && f.Contains("\\SystemLibrary.Common.", StringComparison.Ordinal)) continue;
 
                 var data = File.ReadAllText(f);
                 if (data.Length > 0)
                 {
-                    if (data.StartsWith("<") || data.EndsWith(">"))
+                    if (data[0] == '<' || data.EndsWith(">", StringComparison.Ordinal))
                         builder.AddXmlFile(f, true, true);
                     else
                         builder.AddJsonFile(f, true, true);

@@ -49,7 +49,7 @@ public static class DynamicExtensions
     /// </example>
     public static dynamic Merge(dynamic source, params object[] updates)
     {
-        if (source == null && updates.IsNot()) return null;
+        if (source == null && (updates == null || updates.Length == 0)) return null;
 
         var dictionary = new ExpandoObject() as IDictionary<string, object>;
 

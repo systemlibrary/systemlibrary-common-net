@@ -583,6 +583,14 @@ div.summary.h1-class-summary * {
   padding-left: 0px !important;
 }
 
+.markdown.level0.summary.h1-class-summary {
+  margin-bottom: 6px;
+  color: var(--green) !important;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
 /* Not using these 'comments' in front of a 'summary comment' */
 /* .h1-class-summary-container
   > .markdown.level0.summary.h1-class-summary

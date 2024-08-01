@@ -1,5 +1,4 @@
 ﻿//namespace SystemLibrary.Common.Net.Global;
-
 //using System;
 //using System.Collections;
 //using System.Collections.Generic;
@@ -168,7 +167,7 @@
 
 //        else if (e is ICollection ic)
 //            logString.Append(" collection count: " + ic.Count + "\n");
-//        else if (e.GetType().Name.StartsWith("<") && e.GetType().Name.Contains("__"))
+//        else if (e.GetType().Name[0] == '<' && e.GetType().Name.Contains("__"))
 //            logString.Append(" enumerable function count" + "\n");
 //        else
 //            logString.Append(" unknown count" + "\n");
@@ -361,8 +360,13 @@
 //            return "(null)";
 
 //        else if (value is Exception e)
+//        {
+//            if (e is AggregateException agg)
+//            {
+//                return agg.Flatten().ToString();
+//            }
 //            return e.ToString();
-
+//        }
 //        else if (value is string str)
 //            if (str.Length > 50)
 //                return str + " (Length: " + str.Length + ")";

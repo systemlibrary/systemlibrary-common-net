@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, invocationCount: 25000, launchCount: 3)]
+[SimpleJob(RuntimeMoniker.Net70, warmupCount: 1, invocationCount: 500, launchCount: 2)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringConditionBenchmarks
@@ -32,26 +32,65 @@ public class StringConditionBenchmarks
     }
 
     [Benchmark]
-    public int Bitshift()
+    public bool EndsWithAny()
     {
-        var cacheIndex = cacheKey.GetHashCode() & (MaxCacheContainers - 1);
-
-        return cacheIndex;
+        return "Hello world".EndsWithAny("aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
     }
 
     [Benchmark]
-    public int MathAbs()
+    public bool EndsWithAny_Ordinal()
     {
-        var cacheIndex = Math.Abs(cacheKey.GetHashCode() % 4);
-
-        return cacheIndex;
+        return "Hello world".EndsWithAny(StringComparison.Ordinal, "aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
     }
+
+    [Benchmark]
+    public bool EndsWith_Span()
+    {
+        var data = "Hello world 123456";
+
+        var r1 = data.StartsWithAny("world", "1234", "abc", "ello", "Hello");
+
+        var r2 = data.StartsWithAny(null);
+
+        var r3 = data.StartsWithAny("");
+
+        var r4 = data.StartsWithAny("H");
+
+        return r1 || r2 || r3 || r4;
+    }
+
+    //[Benchmark]
+    //public bool EndsWithAny_Multiple()
+    //{
+    //    return "Hello world".EndsWith("aaaa", StringComparison.Ordinal) ||
+    //        "Hello world".EndsWith("bbbb", StringComparison.Ordinal) ||
+    //        "Hello world".EndsWith("cccc", StringComparison.Ordinal) ||
+    //        "Hello world".EndsWith("dddd", StringComparison.Ordinal) ||
+    //        "Hello world".EndsWith("eeee", StringComparison.Ordinal) ||
+    //        "Hello world".EndsWith("zzzzzz", StringComparison.Ordinal);
+    //}
+
+    //[Benchmark]
+    //public int Bitshift()
+    //{
+    //    var cacheIndex = cacheKey.GetHashCode() & (MaxCacheContainers - 1);
+
+    //    return cacheIndex;
+    //}
+
+    //[Benchmark]
+    //public int MathAbs()
+    //{
+    //    var cacheIndex = Math.Abs(cacheKey.GetHashCode() % 4);
+
+    //    return cacheIndex;
+    //}
 
     //[Benchmark]
     //public string To_Server_Mapped_Path()
     //{
     //    var text = "https://www.sub.sub.subdomain.com/hello1/world2/?hello=world&hello=/world/";
-    //    return text.ToAppPath();
+    //    return text.ToPhysicalPath();
     //}
 
     //[Benchmark]

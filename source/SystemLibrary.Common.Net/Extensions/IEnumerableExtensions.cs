@@ -115,10 +115,12 @@ public static class IEnumerableExtensions
 
         if (enumerable is ICollection iCollection)
         {
-            if (iCollection is IList list)
-                return list.Count == 0 || (list.Count == 1 && list[0] == null);
+            if (iCollection.Count == 0) return true;
 
-            return iCollection.Count == 0;
+            if (iCollection.Count == 1 && iCollection is IList list)
+                return list[0] == null;
+
+            return false;
         }
 
         return !enumerable.Any();
