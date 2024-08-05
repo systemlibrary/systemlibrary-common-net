@@ -21,13 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.14.0.1
-- StringExtensions StartsWithAny, EndsWithAny, ContainsAny now defaults to Comparison Ordinal (breaking change)
-- StringExtensions StartsWithAny, EndsWithAny, ContainsAny added overload method that takes StringComparison as first argument
-- StringExtensions micro optimizations for checking Array "IsNot()" now checks null and length == 0 internally for string extensions
-- IEnumerableExtensions IsNot() micro optimization avoiding a cast to IList in scenarios where count != 1
-- StringExtension.EndsWithAnyCaseInsensitive removed (breaking change)
-- ToAppPath renamed to ToPhysicalPath (breaking change)
+- 7.14.0.2
+- AppDomainInternal.ContentRootPath was ending in \bin which is not expected, as it can never be inside the bin folder, so now its the parent if so (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

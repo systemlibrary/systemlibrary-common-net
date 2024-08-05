@@ -7,6 +7,8 @@ internal static class AppDomainInternal
 {
     static object Lock = new object();
     static string _ContentRootPath;
+    
+    // ContentRootPath never ends with slash
     internal static string ContentRootPath
     {
         get
@@ -29,12 +31,7 @@ internal static class AppDomainInternal
                     if (_ContentRootPath.IsNot())
                         _ContentRootPath = new DirectoryInfo(AppContext.BaseDirectory).FullName;
 
-                    if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
-                        _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
-
-                    if (_ContentRootPath.EndsWith("/", StringComparison.Ordinal))
-                        _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
-
+                    
                     bool IsWithinBin()
                     {
                         // TODO: Consider test projects if config files are set as "content" in build mode or not
@@ -45,14 +42,15 @@ internal static class AppDomainInternal
                              _ContentRootPath.Contains("/bin/", StringComparison.Ordinal) ||
                              _ContentRootPath.Contains("/Bin/", StringComparison.Ordinal) ||
                             _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
-                            _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal);
+                            _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal) || 
+                            _ContentRootPath.EndsWith("\\bin", StringComparison.Ordinal) ||
+                            _ContentRootPath.EndsWith("\\Bin", StringComparison.Ordinal) ||
+                            _ContentRootPath.EndsWith("/bin", StringComparison.Ordinal) ||
+                            _ContentRootPath.EndsWith("/Bin", StringComparison.Ordinal);
                     }
 
-                    var wasInBin = false;
                     while (IsWithinBin())
                     {
-                        wasInBin = true;
-
                         var temp = _ContentRootPath;
 
                         _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent?.FullName;
@@ -64,11 +62,11 @@ internal static class AppDomainInternal
                         }
                     }
 
-                    if (wasInBin)
-                    {
-                        // Move to parent of Bin as the Condition checks ending slash of Bin
-                        _ContentRootPath = new DirectoryInfo(_ContentRootPath).Parent.FullName;
-                    }
+                    if (_ContentRootPath.EndsWith("\\", StringComparison.Ordinal))
+                        _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
+
+                    if (_ContentRootPath.EndsWith("/", StringComparison.Ordinal))
+                        _ContentRootPath = _ContentRootPath.Substring(0, _ContentRootPath.Length - 1);
 
                     _ContentRootPath = _ContentRootPath.Replace("\\", "/");
                 }

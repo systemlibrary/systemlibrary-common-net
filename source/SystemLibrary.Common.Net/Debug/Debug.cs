@@ -20,4 +20,12 @@ internal static class Debug
             Dump.Write("Debug is 'true': " + msg);
         }
     }
+
+    internal static void Write(object obj)
+    {
+        if (obj == null)
+            System.IO.File.AppendAllText(@"C:\Logs\debug.log", "(null)\n");
+        else
+            System.IO.File.AppendAllText(@"C:\Logs\debug.log", obj + "\n");
+    }
 }

@@ -76,7 +76,7 @@ https://systemlibrary.github.io/systemlibrary-common-net/
 		<PackageIcon>nuget-icon.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageTags>C# .NET 7.0 Config Extensions</PackageTags>
-		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-version</PackageReleaseNotes>
+		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-release-notes</PackageReleaseNotes>
 		<AssemblyVersion>$(NugetVersion)</AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>
 	</PropertyGroup>
