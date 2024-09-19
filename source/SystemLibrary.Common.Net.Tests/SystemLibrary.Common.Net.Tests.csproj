@@ -1,0 +1,148 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docs|AnyCPU'">
+		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Configurations>Release;Unknown;Debug</Configurations>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
+		<Configurations>Release;Unknown</Configurations>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
+		<Configurations>Release;Debug;Dev</Configurations>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Remove="AppSettingsTests\text.json" />
+		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.config" />
+		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.prod.config" />
+		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.qa.config" />
+		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.test.config" />
+		<None Remove="Configs\AppSettingsTests\appSettingsTests.json" />
+		<None Remove="Configs\AppSettings\appSettings.json" />
+		<None Remove="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON" />
+		<None Remove="Configs\Integration\integrationsettings.json" />
+		<None Remove="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
+		<None Remove="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
+		<None Remove="mstest.runsettings" />
+		<None Remove="_Files\data-array-space-and-newline.json" />
+		<None Remove="_Files\data-new-line.json" />
+		<None Remove="_Files\json-serialization-data-real-as-int.json" />
+		<None Remove="_Files\json-serialization-data-short-format.json" />
+		<None Remove="_Files\json-serialization-data.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
+	  <EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
+	  <EmbeddedResource Include="_Files\data-new-line.json" />
+	  <EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
+	  <EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
+	  <EmbeddedResource Include="_Files\json-serialization-data.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.prod.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.qa.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.test.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\AppSettings\appSettings.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\carSettings.Debug.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>carSettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\carSettings.Release.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>carSettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.Debug.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<DependentUpon>ENVirOnmentConFIG.jSON</DependentUpon>
+			<IsTransformFile>true</IsTransformFile>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.jSON">
+			<TransformOnBuild>true</TransformOnBuild>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\EnvironmentConfig\ENVirOnmentConFIG.Release.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<DependentUpon>ENVirOnmentConFIG.jSON</DependentUpon>
+			<IsTransformFile>true</IsTransformFile>
+		</Content>
+		<Content Include="Configs\Integration\integrationsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<TransformOnBuild>true</TransformOnBuild>
+		</Content>
+		<Content Include="Configurations\humanConfigs.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Properties\mstest.runsettings">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Configs\carSettings.json">
+			<TransformOnBuild>true</TransformOnBuild>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="_Files\data.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="_Files\icon.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="docfx.console" Version="2.59.3" Condition="'$(Configuration)'=='Docs'">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="Configs\Integration\integrationsettings.Release.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>integrationsettings.json</DependentUpon>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Properties\launchSettings.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

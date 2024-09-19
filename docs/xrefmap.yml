@@ -1,0 +1,2485 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: SystemLibrary.Common.Net
+  name: SystemLibrary.Common.Net
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.html
+  commentId: N:SystemLibrary.Common.Net
+  fullName: SystemLibrary.Common.Net
+  nameWithType: SystemLibrary.Common.Net
+- uid: SystemLibrary.Common.Net.Assemblies
+  name: Assemblies
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html
+  commentId: T:SystemLibrary.Common.Net.Assemblies
+  fullName: SystemLibrary.Common.Net.Assemblies
+  nameWithType: Assemblies
+- uid: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting*
+  name: FindAllTypesInheriting
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting_
+  commentId: Overload:SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting
+  nameWithType: Assemblies.FindAllTypesInheriting
+- uid: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting``1
+  name: FindAllTypesInheriting<TClassType>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_FindAllTypesInheriting__1
+  commentId: M:SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting``1
+  name.vb: FindAllTypesInheriting(Of TClassType)()
+  fullName: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting<TClassType>()
+  fullName.vb: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheriting(Of TClassType)()
+  nameWithType: Assemblies.FindAllTypesInheriting<TClassType>()
+  nameWithType.vb: Assemblies.FindAllTypesInheriting(Of TClassType)()
+- uid: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute*
+  name: FindAllTypesInheritingWithAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute_
+  commentId: Overload:SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute
+  nameWithType: Assemblies.FindAllTypesInheritingWithAttribute
+- uid: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute``2
+  name: FindAllTypesInheritingWithAttribute<TClassType, TAttributeType>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_FindAllTypesInheritingWithAttribute__2
+  commentId: M:SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute``2
+  name.vb: FindAllTypesInheritingWithAttribute(Of TClassType, TAttributeType)()
+  fullName: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute<TClassType, TAttributeType>()
+  fullName.vb: SystemLibrary.Common.Net.Assemblies.FindAllTypesInheritingWithAttribute(Of TClassType, TAttributeType)()
+  nameWithType: Assemblies.FindAllTypesInheritingWithAttribute<TClassType, TAttributeType>()
+  nameWithType.vb: Assemblies.FindAllTypesInheritingWithAttribute(Of TClassType, TAttributeType)()
+- uid: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource(System.String,System.String,System.Reflection.Assembly)
+  name: GetEmbeddedResource(String, String, Assembly)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_System_String_System_String_System_Reflection_Assembly_
+  commentId: M:SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource(System.String,System.String,System.Reflection.Assembly)
+  fullName: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource(System.String, System.String, System.Reflection.Assembly)
+  nameWithType: Assemblies.GetEmbeddedResource(String, String, Assembly)
+- uid: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource*
+  name: GetEmbeddedResource
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_GetEmbeddedResource_
+  commentId: Overload:SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResource
+  nameWithType: Assemblies.GetEmbeddedResource
+- uid: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes(System.String,System.String,System.Reflection.Assembly)
+  name: GetEmbeddedResourceAsBytes(String, String, Assembly)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_System_String_System_String_System_Reflection_Assembly_
+  commentId: M:SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes(System.String,System.String,System.Reflection.Assembly)
+  fullName: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes(System.String, System.String, System.Reflection.Assembly)
+  nameWithType: Assemblies.GetEmbeddedResourceAsBytes(String, String, Assembly)
+- uid: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes*
+  name: GetEmbeddedResourceAsBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Assemblies.html#SystemLibrary_Common_Net_Assemblies_GetEmbeddedResourceAsBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Assemblies.GetEmbeddedResourceAsBytes
+  nameWithType: Assemblies.GetEmbeddedResourceAsBytes
+- uid: SystemLibrary.Common.Net.Async
+  name: Async
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html
+  commentId: T:SystemLibrary.Common.Net.Async
+  fullName: SystemLibrary.Common.Net.Async
+  nameWithType: Async
+- uid: SystemLibrary.Common.Net.Async.FireAndForget(System.Action[])
+  name: FireAndForget(Action[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_System_Action___
+  commentId: M:SystemLibrary.Common.Net.Async.FireAndForget(System.Action[])
+  name.vb: FireAndForget(Action())
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget(System.Action[])
+  fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action())
+  nameWithType: Async.FireAndForget(Action[])
+  nameWithType.vb: Async.FireAndForget(Action())
+- uid: SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.Exception},System.Action[])
+  name: FireAndForget(Action<Exception>, Action[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_System_Action_System_Exception__System_Action___
+  commentId: M:SystemLibrary.Common.Net.Async.FireAndForget(System.Action{System.Exception},System.Action[])
+  name.vb: FireAndForget(Action(Of Exception), Action())
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget(System.Action<System.Exception>, System.Action[])
+  fullName.vb: SystemLibrary.Common.Net.Async.FireAndForget(System.Action(Of System.Exception), System.Action())
+  nameWithType: Async.FireAndForget(Action<Exception>, Action[])
+  nameWithType.vb: Async.FireAndForget(Action(Of Exception), Action())
+- uid: SystemLibrary.Common.Net.Async.FireAndForget*
+  name: FireAndForget
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_FireAndForget_
+  commentId: Overload:SystemLibrary.Common.Net.Async.FireAndForget
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Async.FireAndForget
+  nameWithType: Async.FireAndForget
+- uid: SystemLibrary.Common.Net.Async.Run*
+  name: Run
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run_
+  commentId: Overload:SystemLibrary.Common.Net.Async.Run
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Async.Run
+  nameWithType: Async.Run
+- uid: SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])
+  name: Run<T>(Func<T>[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run__1_System_Func___0____
+  commentId: M:SystemLibrary.Common.Net.Async.Run``1(System.Func{``0}[])
+  name.vb: Run(Of T)(Func(Of T)())
+  fullName: SystemLibrary.Common.Net.Async.Run<T>(System.Func<T>[])
+  fullName.vb: SystemLibrary.Common.Net.Async.Run(Of T)(System.Func(Of T)())
+  nameWithType: Async.Run<T>(Func<T>[])
+  nameWithType.vb: Async.Run(Of T)(Func(Of T)())
+- uid: SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])
+  name: Run<T>(Func<IEnumerable<T>>[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Async.html#SystemLibrary_Common_Net_Async_Run__1_System_Func_System_Collections_Generic_IEnumerable___0_____
+  commentId: M:SystemLibrary.Common.Net.Async.Run``1(System.Func{System.Collections.Generic.IEnumerable{``0}}[])
+  name.vb: Run(Of T)(Func(Of IEnumerable(Of T))())
+  fullName: SystemLibrary.Common.Net.Async.Run<T>(System.Func<System.Collections.Generic.IEnumerable<T>>[])
+  fullName.vb: SystemLibrary.Common.Net.Async.Run(Of T)(System.Func(Of System.Collections.Generic.IEnumerable(Of T))())
+  nameWithType: Async.Run<T>(Func<IEnumerable<T>>[])
+  nameWithType.vb: Async.Run(Of T)(Func(Of IEnumerable(Of T))())
+- uid: SystemLibrary.Common.Net.Attributes
+  name: SystemLibrary.Common.Net.Attributes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.html
+  commentId: N:SystemLibrary.Common.Net.Attributes
+  fullName: SystemLibrary.Common.Net.Attributes
+  nameWithType: SystemLibrary.Common.Net.Attributes
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  name: DecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html
+  commentId: T:SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute
+  nameWithType: DecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
+  name: DecryptAttribute(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute(System.String)
+  nameWithType: DecryptAttribute.DecryptAttribute(String)
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor*
+  name: DecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute
+  nameWithType: DecryptAttribute.DecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  name: PropertyName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute_PropertyName
+  commentId: F:SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  nameWithType: DecryptAttribute.PropertyName
+- uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute
+  name: EnumTextAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html
+  commentId: T:SystemLibrary.Common.Net.Attributes.EnumTextAttribute
+  fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute
+  nameWithType: EnumTextAttribute
+- uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor(System.String)
+  name: EnumTextAttribute(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html#SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.EnumTextAttribute(System.String)
+  nameWithType: EnumTextAttribute.EnumTextAttribute(String)
+- uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor*
+  name: EnumTextAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html#SystemLibrary_Common_Net_Attributes_EnumTextAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.EnumTextAttribute
+  nameWithType: EnumTextAttribute.EnumTextAttribute
+- uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
+  name: Text
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html#SystemLibrary_Common_Net_Attributes_EnumTextAttribute_Text
+  commentId: F:SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
+  fullName: SystemLibrary.Common.Net.Attributes.EnumTextAttribute.Text
+  nameWithType: EnumTextAttribute.Text
+- uid: SystemLibrary.Common.Net.Attributes.EnumValueAttribute
+  name: EnumValueAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html
+  commentId: T:SystemLibrary.Common.Net.Attributes.EnumValueAttribute
+  fullName: SystemLibrary.Common.Net.Attributes.EnumValueAttribute
+  nameWithType: EnumValueAttribute
+- uid: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor(System.Object)
+  name: EnumValueAttribute(Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html#SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor(System.Object)
+  fullName: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.EnumValueAttribute(System.Object)
+  nameWithType: EnumValueAttribute.EnumValueAttribute(Object)
+- uid: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor*
+  name: EnumValueAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html#SystemLibrary_Common_Net_Attributes_EnumValueAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.Attributes.EnumValueAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.EnumValueAttribute
+  nameWithType: EnumValueAttribute.EnumValueAttribute
+- uid: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.Value
+  name: Value
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumValueAttribute.html#SystemLibrary_Common_Net_Attributes_EnumValueAttribute_Value
+  commentId: F:SystemLibrary.Common.Net.Attributes.EnumValueAttribute.Value
+  fullName: SystemLibrary.Common.Net.Attributes.EnumValueAttribute.Value
+  nameWithType: EnumValueAttribute.Value
+- uid: SystemLibrary.Common.Net.Config`1
+  name: Config<T>
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html
+  commentId: T:SystemLibrary.Common.Net.Config`1
+  name.vb: Config(Of T)
+  fullName: SystemLibrary.Common.Net.Config<T>
+  fullName.vb: SystemLibrary.Common.Net.Config(Of T)
+  nameWithType: Config<T>
+  nameWithType.vb: Config(Of T)
+- uid: SystemLibrary.Common.Net.Config`1.Current
+  name: Current
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html#SystemLibrary_Common_Net_Config_1_Current
+  commentId: P:SystemLibrary.Common.Net.Config`1.Current
+  fullName: SystemLibrary.Common.Net.Config<T>.Current
+  fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
+  nameWithType: Config<T>.Current
+  nameWithType.vb: Config(Of T).Current
+- uid: SystemLibrary.Common.Net.Config`1.Current*
+  name: Current
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Config-1.html#SystemLibrary_Common_Net_Config_1_Current_
+  commentId: Overload:SystemLibrary.Common.Net.Config`1.Current
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Config<T>.Current
+  fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
+  nameWithType: Config<T>.Current
+  nameWithType.vb: Config(Of T).Current
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter
+  name: DateTimeJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html
+  commentId: T:SystemLibrary.Common.Net.DateTimeJsonConverter
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter
+  nameWithType: DateTimeJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor(System.String)
+  name: DateTimeJsonConverter(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.DateTimeJsonConverter(System.String)
+  nameWithType: DateTimeJsonConverter.DateTimeJsonConverter(String)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor*
+  name: DateTimeJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.DateTimeJsonConverter
+  nameWithType: DateTimeJsonConverter.DateTimeJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.DateTimeJsonConverter.Read(ByRef System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: DateTimeJsonConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Read*
+  name: Read
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Read_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.Read
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Read
+  nameWithType: DateTimeJsonConverter.Read
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Write_System_Text_Json_Utf8JsonWriter_System_DateTime_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter, System.DateTime, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeJsonConverter.Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeJsonConverter.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html#SystemLibrary_Common_Net_DateTimeJsonConverter_Write_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeJsonConverter.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeJsonConverter.Write
+  nameWithType: DateTimeJsonConverter.Write
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter
+  name: DateTimeOffsetJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html
+  commentId: T:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter
+  nameWithType: DateTimeOffsetJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.#ctor(System.String)
+  name: DateTimeOffsetJsonConverter(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.DateTimeOffsetJsonConverter(System.String)
+  nameWithType: DateTimeOffsetJsonConverter.DateTimeOffsetJsonConverter(String)
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.#ctor*
+  name: DateTimeOffsetJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.DateTimeOffsetJsonConverter
+  nameWithType: DateTimeOffsetJsonConverter.DateTimeOffsetJsonConverter
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read(ByRef System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeOffsetJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: DateTimeOffsetJsonConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read*
+  name: Read
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter_Read_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Read
+  nameWithType: DateTimeOffsetJsonConverter.Read
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, DateTimeOffset, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter_Write_System_Text_Json_Utf8JsonWriter_System_DateTimeOffset_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write(System.Text.Json.Utf8JsonWriter, System.DateTimeOffset, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateTimeOffsetJsonConverter.Write(Utf8JsonWriter, DateTimeOffset, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.html#SystemLibrary_Common_Net_DateTimeOffsetJsonConverter_Write_
+  commentId: Overload:SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write
+  nameWithType: DateTimeOffsetJsonConverter.Write
+- uid: SystemLibrary.Common.Net.DocFxHide
+  name: DocFxHide
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html
+  commentId: T:SystemLibrary.Common.Net.DocFxHide
+  fullName: SystemLibrary.Common.Net.DocFxHide
+  nameWithType: DocFxHide
+- uid: SystemLibrary.Common.Net.DocFxHide.#ctor
+  name: DocFxHide()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor
+  commentId: M:SystemLibrary.Common.Net.DocFxHide.#ctor
+  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide()
+  nameWithType: DocFxHide.DocFxHide()
+- uid: SystemLibrary.Common.Net.DocFxHide.#ctor*
+  name: DocFxHide
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DocFxHide.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide
+  nameWithType: DocFxHide.DocFxHide
+- uid: SystemLibrary.Common.Net.EnvironmentConfig
+  name: EnvironmentConfig
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html
+  commentId: T:SystemLibrary.Common.Net.EnvironmentConfig
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig
+  nameWithType: EnvironmentConfig
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
+  name: ContentRootPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ContentRootPath
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
+  nameWithType: EnvironmentConfig.ContentRootPath
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath*
+  name: ContentRootPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ContentRootPath_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
+  nameWithType: EnvironmentConfig.ContentRootPath
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal*
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd*
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest*
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.EnvironmentConfig`2
+  name: EnvironmentConfig<T, TEnvironmentNameEnum>
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html
+  commentId: T:SystemLibrary.Common.Net.EnvironmentConfig`2
+  name.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>
+  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum)
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
+- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName*
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.Name
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_Name
+  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig`2.Name
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.Name*
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_Name_
+  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig`2.Name
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+- uid: SystemLibrary.Common.Net.EnvironmentName
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html
+  commentId: T:SystemLibrary.Common.Net.EnvironmentName
+  fullName: SystemLibrary.Common.Net.EnvironmentName
+  nameWithType: EnvironmentName
+- uid: SystemLibrary.Common.Net.EnvironmentName.AT
+  name: AT
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_AT
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.AT
+  fullName: SystemLibrary.Common.Net.EnvironmentName.AT
+  nameWithType: EnvironmentName.AT
+- uid: SystemLibrary.Common.Net.EnvironmentName.Dev
+  name: Dev
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Dev
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Dev
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Dev
+  nameWithType: EnvironmentName.Dev
+- uid: SystemLibrary.Common.Net.EnvironmentName.Development
+  name: Development
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Development
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Development
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Development
+  nameWithType: EnvironmentName.Development
+- uid: SystemLibrary.Common.Net.EnvironmentName.Local
+  name: Local
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Local
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Local
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Local
+  nameWithType: EnvironmentName.Local
+- uid: SystemLibrary.Common.Net.EnvironmentName.None
+  name: None
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_None
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.None
+  fullName: SystemLibrary.Common.Net.EnvironmentName.None
+  nameWithType: EnvironmentName.None
+- uid: SystemLibrary.Common.Net.EnvironmentName.PreProd
+  name: PreProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_PreProd
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.PreProd
+  fullName: SystemLibrary.Common.Net.EnvironmentName.PreProd
+  nameWithType: EnvironmentName.PreProd
+- uid: SystemLibrary.Common.Net.EnvironmentName.PreProduction
+  name: PreProduction
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_PreProduction
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.PreProduction
+  fullName: SystemLibrary.Common.Net.EnvironmentName.PreProduction
+  nameWithType: EnvironmentName.PreProduction
+- uid: SystemLibrary.Common.Net.EnvironmentName.Prod
+  name: Prod
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Prod
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Prod
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Prod
+  nameWithType: EnvironmentName.Prod
+- uid: SystemLibrary.Common.Net.EnvironmentName.Production
+  name: Production
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Production
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Production
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Production
+  nameWithType: EnvironmentName.Production
+- uid: SystemLibrary.Common.Net.EnvironmentName.QA
+  name: QA
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_QA
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.QA
+  fullName: SystemLibrary.Common.Net.EnvironmentName.QA
+  nameWithType: EnvironmentName.QA
+- uid: SystemLibrary.Common.Net.EnvironmentName.Stage
+  name: Stage
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Stage
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Stage
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Stage
+  nameWithType: EnvironmentName.Stage
+- uid: SystemLibrary.Common.Net.EnvironmentName.Staging
+  name: Staging
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Staging
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Staging
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Staging
+  nameWithType: EnvironmentName.Staging
+- uid: SystemLibrary.Common.Net.EnvironmentName.Test
+  name: Test
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Test
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Test
+  fullName: SystemLibrary.Common.Net.EnvironmentName.Test
+  nameWithType: EnvironmentName.Test
+- uid: SystemLibrary.Common.Net.EnvironmentName.UnitTest
+  name: UnitTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_UnitTest
+  commentId: F:SystemLibrary.Common.Net.EnvironmentName.UnitTest
+  fullName: SystemLibrary.Common.Net.EnvironmentName.UnitTest
+  nameWithType: EnvironmentName.UnitTest
+- uid: SystemLibrary.Common.Net.Extensions
+  name: SystemLibrary.Common.Net.Extensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html
+  commentId: N:SystemLibrary.Common.Net.Extensions
+  fullName: SystemLibrary.Common.Net.Extensions
+  nameWithType: SystemLibrary.Common.Net.Extensions
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  name: ArrayExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions
+  nameWithType: ArrayExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add*
+  name: Add
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add
+  nameWithType: ArrayExtensions.Add
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],``0[][])
+  name: Add<T>(T[], T[][])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0_____0_____
+  commentId: M:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],``0[][])
+  name.vb: Add(Of T)(T(), T()())
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add<T>(T[], T[][])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add(Of T)(T(), T()())
+  nameWithType: ArrayExtensions.Add<T>(T[], T[][])
+  nameWithType.vb: ArrayExtensions.Add(Of T)(T(), T()())
+- uid: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],System.Func{``0,System.Boolean},``0[][])
+  name: Add<T>(T[], Func<T, Boolean>, T[][])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ArrayExtensions_Add__1___0___System_Func___0_System_Boolean____0_____
+  commentId: M:SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add``1(``0[],System.Func{``0,System.Boolean},``0[][])
+  name.vb: Add(Of T)(T(), Func(Of T, Boolean), T()())
+  fullName: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add<T>(T[], System.Func<T, System.Boolean>, T[][])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ArrayExtensions.Add(Of T)(T(), System.Func(Of T, System.Boolean), T()())
+  nameWithType: ArrayExtensions.Add<T>(T[], Func<T, Boolean>, T[][])
+  nameWithType.vb: ArrayExtensions.Add(Of T)(T(), Func(Of T, Boolean), T()())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  name: ByteArrayExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions
+  nameWithType: ByteArrayExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  name: ToBase64(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToBase64_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  name.vb: ToBase64(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64(System.Byte())
+  nameWithType: ByteArrayExtensions.ToBase64(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToBase64(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToBase64
+  nameWithType: ByteArrayExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  name: ToMD5Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToMD5Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  name.vb: ToMD5Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToMD5Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToMD5Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToMD5Hash
+  nameWithType: ByteArrayExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  name: ToSha1Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha1Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  name.vb: ToSha1Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToSha1Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToSha1Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha1Hash
+  nameWithType: ByteArrayExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  name: ToSha256Hash(Byte[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha256Hash_System_Byte___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  name.vb: ToSha256Hash(Byte())
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash(System.Byte())
+  nameWithType: ByteArrayExtensions.ToSha256Hash(Byte[])
+  nameWithType.vb: ByteArrayExtensions.ToSha256Hash(Byte())
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToSha256Hash
+  nameWithType: ByteArrayExtensions.ToSha256Hash
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[],System.Text.Encoding)
+  name: ToText(Byte[], Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToText_System_Byte___System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[],System.Text.Encoding)
+  name.vb: ToText(Byte(), Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte[], System.Text.Encoding)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText(System.Byte(), System.Text.Encoding)
+  nameWithType: ByteArrayExtensions.ToText(Byte[], Encoding)
+  nameWithType.vb: ByteArrayExtensions.ToText(Byte(), Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText*
+  name: ToText
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html#SystemLibrary_Common_Net_Extensions_ByteArrayExtensions_ToText_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.ToText
+  nameWithType: ByteArrayExtensions.ToText
+- uid: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions
+  name: ConcurrentDictionaryExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions
+  nameWithType: ConcurrentDictionaryExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache*
+  name: Cache
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html#SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache
+  nameWithType: ConcurrentDictionaryExtensions.Cache
+- uid: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.Int32,``0},System.Int32,System.Func{``0})
+  name: Cache<T>(ConcurrentDictionary<Int32, T>, Int32, Func<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html#SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Int32_System_Func___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.Int32,``0},System.Int32,System.Func{``0})
+  name.vb: Cache(Of T)(ConcurrentDictionary(Of Int32, T), Int32, Func(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache<T>(System.Collections.Concurrent.ConcurrentDictionary<System.Int32, T>, System.Int32, System.Func<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache(Of T)(System.Collections.Concurrent.ConcurrentDictionary(Of System.Int32, T), System.Int32, System.Func(Of T))
+  nameWithType: ConcurrentDictionaryExtensions.Cache<T>(ConcurrentDictionary<Int32, T>, Int32, Func<T>)
+  nameWithType.vb: ConcurrentDictionaryExtensions.Cache(Of T)(ConcurrentDictionary(Of Int32, T), Int32, Func(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.Int32,``0},System.Type,System.Func{``0})
+  name: Cache<T>(ConcurrentDictionary<Int32, T>, Type, Func<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html#SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_Int32___0__System_Type_System_Func___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.Int32,``0},System.Type,System.Func{``0})
+  name.vb: Cache(Of T)(ConcurrentDictionary(Of Int32, T), Type, Func(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache<T>(System.Collections.Concurrent.ConcurrentDictionary<System.Int32, T>, System.Type, System.Func<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache(Of T)(System.Collections.Concurrent.ConcurrentDictionary(Of System.Int32, T), System.Type, System.Func(Of T))
+  nameWithType: ConcurrentDictionaryExtensions.Cache<T>(ConcurrentDictionary<Int32, T>, Type, Func<T>)
+  nameWithType.vb: ConcurrentDictionaryExtensions.Cache(Of T)(ConcurrentDictionary(Of Int32, T), Type, Func(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.String,``0},System.String,System.Func{``0})
+  name: Cache<T>(ConcurrentDictionary<String, T>, String, Func<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.html#SystemLibrary_Common_Net_Extensions_ConcurrentDictionaryExtensions_Cache__1_System_Collections_Concurrent_ConcurrentDictionary_System_String___0__System_String_System_Func___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache``1(System.Collections.Concurrent.ConcurrentDictionary{System.String,``0},System.String,System.Func{``0})
+  name.vb: Cache(Of T)(ConcurrentDictionary(Of String, T), String, Func(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache<T>(System.Collections.Concurrent.ConcurrentDictionary<System.String, T>, System.String, System.Func<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ConcurrentDictionaryExtensions.Cache(Of T)(System.Collections.Concurrent.ConcurrentDictionary(Of System.String, T), System.String, System.Func(Of T))
+  nameWithType: ConcurrentDictionaryExtensions.Cache<T>(ConcurrentDictionary<String, T>, String, Func<T>)
+  nameWithType.vb: ConcurrentDictionaryExtensions.Cache(Of T)(ConcurrentDictionary(Of String, T), String, Func(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions
+  name: DynamicExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.DynamicExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.DynamicExtensions
+  nameWithType: DynamicExtensions
+- uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge(System.Object,System.Object[])
+  name: Merge(Object, Object[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html#SystemLibrary_Common_Net_Extensions_DynamicExtensions_Merge_System_Object_System_Object___
+  commentId: M:SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge(System.Object,System.Object[])
+  name.vb: Merge(Object, Object())
+  fullName: SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge(System.Object, System.Object[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge(System.Object, System.Object())
+  nameWithType: DynamicExtensions.Merge(Object, Object[])
+  nameWithType.vb: DynamicExtensions.Merge(Object, Object())
+- uid: SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge*
+  name: Merge
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.DynamicExtensions.html#SystemLibrary_Common_Net_Extensions_DynamicExtensions_Merge_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.DynamicExtensions.Merge
+  nameWithType: DynamicExtensions.Merge
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions
+  name: EnumExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.EnumExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions
+  nameWithType: EnumExtensions
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  name: GetEnumText(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText(System.Enum)
+  nameWithType: EnumExtensions.GetEnumText(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText*
+  name: GetEnumText
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumText_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumText
+  nameWithType: EnumExtensions.GetEnumText
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  name: GetEnumValue(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue(System.Enum)
+  nameWithType: EnumExtensions.GetEnumValue(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue*
+  name: GetEnumValue
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_GetEnumValue_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.GetEnumValue
+  nameWithType: EnumExtensions.GetEnumValue
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny(System.Enum,System.Enum[])
+  name: IsAny(Enum, Enum[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_IsAny_System_Enum_System_Enum___
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny(System.Enum,System.Enum[])
+  name.vb: IsAny(Enum, Enum())
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny(System.Enum, System.Enum[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny(System.Enum, System.Enum())
+  nameWithType: EnumExtensions.IsAny(Enum, Enum[])
+  nameWithType.vb: EnumExtensions.IsAny(Enum, Enum())
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny*
+  name: IsAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_IsAny_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.IsAny
+  nameWithType: EnumExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText(System.Enum)
+  name: ToText(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToText_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText(System.Enum)
+  nameWithType: EnumExtensions.ToText(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText*
+  name: ToText
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToText_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToText
+  nameWithType: EnumExtensions.ToText
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue(System.Enum)
+  name: ToValue(Enum)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToValue_System_Enum_
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue(System.Enum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue(System.Enum)
+  nameWithType: EnumExtensions.ToValue(Enum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue*
+  name: ToValue
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_ToValue_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions.ToValue
+  nameWithType: EnumExtensions.ToValue
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1
+  name: EnumExtensions<TEnum>
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.EnumExtensions`1
+  name.vb: EnumExtensions(Of TEnum)
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum)
+  nameWithType: EnumExtensions<TEnum>
+  nameWithType.vb: EnumExtensions(Of TEnum)
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetEnums
+  name: GetEnums()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetEnums
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetEnums
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetEnums()
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetEnums()
+  nameWithType: EnumExtensions<TEnum>.GetEnums()
+  nameWithType.vb: EnumExtensions(Of TEnum).GetEnums()
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetEnums*
+  name: GetEnums
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetEnums_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetEnums
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetEnums
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetEnums
+  nameWithType: EnumExtensions<TEnum>.GetEnums
+  nameWithType.vb: EnumExtensions(Of TEnum).GetEnums
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetKeys
+  name: GetKeys()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetKeys
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetKeys
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetKeys()
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetKeys()
+  nameWithType: EnumExtensions<TEnum>.GetKeys()
+  nameWithType.vb: EnumExtensions(Of TEnum).GetKeys()
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetKeys*
+  name: GetKeys
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetKeys_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetKeys
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetKeys
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetKeys
+  nameWithType: EnumExtensions<TEnum>.GetKeys
+  nameWithType.vb: EnumExtensions(Of TEnum).GetKeys
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions
+  name: IEnumerableExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions
+  nameWithType: IEnumerableExtensions
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy*
+  name: DistinctBy
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy
+  nameWithType: IEnumerableExtensions.DistinctBy
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})
+  name: DistinctBy<T, TKey>(IEnumerable<T>, Func<T, TKey>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__
+  commentId: M:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})
+  name.vb: DistinctBy(Of T, TKey)(IEnumerable(Of T), Func(Of T, TKey))
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy<T, TKey>(System.Collections.Generic.IEnumerable<T>, System.Func<T, TKey>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.DistinctBy(Of T, TKey)(System.Collections.Generic.IEnumerable(Of T), System.Func(Of T, TKey))
+  nameWithType: IEnumerableExtensions.DistinctBy<T, TKey>(IEnumerable<T>, Func<T, TKey>)
+  nameWithType.vb: IEnumerableExtensions.DistinctBy(Of T, TKey)(IEnumerable(Of T), Func(Of T, TKey))
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has*
+  name: Has
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has
+  nameWithType: IEnumerableExtensions.Has
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)
+  name: Has<T>(IEnumerable<T>, T)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0____0_
+  commentId: M:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)
+  name.vb: Has(Of T)(IEnumerable(Of T), T)
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has<T>(System.Collections.Generic.IEnumerable<T>, T)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has(Of T)(System.Collections.Generic.IEnumerable(Of T), T)
+  nameWithType: IEnumerableExtensions.Has<T>(IEnumerable<T>, T)
+  nameWithType.vb: IEnumerableExtensions.Has(Of T)(IEnumerable(Of T), T)
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Object)
+  name: Has<T>(IEnumerable<T>, Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Has__1_System_Collections_Generic_IEnumerable___0__System_Object_
+  commentId: M:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},System.Object)
+  name.vb: Has(Of T)(IEnumerable(Of T), Object)
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has<T>(System.Collections.Generic.IEnumerable<T>, System.Object)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Has(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Object)
+  nameWithType: IEnumerableExtensions.Has<T>(IEnumerable<T>, Object)
+  nameWithType.vb: IEnumerableExtensions.Has(Of T)(IEnumerable(Of T), Object)
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is
+  nameWithType: IEnumerableExtensions.Is
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is``1(System.Collections.Generic.IEnumerable{``0})
+  name: Is<T>(IEnumerable<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_Is__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: Is(Of T)(IEnumerable(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.Is(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: IEnumerableExtensions.Is<T>(IEnumerable<T>)
+  nameWithType.vb: IEnumerableExtensions.Is(Of T)(IEnumerable(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot
+  nameWithType: IEnumerableExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot``1(System.Collections.Generic.IEnumerable{``0})
+  name: IsNot<T>(IEnumerable<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html#SystemLibrary_Common_Net_Extensions_IEnumerableExtensions_IsNot__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: IsNot(Of T)(IEnumerable(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.IsNot(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: IEnumerableExtensions.IsNot<T>(IEnumerable<T>)
+  nameWithType.vb: IEnumerableExtensions.IsNot(Of T)(IEnumerable(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  name: IListStringExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions
+  nameWithType: IListStringExtensions
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList*
+  name: ToEnumList
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html#SystemLibrary_Common_Net_Extensions_IListStringExtensions_ToEnumList_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList
+  nameWithType: IListStringExtensions.ToEnumList
+- uid: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList``1(System.Collections.Generic.IList{System.String})
+  name: ToEnumList<TEnum>(IList<String>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IListStringExtensions.html#SystemLibrary_Common_Net_Extensions_IListStringExtensions_ToEnumList__1_System_Collections_Generic_IList_System_String__
+  commentId: M:SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList``1(System.Collections.Generic.IList{System.String})
+  name.vb: ToEnumList(Of TEnum)(IList(Of String))
+  fullName: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList<TEnum>(System.Collections.Generic.IList<System.String>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.IListStringExtensions.ToEnumList(Of TEnum)(System.Collections.Generic.IList(Of System.String))
+  nameWithType: IListStringExtensions.ToEnumList<TEnum>(IList<String>)
+  nameWithType.vb: IListStringExtensions.ToEnumList(Of TEnum)(IList(Of String))
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions
+  name: ObjectExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ObjectExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions
+  nameWithType: ObjectExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray*
+  name: AsEnumArray
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray
+  nameWithType: ObjectExtensions.AsEnumArray
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])
+  name: AsEnumArray<TEnum>(Object[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_AsEnumArray__1_System_Object___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray``1(System.Object[])
+  name.vb: AsEnumArray(Of TEnum)(Object())
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray<TEnum>(System.Object[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ObjectExtensions.AsEnumArray(Of TEnum)(System.Object())
+  nameWithType: ObjectExtensions.AsEnumArray<TEnum>(Object[])
+  nameWithType.vb: ObjectExtensions.AsEnumArray(Of TEnum)(Object())
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Boolean)
+  name: Json(Object, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object, System.Boolean)
+  nameWithType: ObjectExtensions.Json(Object, Boolean)
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Text.Json.JsonSerializerOptions,System.Boolean,System.Text.Json.Serialization.JsonConverter[])
+  name: Json(Object, JsonSerializerOptions, Boolean, JsonConverter[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_JsonSerializerOptions_System_Boolean_System_Text_Json_Serialization_JsonConverter___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Text.Json.JsonSerializerOptions,System.Boolean,System.Text.Json.Serialization.JsonConverter[])
+  name.vb: Json(Object, JsonSerializerOptions, Boolean, JsonConverter())
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object, System.Text.Json.JsonSerializerOptions, System.Boolean, System.Text.Json.Serialization.JsonConverter[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object, System.Text.Json.JsonSerializerOptions, System.Boolean, System.Text.Json.Serialization.JsonConverter())
+  nameWithType: ObjectExtensions.Json(Object, JsonSerializerOptions, Boolean, JsonConverter[])
+  nameWithType.vb: ObjectExtensions.Json(Object, JsonSerializerOptions, Boolean, JsonConverter())
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Text.Json.Serialization.JsonConverter[])
+  name: Json(Object, JsonConverter[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_System_Object_System_Text_Json_Serialization_JsonConverter___
+  commentId: M:SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object,System.Text.Json.Serialization.JsonConverter[])
+  name.vb: Json(Object, JsonConverter())
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object, System.Text.Json.Serialization.JsonConverter[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json(System.Object, System.Text.Json.Serialization.JsonConverter())
+  nameWithType: ObjectExtensions.Json(Object, JsonConverter[])
+  nameWithType.vb: ObjectExtensions.Json(Object, JsonConverter())
+- uid: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json*
+  name: Json
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ObjectExtensions.html#SystemLibrary_Common_Net_Extensions_ObjectExtensions_Json_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ObjectExtensions.Json
+  nameWithType: ObjectExtensions.Json
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  name: ReadOnlySpanExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions
+  nameWithType: ReadOnlySpanExtensions
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes(System.ReadOnlySpan{System.Char},System.Text.Encoding)
+  name: GetBytes(ReadOnlySpan<Char>, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_System_ReadOnlySpan_System_Char__System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes(System.ReadOnlySpan{System.Char},System.Text.Encoding)
+  name.vb: GetBytes(ReadOnlySpan(Of Char), Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes(System.ReadOnlySpan<System.Char>, System.Text.Encoding)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes(System.ReadOnlySpan(Of System.Char), System.Text.Encoding)
+  nameWithType: ReadOnlySpanExtensions.GetBytes(ReadOnlySpan<Char>, Encoding)
+  nameWithType.vb: ReadOnlySpanExtensions.GetBytes(ReadOnlySpan(Of Char), Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes*
+  name: GetBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_GetBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.GetBytes
+  nameWithType: ReadOnlySpanExtensions.GetBytes
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is
+  nameWithType: ReadOnlySpanExtensions.Is
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is``1(System.ReadOnlySpan{``0})
+  name: Is<T>(ReadOnlySpan<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_Is__1_System_ReadOnlySpan___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is``1(System.ReadOnlySpan{``0})
+  name.vb: Is(Of T)(ReadOnlySpan(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is<T>(System.ReadOnlySpan<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.Is(Of T)(System.ReadOnlySpan(Of T))
+  nameWithType: ReadOnlySpanExtensions.Is<T>(ReadOnlySpan<T>)
+  nameWithType.vb: ReadOnlySpanExtensions.Is(Of T)(ReadOnlySpan(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot
+  nameWithType: ReadOnlySpanExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot``1(System.ReadOnlySpan{``0})
+  name: IsNot<T>(ReadOnlySpan<T>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_IsNot__1_System_ReadOnlySpan___0__
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot``1(System.ReadOnlySpan{``0})
+  name.vb: IsNot(Of T)(ReadOnlySpan(Of T))
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot<T>(System.ReadOnlySpan<T>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.IsNot(Of T)(System.ReadOnlySpan(Of T))
+  nameWithType: ReadOnlySpanExtensions.IsNot<T>(ReadOnlySpan<T>)
+  nameWithType.vb: ReadOnlySpanExtensions.IsNot(Of T)(ReadOnlySpan(Of T))
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64(System.ReadOnlySpan{System.Char},System.Text.Encoding)
+  name: ToBase64(ReadOnlySpan<Char>, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_System_ReadOnlySpan_System_Char__System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64(System.ReadOnlySpan{System.Char},System.Text.Encoding)
+  name.vb: ToBase64(ReadOnlySpan(Of Char), Encoding)
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64(System.ReadOnlySpan<System.Char>, System.Text.Encoding)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64(System.ReadOnlySpan(Of System.Char), System.Text.Encoding)
+  nameWithType: ReadOnlySpanExtensions.ToBase64(ReadOnlySpan<Char>, Encoding)
+  nameWithType.vb: ReadOnlySpanExtensions.ToBase64(ReadOnlySpan(Of Char), Encoding)
+- uid: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.html#SystemLibrary_Common_Net_Extensions_ReadOnlySpanExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.ReadOnlySpanExtensions.ToBase64
+  nameWithType: ReadOnlySpanExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions
+  name: StreamExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.StreamExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions
+  nameWithType: StreamExtensions
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync*
+  name: JsonAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_JsonAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync
+  nameWithType: StreamExtensions.JsonAsync
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync``1(System.IO.Stream,System.Text.Json.JsonSerializerOptions,System.Threading.CancellationToken)
+  name: JsonAsync<T>(Stream, JsonSerializerOptions, CancellationToken)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_JsonAsync__1_System_IO_Stream_System_Text_Json_JsonSerializerOptions_System_Threading_CancellationToken_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync``1(System.IO.Stream,System.Text.Json.JsonSerializerOptions,System.Threading.CancellationToken)
+  name.vb: JsonAsync(Of T)(Stream, JsonSerializerOptions, CancellationToken)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync<T>(System.IO.Stream, System.Text.Json.JsonSerializerOptions, System.Threading.CancellationToken)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StreamExtensions.JsonAsync(Of T)(System.IO.Stream, System.Text.Json.JsonSerializerOptions, System.Threading.CancellationToken)
+  nameWithType: StreamExtensions.JsonAsync<T>(Stream, JsonSerializerOptions, CancellationToken)
+  nameWithType.vb: StreamExtensions.JsonAsync(Of T)(Stream, JsonSerializerOptions, CancellationToken)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  name: ToMD5Hash(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash(System.IO.Stream)
+  nameWithType: StreamExtensions.ToMD5Hash(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5Hash
+  nameWithType: StreamExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  name: ToMD5HashAsync(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync(System.IO.Stream)
+  nameWithType: StreamExtensions.ToMD5HashAsync(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync*
+  name: ToMD5HashAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToMD5HashAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToMD5HashAsync
+  nameWithType: StreamExtensions.ToMD5HashAsync
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  name: ToSha1Hash(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha1Hash(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1Hash
+  nameWithType: StreamExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  name: ToSha1HashAsync(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha1HashAsync(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync*
+  name: ToSha1HashAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha1HashAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha1HashAsync
+  nameWithType: StreamExtensions.ToSha1HashAsync
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash(System.IO.Stream)
+  name: ToSha256Hash(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha256Hash(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256Hash
+  nameWithType: StreamExtensions.ToSha256Hash
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync(System.IO.Stream)
+  name: ToSha256HashAsync(Stream)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_System_IO_Stream_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync(System.IO.Stream)
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync(System.IO.Stream)
+  nameWithType: StreamExtensions.ToSha256HashAsync(Stream)
+- uid: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync*
+  name: ToSha256HashAsync
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StreamExtensions.html#SystemLibrary_Common_Net_Extensions_StreamExtensions_ToSha256HashAsync_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StreamExtensions.ToSha256HashAsync
+  nameWithType: StreamExtensions.ToSha256HashAsync
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  name: StringBuilderExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions
+  nameWithType: StringBuilderExtensions
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)
+  name: EndsWith(StringBuilder, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_System_Text_StringBuilder_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith(System.Text.StringBuilder, System.String, System.Boolean)
+  nameWithType: StringBuilderExtensions.EndsWith(StringBuilder, String, Boolean)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith*
+  name: EndsWith
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_EndsWith_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.EndsWith
+  nameWithType: StringBuilderExtensions.EndsWith
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes(System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.String,System.String})
+  name: HtmlDecodeQuotes(StringBuilder, Dictionary<String, String>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_HtmlDecodeQuotes_System_Text_StringBuilder_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes(System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: HtmlDecodeQuotes(StringBuilder, Dictionary(Of String, String))
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes(System.Text.StringBuilder, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes(System.Text.StringBuilder, System.Collections.Generic.Dictionary(Of System.String, System.String))
+  nameWithType: StringBuilderExtensions.HtmlDecodeQuotes(StringBuilder, Dictionary<String, String>)
+  nameWithType.vb: StringBuilderExtensions.HtmlDecodeQuotes(StringBuilder, Dictionary(Of String, String))
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes*
+  name: HtmlDecodeQuotes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_HtmlDecodeQuotes_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlDecodeQuotes
+  nameWithType: StringBuilderExtensions.HtmlDecodeQuotes
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes(System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.String,System.String})
+  name: HtmlEncodeQuotes(StringBuilder, Dictionary<String, String>)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_HtmlEncodeQuotes_System_Text_StringBuilder_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes(System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: HtmlEncodeQuotes(StringBuilder, Dictionary(Of String, String))
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes(System.Text.StringBuilder, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes(System.Text.StringBuilder, System.Collections.Generic.Dictionary(Of System.String, System.String))
+  nameWithType: StringBuilderExtensions.HtmlEncodeQuotes(StringBuilder, Dictionary<String, String>)
+  nameWithType.vb: StringBuilderExtensions.HtmlEncodeQuotes(StringBuilder, Dictionary(Of String, String))
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes*
+  name: HtmlEncodeQuotes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_HtmlEncodeQuotes_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.HtmlEncodeQuotes
+  nameWithType: StringBuilderExtensions.HtmlEncodeQuotes
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.String,System.Boolean,System.Int32)
+  name: IndexOf(StringBuilder, String, Boolean, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IndexOf_System_Text_StringBuilder_System_String_System_Boolean_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.String,System.Boolean,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf(System.Text.StringBuilder, System.String, System.Boolean, System.Int32)
+  nameWithType: StringBuilderExtensions.IndexOf(StringBuilder, String, Boolean, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf*
+  name: IndexOf
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IndexOf_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IndexOf
+  nameWithType: StringBuilderExtensions.IndexOf
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  name: Is(StringBuilder)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_System_Text_StringBuilder_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is(System.Text.StringBuilder)
+  nameWithType: StringBuilderExtensions.Is(StringBuilder)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.Is
+  nameWithType: StringBuilderExtensions.Is
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  name: IsNot(StringBuilder)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_System_Text_StringBuilder_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot(System.Text.StringBuilder)
+  nameWithType: StringBuilderExtensions.IsNot(StringBuilder)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.IsNot
+  nameWithType: StringBuilderExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder,System.Int32)
+  name: MaxLength(StringBuilder, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_MaxLength_System_Text_StringBuilder_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength(System.Text.StringBuilder, System.Int32)
+  nameWithType: StringBuilderExtensions.MaxLength(StringBuilder, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength*
+  name: MaxLength
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_MaxLength_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.MaxLength
+  nameWithType: StringBuilderExtensions.MaxLength
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])
+  name: TrimEnd(StringBuilder, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_System_Text_StringBuilder_System_String___
+  commentId: M:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.String[])
+  name.vb: TrimEnd(StringBuilder, String())
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder, System.String())
+  nameWithType: StringBuilderExtensions.TrimEnd(StringBuilder, String[])
+  nameWithType.vb: StringBuilderExtensions.TrimEnd(StringBuilder, String())
+- uid: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd*
+  name: TrimEnd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.html#SystemLibrary_Common_Net_Extensions_StringBuilderExtensions_TrimEnd_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.StringBuilderExtensions.TrimEnd
+  nameWithType: StringBuilderExtensions.TrimEnd
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions
+  name: TypeExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.TypeExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions
+  nameWithType: TypeExtensions
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
+  name: GetFirstGenericType(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
+  nameWithType: TypeExtensions.GetFirstGenericType(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType*
+  name: GetFirstGenericType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType
+  nameWithType: TypeExtensions.GetFirstGenericType
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName(System.Type)
+  name: GetTypeName(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeName_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName(System.Type)
+  nameWithType: TypeExtensions.GetTypeName(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName*
+  name: GetTypeName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeName_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName
+  nameWithType: TypeExtensions.GetTypeName
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits(System.Type,System.Type)
+  name: Inherits(Type, Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_Inherits_System_Type_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits(System.Type,System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits(System.Type, System.Type)
+  nameWithType: TypeExtensions.Inherits(Type, Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits*
+  name: Inherits
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_Inherits_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits
+  nameWithType: TypeExtensions.Inherits
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary(System.Type)
+  name: IsDictionary(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsDictionary_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary(System.Type)
+  nameWithType: TypeExtensions.IsDictionary(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary*
+  name: IsDictionary
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsDictionary_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary
+  nameWithType: TypeExtensions.IsDictionary
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  name: IsInternal(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal(System.Type)
+  nameWithType: TypeExtensions.IsInternal(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal*
+  name: IsInternal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal
+  nameWithType: TypeExtensions.IsInternal
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  name: IsKeyValuePair(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair(System.Type)
+  nameWithType: TypeExtensions.IsKeyValuePair(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair*
+  name: IsKeyValuePair
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair
+  nameWithType: TypeExtensions.IsKeyValuePair
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray(System.Type)
+  name: IsListOrArray(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsListOrArray_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray(System.Type)
+  nameWithType: TypeExtensions.IsListOrArray(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray*
+  name: IsListOrArray
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_IsListOrArray_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray
+  nameWithType: TypeExtensions.IsListOrArray
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type,System.String,System.Object)
+  name: SetStaticMember(Type, String, Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_System_Type_System_String_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type,System.String,System.Object)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember(System.Type, System.String, System.Object)
+  nameWithType: TypeExtensions.SetStaticMember(Type, String, Object)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember*
+  name: SetStaticMember
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember
+  nameWithType: TypeExtensions.SetStaticMember
+- uid: SystemLibrary.Common.Net.Extensions.UriExtensions
+  name: UriExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Extensions.UriExtensions
+  fullName: SystemLibrary.Common.Net.Extensions.UriExtensions
+  nameWithType: UriExtensions
+- uid: SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain(System.Uri,System.String)
+  name: GetPrimaryDomain(Uri, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html#SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_System_Uri_System_String_
+  commentId: M:SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain(System.Uri,System.String)
+  fullName: SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain(System.Uri, System.String)
+  nameWithType: UriExtensions.GetPrimaryDomain(Uri, String)
+- uid: SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain*
+  name: GetPrimaryDomain
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.UriExtensions.html#SystemLibrary_Common_Net_Extensions_UriExtensions_GetPrimaryDomain_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.UriExtensions.GetPrimaryDomain
+  nameWithType: UriExtensions.GetPrimaryDomain
+- uid: SystemLibrary.Common.Net.Global
+  name: SystemLibrary.Common.Net.Global
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.html
+  commentId: N:SystemLibrary.Common.Net.Global
+  fullName: SystemLibrary.Common.Net.Global
+  nameWithType: SystemLibrary.Common.Net.Global
+- uid: SystemLibrary.Common.Net.Global.Dump
+  name: Dump
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html
+  commentId: T:SystemLibrary.Common.Net.Global.Dump
+  fullName: SystemLibrary.Common.Net.Global.Dump
+  nameWithType: Dump
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear
+  name: Clear()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Clear
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear()
+  nameWithType: Dump.Clear()
+- uid: SystemLibrary.Common.Net.Global.Dump.Clear*
+  name: Clear
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Clear_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Clear
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Clear
+  nameWithType: Dump.Clear
+- uid: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  name: Write(Object)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_System_Object_
+  commentId: M:SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write(System.Object)
+  nameWithType: Dump.Write(Object)
+- uid: SystemLibrary.Common.Net.Global.Dump.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.Dump.html#SystemLibrary_Common_Net_Global_Dump_Write_
+  commentId: Overload:SystemLibrary.Common.Net.Global.Dump.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.Dump.Write
+  nameWithType: Dump.Write
+- uid: SystemLibrary.Common.Net.Global.StringExtensions
+  name: StringExtensions
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html
+  commentId: T:SystemLibrary.Common.Net.Global.StringExtensions
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions
+  nameWithType: StringExtensions
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String,System.Text.Encoding)
+  name: Compress(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Compress_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Compress(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.Compress(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Compress*
+  name: Compress
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Compress_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Compress
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Compress
+  nameWithType: StringExtensions.Compress
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])
+  name: ContainsAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.String[])
+  name.vb: ContainsAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.String())
+  nameWithType: StringExtensions.ContainsAny(String, String[])
+  nameWithType.vb: StringExtensions.ContainsAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.StringComparison,System.String[])
+  name: ContainsAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String,System.StringComparison,System.String[])
+  name.vb: ContainsAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.ContainsAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.ContainsAny(String, StringComparison, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny*
+  name: ContainsAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ContainsAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ContainsAny
+  nameWithType: StringExtensions.ContainsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String,System.Text.Encoding)
+  name: Decompress(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decompress_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decompress(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.Decompress(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decompress*
+  name: Decompress
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decompress_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Decompress
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decompress
+  nameWithType: StringExtensions.Decompress
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Boolean)
+  name: Decrypt(String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name: Decrypt(String, Byte[], Byte[], Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_Byte___System_Byte___System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name.vb: Decrypt(String, Byte(), Byte(), Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Byte[], System.Byte[], System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.Byte(), System.Byte(), System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, Byte[], Byte[], Boolean)
+  nameWithType.vb: StringExtensions.Decrypt(String, Byte(), Byte(), Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.String,System.String,System.Boolean)
+  name: Decrypt(String, String, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_System_String_System_String_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String,System.String,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt(System.String, System.String, System.String, System.Boolean)
+  nameWithType: StringExtensions.Decrypt(String, String, String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt*
+  name: Decrypt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Decrypt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Decrypt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Decrypt
+  nameWithType: StringExtensions.Decrypt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  name: DecryptUsingKeyRing(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing(System.String)
+  nameWithType: StringExtensions.DecryptUsingKeyRing(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing*
+  name: DecryptUsingKeyRing
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_DecryptUsingKeyRing_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.DecryptUsingKeyRing
+  nameWithType: StringExtensions.DecryptUsingKeyRing
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String,System.Int32)
+  name: Deobfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Deobfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate*
+  name: Deobfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Deobfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Deobfuscate
+  nameWithType: StringExtensions.Deobfuscate
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Boolean)
+  name: Encrypt(String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name: Encrypt(String, Byte[], Byte[], Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_Byte___System_Byte___System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.Byte[],System.Byte[],System.Boolean)
+  name.vb: Encrypt(String, Byte(), Byte(), Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Byte[], System.Byte[], System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.Byte(), System.Byte(), System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, Byte[], Byte[], Boolean)
+  nameWithType.vb: StringExtensions.Encrypt(String, Byte(), Byte(), Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.String,System.String,System.Boolean)
+  name: Encrypt(String, String, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_System_String_System_String_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String,System.String,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt(System.String, System.String, System.String, System.Boolean)
+  nameWithType: StringExtensions.Encrypt(String, String, String, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt*
+  name: Encrypt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Encrypt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Encrypt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Encrypt
+  nameWithType: StringExtensions.Encrypt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  name: EncryptUsingKeyRing(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing(System.String)
+  nameWithType: StringExtensions.EncryptUsingKeyRing(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing*
+  name: EncryptUsingKeyRing
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EncryptUsingKeyRing_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EncryptUsingKeyRing
+  nameWithType: StringExtensions.EncryptUsingKeyRing
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])
+  name: EndsWithAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.String[])
+  name.vb: EndsWithAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.String())
+  nameWithType: StringExtensions.EndsWithAny(String, String[])
+  nameWithType.vb: StringExtensions.EndsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.StringComparison,System.String[])
+  name: EndsWithAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String,System.StringComparison,System.String[])
+  name.vb: EndsWithAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.EndsWithAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.EndsWithAny(String, StringComparison, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny*
+  name: EndsWithAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAny
+  nameWithType: StringExtensions.EndsWithAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
+  name: EndsWithAnyCharacter(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter(System.String, System.String)
+  nameWithType: StringExtensions.EndsWithAnyCharacter(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter*
+  name: EndsWithAnyCharacter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_EndsWithAnyCharacter_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.EndsWithAnyCharacter
+  nameWithType: StringExtensions.EndsWithAnyCharacter
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  name: FromBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.FromBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64*
+  name: FromBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64
+  nameWithType: StringExtensions.FromBase64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  name: FromBase64AsBytes(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes(System.String)
+  nameWithType: StringExtensions.FromBase64AsBytes(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes*
+  name: FromBase64AsBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_FromBase64AsBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.FromBase64AsBytes
+  nameWithType: StringExtensions.FromBase64AsBytes
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  name: GetBytes(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.GetBytes(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes*
+  name: GetBytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetBytes_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.GetBytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetBytes
+  nameWithType: StringExtensions.GetBytes
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  name: GetPrimaryDomain(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain(System.String)
+  nameWithType: StringExtensions.GetPrimaryDomain(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain*
+  name: GetPrimaryDomain
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_GetPrimaryDomain_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.GetPrimaryDomain
+  nameWithType: StringExtensions.GetPrimaryDomain
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  name: HexDarkenOrLighten(String, Double, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_System_String_System_Double_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String,System.Double,System.Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten(System.String, System.Double, System.Boolean)
+  nameWithType: StringExtensions.HexDarkenOrLighten(String, Double, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten*
+  name: HexDarkenOrLighten
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HexDarkenOrLighten_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HexDarkenOrLighten
+  nameWithType: StringExtensions.HexDarkenOrLighten
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  name: HtmlDecode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode(System.String)
+  nameWithType: StringExtensions.HtmlDecode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode*
+  name: HtmlDecode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlDecode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlDecode
+  nameWithType: StringExtensions.HtmlDecode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  name: HtmlEncode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode(System.String)
+  nameWithType: StringExtensions.HtmlEncode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode*
+  name: HtmlEncode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_HtmlEncode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.HtmlEncode
+  nameWithType: StringExtensions.HtmlEncode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  name: Is(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String)
+  nameWithType: StringExtensions.Is(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name: Is(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String,System.String[])
+  name.vb: Is(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Is(System.String, System.String())
+  nameWithType: StringExtensions.Is(String, String[])
+  nameWithType.vb: StringExtensions.Is(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Is*
+  name: Is
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Is_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Is
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Is
+  nameWithType: StringExtensions.Is
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])
+  name: IsAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String,System.String[])
+  name.vb: IsAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.IsAny(System.String, System.String())
+  nameWithType: StringExtensions.IsAny(String, String[])
+  nameWithType.vb: StringExtensions.IsAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsAny*
+  name: IsAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsAny
+  nameWithType: StringExtensions.IsAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  name: IsFile(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsFile_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsFile(System.String)
+  nameWithType: StringExtensions.IsFile(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsFile*
+  name: IsFile
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsFile_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsFile
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsFile
+  nameWithType: StringExtensions.IsFile
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  name: IsJson(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsJson(System.String)
+  nameWithType: StringExtensions.IsJson(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsJson*
+  name: IsJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsJson
+  nameWithType: StringExtensions.IsJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String,System.String[])
+  name: IsNot(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsNot_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String,System.String[])
+  name.vb: IsNot(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.IsNot(System.String, System.String())
+  nameWithType: StringExtensions.IsNot(String, String[])
+  nameWithType.vb: StringExtensions.IsNot(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.IsNot*
+  name: IsNot
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_IsNot_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.IsNot
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.IsNot
+  nameWithType: StringExtensions.IsNot
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json*
+  name: Json
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Json
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json
+  nameWithType: StringExtensions.Json
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions,System.Boolean)
+  name: Json<T>(String, JsonSerializerOptions, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_JsonSerializerOptions_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.JsonSerializerOptions,System.Boolean)
+  name.vb: Json(Of T)(String, JsonSerializerOptions, Boolean)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.JsonSerializerOptions, System.Boolean)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.JsonSerializerOptions, System.Boolean)
+  nameWithType: StringExtensions.Json<T>(String, JsonSerializerOptions, Boolean)
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonSerializerOptions, Boolean)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name: Json<T>(String, JsonConverter[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Json__1_System_String_System_Text_Json_Serialization_JsonConverter___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Json``1(System.String,System.Text.Json.Serialization.JsonConverter[])
+  name.vb: Json(Of T)(String, JsonConverter())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Json<T>(System.String, System.Text.Json.Serialization.JsonConverter[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.Serialization.JsonConverter())
+  nameWithType: StringExtensions.Json<T>(String, JsonConverter[])
+  nameWithType.vb: StringExtensions.Json(Of T)(String, JsonConverter())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
+  name: MaxLength(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String, System.Int32)
+  nameWithType: StringExtensions.MaxLength(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength*
+  name: MaxLength
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength
+  nameWithType: StringExtensions.MaxLength
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String,System.Int32)
+  name: Obfuscate(String, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_System_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String,System.Int32)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate(System.String, System.Int32)
+  nameWithType: StringExtensions.Obfuscate(String, Int32)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate*
+  name: Obfuscate
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_Obfuscate_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.Obfuscate
+  nameWithType: StringExtensions.Obfuscate
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name: OrFirstOf(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String,System.String[])
+  name.vb: OrFirstOf(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf(System.String, System.String())
+  nameWithType: StringExtensions.OrFirstOf(String, String[])
+  nameWithType.vb: StringExtensions.OrFirstOf(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf*
+  name: OrFirstOf
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_OrFirstOf_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
+  nameWithType: StringExtensions.OrFirstOf
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*
+  name: PartialJson
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
+  nameWithType: StringExtensions.PartialJson
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name: PartialJson<T>(String, String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: PartialJson(Of T)(String, String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson<T>(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.PartialJson<T>(String, String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.PartialJson(Of T)(String, String, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name: ReplaceAllWith(String, String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ReplaceAllWith_System_String_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
+  name.vb: ReplaceAllWith(String, String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String, System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String, System.String, System.String())
+  nameWithType: StringExtensions.ReplaceAllWith(String, String, String[])
+  nameWithType.vb: StringExtensions.ReplaceAllWith(String, String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith*
+  name: ReplaceAllWith
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ReplaceAllWith_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith
+  nameWithType: StringExtensions.ReplaceAllWith
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
+  name: StartsWithAny(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.String[])
+  name.vb: StartsWithAny(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.String())
+  nameWithType: StringExtensions.StartsWithAny(String, String[])
+  nameWithType.vb: StringExtensions.StartsWithAny(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.StringComparison,System.String[])
+  name: StartsWithAny(String, StringComparison, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_System_String_System_StringComparison_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String,System.StringComparison,System.String[])
+  name.vb: StartsWithAny(String, StringComparison, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.StringComparison, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny(System.String, System.StringComparison, System.String())
+  nameWithType: StringExtensions.StartsWithAny(String, StringComparison, String[])
+  nameWithType.vb: StringExtensions.StartsWithAny(String, StringComparison, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny*
+  name: StartsWithAny
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_StartsWithAny_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.StartsWithAny
+  nameWithType: StringExtensions.StartsWithAny
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  name: ToBase64(String, Encoding)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_System_String_System_Text_Encoding_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String,System.Text.Encoding)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64(System.String, System.Text.Encoding)
+  nameWithType: StringExtensions.ToBase64(String, Encoding)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64*
+  name: ToBase64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToBase64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToBase64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToBase64
+  nameWithType: StringExtensions.ToBase64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  name: toCamelCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase(System.String)
+  nameWithType: StringExtensions.toCamelCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase*
+  name: toCamelCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_toCamelCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
+  nameWithType: StringExtensions.toCamelCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
+  name: ToEnum(String, Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_System_String_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String, System.Type)
+  nameWithType: StringExtensions.ToEnum(String, Type)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum*
+  name: ToEnum
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum
+  nameWithType: StringExtensions.ToEnum
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)
+  name: ToEnum<T>(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum__1_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToEnum``1(System.String)
+  name.vb: ToEnum(Of T)(String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum<T>(System.String)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(Of T)(System.String)
+  nameWithType: StringExtensions.ToEnum<T>(String)
+  nameWithType.vb: StringExtensions.ToEnum(Of T)(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  name: ToInt(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt(System.String)
+  nameWithType: StringExtensions.ToInt(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt*
+  name: ToInt
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToInt
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt
+  nameWithType: StringExtensions.ToInt
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  name: ToInt64(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64(System.String)
+  nameWithType: StringExtensions.ToInt64(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64*
+  name: ToInt64
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToInt64_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToInt64
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToInt64
+  nameWithType: StringExtensions.ToInt64
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  name: ToLetterAndDigits(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits(System.String)
+  nameWithType: StringExtensions.ToLetterAndDigits(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits*
+  name: ToLetterAndDigits
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToLetterAndDigits_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToLetterAndDigits
+  nameWithType: StringExtensions.ToLetterAndDigits
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  name: ToMD5Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash(System.String)
+  nameWithType: StringExtensions.ToMD5Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash*
+  name: ToMD5Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToMD5Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToMD5Hash
+  nameWithType: StringExtensions.ToMD5Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  name: ToPascalCase(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase(System.String)
+  nameWithType: StringExtensions.ToPascalCase(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase*
+  name: ToPascalCase
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPascalCase_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPascalCase
+  nameWithType: StringExtensions.ToPascalCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  name: ToPhysicalPath(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath(System.String)
+  nameWithType: StringExtensions.ToPhysicalPath(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath*
+  name: ToPhysicalPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToPhysicalPath_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToPhysicalPath
+  nameWithType: StringExtensions.ToPhysicalPath
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  name: ToSha1Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash(System.String)
+  nameWithType: StringExtensions.ToSha1Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash*
+  name: ToSha1Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha1Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha1Hash
+  nameWithType: StringExtensions.ToSha1Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  name: ToSha256Hash(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash(System.String)
+  nameWithType: StringExtensions.ToSha256Hash(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash*
+  name: ToSha256Hash
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToSha256Hash_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToSha256Hash
+  nameWithType: StringExtensions.ToSha256Hash
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  name: ToUtf8BOM(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM(System.String)
+  nameWithType: StringExtensions.ToUtf8BOM(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM*
+  name: ToUtf8BOM
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToUtf8BOM_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToUtf8BOM
+  nameWithType: StringExtensions.ToUtf8BOM
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  name: TranslateUnicodeCodepoints(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints(System.String)
+  nameWithType: StringExtensions.TranslateUnicodeCodepoints(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints*
+  name: TranslateUnicodeCodepoints
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TranslateUnicodeCodepoints_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TranslateUnicodeCodepoints
+  nameWithType: StringExtensions.TranslateUnicodeCodepoints
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name: TrimEnd(String, String[])
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_System_String_System_String___
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String,System.String[])
+  name.vb: TrimEnd(String, String())
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String[])
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd(System.String, System.String())
+  nameWithType: StringExtensions.TrimEnd(String, String[])
+  nameWithType.vb: StringExtensions.TrimEnd(String, String())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd*
+  name: TrimEnd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_TrimEnd_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.TrimEnd
+  nameWithType: StringExtensions.TrimEnd
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  name: UriDecode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode(System.String)
+  nameWithType: StringExtensions.UriDecode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode*
+  name: UriDecode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriDecode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriDecode
+  nameWithType: StringExtensions.UriDecode
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  name: UriEncode(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode(System.String)
+  nameWithType: StringExtensions.UriEncode(String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode*
+  name: UriEncode
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_UriEncode_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
+  nameWithType: StringExtensions.UriEncode
+- uid: SystemLibrary.Common.Net.Randomness
+  name: Randomness
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html
+  commentId: T:SystemLibrary.Common.Net.Randomness
+  fullName: SystemLibrary.Common.Net.Randomness
+  nameWithType: Randomness
+- uid: SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  name: Bytes(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Bytes_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Bytes(System.Int32)
+  nameWithType: Randomness.Bytes(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Bytes*
+  name: Bytes
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Bytes_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.Bytes
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.Bytes
+  nameWithType: Randomness.Bytes
+- uid: SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  name: Int(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Int(System.Int32)
+  nameWithType: Randomness.Int(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Int(System.Int32,System.Int32)
+  name: Int(Int32, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_System_Int32_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.Int(System.Int32,System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.Int(System.Int32, System.Int32)
+  nameWithType: Randomness.Int(Int32, Int32)
+- uid: SystemLibrary.Common.Net.Randomness.Int*
+  name: Int
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_Int_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.Int
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.Int
+  nameWithType: Randomness.Int
+- uid: SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  name: String(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_String_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  fullName: SystemLibrary.Common.Net.Randomness.String(System.Int32)
+  nameWithType: Randomness.String(Int32)
+- uid: SystemLibrary.Common.Net.Randomness.String*
+  name: String
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html#SystemLibrary_Common_Net_Randomness_String_
+  commentId: Overload:SystemLibrary.Common.Net.Randomness.String
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Randomness.String
+  nameWithType: Randomness.String
+- uid: SystemLibrary.Common.Net.Services
+  name: Services
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html
+  commentId: T:SystemLibrary.Common.Net.Services
+  fullName: SystemLibrary.Common.Net.Services
+  nameWithType: Services
+- uid: SystemLibrary.Common.Net.Services.AddScoped*
+  name: AddScoped
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddScoped_
+  commentId: Overload:SystemLibrary.Common.Net.Services.AddScoped
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.AddScoped
+  nameWithType: Services.AddScoped
+- uid: SystemLibrary.Common.Net.Services.AddScoped``2
+  name: AddScoped<T, TImpementation>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddScoped__2
+  commentId: M:SystemLibrary.Common.Net.Services.AddScoped``2
+  name.vb: AddScoped(Of T, TImpementation)()
+  fullName: SystemLibrary.Common.Net.Services.AddScoped<T, TImpementation>()
+  fullName.vb: SystemLibrary.Common.Net.Services.AddScoped(Of T, TImpementation)()
+  nameWithType: Services.AddScoped<T, TImpementation>()
+  nameWithType.vb: Services.AddScoped(Of T, TImpementation)()
+- uid: SystemLibrary.Common.Net.Services.AddSingleton*
+  name: AddSingleton
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddSingleton_
+  commentId: Overload:SystemLibrary.Common.Net.Services.AddSingleton
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.AddSingleton
+  nameWithType: Services.AddSingleton
+- uid: SystemLibrary.Common.Net.Services.AddSingleton``2
+  name: AddSingleton<T, TImpementation>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_AddSingleton__2
+  commentId: M:SystemLibrary.Common.Net.Services.AddSingleton``2
+  name.vb: AddSingleton(Of T, TImpementation)()
+  fullName: SystemLibrary.Common.Net.Services.AddSingleton<T, TImpementation>()
+  fullName.vb: SystemLibrary.Common.Net.Services.AddSingleton(Of T, TImpementation)()
+  nameWithType: Services.AddSingleton<T, TImpementation>()
+  nameWithType.vb: Services.AddSingleton(Of T, TImpementation)()
+- uid: SystemLibrary.Common.Net.Services.Configure
+  name: Configure()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure
+  commentId: M:SystemLibrary.Common.Net.Services.Configure
+  fullName: SystemLibrary.Common.Net.Services.Configure()
+  nameWithType: Services.Configure()
+- uid: SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Configure(IServiceCollection)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: SystemLibrary.Common.Net.Services.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: Services.Configure(IServiceCollection)
+- uid: SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  name: Configure(IServiceProvider)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_System_IServiceProvider_
+  commentId: M:SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  fullName: SystemLibrary.Common.Net.Services.Configure(System.IServiceProvider)
+  nameWithType: Services.Configure(IServiceProvider)
+- uid: SystemLibrary.Common.Net.Services.Configure*
+  name: Configure
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Configure_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Configure
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Configure
+  nameWithType: Services.Configure
+- uid: SystemLibrary.Common.Net.Services.Get*
+  name: Get
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Get_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Get
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Get
+  nameWithType: Services.Get
+- uid: SystemLibrary.Common.Net.Services.Get``1
+  name: Get<T>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Get__1
+  commentId: M:SystemLibrary.Common.Net.Services.Get``1
+  name.vb: Get(Of T)()
+  fullName: SystemLibrary.Common.Net.Services.Get<T>()
+  fullName.vb: SystemLibrary.Common.Net.Services.Get(Of T)()
+  nameWithType: Services.Get<T>()
+  nameWithType.vb: Services.Get(Of T)()
+- uid: SystemLibrary.Common.Net.Services.Remove*
+  name: Remove
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Remove_
+  commentId: Overload:SystemLibrary.Common.Net.Services.Remove
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Services.Remove
+  nameWithType: Services.Remove
+- uid: SystemLibrary.Common.Net.Services.Remove``1
+  name: Remove<T>()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Services.html#SystemLibrary_Common_Net_Services_Remove__1
+  commentId: M:SystemLibrary.Common.Net.Services.Remove``1
+  name.vb: Remove(Of T)()
+  fullName: SystemLibrary.Common.Net.Services.Remove<T>()
+  fullName.vb: SystemLibrary.Common.Net.Services.Remove(Of T)()
+  nameWithType: Services.Remove<T>()
+  nameWithType.vb: Services.Remove(Of T)()
+- uid: SystemLibrary.Common.Net.SystemType
+  name: SystemType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html
+  commentId: T:SystemLibrary.Common.Net.SystemType
+  fullName: SystemLibrary.Common.Net.SystemType
+  nameWithType: SystemType
+- uid: SystemLibrary.Common.Net.SystemType.BoolType
+  name: BoolType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_BoolType
+  commentId: F:SystemLibrary.Common.Net.SystemType.BoolType
+  fullName: SystemLibrary.Common.Net.SystemType.BoolType
+  nameWithType: SystemType.BoolType
+- uid: SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  name: BoolTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_BoolTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.BoolTypeNullable
+  nameWithType: SystemType.BoolTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.CharType
+  name: CharType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_CharType
+  commentId: F:SystemLibrary.Common.Net.SystemType.CharType
+  fullName: SystemLibrary.Common.Net.SystemType.CharType
+  nameWithType: SystemType.CharType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  name: DateTimeOffsetType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeOffsetType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeOffsetType
+  nameWithType: SystemType.DateTimeOffsetType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  name: DateTimeOffsetTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeOffsetTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeOffsetTypeNullable
+  nameWithType: SystemType.DateTimeOffsetTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeType
+  name: DateTimeType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeType
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeType
+  nameWithType: SystemType.DateTimeType
+- uid: SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  name: DateTimeTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DateTimeTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DateTimeTypeNullable
+  nameWithType: SystemType.DateTimeTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.DictionaryType
+  name: DictionaryType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DictionaryType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DictionaryType
+  fullName: SystemLibrary.Common.Net.SystemType.DictionaryType
+  nameWithType: SystemType.DictionaryType
+- uid: SystemLibrary.Common.Net.SystemType.DoubleType
+  name: DoubleType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DoubleType
+  commentId: F:SystemLibrary.Common.Net.SystemType.DoubleType
+  fullName: SystemLibrary.Common.Net.SystemType.DoubleType
+  nameWithType: SystemType.DoubleType
+- uid: SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  name: DoubleTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_DoubleTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.DoubleTypeNullable
+  nameWithType: SystemType.DoubleTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.EnumTextAttributeType
+  name: EnumTextAttributeType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_EnumTextAttributeType
+  commentId: F:SystemLibrary.Common.Net.SystemType.EnumTextAttributeType
+  fullName: SystemLibrary.Common.Net.SystemType.EnumTextAttributeType
+  nameWithType: SystemType.EnumTextAttributeType
+- uid: SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
+  name: EnumValueAttributeType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_EnumValueAttributeType
+  commentId: F:SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
+  fullName: SystemLibrary.Common.Net.SystemType.EnumValueAttributeType
+  nameWithType: SystemType.EnumValueAttributeType
+- uid: SystemLibrary.Common.Net.SystemType.ExceptionType
+  name: ExceptionType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ExceptionType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ExceptionType
+  fullName: SystemLibrary.Common.Net.SystemType.ExceptionType
+  nameWithType: SystemType.ExceptionType
+- uid: SystemLibrary.Common.Net.SystemType.GuidType
+  name: GuidType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_GuidType
+  commentId: F:SystemLibrary.Common.Net.SystemType.GuidType
+  fullName: SystemLibrary.Common.Net.SystemType.GuidType
+  nameWithType: SystemType.GuidType
+- uid: SystemLibrary.Common.Net.SystemType.ICollectionType
+  name: ICollectionType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ICollectionType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ICollectionType
+  fullName: SystemLibrary.Common.Net.SystemType.ICollectionType
+  nameWithType: SystemType.ICollectionType
+- uid: SystemLibrary.Common.Net.SystemType.IListType
+  name: IListType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IListType
+  commentId: F:SystemLibrary.Common.Net.SystemType.IListType
+  fullName: SystemLibrary.Common.Net.SystemType.IListType
+  nameWithType: SystemType.IListType
+- uid: SystemLibrary.Common.Net.SystemType.Int16Type
+  name: Int16Type
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int16Type
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int16Type
+  fullName: SystemLibrary.Common.Net.SystemType.Int16Type
+  nameWithType: SystemType.Int16Type
+- uid: SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  name: Int16TypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int16TypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.Int16TypeNullable
+  nameWithType: SystemType.Int16TypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.Int64Type
+  name: Int64Type
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int64Type
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int64Type
+  fullName: SystemLibrary.Common.Net.SystemType.Int64Type
+  nameWithType: SystemType.Int64Type
+- uid: SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  name: Int64TypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_Int64TypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.Int64TypeNullable
+  nameWithType: SystemType.Int64TypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.IntType
+  name: IntType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IntType
+  commentId: F:SystemLibrary.Common.Net.SystemType.IntType
+  fullName: SystemLibrary.Common.Net.SystemType.IntType
+  nameWithType: SystemType.IntType
+- uid: SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  name: IntTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IntTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.IntTypeNullable
+  nameWithType: SystemType.IntTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.KeyValueType
+  name: KeyValueType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_KeyValueType
+  commentId: F:SystemLibrary.Common.Net.SystemType.KeyValueType
+  fullName: SystemLibrary.Common.Net.SystemType.KeyValueType
+  nameWithType: SystemType.KeyValueType
+- uid: SystemLibrary.Common.Net.SystemType.ListType
+  name: ListType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ListType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ListType
+  fullName: SystemLibrary.Common.Net.SystemType.ListType
+  nameWithType: SystemType.ListType
+- uid: SystemLibrary.Common.Net.SystemType.ObjectType
+  name: ObjectType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ObjectType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ObjectType
+  fullName: SystemLibrary.Common.Net.SystemType.ObjectType
+  nameWithType: SystemType.ObjectType
+- uid: SystemLibrary.Common.Net.SystemType.StringType
+  name: StringType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_StringType
+  commentId: F:SystemLibrary.Common.Net.SystemType.StringType
+  fullName: SystemLibrary.Common.Net.SystemType.StringType
+  nameWithType: SystemType.StringType
+- uid: SystemLibrary.Common.Net.SystemType.TimeSpanType
+  name: TimeSpanType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_TimeSpanType
+  commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanType
+  fullName: SystemLibrary.Common.Net.SystemType.TimeSpanType
+  nameWithType: SystemType.TimeSpanType
+- uid: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  name: TimeSpanTypeNullable
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_TimeSpanTypeNullable
+  commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  fullName: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
+  nameWithType: SystemType.TimeSpanTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.UriType
+  name: UriType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_UriType
+  commentId: F:SystemLibrary.Common.Net.SystemType.UriType
+  fullName: SystemLibrary.Common.Net.SystemType.UriType
+  nameWithType: SystemType.UriType

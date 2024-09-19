@@ -1,0 +1,50 @@
+﻿{
+  "defaultName": "str",
+  "fieldAliases": {
+    "name": "name",
+    "name2": "name2",
+    "name3": "name3"
+  },
+  "definitions": [
+    {
+      "name": "id",
+      "type": "name",
+      "alias": "innerObject"
+    },
+  ],
+  "inner": [
+    {
+      "attributes": {
+        "id": 285222111,
+        "deci": 123.777,
+        "number": "0705",
+        "integer": 1,
+        "anotherId": 285222112,
+        "name": "Some name",
+        "nameBlank": ""
+      }
+    },
+    {
+      "attributes": {
+        "id": 285222113,
+        "deci": 285222112.88,
+        "number": "0705",
+        "integer": 1,
+        "anotherId": 285222112,
+        "name": "Some name",
+        "nameBlank": ""
+      }
+    },
+    {
+      "attributes": {
+        "id": 285222115,
+        "deci": 123,
+        "number": "0705",
+        "integer": 1,
+        "anotherId": 285222116,
+        "name": "Some name",
+        "nameBlank": ""
+      }
+    }
+  ]
+}

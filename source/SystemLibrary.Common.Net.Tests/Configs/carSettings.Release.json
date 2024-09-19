@@ -1,0 +1,10 @@
+﻿{
+  "FirstName": "Release firstname",
+  "LastName": "Release lastname",
+  "isENABLED": true,
+  "age": 234,
+  "Car": {
+    "firstName": "Users car firstname",
+    "lastname": "Users car lastname"
+  }
+}
