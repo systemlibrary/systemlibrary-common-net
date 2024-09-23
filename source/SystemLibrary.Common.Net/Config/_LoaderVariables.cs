@@ -103,6 +103,9 @@ internal static class ConfigVariables
         if (file.Contains(".runtimeconfig.", StringComparison.Ordinal) ||
             file.Contains(".deps.json", StringComparison.Ordinal) ||
             file.Contains("microsoft.visualstudio", StringComparison.Ordinal) ||
+            file.Contains("launchSettings.json", StringComparison.Ordinal) ||
+            file.Contains("eslint.json", StringComparison.Ordinal) ||
+            file.Contains("babelrc.json", StringComparison.Ordinal) ||
             file.ContainsAny(StringComparison.Ordinal, "packages.json", "packages.xml", "package.json", "package-lock.json"))
             return false;
 

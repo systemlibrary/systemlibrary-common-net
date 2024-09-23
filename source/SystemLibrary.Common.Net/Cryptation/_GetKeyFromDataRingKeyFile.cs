@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
@@ -62,7 +63,17 @@ partial class CryptationKey
 
         // Order to preserve the key file used if found multiple
         if(fileNames.Length > 1)
-            fileNames = fileNames.Order().ToArray();
+        {
+            fileNames = fileNames
+               .OrderBy(file =>
+               {
+                   var creationTime = File.GetCreationTime(file);
+                   return creationTime == DateTime.MinValue
+                       ? File.GetLastWriteTime(file)
+                       : creationTime;
+               })
+            .ToArray();
+        }
 
         foreach (var fullFileName in fileNames)
         {
