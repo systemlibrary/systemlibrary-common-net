@@ -32,32 +32,40 @@ public class StringConditionBenchmarks
     }
 
     [Benchmark]
-    public bool EndsWithAny()
+    public bool FindTypes()
     {
-        return "Hello world".EndsWithAny("aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
+        var types = Assemblies.FindAllTypesInheriting<Attribute>();
+
+        return types.Any();
     }
 
-    [Benchmark]
-    public bool EndsWithAny_Ordinal()
-    {
-        return "Hello world".EndsWithAny(StringComparison.Ordinal, "aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
-    }
+    //[Benchmark]
+    //public bool EndsWithAny()
+    //{
+    //    return "Hello world".EndsWithAny("aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
+    //}
 
-    [Benchmark]
-    public bool EndsWith_Span()
-    {
-        var data = "Hello world 123456";
+    //[Benchmark]
+    //public bool EndsWithAny_Ordinal()
+    //{
+    //    return "Hello world".EndsWithAny(StringComparison.Ordinal, "aaaa", "bbbb", "cccc", "dddd", "eeee", "zzzzzz");
+    //}
 
-        var r1 = data.StartsWithAny("world", "1234", "abc", "ello", "Hello");
+    //[Benchmark]
+    //public bool EndsWith_Span()
+    //{
+    //    var data = "Hello world 123456";
 
-        var r2 = data.StartsWithAny(null);
+    //    var r1 = data.StartsWithAny("world", "1234", "abc", "ello", "Hello");
 
-        var r3 = data.StartsWithAny("");
+    //    var r2 = data.StartsWithAny(null);
 
-        var r4 = data.StartsWithAny("H");
+    //    var r3 = data.StartsWithAny("");
 
-        return r1 || r2 || r3 || r4;
-    }
+    //    var r4 = data.StartsWithAny("H");
+
+    //    return r1 || r2 || r3 || r4;
+    //}
 
     //[Benchmark]
     //public bool EndsWithAny_Multiple()

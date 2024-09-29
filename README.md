@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.18.0.9
-- Cryptation: key ring file sorted by not A-Z but creation time, with fallback to lastwrite time (fix)
-- Config: ignoring babelrc and eslint as configuration files (fix)
+- 7.18.0.10
+- Assemblies.FindAllTypesInheriting now caches the white listed types in a static var, as this method assumes conumsers to use loaded asm's, dynamically loaded asm are in consumers hand (optimization)
 
 #### Major Breaking Versions
 - 7.12.0.1
