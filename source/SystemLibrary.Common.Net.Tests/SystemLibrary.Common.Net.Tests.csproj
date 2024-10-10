@@ -1,33 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
+	</PropertyGroup>
+	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Docs|AnyCPU'">
 		<Configurations>Release;Unknown;Debug;Docs;Docs</Configurations>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<Configurations>Release;Unknown;Debug</Configurations>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unknown|AnyCPU'">
 		<Configurations>Release;Unknown</Configurations>
 		<DebugType>none</DebugType>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
 		<Configurations>Release;Debug;Dev</Configurations>
 	</PropertyGroup>
 
-	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
-		<RunSettingsFilePath>$(MsBuildProjectDirectory)\properties\mstest.runsettings</RunSettingsFilePath>
-	</PropertyGroup>
-	
+
 	<ItemGroup>
 		<None Remove="AppSettingsTests\text.json" />
 		<None Remove="Configs\AppSettingsConfigTests\appSettingsConfigTests.config" />
@@ -48,35 +49,35 @@
 		<None Remove="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
-	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
-	  <EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
-	  <EmbeddedResource Include="_Files\data-new-line.json" />
-	  <EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
-	  <EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
-	  <EmbeddedResource Include="_Files\json-serialization-data.json" />
+		<EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithVariousDateTimeFormats.json" />
+		<EmbeddedResource Include="JsonSerializationDefaultOptionsTests\DataWithAllNumberTypes.json" />
+		<EmbeddedResource Include="_Files\data-array-space-and-newline.json" />
+		<EmbeddedResource Include="_Files\data-new-line.json" />
+		<EmbeddedResource Include="_Files\json-serialization-data-real-as-int.json" />
+		<EmbeddedResource Include="_Files\json-serialization-data-short-format.json" />
+		<EmbeddedResource Include="_Files\json-serialization-data.json" />
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />
+		<EmbeddedResource Include="JsonSerializationDefaultOptionsTests\Data.json" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.prod.config">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.qa.config">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.test.config">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\AppSettingsConfigTests\appSettingsConfigTests.config">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\AppSettingsTests\appSettingsTests.json">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\AppSettings\appSettings.json">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Configs\carSettings.Debug.json">
 			<IsTransformFile>true</IsTransformFile>
@@ -128,9 +129,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-		<PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
-		<PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.6.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.6.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\SystemLibrary.Common.Net\SystemLibrary.Common.Net.csproj" />

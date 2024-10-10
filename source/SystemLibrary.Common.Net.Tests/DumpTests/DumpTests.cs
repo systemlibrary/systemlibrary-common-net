@@ -133,7 +133,7 @@ public class DumpTests
         var content = File.ReadAllText(DumpPath);
         Assert.IsTrue(content.Contains("Hello world1"), "!1");
         Assert.IsTrue(content.Contains("Hello world2"), "!2");
-        Assert.IsFalse(content.Contains("Length"), "!Length");
+        Assert.IsFalse(content.Contains("Length"), "!Length: " + content);
     }
 
     [TestMethod]

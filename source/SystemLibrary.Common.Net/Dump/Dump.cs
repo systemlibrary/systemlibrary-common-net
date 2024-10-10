@@ -30,6 +30,11 @@ public static class Dump
     /// </summary>
     public static void Clear()
     {
+        if (LogFullPath == null)
+        {
+            Initialize();
+        }
+
         try
         {
             File.Delete(LogFullPath);
