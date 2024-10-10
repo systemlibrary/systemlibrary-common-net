@@ -1,28 +1,29 @@
 # SystemLibrary Common Net
 
 ## Description
-Library with classes and methods for every &gt;=  .NET 7 application
+Library with classes and methods for every &gt;=  .NET 8 application
 
 ### Features
-- Extensions for Strings, Arrays, Lists, Enums, ... such as Is(), IsNot() and ToEnum()
+- Extensions for Strings, Arrays, Lists, ... such as Is() and IsNot()
 - Dump.Write() "equivalent" to console.log in javascript
-- Config&lt;&gt; class, inherit it and it reads .json config file that has the same name, and also runs transformations based on EnvironmentName
-- ToValue and ToText extensions on Enum, through two attributes: EnumText, EnumValue
+- Config&lt;&gt; class, inherit it and it reads .json config file that has the same name as the C# class, also runs transformations based on EnvironmentName
+- ToValue and ToText extensions on Enum, through two attributes: [EnumText], [EnumValue]
 - Json() on any object, converting to json string or to a C# model from a json string
 - JsonPartial() on a json string, to convert only a part of the whole json, into the C# class, no need to model it all
 - Fire and forget in Async.Run()!
-- Cryptation of string or byte[] through the extension methods: Encrypt() and Decrypt() - uses AES CBC PKCS7
-- Obfuscate a string through extension Obfuscate() and Deobfuscate()
-- Convert to Base64 for string and byte[] through extension method ToBase64()
-- Hash anything through ToSha1(), ToSha256() and ToMd5() extensions for string, byte[] and Stream
-- Services.Get() as a service locator
+- Encrypt() and Decrypt() through string and byte[] extensions - uses AES CBC PKCS7
+- Obfuscate() and Deobfuscate() through string extension
+- ToBase64() and FromBase64() through string and byte[] extensions
+- ToHash(), ToSha1(), ToSha256() through Stream, string and byte[] extensions
+- Service Locator in Services.Get&lt;&gt;()
 
 ## Requirements
-- &gt;= .NET 7
+- &gt;= .NET 8
 
 ## Latest Release Notes
-- 7.18.0.10
-- Assemblies.FindAllTypesInheriting now caches the white listed types in a static var, as this method assumes conumsers to use loaded asm's, dynamically loaded asm are in consumers hand (optimization)
+- 8.0.0.1
+- Upgraded to .NET8 from .NET7
+- Updated all dependencies to their latest version
 
 #### Major Breaking Versions
 - 7.12.0.1

@@ -62,7 +62,7 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<Version>$(NugetVersion)</Version>
 		<Title>SystemLibrary Common Net</Title>
-		<Description>Library with classes and methods for every &gt;= .NET 7 application
+		<Description>Library with classes and methods for every &gt;= .NET 8 application
 https://github.com/systemlibrary/systemlibrary-common-net/#Description
 
 Installation
@@ -75,7 +75,7 @@ https://systemlibrary.github.io/systemlibrary-common-net/
 		<PackageProjectUrl>https://www.systemlibrary.com/#SystemLibraryCommonNet</PackageProjectUrl>
 		<PackageIcon>nuget-icon.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
-		<PackageTags>C# .NET 7.0 Config Extensions</PackageTags>
+		<PackageTags>C# .NET 8.0 Config Extensions</PackageTags>
 		<PackageReleaseNotes>Latest version: https://github.com/systemlibrary/systemlibrary-common-net#latest-release-notes</PackageReleaseNotes>
 		<AssemblyVersion>$(NugetVersion)</AssemblyVersion>
 		<FileVersion>$(NugetVersion)</FileVersion>

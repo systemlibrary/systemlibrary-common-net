@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Extensions;
 
-namespace SystemLibrary.Common.Net.Tests.ServiceTest;
+namespace SystemLibrary.Common.Net.Tests.XServiceTestsRunsLast;
 
 [TestClass]
 public class ServiceAesEncryptionTest
@@ -134,6 +134,7 @@ public class ServiceAesEncryptionTest
     [TestMethod]
     public void Encrypt_And_Decrypt_Using_DataProtection_Key_File_Success()
     {
+        System.Threading.Thread.Sleep(2000);
         var serviceCollection = Services.Configure();
 
         serviceCollection.AddDataProtection()
@@ -161,6 +162,7 @@ public class ServiceAesEncryptionTest
     [TestMethod]
     public void Encrypt_And_Decrypt_Using_AppName()
     {
+        System.Threading.Thread.Sleep(1000);
         var serviceCollection = Services.Configure();
 
         serviceCollection.AddDataProtection()
@@ -186,6 +188,7 @@ public class ServiceAesEncryptionTest
     [TestMethod]
     public void Encrypt_And_Decrypt_Using_Auto_Generated_AppName()
     {
+        System.Threading.Thread.Sleep(1000);
         var serviceCollection = Services.Configure();
 
         serviceCollection.AddDataProtection()

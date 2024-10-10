@@ -234,6 +234,251 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Config(Of T).Current
   nameWithType: Config<T>.Current
   nameWithType.vb: Config(Of T).Current
+- uid: SystemLibrary.Common.Net.Configurations
+  name: SystemLibrary.Common.Net.Configurations
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.html
+  commentId: N:SystemLibrary.Common.Net.Configurations
+  fullName: SystemLibrary.Common.Net.Configurations
+  nameWithType: SystemLibrary.Common.Net.Configurations
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig
+  name: EnvironmentConfig
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html
+  commentId: T:SystemLibrary.Common.Net.Configurations.EnvironmentConfig
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig
+  nameWithType: EnvironmentConfig
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath
+  name: ContentRootPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_ContentRootPath
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath
+  nameWithType: EnvironmentConfig.ContentRootPath
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath*
+  name: ContentRootPath
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_ContentRootPath_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.ContentRootPath
+  nameWithType: EnvironmentConfig.ContentRootPath
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsLocal
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal*
+  name: IsLocal
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsLocal_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsLocal
+  nameWithType: EnvironmentConfig.IsLocal
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsProd
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd*
+  name: IsProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsProd_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsProd
+  nameWithType: EnvironmentConfig.IsProd
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsTest
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest*
+  name: IsTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_IsTest_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig.IsTest
+  nameWithType: EnvironmentConfig.IsTest
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2
+  name: EnvironmentConfig<T, TEnvironmentNameEnum>
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig-2.html
+  commentId: T:SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2
+  name.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig<T, TEnvironmentNameEnum>
+  fullName.vb: SystemLibrary.Common.Net.Configurations.EnvironmentConfig(Of T, TEnvironmentNameEnum)
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.EnvironmentName
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig-2.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_2_EnvironmentName
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.EnvironmentName
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  fullName.vb: SystemLibrary.Common.Net.Configurations.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.EnvironmentName*
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig-2.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_2_EnvironmentName_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.EnvironmentName
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  fullName.vb: SystemLibrary.Common.Net.Configurations.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.Name
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig-2.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_2_Name
+  commentId: P:SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.Name
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  fullName.vb: SystemLibrary.Common.Net.Configurations.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.Name*
+  name: Name
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentConfig-2.html#SystemLibrary_Common_Net_Configurations_EnvironmentConfig_2_Name_
+  commentId: Overload:SystemLibrary.Common.Net.Configurations.EnvironmentConfig`2.Name
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  fullName.vb: SystemLibrary.Common.Net.Configurations.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
+  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName
+  name: EnvironmentName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html
+  commentId: T:SystemLibrary.Common.Net.Configurations.EnvironmentName
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName
+  nameWithType: EnvironmentName
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.AT
+  name: AT
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_AT
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.AT
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.AT
+  nameWithType: EnvironmentName.AT
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Dev
+  name: Dev
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Dev
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Dev
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Dev
+  nameWithType: EnvironmentName.Dev
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Development
+  name: Development
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Development
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Development
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Development
+  nameWithType: EnvironmentName.Development
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Local
+  name: Local
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Local
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Local
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Local
+  nameWithType: EnvironmentName.Local
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.None
+  name: None
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_None
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.None
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.None
+  nameWithType: EnvironmentName.None
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProd
+  name: PreProd
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_PreProd
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProd
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProd
+  nameWithType: EnvironmentName.PreProd
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProduction
+  name: PreProduction
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_PreProduction
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProduction
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.PreProduction
+  nameWithType: EnvironmentName.PreProduction
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Prod
+  name: Prod
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Prod
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Prod
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Prod
+  nameWithType: EnvironmentName.Prod
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Production
+  name: Production
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Production
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Production
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Production
+  nameWithType: EnvironmentName.Production
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.QA
+  name: QA
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_QA
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.QA
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.QA
+  nameWithType: EnvironmentName.QA
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Stage
+  name: Stage
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Stage
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Stage
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Stage
+  nameWithType: EnvironmentName.Stage
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Staging
+  name: Staging
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Staging
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Staging
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Staging
+  nameWithType: EnvironmentName.Staging
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.Test
+  name: Test
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_Test
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.Test
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.Test
+  nameWithType: EnvironmentName.Test
+- uid: SystemLibrary.Common.Net.Configurations.EnvironmentName.UnitTest
+  name: UnitTest
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Configurations.EnvironmentName.html#SystemLibrary_Common_Net_Configurations_EnvironmentName_UnitTest
+  commentId: F:SystemLibrary.Common.Net.Configurations.EnvironmentName.UnitTest
+  fullName: SystemLibrary.Common.Net.Configurations.EnvironmentName.UnitTest
+  nameWithType: EnvironmentName.UnitTest
+- uid: SystemLibrary.Common.Net.DateJsonConverter
+  name: DateJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html
+  commentId: T:SystemLibrary.Common.Net.DateJsonConverter
+  fullName: SystemLibrary.Common.Net.DateJsonConverter
+  nameWithType: DateJsonConverter
+- uid: SystemLibrary.Common.Net.DateJsonConverter.#ctor
+  name: DateJsonConverter()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter__ctor
+  commentId: M:SystemLibrary.Common.Net.DateJsonConverter.#ctor
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.DateJsonConverter()
+  nameWithType: DateJsonConverter.DateJsonConverter()
+- uid: SystemLibrary.Common.Net.DateJsonConverter.#ctor*
+  name: DateJsonConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.DateJsonConverter.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.DateJsonConverter
+  nameWithType: DateJsonConverter.DateJsonConverter
+- uid: SystemLibrary.Common.Net.DateJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.DateJsonConverter.Read(ByRef System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: DateJsonConverter.Read(ByRef Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateJsonConverter.Read*
+  name: Read
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter_Read_
+  commentId: Overload:SystemLibrary.Common.Net.DateJsonConverter.Read
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.Read
+  nameWithType: DateJsonConverter.Read
+- uid: SystemLibrary.Common.Net.DateJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter_Write_System_Text_Json_Utf8JsonWriter_System_DateTime_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.DateJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.Write(System.Text.Json.Utf8JsonWriter, System.DateTime, System.Text.Json.JsonSerializerOptions)
+  nameWithType: DateJsonConverter.Write(Utf8JsonWriter, DateTime, JsonSerializerOptions)
+- uid: SystemLibrary.Common.Net.DateJsonConverter.Write*
+  name: Write
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateJsonConverter.html#SystemLibrary_Common_Net_DateJsonConverter_Write_
+  commentId: Overload:SystemLibrary.Common.Net.DateJsonConverter.Write
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.DateJsonConverter.Write
+  nameWithType: DateJsonConverter.Write
 - uid: SystemLibrary.Common.Net.DateTimeJsonConverter
   name: DateTimeJsonConverter
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DateTimeJsonConverter.html
@@ -349,197 +594,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide
   nameWithType: DocFxHide.DocFxHide
-- uid: SystemLibrary.Common.Net.EnvironmentConfig
-  name: EnvironmentConfig
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html
-  commentId: T:SystemLibrary.Common.Net.EnvironmentConfig
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig
-  nameWithType: EnvironmentConfig
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
-  name: ContentRootPath
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ContentRootPath
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
-  nameWithType: EnvironmentConfig.ContentRootPath
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath*
-  name: ContentRootPath
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_ContentRootPath_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.ContentRootPath
-  nameWithType: EnvironmentConfig.ContentRootPath
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
-  name: IsLocal
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
-  nameWithType: EnvironmentConfig.IsLocal
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal*
-  name: IsLocal
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsLocal_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsLocal
-  nameWithType: EnvironmentConfig.IsLocal
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
-  name: IsProd
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
-  nameWithType: EnvironmentConfig.IsProd
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsProd*
-  name: IsProd
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsProd_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsProd
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsProd
-  nameWithType: EnvironmentConfig.IsProd
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
-  name: IsTest
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
-  nameWithType: EnvironmentConfig.IsTest
-- uid: SystemLibrary.Common.Net.EnvironmentConfig.IsTest*
-  name: IsTest
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig.html#SystemLibrary_Common_Net_EnvironmentConfig_IsTest_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig.IsTest
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig.IsTest
-  nameWithType: EnvironmentConfig.IsTest
-- uid: SystemLibrary.Common.Net.EnvironmentConfig`2
-  name: EnvironmentConfig<T, TEnvironmentNameEnum>
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html
-  commentId: T:SystemLibrary.Common.Net.EnvironmentConfig`2
-  name.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>
-  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum)
-  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>
-  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum)
-- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
-  name: EnvironmentName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
-  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
-  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
-  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
-- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName*
-  name: EnvironmentName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_EnvironmentName_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig`2.EnvironmentName
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
-  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
-  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.EnvironmentName
-  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).EnvironmentName
-- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.Name
-  name: Name
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_Name
-  commentId: P:SystemLibrary.Common.Net.EnvironmentConfig`2.Name
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
-  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
-  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
-  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
-- uid: SystemLibrary.Common.Net.EnvironmentConfig`2.Name*
-  name: Name
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentConfig-2.html#SystemLibrary_Common_Net_EnvironmentConfig_2_Name_
-  commentId: Overload:SystemLibrary.Common.Net.EnvironmentConfig`2.Name
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.EnvironmentConfig<T, TEnvironmentNameEnum>.Name
-  fullName.vb: SystemLibrary.Common.Net.EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
-  nameWithType: EnvironmentConfig<T, TEnvironmentNameEnum>.Name
-  nameWithType.vb: EnvironmentConfig(Of T, TEnvironmentNameEnum).Name
-- uid: SystemLibrary.Common.Net.EnvironmentName
-  name: EnvironmentName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html
-  commentId: T:SystemLibrary.Common.Net.EnvironmentName
-  fullName: SystemLibrary.Common.Net.EnvironmentName
-  nameWithType: EnvironmentName
-- uid: SystemLibrary.Common.Net.EnvironmentName.AT
-  name: AT
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_AT
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.AT
-  fullName: SystemLibrary.Common.Net.EnvironmentName.AT
-  nameWithType: EnvironmentName.AT
-- uid: SystemLibrary.Common.Net.EnvironmentName.Dev
-  name: Dev
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Dev
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Dev
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Dev
-  nameWithType: EnvironmentName.Dev
-- uid: SystemLibrary.Common.Net.EnvironmentName.Development
-  name: Development
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Development
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Development
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Development
-  nameWithType: EnvironmentName.Development
-- uid: SystemLibrary.Common.Net.EnvironmentName.Local
-  name: Local
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Local
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Local
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Local
-  nameWithType: EnvironmentName.Local
-- uid: SystemLibrary.Common.Net.EnvironmentName.None
-  name: None
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_None
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.None
-  fullName: SystemLibrary.Common.Net.EnvironmentName.None
-  nameWithType: EnvironmentName.None
-- uid: SystemLibrary.Common.Net.EnvironmentName.PreProd
-  name: PreProd
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_PreProd
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.PreProd
-  fullName: SystemLibrary.Common.Net.EnvironmentName.PreProd
-  nameWithType: EnvironmentName.PreProd
-- uid: SystemLibrary.Common.Net.EnvironmentName.PreProduction
-  name: PreProduction
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_PreProduction
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.PreProduction
-  fullName: SystemLibrary.Common.Net.EnvironmentName.PreProduction
-  nameWithType: EnvironmentName.PreProduction
-- uid: SystemLibrary.Common.Net.EnvironmentName.Prod
-  name: Prod
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Prod
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Prod
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Prod
-  nameWithType: EnvironmentName.Prod
-- uid: SystemLibrary.Common.Net.EnvironmentName.Production
-  name: Production
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Production
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Production
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Production
-  nameWithType: EnvironmentName.Production
-- uid: SystemLibrary.Common.Net.EnvironmentName.QA
-  name: QA
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_QA
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.QA
-  fullName: SystemLibrary.Common.Net.EnvironmentName.QA
-  nameWithType: EnvironmentName.QA
-- uid: SystemLibrary.Common.Net.EnvironmentName.Stage
-  name: Stage
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Stage
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Stage
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Stage
-  nameWithType: EnvironmentName.Stage
-- uid: SystemLibrary.Common.Net.EnvironmentName.Staging
-  name: Staging
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Staging
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Staging
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Staging
-  nameWithType: EnvironmentName.Staging
-- uid: SystemLibrary.Common.Net.EnvironmentName.Test
-  name: Test
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_Test
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.Test
-  fullName: SystemLibrary.Common.Net.EnvironmentName.Test
-  nameWithType: EnvironmentName.Test
-- uid: SystemLibrary.Common.Net.EnvironmentName.UnitTest
-  name: UnitTest
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.EnvironmentName.html#SystemLibrary_Common_Net_EnvironmentName_UnitTest
-  commentId: F:SystemLibrary.Common.Net.EnvironmentName.UnitTest
-  fullName: SystemLibrary.Common.Net.EnvironmentName.UnitTest
-  nameWithType: EnvironmentName.UnitTest
 - uid: SystemLibrary.Common.Net.Extensions
   name: SystemLibrary.Common.Net.Extensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html
@@ -1838,6 +1892,22 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.Json(Of T)(System.String, System.Text.Json.Serialization.JsonConverter())
   nameWithType: StringExtensions.Json<T>(String, JsonConverter[])
   nameWithType.vb: StringExtensions.Json(Of T)(String, JsonConverter())
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial*
+  name: JsonPartial
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_JsonPartial_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial
+  nameWithType: StringExtensions.JsonPartial
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name: JsonPartial<T>(String, String, JsonSerializerOptions)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_JsonPartial__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
+  name.vb: JsonPartial(Of T)(String, String, JsonSerializerOptions)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial<T>(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.JsonPartial(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
+  nameWithType: StringExtensions.JsonPartial<T>(String, String, JsonSerializerOptions)
+  nameWithType.vb: StringExtensions.JsonPartial(Of T)(String, String, JsonSerializerOptions)
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.MaxLength(System.String,System.Int32)
   name: MaxLength(String, Int32)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_MaxLength_System_String_System_Int32_
@@ -1880,22 +1950,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.OrFirstOf
   nameWithType: StringExtensions.OrFirstOf
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson*
-  name: PartialJson
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson_
-  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson
-  nameWithType: StringExtensions.PartialJson
-- uid: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
-  name: PartialJson<T>(String, String, JsonSerializerOptions)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_PartialJson__1_System_String_System_String_System_Text_Json_JsonSerializerOptions_
-  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.PartialJson``1(System.String,System.String,System.Text.Json.JsonSerializerOptions)
-  name.vb: PartialJson(Of T)(String, String, JsonSerializerOptions)
-  fullName: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson<T>(System.String, System.String, System.Text.Json.JsonSerializerOptions)
-  fullName.vb: SystemLibrary.Common.Net.Global.StringExtensions.PartialJson(Of T)(System.String, System.String, System.Text.Json.JsonSerializerOptions)
-  nameWithType: StringExtensions.PartialJson<T>(String, String, JsonSerializerOptions)
-  nameWithType.vb: StringExtensions.PartialJson(Of T)(String, String, JsonSerializerOptions)
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ReplaceAllWith(System.String,System.String,System.String[])
   name: ReplaceAllWith(String, String, String[])
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ReplaceAllWith_System_String_System_String_System_String___

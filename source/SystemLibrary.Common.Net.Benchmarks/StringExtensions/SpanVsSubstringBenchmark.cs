@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net70, warmupCount: 2, launchCount: 2, iterationCount: 3, invocationCount: 250)]
+[SimpleJob(RuntimeMoniker.Net80, warmupCount: 2, launchCount: 2, iterationCount: 3, invocationCount: 250)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class SpanVsSubstringBenchmark

@@ -859,7 +859,7 @@ public partial class StringExtensionsTests
         text = "";
         result = text.ToPhysicalPath();
         
-        var root = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/bin/Release/net7.0/";
+        var root = "C:/syslib/systemlibrary-common-net/source/SystemLibrary.Common.Net.Tests/bin/Release/net8.0/";
 
         Assert.IsTrue(result == root, "1 " + result);
 

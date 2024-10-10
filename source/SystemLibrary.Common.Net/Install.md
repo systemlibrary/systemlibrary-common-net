@@ -1,7 +1,7 @@
 ﻿# Installation
 
 ## Requirements
-* &gt;= .NET 7
+* &gt;= .NET 8
 
 ## Install nuget package
 * Open your project/solution in Visual Studio

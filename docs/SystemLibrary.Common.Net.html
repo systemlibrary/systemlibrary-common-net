@@ -216,6 +216,10 @@ Transformations are ran based on the &apos;ASPNETCORE_ENVIRONMENT&apos; variable
 - mstest.runsettings if you run transformations in unit tests
 <p>- commandline with --configuration if running as &apos;exe&apos;</p>
 </section>
+      <h4><a class="xref" href="SystemLibrary.Common.Net.DateJsonConverter.html">DateJsonConverter</a></h4>
+      <section id="SystemLibrary.Common.Net.DateJsonConverter--description"><p>Date json converter converts a DateTime to 'yyyy-MM-dd'</p>
+<p>Useful when you just need the date, ignoring time, by adding this to the datetime property through [JsonConverter] attribute</p>
+</section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DateTimeJsonConverter.html">DateTimeJsonConverter</a></h4>
       <section id="SystemLibrary.Common.Net.DateTimeJsonConverter--description"><p>Use to convert a string to DateTime during Json() invocation with your own format</p>
 </section>
@@ -224,13 +228,6 @@ Transformations are ran based on the &apos;ASPNETCORE_ENVIRONMENT&apos; variable
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.DocFxHide.html"></a></h4>
       <section id="SystemLibrary.Common.Net.DocFxHide--description"></section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig.html">EnvironmentConfig</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentConfig--description"><p>Standard class for environmental configurations read from environmentConfig.json if exists</p>
-<p>If you&apos;ve added more properties to environmentConfig.json than just the &apos;Name&apos; you&apos;d have to inherit &apos;EnvironmentConfig&lt;YourClass>&apos; and use that instead</p>
-</section>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentConfig-2.html">EnvironmentConfig&lt;T, TEnvironmentNameEnum&gt;</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentConfig`2--description"><p>EnvironmentConfig with option to bass a Configuration class on your own and a Enum that defines all environment names</p>
-</section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.Randomness.html">Randomness</a></h4>
       <section id="SystemLibrary.Common.Net.Randomness--description"><p>Shortcut for generating random variables through System.Random</p>
 </section>
@@ -239,12 +236,6 @@ Transformations are ran based on the &apos;ASPNETCORE_ENVIRONMENT&apos; variable
 </section>
       <h4><a class="xref" href="SystemLibrary.Common.Net.SystemType.html">SystemType</a></h4>
       <section id="SystemLibrary.Common.Net.SystemType--description"><p>Static class containing common &quot;typeof&quot; calls for performance reasons</p>
-</section>
-    <h3 id="enums">Enums
-  </h3>
-      <h4><a class="xref" href="SystemLibrary.Common.Net.EnvironmentName.html">EnvironmentName</a></h4>
-      <section id="SystemLibrary.Common.Net.EnvironmentName--description"><p>Enum list of common built-in environment names allowed</p>
-<p>Config tranformations and EnvironmentName will work with other env-names, but the IsLocal, IsTest, and IsProd will not</p>
 </section>
 </article>
           </div>
