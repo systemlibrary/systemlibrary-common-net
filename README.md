@@ -21,8 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.18.0.12
-- Md5, Sha1, Sha256 fixed disposed exception in very high concurrency applications (fix)
+- 7.18.0.16
+- Md5, Sha1, Sha256 creates a new instance as they throw null 2-5% of the time in highly concurrent applications (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1
