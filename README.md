@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.0.0.1
-- Upgraded to .NET8 from .NET7
-- Updated all dependencies to their latest version
+- 8.0.0.2
+- MD5, Sha1, Sha256 fixed a issue in very high concurrency applications 1/1000 if over hundred threads tries to call at same time (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

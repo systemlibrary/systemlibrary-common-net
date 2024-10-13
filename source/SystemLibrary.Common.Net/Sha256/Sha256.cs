@@ -7,7 +7,7 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Sha256
 {
-    const int ResetCounter = 400;
+    const int ResetCounter = 1000;
     static int SHA256Counter = ResetCounter;
     static object counterlock = new object();
     static SHA256 _SHA256;
@@ -23,16 +23,20 @@ internal static class Sha256
                 {
                     if (SHA256Counter > ResetCounter)
                     {
-                        _SHA256?.Dispose();
-                        _SHA256 = null;
+                        var oldRef = _SHA256;
+
                         _SHA256 = SHA256.Create();
+
                         SHA256Counter = 0;
+
+                        Task.Run(async () =>
+                        {
+                            await Task.Delay(250);
+                            oldRef?.Dispose();
+                        });
                     }
                 }
             }
-
-            if (_SHA256 == null)
-                return SHA256.Create();
 
             return _SHA256;
         }
