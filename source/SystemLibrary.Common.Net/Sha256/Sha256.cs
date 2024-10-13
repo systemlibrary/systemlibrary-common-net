@@ -23,18 +23,24 @@ internal static class Sha256
                 {
                     if (SHA256Counter > ResetCounter)
                     {
-                        _SHA256?.Dispose();
+                        var oldRef = _SHA256;
+
                         _SHA256 = null;
+
                         _SHA256 = SHA256.Create();
+
                         SHA256Counter = 0;
+
+                        Task.Run(async () =>
+                        {
+                            await Task.Delay(1000);
+                            oldRef?.Dispose();
+                        });
                     }
                 }
             }
 
-            if (_SHA256 == null)
-                return SHA256.Create();
-
-            return _SHA256;
+            return _SHA256 ?? SHA256.Create();
         }
     }
 

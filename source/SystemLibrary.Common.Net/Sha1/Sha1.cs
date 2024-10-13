@@ -23,18 +23,24 @@ internal static class Sha1
                 {
                     if (SHA1Counter > ResetCounter)
                     {
-                        _SHA1?.Dispose();
+                        var oldRef = _SHA1;
+
                         _SHA1 = null;
+
                         _SHA1 = SHA1.Create();
+
                         SHA1Counter = 0;
+
+                        Task.Run(async () =>
+                        {
+                            await Task.Delay(1000);
+                            oldRef?.Dispose();
+                        });
                     }
                 }
             }
 
-            if (_SHA1 == null)
-                return SHA1.Create();
-
-            return _SHA1;
+            return _SHA1 ?? SHA1.Create();
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -26,6 +27,15 @@ public class StreamExtensionsTests
                 Assert.IsTrue(result.Length == 47, "Md5Hash Length: " + result.Length);
             }
         }
+
+        for (int i = 0; i < 5000; i++)
+        {
+            Task.Run(async () =>
+            {
+                var r = i.ToString().ToMD5Hash();
+                Assert.IsTrue(r != null);
+            });
+        }
     }
 
     [TestMethod]
@@ -49,6 +59,7 @@ public class StreamExtensionsTests
                 Assert.IsTrue(result.Length == 47, "Md5Hash Length: " + result.Length);
             }
         }
+
     }
 
     [TestMethod]
@@ -67,6 +78,12 @@ public class StreamExtensionsTests
                 Assert.IsTrue(result != null);
                 Assert.IsTrue(result.Length == 59, "Sha1 Length: " + result.Length);
             }
+        }
+
+        for (var i = 0; i < 10000; i++)
+        {
+            var r = i.ToString().ToSha1Hash();
+            Assert.IsTrue(r != null);
         }
     }
 
@@ -132,6 +149,12 @@ public class StreamExtensionsTests
                 Assert.IsTrue(result != null);
                 Assert.IsTrue(result.Length == 95, "Sha256 Length: " + result.Length);
             }
+        }
+
+        for (var i = 0; i < 10000; i++)
+        {
+            var r = i.ToString().ToSha256Hash();
+            Assert.IsTrue(r != null);
         }
     }
 

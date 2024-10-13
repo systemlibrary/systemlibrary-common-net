@@ -21,8 +21,8 @@ Library with classes and methods for every &gt;=  .NET 7 application
 - &gt;= .NET 7
 
 ## Latest Release Notes
-- 7.18.0.10
-- Assemblies.FindAllTypesInheriting now caches the white listed types in a static var, as this method assumes conumsers to use loaded asm's, dynamically loaded asm are in consumers hand (optimization)
+- 7.18.0.12
+- Md5, Sha1, Sha256 fixed disposed exception in very high concurrency applications (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

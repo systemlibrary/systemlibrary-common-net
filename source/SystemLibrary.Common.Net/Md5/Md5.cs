@@ -23,18 +23,24 @@ internal static class Md5
                 {
                     if (MD5Counter > ResetCounter)
                     {
-                        _MD5?.Dispose();
+                        var oldRef = _MD5;
+
                         _MD5 = null;
+
                         _MD5 = MD5.Create();
+
                         MD5Counter = 0;
+
+                        Task.Run(async () =>
+                        {
+                            await Task.Delay(1000);
+                            oldRef?.Dispose();
+                        });
                     }
                 }
             }
 
-            if (_MD5 == null)
-                return MD5.Create();
-
-            return _MD5;
+            return _MD5 ?? MD5.Create();
         }
     }
 
