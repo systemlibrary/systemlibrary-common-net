@@ -21,8 +21,10 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.0.0.2
-- MD5, Sha1, Sha256 fixed a issue in very high concurrency applications 1/1000 if over hundred threads tries to call at same time (fix)
+- 8.0.0.4
+- Decryption shelf (cache) has now a limit of 100 stored decrypted values, rest are never cached (optimization)
+- Md5, Sha1, Sha256 1-2% null exceptions thrown in heavy concurrency applications (fix)
+- Json() default converter for 'Number' tries to convert to double, then int (feature)
 
 #### Major Breaking Versions
 - 7.12.0.1

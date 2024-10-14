@@ -9,8 +9,19 @@ internal class StringJsonConverter : JsonConverter<string>
     public override string Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         if (reader.TokenType == JsonTokenType.Number)
-            return reader.GetInt32().ToString();
+        {
+            if (reader.TryGetDouble(out double d))
+                return d.ToString();
 
+            if (reader.TryGetInt32(out int i))
+                return i.ToString();
+
+            if (reader.TryGetInt64(out long l))
+                return l.ToString();
+
+            return reader.GetUInt64().ToString();
+        }
+        
         if (reader.TokenType == JsonTokenType.True ||
             reader.TokenType == JsonTokenType.False ||
             reader.TokenType == JsonTokenType.String)

@@ -16,6 +16,9 @@ internal class IntJsonConverter : JsonConverter<int>
             if (reader.TryGetDouble(out double doubleValue))
                 return (int)doubleValue;
 
+            if (reader.TryGetInt32(out int intValue))
+                return intValue;
+
             throw new Exception("Cannot convert value to int32");
         }
 

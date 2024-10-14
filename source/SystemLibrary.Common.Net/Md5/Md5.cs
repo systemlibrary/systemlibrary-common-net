@@ -7,48 +7,15 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Md5
 {
-    const int ResetCounter = 1000;
-    static object counterlock = new object();
-    static int MD5Counter = ResetCounter;
-    static MD5 _MD5;
-    static MD5 MD5
-    {
-        get
-        {
-            System.Threading.Interlocked.Increment(ref MD5Counter);
-
-            if (MD5Counter > ResetCounter)
-            {
-                lock (counterlock)
-                {
-                    if (MD5Counter > ResetCounter)
-                    {
-                        var oldRef = _MD5;
-                        
-                        _MD5 = MD5.Create();
-
-                        MD5Counter = 0;
-                        
-                        Task.Run(async () =>
-                        {
-                            await Task.Delay(250);
-                            oldRef?.Dispose();
-                        });
-                    }
-                }
-            }
-
-            return _MD5;
-        }
-    }
-
+   
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;
 
         if (bytes.Length == 0) return "";
-
-        return BitConverter.ToString(MD5.ComputeHash(bytes));
+     
+        using (var hasher = MD5.Create())
+            return BitConverter.ToString(hasher.ComputeHash(bytes));
     }
 
     internal static string Compute(Stream stream)
@@ -57,7 +24,8 @@ internal static class Md5
 
         if (!stream.CanRead) return null;
 
-        return BitConverter.ToString(MD5.ComputeHash(stream));
+        using (var hasher = MD5.Create())
+            return BitConverter.ToString(hasher.ComputeHash(stream));
     }
 
     internal static async Task<string> ComputeAsync(Stream stream)
@@ -66,6 +34,7 @@ internal static class Md5
 
         if (!stream.CanRead) return null;
 
-        return BitConverter.ToString(await MD5.ComputeHashAsync(stream).ConfigureAwait(false));
+        using (var hasher = MD5.Create())
+            return BitConverter.ToString(await hasher.ComputeHashAsync(stream).ConfigureAwait(false));
     }
 }

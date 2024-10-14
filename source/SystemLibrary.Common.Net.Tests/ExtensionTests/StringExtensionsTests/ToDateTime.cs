@@ -248,3 +248,4 @@ partial class StringExtensionsTests
         "1009236179777",
     };
 }
+
