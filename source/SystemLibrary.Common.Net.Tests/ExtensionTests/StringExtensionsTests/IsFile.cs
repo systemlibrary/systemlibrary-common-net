@@ -182,5 +182,13 @@ partial class StringExtensionsTests
         data = "/folder/IMG/nofilepath/helloworld?q=1&hello=world";
         expected = false;
         Assert.IsTrue(data.IsFile() == expected, "Wrong: " + data);
+
+        data = "/folder/text.txt/";
+        expected = false;
+        Assert.IsTrue(data.IsFile() == expected, "Wrong: " + data);
+
+        data = "/folder/text.txt/?q=h&a=b";
+        expected = false;
+        Assert.IsTrue(data.IsFile() == expected, "Wrong: " + data);
     }
 }

@@ -25,9 +25,6 @@ public static class ByteArrayExtensions
     {
         if (bytes == null) return null;
 
-        // Research performance? Add compress to base64? Or a new method .Compress extension?
-        //https://learn.microsoft.com/en-us/answers/questions/226531/c-best-method-to-reduce-size-of-large-string-data.html
-
         return Convert.ToBase64String(bytes);
     }
 

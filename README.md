@@ -21,17 +21,15 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.0.0.4
-- Decryption shelf (cache) has now a limit of 100 stored decrypted values, rest are never cached (optimization)
-- Md5, Sha1, Sha256 1-2% null exceptions thrown in heavy concurrency applications (fix)
-- Json() default converter for 'Number' tries to convert to double, then int (feature)
+- 8.0.0.5
+- IsFile no longer returns true if ending with slash with a query param like: file.txt/?q=1 (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1
 - Cryptation rewritten, parameterless Encrypt() returns cipher text with a random IV
 - Cryptation environment key "SYSLIBCRYPTATIONKEY" removed
 - Json() conversions for date time rewritten
-- Config files read from 'content root', never /bin/
+- ContentRootPath is never within /bin (exception: .Tests.csproj projects), so Config files are never read from within bin-folder
  
 #### Version history 
 - View git history of this file if interested

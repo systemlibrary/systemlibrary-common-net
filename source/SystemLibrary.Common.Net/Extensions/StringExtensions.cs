@@ -1477,6 +1477,7 @@ public static partial class StringExtensions
         return sb.ToString();
     }
 
+    // CREDS TO: https://learn.microsoft.com/en-us/answers/questions/226531/c-best-method-to-reduce-size-of-large-string-data.html
     /// <summary>
     /// Compress the input data and return
     /// </summary>
@@ -1505,7 +1506,7 @@ public static partial class StringExtensions
                     input.CopyToAsync(stream);
                 }
 
-                return Convert.ToBase64String(output.ToArray());
+                return output.ToArray().ToBase64();
             }
         }
     }
@@ -1527,7 +1528,7 @@ public static partial class StringExtensions
     {
         if (compressedData.IsNot()) return compressedData;
 
-        var bytes = Convert.FromBase64String(compressedData);
+        var bytes = compressedData.FromBase64AsBytes();
 
         using (var output = new MemoryStream())
         {
@@ -1719,20 +1720,25 @@ public static partial class StringExtensions
         if (path == null || path.Length <= 3 || path.Length > 4096)
             return false;
 
+        if (path.EndsWith("/")) return false;
+
+        if (path.IndexOfAny(Path.GetInvalidPathChars()) != -1) return false;
+
+        if (path.Contains("<")) return false;
+
         bool HasAssetPath() =>
             path.Contains("/public/", StringComparison.OrdinalIgnoreCase) ||
             path.Contains("/images/", StringComparison.OrdinalIgnoreCase) ||
             path.Contains("/static/", StringComparison.OrdinalIgnoreCase) ||
             path.Contains("assets/", StringComparison.OrdinalIgnoreCase);
 
-        if (path.IndexOfAny(Path.GetInvalidPathChars()) != -1)
-            return HasAssetPath();
-
         var extensionIndex = path.LastIndexOf('.');
+
         if (extensionIndex == -1)
             return HasAssetPath();
 
         var queryIndex = path.IndexOf('?');
+
         if (queryIndex == -1)
         {
             if (extensionIndex == path.Length - 1) return HasAssetPath();
@@ -1748,6 +1754,8 @@ public static partial class StringExtensions
 
             return temp.LastIndexOf('.') >= temp.Length - 7 || HasAssetPath(); // .config
         }
+
+        if (path[queryIndex - 1] == '/') return false;
 
         return queryIndex - 7 <= extensionIndex || HasAssetPath();
     }
