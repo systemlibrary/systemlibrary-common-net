@@ -1101,6 +1101,11 @@ public static partial class StringExtensions
     {
         if (text.IsNot()) return text;
 
+        if (char.IsLower(text[0]) && !text.Contains(" ") && !text.Contains("-"))
+        {
+            return char.ToUpper(text[0]) + text.Substring(1);
+        }
+
         var sb = new StringBuilder();
 
         sb.Append(char.ToUpper(text[0]));
@@ -1146,6 +1151,11 @@ public static partial class StringExtensions
     public static string toCamelCase(this string text)
     {
         if (text.IsNot()) return text;
+
+        if(char.IsUpper(text[0]) &&!text.Contains(" ") && !text.Contains("-"))
+        {
+            return char.ToLower(text[0]) + text.Substring(1);
+        }
 
         var sb = new StringBuilder();
 

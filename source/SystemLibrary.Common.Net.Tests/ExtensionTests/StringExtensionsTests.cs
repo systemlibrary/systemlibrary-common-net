@@ -816,6 +816,10 @@ public partial class StringExtensionsTests
         text = "Hello-world-this WAS-NICE";
         result = text.toCamelCase();
         Assert.IsTrue(result == "hello-World-This Was-Nice");
+
+        text = "ApiControllerNameUnchanged";
+        result = text.toCamelCase();
+        Assert.IsTrue(result == "apiControllerNameUnchanged", result);
     }
 
     [TestMethod]

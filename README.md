@@ -21,8 +21,9 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.0.0.5
-- IsFile no longer returns true if ending with slash with a query param like: file.txt/?q=1 (fix)
+- 8.0.0.6
+- toCamelCase() now lowers only first char if input is one-worded pascal cased (fix)
+- ToPascalCase() now uppers only first char if input is one-worded camel cased (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1
