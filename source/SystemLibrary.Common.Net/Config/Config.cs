@@ -193,7 +193,7 @@ public abstract partial class Config<T> where T : class
 
             var isEligibleForDecryption = property.Name.EndsWith("Decrypted", StringComparison.Ordinal) || property.Name.EndsWith("Decrypt", StringComparison.Ordinal);
 
-            var attribute = property.GetCustomAttribute<DecryptAttribute>();
+            var attribute = property.GetCustomAttribute<ConfigDecryptAttribute>();
 
             // Not a decrypt property
             if (!isEligibleForDecryption && attribute == null) continue;

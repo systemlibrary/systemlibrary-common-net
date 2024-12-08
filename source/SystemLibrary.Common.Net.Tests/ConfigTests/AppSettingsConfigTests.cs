@@ -14,10 +14,10 @@ public class AppSettingsConfigTests : Config<AppSettingsConfigTests>
 
     public string PasswordDecrypted { get; set; }
 
-    [Decrypt(nameof(Password))]
+    [ConfigDecrypt(nameof(Password))]
     public string HelloWorld { get; set; }
 
-    [Decrypt(nameof(PasswordSecond))]
+    [ConfigDecrypt(nameof(PasswordSecond))]
     public string HelloWorld2 { get; set; }
 
     public AppSettingsConfigTests()

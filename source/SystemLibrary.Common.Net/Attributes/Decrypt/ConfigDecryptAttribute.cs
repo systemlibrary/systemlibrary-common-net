@@ -35,7 +35,7 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// </code>
 /// </example>
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-public class DecryptAttribute : Attribute
+public class ConfigDecryptAttribute : Attribute
 {
     public string PropertyName;
 
@@ -43,7 +43,7 @@ public class DecryptAttribute : Attribute
     /// Set the property name that will be decrypted
     /// </summary>
     /// <param name="propertyName"></param>
-    public DecryptAttribute(string propertyName = null)
+    public ConfigDecryptAttribute(string propertyName = null)
     {
         PropertyName = propertyName;
     }

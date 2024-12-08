@@ -1332,7 +1332,7 @@ public static partial class StringExtensions
     /// <returns>Encrypted base64 string with IV in first 16 bytes if 'addIV' was true, or null/empty if input was so</returns>
     public static string Encrypt(this string data, string key, string IV = null, bool addIV = false)
     {
-        return Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV);
+        return Encrypt(data, key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addIV);
     }
 
     /// <summary>
@@ -1365,7 +1365,7 @@ public static partial class StringExtensions
         if (IV != null && IV.Length != 16)
             throw new Exception("AES must receive an IV of 16 characters length");
 
-        return Cryptation.Encrypt(data, key, IV, addIV).ToBase64();
+        return Cryptation.Encrypt(data, key ?? CryptationKey.Current, IV, addIV).ToBase64();
     }
 
     /// <summary>
@@ -1406,7 +1406,7 @@ public static partial class StringExtensions
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
     {
-        return Decrypt(cipherText, key.GetBytes(), IV.GetBytes(), addedIV);
+        return Decrypt(cipherText,key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addedIV);
     }
 
     /// <summary>
@@ -1433,7 +1433,7 @@ public static partial class StringExtensions
         if (IV != null && IV.Length != 16)
             throw new Exception("AES must receive an IV of 16 characters length");
 
-        return Cryptation.Decrypt(cipherText, key, IV, addedIV);
+        return Cryptation.Decrypt(cipherText, key ?? CryptationKey.Current, IV, addedIV);
     }
 
     /// <summary>

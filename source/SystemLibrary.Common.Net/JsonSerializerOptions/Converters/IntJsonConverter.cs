@@ -29,7 +29,9 @@ internal class IntJsonConverter : JsonConverter<int>
             return 0;
 
         if (reader.TokenType == JsonTokenType.String)
+        {
             return int.Parse(reader.GetString());
+        }
 
         throw new JsonException("Error reading: " + reader.GetString() + " into an Int32");
     }

@@ -4,11 +4,52 @@ using System.Text.Json.Serialization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using SystemLibrary.Common.Net.Extensions;
+
 namespace SystemLibrary.Common.Net.Tests;
 
 [TestClass]
 public class JsonSerializationDefaultOptionsTests
 {
+    [TestMethod]
+    public void Dump_Dummy_Numbers_Encrypted()
+    {
+        Dump.Write(0.ToString().Encrypt());
+        Dump.Write(0.ToString().Obfuscate().ToBase64());
+
+        Dump.Write(12345678901234567890.ToString().Encrypt());
+        Dump.Write(12345678901234567890.ToString().Obfuscate().ToBase64());
+
+        //Dump.Write(0.ToString().Encrypt());
+        //Dump.Write(123.ToString().Encrypt());
+        //Dump.Write(4560000.ToString().Encrypt());
+        //Dump.Write("-678".Encrypt());
+
+        //Dump.Write("DEC: " + "AnWl5bNc2sJw3WkQL6o/QDck6y8ThBgyHORXm7pt/sM=".Decrypt());
+    }
+
+    [TestMethod]
+    public void Read_Json_With_Encrypted_Variables_Decrypts_Success()
+    {
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithEncryptedVars.json");
+
+        var response = data.Json<DataWithEncryptedVars>();
+
+        Assert.IsTrue(response.Id == 0, "id");
+        Assert.IsTrue(response.Id2 == 777, "id2");
+        Assert.IsTrue(response.ID3 != 777, "id3");
+        Assert.IsTrue(response.id4 != 777, "id4");
+        Assert.IsTrue(response.id5 != 777, "id5");
+        Assert.IsTrue(response.id6 == 777, "id6");
+
+        var encryptedIds = response.Json();
+
+        Assert.IsTrue(!encryptedIds.Contains("\"Id\": \"0"), "json id");
+        Assert.IsTrue(!encryptedIds.Contains("\"ID3\": \"123"), "json id3");
+        Assert.IsTrue(!encryptedIds.Contains("\"id4\": \"4560000"), "json id4");
+        Assert.IsTrue(!encryptedIds.Contains("\"id5\": \"-678"), "json id5");
+    }
+
     [TestMethod]
     public void Read_Json_With_Default_Options_Success()
     {

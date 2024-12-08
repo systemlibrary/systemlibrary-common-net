@@ -21,9 +21,10 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.0.0.6
-- toCamelCase() now lowers only first char if input is one-worded pascal cased (fix)
-- ToPascalCase() now uppers only first char if input is one-worded camel cased (fix)
+- 8.1.0.1
+- DecryptAttribute renamed to ConfigDecryptAttribute (breaking change)
+- JsonEncryptAttribute protects data sent to frontend and decrypts upon receival (new)
+- JsonObfuscateAttribute lightly protects data sent to frontend and deobfuscates upon receival (new)
 
 #### Major Breaking Versions
 - 7.12.0.1
