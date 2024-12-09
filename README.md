@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.1.0.3
-- JsonEncryptAttribute added comments and docs (fix)
-- JsonObfuscateAttribute added comments and docs (fix)
+- 8.1.0.4
+- Updated docs
 
 #### Major Breaking Versions
 - 7.12.0.1
