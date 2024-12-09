@@ -1345,6 +1345,19 @@ references:
   commentId: T:SystemLibrary.Common.Net.Extensions.TypeExtensions
   fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions
   nameWithType: TypeExtensions
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.Default(System.Type)
+  name: Default(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_Default_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.Default(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.Default(System.Type)
+  nameWithType: TypeExtensions.Default(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.Default*
+  name: Default
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_Default_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.Default
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.Default
+  nameWithType: TypeExtensions.Default
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
   name: GetFirstGenericType(Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_System_Type_
@@ -2595,6 +2608,18 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
   fullName: SystemLibrary.Common.Net.SystemType.TimeSpanTypeNullable
   nameWithType: SystemType.TimeSpanTypeNullable
+- uid: SystemLibrary.Common.Net.SystemType.UInt64Type
+  name: UInt64Type
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_UInt64Type
+  commentId: F:SystemLibrary.Common.Net.SystemType.UInt64Type
+  fullName: SystemLibrary.Common.Net.SystemType.UInt64Type
+  nameWithType: SystemType.UInt64Type
+- uid: SystemLibrary.Common.Net.SystemType.UIntType
+  name: UIntType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_UIntType
+  commentId: F:SystemLibrary.Common.Net.SystemType.UIntType
+  fullName: SystemLibrary.Common.Net.SystemType.UIntType
+  nameWithType: SystemType.UIntType
 - uid: SystemLibrary.Common.Net.SystemType.UriType
   name: UriType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_UriType

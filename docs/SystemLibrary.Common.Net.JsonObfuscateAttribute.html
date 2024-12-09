@@ -197,7 +197,19 @@
   <div class="markdown level0 conceptual h1-class-conceptual"></div>
   
   <div class="h1-class-summary-container">
-    <div class="markdown level0 summary h1-class-summary"></div>
+    <div class="markdown level0 summary h1-class-summary"><p>Obfuscate and deobfuscate a property or field on receival or sending of a Model</p>
+<p>Useful when you want to hide productId&apos;s or similar in Frontend part of your application. Avoids having int&apos;s or ID&apos;s in the frontend, for attackers wanting to brute force endpoints taking INTs</p>
+</div>
+    <div class="custom-remarks-container">
+      <div class="custom-remarks custom-remarks1">
+        <h5 id="SystemLibrary_Common_Net_JsonObfuscateAttribute_remarks">Remarks</h5>
+      </div>
+      <div class="custom-remarks custom-remarks1 text">
+        <div class="custom-remarks-menu-data--close">X</div>
+        <div class="markdown level0 remarks"><p>Does not support all property/field types, but at least supports: int, uint, int64, uint64 and string types</p>
+</div>
+      </div>
+    </div>
   </div>
   
   <h1 id="SystemLibrary_Common_Net_JsonObfuscateAttribute" data-uid="SystemLibrary.Common.Net.JsonObfuscateAttribute" class="text-break h1-class-header">JsonObfuscateAttribute
@@ -225,6 +237,20 @@ public class JsonObfuscateAttribute : JsonConverterAttribute</h1>
     <h5 id="SystemLibrary_Common_Net_JsonObfuscateAttribute_examples"><span class="custom-class-example custom-class-example-onclick">Examples</span></h5>
   
     <div class="custom-menu-data-container custom-menu-data-container--example">
+      <div class="custom-menu-data-class-example" style="display: none;">
+        <div class="syslib-tab-menu-data--close">X</div>
+        <div class="codewrapper"><p>Model.cs:</p>
+<pre><code>class Model
+{
+    // Value is obfuscated if you convert it to JSON string, and a JSON string serialized into C# model will be tried deobfuscated
+    [JsonObfuscate]
+    public string Token {get;set;} 
+    [JsonObfuscate]
+    public string ProductId {get;set;}
+}</code></pre>
+</div>
+        <div class="comment-examples-container-bottom"></div>
+      </div>
     </div>
   </div>
   
@@ -250,7 +276,7 @@ public class JsonObfuscateAttribute : JsonConverterAttribute</h1>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_JsonObfuscateAttribute__ctor_System_Int32_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L11">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L32">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_JsonObfuscateAttribute__ctor_" data-uid="SystemLibrary.Common.Net.JsonObfuscateAttribute.#ctor*"></a>
@@ -295,7 +321,7 @@ public class JsonObfuscateAttribute : JsonConverterAttribute</h1>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_JsonObfuscateAttribute_CreateConverter_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L16">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L37">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_JsonObfuscateAttribute_CreateConverter_" data-uid="SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter*"></a>
@@ -1039,7 +1065,7 @@ public class JsonObfuscateAttribute : JsonConverterAttribute</h1>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Attributes/JsonObfuscate/JsonObfuscateAttribute.cs/#L27" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

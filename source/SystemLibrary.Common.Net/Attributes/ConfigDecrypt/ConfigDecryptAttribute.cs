@@ -10,7 +10,7 @@ namespace SystemLibrary.Common.Net.Attributes;
 /// </summary>
 /// <remarks>
 /// The PropertyName must be a property within the same class that this attribute was used, and class must inherit Config to work automatically
-/// <para>This class attribute exists to read Config Properties that are public get;set;, but feel free to use Decrypt attribute yourself as it is not subject for breaking changes in near future</para>
+/// <para>This class attribute exists to read Config Properties that are public get;set;, but feel free to use ConfigDecrypt attribute yourself as it is not subject for breaking changes in near future</para>
 /// The decryption occurs only once for the app life time, at the creation of the Configuration class
 /// </remarks>
 /// <example>
@@ -29,7 +29,7 @@ namespace SystemLibrary.Common.Net.Attributes;
 ///     public string TokenDecrypted {get;set;} // Naming convention decrypting
 ///     public string TokenDecrypt {get;set;} // Naming convention decrypting
 ///     
-///     [Decrypt(propertyName="Token")]
+///     [ConfigDecrypt(propertyName="Token")]
 ///     public string TokenDec {get;set;} // Attribute convention decrypting
 /// }
 /// </code>
