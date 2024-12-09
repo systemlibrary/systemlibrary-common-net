@@ -45,7 +45,7 @@ public static class ByteArrayExtensions
         if (bytes.Length == 0) return "";
 
         if (encoding == null)
-            return System.Text.Encoding.UTF8.GetString(bytes);
+            return Encoding.UTF8.GetString(bytes);
 
         return encoding.GetString(bytes);
     }

@@ -133,31 +133,31 @@ references:
   commentId: N:SystemLibrary.Common.Net.Attributes
   fullName: SystemLibrary.Common.Net.Attributes
   nameWithType: SystemLibrary.Common.Net.Attributes
-- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute
-  name: DecryptAttribute
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html
-  commentId: T:SystemLibrary.Common.Net.Attributes.DecryptAttribute
-  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute
-  nameWithType: DecryptAttribute
-- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
-  name: DecryptAttribute(String)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_System_String_
-  commentId: M:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor(System.String)
-  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute(System.String)
-  nameWithType: DecryptAttribute.DecryptAttribute(String)
-- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor*
-  name: DecryptAttribute
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute__ctor_
-  commentId: Overload:SystemLibrary.Common.Net.Attributes.DecryptAttribute.#ctor
+- uid: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute
+  name: ConfigDecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.html
+  commentId: T:SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute
+  fullName: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute
+  nameWithType: ConfigDecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.#ctor(System.String)
+  name: ConfigDecryptAttribute(String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.html#SystemLibrary_Common_Net_Attributes_ConfigDecryptAttribute__ctor_System_String_
+  commentId: M:SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.#ctor(System.String)
+  fullName: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.ConfigDecryptAttribute(System.String)
+  nameWithType: ConfigDecryptAttribute.ConfigDecryptAttribute(String)
+- uid: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.#ctor*
+  name: ConfigDecryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.html#SystemLibrary_Common_Net_Attributes_ConfigDecryptAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.#ctor
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.DecryptAttribute
-  nameWithType: DecryptAttribute.DecryptAttribute
-- uid: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
+  fullName: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.ConfigDecryptAttribute
+  nameWithType: ConfigDecryptAttribute.ConfigDecryptAttribute
+- uid: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.PropertyName
   name: PropertyName
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html#SystemLibrary_Common_Net_Attributes_DecryptAttribute_PropertyName
-  commentId: F:SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
-  fullName: SystemLibrary.Common.Net.Attributes.DecryptAttribute.PropertyName
-  nameWithType: DecryptAttribute.PropertyName
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.html#SystemLibrary_Common_Net_Attributes_ConfigDecryptAttribute_PropertyName
+  commentId: F:SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.PropertyName
+  fullName: SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.PropertyName
+  nameWithType: ConfigDecryptAttribute.PropertyName
 - uid: SystemLibrary.Common.Net.Attributes.EnumTextAttribute
   name: EnumTextAttribute
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.EnumTextAttribute.html
@@ -2211,6 +2211,70 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.UriEncode
   nameWithType: StringExtensions.UriEncode
+- uid: SystemLibrary.Common.Net.JsonEncryptAttribute
+  name: JsonEncryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html
+  commentId: T:SystemLibrary.Common.Net.JsonEncryptAttribute
+  fullName: SystemLibrary.Common.Net.JsonEncryptAttribute
+  nameWithType: JsonEncryptAttribute
+- uid: SystemLibrary.Common.Net.JsonEncryptAttribute.#ctor(System.String,System.String,System.Boolean)
+  name: JsonEncryptAttribute(String, String, Boolean)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html#SystemLibrary_Common_Net_JsonEncryptAttribute__ctor_System_String_System_String_System_Boolean_
+  commentId: M:SystemLibrary.Common.Net.JsonEncryptAttribute.#ctor(System.String,System.String,System.Boolean)
+  fullName: SystemLibrary.Common.Net.JsonEncryptAttribute.JsonEncryptAttribute(System.String, System.String, System.Boolean)
+  nameWithType: JsonEncryptAttribute.JsonEncryptAttribute(String, String, Boolean)
+- uid: SystemLibrary.Common.Net.JsonEncryptAttribute.#ctor*
+  name: JsonEncryptAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html#SystemLibrary_Common_Net_JsonEncryptAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.JsonEncryptAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.JsonEncryptAttribute.JsonEncryptAttribute
+  nameWithType: JsonEncryptAttribute.JsonEncryptAttribute
+- uid: SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter(System.Type)
+  name: CreateConverter(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html#SystemLibrary_Common_Net_JsonEncryptAttribute_CreateConverter_System_Type_
+  commentId: M:SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter(System.Type)
+  fullName: SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter(System.Type)
+  nameWithType: JsonEncryptAttribute.CreateConverter(Type)
+- uid: SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter*
+  name: CreateConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html#SystemLibrary_Common_Net_JsonEncryptAttribute_CreateConverter_
+  commentId: Overload:SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.JsonEncryptAttribute.CreateConverter
+  nameWithType: JsonEncryptAttribute.CreateConverter
+- uid: SystemLibrary.Common.Net.JsonObfuscateAttribute
+  name: JsonObfuscateAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html
+  commentId: T:SystemLibrary.Common.Net.JsonObfuscateAttribute
+  fullName: SystemLibrary.Common.Net.JsonObfuscateAttribute
+  nameWithType: JsonObfuscateAttribute
+- uid: SystemLibrary.Common.Net.JsonObfuscateAttribute.#ctor(System.Int32)
+  name: JsonObfuscateAttribute(Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html#SystemLibrary_Common_Net_JsonObfuscateAttribute__ctor_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.JsonObfuscateAttribute.#ctor(System.Int32)
+  fullName: SystemLibrary.Common.Net.JsonObfuscateAttribute.JsonObfuscateAttribute(System.Int32)
+  nameWithType: JsonObfuscateAttribute.JsonObfuscateAttribute(Int32)
+- uid: SystemLibrary.Common.Net.JsonObfuscateAttribute.#ctor*
+  name: JsonObfuscateAttribute
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html#SystemLibrary_Common_Net_JsonObfuscateAttribute__ctor_
+  commentId: Overload:SystemLibrary.Common.Net.JsonObfuscateAttribute.#ctor
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.JsonObfuscateAttribute.JsonObfuscateAttribute
+  nameWithType: JsonObfuscateAttribute.JsonObfuscateAttribute
+- uid: SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter(System.Type)
+  name: CreateConverter(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html#SystemLibrary_Common_Net_JsonObfuscateAttribute_CreateConverter_System_Type_
+  commentId: M:SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter(System.Type)
+  fullName: SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter(System.Type)
+  nameWithType: JsonObfuscateAttribute.CreateConverter(Type)
+- uid: SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter*
+  name: CreateConverter
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html#SystemLibrary_Common_Net_JsonObfuscateAttribute_CreateConverter_
+  commentId: Overload:SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.JsonObfuscateAttribute.CreateConverter
+  nameWithType: JsonObfuscateAttribute.CreateConverter
 - uid: SystemLibrary.Common.Net.Randomness
   name: Randomness
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.html

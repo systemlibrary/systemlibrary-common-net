@@ -29,11 +29,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.yml",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.DecryptAttribute.html",
-          "hash": "NVBHmyehQyoi377yBY/KqYrAs7IZu4qP7v7TjYVklGs="
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.ConfigDecryptAttribute.html",
+          "hash": "11hPLu/Tmj/5erZvRpMwSAz+v1lmW+vGH0Nt/iJu9uY="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Attributes.html",
-          "hash": "jcjUw7fihhTZwBxLygM//SBoIJLcoctPzf8vJgPkO6o="
+          "hash": "kSMMWRgWykCjHvUwTAyyMe246eabmqbceeHJGNqz4pY="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.ByteArrayExtensions.html",
-          "hash": "M2d+VD35Doc5Vyi5jVShX3XRUCc+cp+5vSkewkke3nY="
+          "hash": "6/tZw7cMGiI/sYVmYpTnL1X2PhfkHkEKIwpChH7ejRU="
         }
       },
       "is_incremental": false,
@@ -401,6 +401,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonEncryptAttribute.html",
+          "hash": "6xtG2P5hjobBrM5Pz6t2kMKwIiXnyJmWgZmXxmA+Pa4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.JsonObfuscateAttribute.html",
+          "hash": "PyOM9HgjYOQ6kiSOl6poBUWXaTz2pf2Ts5gW548p188="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.Randomness.yml",
       "output": {
         ".html": {
@@ -441,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/SystemLibrary.Common.Net.html",
-          "hash": "aIYMBYNzsbHmqh1lsCNnQrizh5K2kxr3Ac5qOwZro3U="
+          "hash": "bcn9kC14TVprUobcErDAfuL0Zk92cVegkmB6VdL/3O0="
         }
       },
       "is_incremental": false,
@@ -453,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "SystemLibrary.Common.Net/toc.html",
-          "hash": "Wei1Mcd4EbvK+VR/RhLQcKH/xGIszrj/ZI7x/BXMJI8="
+          "hash": "Zc1Ekssa0CTbPIW7836XkDT8b2x56m8S8UHJi+Rt9RA="
         }
       },
       "is_incremental": false,
@@ -468,32 +492,30 @@
           "hash": "nq1hGVnT0xEzZvgpTHkiRgZeUgRbXC1facpBSTLHjxc="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     }
   ],
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 0
+          "skipped_file_count": 1
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 37,
-          "skipped_file_count": 0
+          "total_file_count": 39,
+          "skipped_file_count": 31
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -506,8 +528,8 @@
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
