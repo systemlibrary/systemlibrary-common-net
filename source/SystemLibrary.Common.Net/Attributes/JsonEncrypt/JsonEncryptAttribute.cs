@@ -19,6 +19,6 @@ public class JsonEncryptAttribute : JsonConverterAttribute
 
     public override JsonConverter CreateConverter(Type typeToConvert)
     {
-        return new EncryptJsonConverterFactory(this).GetConverter(typeToConvert);
+        return new EncryptJsonConverter(this);
     }
 }

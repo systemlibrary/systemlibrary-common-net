@@ -21,11 +21,9 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.1.0.1
-- Obfuscate micro optimized declaring reusable var outside and removed span (optimization)
-- DecryptAttribute renamed to ConfigDecryptAttribute (breaking change)
-- JsonEncryptAttribute protects data sent to frontend and decrypts upon receival (new)
-- JsonObfuscateAttribute lightly protects data sent to frontend and deobfuscates upon receival (new)
+- 8.1.0.2
+- JsonEncryptAttribute supports more types (uint, int64, etc...) (fix)
+- JsonObfuscateAttribute supports more types (uint, int64, etc...) (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

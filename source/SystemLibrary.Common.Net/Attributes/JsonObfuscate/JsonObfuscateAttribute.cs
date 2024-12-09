@@ -15,6 +15,6 @@ public class JsonObfuscateAttribute : JsonConverterAttribute
 
     public override JsonConverter CreateConverter(Type typeToConvert)
     {
-        return new ObfuscateJsonConverterFactory(this).GetConverter(typeToConvert);
+        return new ObfuscateJsonConverter(this);
     }
 }

@@ -235,4 +235,19 @@ public static class TypeExtensions
     {
         return type.IsNotPublic && !type.IsNested;
     }
+
+    /// <summary>
+    /// Returns a default instantiated value for value types, and null for reference types
+    /// </summary>
+    public static object Default(this Type type)
+    {
+        if (type.IsEnum) return 0;
+        if (type.IsInterface) return null;
+
+        if (type.IsValueType && Nullable.GetUnderlyingType(type) == null)
+        {
+            return Activator.CreateInstance(type);
+        }
+        return null;
+    }
 }

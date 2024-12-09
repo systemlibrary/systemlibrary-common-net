@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -9,6 +10,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SystemLibrary.Common.Net.Extensions;
 
 namespace SystemLibrary.Common.Net.Tests.XServiceTestsRunsLast;
+internal class IsInternal
+{
+    public string Test;
+}
 
 [TestClass]
 public class ServiceAesEncryptionTest
@@ -19,6 +24,59 @@ public class ServiceAesEncryptionTest
         var typeKey = Type.GetType("SystemLibrary.Common.Net.CryptationKey, SystemLibrary.Common.Net");
 
         typeKey.SetStaticMember("_Key", null);
+    }
+
+    [TestMethod]
+    public void Test_Is_Internal()
+    {
+        var type = typeof(string);
+        var res = type.IsInternal();
+        Assert.IsTrue(res == false, "Its true string");
+
+        type = typeof(ServiceAesEncryptionTest);
+        res = type.IsInternal();
+        Assert.IsTrue(res == false, "Its true: Service...");
+
+        type = typeof(IsInternal);
+        res = type.IsInternal();
+        Assert.IsTrue(res == true, "Internal is not internal");
+    }
+
+    [TestMethod]
+    public void Test_Create_Default_Instance()
+    {
+        var type = typeof(string);
+        var res = type.Default();
+
+        Assert.IsTrue(res == null);
+
+        type = typeof(int);
+        res = type.Default();
+        Assert.IsTrue((int)res == 0);
+
+        type = typeof(bool);
+        res = type.Default();
+        Assert.IsTrue((bool)res == false);
+
+        type = typeof(List<string>);
+        res = type.Default();
+        Assert.IsTrue(res == null);
+
+        type = typeof(List<int>);
+        res = type.Default();
+        Assert.IsTrue(res == null);
+
+        type = typeof(IList<string>);
+        res = type.Default();
+        Assert.IsTrue(res == null);
+
+        type = typeof(DateTime);
+        res = type.Default();
+        Assert.IsTrue((DateTime)res == DateTime.MinValue);
+
+        type = typeof(DateTimeOffset);
+        res = type.Default();
+        Assert.IsTrue((DateTimeOffset)res == DateTimeOffset.MinValue);
     }
 
     [TestMethod]

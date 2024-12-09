@@ -18,6 +18,8 @@ public static class SystemType
     public static Type Int16Type = typeof(short);
     public static Type IntType = typeof(int);
     public static Type Int64Type = typeof(long);
+    public static Type UIntType = typeof(uint);
+    public static Type UInt64Type = typeof(ulong);
     public static Type DateTimeType = typeof(DateTime);
     public static Type DateTimeOffsetType = typeof(DateTimeOffset);
     public static Type TimeSpanType = typeof(TimeSpan);

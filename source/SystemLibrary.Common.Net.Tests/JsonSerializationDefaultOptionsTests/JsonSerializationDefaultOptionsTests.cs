@@ -29,7 +29,7 @@ public class JsonSerializationDefaultOptionsTests
         Assert.IsTrue(d.Id == 777, "id1");
         Assert.IsTrue(d.Id2 == 777, "id2");
         Assert.IsTrue(d.ID3 == 12345, "id3");
-        Assert.IsTrue(d.id4 == 12345, "id4");
+        Assert.IsTrue(d.id4 == 12345, "id4 " + d.id4);
         Assert.IsTrue(d.id5 == 12345, "id5");
         Assert.IsTrue(d.id6 == 0, "id6");
         Assert.IsTrue(d.id7 == "0123457890abcdefGHI!?", "id7");
@@ -40,7 +40,7 @@ public class JsonSerializationDefaultOptionsTests
         var compressedRulesJson = d.Json();
 
         Assert.IsTrue(compressedRulesJson.Contains("\"Id\": 777,"), "json: id");
-        Assert.IsTrue(compressedRulesJson.Contains("\"id4\": \"fn/CgMKBwoI=\""), "json: id4");
+        Assert.IsTrue(compressedRulesJson.Contains("\"id4\": \"fn/CgMKBwoI=\""), "json: id4 " + d.id4 + " " + d.id4.ToString().Obfuscate(77));
         Assert.IsTrue(compressedRulesJson.Contains("\"ID8\": \"fn/CgMKBwoI=\""), "json: id8");
         Assert.IsTrue(compressedRulesJson.Contains("\"id11\": \"fn/CgMKBwoI=\""), "json: id11");
     }
