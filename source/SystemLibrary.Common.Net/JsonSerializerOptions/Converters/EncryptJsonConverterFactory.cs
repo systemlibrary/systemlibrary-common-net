@@ -15,13 +15,13 @@ internal class EncryptJsonConverterFactory
     public JsonConverter GetConverter(Type targetType)
     {
         if (targetType == SystemType.IntType)
-            return new JsonEncryptIntConverter(Attribute);
+            return new EncryptJsonIntConverter(Attribute);
 
         if (targetType == SystemType.Int64Type)
-            return new JsonEncryptInt64Converter(Attribute);
+            return new EncryptJsonInt64Converter(Attribute);
 
         if (targetType == SystemType.StringType)
-            return new JsonEncryptStringConverter(Attribute);
+            return new EncryptJsonStringConverter(Attribute);
 
         throw new NotSupportedException($"Type {targetType} is not supported for JSON encryption.");
     }

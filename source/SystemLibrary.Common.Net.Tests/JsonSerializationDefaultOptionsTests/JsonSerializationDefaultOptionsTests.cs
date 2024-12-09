@@ -12,20 +12,47 @@ namespace SystemLibrary.Common.Net.Tests;
 public class JsonSerializationDefaultOptionsTests
 {
     [TestMethod]
+    public void Dump_Dummy_Numbers_Obfuscated()
+    {
+        //Dump.Write(12345.ToString().Obfuscate(77).ToBase64());
+        //Dump.Write("0123457890abcdefGHI!?".Obfuscate(77).ToBase64());
+        //Dump.Write("0123457890abcdefGHI!?".Obfuscate(77).ToBase64().FromBase64().Deobfuscate(77));
+    }
+
+    [TestMethod]
+    public void Read_Json_With_Obfuscated_Variables_Decrypts_Success()
+    {
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithObfuscateVars.json");
+
+        var d = data.Json<DataWithObfuscateVars>();
+
+        Assert.IsTrue(d.Id == 777, "id1");
+        Assert.IsTrue(d.Id2 == 777, "id2");
+        Assert.IsTrue(d.ID3 == 12345, "id3");
+        Assert.IsTrue(d.id4 == 12345, "id4");
+        Assert.IsTrue(d.id5 == 12345, "id5");
+        Assert.IsTrue(d.id6 == 0, "id6");
+        Assert.IsTrue(d.id7 == "0123457890abcdefGHI!?", "id7");
+        Assert.IsTrue(d.ID8 == "12345", "id8");
+        Assert.IsTrue(d.Id9 == null, "id9 " + d.Id9);
+        Assert.IsTrue(d.id11 == 12345, "id10 " + d.id11);
+
+        var compressedRulesJson = d.Json();
+
+        Assert.IsTrue(compressedRulesJson.Contains("\"Id\": 777,"), "json: id");
+        Assert.IsTrue(compressedRulesJson.Contains("\"id4\": \"fn/CgMKBwoI=\""), "json: id4");
+        Assert.IsTrue(compressedRulesJson.Contains("\"ID8\": \"fn/CgMKBwoI=\""), "json: id8");
+        Assert.IsTrue(compressedRulesJson.Contains("\"id11\": \"fn/CgMKBwoI=\""), "json: id11");
+    }
+
+    [TestMethod]
     public void Dump_Dummy_Numbers_Encrypted()
     {
-        Dump.Write(0.ToString().Encrypt());
-        Dump.Write(0.ToString().Obfuscate().ToBase64());
-
-        Dump.Write(12345678901234567890.ToString().Encrypt());
-        Dump.Write(12345678901234567890.ToString().Obfuscate().ToBase64());
-
         //Dump.Write(0.ToString().Encrypt());
         //Dump.Write(123.ToString().Encrypt());
         //Dump.Write(4560000.ToString().Encrypt());
         //Dump.Write("-678".Encrypt());
-
-        //Dump.Write("DEC: " + "AnWl5bNc2sJw3WkQL6o/QDck6y8ThBgyHORXm7pt/sM=".Decrypt());
+        //Dump.Write(12345678901234567890.ToString().Encrypt());
     }
 
     [TestMethod]
@@ -33,21 +60,25 @@ public class JsonSerializationDefaultOptionsTests
     {
         var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithEncryptedVars.json");
 
-        var response = data.Json<DataWithEncryptedVars>();
+        var d = data.Json<DataWithEncryptedVars>();
 
-        Assert.IsTrue(response.Id == 0, "id");
-        Assert.IsTrue(response.Id2 == 777, "id2");
-        Assert.IsTrue(response.ID3 != 777, "id3");
-        Assert.IsTrue(response.id4 != 777, "id4");
-        Assert.IsTrue(response.id5 != 777, "id5");
-        Assert.IsTrue(response.id6 == 777, "id6");
+        Assert.IsTrue(d.Id == 0, "id");
+        Assert.IsTrue(d.Id2 == 777, "id2");
+        Assert.IsTrue(d.ID3 != 777, "id3");
+        Assert.IsTrue(d.id4 != 777, "id4");
+        Assert.IsTrue(d.id5 != 777, "id5");
+        Assert.IsTrue(d.id6 == 777, "id6");
+        Assert.IsTrue(d.id7 == "-678", "id7 " + d.id7);
+        Assert.IsTrue(d.id8 == "12345678901234567890", "id8");
+        Assert.IsTrue(d.id9 == 123, "id9");
 
-        var encryptedIds = response.Json();
+        var jsonEncrypted = d.Json();
 
-        Assert.IsTrue(!encryptedIds.Contains("\"Id\": \"0"), "json id");
-        Assert.IsTrue(!encryptedIds.Contains("\"ID3\": \"123"), "json id3");
-        Assert.IsTrue(!encryptedIds.Contains("\"id4\": \"4560000"), "json id4");
-        Assert.IsTrue(!encryptedIds.Contains("\"id5\": \"-678"), "json id5");
+        Assert.IsTrue(!jsonEncrypted.Contains("\"Id\": \"0"), "json id");
+        Assert.IsTrue(!jsonEncrypted.Contains("\"ID3\": \"123"), "json id3");
+        Assert.IsTrue(!jsonEncrypted.Contains("\"id4\": \"4560000"), "json id4");
+        Assert.IsTrue(!jsonEncrypted.Contains("\"id5\": \"-678"), "json id5");
+        Assert.IsTrue(!jsonEncrypted.Contains("12345678901234567890"), "json id8");
     }
 
     [TestMethod]

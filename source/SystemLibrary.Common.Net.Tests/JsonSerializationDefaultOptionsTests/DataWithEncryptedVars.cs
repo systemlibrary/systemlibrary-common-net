@@ -16,4 +16,10 @@ public class DataWithEncryptedVars
     public string Hello { get; set; }
     public string World { get; set; }
     public bool b { get; set; }
+    [JsonEncrypt]
+    public string id7 { get; set; }
+    [JsonEncrypt]
+    public string id8;
+    [JsonEncrypt]
+    public long id9 { get; set; }
 }

@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 
 namespace SystemLibrary.Common.Net.Benchmarks.StringExtensions;
 
-[SimpleJob(RuntimeMoniker.Net80, warmupCount: 1, invocationCount: 500, launchCount: 2)]
+[SimpleJob(RuntimeMoniker.Net80, warmupCount: 1, invocationCount: 200, launchCount: 2)]
 [MemoryDiagnoser]
 [RPlotExporter]
 public class StringConditionBenchmarks
@@ -32,12 +32,32 @@ public class StringConditionBenchmarks
     }
 
     [Benchmark]
-    public bool FindTypes()
+    public string ObfusateShort()
     {
-        var types = Assemblies.FindAllTypesInheriting<Attribute>();
-
-        return types.Any();
+        return "1234råøtwåeøå(/%&}|".Obfuscate(50);
     }
+
+
+    [Benchmark]
+    public string ObfusateM()
+    {
+        return "1234567890ABCEFGHHJIKLNOelqwråøtwåeøå(/%&¤%??@@elqwråøtwåeøå(/%&¤%??@@Pqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252|||".Obfuscate(50);
+    }
+
+
+    [Benchmark]
+    public string ObfusateL()
+    {
+        return "1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252||1234567890ABCEFGHHJIKLNOPqøwelqwråøtwåeøå(/%&¤%??@@.,.__<>><}{}[]{{]()()252|||".Obfuscate(50);
+    }
+
+    //[Benchmark]
+    //public bool FindTypes()
+    //{
+    //    var types = Assemblies.FindAllTypesInheriting<Attribute>();
+
+    //    return types.Any();
+    //}
 
     //[Benchmark]
     //public bool EndsWithAny()

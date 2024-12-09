@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net;
 
-internal class IntJsonConverter : JsonConverter<int>
+internal class ObfuscateJsonIntConverter : BaseObfuscateJsonConverter<int>
 {
+    public ObfuscateJsonIntConverter(JsonObfuscateAttribute attribute) : base(attribute)
+    {
+    }
+
+    public override bool CanConvert(Type typeToConvert)
+    {
+        return base.CanConvert(typeToConvert);
+    }
+
     public override int Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        // TODO: Reuse this logic for both Int converters in JsonEncrypt and JsonObfuscate...
         if (reader.TokenType == JsonTokenType.Null)
             return 0;
 
@@ -19,8 +26,6 @@ internal class IntJsonConverter : JsonConverter<int>
 
             if (reader.TryGetInt32(out int intValue))
                 return intValue;
-
-            throw new Exception("Cannot convert value to int32");
         }
 
         if (reader.TokenType == JsonTokenType.True)
@@ -29,16 +34,20 @@ internal class IntJsonConverter : JsonConverter<int>
         if (reader.TokenType == JsonTokenType.False)
             return 0;
 
-        if (reader.TokenType == JsonTokenType.String)
+        try
         {
-            return int.Parse(reader.GetString());
+            var value = Deobfuscate(ref reader);
+
+            if (value.IsNot()) return 0;
+
+            return int.Parse(value);
         }
+        catch
+        {
+            if (reader.TryGetDouble(out double doubleValue))
+                return (int)doubleValue;
 
-        throw new JsonException("Error reading: " + reader.GetString() + " into an Int32");
-    }
-
-    public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
-    {
-        writer.WriteNumberValue(value);
+            return reader.GetInt32();
+        }
     }
 }
