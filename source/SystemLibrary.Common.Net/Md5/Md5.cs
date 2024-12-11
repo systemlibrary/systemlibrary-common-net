@@ -7,7 +7,6 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Md5
 {
-   
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;

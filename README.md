@@ -21,7 +21,7 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.1.0.4
+- 8.1.0.5
 - Updated docs
 
 #### Major Breaking Versions
@@ -35,14 +35,13 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - View git history of this file if interested
 
 ## Installation
-- Simply install the nuget package
 - [Installation guide](https://systemlibrary.github.io/systemlibrary-common-net/Install.html)
 
 ## Documentation
 - [Documentation with code samples](https://systemlibrary.github.io/systemlibrary-common-net/)
 
 ## Nuget
-- [Nuget package page](https://www.nuget.org/packages/SystemLibrary.Common.Net/)
+- [![Latest version](https://img.shields.io/nuget/v/SystemLibrary.Common.Net)](https://www.nuget.org/packages/SystemLibrary.Common.Net)
 
 ## Source
 - [Github](https://github.com/systemlibrary/systemlibrary-common-net)

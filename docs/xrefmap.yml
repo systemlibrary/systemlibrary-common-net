@@ -2030,6 +2030,32 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Global.StringExtensions.toCamelCase
   nameWithType: StringExtensions.toCamelCase
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String,System.String)
+  name: ToDateTime(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String, System.String)
+  nameWithType: StringExtensions.ToDateTime(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime*
+  name: ToDateTime
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime
+  nameWithType: StringExtensions.ToDateTime
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  name: ToDateTimeOffset(String, String)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_
+  commentId: M:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String, System.String)
+  nameWithType: StringExtensions.ToDateTimeOffset(String, String)
+- uid: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset*
+  name: ToDateTimeOffset
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_
+  commentId: Overload:SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset
+  nameWithType: StringExtensions.ToDateTimeOffset
 - uid: SystemLibrary.Common.Net.Global.StringExtensions.ToEnum(System.String,System.Type)
   name: ToEnum(String, Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Global.StringExtensions.html#SystemLibrary_Common_Net_Global_StringExtensions_ToEnum_System_String_System_Type_

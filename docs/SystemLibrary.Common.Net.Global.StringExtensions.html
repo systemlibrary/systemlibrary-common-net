@@ -3808,6 +3808,164 @@ var result = text.ToPascalCase();
   
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Converts input date to a DateTime by trying different formats till successfully converted or throwing exception</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_System_String_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1753">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTime_System_String_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTime(System.String,System.String)" class="h4-custom-functionName">public static DateTime ToDateTime(this string date, string format = null)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var date = &quot;2000-12-24&quot;;
+var dateTime = date.ToDateTime();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">date</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">format</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.DateTime</span></td>
+  							<td><p>Returns DateTime.MinValue if input is too short</p>
+</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Converts input date to a DateTimeOffset by trying different formats till successfully converted or throwing exception</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/StringExtensionsGlobal.cs/#L1769">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Global_StringExtensions_ToDateTimeOffset_System_String_System_String_" data-uid="SystemLibrary.Common.Net.Global.StringExtensions.ToDateTimeOffset(System.String,System.String)" class="h4-custom-functionName">public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>var date = &quot;2000-12-24&quot;;
+var dateTime = date.ToDateTimeOffset();</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">date</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.String</span></td>
+  							<td><span class="parametername">format</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.DateTimeOffset</span></td>
+  							<td><p>Returns DateTimeOffset.MinValue if input is too short</p>
+</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Convert a string to the Enum Type and cast as Object on returnal</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>

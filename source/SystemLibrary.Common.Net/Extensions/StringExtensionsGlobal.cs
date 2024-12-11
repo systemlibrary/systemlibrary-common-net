@@ -1740,4 +1740,35 @@
 
 //        return queryIndex - 7 <= extensionIndex || HasAssetPath();
 //    }
+//    /// <summary>
+//    /// Converts input date to a DateTime by trying different formats till successfully converted or throwing exception
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var date = "2000-12-24";
+//    /// var dateTime = date.ToDateTime();
+//    /// </code>
+//    /// </example>
+//    /// <returns>Returns DateTime.MinValue if input is too short</returns>
+//    public static DateTime ToDateTime(this string date, string format = null)
+//    {
+//        // PseudoCode - StringExtensions contains the real code
+//        return DateTime.MinValue;
+//    }
+
+//    /// <summary>
+//    /// Converts input date to a DateTimeOffset by trying different formats till successfully converted or throwing exception
+//    /// </summary>
+//    /// <example>
+//    /// <code>
+//    /// var date = "2000-12-24";
+//    /// var dateTime = date.ToDateTimeOffset();
+//    /// </code>
+//    /// </example>
+//    /// <returns>Returns DateTimeOffset.MinValue if input is too short</returns>
+//    public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
+//    { 
+//        // PseudoCode - StringExtensions contains the real code
+//        return DateTimeOffset.MinValue;
+//    }
 //}

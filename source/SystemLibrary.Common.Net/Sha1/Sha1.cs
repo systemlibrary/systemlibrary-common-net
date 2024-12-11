@@ -7,8 +7,6 @@ namespace SystemLibrary.Common.Net;
 
 internal static class Sha1
 {
-  
-
     internal static string Compute(byte[] bytes)
     {
         if (bytes == null) return null;

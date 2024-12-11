@@ -1,13 +1,13 @@
 ﻿# Installation
+- Open Project/Solution in Visual Studio
+- Open Nuget Project Manager
+- Search SystemLibrary.Common.Net
+- Install SystemLibrary.Common.Net
+
+[![Latest version](https://img.shields.io/nuget/v/SystemLibrary.Common.Net)](https://www.nuget.org/packages/SystemLibrary.Common.Net)
 
 ## Requirements
-* &gt;= .NET 8
-
-## Install nuget package
-* Open your project/solution in Visual Studio
-* Open Nuget Project Manager
-* Search SystemLibrary.Common.Net
-* Install SystemLibrary.Common.Net
+- &gt;= .NET 8
 
 ## First time usage
 - String extensions and Dump can be used out of the box as they are in the global namespace
