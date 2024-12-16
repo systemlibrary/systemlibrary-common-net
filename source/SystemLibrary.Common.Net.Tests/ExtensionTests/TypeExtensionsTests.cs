@@ -67,43 +67,89 @@ public class TypeExtensionsTests
     }
 
     [TestMethod]
-    public void Type_Get_First_Generic_Type()
+    public void Type_Get_Type_Argument()
     {
         var type = typeof(IList<string>);
         var expected = typeof(string);
-        var res = type.GetFirstGenericType();
+        var res = type.GetTypeArgument();
 
         Assert.IsTrue(res == expected);
 
         type = typeof(string);
         expected = null;
-        res = type.GetFirstGenericType();
+        res = type.GetTypeArgument();
         Assert.IsTrue(res == expected);
 
         type = null;
         expected = null;
-        res = type.GetFirstGenericType();
+        res = type.GetTypeArgument();
         Assert.IsTrue(res == expected);
 
         type = typeof(int);
         expected = null;
-        res = type.GetFirstGenericType();
+        res = type.GetTypeArgument();
         Assert.IsTrue(res == expected, "int");
 
         type = typeof(List<int>);
         expected = typeof(int);
-        res = type.GetFirstGenericType();
+        res = type.GetTypeArgument();
         Assert.IsTrue(res == expected, "List int");
 
+        type = typeof(int[]);
+        expected = typeof(int);
+        res = type.GetTypeArgument();
+        Assert.IsTrue(res == expected, "Array int");
+
         type = typeof(Dictionary<string, object>);
-        expected = typeof(KeyValuePair<string, object>);
-        res = type.GetFirstGenericType();
-        Assert.IsTrue(res == expected, "Dictionary keyvaluepair");
+        expected = typeof(string);
+        res = type.GetTypeArgument();
+        Assert.IsTrue(res == expected, "Dictionary keyvaluepair: " + res.Name);
 
         type = typeof(Dictionary<int, List<int>>);
-        expected = typeof(KeyValuePair<int, List<int>>);
-        res = type.GetFirstGenericType();
+        expected = typeof(int);
+        res = type.GetTypeArgument();
         Assert.IsTrue(res == expected, "Dictionary keyvaluepair list of int");
+
+        type = typeof(string[]);
+        expected = typeof(string);
+        res = type.GetTypeArgument();
+        Assert.IsTrue(res == expected, "Array str");
+
+        type = typeof(Tuple<DateTime, string, int, bool>[]);
+        expected = typeof(DateTime);
+        res = type.GetTypeArgument();
+        Assert.IsTrue(res == expected, "Tuple date");
+        
+        res = type.GetTypeArgument(1);
+        expected = typeof(string);
+        Assert.IsTrue(res == expected, "Tuple str");
+
+        res = type.GetTypeArgument(2);
+        expected = typeof(int);
+        Assert.IsTrue(res == expected, "Tuple int");
+
+        res = type.GetTypeArgument(3);
+        expected = typeof(bool);
+        Assert.IsTrue(res == expected, "Tuple b");
+
+        type = typeof(bool?);
+        expected = typeof(bool);
+        res = type.GetTypeArgument();
+        Assert.IsTrue(res == expected, "nullable bool");
+
+        type = typeof(Dictionary<int, List<int>>);
+        expected = typeof(List<int>);
+        res = type.GetTypeArgument(1);
+        Assert.IsTrue(res == expected, "Dictionary keyvaluepair list of int is wrong");
+
+        type = typeof(Dictionary<int, List<int>>);
+        expected = typeof(List<int>);
+
+        var res2 = type.GetTypeArguments();
+
+        Assert.IsTrue(res2.Length == 2, "GetTypeArguments wrong count " + res2.Length);
+        Assert.IsTrue(res2[0] == typeof(int), "GetTypeArguments wrong index 0");
+        Assert.IsTrue(res2[1] == typeof(List<int>), "GetTypeArguments wrong index 1");
     }
 
     [TestMethod]

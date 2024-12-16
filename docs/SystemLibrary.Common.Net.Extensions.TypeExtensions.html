@@ -247,7 +247,7 @@
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_Default_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L255">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L303">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_Default_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.Default*"></a>
@@ -306,20 +306,21 @@
   <div class="custom-container">
   	<div class="custom-menu-summary-data">
   		<div class="markdown level1 summary member-summary"><p>Returns the first generic type specified, or null</p>
+<p>Optional: pass in higher index to return a different type argument</p>
 </div>
   		<div class="markdown level1 conceptual member-summary-conceptual"></div>
   	</div>
   
   
-  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_System_Type_">
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArgument_System_Type_System_Int32_">
   		<span class="small pull-right mobile-hide">
   			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L153">View Source</a>
   		</span>
   	</div>
-  	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType*"></a>
+  	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArgument_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument*"></a>
   
   	<div class="custom-menu-data">
-  		<h4 id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_System_Type_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)" class="h4-custom-functionName">public static Type GetFirstGenericType(this Type type)</h4>
+  		<h4 id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArgument_System_Type_System_Int32_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument(System.Type,System.Int32)" class="h4-custom-functionName">public static Type GetTypeArgument(this Type type, int index = 0)</h4>
   		<div class="custom-menu-data-container">
   			<div class="custom-menu-data-name" style="display: none;">
   				<div class="syslib-tab-menu-data--close">X</div>
@@ -328,8 +329,91 @@
 }
 
 var type = typeof(List&lt;Car>);
-var genericType = type.GetFirstGenericType();
+var genericType = type.GetTypeArgument();
 // genericType is now &apos;typeof(Car)&apos;</code></pre>
+</div>
+  				<div class="comment-examples-container-bottom"></div>
+  			</div>
+  
+  			<div class="custom-menu-data-arguments" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<h5 class="typeParameters class-tmpl-partial-typeParameters">Methods arguments</h5>
+  				<table class="table table-bordered table-striped table-condensed">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Name</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Type</span></td>
+  							<td><span class="parametername">type</span></td>
+  							<td></td>
+  						</tr>
+  						<tr>
+  							<td><span class="xref">System.Int32</span></td>
+  							<td><span class="parametername">index</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  
+  			<div class="custom-menu-data-returntype" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  
+  				<table class="table table-bordered table-striped table-condensed table-return">
+  					<thead>
+  						<tr>
+  							<th>Type</th>
+  							<th>Description</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td><span class="xref">System.Type</span></td>
+  							<td></td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  
+  <div class="custom-container">
+  	<div class="custom-menu-summary-data">
+  		<div class="markdown level1 summary member-summary"><p>Returns all generic types found or null</p>
+</div>
+  		<div class="markdown level1 conceptual member-summary-conceptual"></div>
+  	</div>
+  
+  
+  	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArguments_System_Type_">
+  		<span class="small pull-right mobile-hide">
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L195">View Source</a>
+  		</span>
+  	</div>
+  	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArguments_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments*"></a>
+  
+  	<div class="custom-menu-data">
+  		<h4 id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArguments_System_Type_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments(System.Type)" class="h4-custom-functionName">public static Type[] GetTypeArguments(this Type type)</h4>
+  		<div class="custom-menu-data-container">
+  			<div class="custom-menu-data-name" style="display: none;">
+  				<div class="syslib-tab-menu-data--close">X</div>
+  				<div class="codewrapper"><pre><code>class Car
+{
+}
+
+var type = typeof(List&lt;Car>);
+var genericType = type.GetTypeArguments();
+// genericType is now an array of Types with 1 item: &apos;typeof(Car)&apos;</code></pre>
 </div>
   				<div class="comment-examples-container-bottom"></div>
   			</div>
@@ -368,7 +452,7 @@ var genericType = type.GetFirstGenericType();
   					</thead>
   					<tbody>
   						<tr>
-  							<td><span class="xref">System.Type</span></td>
+  							<td><span class="xref">System.Type</span>[]</td>
   							<td></td>
   						</tr>
   					</tbody>
@@ -392,7 +476,7 @@ var genericType = type.GetFirstGenericType();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeName_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L111">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L110">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeName_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName*"></a>
@@ -481,7 +565,7 @@ var result = typeof(Car[]).GetTypeName();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_Inherits_System_Type_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L34">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L33">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_Inherits_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.Inherits*"></a>
@@ -567,7 +651,7 @@ var result = typeof(Car).Inherits(typeof(Car));
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_IsDictionary_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L76">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L75">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_IsDictionary_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.IsDictionary*"></a>
@@ -643,7 +727,7 @@ var result = dictionary.IsDictionary();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L247">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L295">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_IsInternal_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.IsInternal*"></a>
@@ -717,7 +801,7 @@ var isInternal = t.IsInternal();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L181">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L229">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_IsKeyValuePair_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.IsKeyValuePair*"></a>
@@ -795,7 +879,7 @@ var isInternal = t.IsInternal();</code></pre>
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_IsListOrArray_System_Type_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L56">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L55">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_IsListOrArray_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.IsListOrArray*"></a>
@@ -871,7 +955,7 @@ var result = array.GetType().IsListOrArray();
   
   	<div class="custom-source-code-link-container custom-source-code-link--SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_System_Type_System_String_System_Object_">
   		<span class="small pull-right mobile-hide">
-  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L195">View Source</a>
+  			<a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L243">View Source</a>
   		</span>
   	</div>
   	<a id="SystemLibrary_Common_Net_Extensions_TypeExtensions_SetStaticMember_" data-uid="SystemLibrary.Common.Net.Extensions.TypeExtensions.SetStaticMember*"></a>
@@ -1593,7 +1677,7 @@ var result = array.GetType().IsListOrArray();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/systemlibrary/systemlibrary-common-net/blob/main/source/SystemLibrary.Common.Net/Extensions/TypeExtensions.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

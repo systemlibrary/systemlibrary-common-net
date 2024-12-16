@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -123,12 +122,12 @@ public static class TypeExtensions
         {
             if (type.GenericTypeArguments?.Length > 1)
             {
-                return type.GenericTypeArguments[0].Name + ", " +type.GenericTypeArguments[1].Name;
+                return type.GenericTypeArguments[0].Name + ", " + type.GenericTypeArguments[1].Name;
             }
             return "<,>";
         }
 
-        var firstGenericType = type.GetFirstGenericType();
+        var firstGenericType = type.GetTypeArgument();
         if (firstGenericType != null)
         {
             return firstGenericType.Name;
@@ -138,6 +137,7 @@ public static class TypeExtensions
 
     /// <summary>
     /// Returns the first generic type specified, or null
+    /// <para>Optional: pass in higher index to return a different type argument</para>
     /// </summary>
     /// <example>
     /// <code class="language-csharp hljs">
@@ -146,31 +146,79 @@ public static class TypeExtensions
     /// }
     /// 
     /// var type = typeof(List&lt;Car&gt;);
-    /// var genericType = type.GetFirstGenericType();
+    /// var genericType = type.GetTypeArgument();
     /// // genericType is now 'typeof(Car)'
     /// </code>
     /// </example>
-    public static Type GetFirstGenericType(this Type type)
+    public static Type GetTypeArgument(this Type type, int index = 0)
     {
-        if (type == null || !type.IsGenericType) return default;
+        if (type == null) return default;
 
-        var interfaces = type.GetInterfaces();
+        var genericArguments = type.GetGenericArguments();
 
-        if (interfaces != null)
+        if (genericArguments.Length > index) return genericArguments[index];
+
+        foreach (var @interface in type.GetInterfaces())
         {
-            foreach (Type @interface in interfaces)
+            if (@interface.IsGenericType)
             {
-                if (@interface.IsGenericType)
+                var genericDefinition = @interface.GetGenericTypeDefinition();
+
+                if (genericDefinition == SystemType.ICollectionType ||
+                    genericDefinition == SystemType.ICollectionGenericType ||
+                    genericDefinition == SystemType.IListType ||
+                    genericDefinition == SystemType.IDictionaryType)
                 {
-                    if (@interface.GetGenericTypeDefinition() == typeof(ICollection<>))
-                        return @interface.GetGenericArguments()[0];
-                    else if (@interface.GetGenericTypeDefinition() == typeof(IList<>))
-                        return @interface.GetGenericArguments()[0];
+                    genericArguments = @interface.GetGenericArguments();
+                    if (genericArguments?.Length > index) return genericArguments[index];
                 }
             }
         }
 
-        return type.GetGenericArguments()[0];
+        return null;
+    }
+
+    /// <summary>
+    /// Returns all generic types found or null
+    /// </summary>
+    /// <example>
+    /// <code class="language-csharp hljs">
+    /// class Car
+    /// {
+    /// }
+    /// 
+    /// var type = typeof(List&lt;Car&gt;);
+    /// var genericType = type.GetTypeArguments();
+    /// // genericType is now an array of Types with 1 item: 'typeof(Car)'
+    /// </code>
+    /// </example>
+    public static Type[] GetTypeArguments(this Type type)
+    {
+        if (type == null) return default;
+
+        var genericArguments = type.GetGenericArguments();
+
+        if (genericArguments?.Length > 0) return genericArguments;
+
+        foreach (var @interface in type.GetInterfaces())
+        {
+            if (@interface.IsGenericType)
+            {
+                var genericDefinition = @interface.GetGenericTypeDefinition();
+
+                if (genericDefinition == SystemType.ICollectionType ||
+                    genericDefinition == SystemType.ICollectionGenericType ||
+                    genericDefinition == SystemType.IListType ||
+                    genericDefinition == SystemType.IDictionaryType)
+                {
+                    var temp = @interface.GetGenericArguments();
+                    if (temp?.Length > 0) return temp;
+                }
+            }
+        }
+
+        return null;
+
     }
 
     /// <summary>

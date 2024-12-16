@@ -21,11 +21,10 @@ Library with classes and methods for every &gt;= .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.1.0.6
-- added SystemType.IDictionaryType (new)
-- fixed IsDictionary checking IDictionaryType (fix)
-- fixed Type.GetTypeName extension, not throwing on IsDictionary types (fix)
-- randomness now uses the Random.Shared thread safe instance (fix)
+- 8.2.0.1
+- GetFirstGenericType renamed to GetTypeArgument which takes an Index of which generic type argument you want returned (breaking change)
+- Type.GetTypeArguments() returns an array of all generic type arguments, works on array, list, dictionaries, tuples and more (new)
+- SystemType.ICollectionGenericType added (new)
 
 #### Major Breaking Versions
 - 7.12.0.1

@@ -1356,19 +1356,32 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.Default
   nameWithType: TypeExtensions.Default
-- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
-  name: GetFirstGenericType(Type)
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_System_Type_
-  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
-  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType(System.Type)
-  nameWithType: TypeExtensions.GetFirstGenericType(Type)
-- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType*
-  name: GetFirstGenericType
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetFirstGenericType_
-  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument(System.Type,System.Int32)
+  name: GetTypeArgument(Type, Int32)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArgument_System_Type_System_Int32_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument(System.Type,System.Int32)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument(System.Type, System.Int32)
+  nameWithType: TypeExtensions.GetTypeArgument(Type, Int32)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument*
+  name: GetTypeArgument
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArgument_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument
   isSpec: "True"
-  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetFirstGenericType
-  nameWithType: TypeExtensions.GetFirstGenericType
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArgument
+  nameWithType: TypeExtensions.GetTypeArgument
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments(System.Type)
+  name: GetTypeArguments(Type)
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArguments_System_Type_
+  commentId: M:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments(System.Type)
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments(System.Type)
+  nameWithType: TypeExtensions.GetTypeArguments(Type)
+- uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments*
+  name: GetTypeArguments
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeArguments_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeArguments
+  nameWithType: TypeExtensions.GetTypeArguments
 - uid: SystemLibrary.Common.Net.Extensions.TypeExtensions.GetTypeName(System.Type)
   name: GetTypeName(Type)
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.TypeExtensions.html#SystemLibrary_Common_Net_Extensions_TypeExtensions_GetTypeName_System_Type_
@@ -2548,6 +2561,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.GuidType
   fullName: SystemLibrary.Common.Net.SystemType.GuidType
   nameWithType: SystemType.GuidType
+- uid: SystemLibrary.Common.Net.SystemType.ICollectionGenericType
+  name: ICollectionGenericType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ICollectionGenericType
+  commentId: F:SystemLibrary.Common.Net.SystemType.ICollectionGenericType
+  fullName: SystemLibrary.Common.Net.SystemType.ICollectionGenericType
+  nameWithType: SystemType.ICollectionGenericType
 - uid: SystemLibrary.Common.Net.SystemType.ICollectionType
   name: ICollectionType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_ICollectionType

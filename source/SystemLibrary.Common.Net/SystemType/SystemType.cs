@@ -49,7 +49,7 @@ public static class SystemType
     public static Type TimeSpanTypeNullable = typeof(TimeSpan?);
     public static Type DateTimeOffsetTypeNullable = typeof(DateTimeOffset?);
     public static Type DoubleTypeNullable = typeof(double?);
-
     public static Type ICollectionType = typeof(ICollection);
+    public static Type ICollectionGenericType = typeof(ICollection<>);
     public static Type KeyValueType = typeof(KeyValuePair<,>);
 }
