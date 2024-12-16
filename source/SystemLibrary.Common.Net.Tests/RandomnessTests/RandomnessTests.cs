@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using SystemLibrary.Common.Net.Extensions;
-
 namespace SystemLibrary.Common.Net.Tests;
 
 [TestClass]
@@ -45,4 +43,16 @@ public class RandomnessTests
         Assert.IsTrue(bytes[15] > 0 || bytes[14] > 0);
     }
 
+    [TestMethod]
+    public void Get_Next_Ints()
+    {
+        var number = Randomness.Int();
+        Assert.IsTrue(number > -1 && number <= int.MaxValue);
+
+        number = Randomness.Int(99, 102);
+        Assert.IsTrue(number >= 99 && number <= 102);
+
+        number = Randomness.Int(45000, 45000);
+        Assert.IsTrue(number == 45000);
+    }
 }

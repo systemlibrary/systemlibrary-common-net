@@ -78,7 +78,8 @@ public static class TypeExtensions
         if (type.IsArray) return false;
         if (type.IsGenericType == false) return false;
 
-        return type.GetGenericTypeDefinition() == SystemType.DictionaryType;
+        return type.GetGenericTypeDefinition() == SystemType.DictionaryType ||
+            type.GetGenericTypeDefinition() == SystemType.IDictionaryType;
     }
 
     /// <summary>
@@ -110,10 +111,22 @@ public static class TypeExtensions
     public static string GetTypeName(this Type type)
     {
         if (type.IsListOrArray())
-            return type.GenericTypeArguments[0].Name;
+        {
+            if (type.GenericTypeArguments?.Length > 0)
+            {
+                return type.GenericTypeArguments[0].Name;
+            }
+            if (type.GenericTypeArguments != null) return "<>";
+        }
 
         if (type.IsDictionary())
-            return type.GenericTypeArguments[0].Name;
+        {
+            if (type.GenericTypeArguments?.Length > 1)
+            {
+                return type.GenericTypeArguments[0].Name + ", " +type.GenericTypeArguments[1].Name;
+            }
+            return "<,>";
+        }
 
         var firstGenericType = type.GetFirstGenericType();
         if (firstGenericType != null)

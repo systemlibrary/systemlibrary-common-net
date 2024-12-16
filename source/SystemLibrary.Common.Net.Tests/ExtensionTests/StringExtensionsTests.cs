@@ -435,6 +435,33 @@ public partial class StringExtensionsTests
         Assert.IsTrue(e999 == EnumTest._999, "e999 is not _999, " + e999.ToString());
     }
 
+
+    [TestMethod]
+    public void String_OrFirstOf_Success()
+    {
+        var s1 = (string)null;
+        var s2 = "";
+        var s3 = " ";
+        var s4 = "";
+        var s5 = " ";
+        var s6 = "Hello world";
+        var s7 = (string)null;
+
+        var res = s1.OrFirstOf(s2, s3, s4, s5, s6, s7);
+
+        Assert.IsTrue(res == "Hello world");
+    }
+
+    [TestMethod]
+    public void Int_To_Enum()
+    {
+        var i997 = 997;
+
+        var e997 = (EnumTest)i997.ToString().ToEnum(typeof(EnumTest));
+
+        Assert.IsTrue(e997 == EnumTest._997, "e997 is not _997, " + e997.ToString());
+    }
+
     [TestMethod]
     public void Enum_To_Value_With_Underscore_Name_Returns_The_Int()
     {

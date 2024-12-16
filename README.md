@@ -1,7 +1,7 @@
 # SystemLibrary Common Net
 
 ## Description
-Library with classes and methods for every &gt;=  .NET 8 application
+Library with classes and methods for every &gt;= .NET 8 application
 
 ### Features
 - Extensions for Strings, Arrays, Lists, ... such as Is() and IsNot()
@@ -21,8 +21,11 @@ Library with classes and methods for every &gt;=  .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.1.0.5
-- Updated docs
+- 8.1.0.6
+- added SystemType.IDictionaryType (new)
+- fixed IsDictionary checking IDictionaryType (fix)
+- fixed Type.GetTypeName extension, not throwing on IsDictionary types (fix)
+- randomness now uses the Random.Shared thread safe instance (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

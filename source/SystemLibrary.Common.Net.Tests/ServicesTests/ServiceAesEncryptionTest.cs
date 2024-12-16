@@ -27,22 +27,6 @@ public class ServiceAesEncryptionTest
     }
 
     [TestMethod]
-    public void Test_Is_Internal()
-    {
-        var type = typeof(string);
-        var res = type.IsInternal();
-        Assert.IsTrue(res == false, "Its true string");
-
-        type = typeof(ServiceAesEncryptionTest);
-        res = type.IsInternal();
-        Assert.IsTrue(res == false, "Its true: Service...");
-
-        type = typeof(IsInternal);
-        res = type.IsInternal();
-        Assert.IsTrue(res == true, "Internal is not internal");
-    }
-
-    [TestMethod]
     public void Test_Create_Default_Instance()
     {
         var type = typeof(string);

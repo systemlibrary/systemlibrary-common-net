@@ -31,7 +31,7 @@ partial class CryptationKey
         {
             DirectoryInfo parent = new DirectoryInfo(keyDirectory).Parent;
 
-            var count = 12;
+            var count = 13;
 
             while (_KeyFileFullName.IsNot() && count > 0)
             {

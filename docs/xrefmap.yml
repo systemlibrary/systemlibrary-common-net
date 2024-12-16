@@ -575,25 +575,6 @@ references:
   isSpec: "True"
   fullName: SystemLibrary.Common.Net.DateTimeOffsetJsonConverter.Write
   nameWithType: DateTimeOffsetJsonConverter.Write
-- uid: SystemLibrary.Common.Net.DocFxHide
-  name: DocFxHide
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html
-  commentId: T:SystemLibrary.Common.Net.DocFxHide
-  fullName: SystemLibrary.Common.Net.DocFxHide
-  nameWithType: DocFxHide
-- uid: SystemLibrary.Common.Net.DocFxHide.#ctor
-  name: DocFxHide()
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor
-  commentId: M:SystemLibrary.Common.Net.DocFxHide.#ctor
-  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide()
-  nameWithType: DocFxHide.DocFxHide()
-- uid: SystemLibrary.Common.Net.DocFxHide.#ctor*
-  name: DocFxHide
-  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.DocFxHide.html#SystemLibrary_Common_Net_DocFxHide__ctor_
-  commentId: Overload:SystemLibrary.Common.Net.DocFxHide.#ctor
-  isSpec: "True"
-  fullName: SystemLibrary.Common.Net.DocFxHide.DocFxHide
-  nameWithType: DocFxHide.DocFxHide
 - uid: SystemLibrary.Common.Net.Extensions
   name: SystemLibrary.Common.Net.Extensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.html
@@ -896,6 +877,23 @@ references:
   fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetKeys
   nameWithType: EnumExtensions<TEnum>.GetKeys
   nameWithType.vb: EnumExtensions(Of TEnum).GetKeys
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetValues
+  name: GetValues()
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetValues
+  commentId: M:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetValues
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetValues()
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetValues()
+  nameWithType: EnumExtensions<TEnum>.GetValues()
+  nameWithType.vb: EnumExtensions(Of TEnum).GetValues()
+- uid: SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetValues*
+  name: GetValues
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.EnumExtensions-1.html#SystemLibrary_Common_Net_Extensions_EnumExtensions_1_GetValues_
+  commentId: Overload:SystemLibrary.Common.Net.Extensions.EnumExtensions`1.GetValues
+  isSpec: "True"
+  fullName: SystemLibrary.Common.Net.Extensions.EnumExtensions<TEnum>.GetValues
+  fullName.vb: SystemLibrary.Common.Net.Extensions.EnumExtensions(Of TEnum).GetValues
+  nameWithType: EnumExtensions<TEnum>.GetValues
+  nameWithType.vb: EnumExtensions(Of TEnum).GetValues
 - uid: SystemLibrary.Common.Net.Extensions.IEnumerableExtensions
   name: IEnumerableExtensions
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.Extensions.IEnumerableExtensions.html
@@ -2556,6 +2554,12 @@ references:
   commentId: F:SystemLibrary.Common.Net.SystemType.ICollectionType
   fullName: SystemLibrary.Common.Net.SystemType.ICollectionType
   nameWithType: SystemType.ICollectionType
+- uid: SystemLibrary.Common.Net.SystemType.IDictionaryType
+  name: IDictionaryType
+  href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IDictionaryType
+  commentId: F:SystemLibrary.Common.Net.SystemType.IDictionaryType
+  fullName: SystemLibrary.Common.Net.SystemType.IDictionaryType
+  nameWithType: SystemType.IDictionaryType
 - uid: SystemLibrary.Common.Net.SystemType.IListType
   name: IListType
   href: SystemLibrary.Common.Net/SystemLibrary.Common.Net.SystemType.html#SystemLibrary_Common_Net_SystemType_IListType

@@ -78,6 +78,18 @@ public static class EnumExtensions<TEnum> where TEnum : IComparable, IFormattabl
             yield return (TEnum)value;
         }
     }
+
+    public static IEnumerable<string> GetValues()
+    {
+        var enums = GetEnums();
+
+        foreach (var value in enums)
+        {
+            var e = value as Enum;
+
+            yield return e.ToValue();
+        }
+    }
 }
 
 /// <summary>

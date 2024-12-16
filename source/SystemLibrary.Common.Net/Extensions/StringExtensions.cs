@@ -272,10 +272,9 @@ public static partial class StringExtensions
 
         if (values == null || values.Length == 0) return false;
 
-        var textSpan = text.AsSpan();
         var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], StringComparison.Ordinal))
+            if (values[i] != null && l >= values[i].Length && text.StartsWith(values[i], StringComparison.Ordinal))
                 return true;
 
         return false;
@@ -299,10 +298,9 @@ public static partial class StringExtensions
 
         if (values == null || values.Length == 0) return false;
 
-        var textSpan = text.AsSpan();
         var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], comparison))
+            if (values[i] != null && l >= values[i].Length && text.StartsWith(values[i], comparison))
                 return true;
 
         return false;
@@ -325,10 +323,9 @@ public static partial class StringExtensions
 
         if (values == null || values.Length == 0) return false;
 
-        var textSpan = text.AsSpan();
         var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], StringComparison.Ordinal))
+            if (values[i] != null && l >= values[i].Length && text.EndsWith(values[i], StringComparison.Ordinal))
                 return true;
 
         return false;
@@ -351,10 +348,9 @@ public static partial class StringExtensions
 
         if (values == null || values.Length == 0) return false;
 
-        var textSpan = text.AsSpan();
         var l = text.Length;
         for (int i = 0; i < values.Length; i++)
-            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], comparison))
+            if (values[i] != null && l >= values[i].Length && text.EndsWith(values[i], comparison))
                 return true;
 
         return false;

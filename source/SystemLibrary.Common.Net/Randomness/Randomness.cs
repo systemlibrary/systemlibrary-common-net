@@ -8,16 +8,12 @@ namespace SystemLibrary.Common.Net;
 /// </summary>
 public static class Randomness
 {
-    static Random R;
-
     static char[] Chars;
 
     static int CharsLength;
 
     static Randomness()
     {
-        R = new Random((DateTime.Now.Second * 1000) + DateTime.Now.Millisecond);
-
         Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
         CharsLength = Chars.Length;
     }
@@ -28,7 +24,7 @@ public static class Randomness
     /// <returns>Integer >= 0</returns>
     public static int Int(int maxValue = int.MaxValue)
     {
-        return R.Next(0, maxValue);
+        return Random.Shared.Next(0, maxValue);
     }
 
     /// <summary>
@@ -37,7 +33,7 @@ public static class Randomness
     /// <returns>Integer >= 0</returns>
     public static int Int(int minValue, int maxValue)
     {
-        return R.Next(minValue, maxValue);
+        return Random.Shared.Next(minValue, maxValue);
     }
 
     /// <summary>
@@ -48,7 +44,7 @@ public static class Randomness
     {
         var bytes = new byte[length];
 
-        R.NextBytes(bytes);
+        Random.Shared.NextBytes(bytes);
 
         return bytes;
     }
@@ -62,7 +58,7 @@ public static class Randomness
         var result = new StringBuilder(length);
         for (int i = 0; i < length; i++)
         {
-            result.Append(Chars[R.Next(CharsLength)]);
+            result.Append(Chars[Random.Shared.Next(CharsLength)]);
         }
         return result.ToString();
     }

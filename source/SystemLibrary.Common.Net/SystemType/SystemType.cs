@@ -34,6 +34,7 @@ public static class SystemType
     public static Type ListType = typeof(List<>);
     public static Type IListType = typeof(IList<>);
     public static Type DictionaryType = typeof(Dictionary<,>);
+    public static Type IDictionaryType = typeof(IDictionary<,>);
 
     public static Type ObjectType = typeof(object);
 

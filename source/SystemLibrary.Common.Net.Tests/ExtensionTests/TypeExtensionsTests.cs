@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SystemLibrary.Common.Net.Extensions;
+using SystemLibrary.Common.Net.Tests.XServiceTestsRunsLast;
 
 namespace SystemLibrary.Common.Net.Tests.ExtensionTests;
 
@@ -125,5 +127,93 @@ public class TypeExtensionsTests
 
         res = arr.GetType().IsListOrArray();
         Assert.IsTrue(res, "Array");
+    }
+
+    [TestMethod]
+    public void GetTypeName_Success()
+    {
+        var type = typeof(string);
+        var name = type.GetTypeName();
+        Assert.IsTrue("String" == name, name);
+
+        type = typeof(int);
+        name = type.GetTypeName();
+        Assert.IsTrue("Int32" == name, name);
+
+        type = typeof(DateTimeJsonConverter);
+        name = type.GetTypeName();
+        Assert.IsTrue("DateTimeJsonConverter" == name, name);
+
+        type = typeof(List<>);
+        name = type.GetTypeName();
+        Assert.IsTrue("<>" == name, name);
+
+        type = typeof(List<int>);
+        name = type.GetTypeName();
+        Assert.IsTrue("Int32" == name, name);
+
+        type = typeof(List<string>);
+        name = type.GetTypeName();
+        Assert.IsTrue("String" == name, name);
+
+        type = typeof(IList<DateTimeOffset>);
+        name = type.GetTypeName();
+        Assert.IsTrue("DateTimeOffset" == name, name);
+
+        type = typeof(IDictionary<,>);
+        name = type.GetTypeName();
+        Assert.IsTrue("<,>" == name, name);
+
+        type = typeof(IDictionary<object,int>);
+        name = type.GetTypeName();
+        Assert.IsTrue("Object, Int32" == name, name);
+    }
+
+    [TestMethod]
+    public void IsDictionary()
+    {
+        var type = typeof(string);
+        var res = type.IsDictionary();
+        Assert.IsTrue(res == false);
+
+        type = typeof(int[]);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == false);
+
+        type = typeof(List<string>);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == false);
+
+        type = typeof(IList<string>);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == false);
+
+        type = typeof(IDictionary<string, int>);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == true);
+
+        type = typeof(IDictionary<object, object>);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == true);
+
+        type = typeof(Dictionary<int, bool>);
+        res = type.IsDictionary();
+        Assert.IsTrue(res == true);
+    }
+
+    [TestMethod]
+    public void Test_Is_Internal()
+    {
+        var type = typeof(string);
+        var res = type.IsInternal();
+        Assert.IsTrue(res == false, "Its true string");
+
+        type = typeof(ServiceAesEncryptionTest);
+        res = type.IsInternal();
+        Assert.IsTrue(res == false, "Its true: Service...");
+
+        type = typeof(IsInternal);
+        res = type.IsInternal();
+        Assert.IsTrue(res == true, "Internal is not internal");
     }
 }

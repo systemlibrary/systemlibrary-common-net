@@ -75,6 +75,9 @@ public partial class ConcurrentDictionaryExtensionsTests
 
         result = cache.Cache(type, () => "Not returned");
         Assert.IsTrue(result == "Hello world");
+
+        result = cache.Cache(1, () => "1?");
+        Assert.IsTrue(result == "1?");
     }
 
     [TestMethod]

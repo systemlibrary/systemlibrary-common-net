@@ -1767,7 +1767,7 @@
 //    /// </example>
 //    /// <returns>Returns DateTimeOffset.MinValue if input is too short</returns>
 //    public static DateTimeOffset ToDateTimeOffset(this string date, string format = null)
-//    { 
+//    {
 //        // PseudoCode - StringExtensions contains the real code
 //        return DateTimeOffset.MinValue;
 //    }
