@@ -17,7 +17,7 @@ internal static class Debug
     {
         if (Debugging)
         {
-            Dump.Write("Net debug is 'true': " + msg);
+            Dump.Write("Debug Net 'true': " + msg);
         }
     }
 

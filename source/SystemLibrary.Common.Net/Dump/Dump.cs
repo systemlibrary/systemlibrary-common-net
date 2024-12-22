@@ -11,7 +11,6 @@ using SystemLibrary.Common.Net.Extensions;
 
 /// <summary>
 /// Dump any object to a local file for easy debugging and logging purposes
-/// 
 /// <para>Dump.Write calls should only occur during development as it is slow and not thread safe</para>
 /// <para>Has a write lock of 100ms, so thread-safe to some extent, one might see multiple dump files in a real async world</para>
 /// </summary>
@@ -365,7 +364,7 @@ public static class Dump
 
         else if (value is Exception e)
         {
-            if(e is AggregateException agg)
+            if (e is AggregateException agg)
             {
                 return agg.Flatten().ToString();
             }
@@ -526,11 +525,20 @@ public static class Dump
 
     static void SafeWrite(string message)
     {
+        if (Assemblies.IsKestrelMainHost)
+        {
+            var previousColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(message);
+            Console.ForegroundColor = previousColor;
+            return;
+        }
+
         try
         {
             try
             {
-                readWriteLock.AcquireWriterLock(121);
+                readWriteLock.AcquireWriterLock(175);
             }
             catch
             {
@@ -552,11 +560,13 @@ public static class Dump
         {
             try
             {
-                readWriteLock.ReleaseWriterLock();
+                if(readWriteLock.IsWriterLockHeld)
+                    readWriteLock.ReleaseWriterLock();
             }
             catch
             {
             }
         }
     }
+
 }

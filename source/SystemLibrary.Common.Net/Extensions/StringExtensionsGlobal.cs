@@ -273,10 +273,9 @@
 
 //        if (values == null || values.Length == 0) return false;
 
-//        var textSpan = text.AsSpan();
 //        var l = text.Length;
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], StringComparison.Ordinal))
+//            if (values[i] != null && l >= values[i].Length && text.StartsWith(values[i], StringComparison.Ordinal))
 //                return true;
 
 //        return false;
@@ -300,10 +299,9 @@
 
 //        if (values == null || values.Length == 0) return false;
 
-//        var textSpan = text.AsSpan();
 //        var l = text.Length;
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i] != null && l >= values[i].Length && textSpan.StartsWith(values[i], comparison))
+//            if (values[i] != null && l >= values[i].Length && text.StartsWith(values[i], comparison))
 //                return true;
 
 //        return false;
@@ -326,10 +324,9 @@
 
 //        if (values == null || values.Length == 0) return false;
 
-//        var textSpan = text.AsSpan();
 //        var l = text.Length;
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], StringComparison.Ordinal))
+//            if (values[i] != null && l >= values[i].Length && text.EndsWith(values[i], StringComparison.Ordinal))
 //                return true;
 
 //        return false;
@@ -352,10 +349,9 @@
 
 //        if (values == null || values.Length == 0) return false;
 
-//        var textSpan = text.AsSpan();
 //        var l = text.Length;
 //        for (int i = 0; i < values.Length; i++)
-//            if (values[i] != null && l >= values[i].Length && textSpan.EndsWith(values[i], comparison))
+//            if (values[i] != null && l >= values[i].Length && text.EndsWith(values[i], comparison))
 //                return true;
 
 //        return false;
@@ -1102,6 +1098,11 @@
 //    {
 //        if (text.IsNot()) return text;
 
+//        if (char.IsLower(text[0]) && !text.Contains(" ") && !text.Contains("-"))
+//        {
+//            return char.ToUpper(text[0]) + text.Substring(1);
+//        }
+
 //        var sb = new StringBuilder();
 
 //        sb.Append(char.ToUpper(text[0]));
@@ -1147,6 +1148,11 @@
 //    public static string toCamelCase(this string text)
 //    {
 //        if (text.IsNot()) return text;
+
+//        if (char.IsUpper(text[0]) && !text.Contains(" ") && !text.Contains("-"))
+//        {
+//            return char.ToLower(text[0]) + text.Substring(1);
+//        }
 
 //        var sb = new StringBuilder();
 
@@ -1212,19 +1218,22 @@
 
 //        if (path.StartsWith("file:/")) return path;
 
-//        if (path.Contains(":\\", StringComparison.Ordinal)) return path.Replace("\\", "/").ToPhysicalPath();
-
 //        if (path.Length > 0 && path[0] == '~')
 //            path = path.Substring(1);
 
-//        if (path.StartsWith(AppDomainInternal.ContentRootPath))
+//        if (path.Length > 1 && path.StartsWith(AppDomainInternal.ContentRootPath))
 //            return path;
 
-//        var driveUriFormat = path.IndexOf(":/");
-//        if (driveUriFormat > 0 && driveUriFormat < 5)
+//        var driveUriIndex = path.IndexOf(":/");
+//        if (driveUriIndex > 0 && driveUriIndex < 5)
 //        {
-//            return path.Substring(driveUriFormat + ":\\".Length).ToPhysicalPath();
+//            if (path.Contains("\\"))
+//                return path.Replace("\\", "/");
+
+//            return path;
 //        }
+
+//        if (path.Contains(":\\", StringComparison.Ordinal)) return path.Replace("\\", "/").ToPhysicalPath();
 
 //        void ConvertWebPathToServerPath()
 //        {
@@ -1320,7 +1329,7 @@
 //    /// <returns>Encrypted base64 string with IV in first 16 bytes if 'addIV' was true, or null/empty if input was so</returns>
 //    public static string Encrypt(this string data, string key, string IV = null, bool addIV = false)
 //    {
-//        return Encrypt(data, key.GetBytes(), IV.GetBytes(), addIV);
+//        return Encrypt(data, key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addIV);
 //    }
 
 //    /// <summary>
@@ -1353,7 +1362,7 @@
 //        if (IV != null && IV.Length != 16)
 //            throw new Exception("AES must receive an IV of 16 characters length");
 
-//        return Cryptation.Encrypt(data, key, IV, addIV).ToBase64();
+//        return Cryptation.Encrypt(data, key ?? CryptationKey.Current, IV, addIV).ToBase64();
 //    }
 
 //    /// <summary>
@@ -1394,7 +1403,7 @@
 //    /// <returns>Decrypted string or null/empty if input was so</returns>
 //    public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
 //    {
-//        return Decrypt(cipherText, key.GetBytes(), IV.GetBytes(), addedIV);
+//        return Decrypt(cipherText, key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addedIV);
 //    }
 
 //    /// <summary>
@@ -1421,7 +1430,7 @@
 //        if (IV != null && IV.Length != 16)
 //            throw new Exception("AES must receive an IV of 16 characters length");
 
-//        return Cryptation.Decrypt(cipherText, key, IV, addedIV);
+//        return Cryptation.Decrypt(cipherText, key ?? CryptationKey.Current, IV, addedIV);
 //    }
 
 //    /// <summary>
@@ -1475,6 +1484,7 @@
 //        return sb.ToString();
 //    }
 
+//    // CREDS TO: https://learn.microsoft.com/en-us/answers/questions/226531/c-best-method-to-reduce-size-of-large-string-data.html
 //    /// <summary>
 //    /// Compress the input data and return
 //    /// </summary>
@@ -1503,7 +1513,7 @@
 //                    input.CopyToAsync(stream);
 //                }
 
-//                return Convert.ToBase64String(output.ToArray());
+//                return output.ToArray().ToBase64();
 //            }
 //        }
 //    }
@@ -1525,7 +1535,7 @@
 //    {
 //        if (compressedData.IsNot()) return compressedData;
 
-//        var bytes = Convert.FromBase64String(compressedData);
+//        var bytes = compressedData.FromBase64AsBytes();
 
 //        using (var output = new MemoryStream())
 //        {
@@ -1664,6 +1674,10 @@
 //    /// Encrypt data which can be Decrypted through 'DecryptUsingKeyRing'
 //    /// <para>Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.</para>
 //    /// </summary>
+//    /// <example>
+//    /// var text = "hello world";
+//    /// var cipherText = text.EncryptUsingKeyRing();
+//    /// </example>
 //    public static string EncryptUsingKeyRing(this string data)
 //    {
 //        return KeyRingProtector.Protect(data);
@@ -1673,6 +1687,11 @@
 //    /// Decrypt data that was Encrypted through 'EncryptUsingKeyRing'
 //    /// <para>Uses the Data Protection API from Microsoft, which uses your setup of the AddDataProtection() services.</para>
 //    /// </summary>
+//    /// <example>
+//    /// var text = "hello world";
+//    /// var cipherText = text.EncryptUsingKeyRing();
+//    /// var textAgain = cipherText.DecryptUsingKeyRing();
+//    /// </example>
 //    public static string DecryptUsingKeyRing(this string data)
 //    {
 //        return KeyRingProtector.Unprotect(data);
@@ -1680,15 +1699,13 @@
 
 //    /// <summary>
 //    /// Checks if input is a file path, either relative or absolute, either web or operative system path
-//    /// <para>Input must contain a dot and be at least 4 char long</para>
 //    /// </summary>
 //    /// <remarks>
 //    /// Does not throw
-//    /// <para>Supports also query-params in the path</para>
-//    /// Supports up to 6 characters in the extension
-//    /// <para>Supports also query-params in the path</para>
-//    /// Returns always false if input is longer than 4096
-//    /// <para>/public/,/static/,/images/,assets/ strings will always return true, we assume a file is asked for in those cases</para>
+//    /// <para>Returns true if input is longer than 4, and contains a 'file extension' of 1 to 6 characters, else false</para>
+//    /// <para>Returns true if input contains /public/, /static/, /images/ or 'assets/' as we assume a file is asked for</para>
+//    /// <para>Supports input as relative, absolute, and with url query params</para>
+//    /// <para>Returns false if input exceeds 4096 characters</para>
 //    /// </remarks>
 //    /// <example>
 //    /// <code>
@@ -1708,20 +1725,24 @@
 //        if (path == null || path.Length <= 3 || path.Length > 4096)
 //            return false;
 
+//        if (path.EndsWith("/")) return false;
+
+//        if (path.IndexOfAny(Path.GetInvalidPathChars()) != -1) return false;
+
+//        if (path.Contains("<")) return false;
+
 //        bool HasAssetPath() =>
 //            path.Contains("/public/", StringComparison.OrdinalIgnoreCase) ||
 //            path.Contains("/images/", StringComparison.OrdinalIgnoreCase) ||
 //            path.Contains("/static/", StringComparison.OrdinalIgnoreCase) ||
 //            path.Contains("assets/", StringComparison.OrdinalIgnoreCase);
 
-//        if (path.IndexOfAny(Path.GetInvalidPathChars()) != -1)
-//            return HasAssetPath();
-
 //        var extensionIndex = path.LastIndexOf('.');
-//        if (extensionIndex == -1)
-//            return HasAssetPath();
+
+//        if (extensionIndex == -1) return HasAssetPath();
 
 //        var queryIndex = path.IndexOf('?');
+
 //        if (queryIndex == -1)
 //        {
 //            if (extensionIndex == path.Length - 1) return HasAssetPath();
@@ -1737,6 +1758,8 @@
 
 //            return temp.LastIndexOf('.') >= temp.Length - 7 || HasAssetPath(); // .config
 //        }
+
+//        if (path[queryIndex - 1] == '/') return false;
 
 //        return queryIndex - 7 <= extensionIndex || HasAssetPath();
 //    }

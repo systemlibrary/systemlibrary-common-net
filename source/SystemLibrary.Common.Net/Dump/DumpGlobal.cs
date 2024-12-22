@@ -12,7 +12,6 @@
 
 ///// <summary>
 ///// Dump any object to a local file for easy debugging and logging purposes
-///// 
 ///// <para>Dump.Write calls should only occur during development as it is slow and not thread safe</para>
 ///// <para>Has a write lock of 100ms, so thread-safe to some extent, one might see multiple dump files in a real async world</para>
 ///// </summary>
@@ -31,6 +30,11 @@
 //    /// </summary>
 //    public static void Clear()
 //    {
+//        if (LogFullPath == null)
+//        {
+//            Initialize();
+//        }
+
 //        try
 //        {
 //            File.Delete(LogFullPath);
@@ -268,8 +272,8 @@
 //            foreach (var field in fields)
 //            {
 //                if (field?.FieldType == null) continue;
-//                if (field.IsPrivate) continue;
 
+//                if (field.IsPrivate) continue;
 
 //                logString.Append("\t");
 //                try
@@ -522,11 +526,20 @@
 
 //    static void SafeWrite(string message)
 //    {
+//        if (Assemblies.IsKestrelMainHost)
+//        {
+//            var previousColor = Console.ForegroundColor;
+//            Console.ForegroundColor = ConsoleColor.Gray;
+//            Console.WriteLine(message);
+//            Console.ForegroundColor = previousColor;
+//            return;
+//        }
+
 //        try
 //        {
 //            try
 //            {
-//                readWriteLock.AcquireWriterLock(121);
+//                readWriteLock.AcquireWriterLock(175);
 //            }
 //            catch
 //            {
@@ -548,7 +561,8 @@
 //        {
 //            try
 //            {
-//                readWriteLock.ReleaseWriterLock();
+//                if (readWriteLock.IsWriterLockHeld)
+//                    readWriteLock.ReleaseWriterLock();
 //            }
 //            catch
 //            {

@@ -21,10 +21,8 @@ Library with classes and methods for every &gt;= .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.2.0.1
-- GetFirstGenericType renamed to GetTypeArgument which takes an Index of which generic type argument you want returned (breaking change)
-- Type.GetTypeArguments() returns an array of all generic type arguments, works on array, list, dictionaries, tuples and more (new)
-- SystemType.ICollectionGenericType added (new)
+- 8.3.0.1
+- Dump.Write if Kestrel is Main Host of the application it will write to the Kestrel Window (new/breaking change)
 
 #### Major Breaking Versions
 - 7.12.0.1

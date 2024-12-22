@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -62,6 +64,25 @@ namespace SystemLibrary.Common.Net.Tests
 
             if (File.Exists(path))
                 File.Delete(path);
+        }
+
+        [TestMethod]
+        public void Test_Kestrel_Is_Not_Running_As_Main_Host()
+        {
+            var type = typeof(Assemblies);
+
+            var isKestrelMainHost = type.GetFields(BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.NonPublic)
+                .Where(x => x.Name == "IsKestrelMainHost")
+                .FirstOrDefault()
+                .GetValue(null)?.ToString() == true.ToString();
+
+            var isNotKestrelMainHost = type.GetFields(BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.NonPublic)
+                .Where(x => x.Name == "IsKestrelMainHost")
+                .FirstOrDefault()
+                .GetValue(null)?.ToString() == false.ToString();
+
+            Assert.IsTrue(!isKestrelMainHost, "Kestrel detected as main host when running in unit test!");
+            Assert.IsTrue(isNotKestrelMainHost, "Kestrel detected as main host when running in unit test!");
         }
     }
 }

@@ -37,15 +37,10 @@ internal static class AppDomainInternal
                         if (_ContentRootPath.Contains(".Tests\\", StringComparison.Ordinal) || _ContentRootPath.Contains(".Test\\", StringComparison.Ordinal))
                             return false;
 
-                        return _ContentRootPath.Contains("\\bin\\", StringComparison.Ordinal) ||
-                             _ContentRootPath.Contains("/bin/", StringComparison.Ordinal) ||
-                             _ContentRootPath.Contains("/Bin/", StringComparison.Ordinal) ||
-                            _ContentRootPath.Contains("\\Bin\\", StringComparison.Ordinal) ||
-                            _ContentRootPath.Contains("\\BIN\\", StringComparison.Ordinal) || 
-                            _ContentRootPath.EndsWith("\\bin", StringComparison.Ordinal) ||
-                            _ContentRootPath.EndsWith("\\Bin", StringComparison.Ordinal) ||
-                            _ContentRootPath.EndsWith("/bin", StringComparison.Ordinal) ||
-                            _ContentRootPath.EndsWith("/Bin", StringComparison.Ordinal);
+                        return _ContentRootPath.Contains("\\bin\\", StringComparison.OrdinalIgnoreCase) ||
+                            _ContentRootPath.Contains("/bin/", StringComparison.OrdinalIgnoreCase) ||
+                            _ContentRootPath.EndsWith("/bin", StringComparison.OrdinalIgnoreCase) ||
+                            _ContentRootPath.EndsWith("\\bin", StringComparison.OrdinalIgnoreCase);
                     }
 
                     while (IsWithinBin())

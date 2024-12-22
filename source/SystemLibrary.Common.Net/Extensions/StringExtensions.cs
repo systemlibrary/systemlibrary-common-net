@@ -1148,7 +1148,7 @@ public static partial class StringExtensions
     {
         if (text.IsNot()) return text;
 
-        if(char.IsUpper(text[0]) &&!text.Contains(" ") && !text.Contains("-"))
+        if (char.IsUpper(text[0]) && !text.Contains(" ") && !text.Contains("-"))
         {
             return char.ToLower(text[0]) + text.Substring(1);
         }
@@ -1226,7 +1226,7 @@ public static partial class StringExtensions
         var driveUriIndex = path.IndexOf(":/");
         if (driveUriIndex > 0 && driveUriIndex < 5)
         {
-            if(path.Contains("\\"))
+            if (path.Contains("\\"))
                 return path.Replace("\\", "/");
 
             return path;
@@ -1402,7 +1402,7 @@ public static partial class StringExtensions
     /// <returns>Decrypted string or null/empty if input was so</returns>
     public static string Decrypt(this string cipherText, string key, string IV = null, bool addedIV = false)
     {
-        return Decrypt(cipherText,key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addedIV);
+        return Decrypt(cipherText, key.GetBytes() ?? CryptationKey.Current, IV.GetBytes(), addedIV);
     }
 
     /// <summary>
@@ -1698,15 +1698,13 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Checks if input is a file path, either relative or absolute, either web or operative system path
-    /// <para>Input must contain a dot and be at least 4 char long</para>
     /// </summary>
     /// <remarks>
     /// Does not throw
-    /// <para>Supports also query-params in the path</para>
-    /// Supports up to 6 characters in the extension
-    /// <para>Supports also query-params in the path</para>
-    /// Returns always false if input is longer than 4096
-    /// <para>/public/,/static/,/images/,assets/ strings will always return true, we assume a file is asked for in those cases</para>
+    /// <para>Returns true if input is longer than 4, and contains a 'file extension' of 1 to 6 characters, else false</para>
+    /// <para>Returns true if input contains /public/, /static/, /images/ or 'assets/' as we assume a file is asked for</para>
+    /// <para>Supports input as relative, absolute, and with url query params</para>
+    /// <para>Returns false if input exceeds 4096 characters</para>
     /// </remarks>
     /// <example>
     /// <code>
@@ -1740,8 +1738,7 @@ public static partial class StringExtensions
 
         var extensionIndex = path.LastIndexOf('.');
 
-        if (extensionIndex == -1)
-            return HasAssetPath();
+        if (extensionIndex == -1) return HasAssetPath();
 
         var queryIndex = path.IndexOf('?');
 
