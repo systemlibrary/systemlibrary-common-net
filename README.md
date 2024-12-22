@@ -21,8 +21,9 @@ Library with classes and methods for every &gt;= .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.3.0.1
-- Dump.Write if Kestrel is Main Host of the application it will write to the Kestrel Window (new/breaking change)
+- 8.3.0.2
+- Byte array extension Compress and Decompress added (new)
+- JsonCompress attribute added to compress long stringsm, if one needs them intermediate at the frontend side to pass further like a receipt (new)
 
 #### Major Breaking Versions
 - 7.12.0.1

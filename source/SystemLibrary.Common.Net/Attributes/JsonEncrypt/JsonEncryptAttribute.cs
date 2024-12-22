@@ -3,9 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace SystemLibrary.Common.Net;
 
-
 /// <summary>
-/// Encrypt and decrypt a property or field on receival or sending of a Model
+/// Encrypt and decrypt a property or field on serialization and deserialization
 /// <para>Useful when you want to hide productId's or similar in Frontend part of your application. Avoids having int's or ID's in the frontend, for attackers wanting to brute force endpoints taking INTs</para>
 /// </summary>
 /// <remarks>
@@ -16,7 +15,7 @@ namespace SystemLibrary.Common.Net;
 /// <code>
 /// class Model
 /// {
-///     // Value is encrypted if you convert it to JSON string, and a JSON string serialized into C# model will be tried decrypted
+///     // Value is encrypted upon serialization (stringify) and decrypted on deserialization (objectify)
 ///     [JsonEncrypt]
 ///     public string Token {get;set;} 
 ///     [JsonEncrypt]
@@ -40,6 +39,6 @@ public class JsonEncryptAttribute : JsonConverterAttribute
 
     public override JsonConverter CreateConverter(Type typeToConvert)
     {
-        return new EncryptJsonConverter(this);
+        return new JsonEncryptConverter(this);
     }
 }

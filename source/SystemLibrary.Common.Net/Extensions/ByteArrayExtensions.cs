@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.IO.Compression;
 using System.Text;
 
 namespace SystemLibrary.Common.Net.Extensions;
@@ -114,5 +116,47 @@ public static class ByteArrayExtensions
         if (bytes.Length == 0) return "";
 
         return Md5.Compute(bytes);
+    }
+
+    public static string Compress(this byte[] bytes)
+    {
+        if (bytes == null) return null;
+
+        if (bytes.Length == 0) return "";
+
+        using (var input = new MemoryStream(bytes))
+        {
+            using (var output = new MemoryStream())
+            {
+                using (var stream = new GZipStream(output, CompressionLevel.SmallestSize))
+                {
+                    input.CopyToAsync(stream);
+                }
+
+                return output.ToArray().ToBase64();
+            }
+        }
+    }
+
+    public static string Decompress(this byte[] bytes, Encoding encoding = null)
+    {
+        if (bytes == null) return null;
+        if (bytes.Length == 0) return "";
+
+        using (var output = new MemoryStream())
+        {
+            using (var input = new MemoryStream(bytes))
+            {
+                using (var stream = new GZipStream(input, CompressionMode.Decompress))
+                {
+                    stream.CopyToAsync(output);
+                }
+            }
+
+            if (encoding == null)
+                return Encoding.UTF8.GetString(output.ToArray());
+
+            return encoding.GetString(output.ToArray());
+        }
     }
 }

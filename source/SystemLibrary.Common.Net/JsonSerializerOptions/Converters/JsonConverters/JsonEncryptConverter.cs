@@ -5,11 +5,11 @@ using SystemLibrary.Common.Net.Extensions;
 
 namespace SystemLibrary.Common.Net;
 
-internal class EncryptJsonConverter : BaseJsonConverter
+internal class JsonEncryptConverter : BaseJsonConverter
 {
     JsonEncryptAttribute Attribute;
 
-    public EncryptJsonConverter(JsonEncryptAttribute attribute)
+    public JsonEncryptConverter(JsonEncryptAttribute attribute)
     {
         Attribute = attribute;
     }
@@ -29,7 +29,7 @@ internal class EncryptJsonConverter : BaseJsonConverter
 
     public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
     {
-        var data = value.ToString();
+        var data = value?.ToString();
 
         if (data.IsNot()) return;
 

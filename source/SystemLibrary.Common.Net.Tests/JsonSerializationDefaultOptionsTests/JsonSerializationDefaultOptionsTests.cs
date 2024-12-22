@@ -56,6 +56,37 @@ public class JsonSerializationDefaultOptionsTests
     }
 
     [TestMethod]
+    public void Read_Json_With_Compressed_Variables_Decompresses_Success()
+    {
+        var expected = new DataWithCompressedVars();
+        expected.Id = 1;
+        expected.Id2 = 777;
+        expected.ID3 = 3;
+        expected.id4 = 4;
+        expected.id7 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?AAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB?";
+        expected.id8 = "abcdefghijklmnopqrstuvwXYZ0123?!__.:.__!";
+        expected.id9 = 123456789123456;
+
+        var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithCompressedVars.json");
+
+        var d = data.Json<DataWithCompressedVars>();
+
+        Assert.IsTrue(d.Id == expected.Id, "id");
+        Assert.IsTrue(d.Id2 == expected.Id2, "id2 " + d.Id2 + " " + expected.Id2);
+        Assert.IsTrue(d.ID3 == expected.ID3, "id3");
+        Assert.IsTrue(d.id4 == expected.id4, "id4");
+        Assert.IsTrue(d.id7 == expected.id7, "id7");
+        Assert.IsTrue(d.id8 == expected.id8, "id8");
+        Assert.IsTrue(d.id9 == expected.id9, "id9");
+
+        Assert.IsTrue(d.id9 == 123456789123456);
+
+        var json = d.Json();
+
+        Assert.IsTrue(!json.Contains("123456789123456"), "Invalid, the long exists in the string json");
+    }
+
+    [TestMethod]
     public void Read_Json_With_Encrypted_Variables_Decrypts_Success()
     {
         var data = Assemblies.GetEmbeddedResource("JsonSerializationDefaultOptionsTests", "DataWithEncryptedVars.json");

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -1499,22 +1498,11 @@ public static partial class StringExtensions
     /// <returns>Compressed version of input as Base64, or null/empty if input was so</returns>
     public static string Compress(this string data, Encoding encoding = null)
     {
-        if (data.IsNot()) return data;
+        if(data == null || data == "") return data;
 
         var bytes = data.GetBytes(encoding);
 
-        using (var input = new MemoryStream(bytes))
-        {
-            using (var output = new MemoryStream())
-            {
-                using (var stream = new GZipStream(output, CompressionLevel.SmallestSize))
-                {
-                    input.CopyToAsync(stream);
-                }
-
-                return output.ToArray().ToBase64();
-            }
-        }
+        return bytes.Compress();
     }
 
     /// <summary>
@@ -1536,21 +1524,7 @@ public static partial class StringExtensions
 
         var bytes = compressedData.FromBase64AsBytes();
 
-        using (var output = new MemoryStream())
-        {
-            using (var input = new MemoryStream(bytes))
-            {
-                using (var stream = new GZipStream(input, CompressionMode.Decompress))
-                {
-                    stream.CopyToAsync(output);
-                }
-            }
-
-            if (encoding == null)
-                return Encoding.UTF8.GetString(output.ToArray());
-
-            return encoding.GetString(output.ToArray());
-        }
+        return bytes.Decompress(encoding);
     }
 
     /// <summary>

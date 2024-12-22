@@ -32,20 +32,15 @@ partial class Assemblies
 
     static string ReadEmbeddedResourceAsString(string folderPathInProject, string fileName, System.Reflection.Assembly asm)
     {
-        string ReadResourceFromAssemblyStream(string path)
+        var resourcePath = GetResourcePath(folderPathInProject, fileName, asm);
+
+        using (Stream stream = asm.GetManifestResourceStream(resourcePath))
         {
-            using (Stream stream = asm.GetManifestResourceStream(path))
-            {
-                if (stream == null) return null;
+            if (stream == null) return null;
 
-                using (var reader = new StreamReader(stream))
-                    return reader.ReadToEnd();
-            }
+            using (var reader = new StreamReader(stream))
+                return reader.ReadToEnd();
         }
-
-        string resourcePath = GetResourcePath(folderPathInProject, fileName, asm);
-
-        return ReadResourceFromAssemblyStream(resourcePath);
     }
 
     static string GetResourcePath(string folderPathInProject, string fileName, System.Reflection.Assembly asm)
