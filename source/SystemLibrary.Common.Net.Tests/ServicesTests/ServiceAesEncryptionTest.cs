@@ -64,6 +64,28 @@ public class ServiceAesEncryptionTest
     }
 
     [TestMethod]
+    public void Encrypting_Without_Data_Protection_Success()
+    {
+        var serviceCollection = new ServiceCollection();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        Services.Configure(serviceCollection);
+
+        Services.Configure(serviceProvider);
+
+        var data = "Hello world";
+        var enc = data.Encrypt();
+        var prev = "dsDc7602l6cz7P6iSrK+png/gfC8OItoL85WPenGNf8=";
+
+        Assert.IsTrue(prev.Length == enc.Length, "Enc with key file as Key changed: " + enc);
+
+        var dec = enc.Decrypt();
+
+        Assert.IsTrue(dec == data, "Decrypt has changed");
+    }
+
+    [TestMethod]
     public void AddDataProtection_KeysToFileSystem_With_AppName_Uses_KeyFile()
     {
         var serviceCollection = new ServiceCollection();

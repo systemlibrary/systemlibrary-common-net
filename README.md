@@ -21,9 +21,8 @@ Library with classes and methods for every &gt;= .NET 8 application
 - &gt;= .NET 8
 
 ## Latest Release Notes
-- 8.3.0.2
-- Byte array extension Compress and Decompress added (new)
-- JsonCompress attribute added to compress long stringsm, if one needs them intermediate at the frontend side to pass further like a receipt (new)
+- 8.3.0.3
+- KeyRingFile only needs "encrypt" and "key" as the content to work as a key ring file (fix)
 
 #### Major Breaking Versions
 - 7.12.0.1

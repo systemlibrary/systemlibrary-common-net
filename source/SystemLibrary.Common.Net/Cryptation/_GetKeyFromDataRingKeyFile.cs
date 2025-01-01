@@ -96,8 +96,6 @@ partial class CryptationKey
 
         if (!content.Contains("key")) return null;
 
-        if (!content.Contains("deserialize")) return null;
-
         if (!content.Contains("encrypt")) return null;
 
         return fullFileName;
